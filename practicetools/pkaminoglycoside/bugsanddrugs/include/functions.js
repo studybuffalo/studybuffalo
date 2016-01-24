@@ -1,7 +1,7 @@
 /********************************************************************************
  *	STUDY BUFFALO AMINOGLYCOSIDE BUGS & DRUGS DOSING CALCULATOR					*
  *																				*
- *	Last Update: 2016-Jan-17													*
+ *	Last Update: 2016-Jan-24													*
  *																				*
  *	Copyright(c) Notices														*
  *		2016	Joshua R. Torrance, BSc Pharm	<studybuffalo@studybuffalo.com>	*
@@ -22,9 +22,10 @@
 /********************************************************************************
  *	GENERAL FUNCTIONS															*
  ********************************************************************************/
+
  /********************************************************************************
- *	round()		Rounds a digit to the specific number of digits					*/
-/********************************************************************************
+ *	round()		Rounds a digit to the specific number of digits					*
+ ********************************************************************************
  *	number:	The number to round													*
  *	digits:	The number of decimal places to round to							*
  *																				*
@@ -43,8 +44,8 @@ function round(number, digit) {
  
  
 /********************************************************************************
- *	calculateBMI()		Returns the BMI of the patient							*/
-/********************************************************************************
+ *	calculateBMI()		Returns the BMI of the patient							*
+ ********************************************************************************
  *	height:	Height of patient (in cm)											*
  *	weight:	Weight of the patient (in kg)										*
  *																				*
@@ -66,8 +67,8 @@ function calculateBMI(height, weight) {
 
  
 /********************************************************************************
- *	calculateIBW()		Returns the IBW of the patient							*/
-/********************************************************************************
+ *	calculateIBW()		Returns the IBW of the patient							*
+ ********************************************************************************
  *	sex:	The sex of the patient (male or female)								*
  *	height:	Height of patient (in cm)											*
  *																				*
@@ -94,8 +95,8 @@ function calculateIBW(sex, height) {
 
 
 /********************************************************************************
- *	calculateDW()		Returns the dosing weight of the patient				*/
-/********************************************************************************
+ *	calculateDW()		Returns the dosing weight of the patient				*
+ ********************************************************************************
  *	weight:	Weight of the patient (in kg)										*
  *	ibw:	IBW of the patient (in kg)											*
  *																				*
@@ -119,8 +120,8 @@ function calculateDW(weight, ibw, bmi) {
 
 
 /********************************************************************************
- *	calculateCrCl()		Returns CrCl and CrCl weight for the patient			*/
-/********************************************************************************
+ *	calculateCrCl()		Returns CrCl and CrCl weight for the patient			*
+ ********************************************************************************
  *	age:	Age of the patient (years)											*
  *	sex:	Sex of the patient (male or female)									*
  *	scr:	SCr of the patient (in umol/L)										*
@@ -174,8 +175,8 @@ function calculateCrCl(age, sex, scr, weight, ibw, dw) {
 
 
 /********************************************************************************
- *	roundDose()			Rounds vancomcyin dose to nearest 250/500 mg			*/
-/********************************************************************************
+ *	roundDose()			Rounds vancomcyin dose to nearest 250/500 mg			*
+ ********************************************************************************
  *	dose:		Dose of vancomycin in mg										*
  *	nearest:	Nearest number to round dose to									*
  *																				*
@@ -189,8 +190,8 @@ function roundDose(dose, nearest) {
 
 
 /********************************************************************************
- *	calculateHdeiInterval()		Determines the maintenance dosing interval		*/
-/********************************************************************************
+ *	calculateHdeiInterval()		Determines the maintenance dosing interval		*
+ ********************************************************************************
  *	crcl:	The calculated creatinine clearance for the patient (in mL/min)		*
  *																				*
  *	≥ 60 mL/min: 	Q24H														*
@@ -225,8 +226,8 @@ function calculateHdeiInterval(crcl) {
 
 
 /********************************************************************************
- *	calculateConvInterval()		Determines the maintenance dosing interval		*/
-/********************************************************************************
+ *	calculateConvInterval()		Determines the maintenance dosing interval		*
+ ********************************************************************************
  *	crcl:	The calculated creatinine clearance for the patient (in mL/min)		*
  *																				*
  *	≥ 80 mL/min: 	Q8H															*
@@ -261,8 +262,8 @@ function calculateConvInterval(crcl) {
 
 
 /********************************************************************************
- *	calculateKe()		Returns the Ke of the patient							*/
-/********************************************************************************
+ *	calculateKe()		Returns the Ke of the patient							*
+ ********************************************************************************
  *	crcl:	The calculated creatinine clearance for the patient (in mL/min)		*
  *																				*
  *	ke = (0.00293 * CrCl) + 0.014												*
@@ -280,8 +281,8 @@ function calculateKe(crcl) {
 
 
 /********************************************************************************
- *	calculateT12()		Returns the half-life of the patient					*/
-/********************************************************************************
+ *	calculateT12()		Returns the half-life of the patient					*
+ ********************************************************************************
  *	ke:	The rate constant of the patient (in h^-1)								*
  *																				*
  *	t1/2 = 0.693 * ke															*
@@ -301,8 +302,8 @@ function calculateT12(ke) {
 
 
 /********************************************************************************
- *	calculateTss()		Returns the time-to-steady state for the patient		*/
-/********************************************************************************
+ *	calculateTss()		Returns the time-to-steady state for the patient		*
+ ********************************************************************************
  *	t12:	The calculated half-life for the patient (in h)						*
  *																				*
  *	tss = 4 to 5 * t12															*
@@ -323,8 +324,8 @@ function calculateTss(t12) {
 
 
 /********************************************************************************
- *	calculateCmax()		Returns the Cmax for the provided data					*/
-/********************************************************************************
+ *	calculateCmax()		Returns the Cmax for the provided data					*
+ ********************************************************************************
  *	dose:	Dose of vancomcyin (in mg)											*
  *	vd:		Volume of distribution (in L)										*
  *	ke:		Rate constant of patient (in h^-1)									*
@@ -347,8 +348,8 @@ function calculateCmax(dose, vd, ke, tau) {
 
 
 /********************************************************************************
- *	calculateCmin()		Returns the Cmin for the provided data					*/
-/********************************************************************************
+ *	calculateCmin()		Returns the Cmin for the provided data					*
+ ********************************************************************************
  *	Cmax:	The calculated Cmax for the patient (in mg/L)						*
  *	ke:		Rate constant of patient (in h^-1)									*
  *	tau:	Dosing interval (in hours)											*
@@ -374,6 +375,7 @@ function calculateCmin(cmax, ke, tau) {
 /********************************************************************************
  *	FORM FUNCTIONS																*
  ********************************************************************************/
+
 /********************************************************************************
  *	updateDivDisplay()	Controls div display settings based on dosing method	*
  ********************************************************************************/
@@ -502,8 +504,8 @@ function updateAminoglycoside() {
 
 
 /********************************************************************************
- *	hartfordCoord()	Calculates value for hartford nomogram lines				*/
-/********************************************************************************
+ *	hartfordCoord()	Calculates value for hartford nomogram lines				*
+ ********************************************************************************
  * val:			The provided variable (x or y)									*
  * find:		Whether to look for the x or y value							*
  * interval:	Interval equation to use										*
@@ -1056,8 +1058,8 @@ function updatePkData(crcl, interval, dose) {
 
 
 /********************************************************************************
- *	generateGraph()		Generates graph based on the level verification data	*/
-/********************************************************************************
+ *	generateGraph()		Generates graph based on the level verification data	*
+ ********************************************************************************
  * 		Dose:	Vancomycin dose (in mg)											*
  *		Tau:	Vancomycin dosing interval (in hours)							*
  *		Ke:		Ke of patient (in h^-1)											*
@@ -1279,6 +1281,7 @@ function generateGraph(dose, tau, ke, vd, loadingDose) {
 /********************************************************************************
  *	MATHJAX FUNCTIONS															*
  ********************************************************************************/
+
 /********************************************************************************
  *	mathData()			Math used for calculating the patient data				*
  ********************************************************************************/

@@ -22,12 +22,16 @@
 	*	DEALINGS IN THE SOFTWARE.													*
 	*********************************************************************************
 	 -->
+
 	<?php 
 		include 'details.php';
 		$title = 'Study Buffalo - Practice Tools: ' . $title;
 		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
 	?>
 	<link rel="stylesheet" type="text/css" href="include/style.css">
+    <!-- JS Functions and External Libraries -->
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="include/functions.js?version_1.0"></script>
 </head>
 
 <body>
@@ -350,8 +354,10 @@
 			
 			<table id="Math-Interval-Table">
 				<thead>
-					<th>Calculated CrCl</th>
-					<th>Dosing Interval</th>
+                    <tr>
+                        <th>Calculated CrCl</th>
+                        <th>Dosing Interval</th>
+                    </tr>
 				</thead>
 				<tbody>
 				</tbody>
@@ -400,13 +406,10 @@
 			<h2>References</h2>
 			
 			<p>
-			<!-- Bauer LA. Applied Clinical Pharmacokinetics. 2nd ed. USA: McGraw-Hill 
+            Bauer LA. Applied Clinical Pharmacokinetics. 2nd ed. USA: McGraw-Hill 
 			Companies Inc.; 2008.<br>
-			<br> -->
-			Blondel-Hill E, Fryters S. Bugs & Drugs. 2012.<br>
 			<br>
-			<!-- Gray M, Fryters S, Dersch Mills D, Romanick, M. Vancomycin Pharmacokinetic 
-			Summary. 2012. -->
+			Blondel-Hill E, Fryters S. Bugs & Drugs. 2012.<br>
 			</p>
 		</div>
 	</div>
@@ -419,9 +422,5 @@
 		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
 	?>
 </body>
-
-<!-- JS Functions and External Libraries -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript" src="include/functions.js?version_1.0"></script>
 </html>
 
