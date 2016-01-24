@@ -1,0 +1,47 @@
+/* Price Table Formatting */
+body {
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 0.5cm;
+	width: 19cm;
+}
+
+h1 {
+	font-size: 150%;
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 100%;
+	width: 19cm;
+}
+
+table th, table td {
+	padding: 0.2cm 0.3cm;
+}
+
+table th {
+	background-color: rgb(101, 101, 101);
+	color: rgb(255, 255, 255);
+	font-weight: 500;
+}
+
+table thead th:nth-child(1), table td:nth-child(1) {
+	text-align: left;
+}
+
+table thead th:nth-child(2), table td:nth-child(2) {
+	text-align: center;
+}
+
+table thead th:nth-child(3), table td:nth-child(3) {
+	text-align: right;
+}
+
+table tfoot th {
+	text-align: right;
+}
+
+table tr:nth-child(even) td{
+	background-color: rgb(225, 225, 225);
+}

@@ -1,0 +1,782 @@
+/* Style for screens */
+@media screen {
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: Geneva, Tahoma, Verdana, sans-serif;
+	}
+	
+	.wrapper {
+			min-height: 100%;
+			position: relative;
+		}
+	
+	#PrintPage {
+			display: none;
+		}
+
+/* DIV Styles */
+	.contentcontainer {
+		min-width: 45em;
+		max-width: 75em;
+		padding: 0 0.5em;
+		margin: 0 auto;
+	}
+	
+	.wholeline {
+		position: relative;
+		width: 100%;
+	}
+	
+	.wholeline::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	
+	.float {
+		float: left;
+		margin: 0 2em;
+	}
+	
+	.MT1em {
+		margin-top: 1em;
+	}
+	
+	.MT2em {
+		margin-top: 2em;
+	}
+	
+	.MT3em {
+		margin-top: 3em;
+	}
+	
+	.MB1em {
+		margin-bottom: 1em;
+	}
+	
+	.MB2em {
+		margin-bottom: 2em;
+	}
+	
+	.MB3em {
+		margin-bottom: 3em;
+	}
+	
+	.titlewrap {
+		text-align: center;
+		background: rgb(255, 204, 51);
+	}
+	
+	.title {
+		display: inline-block;
+	}
+	
+	.footerpad {
+		padding-bottom: 3em;
+	}
+	
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 3em;
+	}
+	
+/* Formatting for drop-down expansions */
+	label {
+		cursor: pointer;
+	}
+	
+	.dropdownL {
+		display: inline-block;
+	}
+
+	.dropdownR {
+		display: inline;
+		font-family: Tahoma, Geneva, sans-serif;
+		color: black;
+		font-size: 1.5em;
+		font-weight: 700;
+		line-height: 250%;
+	}
+	
+	input#CompareDivCheck, input#BenefitDivCheck, input#AboutDivCheck {
+		opacity: 0;
+		position: absolute;
+		left: -999em;
+	}
+	
+	#CompareDiv, #BenefitDiv, #AboutDiv {
+		max-height: 0;
+		transition: max-height 0.4s ease;
+		overflow: hidden;
+	}
+	
+	input#CompareDivCheck:checked  ~ #CompareDiv {
+		max-height: 125em;
+	}
+	
+	input#BenefitDivCheck:checked  ~ #BenefitDiv {
+		max-height: 125em;
+	}
+	
+	input#AboutDivCheck:checked  ~ #AboutDiv {
+		max-height: 30em;
+	}
+
+	.imgFlip {
+		transform: rotate(180deg);
+		transition: all 0.15s ease;
+		-webkit-transition: all 0.15s ease;
+		-moz-transition: all 0.15s ease;
+		-o-transition: all 0.15s ease;
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		}
+		
+	.imgReg {
+		transform: rotate(0deg);
+		transition: all 0.15s ease;
+		-webkit-transition: all 0.15s ease;
+		-moz-transition: all 0.15s ease;
+		-o-transition: all 0.15s ease;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+	}
+
+/* Font and text styles */
+	h1 {
+		font-family: Tahoma, Geneva, sans-serif;
+		color: black;
+		font-size: 3.5em;
+		line-height: 50%;
+		font-weight: 900;
+	}
+	
+	h2 {
+		font-family: Tahoma, Geneva, sans-serif;
+		color: black;
+		font-size: 1.5em;
+		font-weight: 700;
+		line-height: 50%
+	}
+	
+	p {
+		font-size: 1.2em;
+		font-weight: 550;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+	
+	.listtext li {
+		font-size: 1.2em;
+		font-weight: 550;
+		font-family: Verdana, Geneva, sans-serif;
+		margin: 0.5em 0;
+	}
+	
+	.notice {
+		font-style: italic;
+		font-size: 0.9em;
+		font-weight: 550;
+		font-family: Verdana, Geneva, sans-serif
+	}
+
+/* Formatting for inputs */
+	select#PrintSelectPrice {
+		font-size: 0.9em;
+		font-weight: 550;
+		font-family: Verdana, Geneva, sans-serif;
+		border-radius: 4px;
+	}
+	
+	select#PrintSelectPrice:focus {
+		box-shadow: 0 0 5px 3px rgb(255, 204, 51);
+		border: 1px solid rgb(255, 204, 51);
+	}
+	
+	input[type="button"] {
+		font-size: 1.2em;
+		font-weight: 700;
+		font-family: Verdana, Geneva, sans-serif;
+		border-radius: 6px;
+		border: 1px solid #505050;
+		box-shadow: 2px 2px 3px 1px #707070;
+		-webkit-box-shadow: 2px 2px 3px 1px #707070;
+		-moz-box-shadow: 2px 2px 3px 1px #707070;
+		transition: all 0.15s ease-in-out;
+		-webkit-transition: all 0.15s ease-in-out;
+		-moz-transition: all 0.15s ease-in-out;
+	}
+	
+	input[type="button"]:hover {
+		background: rgb(255, 204, 51);
+	}
+	
+/* Searchbar and dropdown list formatting */
+	input[type="text"].searchbar {
+		background: #F8F8F8;
+		font-size: 1em;
+		width: 40em;
+		margin: 0;
+		padding: 0.15em;
+		-webkit-transition: all 0.25s ease-in-out;
+		-moz-transition: all 0.25s ease-in-out;
+		-ms-transition: all 0.25s ease-in-out;
+		-o-transition: all 0.25s ease-in-out;
+		outline: none;
+		border: 1px solid black;
+	}
+	
+	input[type="text"].searchbar:focus {
+		box-shadow: 0 0 5px rgb(255, 204, 51);
+		border: 1px solid rgb(255, 204, 51);
+	}
+
+	.searchbarlist {
+		font-size: 1em;
+		padding: 0em;
+		margin: 0em;
+	}
+	
+	.searchbarlist ul {
+		list-style: none;
+		width: 40em;
+		float: left;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		border: 1px solid #E8E8E8;
+		top: 0px;
+		left: 0px;
+		z-index: 5;
+	}
+	
+	.searchbarlist li {
+		margin: 0;
+		padding: 0;
+		
+	}
+	
+	.searchbarlist a {
+		background: #F8F8F8;
+		display: inline-block;
+		width: 39.6em;
+		padding: 0.3em 0.4em;
+		color: black;
+		text-decoration: none;
+		transition: 0.3s;
+		-webkit-transition: 0.3s;
+		-moz-transition: 0.3s;
+		-ms-transition: 0.3s;
+		-o-transition: 0.3s;
+	}
+	
+	.searchbarlist a:hover {
+		background: rgb(252, 231, 170);
+		cursor: pointer;
+	}
+	
+/* Drug Items Table Formatting */
+/* Max-Width = 75em, Min-Width = 45em*/
+	#DrugListTable {
+		border-collapse: collapse;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+	
+	#DrugListTable td {
+		border: 0px;
+		padding: 0em;
+		margin: 0em;
+	}
+	
+	.strengthdosageselect, .strengthdosageselect option{
+		width: 100%;
+	}
+	
+	.brandnameselect, .brandnameselect option{
+		width: 100%;
+	}
+	
+	input[type="text"].quantityinput, input[type="number"].quantityinput {
+		width: 4em;
+	}
+	
+	#DrugListTable thead th {
+		background-color: rgb(255, 204, 51);
+		color: black;
+	}
+	
+	#DrugListTable tfoot th {
+		text-align: right;
+		background-color: rgb(255, 204, 51);
+		color: black;
+	}
+	
+	#DrugListTableBody tr:nth-child(even) {
+		background-color: rgb(252, 231, 170);
+	}
+	
+	#DrugListTableBody .CA {
+		text-align: center;
+	}
+	
+	#DrugListTable .RA , #DrugListTableBody .RA {
+		text-align: right;
+	}
+	
+	#DrugListTableBody .LA {
+		text-align: left;
+	}
+	
+	.removeX {
+		cursor: pointer;
+	}
+	
+	#DrugListTable .colGN {
+		min-width: 7em;
+		width: 15em;
+		max-width: 15em;
+	}
+	
+	#DrugListTable .colSD {
+		min-width: 7em;
+		width: 15em;
+		max-width: 15em;
+	}
+	
+	#DrugListTable .colBN {
+		min-width: 8em;
+		width: 17em;
+		max-width: 17em;
+	}
+	
+	#DrugListTable .colUP {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#DrugListTable .colQ {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#DrugListTable .colDP {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#DrugListTable .colF {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#DrugListTable .colTP {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#DrugListTable .colX {
+		min-width: 3em;
+		width: 3em;
+		max-width: 3em;
+	}
+
+/* Drug price comparison table formatting */
+/* Max-Width = 75em, Min-Width = 45em*/
+	#CompareTable {
+		border-collapse: collapse;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+	
+	#CompareTable td {
+		border: 0px;
+		padding: 0em;
+		margin: 0em;
+	}
+	
+	#CompareTable thead th {
+		vertical-align: bottom;
+		background-color: rgb(255, 204, 51);
+		color: black;
+	}
+	
+	#CompareTable tfoot th {
+		text-align: right;
+		background-color: rgb(255, 204, 51);
+		color: black;
+	}
+	
+	#CompareTableBody tr:nth-child(even) {
+		background-color: rgb(252, 231, 170);
+	}
+	
+	#CompareTable .CA, #CompareTableBody .CA {
+		text-align: center;
+	}
+	
+	#CompareTable .RA , #CompareTableBody .RA {
+		text-align: right;
+	}
+	
+	#CompareTableBody .LA {
+		text-align: left;
+	}
+	
+	#CompareTable .colGN {
+		min-width: 7em;
+		width: 15em;
+		max-width: 15em;
+	}
+	
+	#CompareTable .colUP {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colDPD {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colDS1 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colDP1 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colF1 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+
+	#CompareTable .colTP1 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colDS2 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colDP2 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+	
+	#CompareTable .colF2 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+
+	#CompareTable .colTP2 {
+		min-width: 4em;
+		width: 5em;
+		max-width: 5em;
+	}
+
+/* Drug benefit table formatting */
+/* Max-Width = 75em, Min-Width = 45em*/
+	#BenefitTable {
+		border-collapse: collapse;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+	
+	#BenefitTable  thead th {
+		vertical-align: bottom;
+		background-color: rgb(255, 204, 51)
+	}
+	
+	#BenefitTable tbody td {
+		text-align: center;
+		padding: 0.4em 0;
+	}
+
+	#BenefitTable .plan {
+		font-size: 0.7em;
+	}
+	
+	#BenefitTable .plan:nth-child(even) {
+		background-color: rgb(252, 231, 170);
+	}
+	
+	#BenefitTable tbody tr:nth-child(even) {
+		background-color: rgb(252, 231, 170);
+	}
+	
+	#BenefitTable .colBenMed {
+		min-width: 5em;
+		width: 15em;
+		max-width: 15em;
+	}
+	
+	#BenefitTable .colBenCov {
+		min-width: 7em;
+		width: 18em;
+		max-width: 18em;
+	}
+	
+	#BenefitTable .colBenClient {
+		min-width: 3em;
+		width: 3em;
+		max-width: 3em;
+	}
+
+/* Hover tool tip */
+	.tooltip {
+		display: inline-block;
+		color: #000000; outline: none;
+		cursor: help; text-decoration: none;
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.tooltip span {
+		margin-left: -999em;
+		position: absolute;
+	}
+
+	.tooltip:hover span {
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: 1em;
+		background-color: #F8F8F8;
+		border: 1px solid black;
+		text-align: left;
+		position: absolute;
+		left: 1em;
+		top: 2em;
+		z-index: 99;
+		margin-left: 0;
+		padding: 0.3em;
+		width: 20em;
+		border-radius: 8px;
+		-webkit-border-radius: 8px
+		-moz-border-radius: 4px
+		-ms-border-radius: 4px
+		-o-border-radius: 4px
+	}
+
+	
+/* Things to tinker with
+	.flex_container_main {
+		display: flex;
+		flex-flow: row wrap
+		align-items: stretch
+	}
+	
+	.flex_item_main {
+	}
+*/
+}
+
+@media print
+{
+/* Main formatting for print page */
+	.wrapper {
+		display: none !important;
+	}
+	
+	#PrintPage {
+		display: initial !important;
+	}
+	
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+			font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+			font-size: 0.5cm;
+		}
+
+	@page { 
+			size: auto;
+			margin: 1.27cm, 1.27cm, 1.27cm, 1.27cm;
+		}
+	
+/*Div classes for formatting the page*/
+	.letter {
+		/* height: 25cm; 1.27 cm top and bottom margins*/
+		/* width: 19.05cm; 1.27 cm left and right margins*/
+		margin: 0 auto;
+		position: relative;
+		border: 0.05cm solid transparent;
+	}
+	
+	.titlewrap {
+		width: 100%;
+	}
+	
+	.title {
+		text-align: center;
+	}
+	
+	.footer {
+		width: 100%;
+		position: absolute;
+		bottom: 0.5cm;
+		left: 0cm;
+		font-size: 0.4cm;
+		font-style: italic;
+	}
+	
+	.footerdiv {
+		width: 100%;
+		position: absolute;
+		bottom: 0cm;
+		left: 0cm;
+	}
+	
+/*Text and formatting styles*/
+	h1 {
+		font-family: Tahoma, Geneva, sans-serif;
+		color: black;
+		font-size: 0.8cm;
+		line-height: 50%;
+		font-weight: 900;
+	}
+	
+	h2 {
+		font-size: 0.6cm;
+		line-height: 70%;
+	}
+
+	.center {
+		text-align: center;
+	}
+	
+	.disclaimertext {
+		font-size: 0.25cm;
+		font-style: italic;
+		line-height: 0.25cm;
+	}
+	
+/* Table formatting
+Portrait Width = 19.05 cm (1.27 cm margin)
+Landscape Width = 25.4 cm (1.27 cm margin)
+*/
+	#PriceTable {
+		border-collapse: collapse;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+	
+	#PriceTable th {
+		background-color: rgb(255, 204, 51);
+		color: black;
+		padding: 0cm 0.25cm;
+		font-size: 0.35cm;
+	}
+	
+	#PriceTable td {
+		border: 0px;
+		padding: 0cm 0.25cm;
+		margin: 0cm;
+		font-size: 0.4cm;
+	}
+	
+	#PriceTable .CA {
+		text-align: center;
+	}
+	
+	#PriceTable .RA  {
+		text-align: right;
+	}
+	
+	#PriceTable .LA {
+		text-align: left;
+	}
+	
+	#PriceTable tr:nth-child(even) td {
+		background-color: rgb(252, 231, 170);
+	}
+	
+	#PriceTable .colMed {
+		min-width: 6cm;
+		width: 9cm;
+		max-width: 9cm;
+	}
+	
+	#PriceTable .colBN {
+		min-width: 5em;
+		width: 8em;
+		max-width: 8em;
+	}
+	
+	#PriceTable .colUP {
+		min-width: 1cm;
+		width: 1cm;
+		max-width: 1cm;
+	}
+	
+	#PriceTable .colQty {
+		min-width: 1cm;
+		width: 1cm;
+		max-width: 1cm;
+	}
+	
+	#PriceTable .colDP {
+		min-width: 1cm;
+		width: 1cm;
+		max-width: 1cm;
+	}
+	
+	#PriceTable .colDP1 {
+		min-width: 1cm;
+		width: 5cm;
+		max-width: 5cm;
+	}
+	
+	#PriceTable .colF {
+		min-width: 1cm;
+		width: 1cm;
+		max-width: 1cm;
+	}
+	
+	#PriceTable .colF1 {
+		min-width: 1cm;
+		width: 5cm;
+		max-width: 5cm;
+	}
+	
+	#PriceTable .colTP {
+		min-width: 1cm;
+		width: 1cm;
+		max-width: 1cm;
+	}
+	
+	#PriceTable .colTP1 {
+		min-width: 1cm;
+		width: 5cm;
+		max-width: 5cm;
+	}
+}

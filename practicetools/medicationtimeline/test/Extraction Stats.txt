@@ -1,0 +1,30 @@
+Performance
+299 Entries
+
+Searching All Tables
+Matches Found 		167		55.8%
+No Matches Found	132		44.2%
+
+Removing Duplicate Entries from resultArray
+Matches Found		198		66.2%
+No Matches Found	101		33.8%
+
+Regex matching strengths for word boundaries
+Matches Found		199		66.6%
+No Matches Found	100		33.4%
+
+Matching by AI_Code
+Matches Found		206		68.9%
+No Matches Found	93		31.1%
+
+Changing generic companies to wild cards
+Matches Found		234		78.9%
+No Matches Found	65		21.1%
+
+Formatting Strengths
+Matches Found		242		80.9%
+No Matches Found	57		19.1%
+
+truncate id_reference;
+truncate netcare_id;
+truncate netcare_review;

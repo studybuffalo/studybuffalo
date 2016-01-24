@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+	*********************************************************************************
+	*	STUDY BUFFALO VANCOMYCIN PHARMACOKINETICS CALCULATOR						*
+	*																				*
+	*	Last Update: 2015-Oct-24													*
+	*																				*
+	*	Copyright(c) Notices														*
+	*		2015	Joshua R. Torrance, BSc Pharm	<studybuffalo@studybuffalo.com>	*
+	*																				*
+	* 	Use, modification and sharing of this software is restricted as per the 	*
+	*	Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.	*
+	*																				*
+	*	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,	EXPRESS		*
+	*	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, *
+	*	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL		*
+	*	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER	*
+	*	LIABILITY, WHETHER IN AN ACTION	OF CONTRACT, TORT OR OTHERWISE, ARISING		*
+	*	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER			*
+	*	DEALINGS IN THE SOFTWARE.													*
+	*********************************************************************************
+	 -->
+	<?php 
+		include 'details.php';
+		$title = 'Study Buffalo - Practice Tools: ' . $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="/practicetools/include/pk_style.css">
+</head>
+
+<body>
+	<?php
+		//Generates menu bar
+		include 'details.php';
+		$header = $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<!-- Selections & Patient Data -->
+		<div id="dosingType" name="Dosing-Radio-Div">
+			<div class="line">
+				<h2>Select Dosing Type</h2>
+			</div>
+
+			<div class="line">
+				<label>
+				<input type="radio" name="Dosing-Radio" class="inputFloat" checked>
+				<span>Empiric Dosing</span>
+				</label>
+			</div>
+			
+			<div class="line">
+				<label>
+				<input type="radio" name="Dosing-Radio" class="inputFloat">
+				<span>Pharmacokinetic Dosing: Empiric</span>
+				</label>
+			</div>
+			
+			<div class="line">
+				<label>
+				<input type="radio" name="Dosing-Radio" class="inputFloat">
+				<span>Pharmacokinetic Dosing: Peak-Trough Levels</span>
+				</label>
+			</div>
+			
+			<div class="line">
+				<label>
+				<input type="radio" name="Dosing-Radio" class="inputFloat">
+				<span>Pharmacokinetic Dosing: C<sub>1</sub> &#38; C<sub>2</sub> Values</span>
+				</label>
+			</div>
+		</div>
+		
+		<!-- Patient Data -->
+		<div id="patientData" name="Dosing-Div">
+			<div class="line PT1em">
+				<h2>Patient Data</h2>
+			</div>
+			
+			<div class="line">
+				<em>Generates a vancomycin dose based on patient weight and renal 
+				function. Dosing is based on either population pharmacokinetics or 
+				the AHS vancomycin dosing algorithm.</em>
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em4"><b>Age:</b></span>
+				<input type="text" id="Empiric-Age" class="em5"> years
+				<!-- <span id="Test-Tooltip" class="tooltip">Please enter an age greater than 12 years</span> -->
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Sex:</b></span>
+				<select id="Empiric-Sex">
+					<option>Male</option>
+					<option>Female</option>
+				</select>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Height:</b></span>
+				<input type="text" id="Empiric-Height" class="em5">
+				<select id="Empiric-Height-Unit">
+					<option>cm</option>
+					<option>in</option>
+				</select>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Weight:</b></span>
+				<input type="text" id="Empiric-Weight" class="em5"> 
+				<select id="Empiric-Weight-Unit">
+					<option>kg</option>
+					<option>lb</option>
+				</select>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>SCr:</b></span>
+				<input type="text" id="Empiric-SCr" class="em5">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>IBW:</b></span>
+				<span id="Empiric-IBW-Span" class="em5"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>DW:</b></span>
+				<span id="Empiric-DW-Span">N/A</span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>CrCl:</b></span>
+				<span id="Empiric-CrCl-Span" class="em5"></span>
+			</div>
+			
+			<input type="hidden" id="Empiric-CW">
+		</div>
+		
+		<!-- Empiric Dosing -->
+		<div id="empiricDosing" name="Dosing-Div">
+			<div class="line PT1em">
+				<h2>Empiric Dosing</h2>
+			</div>
+			
+			<div class="line">
+				<h3>Loading Dose</h3>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Dose/Weight:</b></span>
+				<input type="text" id="Empiric-Loading-Weight" class="em5" value="25"> mg/kg
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Dose:</b></span>
+				<span id="Empiric-Loading-Dose"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Rounded Dose:</b></span>
+				<span id="Empiric-Loading-Round-Dose"></span>
+			</div>
+			
+			<div class="line PT1em">
+				<h3>Maintenance Dose</h3>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Trough Target:</b></span>
+				<select id="Empiric-Maintenance-Target">
+					<option>10-20 mg/L</option>
+					<option>15-20 mg/L</option>
+				</select>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Dose/Weight:</b></span>
+				<input type="text" id="Empiric-Maintenance-Weight" class="em5" value="15"> mg/kg
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Dose:</b></span>
+				<span id="Empiric-Maintenance-Dose"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Rounded Dose:</b></span>
+				<span id="Empiric-Maintenance-Round-Dose"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Interval:</b></span>
+				<span id="Empiric-Maintenance-Interval-Span"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>k<sub>e</sub>:</b></span>
+				<span id="Empiric-Ke"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>t<sub>1/2</sub>:</b></span>
+				<span id="Empiric-T12"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>t<sub>SS</sub>:</b></span>
+				<span id="Empiric-Tss"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em7"><b>Draw Level:</b></span>
+				<span id="Empiric-Draw"></span>
+			</div>
+		</div>
+		
+		<!-- Pharmacokinetic Parameter Calculations: Peak-Trough -->
+		<div id="pkPeakTrough" name="Dosing-Div" class="hide">
+			<div class="line PT1em">
+				<h2>Peak-Trough Levels &#38; PK Calculations</h2>
+			</div>
+			
+			<div class="line">
+				<em>Calculates patient-specific pharmacokinetic parameters 
+				based on a peak and trough level at steady state. These 
+				parameters are then used to generate a new vancomycin dose.</em>
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em4"><b>Dose:</b></span>
+				<input type="text" id="PK-PT-Dose" class="em3"> mg
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Interval:</b></span>
+				Every <input type="text" id="PK-PT-Interval" class="em2"> hours
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em10"><b>Infusion Start Date:</b></span>
+				<input type="date" id="PK-PT-Infusion-Date" placeholder="YYYY-MM-DD">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Infusion Start Time:</b></span>
+				<input type="time" id="PK-PT-Infusion-Time" placeholder="HH:MM (24-Hour Time)">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Infusion Duration:</b></span>
+				<input type="text" id="PK-PT-Infusion-Duration" class="em3" value="90"> minutes
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em10"><b>Peak Level:</b></span>
+				<input type="text" id="PK-PT-Peak" class="em3"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Peak Drawn - Date:</b></span>
+				<input type="date" id="PK-PT-Peak-Date" placeholder="YYYY-MM-DD">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Peak Drawn - Time:</b></span>
+				<input type="time" id="PK-PT-Peak-Time"placeholder="HH:MM (24-Hour Time)">
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em10"><b>Trough Level:</b></span>
+				<input type="text" id="PK-PT-Trough" class="em3"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Trough Drawn - Date:</b></span>
+				<input type="date" id="PK-PT-Trough-Date" placeholder="YYYY-MM-DD">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Trough Drawn - Time:</b></span>
+				<input type="time" id="PK-PT-Trough-Time" placeholder="HH:MM (24-Hour Time)">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>t:</b></span>
+				<span id="PK-PT-T"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>k<sub>e</sub>:</b></span>
+				<span id="PK-PT-Ke"></span>
+				<input type="hidden" id="PK-PT-Ke-Input">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>t<sub>1/2</sub>:</b></span>
+				<span id="PK-PT-T12"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>C<sub>max</sub>:</b></span>
+				<span id="PK-PT-Cmax"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>C<sub>min</sub>:</b></span>
+				<span id="PK-PT-Cmin"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>V<sub>d</sub>:</b></span>
+				<span id="PK-PT-Vd"></span>
+				<input type="hidden" id="PK-PT-Vd-Input">
+			</div>
+		</div>
+		
+		<!-- Pharmacokinetic Parameter Calculation: C1-C2 Levels -->
+		<div id="pkC1C2" name="Dosing-Div" class="hide">
+			<div class="line PT1em">
+				<h2>C<sub>1</sub>-C<sub>2</sub> Levels &#38; PK Calculations</h2>
+			</div>
+			
+			<div class="line">
+				<em>Calculates patient-specific pharmacokinetic parameters 
+				based on a two vancomycin readings. <b>These readings must be 
+				drawn without any vancomycin being given between them.</b> These 
+				parameters are then used to generate a new vancomycin dose.</em>
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em4"><b>Dose:</b></span>
+				<input type="text" id="PK-C1C2-Dose" class="em3" value="1000"> mg
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Interval:</b></span>
+				Every <input type="text" id="PK-C1C2-Interval" class="em2" value="12"> hours
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em10"><b>Infusion Start Date:</b></span>
+				<input type="date" id="PK-C1C2-Infusion-Date" placeholder="YYYY-MM-DD">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Infusion Start Time:</b></span>
+				<input type="time" id="PK-C1C2-Infusion-Time" placeholder="HH:MM (24-Hour Time)">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>Infusion Duration:</b></span>
+				<input type="text" id="PK-C1C2-Infusion-Duration" class="em3" value="90"> minutes
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em10"><b>C<sub>1</sub> Level:</b></span>
+				<input type="text" id="PK-C1C2-C1" class="em3"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>C<sub>1</sub> Drawn - Date:</b></span>
+				<input type="date" id="PK-C1C2-C1-Date" placeholder="YYYY-MM-DD">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>C<sub>1</sub> Drawn - Time:</b></span>
+				<input type="time" id="PK-C1C2-C1-Time" placeholder="HH:MM (24-Hour Time)">
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em10"><b>C<sub>2</sub> Level:</b></span>
+				<input type="text" id="PK-C1C2-C2" class="em3"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>C<sub>2</sub> Drawn - Date:</b></span>
+				<input type="date" id="PK-C1C2-C2-Date" placeholder="YYYY-MM-DD">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em10"><b>C<sub>2</sub> Drawn - Time:</b></span>
+				<input type="time" id="PK-C1C2-C2-Time" placeholder="HH:MM (24-Hour Time)">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>k<sub>e</sub>:</b></span>
+				<span id="PK-C1C2-Ke"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>t<sub>1/2</sub>:</b></span>
+				<span id="PK-C1C2-T12"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>V<sub>d</sub>:</b></span>
+				<span id="PK-C1C2-Vd"></span>
+			</div>
+		</div>
+		
+		<!-- Dose Calculation (Empiric) -->
+		<div id="doseCalculationEmpiric" name="Dosing-Div" class="hide">
+			<div class="line PT1em">
+				<h2>Empiric Dose Calculation</h2>
+			</div>
+			
+			<div class="line">
+				<em>Calculates a new vancomcyin dose based on the derived 
+				pharmacokinetic parameters.</em>
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em8"><b>Desired Peak:</b></span>
+				<input type="text" id="PK-Empiric-Peak" class="em3" value="32.5"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Desired Trough:</b></span>
+				<input type="text" id="PK-Empiric-Trough" class="em3" value="17.5"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Estimated V<sub>d</sub>:</b></span>
+				<input type="text" id="PK-Empiric-Vd-Weight" class="em3" value="0.7"> L/kg
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Calculated V<sub>d</sub>:</b></span>
+				<span id="PK-Empiric-Vd"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Dose:</b></span>
+				<span id="PK-Empiric-Dose"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Rounded Dose:</b></span>
+				<span id="PK-Empiric-Round-Dose"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Interval:</b></span>
+				<span id="PK-Empiric-Interval"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Rounded Interval:</b></span>
+				<span id="PK-Empiric-Round-Interval"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>ke:</b></span>
+				<span id="PK-Empiric-Ke"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>t<sub>1/2</sub>:</b></span>
+				<span id="PK-Empiric-T12"></span>
+			</div>
+		</div>
+		
+		<!-- Dose Calculation (PK) -->
+		<div id="doseCalculationPK" name="Dosing-Div" class="hide">
+			<div class="line PT1em">
+				<h2>Dose Calculation</h2>
+			</div>
+			
+			<div class="line">
+				<input id="PK-Dose-Calc-Copy" type="button" value="Copy Above Values">
+			</div>
+			
+			<div class="line">
+				<em>Calculates a new vancomcyin dose based on the derived 
+				pharmacokinetic parameters.</em>
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em8"><b>Desired Peak:</b></span>
+				<input type="text" id="PK-Dose-Calc-Peak" class="em3" value="32.5"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Desired Trough:</b></span>
+				<input type="text" id="PK-Dose-Calc-Trough" class="em3" value="17.5"> mg/L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>V<sub>d</sub>:</b></span>
+				<input type="text" id="PK-Dose-Calc-Vd" class="em3"> L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>ke:</b></span>
+				<input type="text" id="PK-Dose-Calc-Ke" class="em5"> h<sup>-1</sup>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>t<sub>1/2</sub>:</b></span>
+				<span id="PK-Dose-Calc-T12"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Dose:</b></span>
+				<span id="PK-Dose-Calc-Dose"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Rounded Dose:</b></span>
+				<span id="PK-Dose-Calc-Round-Dose"></span>
+				<input type="hidden" id="PK-Dose-Calc-Round-Dose-Input">
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Interval:</b></span>
+				<span id="PK-Dose-Calc-Interval"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em8"><b>Rounded Interval:</b></span>
+				<span id="PK-Dose-Calc-Round-Interval"></span>
+				<input type="hidden" id="PK-Dose-Calc-Round-Interval-Input">
+			</div>
+		</div>
+		
+		<!-- Level Verification -->
+		<div id="levelVerification" name="Dosing-Div" class="hide">
+			<div class="line PT1em">
+				<h2>Level Verification</h2>
+			</div>
+			
+			<div class="line">
+				<input type="button" id="PK-Level-Copy" value="Copy Above Values">
+			</div>
+			
+			<div class="line">
+				<em>Estimates your peak, trough, and other pharmacokinetic parameters 
+				based on the estimated dose. Used to confirm that dose will provide 
+				desired targets and generates a graph to visual levels.</em>
+			</div>
+			
+			<div class="line PT1em">
+				<span class="textLabel em4"><b>Dose:</b></span>
+				<input type="text" id="PK-Level-Dose" class="em3"> mg
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Interval:</b></span>
+				Every <input type="text" id="PK-Level-Interval" class="em2"> hours
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Vd:</b></span>
+				<input type="text" id="PK-Level-Vd" class="em3"> L
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>k<sub>e</sub>:</b></span>
+				<input type="text" id="PK-Level-Ke" class="em5"> h<sup>-1</sup>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Cmax:</b></span>
+				<span id="PK-Level-Cmax"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>Cmin:</b></span>
+				<span id="PK-Level-Cmin"></span>
+			</div>
+			
+			<div class="line">
+				<span class="textLabel em4"><b>t<sub>SS</sub>:</b></span>
+				<span id="PK-Level-Tss"></span>
+			</div>
+		</div>
+
+		<!-- PK Graph -->
+		<div id="PK-Graph" class="hide">
+			<div class="line PT1em">
+				<h2>Pharmacokinetic Graph</h2>
+			</div>
+			
+			<div id="Graph-Container">
+				<canvas id="Graph" height="500px" width="1000px"></canvas>
+			</div>
+		</div>
+		
+		<!-- Equations and Calculations -->
+		<div id="Equations-Calculations">
+			<div class="line PT1em">
+				<h2>Equations &#38; Calculations</h2>
+			</div>
+			
+			<div class="line">
+				<em>Calculations used to generate above data. Due to 
+				rounding, some numbers may not add up exactly. The actual 
+				calculations are all rounded at the final step, whereas 
+				these ones are rounded between each step to make them 
+				easier to follow.</em>
+			</div>
+			
+			<!-- Patient Data Calculations -->
+			<div name="Math-Div" class="Math-Div">
+				<!-- Weight -->
+				<h3>Patient Weight Calculations</h3>
+				<div name="Math-Section">
+					\begin{align}
+						IBW\ (Male) & = 50\ kg + \left(\frac {0.9055\ kg}{cm} * height\ (cm)\ over\ 152.4\ cm\right) &\\[10pt]
+						IBW\ (Female) & = 45.5\ kg + \left(\frac {0.9055\ kg}{cm} * height\ (cm)\ over\ 152.4\ cm\right) &
+					\end{align}
+				</div>
+				
+				<!-- CrCl -->
+				<h3>Patient CrCl Calculations</h3>
+				<div name="Math-Section">
+					\begin{align}
+						CrCl\ (Male) & = \frac{\left(140 - age\right) * weight}{SCr} * 1.2 &\\[10pt]
+						CrCl\ (Female) & = \frac{\left(140 - age\right) * weight}{SCr} &
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- Empiric Dose Calculations -->
+			<div name="Math-Div" class="Math-Div">
+				<!-- Dose Calculations -->
+				<h3>Empiric Dose Calculations</h3>
+				<div name="Math-Section">
+					\begin{align}
+						Loading\ Dose & = \frac{25\ mg}{kg} * actual\ body\ weight &\\
+					\end{align}
+					
+					\begin{align}
+						Maintenance Dose & = \frac{15\ mg}{kg} * actual\ body\ weight &\\
+					\end{align}
+				</div>
+				
+				<!-- Interval Calculations -->
+				<h3>Empiric Interval Determination</h3>
+				<table id="Math-Interval-Table">
+					<tr>
+						<th></th>
+						<th colspan="2">Target Trough</th>
+					</tr>
+					<tr>
+						<th>Calculated CrCl</th>
+						<th>10-20 mg/L</th>
+						<th>15-20 mg/L</th>
+					</tr>
+					<tr>
+						<td>&#8805; 80 mL/min</td>
+						<td>Q12H</td>
+						<td>Q8H</td>
+					</tr>
+					<tr>
+						<td>40-80 mL/min</td>
+						<td>Q24H</td>
+						<td>Q12H</td>
+					</tr>
+					<tr>
+						<td>20-40 mL/min</td>
+						<td>Q36H</td>
+						<td>Q24H</td>
+					</tr>
+					<tr>
+						<td>10-20 mL/min</td>
+						<td>Q48H</td>
+						<td>Q48H</td>
+					</tr>
+					<tr>
+						<td>&#8804; 10 mL/min</td>
+						<td colspan="2">Consider loading dose and pharmacist consult</td>
+					</tr>
+				</table>
+				
+				<!-- Tss Calculations -->
+				<h3>Empiric Steady State Calculations</h3>
+				<div name="Math-Section">
+					\begin{align}
+						k_e & = \left(0.00083 * CrCl\right) + 0.0044 &\\
+					\end{align}
+					
+					\begin{align}
+						t_{1/2} & = \frac{ln(2)}{k_e} &\\
+					\end{align}
+					
+					\begin{align}
+						t_{SS} & = t_{1/2} * 4.32 &\\
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- Peak-Trough Calculations -->
+			<div name="Math-Div" class="hide">
+				<h3>Patient-Specific k<sub>e</sub> Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\Delta t & = Trough\ Draw\ Time\ - Peak\ Draw\ Time\ &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						k_e & = \frac{log\left(Peak\ Level\ (mg/L) - Trough\ Level\ (mg/L)\right)}{\Delta t\ (h)} &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						t_{1/2} & = \frac{ln(2)}{k_e} &\\
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific C<sub>max</sub> Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\Delta t & = Peak\ Draw\ Time - End\ of\ Infusion &\\[5pt]
+						& = \left(Peak\ Draw\ Time - Infusion\ Start\ Time\right) - Infusion\ Duration\ (h) &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						C_{max} & = \frac{Peak\ Level\ (mg/L)}{e^{-k_e * \Delta t}} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific C<sub>min</sub> Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\Delta t & = Next\ Infusion\ Start\ Time - Trough\ Draw\ Time &\\[5pt]
+						& = \left(Infusion\ Start\ Time + Dosing\ Interval\ (h)\right) - Trough\ Draw\ Time &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						C_{min} & = Trough\ Level\ (mg/L) * e^{-k_e * \Delta t} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific Volume of Distribution Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						V_d & = \frac{dose\ (mg)}{C_{max}\ (mg/L) - C_{min}}\ (mg/L) &\\[10pt]
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- C1-C2 Calculations -->
+			<div name="Math-Div" class="hide">
+				<h3>Patient-Specific k<sub>e</sub> Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\Delta t & = C_2\ Draw\ Time - C_1\ Draw\ Time &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						k_e & = \frac{log\left(C_1\ Level\ (mg/L) - C_2\ Level\ (mg/L)\right)}{\Delta t} &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						t_{1/2} & = \frac{ln(2)}{k_e} &\\
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific C<sub>max</sub> Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\Delta t & = C_1\ Draw\ Time - End\ of\ Infusion &\\[5pt]
+						& = C_1\ Draw\ Time - Infusion\ Start\ Time - Infusion\ Duration\ (h) &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						C_{max} & = \frac{C_1\ Level\ (mg/L)}{e^{-k_e * \Delta t}} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific C<sub>min</sub> Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\Delta t & = Dosing\ Interval\ (h) - Infusion\ Duration\ (h) &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						C_{min} & = C_{max} * e^{-k_e * \Delta t} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific Volume of Distribution Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						V_d & = \frac{dose\ (mg)}{C_{max} - C_{min}} &\\[10pt]
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- Dose Calculations (Empiric) -->
+			<div name="Math-Div" class="hide">
+				<h3>Empiric Volume of Distribution Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						V_d & = 0.7\ L/kg * weight\ (kg) &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Empiric Dose Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						dose & = V_d * (Desired\ Peak - Desired\ Trough) &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Empiric Pharmacokinetic Parameter Calculations</h3>
+				<div name="Math-Section">	
+					\begin{align}
+						k_e & = \left(0.00083 * CrCl\right) + 0.0044 &\\[10pt]
+					\end{align}
+					
+					\begin{align}
+						t_{1/2} & = \frac{ln(2)}{k_e} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Empiric Interval Calculation</h3>
+				<div name="Math-Section">	
+					\begin{align}
+						\tau & = log\left(\frac{Desired\ Peak\ (mg/L)}{Desired\ Trough\ (mg/L)\right)} * \frac{1}{k_e\ (h^{-1})} &\\[10pt]
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- Dose Calculations (PK) -->
+			<div name="Math-Div" class="hide">
+				<h3>Patient-Specific New Dose Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						dose & = V_d * (Desired\ Peak - Desired\ Trough) &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>Patient-Specific New Interval Calculation</h3>
+				<div name="Math-Section">
+					\begin{align}
+						\tau & = \frac{ln(Desired\ Peak\ Level\ (mg/L)) - ln(Desired\ Trough\ Level\ (mg/L))}{k_e} &\\[10pt]
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- Level Verification Calculations -->
+			<div name="Math-Div" class="hide">
+				<h3>New Dose C<sub>max</sub> Estimate</h3>
+				<div name="Math-Section">
+					\begin{align}
+						C_{max} & = \frac{Dose\ (mg)}{V_d\ (L) * \left(1 - e^{-ke * \tau}\right)} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>New Dose C<sub>min</sub> Estimate</h3>
+				<div name="Math-Section">
+					\begin{align}
+						C_{min} & = C_{max} * e^{-ke * \tau} &\\[10pt]
+					\end{align}
+				</div>
+				
+				<h3>New Dose Steady State Estimate</h3>
+				<div name="Math-Section">
+					\begin{align}
+						t_{1/2} & = \frac{ln(2)}{k_e} &\\
+					\end{align}
+					
+					\begin{align}
+						t_{SS} & = t_{1/2} * 4.32 &\\
+					\end{align}
+				</div>
+			</div>
+		</div>
+		
+		<!-- Comments -->
+		<div class="PT1em">
+			<h2>Comments</h2>
+			
+			<ul>
+				<li>This calculator uses a time to steady state of 95% of the true steady state. 
+					This works out to 4.32 half-lives of the drug. You may see other calculators 
+					and references uses anywhere from 3-5 half-lives to approximate t<sub>SS</sub>.
+				</li>
+				<li><b>While we strive to ensure all aspects of this calculator are reliable and
+					accurate, you must always use your clinical judgement when applying these 
+					calculations to a patient.</b> We have provided the calculations used to allow 
+					you to verify that these numbers make sense in the context of your patient.
+				</li>
+		</div>
+		<!-- References -->
+		<div class="PT1em">
+			<h2>References</h2>
+			
+			<p>
+			Bauer LA. Applied Clinical Pharmacokinetics. 2nd ed. USA: McGraw-Hill 
+			Companies Inc.; 2008.<br>
+			<br>
+			Blondel-Hill E, Fryters S. Bugs & Drugs. 2012.<br>
+			<br>
+			Gray M, Fryters S, Dersch Mills D, Romanick, M. Vancomycin Pharmacokinetic 
+			Summary. 2012.
+			</p>
+		</div>
+	</div>
+	
+	<?php
+		//Adds social media links
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/social_media_bar.php';
+		
+		//Adds footer
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+</body>
+
+<!-- JS Functions AND EXTERNAL LIBRARIES
+<script type="text/javascript" src="/include/js/opentip/native.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/include/js/opentip/css.css">  -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="functions.js?v_2015-11-04"></script>
+</html>
+

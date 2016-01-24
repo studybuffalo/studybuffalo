@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php 
+		include 'details.php';
+		$title = 'Study Buffalo - Study Guides: ' . $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="/studyguides/include/style.css">
+</head>
+
+<body>
+	<?php
+		//Generates menu bar
+		include 'details.php';
+		$header = $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<div class="center-content">
+			<iframe width="640" height="480" src="https://www.youtube.com/embed/O6g_dXRKvJI" frameborder="0" allowfullscreen></iframe><br>
+			<br>
+			<em>If you wish to suggest an update to this study guide, email us at
+			<a href="mailto:studybuffalo@studybuffalo.com">
+			studybuffalo@studybuffalo.com</a>.</em>
+		</div>
+	</div>
+	
+	<?php
+		//Adds social media links
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/social_media_bar.php';
+		
+		//Adds footer
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+</body>
+
+<!-- JS Functions -->
+</html>

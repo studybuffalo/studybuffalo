@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+	*********************************************************************************
+	*	STUDY BUFFALO AMINOGLYCOSIDE BUGS & DRUGS DOSING CALCULATOR					*
+	*																				*
+	*	Last Update: 2016-Jan-17													*
+	*																				*
+	*	Copyright(c) Notices														*
+	*		2016	Joshua R. Torrance, BSc Pharm	<studybuffalo@studybuffalo.com>	*
+	*																				*
+	* 	Use, modification and sharing of this software is restricted as per the 	*
+	*	Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.	*
+	*																				*
+	*	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,	EXPRESS		*
+	*	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, *
+	*	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL		*
+	*	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER	*
+	*	LIABILITY, WHETHER IN AN ACTION	OF CONTRACT, TORT OR OTHERWISE, ARISING		*
+	*	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER			*
+	*	DEALINGS IN THE SOFTWARE.													*
+	*********************************************************************************
+	 -->
+	<?php 
+		include 'details.php';
+		$title = 'Study Buffalo - Practice Tools: ' . $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="include/style.css">
+</head>
+
+<body>
+	<?php
+		//Generates menu bar
+		include 'details.php';
+		$header = $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<p>Welcome to the Aminoglycoside Empiric Dosing Calculator. This calculator 
+		   generates empiric doses for aminoglycosides using the Bugs &#38; Drugs 
+		   algorithm. This information does not supersede any clinical assessment and 
+		   must be used in the clinical context of your patient.<br>
+		   <br>
+		   To start, enter your patient data in the fields below; the information 
+		   will automatically generate as you fill in the required fields.</p>
+		
+		
+		<!-- Dosing Method -->
+		<div class="MT1em">
+			<h2>Drug & Dosing Method</h2>
+			
+			<div class="Method">
+				<span>Dosing Method:</span>
+				<select id="Dosing-Method">
+					<option>High Dose Extended Interval Dosing - Initial</option>
+					<option>High Dose Extended Interval Dosing - Hartford Nomogram</option>
+					<option>Conventional Dosing (with loading dose)</option>
+					<option>Conventional Dosing (without loading dose)</option>
+					<option>Synergy Dosing</option>
+				</select>
+			</div>
+			
+			<div class="Method">
+				<span>Aminoglycoside:</span>
+				<select id="Aminoglycoside">
+					<option>Gentamicin</option>
+					<option>Tobramycin</option>
+					<option>Amikacin</option>
+				</select>
+			</div>
+		</div>
+		
+		
+		<!-- Patient Data -->
+		<div class="PT1em" id="Patient-Data-Div">
+			<h2>Patient Data</h2>
+			
+			<div class="Patient-Data">
+				<span>Age:</span>
+				<input type="text" id="Patient-Age"> years
+			</div>
+			
+			<div class="Patient-Data">
+				<span>Sex:</span>
+				<select id="Patient-Sex">
+					<option>Male</option>
+					<option>Female</option>
+				</select>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>Height:</span>
+				<input type="text" id="Patient-Height">
+				<select id="Patient-Height-Unit">
+					<option>cm</option>
+					<option>in</option>
+				</select>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>Weight:</span>
+				<input type="text" id="Patient-Weight"> 
+				<select id="Patient-Weight-Unit">
+					<option>kg</option>
+					<option>lb</option>
+				</select>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>SCr:</span>
+				<input type="text" id="Patient-Scr"> &#956;mol/L
+			</div>
+			
+			<div class="Patient-Data">
+				<span>BMI:</span>
+				<span id="Patient-Bmi"></span>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>IBW:</span>
+				<span id="Patient-Ibw"></span>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>DW:</span>
+				<span id="Patient-Dw">N/A</span>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>CrCl:</span>
+				<span id="Patient-Crcl"></span>
+			</div>
+		</div>
+		
+		
+		
+		
+		<!-- HDEI Initial Dosing -->
+		<div class="MT1em" id="Hdei-Init-Div">
+			<h2>Initial Dosing</h2>
+			
+			<div class="Hdei-Init">
+				<span>Dose/Weight:</span>
+				<input type="text" id="Hdei-Init-Per-Weight"> mg/kg
+			</div>
+			
+			<div class="Hdei-Init">
+				<span>Dose:</span>
+				<span id="Hdei-Init-Per-Mg"></span>
+			</div>
+			
+			<div class="Hdei-Init">
+				<span>Rounded Dose:</span>
+				<span id="Hdei-Init-Rounded-Dose"></span>
+			</div>
+			
+			<div class="Hdei-Init">
+				<span>Interval:</span>
+				<span id="Hdei-Init-Interval"></span>
+			</div>
+		</div>
+		
+		<!-- HDEI Monitoring -->
+		<div class="MT1em" id="Hdei-Hartford-Div">
+			<h2>Monitoring &#38; Dose Adjustments</h2>
+			
+			<div class="Hdei-Hartford">
+				<span>Draw Time:</span>
+				<input type="text" id="Hdei-Hartford-Time"> hours between infusion start and sample draw
+			</div>
+			
+			<div class="Hdei-Hartford">
+				<span>Level:</span>
+				<input type="text" id="Hdei-Hartford-Level"> mg/L
+			</div>
+			
+			<div class="Hdei-Hartford">
+				<span>Dose per Weight:</span>
+				<input type="text" id="Hdei-Hartford-Dose"> mg/kg
+			</div>
+			
+			<div class="Hdei-Hartford">
+				<span>New Interval:</span>
+				<span id="Hdei-Hartford-Recom"></span>
+			</div>
+			
+			<div class="Hdei-Hartford">
+				<h3 class="MT05em">Hartford Nomogram</h3>
+				
+				<canvas id="Hdei-Hartford-Graph" height="495px" width="750px"></canvas>
+			</div>
+		</div>
+		
+		<!-- Conventional Dosing Loading Dose -->
+		<div class="MT1em" id="Conv-Load-Div">
+			<h2>Loading Dose</h2>
+			
+			<div class="Conv-Load">
+				<span>Dose per Weight:</span>
+				<input type="text" id="Conv-Loading-Dose-Per-Weight"> mg/kg
+			</div>
+			
+			<div class="Conv-Load">
+				<span>Dose:</span>
+				<span id="Conv-Loading-Dose"></span>
+			</div>
+			
+			<div class="Conv-Load">
+				<span>Rounded Dose:</span>
+				<span id="Conv-Loading-Dose-Round"></span>
+			</div>
+		</div>
+		
+		<!-- Conventional Dosing Maintenance Dose -->
+		<div class="MT1em" id="Conv-Maint-Div">
+			<h2>Maintenance Dose</h2>
+			
+			<div class="Conv-Maint">
+				<span>Dose per Weight:</span>
+				<input type="text" id="Conv-Maint-Dose-Per-Weight"> mg/kg
+			</div>
+			
+			<div class="Conv-Maint">
+				<span>Dose:</span>
+				<span id="Conv-Maint-Dose"></span>
+			</div>
+			
+			<div class="Conv-Maint">
+				<span>Rounded Dose:</span>
+				<span id="Conv-Maint-Dose-Round"></span>
+			</div>
+			
+			<div class="Conv-Maint">
+				<span>Interval:</span>
+				<span id="Conv-Maint-Interval"></span>
+			</div>
+		</div>
+		
+		<!-- Synergy Dosing -->
+		<div class="MT1em" id="Syn-Dose-Div">
+			<h2>Synergy Dose</h2>
+			
+			<div id="Syn-Dose-Gentamicin">
+				<div class="Syn-Dose">
+					<span>Dose per Weight:</span>
+					<input type="text" id="Syn-Dose-Per-Weight"> mg/kg
+				</div>
+				
+				<div class="Syn-Dose">
+					<span>Dose:</span>
+					<span id="Syn-Dose"></span>
+				</div>
+				
+				<div class="Syn-Dose">
+					<span>Rounded Dose:</span>
+					<span id="Syn-Dose-Rounded"></span>
+				</div>
+				
+				<div class="Syn-Dose">
+					<span>Interval:</span>
+					<span id="Syn-Interval"></span>
+				</div>
+			</div>
+			
+			<div id="Syn-Dose-Amikacin">
+				<p>Only gentamicin and tobramycin are recommended for synergy dosing.</p>
+			</div>
+		</div>
+		
+		<div class="MT1em" id="PK-Calc">
+			<h2>Pharmacokinetic Data</h2>
+			
+			<p><em>This data is for illustrative purposes only. It makes 
+				   multiple assumptions based on population pharmacokinetics 
+				   that may or may not be applicable to your patient. These 
+				   level estimations cannot be assumed accurate for your 
+				   patient.</em><p>
+			
+			<div class="Pk-Data">
+				<span>k<sub>e</sub>:</span>
+				<span id="Patient-Ke"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>t<sub>1/2</sub>:</span>
+				<span id="Patient-T12"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>t<sub>SS</sub>:</span>
+				<span id="Patient-Tss"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>V<sub>d</sub>:</span>
+				<span id="Patient-Vd">0.3 L/kg</span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>C<sub>max</sub>:</span>
+				<span id="Patient-Cmax"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>C<sub>min</sub>:</span>
+				<span id="Patient-Cmin"></span>
+			</div>
+			
+			<div id="Graph-Container">
+				<canvas id="Pk-Graph" height="500px" width="1000px"></canvas>
+			</div>
+		</div>
+		
+		<!-- Equations and Calculations -->
+		<div id="Math-Divs">
+			<h2 class="PT1em">>Equations &#38; Calculations</h2>
+			
+			<p><em>Calculations used to generate above data. Due to 
+				   rounding, some numbers may not add up exactly. 
+				   Calculations are rounded at each step.</em></p>
+			
+			<!-- Patient Data Calculations -->
+			<!-- Weight -->
+			<h3 class="PT1em">Patient Weight Calculations</h3>
+			
+			<div id="Math-Weight"></div>
+			
+			<!-- CrCl -->
+			<h3>Patient CrCl Calculations</h3>
+			
+			<div id="Math-Crcl"></div>
+			
+			<!-- Loading Dose Calculations -->
+			<div id="Math-Loading">
+				<h3>Loading Dose Calculations</h3>
+				
+				<div id="Math-Loading-Dose"></div>
+			</div>
+			
+			<!-- Maintenance Dose Calculations -->
+			<h3>Maintenance Dose Calculations</h3>
+			
+			<div id="Math-Maintenance-Dose"></div>
+			
+			<!-- Interval Calculations -->
+			<h3>Empiric Interval Determination</h3>
+			
+			<table id="Math-Interval-Table">
+				<thead>
+					<th>Calculated CrCl</th>
+					<th>Dosing Interval</th>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			
+			<!-- Pharmacokinetic Calculations Calculations -->
+			<h3 class="PT1em">Pharmacokinetic Calculations</h3>
+			
+			<div id="Math-Ke"></div>
+			
+			<div id="Math-T12" class="PT05em"></div>
+			
+			<div id="Math-Tss" class="PT05em"></div>
+			
+			<div id="Math-Vd" class="PT05em"></div>
+			
+			<div id="Math-Cmax" class="PT05em"></div>
+			
+			<div id="Math-Cmin" class="PT05em"></div>
+		</div>
+		
+		<!-- Comments -->
+		<div class="PT1em">
+			<h2>Comments</h2>
+			
+			<ul>
+				<li><b>While we strive to ensure all aspects of this 
+					calculator are reliable and accurate, you must always use 
+					your clinical judgement when applying these calculations 
+					to a patient.</b> We have provided the calculations used to 
+					allow you to verify that these numbers make sense in the 
+					context of your patient. Any additional pharmacokinetic and 
+					visual information is based on population pharmacokinetics 
+					and <b>cannot be assumed accurate for your patient</b>. This 
+					information is provided for illustrative purpose only.</li>
+				<li>If you have any questions, concerns, or wish to report an error,
+					please email us at
+					<a href="mailto:studybuffalo@studybuffalo.com?subject=Alberta%20Drug%20Price%20Calculator">
+					studybuffalo@studybuffalo.com</a>.</li>
+			</ul>
+		</div>
+		
+		
+		<!-- References -->
+		<div class="PT1em">
+			<h2>References</h2>
+			
+			<p>
+			<!-- Bauer LA. Applied Clinical Pharmacokinetics. 2nd ed. USA: McGraw-Hill 
+			Companies Inc.; 2008.<br>
+			<br> -->
+			Blondel-Hill E, Fryters S. Bugs & Drugs. 2012.<br>
+			<br>
+			<!-- Gray M, Fryters S, Dersch Mills D, Romanick, M. Vancomycin Pharmacokinetic 
+			Summary. 2012. -->
+			</p>
+		</div>
+	</div>
+	
+	<?php
+		//Adds social media links
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/social_media_bar.php';
+		
+		//Adds footer
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+</body>
+
+<!-- JS Functions and External Libraries -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="include/functions.js?version_1.0"></script>
+</html>
+

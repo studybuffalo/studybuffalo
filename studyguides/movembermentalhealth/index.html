@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php 
+		include 'details.php';
+		$title = 'Study Buffalo - Study Guides: ' . $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="/studyguides/include/style.css">
+</head>
+
+<body>
+	<?php
+		//Generates menu bar
+		include 'details.php';
+		$header = $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<div class="center-content">
+			<h2>UNDER REVISION</h2>
+			This version of the DSM is currently out of date and in need of revision. 
+			We hope to be able to release a new one for the 2017 Movember Campaign. 
+			That said, we are still active supporters of Movember Canada and highly 
+			encourage you to either join as a MoBro or MoSista yourself, or support 
+			one of them you know!<br>
+			<br>
+			Find out more at <a href="https://ca.movember.com/">ca.movember.com</a>!
+		</div>
+	</div>
+	
+	<?php
+		//Adds social media links
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/social_media_bar.php';
+		
+		//Adds footer
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+</body>
+
+<!-- JS Functions -->
+</html>

@@ -1,0 +1,231 @@
+/*
+	Dark Grey = rgb(101, 101, 101);
+	Grey = rgb(151, 151, 151);
+	Light Grey = rgb(200, 200, 200);
+	Lightest Grey = rgb(245, 245, 245);
+	Dark Green = rgb(31, 103, 0);
+	Green = rgb(41, 138, 0);
+	Light Green = rgb(49, 171, 0);
+	Pale Green = rgb(200, 238, 196);
+*/
+
+/* Dosing Method */
+.Method {
+	margin: 7px 0;
+}
+
+.Method span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 7em;
+}
+
+/* Patient Data */
+.Patient-Data {
+	margin: 7px 0;
+}
+
+.Patient-Data span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 4em;
+}
+
+#Patient-Age, #Patient-Height, #Patient-Weight, #Patient-Scr {
+	width: 5em;
+}
+
+/* HDEI Initial Dosing */
+.Hdei-Init {
+	margin: 7px 0;
+}
+
+.Hdei-Init span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 7em;
+}
+
+#Hdei-Init-Per-Weight {
+	width: 5em;
+}
+
+/* HDEI Monitoring */
+.Hdei-Hartford {
+	margin: 7px 0;
+}
+
+.Hdei-Hartford span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 8em;
+}
+
+#Hdei-Hartford-Time {
+	width: 5em;
+}
+
+#Hdei-Hartford-Level {
+	width: 5em;
+}
+
+#Hdei-Hartford-Dose {
+	width: 5em;
+}
+
+/* Conventional Dosing - Loading Dose */
+.Conv-Load {
+	margin: 7px 0;
+}
+
+.Conv-Load span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 8em;
+}
+
+#Conv-Loading-Dose-Per-Weight {
+	width: 5em;
+}
+
+/* Conventional Dosing - Maintenance Dose */
+.Conv-Maint {
+	margin: 7px 0;
+}
+
+.Conv-Maint span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 8em;
+}
+
+#Conv-Maint-Dose-Per-Weight {
+	width: 5em;
+}
+
+/* Synergy Dosing */
+.Syn-Dose {
+	margin: 7px 0;
+}
+
+.Syn-Dose span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 8em;
+}
+
+#Syn-Dose-Per-Weight {
+	width: 5em;
+}
+
+/* PK Data */
+.Pk-Data {
+	margin: 7px 0;
+}
+
+.Pk-Data span:first-child {
+	display: inline-block;
+	margin: 0 10px;
+	font-weight: 700;
+	width: 3em;
+}
+
+
+
+
+/* Math Formatting */
+.Math-Div {
+	width: 100%;
+	font-size: 90%;
+	display: inline-block;
+}
+
+
+#Graph-Container {
+	height: 540px;
+	width: 100%;
+	overflow: auto;
+}
+
+#Math-Interval-Table {
+	border-collapse: collapse;
+}
+
+#Math-Interval-Table td {
+	text-align: center;
+	border: 1px solid black;
+	padding: 0 5px;
+}
+
+#Math-Interval-Table tr:nth-child(odd) {
+	background-color: rgb(200, 200, 200);
+}
+
+#Math-Interval-Table th {
+	text-align: center;
+	border: 1px solid black;
+	font-weight: 900;
+	color: rgb(255, 255, 255);
+	background-color: rgb(101, 101, 101);
+	padding: 0 5px;
+}
+
+.intervalSelected {
+	background-color: rgb(200, 238, 196);
+	font-weight: 900;
+}
+
+
+
+/* General Styles */
+h2, h3 {
+	text-align: left;
+}
+
+select {
+	font-size: 95%;
+	border: 2px solid rgb(101, 101, 101);
+}
+
+input[type="text"], input[type="date"], input[type="time"] {
+	font-family: Arial,sans-serif;
+	font-size: 90%;
+	border: 2px solid rgb(101, 101, 101);
+	padding: 2px 3px;
+	margin: 2px 0px;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, input[type="time"]:focus, select:focus {
+	border: 2px solid rgb(41, 138, 0);
+	box-shadow: none;
+	outline: none;
+}
+
+textarea {
+	height: 6em;
+	width: 25em;
+	font-family: Arial,sans-serif;
+	font-size: 90%;
+	border: 2px solid rgb(101, 101, 101);
+	padding: 2px 3px;
+	margin: 2px 0px;
+}
+
+textarea:focus {
+	border: 2px solid rgb(41, 138, 0);
+	box-shadow: none;
+	outline: none;
+}
+
+input[type="button"] {
+	font-family: Arial,sans-serif;
+	font-size: 80%;
+	padding: 4px;
+}

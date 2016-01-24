@@ -1,0 +1,3387 @@
+PHN/ULI: 12345-6799 ABCD, EFGG 	 
+
+124 ABC DED NE
+Calgary, Alberta T0X0X0
+Phone:  (403) 123-45678 	Date of Birth:  1950-Jul-19
+Gender:  Female 	Printed:  2015-Aug-25 13:56:36
+Printed By:  NetCare, System
+
+PROVIDER MUST VERIFY THE ACCURACY AND COMPLETENESS OF THIS PATIENT'S INFORMATION
+PRIOR TO TREATMENT DECISIONS
+
+
+ 
+DRUG ALLERGY AND INTOLERANCE 	Review not done
+ 
+NON DRUG ALLERGY AND INTOLERANCE 	Review not done
+ 
+
+CHRONOLOGICAL PRESCRIPTION LIST - Detail (ALL PRESCRIPTIONS )
+
+   Centrum Select® Tablet Oral (Pfizer Consumer He...)   (Dispensing information only) 	Webber, Jennifer (PHARM)
+						
+  	Dispenses: 	 
+	  2015-Aug-11   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   SPIRIVA 18 MCG CAP HANDIHALER (Tiotropium Bromide)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	SPIRIVA 18 MCG CAP HANDIHALER 	Apple Drugs
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 347-4008
+	
+INHALE CONTENTS OF 1 CAPSULE DAILY VIA HANDIHALER
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	SYMBICORT 200 TURBUHALER 	Apple Drugs
+	
+360  Inhaler 	  for   90  days 
+		(403) 347-4008
+	
+TAKE 2 INHALATIONS TWICE A DAY
+   APO-PANTOPRAZOLE DR 40 MG TAB (Pantoprazole Sodium)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jul-14   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   TEVA-FLUVASTATIN 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2015-Jul-14   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2015-Jun-15   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+   ACT METFORMIN 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2015-Jul-14   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2015-Jun-15   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+   APO-ALENDRONATE 70 MG TABLET (Alendronate Sodium)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2015-Jul-14   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2015-Jun-15   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+   ASA 81 MG TABLET (Acetylsalicylic Acid)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	JAMP-ASA EC 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2015-Jul-14   	JAMP-ASA EC 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2015-Jun-15   	ASA 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+   ACT DILTIAZEM T ER 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2015-Jul-14   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2015-Jun-15   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+   Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jul-14   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jun-15   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   MYL-PREGABALIN 50 MG CAPSULE (Pregabalin)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Aug-11   	TEVA-PREGABALIN 50 MG CAPSULE 	Apple Drugs
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE TWICE A DAY
+	  2015-Jul-14   	TEVA-PREGABALIN 50 MG CAPSULE 	Apple Drugs
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE TWICE A DAY
+	  2015-Jun-12   	PMS-PREGABALIN 50 MG CAPSULE 	Apple Drugs
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE TWICE A DAY
+	  2015-Apr-06   	MYL-PREGABALIN 50 MG CAPSULE 	Apple Drugs
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE TWICE A DAY
+   Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2015-Aug-11   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+	  2015-Jul-14   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+	  2015-Jun-15   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+	  2015-Apr-28   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+	  2015-Apr-08   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+	  2015-Mar-17   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+	  2015-Feb-09   	Preservision ® Eye Vitamin & Mineral Supplement Areds2 Formula Capsule, gelatin coated Oral (Bausch & Lomb Inc.) 	Apple Drugs
+	
+56  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 2 CAPSULES DAILY
+   Calcium 650 Mg Caplet Oral (Jamieson Laborator...)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Aug-11   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jul-14   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jun-15   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-28   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-08   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Mar-17   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Feb-09   	Calcium 650 Mg Caplet Oral (Jamieson Laborator...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   MYL-PREGABALIN 25 MG CAPSULE (Pregabalin)   (Dispensing information only) 	Fordyce, Fiona (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2015-Jul-30   	MYL-PREGABALIN 25 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   14  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE TWICE A DAY FOR 1 WEEK THEN ALTERNATE NIGHTS FOR 1 WEEK
+   BUSCOPAN 10 MG TABLET (Hyoscine Butylbromide)   (Dispensing information only) 	Lang-Hodge, Brian (MD)
+						
+  	Dispenses: 	 
+	  2015-Jul-26   	BUSCOPAN 10 MG TABLET 	Apple Drugs
+	
+20  Tablet(s) 	  for   3  days 
+		(403) 347-4008
+	
+TAKE 2 TABLETS 3 TIMES A DAY IF NEEDED
+   Centrum Select® Tablet Oral (Pfizer Consumer He...)   (Dispensing information only) 	Kungle, Deanna (PHARM)
+						
+  	Dispenses: 	 
+	  2015-Jul-14   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jun-15   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-28   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-08   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Mar-17   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Feb-09   	Centrum Select® Tablet Oral (Pfizer Consumer He...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   APO-PANTOPRAZOLE DR 40 MG TAB (Pantoprazole Sodium)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Jun-15   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-28   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-08   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Mar-17   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Feb-09   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Jan-16   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2014-Dec-19   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2014-Nov-24   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2014-Oct-27   	APO-PANTOPRAZOLE DR 40 MG TAB 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Apr-08   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Mar-17   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+	  2015-Feb-09   	Vitamin D 1000 Iu Tablet Oral (Vita Health Produc...) 	Apple Drugs
+	
+28  Each 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	ASA 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2015-Apr-08   	ASA 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2015-Mar-17   	ASA 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2015-Feb-09   	ASA 81 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2015-Jan-16   	ASA 81 MG TABLET EC 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2014-Dec-19   	ASA 81 MG TABLET EC 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2014-Nov-24   	ASA 81 MG TABLET EC 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+	  2014-Oct-27   	ASA 81 MG TABLET EC 	Apple Drugs
+	
+25  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+   SANDOZ FLUVASTATIN 40 MG CAP (Fluvastatin Sodium)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2015-Apr-08   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2015-Mar-17   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2015-Feb-09   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2015-Jan-16   	TEVA-FLUVASTATIN 40 MG CAPSULE 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2014-Dec-19   	SANDOZ FLUVASTATIN 40 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2014-Nov-24   	SANDOZ FLUVASTATIN 40 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2014-Oct-27   	SANDOZ FLUVASTATIN 40 MG CAP 	Apple Drugs
+	
+25  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+	  2014-Oct-02   	SANDOZ FLUVASTATIN 40 MG CAP 	Apple Drugs
+	
+15  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR CHOLESTEROL)
+   APO-METFORMIN 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2015-Apr-08   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2015-Mar-17   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2015-Feb-09   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2015-Jan-16   	ACT METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2014-Dec-19   	JAMP-METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2014-Nov-24   	JAMP-METFORMIN 500 MG TABLET 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2014-Oct-27   	JAMP-METFORMIN 500 MG TABLET 	Apple Drugs
+	
+25  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+	  2014-Oct-02   	APO-METFORMIN 500 MG TABLET 	Apple Drugs
+	
+7  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY (FOR DIABETES)
+   SANDOZ DILTIAZEM T 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2015-Apr-08   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2015-Mar-17   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2015-Feb-09   	ACT DILTIAZEM T ER 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2015-Jan-16   	SANDOZ DILTIAZEM T 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2014-Dec-19   	SANDOZ DILTIAZEM T 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2014-Nov-24   	SANDOZ DILTIAZEM T 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2014-Oct-27   	SANDOZ DILTIAZEM T 120 MG CAP 	Apple Drugs
+	
+25  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2014-Oct-02   	SANDOZ DILTIAZEM T 120 MG CAP 	Apple Drugs
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+	  2014-Sep-04   	SANDOZ DILTIAZEM T 120 MG CAP 	Apple Drugs
+	
+2  Capsule(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE AT DINNER (FOR BLOOD PRESSURE)
+   SPIRIVA 18MCG CAPSULE (Tiotropium Bromide)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	SPIRIVA 18 MCG CAP HANDIHALER 	Apple Drugs
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 347-4008
+	
+INHALE CONTENTS OF 1 CAPSULE DAILY
+	  2015-Mar-03   	SPIRIVA 18 MCG CAP HANDIHALER 	Apple Drugs
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 347-4008
+	
+INHALE CONTENTS OF 1 CAPSULE DAILY
+	  2015-Jan-16   	SPIRIVA 18MCG CAPSULE 	Apple Drugs
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 347-4008
+	
+INHALE CONTENTS OF 1 CAPSULE DAILY
+	  2014-Oct-21   	SPIRIVA 18MCG CAPSULE 	Apple Drugs
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 347-4008
+	
+INHALE CONTENTS OF 1 CAPSULE DAILY
+	  2014-Aug-11   	SPIRIVA 18MCG CAPSULE 	Sproule's Mountview IDA Drug
+	
+90  Capsule(s) 	  for   89  days 
+		(403) 347-2345
+	
+INHALE THE CONTENTS OF 1 CAPSULE ONCE DAILY
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	SYMBICORT 200 TURBUHALER 	Apple Drugs
+	
+360  Inhaler 	  for   90  days 
+		(403) 347-4008
+	
+TAKE 2 INHALATIONS TWICE A DAY
+	  2015-Mar-03   	SYMBICORT 200 TURBUHALER 	Apple Drugs
+	
+360  Inhaler 	  for   90  days 
+		(403) 347-4008
+	
+TAKE 2 INHALATIONS TWICE A DAY
+	  2014-Nov-24   	SYMBICORT 200 TURBUHALER 	Apple Drugs
+	
+360  Inhaler 	  for   90  days 
+		(403) 347-4008
+	
+TAKE 2 INHALATIONS TWICE A DAY
+	  2014-Aug-11   	SYMBICORT 200 TURBUHALER 	Sproule's Mountview IDA Drug
+	
+360  Inhaler 	  for   90  days 
+		(403) 347-2345
+	
+INHALE 2 PUFFS TWICE DAILY
+   ALENDRONATE-FC 70 MG TABLET (Alendronate Sodium)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Apr-28   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2015-Apr-08   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2015-Mar-17   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2015-Feb-09   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2015-Jan-16   	APO-ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2014-Dec-19   	ACT ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY IN THE MORNING ON WEDNESDAY (FOR BONES)
+	  2014-Nov-24   	ACT ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY AT NOON ON WEDNESDAY (FOR BONES)
+	  2014-Oct-27   	CO ALENDRONATE 70 MG TABLET 	Apple Drugs
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET WEEKLY ON WEDNESDAY (FOR BONES)
+	  2014-Aug-11   	ALENDRONATE-FC 70 MG TABLET 	Sproule's Mountview IDA Drug
+	
+12  Tablet(s) 	  for   84  days 
+		(403) 347-2345
+	
+TAKE 1 TABLET WEEKLY
+   TEVA-FUROSEMIDE 20 MG TABLET (Furosemide)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2015-Mar-13   	TEVA-FUROSEMIDE 20 MG TABLET 	Apple Drugs
+	
+30  Tablet(s) 	  for   60  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET EVERY SECOND DAY IF NEEDED
+   APO-PREDNISONE 50 MG TABLET (Prednisone)   (Dispensing information only) 	Foerster, Steven (MD)
+						(403) 343-4444
+  	Dispenses: 	 
+	  2015-Feb-03   	APO-PREDNISONE 50 MG TABLET 	Apple Drugs
+	
+5  Tablet(s) 	  for   5  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY UNTIL FINISHED
+   ACT LEVOFLOXACIN 500 MG TABLET (Levofloxacin)   (Dispensing information only) 	Basson, Ronel (MD)
+						(780) 706-7080
+  	Dispenses: 	 
+	  2015-Jan-28   	ACT LEVOFLOXACIN 500 MG TABLET 	Apple Drugs
+	
+10  Tablet(s) 	  for   10  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET DAILY UNTIL FINISHED
+   TEVA-DOXYCYCLINE 100 MG TABLET (Doxycycline Hyclate)   (Dispensing information only) 	Grimbeek, Francois (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2015-Jan-26   	TEVA-DOXYCYCLINE 100 MG TABLET 	Apple Drugs
+	
+14  Tablet(s) 	  for   7  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET TWICE A DAY UNTIL FINISHED
+   PNEUMOVAX 23 VIAL (Pneumococcal 23-Val P-Sac Vac)   (Dispensing information only) 	Fedyna, Olena (PHARM)
+						
+  	Dispenses: 	 
+	  2014-Nov-04   	PNEUMOVAX 23 VIAL 	Apple Drugs
+	
+0.5  Vials 	  for   1  days 
+		(403) 347-4008
+	
+FOR INJECTION
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Rajput, Sobia (MD)
+						(403) 262-7787
+  	Dispenses: 	 
+	  2014-Oct-02   	ASA 81 MG TABLET EC 	Apple Drugs
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET IN THE MORNING
+   C# COMPOUND PRESCRIPTION: Unspecified Ingredient(s)   (Dispensing information only)
+	Claasen, Cornelis (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2014-Sep-19   	COMPOUND PRESCRIPTION: Unspecified Ingredient(s) 	Apple Drugs
+	
+30  Unit 	  for   10  days 
+		(403) 347-4008
+	
+APPLY TO AFFECTED AREA(S) 3 TIMES A DAY FOR 10 DAYS
+   APO-RABEPRAZOLE EC 20 MG TAB (Rabeprazole Sodium)   (Dispensing information only) 	Myburgh, Johannes (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2014-Sep-07   	APO-RABEPRAZOLE EC 20 MG TAB 	Apple Drugs
+	
+42  Tablet(s) 	  for   28  days 
+		(403) 347-4008
+	
+TAKE 1 TABLET TWICE A DAY FOR 2 WEEKS THEN TAKE 1 TABLET DAILY (FOR ACID REFLUX)
+   MACROBID 100 MG CAPSULE (Nitrofurantoin/Nitrofurantoin Macrocrystal)   (Dispensing information only) 	Myburgh, Johannes (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2014-Sep-07   	MACROBID 100 MG CAPSULE 	Apple Drugs
+	
+14  Capsule(s) 	  for   7  days 
+		(403) 347-4008
+	
+TAKE 1 CAPSULE TWICE A DAY UNTIL FINISHED (BLADDER INFECTION)
+   RABEPRAZOLE EC 20 MG TABLET (Rabeprazole Sodium)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2014-Aug-11   	RABEPRAZOLE EC 20 MG TABLET 	Sproule's Mountview IDA Drug
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 347-2345
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2014-Jul-15   	RABEPRAZOLE EC 20 MG TABLET 	Sproule's Mountview IDA Drug
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 347-2345
+	
+TAKE 1 TABLET EACH MORNING
+   CIPROFLOXACIN 250 MG TABLET (Ciprofloxacin HCL)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2014-Aug-03   	CIPROFLOXACIN 250 MG TABLET 	Sproule's Mountview IDA Drug
+	
+6  Tablet(s) 	  for   3  days 
+		(403) 347-2345
+	
+TAKE 1 TABLET TWICE DAILY
+   BUSCOPAN 10 MG TABLET (Hyoscine Butylbromide)   (Dispensing information only) 	Maree, Mattheus (MD)
+						(403) 227-3301
+  	Dispenses: 	 
+	  2014-Aug-03   	BUSCOPAN 10 MG TABLET 	Sproule's Mountview IDA Drug
+	
+15  Tablet(s) 	  for   5  days 
+		(403) 347-2345
+	
+TAKE 1 TABLET THREE TIMES DAILY
+   SPIRIVA 18MCG CAPSULE (Tiotropium Bromide)   (Dispensing information only) 	Rajput, Sobia (MD)
+						(403) 262-7787
+  	Dispenses: 	 
+	  2014-Jul-15   	SPIRIVA 18MCG CAPSULE 	Sproule's Mountview IDA Drug
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 347-2345
+	
+INHALE THE CONTENTS OF 1 CAPSULE ONCE DAILY
+   Preservision Lutein Capsule Oral (Bausch & Lomb Inc.)   (Dispensing information only) 	Provider, Unknown
+						
+  	Dispenses: 	 
+	  2014-Jul-07   	Preservision Lutein Capsule Oral (Bausch & Lomb Inc.) 	Sproule's Mountview IDA Drug
+	
+9  Each 	  for   4  days 
+		(403) 347-2345
+	
+TAKE 2 CAPSULES ONCE DAILY
+   RISEDRONATE 35 MG TABLET (Risedronate Sodium)   (Dispensing information only) 	Rajput, Sobia (MD)
+						(403) 262-7787
+  	Dispenses: 	 
+	  2014-Jul-07   	RISEDRONATE 35 MG TABLET 	Sproule's Mountview IDA Drug
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 347-2345
+	
+TAKE 1 TABLET WEEKLY WITH WATER AND 30 MINS BEFORE FIRST FOOD OF THE DAY
+   PMS-ALENDRONATE-FC 70 MG TAB (Alendronate Sodium)   (Dispensing information only) 	Skene, Glenda (PHARM)
+						
+  	Dispenses: 	 
+	  2014-Jun-10   	PMS-ALENDRONATE-FC 70 MG TAB 	Simons Valley Drug Mart
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET WEEKLY AS DIRECTED
+   METFORMIN FC 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Jun-09   	METFORMIN FC 500 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Jun-09   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2014-Mar-27   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2013-Aug-15   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2013-May-15   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2013-Jan-03   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+   SANDOZ DILTIAZEM T 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Jun-09   	CO DILTIAZEM T 120 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2014-Jan-26   	CO DILTIAZEM T 120 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2013-Oct-11   	SANDOZ DILTIAZEM T 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2013-Mar-18   	SANDOZ DILTIAZEM T 120 MG CAP 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2013-Jan-03   	SANDOZ DILTIAZEM T 120 MG CAP 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+   SPIRIVA 18MCG CAPSULE (Tiotropium Bromide)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Jun-07   	SPIRIVA 18MCG CAPSULE 	Simons Valley Drug Mart
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 274-2444
+	
+INHALE 1 CAPSULE USING DEVICE EACH DAY
+	  2014-Mar-30   	SPIRIVA 18MCG CAPSULE 	Simons Valley Drug Mart
+	
+60  Capsule(s) 	  for   60  days 
+		(403) 274-2444
+	
+INHALE 1 CAPSULE USING DEVICE EACH DAY
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Jun-07   	SYMBICORT 200 TURBUHALER 	Simons Valley Drug Mart
+	
+240  Inhaler 	  for   60  days 
+		(403) 274-2444
+	
+INHALE TWO (2) PUFFS TWICE DAILY AS DIRECTED
+	  2014-Apr-03   	SYMBICORT 200 TURBUHALER 	Simons Valley Drug Mart
+	
+120  Inhaler 	  for   30  days 
+		(403) 274-2444
+	
+INHALE TWO (2) PUFFS TWICE DAILY AS DIRECTED
+   CO DILTIAZEM T 120 MG CAPSULE (Diltiazem HCL)   (Dispensing information only) 	Osei-Tutu, Kannin (MD)
+						
+  	Dispenses: 	 
+	  2014-May-12   	CO DILTIAZEM T 120 MG CAPSULE 	Simons Valley Drug Mart
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-May-12   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2014-Jan-26   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2013-Oct-11   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2013-Jan-03   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+   PMS-ALENDRONATE-FC 70 MG TAB (Alendronate Sodium)   (Dispensing information only) 	Provider, Unknown
+						
+  	Dispenses: 	 
+	  2014-Apr-04   	PMS-ALENDRONATE-FC 70 MG TAB 	Simons Valley Drug Mart
+	
+12  Tablet(s) 	  for   84  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET WEEKLY AS DIRECTED
+   SANDOZ RABEPRAZOLE EC 20 MG TB (Rabeprazole Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Apr-04   	RABEPRAZOLE EC 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2013-Dec-27   	SANDOZ RABEPRAZOLE EC 20 MG TB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2013-Sep-17   	SANDOZ RABEPRAZOLE EC 20 MG TB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2013-Jun-14   	SANDOZ RABEPRAZOLE EC 20 MG TB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2013-Mar-18   	SANDOZ RABEPRAZOLE EC 20 MG TB 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2012-Dec-17   	SANDOZ RABEPRAZOLE EC 20 MG TB 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+   RATIO-METFORMIN 500 MG TAB (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Mar-27   	METFORMIN FC 500 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY
+	  2013-Aug-31   	APO-METFORMIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY
+	  2013-May-15   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY
+	  2012-Nov-29   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET TWICE DAILY
+	  2012-Oct-22   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+20  Tablet(s) 	  for   20  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+   PMS-ALENDRONATE-FC 70 MG TAB (Alendronate Sodium)   (Dispensing information only) 	Frohlich, Janet (PHARM)
+						
+  	Dispenses: 	 
+	  2014-Mar-10   	PMS-ALENDRONATE-FC 70 MG TAB 	Simons Valley Drug Mart
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET WEEKLY AS DIRECTED
+   CIPROFLOXACIN 500 MG TABLET (Ciprofloxacin HCL)   (Dispensing information only) 	Maloka, Nabil (MD)
+						(403) 275-4611
+  	Dispenses: 	 
+	  2014-Mar-07   	CIPROFLOXACIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+14  Tablet(s) 	  for   7  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET TWICE DAILY UNTIL FINISHED
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Osei-Tutu, Kannin (MD)
+						
+  	Dispenses: 	 
+	  2014-Feb-27   	SYMBICORT 200 TURBUHALER 	Simons Valley Drug Mart
+	
+120  Inhaler 	  for   30  days 
+		(403) 274-2444
+	
+INHALE TWO (2) PUFFS TWICE DAILY AS DIRECTED
+   SPIRIVA 18MCG CAPSULE (Tiotropium Bromide)   (Dispensing information only) 	Pham, Hubert (PHARM)
+						
+  	Dispenses: 	 
+	  2014-Feb-27   	SPIRIVA 18MCG CAPSULE 	Simons Valley Drug Mart
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 274-2444
+	
+INHALE 1 CAPSULE USING DEVICE EACH DAY
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Osei-Tutu, Kannin (MD)
+						
+  	Dispenses: 	 
+	  2014-Feb-11   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+   PMS-ALENDRONATE-FC 70 MG TAB (Alendronate Sodium)   (Dispensing information only) 	Osei-Tutu, Kannin (MD)
+						
+  	Dispenses: 	 
+	  2014-Feb-11   	PMS-ALENDRONATE-FC 70 MG TAB 	Simons Valley Drug Mart
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET WEEKLY AS DIRECTED
+   PMS-NYSTATIN 100000 UNT/ML SUS (Nystatin)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2014-Feb-04   	PMS-NYSTATIN 100000 UNT/ML SUS 	Simons Valley Drug Mart
+	
+120  mL 	  for   30  days 
+		(403) 274-2444
+	
+SWISH AND SWALLOW 1 ML FOUR TIMES DAILY OR AS DIRECTED
+   SPIRIVA 18MCG CAPSULE (Tiotropium Bromide)   (Dispensing information only) 	Osei-Tutu, Kannin (MD)
+						
+  	Dispenses: 	 
+	  2014-Jan-26   	SPIRIVA 18MCG CAPSULE 	Simons Valley Drug Mart
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 274-2444
+	
+INHALE 1 CAPSULE USING DEVICE EACH DAY
+   APO-SALVENT 100 MCG INHALER (Salbutamol Sulfate)   (Dispensing information only) 	Maloka, Nabil (MD)
+						(403) 275-4611
+  	Dispenses: 	 
+	  2013-Dec-31   	APO-SALVENT 100 MCG INHALER 	Simons Valley Drug Mart
+	
+200  Container(s) 	  for   10  days 
+		(403) 274-2444
+	
+INHALE 2 PUFFS FOUR TIMES DAILY WHEN REQUIRED
+   AVELOX 400 MG TABLET (Moxifloxacin HCL)   (Dispensing information only) 	Maloka, Nabil (MD)
+						(403) 275-4611
+  	Dispenses: 	 
+	  2013-Dec-31   	AVELOX 400 MG TABLET 	Simons Valley Drug Mart
+	
+7  Tablet(s) 	  for   7  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET BY MOUTH EACH DAY FOR 7 DAYS . UNTIL FINISHED
+   MYLAN-MIRTAZAPINE 15 MG TABLET (Mirtazapine)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Dec-27   	MYLAN-MIRTAZAPINE 15 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY
+   PMS-ALENDRONATE-FC 70 MG TAB (Alendronate Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Dec-27   	PMS-ALENDRONATE-FC 70 MG TAB 	Simons Valley Drug Mart
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET WEEKLY AS DIRECTED
+	  2013-Dec-09   	PMS-ALENDRONATE-FC 70 MG TAB 	Simons Valley Drug Mart
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET WEEKLY AS DIRECTED
+   PMS-MIRTAZAPINE 15 MG TABLET (Mirtazapine)   (Dispensing information only) 	Dawes, Simon (MD)
+						(403) 943-5461
+  	Dispenses: 	 
+	  2013-Nov-29   	PMS-MIRTAZAPINE 15 MG TABLET 	Simons Valley Drug Mart
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE 1 TABLET ONCE DAILY, TO START ON DEC. 2, 2013
+   APO-TRAZODONE 50 MG TABLET (Trazodone HCL)   (Dispensing information only) 	Dawes, Simon (MD)
+						(403) 943-5461
+  	Dispenses: 	 
+	  2013-Nov-29   	APO-TRAZODONE 50 MG TABLET 	Simons Valley Drug Mart
+	
+1  Tablet(s) 	  for   4  days 
+		(403) 274-2444
+	
+TAKE 1/4 OF A TABLET ONCE DAILY FOR 4 DAYS THEN STOP.
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Dawes, Simon (MD)
+						(403) 943-5461
+  	Dispenses: 	 
+	  2013-Nov-29   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+2  Tablet(s) 	  for   4  days 
+		(403) 274-2444
+	
+TAKE HALF A TABLET ONCE DAILY FOR 4 DAYS THEN STOP
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Oct-11   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2013-Mar-18   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2013-Jan-03   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+   APO-FENO-SUPER 160 MG TAB (Fenofibrate, Microcoated)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Aug-31   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2013-May-15   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2013-Feb-14   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+   CO ETIDROCAL COMBO PACK (Etidronate Disodium/Calcium Carbonate)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Aug-31   	CO ETIDROCAL COMBO PACK 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET ONCE DAILY
+	  2013-Jun-04   	CO ETIDROCAL COMBO PACK 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET ONCE DAILY
+	  2013-Feb-16   	CO ETIDROCAL COMBO PACK 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET ONCE DAILY
+	  2012-Nov-29   	CO ETIDROCAL COMBO PACK 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET ONCE DAILY
+	  2012-Aug-29   	CO ETIDROCAL COMBO PACK 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET ONCE DAILY
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Ostrosky, Emery (PHARM)
+						
+  	Dispenses: 	 
+	  2013-Apr-15   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Frohlich, Janet (PHARM)
+						
+  	Dispenses: 	 
+	  2013-Mar-18   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+   APO-AMOXI 500 MG CAPSULE (Amoxicillin Trihydrate)   (Dispensing information only) 	Dentist, Unknown
+						
+  	Dispenses: 	 
+	  2013-Feb-17   	APO-AMOXI 500 MG CAPSULE 	Simons Valley Drug Mart
+	
+31  Capsule(s) 	  for   9  days 
+		(403) 274-2444
+	
+TAKE TWO (2) TABLETS AT ONCE THEN 1 TABLET THREE TIMES DAILY UNTIL FINISHED
+   NOVO-DOXYLIN 100 MG CAPSULE (Doxycycline Hyclate)   (Dispensing information only) 	Leung, Stephen (MD)
+						(403) 277-3333
+  	Dispenses: 	 
+	  2012-Dec-20   	NOVO-DOXYLIN 100 MG CAPSULE 	Simons Valley Drug Mart
+	
+14  Capsule(s) 	  for   7  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE TWICE DAILY UNTIL FINISHED
+   APO-FENO-SUPER 160 MG TAB (Fenofibrate, Microcoated)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Nov-20   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2012-Aug-07   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2012-May-02   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2011-Oct-19   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+   RATIO-METFORMIN 500 MG TAB (Metformin HCL)   (Dispensing information only) 	Ostrosky, Emery (PHARM)
+						
+  	Dispenses: 	 
+	  2012-Nov-01   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET TWICE DAILY
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Sep-05   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2012-May-30   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Sep-05   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2012-May-30   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2012-Feb-22   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+   SANDOZ RABEPRAZOLE 20 MG TAB (Rabeprazole Sodium)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Sep-05   	SANDOZ RABEPRAZOLE EC 20 MG TB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2012-May-30   	SANDOZ RABEPRAZOLE 20 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2012-Feb-22   	SANDOZ RABEPRAZOLE 20 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Sep-05   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2012-May-30   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2012-Feb-22   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2011-Nov-16   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2011-Aug-23   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+   SANDOZ DILTIAZEM T 120 MG CP (Diltiazem HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Sep-05   	TEVA-DILTIAZEM ER 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2012-May-30   	TEVA-DILTIAZEM ER 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2012-Feb-22   	SANDOZ DILTIAZEM T 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2011-Nov-16   	SANDOZ DILTIAZEM T 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2011-Aug-23   	SANDOZ DILTIAZEM T 120 MG CP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+   RATIO-METFORMIN 500 MG TAB (Metformin HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Sep-05   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2012-May-30   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+300  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY
+	  2012-Feb-22   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+300  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY
+	  2011-Oct-19   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+300  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY
+	  2011-Jul-28   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+300  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY
+	  2011-Apr-25   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+300  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY
+   TEVA-RISEDRONATE 35 MG TABLET (Risedronate Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2012-Jul-17   	TEVA-RISEDRONATE 35 MG TABLET 	Simons Valley Drug Mart
+	
+4  Tablet(s) 	  for   28  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET ONCE A WEEK WITH AT LEAST 1/2 CUP OF PLAIN WATER & AT LEAST 30 MINUTES BEFORE TH
+   MACROBID 100 MG CAPSULE (Nitrofurantoin/Nitrofurantoin Macrocrystal)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Jun-27   	MACROBID 100 MG CAPSULE 	Simons Valley Drug Mart
+	
+14  Capsule(s) 	  for   7  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE TWICE DAILY UNTIL FINISHED
+   LAMISIL 1% SPRAY (Terbinafine HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Mar-14   	LAMISIL 1% SPRAY 	Simons Valley Drug Mart
+	
+30  Container(s) 	  for   30  days 
+		(403) 274-2444
+	
+APPLY DAILY AS DIRECTED
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Feb-22   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2011-Nov-16   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2011-Aug-23   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2011-May-12   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2011-Feb-11   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2010-Oct-30   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+   NEXIUM 40 MG TABLET EC (Esomeprazole Mag)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Jan-19   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+   NOVO-FENOFIBRATE-S 160 MG (Fenofibrate,Micronized)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2012-Jan-19   	NOVO-FENOFIBRATE-S 160 MG 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+   NEXIUM 40 MG TABLET EC (Esomeprazole Mag Trihydrate)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2011-Dec-18   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Nov-16   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Oct-19   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Sep-25   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Aug-23   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Jul-28   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Jun-27   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-May-12   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Apr-25   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Mar-24   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Feb-11   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2011-Jan-24   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2010-Dec-27   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2010-Nov-19   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2010-Oct-27   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2010-Sep-15   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2010-Aug-18   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+	  2010-Jun-30   	NEXIUM 40 MG TABLET EC 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2011-Nov-16   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2011-Aug-23   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2011-May-12   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2011-Feb-11   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2010-Oct-30   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2010-Jul-15   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+   APO-FENO-SUPER 160 MG TAB (Fenofibrate, Microcoated)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2011-Jul-08   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2011-Mar-24   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2010-Dec-20   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2010-Sep-15   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2010-May-22   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY (IN THE EVENING OR AT BEDTIME - FOR CHOLESTEROL)
+	  2010-Feb-19   	APO-FENO-SUPER 160 MG TAB 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2011-May-12   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2011-Feb-11   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2010-Oct-30   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2010-Apr-15   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2009-Dec-28   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+   NOVO-DILTIAZEM ER 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2011-May-12   	SANDOZ DILTIAZEM T 120 MG CP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2011-Feb-11   	TEVA-DILTIAZEM HCL ER 120 MG 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2010-Oct-30   	NOVO-DILTIAZEM ER 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2010-Jul-15   	NOVO-DILTIAZEM ER 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2010-Apr-13   	NOVO-DILTIAZEM ER 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2009-Dec-28   	NOVO-DILTIAZEM ER 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE (NOTE NEW CAPSULE)
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Frohlich, Janet (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Jul-28   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2010-Jul-15   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2010-Apr-13   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2009-Dec-28   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2009-Jul-10   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+	  2009-Mar-31   	APO-PAROXETINE 20 MG TABLET 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY IN THE MORNING AS DIRECTED
+   APO-ERYTHRO-BASE 250 MG TAB (Erythromycin Base)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2010-Jun-21   	APO-ERYTHRO-BASE 250 MG TAB 	Simons Valley Drug Mart
+	
+28  Tablet(s) 	  for   7  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET FOUR TIMES DAILY UNTIL FINISHED
+   PMS-METFORMIN 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2010-Jun-21   	APO-METFORMIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+300  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY WITH FOOD
+	  2010-Feb-11   	PMS-METFORMIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+270  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET THREE TIMES DAILY WITH FOOD
+	  2009-Dec-27   	PMS-METFORMIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+200  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET TWICE DAILY WITH FOOD
+	  2009-Oct-11   	RATIO-METFORMIN 500 MG TAB 	Simons Valley Drug Mart
+	
+87  Tablet(s) 	  for   87  days 
+		(403) 274-2444
+	
+TAKE 1/2 OF A TABLET (ALREADY HALVED) TWICE DAILY WITH FOOD
+	  2009-Jul-10   	PMS-METFORMIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE 1/2 OF A TABLET (ALREADY HALVED) TWICE DAILY WITH FOOD
+	  2009-Mar-31   	PMS-METFORMIN 500 MG TABLET 	Simons Valley Drug Mart
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE 1/2 OF A TABLET TWICE DAILY WITH FOOD
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2010-Apr-15   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2009-Dec-28   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2009-Oct-14   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+63  Capsule(s) 	  for   63  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2009-Jul-11   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2009-Mar-31   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+	  2009-Jan-13   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY IN THE EVENING FOR CHOLESTEROL
+   ISOPTO ATROPINE 1% EYE DROP (Atropine Sulfate)   (Dispensing information only) 	Savage, Paul (MD)
+						(403) 245-4442
+  	Dispenses: 	 
+	  2010-Feb-19   	ISOPTO ATROPINE 1% EYE DROP 	Simons Valley Drug Mart
+	
+5  Bottle(s) 	  for   5  days 
+		(403) 274-2444
+	
+INSTIL 1 DROP IN THE RIGHT EYE TWICE DAILY (BEGIN AFTER SURGERY)
+   MAXITROL EYE DROPS (Neomycin Sulfate/Polymyxin B Sulfate/Dexamethasone)   (Dispensing information only) 	Savage, Paul (MD)
+						(403) 245-4442
+  	Dispenses: 	 
+	  2010-Feb-19   	MAXITROL EYE DROPS 	Simons Valley Drug Mart
+	
+5  Bottle(s) 	  for   5  days 
+		(403) 274-2444
+	
+INSTIL 1 DROP IN THE RIGHT EYE FOUR TIMES DAILY (BEGIN THE NIGHT BEFORE SURGERY)
+   BETADERM 0.1% CREAM (Betamethasone Valerate)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2009-Dec-16   	BETADERM 0.1% CREAM 	Simons Valley Drug Mart
+	
+50  g 	  for   10  days 
+		(403) 274-2444
+	
+APPLY TO AFFECTED AREAS TWO OR THREE TIMES DAILY WHEN REQUIRED
+   ZOVIRAX 5% OINTMENT (Acyclovir)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2009-Dec-01   	ZOVIRAX 5% OINTMENT 	Simons Valley Drug Mart
+	
+15  g 	  for   30  days 
+		(403) 274-2444
+	
+APPLY TO AFFECTED AREA FOUR TIMES DAILY
+	  2009-Nov-21   	ZOVIRAX 5% OINTMENT 	Simons Valley Drug Mart
+	
+15  g 	  for   30  days 
+		(403) 274-2444
+	
+APPLY TO AFFECTED AREA FOUR TIMES DAILY
+	  2009-Nov-17   	ZOVIRAX 5% OINTMENT 	Simons Valley Drug Mart
+	
+15  g 	  for   30  days 
+		(403) 274-2444
+	
+APPLY TO AFFECTED AREA FOUR TIMES DAILY
+   APO-ACYCLOVIR 400 MG TABLET (Acyclovir)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2009-Nov-17   	APO-ACYCLOVIR 400 MG TABLET 	Simons Valley Drug Mart
+	
+80  Tablet(s) 	  for   10  days 
+		(403) 274-2444
+	
+TAKE TWO (2) TABLETS FOUR TIMES DAILY UNTIL FINISHED
+   AVELOX 400 MG TABLET (Moxifloxacin HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2009-Oct-15   	AVELOX 400 MG TABLET 	Simons Valley Drug Mart
+	
+10  Tablet(s) 	  for   10  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY UNTIL FINISHED
+	  2009-Oct-01   	AVELOX 400 MG TABLET 	Simons Valley Drug Mart
+	
+10  Tablet(s) 	  for   10  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET EACH DAY
+   ASA 81 MG TABLET DR (Acetylsalicylic Acid)   (Dispensing information only) 	Wray, Richard (MD)
+						(403) 556-3355
+  	Dispenses: 	 
+	  2009-Oct-11   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+49  Tablet(s) 	  for   49  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2009-Apr-20   	ASA 81 MG TABLET EC 	Simons Valley Drug Mart
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2008-Sep-08   	ASA 81 MG TABLET DR 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   10  days 
+		(403) 823-2670
+	
+TAKE ONE TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2008-Jul-15   	ASA 81 MG TABLET DR 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   10  days 
+		(403) 823-2670
+	
+TAKE ONE TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+	  2008-May-07   	ASA 81 MG TABLET DR 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   10  days 
+		(403) 823-2670
+	
+TAKE ONE TABLET DAILY WITH FOOD OR WATER (NOT MILK OR ANTACIDS) TO THIN BLOOD
+   ARTHROTEC 75 TABLET (Diclofenac Sodium/Misoprostol)   (Dispensing information only) 	Leung, Stephen (MD)
+						(403) 277-3333
+  	Dispenses: 	 
+	  2009-Oct-04   	ARTHROTEC 75 TABLET 	Simons Valley Drug Mart
+	
+30  Tablet(s) 	  for   15  days 
+		(403) 274-2444
+	
+TAKE ONE (1) TABLET TWICE DAILY WITH FOOD
+   RATIO-SALBUTAMOL HFA 100MCG (Salbutamol Sulfate)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2009-Oct-01   	RATIO-SALBUTAMOL HFA 100MCG 	Simons Valley Drug Mart
+	
+200  Inhaler 	  for   30  days 
+		(403) 274-2444
+	
+SHAKE WELL BEFORE USE. INHALE TWO (2) PUFFS THREE TIMES DAILY FOR 2 WEEKS (VENTOLIN)
+   APO-DILTIAZ CD 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Magerman, Eugene (MD)
+						(403) 452-3388
+  	Dispenses: 	 
+	  2009-Sep-24   	APO-DILTIAZ CD 120 MG CAP 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+	  2009-Mar-31   	APO-DILTIAZ CD 120 MG CAP 	Simons Valley Drug Mart
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR BLOOD PRESSURE
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Wray, Richard (MD)
+						(403) 556-3355
+  	Dispenses: 	 
+	  2008-Oct-30   	LESCOL 40 MG CAPSULE 	Simons Valley Drug Mart
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 274-2444
+	
+TAKE ONE (1) CAPSULE DAILY FOR CHOLESTEROL
+	  2008-Sep-08   	LESCOL 40 MG CAPSULE 	Anderson Drug/Medicine Shoppe #211
+	
+100  Capsule(s) 	  for   70  days 
+		(403) 823-2670
+	
+TAKE ONE CAPSULE EACH DAY FOR CHOLESTEROL
+	  2008-Jul-15   	LESCOL 40 MG CAPSULE 	Anderson Drug/Medicine Shoppe #211
+	
+100  Capsule(s) 	  for   70  days 
+		(403) 823-2670
+	
+TAKE ONE CAPSULE EACH DAY FOR CHOLESTEROL
+	  2008-May-07   	LESCOL 40 MG CAPSULE 	Anderson Drug/Medicine Shoppe #211
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 823-2670
+	
+TAKE ONE CAPSULE EACH DAY FOR CHOLESTEROL
+   PMS-METFORMIN 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Wray, Richard (MD)
+						(403) 556-3355
+  	Dispenses: 	 
+	  2008-Sep-08   	PMS-METFORMIN 500 MG TABLET 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 823-2670
+	
+TAKE ONE HALF (1/2) TABLET TWICE DAILY AS DIRECTED FOR BLOOD SUGARS
+	  2008-Jul-15   	PMS-METFORMIN 500 MG TABLET 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   70  days 
+		(403) 823-2670
+	
+TAKE ONE HALF (1/2) TABLET TWICE DAILY AS DIRECTED FOR BLOOD SUGARS
+	  2008-May-07   	PMS-METFORMIN 500 MG TABLET 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 823-2670
+	
+TAKE ONE HALF (1/2) TABLET TWICE DAILY AS DIRECTED FOR BLOOD SUGARS .
+   APO-DILTIAZ CD 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Wray, Richard (MD)
+						(403) 556-3355
+  	Dispenses: 	 
+	  2008-Sep-08   	APO-DILTIAZ CD 120 MG CAP 	Anderson Drug/Medicine Shoppe #211
+	
+100  Capsule(s) 	  for   50  days 
+		(403) 823-2670
+	
+TAKE ONE CAPSULE EACH DAY FOR BLOOD PRESSURE
+	  2008-Jul-15   	APO-DILTIAZ CD 120 MG CAP 	Anderson Drug/Medicine Shoppe #211
+	
+100  Capsule(s) 	  for   70  days 
+		(403) 823-2670
+	
+TAKE ONE CAPSULE EACH DAY FOR BLOOD PRESSURE
+	  2008-May-07   	APO-DILTIAZ CD 120 MG CAP 	Anderson Drug/Medicine Shoppe #211
+	
+100  Capsule(s) 	  for   100  days 
+		(403) 823-2670
+	
+TAKE ONE CAPSULE EACH DAY FOR BLOOD PRESSURE .
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Wray, Richard (MD)
+						(403) 556-3355
+  	Dispenses: 	 
+	  2008-May-07   	APO-PAROXETINE 20 MG TABLET 	Anderson Drug/Medicine Shoppe #211
+	
+100  Tablet(s) 	  for   100  days 
+		(403) 823-2670
+	
+TAKE ONE TABLET EACH DAY AS DIRECTED
+   BIAXIN XL 500 MG TABLET ER (Clarithromycin)   (Dispensing information only) 	Wray, Richard (MD)
+						(403) 556-3355
+  	Dispenses: 	 
+	  2008-Mar-15   	BIAXIN XL 500 MG TABLET ER 	Shoppers Drug Mart #2321
+	
+14  Tablet(s) 	  for   7  days 
+		(403) 556-3326
+	
+TAKE 2 TABLETS ONCE DAILY WITH FOOD UNTIL FINISHED
+   SINGULAIR 10 MG TABLET (Montelukast Sodium)   (Dispensing information only) 	Nel, Gert (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Mar-12   	SINGULAIR 10 MG TABLET 	Shoppers Drug Mart #2321
+	
+14  Tablet(s) 	  for   14  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY AT BEDTIME
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Nel, Gert (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Mar-12   	SYMBICORT 200 TURBUHALER 	Shoppers Drug Mart #2321
+	
+1  Inhaler 	  for   30  days 
+		(403) 556-3326
+	
+INHALE 1 DOSE 4 TIMES DAILY WHEN NEEDED
+   AVELOX 400 MG TABLET (Moxifloxacin HCL)   (Dispensing information only) 	Nel, Gert (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Mar-12   	AVELOX 400 MG TABLET 	Shoppers Drug Mart #2321
+	
+10  Tablet(s) 	  for   10  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET EVERY DAY UNTIL FINISHED
+   CALCIUM CARB & VIT D3 TAB (Calcium Carbonate/Cholecalciferol)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Mar-03   	CALCIUM CARB & VIT D3 TAB 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET 3 TIMES DAILY WITH FOOD
+	  2008-Jan-23   	CALCIUM CARB & VIT D3 TAB 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET 3 TIMES DAILY WITH FOOD
+	  2007-Dec-12   	CALCIUM CARB & VIT D3 TAB 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET 3 TIMES DAILY WITH FOOD
+	  2007-Oct-29   	CALCIUM CARB & VIT D3 TAB 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET THREE TIMES A DAY WITH FOOD
+   APO-DILTIAZ CD 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Feb-20   	APO-DILTIAZ CD 120 MG CAP 	Shoppers Drug Mart #2321
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE ONE CAPSULE ONCE DAILY
+	  2007-Oct-29   	APO-DILTIAZ CD 120 MG CAP 	Shoppers Drug Mart #2321
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 CAPSULE ONCE DAILY
+	  2007-Jul-31   	APO-DILTIAZ CD 120 MG CAP 	Shoppers Drug Mart #2321
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 CAPSULE ONCE DAILY
+	  2007-May-01   	APO-DILTIAZ CD 120 MG CAP 	Shoppers Drug Mart #2321
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 CAPSULE ONCE DAILY
+   APO-PAROXETINE 20 MG TABLET (Paroxetine HCL)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Feb-11   	GEN-PAROXETINE 20 MG TAB 	Shoppers Drug Mart #2321
+	
+45  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE ONE-HALF TABLET ONCE DAILY MORNING
+	  2007-Oct-29   	APO-PAROXETINE 20 MG TABLET 	Shoppers Drug Mart #2321
+	
+45  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1/2 TABLET ONCE DAILY IN THE MORNING
+   VITAMIN C 500 MG TABLET (Ascorbic Acid)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Feb-11   	ASCORBIC ACID 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE ONE TABLET ONCE DAILY AS DIRECTED
+	  2007-Nov-24   	ASCORBIC ACID 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET DAILY
+	  2007-May-01   	VITAMIN C 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY
+   ASA 81 MG TABLET DR (Acetylsalicylic Acid)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Feb-11   	LIFE BRAND DAILY 81 MG TAB 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE ONE TABLET ONCE DAILY
+	  2007-Oct-29   	LIFE BRAND DAILY 81 MG TAB 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH A GLASSFUL OF WATER TO PREVENT HEART ATTACK AND STROKE
+	  2007-Jul-31   	ASA 81 MG TABLET DR 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH A GLASSFUL OF WATER TO PREVENT HEART ATTACK AND STROKE
+	  2007-May-01   	ASA 81 MG TABLET DR 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH A GLASSFUL OF WATER TO PREVENT HEART ATTACK AND STROKE
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2008-Feb-11   	LESCOL 40 MG CAPSULE 	Shoppers Drug Mart #2321
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 2 (TWO) CAPSULES ONCE DAILY WITH SUPPER (FOR CHOLESTEROL)
+	  2007-Oct-29   	LESCOL 40 MG CAPSULE 	Shoppers Drug Mart #2321
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 2 CAPSULES ONCE DAILY WITH SUPPER (CHOLESTEROL)
+	  2007-Jul-31   	LESCOL 40 MG CAPSULE 	Shoppers Drug Mart #2321
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 2 CAPSULES ONCE DAILY WITH SUPPER (CHOLESTEROL)
+	  2007-May-01   	LESCOL 40 MG CAPSULE 	Shoppers Drug Mart #2321
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 2 CAPSULES ONCE DAILY WITH SUPPER (CHOLESTEROL)
+   PMS-METFORMIN 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2007-Oct-29   	PMS-METFORMIN 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1/2 TABLET TWICE A DAY WITH FOOD
+	  2007-Jul-31   	PMS-METFORMIN 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1/2 TABLET TWICE A DAY WITH FOOD
+	  2007-May-01   	PMS-METFORMIN 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1/2 TABLET TWICE A DAY WITH FOOD
+   CALCIUM W/ VITAMIN D TABLET (Calcium/Cholecalciferol)   (Dispensing information only) 	Hoeve, Allan (MD)
+						(403) 556-7130
+  	Dispenses: 	 
+	  2007-Jul-30   	CALCIUM W/ VITAMIN D TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH FOOD
+	  2007-May-01   	CALCIUM W/ VITAMIN D TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH FOOD
+   ASA 81 MG TABLET DR (Acetylsalicylic Acid)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2007-Feb-14   	ASA 81 MG TABLET DR 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH A GLASSFUL OF WATER TO PREVENT HEART ATTACK AND STROKE
+	  2006-Nov-09   	ASA 81 MG TABLET DR 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY WITH A GLASSFUL OF WATER TO PREVENT HEART ATTACK AND STROKE
+   GEN-METFORMIN 500 MG TABLET (Metformin HCL)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2007-Feb-14   	PMS-METFORMIN 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1/2 TABLET TWICE A DAY WITH FOOD
+	  2006-Nov-09   	PMS-METFORMIN 500 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1/2 TABLET TWICE A DAY WITH FOOD
+	  2006-Aug-18   	GEN-METFORMIN 500 MG TABLET 	Safeway Pharmacy #813
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 346-3200
+   APO-DILTIAZ CD 120 MG CAP (Diltiazem HCL)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2007-Feb-14   	APO-DILTIAZ CD 120 MG CAP 	Shoppers Drug Mart #2321
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 CAPSULE ONCE DAILY
+	  2006-Nov-09   	APO-DILTIAZ CD 120 MG CAP 	Shoppers Drug Mart #2321
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 CAPSULE ONCE DAILY
+	  2006-Aug-18   	APO-DILTIAZ CD 120 MG CAP 	Safeway Pharmacy #813
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 346-3200
+   GEN-PAROXETINE 20 MG TAB (Paroxetine HCL)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2007-Feb-14   	APO-PAROXETINE 20 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY
+	  2006-Nov-09   	APO-PAROXETINE 20 MG TABLET 	Shoppers Drug Mart #2321
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 1 TABLET ONCE DAILY
+	  2006-Aug-18   	GEN-PAROXETINE 20 MG TAB 	Safeway Pharmacy #813
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 346-3200
+   LESCOL 40 MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2007-Feb-14   	LESCOL 40 MG CAPSULE 	Shoppers Drug Mart #2321
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 2 CAPSULES ONCE DAILY WITH SUPPER (CHOLESTEROL)
+	  2006-Nov-09   	LESCOL 40 MG CAPSULE 	Shoppers Drug Mart #2321
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 556-3326
+	
+TAKE 2 CAPSULES ONCE DAILY WITH SUPPER (CHOLESTEROL)
+	  2006-Aug-18   	LESCOL 40 MG CAPSULE 	Safeway Pharmacy #813
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 346-3200
+   NOVO-LEVOFLOXACIN 500 MG TAB (Levofloxacin)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2006-Aug-02   	NOVO-LEVOFLOXACIN 500 MG TAB 	Safeway Pharmacy #813
+	
+10  Tablet(s) 	  for   10  days 
+		(403) 346-3200
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2006-Aug-02   	SYMBICORT 200 TURBUHALER 	Safeway Pharmacy #813
+	
+120  Inhaler 	  for   20  days 
+		(403) 346-3200
+   FLOVENT 250MCG AEROSOL (Fluticasone Propionate)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2006-Jul-27   	FLOVENT 250MCG AEROSOL 	Safeway Pharmacy #813
+	
+120  Inhaler 	  for   60  days 
+		(403) 346-3200
+   RATIO-SALBUTAMOL 100MCG INH (Salbutamol Sulfate)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2006-Jul-27   	RATIO-SALBUTAMOL 100MCG INH 	Safeway Pharmacy #813
+	
+200  Inhaler 	  for   25  days 
+		(403) 346-3200
+   APO-AZITHROMYCIN 250MG TAB (Azithromycin)   (Dispensing information only) 	Darby, Mark (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2006-Jul-27   	APO-AZITHROMYCIN 250MG TAB 	Safeway Pharmacy #813
+	
+6  Tablet(s) 	  for   5  days 
+		(403) 346-3200
+   APO-PAROXETINE 20MG TABLET (Paroxetine HCL)   (Dispensing information only) 	De Waal, Philip (MD)
+						(403) 948-6422
+  	Dispenses: 	 
+	  2006-May-31   	GEN-PAROXETINE 20MG TAB 	Safeway Pharmacy #813
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 346-3200
+	  2006-Feb-15   	GEN-PAROXETINE 20MG TAB 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Nov-19   	GEN-PAROXETINE 20MG TAB 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Feb-22   	APO-PAROXETINE 20MG TABLET 	The Dispensary Ltd.
+	
+45  Unit 	  for   45  days 
+		(403) 341-6955
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Philip (MD)
+						(403) 948-6422
+  	Dispenses: 	 
+	  2006-May-31   	APO-DILTIAZ CD 120MG CAP 	Safeway Pharmacy #813
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 346-3200
+	  2006-Feb-15   	APO-DILTIAZ CD 120MG CAP 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Nov-19   	RATIO-DILTIAZEM CD 120MG CP 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Aug-12   	RATIO-DILTIAZEM CD 120MG CP 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-May-12   	RATIO-DILTIAZEM CD 120MG CP 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Feb-22   	APO-DILTIAZ CD 120MG CAP 	The Dispensary Ltd.
+	
+90  Unit 	  for   90  days 
+		(403) 341-6955
+   APO-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Philip (MD)
+						(403) 948-6422
+  	Dispenses: 	 
+	  2006-May-31   	GEN-METFORMIN 500MG TABLET 	Safeway Pharmacy #813
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 346-3200
+	  2006-May-15   	GEN-METFORMIN 500MG TABLET 	Safeway Pharmacy #813
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 346-3200
+	  2005-Feb-22   	APO-METFORMIN 500MG TABLET 	The Dispensary Ltd.
+	
+90  Unit 	  for   45  days 
+		(403) 341-6955
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Philip (MD)
+						(403) 948-6422
+  	Dispenses: 	 
+	  2006-May-31   	LESCOL 40MG CAPSULE 	Safeway Pharmacy #813
+	
+180  Capsule(s) 	  for   90  days 
+		(403) 346-3200
+	  2006-Feb-15   	LESCOL 40MG CAPSULE 	Safeway Pharmacy #813
+	
+180  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Nov-19   	LESCOL 40MG CAPSULE 	Safeway Pharmacy #813
+	
+180  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Aug-12   	LESCOL 40MG CAPSULE 	Safeway Pharmacy #813
+	
+180  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-May-12   	LESCOL 40MG CAPSULE 	Safeway Pharmacy #813
+	
+180  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Feb-22   	LESCOL 40MG CAPSULE 	The Dispensary Ltd.
+	
+180  Unit 	  for   90  days 
+		(403) 341-6955
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2006-Feb-15   	GEN-METFORMIN 500MG TABLET 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Nov-19   	GEN-METFORMIN 500MG TABLET 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-Aug-12   	GEN-METFORMIN 500MG TABLET 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-May-12   	GEN-METFORMIN 500MG TABLET 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2004-Sep-01   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   CELEBREX 200MG CAPSULE (Celecoxib)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2005-Dec-19   	CELEBREX 200MG CAPSULE 	Safeway Pharmacy #813
+	
+14  Unit 	  for   14  days 
+		(403) 346-3200
+   APO-NORFLOX 400MG TABLET (Norfloxacin)   (Dispensing information only) 	Benson, Bruce (MD)
+						(403) 346-4206
+  	Dispenses: 	 
+	  2005-Sep-28   	APO-NORFLOX 400MG TABLET 	Safeway Pharmacy #813
+	
+20  Unit 	  for   10  days 
+		(403) 346-3200
+   GEN-PAROXETINE 20MG TAB (Paroxetine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2005-Aug-12   	GEN-PAROXETINE 20MG TAB 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2005-May-12   	GEN-PAROXETINE 20MG TAB 	Safeway Pharmacy #813
+	
+90  Unit 	  for   90  days 
+		(403) 346-3200
+	  2004-Feb-12   	GEN-PAROXETINE 20MG TAB 	Rockyview IDA Pharmacy
+	
+45  Unit 	  for   90  days 
+		(403) 946-2342
+   RATIO-SALBUTAMOL 100MCG INH (Salbutamol Sulfate)   (Dispensing information only) 	Lang-Hodge, Brian (MD)
+						
+  	Dispenses: 	 
+	  2005-Apr-10   	RATIO-SALBUTAMOL 100MCG INH 	Safeway Pharmacy #813
+	
+200  Unit 	  for   100  days 
+		(403) 346-3200
+   FLOVENT 250MCG AEROSOL (Fluticasone Propionate)   (Dispensing information only) 	Lang-Hodge, Brian (MD)
+						
+  	Dispenses: 	 
+	  2005-Apr-10   	FLOVENT 250MCG AEROSOL 	Safeway Pharmacy #813
+	
+120  Unit 	  for   30  days 
+		(403) 346-3200
+   ZITHROMAX 250MG TABLET (Azithromycin)   (Dispensing information only) 	Lang-Hodge, Brian (MD)
+						
+  	Dispenses: 	 
+	  2005-Apr-10   	ZITHROMAX 250MG TABLET 	Safeway Pharmacy #813
+	
+4  Unit 	  for   4  days 
+		(403) 346-3200
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Dec-02   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Dec-02   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-PAROXETINE 20MG TABLET (Paroxetine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Sep-01   	APO-PAROXETINE 20MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Sep-01   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Sep-01   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-PAROXETINE 20MG TABLET (Paroxetine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Aug-16   	APO-PAROXETINE 20MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-May-28   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-PAROXETINE 20MG TABLET (Paroxetine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-May-28   	APO-PAROXETINE 20MG TABLET 	Rockyview IDA Pharmacy
+	
+45  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-May-28   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-May-28   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   BONAMINE 25MG TABLET CHEW (Meclizine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-May-25   	BONAMINE 25MG TABLET CHEW 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   10  days 
+		(403) 946-2342
+   APO-ERYTHRO E-C 333MG CAP (Erythromycin Base)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Feb-12   	APO-ERYTHRO E-C 333MG CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   10  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Feb-12   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Feb-12   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2004-Feb-12   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   PAXIL 20MG TABLET (Paroxetine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Nov-10   	PAXIL 20MG TABLET 	Rockyview IDA Pharmacy
+	
+45  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Nov-10   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Nov-10   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Nov-10   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   PAXIL 20MG TABLET (Paroxetine HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Oct-16   	PAXIL 20MG TABLET 	Rockyview IDA Pharmacy
+	
+14  Unit 	  for   28  days 
+		(403) 946-2342
+   CELEBREX 200MG CAPSULE (Celecoxib)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Aug-19   	CELEBREX 200MG CAPSULE 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Aug-01   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Aug-01   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Aug-01   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-May-26   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-May-26   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-May-26   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Apr-12   	SYMBICORT 200 TURBUHALER 	Rockyview IDA Pharmacy
+	
+120  Unit 	  for   30  days 
+		(403) 946-2342
+	  2003-Feb-19   	SYMBICORT 200 TURBUHALER 	Rockyview IDA Pharmacy
+	
+120  Unit 	  for   30  days 
+		(403) 946-2342
+   RHOXAL-DILTIAZEM CD 120MG (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Feb-19   	RHOXAL-DILTIAZEM CD 120MG 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Feb-19   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Feb-19   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2003-Jan-17   	SYMBICORT 200 TURBUHALER 	Rockyview IDA Pharmacy
+	
+120  Unit 	  for   30  days 
+		(403) 946-2342
+	  2002-Dec-03   	SYMBICORT 200 TURBUHALER 	Rockyview IDA Pharmacy
+	
+120  Unit 	  for   30  days 
+		(403) 946-2342
+   RHOXAL-DILTIAZEM CD 120MG (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Dec-03   	RHOXAL-DILTIAZEM CD 120MG 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Dec-03   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Dec-03   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2002-Oct-24   	SYMBICORT 200 TURBUHALER 	Rockyview IDA Pharmacy
+	
+120  Unit 	  for   30  days 
+		(403) 946-2342
+	  2002-Sep-13   	SYMBICORT 200 TURBUHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+   BIAXIN 250MG TABLET (Clarithromycin)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Sep-13   	BIAXIN 250MG TABLET 	Rockyview IDA Pharmacy
+	
+20  Unit 	  for   10  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Sep-06   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   ALTI-DILTIAZEM CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Sep-06   	ALTI-DILTIAZEM CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	De Waal, Willem (MD)
+						4033286641 ext193
+  	Dispenses: 	 
+	  2002-Sep-05   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   CELEBREX 200MG CAPSULE (Celecoxib)   (Dispensing information only) 	Claasen, Izak (MD)
+						(403) 226-6715
+  	Dispenses: 	 
+	  2002-Jul-04   	CELEBREX 200MG CAPSULE 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2002-Jun-18   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   CELEBREX 200MG CAPSULE (Celecoxib)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2002-May-27   	CELEBREX 200MG CAPSULE 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   ALTI-DILTIAZEM 120MG CD CAP (Diltiazem HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2002-May-27   	ALTI-DILTIAZEM 120MG CD CAP 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2002-May-27   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+	  2002-Feb-20   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   ALTI-DILTIAZEM 120MG CD CAP (Diltiazem HCL)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2002-May-14   	ALTI-DILTIAZEM 120MG CD CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+	  2002-Apr-15   	ALTI-DILTIAZEM 120MG CD CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+	  2002-Mar-12   	ALTI-DILTIAZEM 120MG CD CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   PULMICORT 400MCG TURBUHALER (Budesonide)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2002-Mar-21   	PULMICORT 400MCG TURBUHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+	  2001-Dec-12   	PULMICORT 400MCG TURBUHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2002-Mar-12   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   APO-PREDNISONE 50MG TABLET (Prednisone)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2002-Feb-13   	APO-PREDNISONE 50MG TABLET 	Rockyview IDA Pharmacy
+	
+5  Unit 	  for   5  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2002-Feb-13   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+	  2002-Jan-11   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+	  2001-Dec-12   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   APO-SALVENT 100MCG INHALER (Salbutamol Sulphate)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2001-Dec-12   	APO-SALVENT 100MCG INHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Dec-04   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Dec-04   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+180  Unit 	  for   90  days 
+		(403) 946-2342
+   ATROVENT 20MCG INHALER (Ipratropium Bromide)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2001-Nov-29   	ATROVENT 20MCG INHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+	  2001-Nov-16   	ATROVENT 20MCG INHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+   ADVAIR DISKUS DISK W/DEV (Fluticasone Propionate/Salmeterol Xinafoate)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2001-Nov-16   	ADVAIR DISKUS DISK W/DEV 	Rockyview IDA Pharmacy
+	
+60  Unit 	  for   30  days 
+		(403) 946-2342
+   NITROLINGUAL 0.4MG SPRAY (Nitroglycerin)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2001-Nov-16   	NITROLINGUAL 0.4MG SPRAY 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+   APO-DILTIAZ CD 120MG CAP (Diltiazem HCL)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2001-Nov-16   	APO-DILTIAZ CD 120MG CAP 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   APO-PREDNISONE 50MG TABLET (Prednisone)   (Dispensing information only) 	Zuege, Danny (MD)
+						(403) 943-4309
+  	Dispenses: 	 
+	  2001-Nov-16   	APO-PREDNISONE 50MG TABLET 	Rockyview IDA Pharmacy
+	
+4  Unit 	  for   7  days 
+		(403) 946-2342
+   MONOCOR 5MG TABLETS (Bisoprolol Fumarate)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Nov-08   	MONOCOR 5MG TABLETS 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   ATROVENT 20MCG INHALER (Ipratropium Bromide)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Nov-01   	ATROVENT 20MCG INHALER 	Rockyview IDA Pharmacy
+	
+200  Unit 	  for   30  days 
+		(403) 946-2342
+   LEVAQUIN 500MG TABLET (Levofloxacin)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Oct-24   	LEVAQUIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+10  Unit 	  for   10  days 
+		(403) 946-2342
+   MONOCOR 5MG TABLETS (Bisoprolol Fumarate)   (Dispensing information only) 	Dear, Richard (MD)
+						(403) 685-9422
+  	Dispenses: 	 
+	  2001-Oct-12   	MONOCOR 5MG TABLETS 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Sep-28   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+100  Unit 	  for   100  days 
+		(403) 946-2342
+	  2001-Jun-08   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+100  Unit 	  for   100  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Sep-17   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   VIOXX 25MG TABLET (Rofecoxib)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Aug-29   	VIOXX 25MG TABLET 	Rockyview IDA Pharmacy
+	
+100  Unit 	  for   100  days 
+		(403) 946-2342
+   VIOXX 25MG TABLET (Rofecoxib)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Aug-22   	VIOXX 25MG TABLET 	Rockyview IDA Pharmacy
+	
+10  Unit 	  for   10  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Jun-08   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   GEN-METFORMIN 500MG TABLET (Metformin HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-May-24   	GEN-METFORMIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+30  Unit 	  for   30  days 
+		(403) 946-2342
+   FLOVENT 125MCG/MD INHALER (Fluticasone Propionate)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Mar-20   	FLOVENT 125MCG/MD INHALER 	Rockyview IDA Pharmacy
+	
+120  Unit 	  for   30  days 
+		(403) 946-2342
+   BIAXIN 500MG TABLET (Clarithromycin)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						(403) 946-2342
+  	Dispenses: 	 
+	  2001-Mar-12   	BIAXIN 500MG TABLET 	Rockyview IDA Pharmacy
+	
+20  Unit 	  for   10  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Collingridge, Robert (MD)
+						(403) 946-3988
+  	Dispenses: 	 
+	  2001-Feb-14   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+100  Unit 	  for   100  days 
+		(403) 946-2342
+	  2000-Nov-02   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+100  Unit 	  for   100  days 
+		(403) 946-2342
+   KENALOG-10 10MG/ML VIAL (Triamcinolone Acetonide)   (Dispensing information only) 	Collingridge, Robert (MD)
+						(403) 946-3988
+  	Dispenses: 	 
+	  2001-Feb-07   	KENALOG-10 10MG/ML VIAL 	Rockyview IDA Pharmacy
+	
+1  Unit 	  for   1  days 
+		(403) 946-2342
+   LIPITOR 10MG TABLET (Atorvastatin Calcium)   (Dispensing information only) 	Collingridge, Robert (MD)
+						(403) 946-3988
+  	Dispenses: 	 
+	  2000-Oct-27   	LIPITOR 10MG TABLET 	Rockyview IDA Pharmacy
+	
+14  Unit 	  for   14  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Collingridge, Robert (MD)
+						(403) 946-3988
+  	Dispenses: 	 
+	  2000-Jul-28   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+	  2000-Apr-27   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+90  Unit 	  for   90  days 
+		(403) 946-2342
+   LESCOL 40MG CAPSULE (Fluvastatin Sodium)   (Dispensing information only) 	Collingridge, Robert (MD)
+						(403) 946-3988
+  	Dispenses: 	 
+	  2000-Feb-26   	LESCOL 40MG CAPSULE 	Rockyview IDA Pharmacy
+	
+60  Unit 	  for   60  days 
+		(403) 946-2342
+
+
+- End of Report -

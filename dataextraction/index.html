@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php 
+		$title = 'Study Buffalo Web Crawlers & Data Extraction';
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+</head>
+
+<body>
+	<?php
+		$header = 'Web Crawlers & Data Extraction';
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<h2>Data Extraction</h2>
+		<p>Studybuffalo.com is a website designed to provide practice 
+		tools and information to pharmacists in Alberta (and anywhere 
+		else where they may be value). Some of our tools take 
+		available resources and redesign them into user-friendly 
+		interfaces that provide unique functionality and information. 
+		To power these tools we often will extract data from 
+		publically available databases, such as yours, to incorporate 
+		into our systems.</p>
+		
+		<h2 class="MT1em">Web Crawlers</h2>
+		<p>The aforementioned data extraction is powered by various 
+		web crawlers designed with Python running on an Ubuntu
+		server. To ensure minimal impact on your own severs we try 
+		to ensure the following:
+		<ul>
+			<li>All web crawlers will identify themselves and link to 
+				this page</li>
+			<li>We will comply with your sites robots.txt file 
+				(looking for it in your root directory 
+				automatically)</li>
+			<li>We try to limit our downloads and data extraction to 
+				times and days where it is unlikely to be disruptive
+				for your regular users. Additionally, we try to only 
+				run the web crawler no more than once a week where 
+				possible.</li>
+			<li>We only make one copy of the required data. We use 
+				this copy to parse and extract the required data and 
+				then host it on our own servers. Our users will not 
+				be using your bandwidth and other resources.</li>
+		</ul>
+			
+		<h2 class="MT1em">Contact Us</h2>
+		<p>While we hope that our above precautions are sufficient, 
+		we understand if you have concerns with our web crawlers and 
+		data use. We will oblige any requests to cease operations, 
+		but do hope that you will contact us to discuss the issue 
+		prior. These tools are currently being used to help deliver 
+		patient care by numerous pharmacists and we hope that 
+		alternative arrangements can be agreed upon to meet the needs 
+		of all parties involved.</p>
+		
+		<p class="MT1em">Please feel free to contact us at 
+		<a href="mailto: studybuffalo@studybuffalo.com">
+		studybuffalo@studybuffalo.com</a> with any questions, comments, 
+		or concerns.</p>
+	</div>
+	
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php'; ?>
+</body>
+
+<!-- JS Functions -->
+<!-- <script src="/include/js/resize_main_content.js"></script> -->
+</html>

@@ -1,0 +1,252 @@
+/*
+	Dark Grey = rgb(101, 101, 101);
+	Grey = rgb(151, 151, 151);
+	Light Grey = rgb(200, 200, 200);
+	Lightest Grey = rgb(245, 245, 245);
+	Dark Green = rgb(31, 103, 0);
+	Green = rgb(41, 138, 0);
+	Light Green = rgb(49, 171, 0);
+	Pale Green = rgb(200, 238, 196);
+*/
+
+/* General Styles */
+h2 {
+	text-align: left;
+}
+
+/* Input Styles */
+select {
+	font-size: 95%;
+	border: 2px solid rgb(101, 101, 101);
+}
+
+input[type="text"], input[type="search"] {
+	font-family: Arial,sans-serif;
+	font-size: 90%;
+	border: 2px solid rgb(101, 101, 101);
+	padding: 2px 3px;
+	margin: 2px 0px;
+}
+
+input[type="text"]:focus, input[type="search"]:focus, select:focus {
+	border: 2px solid rgb(41, 138, 0);
+	box-shadow: none;
+	outline: none;
+}
+
+textarea {
+	height: 6em;
+	width: 25em;
+	font-family: Arial,sans-serif;
+	font-size: 90%;
+	border: 2px solid rgb(101, 101, 101);
+	padding: 2px 3px;
+	margin: 2px 0px;
+}
+
+textarea:focus {
+	border: 2px solid rgb(41, 138, 0);
+	box-shadow: none;
+	outline: none;
+}
+
+input[type="button"] {
+	font-size: 90%;
+	padding: 5px;
+}
+
+.textLabel {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.textLabel + input[type="textbox"], .textLabel + textarea, .textLabel + select{
+	vertical-align: top;
+}
+
+/* Search Bar Styles */
+#Search-Container {
+	min-width: 300px;
+	max-width: 800px;
+	padding: 10px;
+}
+
+#Search-Bar {
+	width: 100%;
+	display: block;
+}
+
+#Search-Results {
+	width: 100%;
+	padding: 0em;
+	margin: 0em;
+	display: block;
+}
+
+#Search-Results ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	border: 1px solid rgb(0, 0, 0);
+	top: 0px;
+	left: 0px;
+	z-index: 5;
+}
+
+#Search-Results li {
+	margin: 0;
+	padding: 0;
+}
+
+#Search-Results a {
+	background: rgb(245, 245, 245);
+	display: block;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+	font-weight: 400;
+	transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-ms-transition: 0.3s;
+	-o-transition: 0.3s;
+}
+
+#Search-Results a:hover {
+	background: rgb(200, 238, 196);
+	cursor: pointer;
+}
+
+/* Price Table Formatting */
+#Price-Table {
+	border-collapse: collapse;
+}
+
+#Price-Table th, #Price-Table td {
+	padding: 5px 10px;
+}
+
+#Price-Table td {
+	text-align: center;
+	background-color: rgb(245, 245, 245);
+}
+
+#Price-Table thead th, #Price-Table tfoot th {
+	background-color: rgb(31, 103, 0);
+	color: rgb(255, 255, 255);
+}
+
+#Price-Table thead th:nth-child(1) {
+	width: 15em;
+}
+
+#Price-Table thead th:nth-child(3) {
+	width: 10em;
+}
+
+#Price-Table tbody td:nth-child(1) {
+	text-align: left;
+}
+
+#Price-Table tbody td:nth-child(1) input {
+	min-width: 10em;
+	max-width: 20em;
+	width: 100%;
+	text-align: left;
+}
+
+#Price-Table .cellPrice {
+	text-align: right;
+}
+
+#Price-Table tfoot th {
+	text-align: right;
+}
+
+#Price-Table tfoot td {
+	text-align: left;
+	font-size: 75%;
+	background-color: rgb(200, 200, 200);
+}
+
+#Price-Table tfoot .changeCell {
+	text-align: center;
+	font-size: 75%;
+}
+
+#Price-Table input[type="text"] {
+	width: 3em;
+	text-align: center;
+}
+
+#Price-Table select {
+	width: 8em;
+}
+
+#Price-Table .delete {
+	border: none;
+	background: url("/include/images/trash.svg") 0px 0px;
+	width: 25px;
+	height: 29px;
+	display: block;
+}
+
+#Price-Table .delete:hover {
+	background: url("/include/images/trash.svg") 0px 29px;
+	width: 25px;
+	height: 29px;
+	cursor: pointer;
+}
+
+.methodDay .cellDay {
+	display: table-cell;
+}
+
+.methodDay .cellQuantity {
+	display: none;
+}
+
+.methodQuantity .cellDay {
+	display: none;
+}
+
+.methodQuantity .cellQuantity {
+	display: table-cell;
+}
+
+.legend {
+	font-size: 70%;
+}
+
+/* Change All Popup Formatting */
+#Popup-Veil {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	top: 0;
+}
+
+#Popup-Div {
+	position: absolute;
+	margin: auto;
+	background-color: rgb(245, 245, 245);
+	border: 1px solid rgb(0, 0, 0);
+	z-index: 3;
+	box-shadow: 2px 2px 5px rgb(101, 101, 101);
+}
+
+#Popup-Div span {
+	display: block;
+	padding: 0.25em;
+}
+
+#Popup-Div input[type="text"] {
+	display: block;
+	width: 3em;
+	margin: 0.25em
+}
+
+#Popup-Div input[type="button"] {
+	margin: 0.25em;
+}

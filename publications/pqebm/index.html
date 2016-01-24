@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php 
+		include 'details.php';
+		$title = 'Study Buffalo - Publications: ' . $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="/publications/include/style.css">
+</head>
+
+<body>
+	<?php
+		//Generates menu bar
+		include 'details.php';
+		$header = $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<div class="center-content">
+			<object data="pq_2013_11_ebm.pdf" type="application/pdf" width="618" height="773">
+				<a href="pq_2013_11_ebm.pdf">
+				Pharmacy Quarterly November 2013: Streamlining Your EBM Searches
+				</a>
+			</object>
+		</div>
+	</div>
+	
+	<?php
+		//Adds social media links
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/social_media_bar.php';
+		
+		//Adds footer
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+</body>
+
+<!-- JS Functions -->
+</html>

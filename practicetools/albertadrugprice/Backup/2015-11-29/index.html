@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+	***************************************************************************
+	*	STUDY BUFFALO ALBERTA BLUE CROSS DRUG PRICE CALCULATORVANCOMYCIN	  *
+	*																		  *
+	*	Last Update: 2015-Nov-29											  *
+	*																		  *
+	*	Copyright(c) Notices												  *
+	*		2015	Joshua R. Torrance	<studybuffalo@studybuffalo.com>		  *
+	*																		  *
+	* 	Use, modification and sharing of this software is restricted as per   *
+	*	the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 		  *
+	*	Unported License.													  *
+	*																		  *
+	*	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,		  *
+	*	EXPRESS	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 	  *
+	*	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 				  *
+	*	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS   *
+	*	BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 	  *
+	*	ACTION	OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN    *
+	*	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 	  *
+	*	SOFTWARE.															  *
+	***************************************************************************/
+	-->
+	<?php 
+		include 'details.php';
+		$title = 'Study Buffalo - Practice Tools: ' . $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<?php
+		//Generates menu bar
+		include 'details.php';
+		$header = $title;
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<div class="line">
+			<p>Welcome to the Alberta Drug Price Calculator. To start, enter your drug in 
+			the search bar below and click on the entry you want to calculate the price for.
+			You may add multiple items at a time and print off a complete list in the end.</p>
+			
+			<p class="MT1em">Please see notice on the bottom of the page for the assumptions 
+			made by the calculator.</p>
+		</div>
+		
+		<div class="line MT1em">
+			<h2>Medication Prices</h2>
+			
+			<p><strong>Search for a drug name (generic or brand name):</strong></p>
+			
+			<div id="Search-Container">
+				<input type="search" id="Search-Bar" incremental="incremental">
+				
+				<div class="line"><div id="Search-Results"></div></div>
+			</div>
+			
+			<div class="line MB1em">
+				<strong>Price Calculation Method:</strong>
+				<select id="Price-Table-Method">
+					<option>By day supply</option>
+					<option>By quantity</option>
+				</select>
+			</div>
+			
+			<table id="Price-Table">
+				<thead>
+					<tr>
+						<th>Medication</th>
+						<th>Brand</th>
+						<th>Cost Per Unit</th>
+						<th class="cellDay">Doses Per Day</th>
+						<th class="cellDay">Day Supply</th>
+						<th name="Price-Table-Day-Count" class="cellDay cellPrice">Price</th>
+						<th class="cellQuantity">Quantity</th>
+						<th name="Price-Table-Quantity-Count" class="cellQuantity cellPrice">Price</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="cellDay"></td>
+						<td class="cellDay"></td>
+						<td class="cellDay"></td>
+						<td class="cellQuantity"></td>
+						<td class="cellQuantity"></td>
+						<td class="cellQuantity"></td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th class="cellDay"></th>
+						<th class="cellDay changeCell">
+							<input type="text" name="Change-All-Supply-Input"><br>
+							<input type="button" name="Change-All-Supply-Button" value="Change All">
+						</th>
+						<th class="cellDay"></th>
+						<th class="cellQuantity changeCell">
+							<input type="text" name="Change-All-Quantity-Input"><br>
+							<input type="button" name="Change-All-Quantity-Button" value="Change All">
+						</th>
+						<th class="cellQuantity"></th>
+						<th></th>
+					</tr>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th class="cellDay"></th>
+						<th class="cellDay"><strong>TOTAL</strong></th>
+						<th class="cellDay"><span name="Price-Table-Day-Total">$0.00</span></th>
+						<th class="cellQuantity"><strong>TOTAL</strong></th>
+						<th class="cellQuantity"><span name="Price-Table-Quantity-Total">$0.00</span></th>
+						<th></th>
+					</tr>
+					<tr>
+						<td colspan="5">
+							LCA: Least Cost Alternative
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+			
+			<div class="line MT1em">
+				<input type="button" id="Print-Medication-Prices" value="Print Medication Prices">
+			</div>
+		</div>
+		
+		<div class="line MT1em">
+			<h2>Disclaimers & Notices</h2>
+			
+			<p>
+				This calculator is based off the prices listed off the 
+				<a href="https://idbl.ab.bluecross.ca/idbl/load.do">Alberta 
+				Blue Cross Interactive Drug Benefit List (iDBL)</a>. While we 
+				strive to keep our information updated and accurate, there may 
+				be issues outside of our control. The data found on the iDBL 
+				will supersede anything reported here. We are not responsible 
+				for how this information is used - the following are 
+				considerations to make when using this website:
+			</p>
+			
+			<ul>
+				<li class="MT05em">To reduce the burden on the Alberta Blue 
+					Cross servers, we update this information weekly (last 
+					updated on <?php echo $update ?>)</li>
+				<li class="MT05em">Much of this information is automatically 
+					generated - this could result in inaccuracies in the data 
+					that we have not caught.</li>
+				<li class="MT05em">Prices are calculated assuming that the 
+					pharmacy is charging the maximum amount allowed in the 
+					<em>Alberta Blue Cross Pharmacy Services Agreement</em>. 
+					Pharmacies may choose to charge less than this amount when 
+					billing a third-party coverage. Pharmacies may choose to 
+					charge more than these amounts for patients paying 
+					out-of-pocket.</li>
+				<li class="MT05em">The benefit information listed is only 
+					accurate for publicly-funded Alberta Blue Cross insurance 
+					plans. While it may be applicable to other insurance plans, 
+					we cannot guarantee this. Other insurance plans may choose 
+					to cover different products at different prices.</li>
+				<li class="MT05em">These prices reflect the costs before any 
+					third-party coverage. Final prices for your patient may 
+					vary depending on multiple factors (e.g. the percentage 
+					covered by the third-party provider, yearly deductibles, 
+					yearly plan maximums).</li>
+			</ul>
+			
+			<p>
+				If you have any questions, concerns, or wish to report an error,
+				please email us at
+				<a href="mailto:studybuffalo@studybuffalo.com?subject=Alberta%20Drug%20Price%20Calculator">
+				studybuffalo@studybuffalo.com</a>.
+			</p>
+			
+			<p class="center-content MT1em">
+				<strong>Prices last updated:</strong> <span id="Last-Update"><?php echo $update ?></span>
+			</p>
+		</div>
+		
+		<div class="line MT1em">
+			<h2>Upcoming Features</h2>
+			
+			<ul>
+				<li>Ability to compare multiple quantities/day supplies at 
+					once.</li>
+				<li>Viewing coverage information for Alberta Blue Cross drug 
+					plans.</li>
+				<li>Viewing special authorization coverage criteria and ability 
+					to access special authorization forms.</li>
+				<li>Ability to compare cost across drug classes.</li>
+				<li>Viewing breakdown of drug costs and fees.</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	
+	<?php
+		//Adds social media links
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/social_media_bar.php';
+		
+		//Adds footer
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+	
+	<!-- JS Functions -->
+	<script src="functions.js"></script>
+</body>

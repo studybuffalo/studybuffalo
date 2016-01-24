@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php 
+		$title = 'Study Buffalo';
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+</head>
+
+<body>
+	<?php
+		$header = 'Welcome to Study Buffalo!';
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<h2>Newest Content</h2>
+		<?php include $_SERVER['DOCUMENT_ROOT'] . '/include/php/display_newest_content.php'; ?>
+	</div>
+	
+	<div id="About-Us">			
+		<h2>About Us</h2>
+		<p>Hi, we are two polyurethane foam rubber buffalo. When we are not busy 
+		with our pharmacy continuing education we like to go to document 
+		our adventures on our website. We also like to take some time to 
+		develop study guides and practice tools to help pharmacists and 
+		pharmacy students.</p>
+		
+		<p class="MT1em">We are always looking for people to help us add new 
+		content or update older content (we no longer keep up with new syllabus 
+		updates). We are also happy to respond to any comments or suggestions.
+		Simply contact us at <a href="mailto:studybuffalo@studybuffalo.com">
+		studybuffalo@studybuffalo.com</a>.</p>
+	</div>
+	
+	<div id="Social-Media">
+		<h2>Follow Us Across the Internet!</h2>
+		
+		<!-- Facebook Follow Button -->
+		<div id="Social-Media-Facebook">
+			<div id="fb-root"></div>
+			<div class="fb-follow" 
+				data-href="https://www.facebook.com/studybuffalo"
+				data-width="200"
+				data-layout="box_count"
+				data-show-faces="true"></div>
+		</div>
+		
+		<!-- Twitter Follow Button -->
+		<div id="Social-Media-Twitter">
+			<a class="twitter-follow-button"
+				href="https://twitter.com/StudyBuffalo"
+				data-size="large">
+				Follow @StudyBuffalo</a>
+		</div>
+		
+		<!-- Google Plus Follow Button -->
+		<div id="Social-Media-Google">
+			<div class="g-follow"
+				data-href="https://plus.google.com/115534373351831644201"
+				data-rel="author"
+				data-annotation="vertical-bubble"></div>
+		</div>
+	</div>
+	
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php'; ?>
+</body>
+
+<!-- JS Functions -->
+</html>

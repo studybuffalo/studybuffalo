@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php 
+		$title = 'Study Buffalo - Study Guides';
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
+	?>
+	<link rel="stylesheet" type="text/css" href="include/style.css">
+</head>
+
+<body>
+	<?php
+		$header = 'Study Guides';
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/menu_bar.php';
+	?>
+	
+	<div id="Main-Content">
+		<table id="Study-Table-List">
+			<thead>
+				<tr>
+					<th id="Study-Table-Title-A">Study Guide</th>
+					<th>Description</th>
+					<th id="Study-Table-Update-D">Last Updated</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php include 'include/generate_table.php'; ?>
+			</tbody>
+		</table>
+	</div>
+	
+	<?php
+		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/footer.php';
+	?>
+</body>
+
+<!-- JS Functions -->
+<script src="include/functions.js"></script>
+</html>

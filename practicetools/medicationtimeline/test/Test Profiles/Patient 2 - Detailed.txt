@@ -1,0 +1,5274 @@
+PHN/ULI: 12345-6799 Jill, Smid 	 
+
+124 ABC DED NE
+Calgary, Alberta T0X0X0
+Phone:  (403) 123-45678 	Date of Birth:  1950-Jul-19
+Gender:  Female 	Printed:  2015-Aug-25 13:56:36
+Printed By:  NetCare, System
+
+PROVIDER MUST VERIFY THE ACCURACY AND COMPLETENESS OF THIS PATIENT'S INFORMATION
+PRIOR TO TREATMENT DECISIONS
+
+
+ 
+DRUG ALLERGY AND INTOLERANCE 	Review not done
+ 
+NON DRUG ALLERGY AND INTOLERANCE 	Review not done
+ 
+
+CHRONOLOGICAL PRESCRIPTION LIST - Detail (ALL PRESCRIPTIONS )
+
+   TEVA-PANTOPRAZOLE DR 40 MG TAB (Pantoprazole Sodium)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-Jul-08   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2015-Apr-07   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2014-Dec-09   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2014-Sep-02   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   TEVA-VENLAFAXINE XR 75 MG (Venlafaxine HCL)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-Jun-08   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2015-Mar-06   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2014-Dec-09   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2014-Sep-02   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phosphate)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-Jun-08   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+720  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2015-May-19   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+140  Tablet(s) 	  for   17  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2015-May-04   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+140  Tablet(s) 	  for   17  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2015-Mar-27   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2015-Feb-17   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2015-Jan-21   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-Dec-17   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-Oct-29   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-Oct-16   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-Sep-25   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-Sep-02   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-Aug-14   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+200  Tablet(s) 	  for   16  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+	  2014-May-13   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+   TEVA-LORAZEPAM 1 MG TABLET (Lorazepam)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-May-19   	PMS-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+270  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2015-Apr-07   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+140  Tablet(s) 	  for   46  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2015-Mar-06   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2015-Jan-23   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2014-Dec-30   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2014-Nov-29   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2014-Oct-16   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2014-Sep-15   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2014-Aug-14   	TEVA-LORAZEPAM 1 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+   SANDOZ ATORVASTATIN 40 MG TAB (Atorvastatin Calcium)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-May-19   	ACT ATORVASTATIN 40 MG TABLET 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+	  2015-Feb-17   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+	  2014-Nov-09   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+	  2014-Aug-14   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+   APO-SULFATRIM 400-80 MG TAB (Sulfamethoxazole/Trimethoprim)   (Dispensing information only) 	San Vicente, Juan (MD)
+						(403) 342-1034
+  	Dispenses: 	 
+	  2015-Mar-12   	APO-SULFATRIM 400-80 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   TEVA-PANTOPRAZOLE DR 40 MG TAB (Pantoprazole Sodium)   (Dispensing information only) 	Akinde, Josiah (PHARM)
+						
+  	Dispenses: 	 
+	  2015-Mar-06   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY * ADAPTED PRESCRIPTION FOR CONTINUATION OF CARE* SEEING DR. ASAP
+   APO-DUTASTERIDE 0.5 MG CAPSULE (Dutasteride)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-Feb-17   	APO-DUTASTERIDE 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2014-Nov-07   	APO-DUTASTERIDE 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   SANDOZ-TAMSULOSIN CR 0.4 MG TB (Tamsulosin HCL)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2015-Jan-21   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS ONCE DAILY
+	  2014-Oct-22   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS ONCE DAILY
+   COVERSYL 2 MG TABLET (Perindopril Erbumine)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Dec-30   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2014-Sep-15   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+   APO-LEVOFLOXACIN 500 MG TABLET (Levofloxacin)   (Dispensing information only) 	San Vicente, Juan (MD)
+						(403) 342-1034
+  	Dispenses: 	 
+	  2014-Dec-11   	APO-LEVOFLOXACIN 500 MG TABLET 	Wal-Mart Pharmacy #3194
+	
+7  Tablet(s) 	  for   7  days 
+		(403) 358-5849
+	
+TAKE 1 TABLET BY MOUTH ONCE DAILY UNTIL FINISHED FOR URINARY TRACT INFECTION
+   PMS-LEVOCARB CR 25MG-100MG TAB (Carbidopa/Levodopa)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Oct-29   	PMS-LEVOCARB CR 25MG-100MG TAB 	Pharmasave #337
+	
+42  Tablet(s) 	  for   21  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   TEVA-NAPROXEN 500 MG TABLET (Naproxen)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Oct-22   	TEVA-NAPROXEN 500 MG TABLET 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD WHEN REQUIRED AS DIRECTED
+   ATIVAN 1 MG SUBLINGUAL TAB (Lorazepam)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jul-24   	LORAZEPAM 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   16  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLET UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED ( DISPENSE 100 MONTHLY)
+	  2014-Jun-20   	LORAZEPAM 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+70  Tablet(s) 	  for   35  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLET UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2014-Jun-02   	LORAZEPAM 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLET UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2014-Mar-28   	LORAZEPAM 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE WHEN REQUIRED
+	  2013-Dec-19   	ATIVAN 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 MONTHLY)
+	  2013-Nov-14   	ATIVAN 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 MONTHLY)
+   COVERSYL 2 MG TABLET (Perindopril Erbumine)   (Dispensing information only) 	Alba, Avigale (PHARM)
+						
+  	Dispenses: 	 
+	  2014-Jul-11   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE ) * ADAPTED PRESCRIPTION FOR CONTINUATION OF CARE* SEEING DR. ASAP
+   SANDOZ-TAMSULOSIN CR 0.4 MG TB (Tamsulosin HCL)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jul-11   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET ONCE DAILY
+	  2014-Apr-26   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET ONCE DAILY
+   AVODART 0.5 MG CAPSULE (Dutasteride)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jul-11   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2014-Apr-26   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2014-Jan-24   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   PMS-BACLOFEN 10 MG TABLET (Baclofen)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jul-09   	PMS-BACLOFEN 10 MG TABLET 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2014-Jun-25   	PMS-BACLOFEN 10 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   CYMBALTA 60 MG CAPSULE (Duloxetine HCL)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jul-09   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2014-Jan-24   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Dec-19   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Nov-14   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   TEVA-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jul-02   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2014-Feb-11   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2014-Jan-14   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Dec-08   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Nov-14   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phosphate)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jun-25   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+200  Tablet(s) 	  for   16  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED AS DIRECTED
+	  2014-Jun-12   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   23  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS EVERY 6 HOURS WHEN REQUIRED AS DIRECTED
+	  2014-May-22   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2014-Apr-08   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2013-Dec-23   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2013-Nov-14   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2013-Oct-15   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+   BETADERM 0.1% CREAM (Betamethasone Valerate)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-22   	BETADERM 0.1% CREAM 	Pharmasave #337
+	
+100  g 	  for   10  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY AS DIRECTED
+   TEVA-NAPROXEN 500 MG TABLET (Naproxen)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-22   	TEVA-NAPROXEN 500 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD WHEN REQUIRED AS DIRECTED
+	  2014-Feb-11   	TEVA-NAPROXEN 500 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD WHEN REQUIRED AS DIRECTED
+   COVERSYL 2 MG TABLET (Perindopril Erbumine)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-22   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2014-Jan-24   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Dec-19   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Nov-14   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+   APO-LEVOCARB 25-100 MG TAB (Carbidopa/Levodopa)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-21   	APO-LEVOCARB 25-100 MG TAB 	Pharmasave #337
+	
+270  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY AS DIRECTED
+	  2014-Feb-11   	APO-LEVOCARB 25-100 MG TAB 	Pharmasave #337
+	
+270  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY AS DIRECTED
+	  2013-Nov-20   	APO-LEVOCARB 25-100 MG TAB 	Pharmasave #337
+	
+270  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY AS DIRECTED
+   TEVA-VENLAFAXINE XR 75 MG (Venlafaxine HCL)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-21   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2014-Feb-11   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2014-Jan-14   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2013-Dec-19   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2013-Nov-14   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+   TEVA-PANTOPRAZOLE 40 MG TABLET (Pantoprazole Sodium)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-21   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2014-Feb-19   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2014-Jan-24   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Dec-19   	TEVA-PANTOPRAZOLE DR 40 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Nov-14   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   LORAZEPAM 1 MG SUBLINGUAL TAB (Lorazepam)   (Dispensing information only) 	Ward, William (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-13   	LORAZEPAM 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE WHEN REQUIRED
+   NOVO-LEXIN 500 MG CAPSULE (Cephalexin Monohydrate)   (Dispensing information only) 	Foolen, Catharina (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-May-01   	NOVO-LEXIN 500 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE THREE TIMES DAILY UNTIL FINISHED AS DIRECTED
+   TEVA-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Kowalsky, Glenn (MD)
+						(403) 309-3652
+  	Dispenses: 	 
+	  2014-Apr-08   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+180  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+   CYMBALTA 60 MG CAPSULE (Duloxetine HCL)   (Dispensing information only) 	Kowalsky, Glenn (MD)
+						(403) 309-3652
+  	Dispenses: 	 
+	  2014-Apr-08   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   SANDOZ CLARITHROMYCN 250MG TAB (Clarithromycin)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Mar-28   	SANDOZ CLARITHROMYCN 250MG TAB 	Pharmasave #337
+	
+20  Tablet(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   RESTASIS 0.05 % EYE EMULSION (Cyclosporine)   (Dispensing information only) 	Chacon-Andrade, Hernando (MD)
+						(403) 340-3291
+  	Dispenses: 	 
+	  2014-Feb-21   	RESTASIS 0.05 % EYE EMULSION 	Pharmasave #337
+	
+12  Bottle(s) 	  for   15  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP TWICE DAILY IN BOTH EYES 12 HOURS APART AS DIRECTED
+	  2013-Nov-29   	RESTASIS 0.05 % EYE EMULSION 	Pharmasave #337
+	
+24  Bottle(s) 	  for   30  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP TWICE DAILY IN BOTH EYES 12 HOURS APART AS DIRECTED
+	  2013-Apr-26   	RESTASIS 0.05 % EYE EMULSION 	Pharmasave #337
+	
+24  Bottle(s) 	  for   30  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP TWICE DAILY IN BOTH EYES 12 HOURS APART AS DIRECTED
+   CYMBALTA 30 MG CAPSULE (Duloxetine HCL)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Feb-11   	CYMBALTA 30 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Feb-11   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2013-Nov-14   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phosphate)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2014-Feb-06   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   60  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   LORAZEPAM 1 MG SUBLINGUAL TAB (Lorazepam)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2014-Feb-06   	LORAZEPAM 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+180  Tablet(s) 	  for   60  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+   SANDOZ-TAMSULOSIN CR 0.4 MG TB (Tamsulosin HCL)   (Dispensing information only) 	San Vicente, Juan (MD)
+						(403) 342-1034
+  	Dispenses: 	 
+	  2014-Jan-14   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET ONCE DAILY
+	  2013-Oct-15   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET ONCE DAILY
+	  2013-Jul-25   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET ONCE DAILY
+   NOVO-LEXIN 500 MG TABLET (Cephalexin Monohydrate)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2014-Jan-06   	NOVO-LEXIN 500 MG TABLET 	Pharmasave #337
+	
+21  Tablet(s) 	  for   7  days 
+		(403) 638-4944
+	
+TAKE ONE TABLET THREE TIMES DAILY UNTIL FINISHED
+   TEVA-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Gray, John (PHARM)
+						
+  	Dispenses: 	 
+	  2013-Nov-12   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+6  Tablet(s) 	  for   3  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME * ADAPTED PRESCRIPTION FOR CONTINUATION OF CARE* SEEING DR. AVULA NOV 14 2013
+   ANDROGEL 50 MG/5 G GEL PKT (Testosterone)   (Dispensing information only) 	Avula, Balaji (MD)
+						(403) 638-2424
+  	Dispenses: 	 
+	  2013-Nov-01   	ANDROGEL 50 MG/5 G GEL PKT 	Pharmasave #337
+	
+150  Tube 	  for   15  days 
+		(403) 638-4944
+	
+APPLY 2 PACKETS DAILY
+   AVODART 0.5 MG CAPSULE (Dutasteride)   (Dispensing information only) 	San Vicente, Juan (MD)
+						(403) 342-1034
+  	Dispenses: 	 
+	  2013-Oct-24   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Aug-22   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Aug-13   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Jul-25   	AVODART 0.5 MG CAPSULE 	Pharmasave #337
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   ANDROGEL 50 MG/5 G GEL PKT (Testosterone)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Oct-07   	ANDROGEL 50 MG/5 G GEL PKT 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY 1 PACKET DAILY
+   NOVO-CLOXIN 500 MG CAPSULE (Cloxacillin Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Oct-07   	NOVO-CLOXIN 500 MG CAPSULE 	Pharmasave #337
+	
+28  Capsule(s) 	  for   7  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE 4 TIMES DAILY UNTIL FINISHED
+   APO-LEVOCARB 25-100 MG TAB (Carbidopa/Levodopa)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Oct-07   	APO-LEVOCARB 25-100 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   ATIVAN 1 MG SUBLINGUAL TAB (Lorazepam)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Oct-06   	ATIVAN 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 MONTHLY)
+	  2013-Sep-04   	ATIVAN 1 MG SUBLINGUAL TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 PER MONTH)
+   CELEBREX 200 MG CAPSULE (Celecoxib)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-22   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+   CYMBALTA 60 MG CAPSULE (Duloxetine HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-22   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Aug-29   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   COVERSYL 2 MG TABLET (Perindopril Erbumine)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-22   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Aug-29   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+   TEVA-VENLAFAXINE XR 75 MG (Venlafaxine HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-22   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+	  2013-Aug-21   	TEVA-VENLAFAXINE XR 75 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AS DIRECTED
+   TEVA-PANTOPRAZOLE 40 MG TABLET (Pantoprazole Sodium)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-22   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Aug-08   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-22   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2013-Aug-08   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phosphate)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-16   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2013-Aug-08   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+   TEVA-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-16   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Aug-08   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+   BETADERM 0.05% OINTMENT (Betamethasone Valerate)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Sep-04   	BETADERM 0.05% OINTMENT 	Pharmasave #337
+	
+60  g 	  for   10  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY
+   TEVA-NAPROXEN 500 MG TABLET (Naproxen)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Aug-21   	TEVA-NAPROXEN 500 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD WHEN REQUIRED AS DIRECTED
+   TEVA-VENLAFAXINE XR 37.5 MG (Venlafaxine HCL)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Aug-08   	TEVA-VENLAFAXINE XR 37.5 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AT BEDTIME
+	  2013-Jul-05   	TEVA-VENLAFAXINE XR 37.5 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY AT BEDTIME
+   CYMBALTA 60 MG CAPSULE (Duloxetine HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Aug-06   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Jul-08   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-May-27   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Apr-29   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Apr-09   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Mar-04   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Feb-04   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2013-Jan-09   	CYMBALTA 60 MG CAPSULE 	Pharmasave #337
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   COVERSYL 2 MG TABLET (Perindopril Erbumine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Aug-06   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Jul-03   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-May-27   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Apr-29   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Apr-05   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Mar-04   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Feb-04   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2013-Jan-02   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2012-Dec-10   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2012-Nov-05   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2012-Oct-03   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+	  2012-Sep-12   	COVERSYL 2 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY ( FOR BLOOD PRESSURE )
+   SANDOZ CLOPIDOGREL 75 MG TAB (Clopidogrel Bisulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Aug-06   	TEVA-CLOPIDOGREL 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-Jul-08   	TEVA-CLOPIDOGREL 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-Jun-06   	TEVA-CLOPIDOGREL 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-May-06   	TEVA-CLOPIDOGREL 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-Apr-09   	TEVA-CLOPIDOGREL 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-Mar-04   	TEVA-CLOPIDOGREL 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-Jan-13   	SANDOZ CLOPIDOGREL 75 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2012-Dec-18   	SANDOZ CLOPIDOGREL 75 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2012-Jul-28   	SANDOZ CLOPIDOGREL 75 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2012-Apr-25   	SANDOZ CLOPIDOGREL 75 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY (NOT IN BLISTER PACK)
+   ATIVAN 1 MG TABLET SL (Lorazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Aug-06   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 PER MONTH)
+	  2013-Jul-08   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 PER MONTH)
+	  2013-Jun-06   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 PER MONTH)
+	  2013-May-06   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 PER MONTH)
+	  2013-Apr-11   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED (100 PER MONTH)
+	  2013-Mar-04   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2013-Feb-04   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2013-Jan-09   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2012-Dec-11   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2012-Aug-09   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2012-Jul-12   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE THREE TIMES DAILY WHEN REQUIRED
+	  2012-Jun-20   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED
+	  2012-May-22   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED
+	  2012-May-09   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED
+	  2012-Apr-25   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED
+	  2012-Apr-09   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED
+	  2012-Mar-13   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2012-Feb-15   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+   CELEBREX 200 MG CAPSULE (Celecoxib)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jul-23   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+	  2013-Jun-06   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+	  2013-May-06   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+	  2013-Apr-05   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+	  2013-Mar-04   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+	  2013-Feb-04   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+	  2013-Jan-09   	CELEBREX 200 MG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY WITH FOOD
+   TEVA-PANTOPRAZOLE 40 MG TABLET (Pantoprazole Sodium)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jul-23   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Jun-12   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-May-06   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Apr-09   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Mar-04   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2013-Jan-13   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2012-Nov-20   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2012-Oct-03   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2012-Sep-12   	TEVA-PANTOPRAZOLE 40 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   TEVA-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jul-08   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Jun-06   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-May-06   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Apr-11   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Mar-04   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+70  Tablet(s) 	  for   35  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME
+	  2013-Feb-04   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   CLARITIN 10 MG TABLET (Loratadine)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2013-Jul-05   	CLARITIN 10 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE ONE TABLET ONCE DAILY
+   HYDERM 1% CREAM (Hydrocortisone Acetate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jul-05   	HYDERM 1% CREAM 	Pharmasave #337
+	
+30  g 	  for   10  days 
+		(403) 638-4944
+	
+APPLY TO TO AFFECTED AREA RASH TWICE DAILY WHEN REQUIRED
+	  2012-Sep-12   	HYDERM 1% CREAM 	Pharmasave #337
+	
+30  g 	  for   10  days 
+		(403) 638-4944
+	
+APPLY TO FACIAL RASH TWICE DAILY WHEN REQUIRED
+	  2012-Aug-09   	HYDERM 1% CREAM 	Pharmasave #337
+	
+30  g 	  for   10  days 
+		(403) 638-4944
+	
+APPLY TO RASH TWICE DAILY WHEN REQUIRED
+   CIPROFLOXACIN 500 MG TABLET (Ciprofloxacin HCL)   (Dispensing information only) 	Kirstein, Dolen (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2013-Jul-01   	CIPROFLOXACIN 500 MG TABLET 	Shoppers Drug Mart #343
+	
+20  Tablet(s) 	  for   10  days 
+		(403) 845-3066
+	
+TAKE 1 TABLET TWICE DAILY FOR 10 DAYS
+   APO-HYDROXYZINE 10 MG CAP (Hydroxyzine HCL)   (Dispensing information only) 	Saunders, James (MD)
+						(403) 845-2177
+  	Dispenses: 	 
+	  2013-Jun-28   	APO-HYDROXYZINE 10 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 CAPSULES 4 TIMES DAILY WHEN REQUIRED AS DIRECTED
+   Vitamin D3 1000 I.U. Tablets Tablet (Pharmetics (2011) ...)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jun-27   	Vitamin D3 1000 I.U. Tablets Tablet Oral (Pharmetics (2011) ...) 	Pharmasave #337
+	
+90  Each 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2013-Mar-04   	Vitamin D3 1000 I.U. Tablets Tablet (Pharmetics (2011) ...) 	Pharmasave #337
+	
+90  Each 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   PMS-ZOPICLONE 7.5 MG TABLET (Zopiclone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jun-27   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+F1T DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2013-Jun-06   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2013-May-27   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2013-Apr-29   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2013-Apr-11   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2013-Jan-30   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+45  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2013-Jan-02   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+45  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Jun-12   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2013-May-15   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED
+	  2012-Aug-09   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+384  Tablet(s) 	  for   32  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED 4 TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, 2 AT SUPPER AND 3 AT BEDTIME )
+	  2012-Jul-12   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED 4 TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, 2 AT SUPPER AND 3 AT BEDTIME )
+	  2012-Jun-20   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED 4 TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, 2 AT SUPPER AND 3 AT BEDTIME ) (NOT IN BLISTER PACK)
+	  2012-May-25   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED 4 TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, 2 AT SUPPER AND 3 AT BEDTIME ) (NOT IN BLISTER PACK)
+	  2012-Apr-25   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED 4 TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, 2 AT SUPPER AND 3 AT BEDTIME ) (NOT IN BLISTER PACK)
+	  2012-Mar-19   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED 4 TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, 2 AT SUPPER AND 3 AT BEDTIME ) (NOT IN BLISTER PACK)
+	  2012-Feb-24   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+270  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED THREE TIMES DAILY ( 4 IN THE MORNING , 3 AT NOON, AND 2 AT SUPPER) (NOT IN BLISTER PACK)
+	  2011-Dec-30   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 4 TABLETS EACH MORNING AND THEN 2 TABLETS AT NOON AND THEN 2 TABLETS AT SUPPER
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-May-27   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2013-Mar-04   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+   Vitamin D3 1000 I.U. Tablets Tablet (Pharmetics (2011) ...)   (Dispensing information only) 	Jackson, Mark (PHARM)
+						
+  	Dispenses: 	 
+	  2013-Apr-29   	Vitamin D3 1000 I.U. Tablets Tablet (Pharmetics (2011) ...) 	Pharmasave #337
+	
+90  Each 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   TYLENOL W/CODEINE NO. 4 TABLET (Acetaminophen/Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Apr-29   	TYLENOL W/CODEINE NO. 4 TABLET 	Pharmasave #337
+	
+200  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2013-Apr-01   	TYLENOL W/CODEINE NO. 4 TABLET 	Pharmasave #337
+	
+200  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2013-Mar-04   	TYLENOL W/CODEINE NO. 4 TABLET 	Pharmasave #337
+	
+200  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2012-Nov-12   	TYLENOL W/CODEINE NO. 4 TABLET 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (MAY REFILL 240 EVERY 30 DAYS) TO A MAXIMUM OF 8 TABS/DAY
+	  2012-Oct-13   	TYLENOL W/CODEINE NO. 4 TABLET 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (MAY REFILL 240 EVERY 30 DAYS) TO A MAXIMUM OF 8 TABS/DAY
+	  2012-Sep-12   	TYLENOL W/CODEINE NO. 4 TABLET 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (MAY REFILL 240 EVERY 30 DAYS) TO A MAXIMUM OF 8 TABS/DAY
+   VIGAMOX 0.5% DROPS (Moxifloxacin HCL)   (Dispensing information only) 	Chacon-Andrade, Hernando (MD)
+						(403) 340-3291
+  	Dispenses: 	 
+	  2013-Apr-20   	VIGAMOX 0.5% DROPS 	Pharmasave #337
+	
+6  Bottle(s) 	  for   6  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP IN THE LEFT EYE 4 TIMES DAILY
+	  2013-Apr-15   	VIGAMOX 0.5% DROPS 	Pharmasave #337
+	
+3  Bottle(s) 	  for   10  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP IN THE LEFT EYE 4 TIMES DAILY
+   TEVA-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2013-Apr-02   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+8  Tablet(s) 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME * ADAPTED PRESCRIPTION FOR CONTINUATION OF CARE* SEEING DR. IRVINE ON APRIL 8
+   VIGAMOX 0.5% DROPS (Moxifloxacin HCL)   (Dispensing information only) 	Optometrist, Unknown
+						
+  	Dispenses: 	 
+	  2013-Mar-26   	VIGAMOX 0.5% DROPS 	Pharmasave #337
+	
+3  Bottle(s) 	  for   10  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP IN THE RIGHT EYE THREE TIMES DAILY FOR 10 DAYS. INSTIL 1 DROP IN THE LEFT EYE EVERY HOUR FOR 2 DAYS AS DIRECTED
+   CILOXAN 0.3% EYE OINTMENT (Ciprofloxacin HCL)   (Dispensing information only) 	Optometrist, Unknown
+						
+  	Dispenses: 	 
+	  2013-Mar-26   	CILOXAN 0.3% EYE OINTMENT 	Pharmasave #337
+	
+3.5  g 	  for   10  days 
+		(403) 638-4944
+	
+APPLY IN EACH EYE AT BEDTIME AS DIRECTED FOR 10 DAYS
+   CIPROFLOXACIN 0.3 % EYE DROP (Ciprofloxacin HCL)   (Dispensing information only) 	Optometrist, Unknown
+						
+  	Dispenses: 	 
+	  2013-Mar-26   	CIPROFLOXACIN 0.3 % EYE DROP 	Pharmasave #337
+	
+5  Bottle(s) 	  for   7  days 
+		(403) 638-4944
+	
+INSTIL 1 DROP IN THE RIGHT EYE 4 TIMES DAILY FOR 1 WEEK . ALSO INSTIL 1 DROP IN THE LEFT EYE EVERY 15 MINUTES AS DIRECTED
+   TOBRADEX OPHTHALMIC DROPS (Tobramycin/Dexamethasone)   (Dispensing information only) 	Optometrist, Unknown
+						
+  	Dispenses: 	 
+	  2013-Mar-19   	TOBRADEX OPHTHALMIC DROPS 	Pharmasave #337
+	
+5  Bottle(s) 	  for   14  days 
+		(403) 638-4944
+	
+INSTIL 2 DROPS IN EACH EYE 4 TIMES DAILY AS DIRECTED
+   TOBRADEX OPHTHALMIC OINT (Tobramycin/Dexamethasone)   (Dispensing information only) 	Optometrist, Unknown
+						
+  	Dispenses: 	 
+	  2013-Mar-19   	TOBRADEX OPHTHALMIC OINT 	Pharmasave #337
+	
+3.5  g 	  for   14  days 
+		(403) 638-4944
+	
+APPLY ALONG EYELASHES IN EACH EYE TWICE DAILY AS DIRECTED
+   Ascorbic Acid Tablets 500 Mg Tablet (Pharmetics (2011) ...)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Mar-04   	Ascorbic Acid Tablets 500 Mg Tablet (Pharmetics (2011) ...) 	Pharmasave #337
+	
+90  Each 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+HYDROMORPH CONTIN 3 MG CAP (Hydromorphone HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Mar-04   	HYDROMORPH CONTIN 3 MG CAP 	Pharmasave #337
+	
+84  Capsule(s) 	  for   21  days 
+		(403) 638-4944
+	
+TAKE 3 CAPSULES EVERY 12 HOURS FOR 1 WEEK THEN TAKE 2 CAPSULES EVERY 12 HOURS FOR 1 WEEK THEN TAKE 1 CAPSULE EVERY 12 HOURS FOR 1 WEEK AS DIRECTED
+	  2013-Jan-09   	HYDROMORPH CONTIN 3 MG CAP 	Pharmasave #337
+	
+168  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 3 CAPSULES EVERY 12 HOURS
+	  2013-Jan-02   	HYDROMORPH CONTIN 3 MG CAP 	Pharmasave #337
+	
+48  Capsule(s) 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 3 CAPSULES EVERY 12 HOURS
+	  2012-Dec-10   	HYDROMORPH CONTIN 3 MG CAP 	Pharmasave #337
+	
+124  Capsule(s) 	  for   31  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EVERY 12 HOURS
+   AIROMIR 100 MCG INHALER (Salbutamol Sulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Mar-04   	AIROMIR 100 MCG INHALER 	Pharmasave #337
+	
+200  Container(s) 	  for   30  days 
+		(403) 638-4944
+	
+INHALE 1 TO 2 PUFF(S) EVERY 4 HOURS WHEN REQUIRED
+	  2012-Sep-12   	AIROMIR 100 MCG INHALER 	Pharmasave #337
+	
+200  Container(s) 	  for   30  days 
+		(403) 638-4944
+	
+INHALE 1 TO 2 PUFF(S) EVERY 4 HOURS WHEN REQUIRED
+   SPIRIVA 18MCG CAPSULE (Tiotropium Bromide)   (Dispensing information only) 	Landsbergen, Eugene (MD)
+						(403) 638-3580
+  	Dispenses: 	 
+	  2013-Feb-19   	SPIRIVA 18MCG CAPSULE 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+INHALE 1 PUFF DAILY
+   SYMBICORT 200 TURBUHALER (Budesonide/Formoterol Fumarate)   (Dispensing information only) 	Landsbergen, Eugene (MD)
+						(403) 638-3580
+  	Dispenses: 	 
+	  2013-Feb-19   	SYMBICORT 200 TURBUHALER 	Pharmasave #337
+	
+120  Inhaler 	  for   60  days 
+		(403) 638-4944
+	
+INHALE 1 PUFF TWICE DAILY [ RINSE MOUTH WITH WATER AFTER USING INHALER ]
+   TEVA-FUROSEMIDE 20 MG TABLET (Furosemide)   (Dispensing information only) 	Landsbergen, Eugene (MD)
+						(403) 638-3580
+  	Dispenses: 	 
+	  2013-Feb-19   	TEVA-FUROSEMIDE 20 MG TABLET 	Pharmasave #337
+	
+7  Tablet(s) 	  for   7  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET IN THE MORNING (WATER PILL)
+   PMS-LACTULOSE 667 MG/ML SYR (Lactulose)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Feb-14   	PMS-LACTULOSE 667 MG/ML SYR 	Pharmasave #337
+	
+1000  mL 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLESPOONFULL ONCE TO TWICE DAILY WHEN REQUIRED FOR CONSTIPATION
+	  2012-Nov-20   	PMS-LACTULOSE 667 MG/ML SYR 	Pharmasave #337
+	
+1000  mL 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLESPOONFULL ONCE TO TWICE DAILY WHEN REQUIRED FOR CONSTIPATION
+	  2012-Sep-12   	PMS-LACTULOSE 667 MG/ML SYR 	Pharmasave #337
+	
+1000  mL 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLESPOONFULL ONCE TO TWICE DAILY WHEN REQUIRED FOR CONSTIPATION
+HYDROMORPH CONTIN 12 MG CAP (Hydromorphone HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Feb-04   	HYDROMORPH CONTIN 12 MG CAP 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE TWICE DAILY
+   NOVO-LEXIN 500 MG TABLET (Cephalexin Monohydrate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2013-Feb-04   	NOVO-LEXIN 500 MG TABLET 	Pharmasave #337
+	
+42  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY UNTIL FINISHED
+   SANDOZ CITALOPRAM 20 MG TAB (Citalopram Hydrobromide)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Dec-18   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2012-Nov-16   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   PMS-ZOPICLONE 7.5 MG TABLET (Zopiclone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Dec-10   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+45  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2012-Nov-05   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2012-Oct-03   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2012-Sep-12   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED (FOR SLEEP)
+	  2012-Jun-18   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED
+	  2012-May-25   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2012-Apr-25   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2012-Mar-19   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2012-Jan-09   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Nov-03   	RATIO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Oct-20   	RATIO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Sep-24   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Jun-16   	PMS-ZOPICLONE 7.5 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS AT BEDTIME WHEN REQUIRED (NOT IN BLISTER PACK)
+   RESTORALAX 17 GM/DOSE PACKET (Polyethylene Glycol 3350)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Nov-20   	RESTORALAX 17 GM/DOSE PACKET 	Pharmasave #337
+	
+238  g 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 17 GRAMS ONCE TO TWICE DAILY WHEN REQUIRED FOR CONSTIPATION
+	  2012-Sep-12   	RESTORALAX 17 GM/DOSE PACKET 	Pharmasave #337
+	
+238  g 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 17 GRAMS ONCE TO TWICE DAILY WHEN REQUIRED FOR CONSTIPATION
+   VALIUM 5 MG TABLET (Diazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Oct-03   	APO-DIAZEPAM 5 MG TABLET 	Pharmasave #337
+	
+45  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME AND TAKE A-HALF TABLET EACH MORNING WHEN REQUIRED (FOR ANXIETY)
+	  2012-Aug-09   	VALIUM 5 MG TABLET 	Pharmasave #337
+	
+45  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET IN THE MORNING AND TAKE 1 TABLET AT BEDTIME
+	  2012-Jul-12   	VALIUM 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   NOVO-MIRTAZAPINE 30 MG TAB (Mirtazapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jul-28   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+135  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS AT BEDTIME
+   SANDOZ ATORVASTATIN 40 MG TAB (Atorvastatin Calcium)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jul-28   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+   CIPRALEX 10 MG TABLET (Escitalopram Oxalate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jul-28   	CIPRALEX 10 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2012-Jul-12   	CIPRALEX 10 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   SANDOZ CLARITHROMYCN 500MG TAB (Clarithromycin)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jul-12   	SANDOZ CLARITHROMYCN 500MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD UNTIL FINISHED
+	  2011-Sep-23   	SANDOZ CLARITHROMYCN 500MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD UNTIL FINISHED (NOT IN BLISTER PACK)
+   RATIO-CEFUROXIME 250 MG TAB (Cefuroxime Axetil)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jun-29   	RATIO-CEFUROXIME 250 MG TAB 	Pharmasave #337
+	
+40  Tablet(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS TWICE DAILY UNTIL FINISHED
+   CIPRALEX 10 MG TABLET (Escitalopram Oxalate)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2012-Jun-22   	CIPRALEX 10 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   RHOXAL-CITALOPRAM 20 MG TAB (Citalopram Hydrobromide)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jun-15   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS DAILY
+	  2012-Apr-25   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS DAILY
+	  2011-Nov-17   	MYLAN-CITALOPRAM 20 MG TABLET 	Pharmasave #337
+	
+135  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY
+	  2011-Oct-26   	MYLAN-CITALOPRAM 20 MG TABLET 	Pharmasave #337
+	
+35  Tablet(s) 	  for   23  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY
+	  2011-Oct-20   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+7  Tablet(s) 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY
+	  2011-Sep-24   	RHOXAL-CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Aug-31   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Aug-03   	SANDOZ CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Jul-04   	RHOXAL-CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Jun-09   	RHOXAL-CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-May-12   	RHOXAL-CITALOPRAM 20 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   PMS-ERYTHROMYCIN 5 MG/G OINT (Erythromycin Base)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Jun-04   	PMS-ERYTHROMYCIN 5 MG/G OINT 	Pharmasave #337
+	
+3.5  g 	  for   7  days 
+		(403) 638-4944
+	
+APPLY AT BEDTIME TO AFFECTED EYE(S) AS DIRECTED
+   GARAMYCIN 0.3 % OPH DROPS (Gentamicin Sulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-May-28   	GARAMYCIN 0.3 % OPH DROPS 	Pharmasave #337
+	
+5  Bottle(s) 	  for   10  days 
+		(403) 638-4944
+	
+INSTIL 2 DROPS IN EACH EYE THREE TIMES DAILY AS DIRECTED
+   RATIO-ATORVASTATIN 40 MG TAB (Atorvastatin Calcium)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Apr-25   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Nov-17   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Oct-26   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Sep-24   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Aug-31   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Aug-03   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Jul-04   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Jun-09   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH EVENING MEAL ( FOR CHOLESTEROL )
+	  2011-Apr-25   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Mar-29   	SANDOZ ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Dec-27   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Oct-27   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   RATIO-MIRTAZAPINE 30 MG TAB (Mirtazapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Apr-25   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Nov-17   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Oct-26   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Sep-24   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Aug-31   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Aug-03   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Jul-04   	NOVO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-May-12   	SANDOZ MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Dec-27   	PMS-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+42  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME
+	  2010-Oct-27   	RATIO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+42  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME
+   ACETAMINOPHEN 500 MG TABLET (Acetaminophen)   (Dispensing information only) 	Jackson, Mark (PHARM)
+						
+  	Dispenses: 	 
+	  2012-Apr-09   	ACETAMINOPHEN 500 MG TABLET 	Pharmasave #337
+	
+200  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+PATIENT REQUEST: PRIOR USAGE
+   CO RANITIDINE 150 MG TABLET (Ranitidine HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2012-Mar-14   	CO RANITIDINE 150 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   NASONEX 50MCG NASAL SPRAY (Mometasone Furoate)   (Dispensing information only) 	Game, Kathleen (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2012-Jan-09   	NASONEX 50MCG NASAL SPRAY 	Pharmasave #337
+	
+140  Container(s) 	  for   35  days 
+		(403) 638-4944
+	
+TAKE 1 SPRAY IN EACH NOSTRIL TWICE DAILY
+	  2011-Dec-13   	NASONEX 50MCG NASAL SPRAY 	Pharmasave #337
+	
+140  Container(s) 	  for   35  days 
+		(403) 638-4944
+	
+TAKE 1 SPRAY IN EACH NOSTRIL TWICE DAILY
+   ATIVAN 1 MG TABLET SL (Lorazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Dec-22   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Dec-04   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Nov-10   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Oct-19   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Sep-28   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Sep-21   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Sep-07   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Aug-23   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Aug-03   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Jul-22   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Jul-04   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Jun-16   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-May-12   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-May-02   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+120  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Apr-13   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+120  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2011-Mar-25   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+120  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Dec-27   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Dec-08   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK) * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DECEMBER 29 2010
+	  2010-Oct-27   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Oct-05   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TO 2 TABLETS UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+   MYLAN-AMOXICILLIN 500 MG CAP (Amoxicillin Trihydrate)   (Dispensing information only) 	Game, Kathleen (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2011-Dec-13   	MYLAN-AMOXICILLIN 500 MG CAP 	Pharmasave #337
+	
+42  Capsule(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE THREE TIMES DAILY UNTIL FINISHED
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Dec-04   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 4 TABLETS EACH MORNING AND THEN 2 TABLETS AT NOON AND THEN 2 TABLETS AT SUPPER AS DIRECTED
+	  2011-Nov-03   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 4 TABLETS EACH MORNING AND THEN 2 TABLETS AT NOON AND THEN 2 TABLETS AT SUPPER AS DIRECTED
+	  2011-Oct-19   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY
+	  2011-Sep-28   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY
+	  2011-Sep-21   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY
+	  2010-Aug-16   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+300  Tablet(s) 	  for   37  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Jul-09   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+300  Tablet(s) 	  for   37  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Jun-29   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   11  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Jun-19   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2010-Jun-06   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+50  Tablet(s) 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+   SANDOZ-TAMSULOSIN CR 0.4 MG TB (Tamsulosin HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Nov-17   	FLOMAX CR 0.4MG TABLET 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME (NOT IN BLISTER PACK)
+	  2011-Oct-19   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME (NOT IN BLISTER PACK)
+	  2011-Sep-07   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME (NOT IN BLISTER PACK)
+	  2011-Jul-20   	SANDOZ-TAMSULOSIN CR 0.4 MG TB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME (NOT IN BLISTER PACK)
+   ADVAIR 250 DISKUS DSK/DEV (Fluticasone Propionate/Salmeterol Xinafoate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Nov-03   	ADVAIR 250 DISKUS DSK/DEV 	Pharmasave #337
+	
+120  Each 	  for   30  days 
+		(403) 638-4944
+	
+INHALE 1 PUFFS TWICE DAILY AS DIRECTED
+	  2011-Sep-23   	ADVAIR 250 DISKUS DSK/DEV 	Pharmasave #337
+	
+120  Each 	  for   30  days 
+		(403) 638-4944
+	
+INHALE 2 PUFFS TWICE DAILY AS DIRECTED
+   PLAVIX 75 MG TABLET (Clopidogrel Bisulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Nov-03   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+90  Tablet(s) 	  for   90  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY (NOT IN BLISTER PACK)
+	  2011-Sep-28   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY (NOT IN BLISTER PACK)
+	  2011-Sep-07   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY (NOT IN BLISTER PACK)
+	  2011-Jul-04   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Jun-09   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Apr-25   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Mar-29   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Dec-27   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Oct-27   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Sep-22   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Aug-26   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Jul-27   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Jul-08   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Oct-26   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2011-Sep-24   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2011-Aug-31   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2011-Aug-03   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2011-Jul-04   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2011-Jun-09   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2011-Apr-25   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Dec-27   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Oct-27   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+   ASCORBIC ACID 500 MG TABLET (Ascorbic Acid)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Oct-26   	Ascorbic Acid Tablets 500 Mg Tablet Oral (7638973 Canada Inc...) 	Pharmasave #337
+	
+28  Each 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Sep-24   	Ascorbic Acid Tablets 500 Mg Tablet Oral (7638973 Canada Inc...) 	Pharmasave #337
+	
+28  Each 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Aug-31   	Ascorbic Acid Tablets 500 Mg Tablet Oral (7638973 Canada Inc...) 	Pharmasave #337
+	
+28  Each 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Aug-03   	Ascorbic Acid Tablets 500 Mg Tablet Oral (Pharmetics Inc.) 	Pharmasave #337
+	
+28  Each 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Jul-04   	Ascorbic Acid Tablets 500 Mg Tablet Oral (Pharmetics Inc.) 	Pharmasave #337
+	
+28  Each 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Jun-09   	Ascorbic Acid Tablets 500 Mg Tablet Oral (Pharmetics Inc.) 	Pharmasave #337
+	
+28  Each 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2011-Apr-25   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Dec-27   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Oct-27   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   RATIO-AZITHROMYCIN 250 MG TA (Azithromycin)   (Dispensing information only) 	Rowntree, Carol (MD)
+						(403) 559-6043
+  	Dispenses: 	 
+	  2011-Sep-07   	RATIO-AZITHROMYCIN 250 MG TA 	Pharmasave #337
+	
+3  Tablet(s) 	  for   3  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY UNTIL FINISHED
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Kowalsky, Glenn (MD)
+						(403) 309-3652
+  	Dispenses: 	 
+	  2011-Sep-07   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2011-Aug-17   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2011-Aug-03   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+90  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED
+	  2011-Jul-05   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+84  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET THREE TIMES DAILY WHEN REQUIRED (IN SECOND BLISTER PACK)
+   NOVO-DOXYLIN 100 MG TABLET (Doxycycline Hyclate)   (Dispensing information only) 	Game, Kathleen (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2011-Aug-23   	NOVO-DOXYLIN 100 MG TABLET 	Pharmasave #337
+	
+20  Tablet(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD UNTIL FINISHED
+   MYLAN-BECLO AQ 50 MCG SPRAY (Beclomethasone Dipropionate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Jul-20   	MYLAN-BECLO AQ 50 MCG SPRAY 	Pharmasave #337
+	
+200  Container(s) 	  for   20  days 
+		(403) 638-4944
+	
+TAKE 2 SPRAYS IN EACH NOSTRIL TWICE DAILY
+   TEVA-OLANZAPINE 2.5 MG TABLET (Olanzapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Jul-04   	TEVA-OLANZAPINE 2.5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-Jun-09   	TEVA-OLANZAPINE 2.5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2011-May-12   	TEVA-OLANZAPINE 2.5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   APO-RAMIPRIL 2.5 MG CAPSULE (Ramipril)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2011-Mar-29   	PMS-RAMIPRIL 2.5 MG CAPSULE 	Pharmasave #337
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY ( FOR BLOOD PRESSURE )
+	  2010-Dec-28   	APO-RAMIPRIL 2.5 MG CAPSULE 	Pharmasave #337
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY ( FOR BLOOD PRESSURE )
+   NOVO-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Dec-28   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Oct-27   	TEVA-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Oct-05   	NOVO-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME (NOT IN BLISTER PACK)
+	  2010-Jul-29   	NOVO-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME OR AS DIRECTED (NOT IN BLISTER PACK)
+	  2010-Jul-03   	NOVO-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME AS DIRECTED (NOT IN BLISTER PACK)
+	  2010-Jun-06   	NOVO-OLANZAPINE 5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS AT BEDTIME AS DIRECTED (NOT IN BLISTER PACK)
+   APO-TRAZODONE 100 MG TABLET (Trazodone HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Dec-27   	APO-TRAZODONE 100 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   RATIO-ATORVASTATIN 40 MG TAB (Atorvastatin Calcium)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+22  Tablet(s) 	  for   22  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   PLAVIX 75 MG TABLET (Clopidogrel Bisulfate)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+22  Tablet(s) 	  for   22  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   PMS-MIRTAZAPINE 30 MG TABLET (Mirtazapine)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	PMS-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+34  Tablet(s) 	  for   23  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   ASCORBIC ACID 500 MG TABLET (Ascorbic Acid)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   APO-TRAZODONE 100 MG TABLET (Trazodone HCL)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	APO-TRAZODONE 100 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   APO-RAMIPRIL 2.5 MG CAPSULE (Ramipril)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	APO-RAMIPRIL 2.5 MG CAPSULE 	Pharmasave #337
+	
+28  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY ( FOR BLOOD PRESSURE ) * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   MYLAN-CITALOPRAM 20 MG TABLET (Citalopram Hydrobromide)   (Dispensing information only) 	Fluet, Timothy (PHARM)
+						
+  	Dispenses: 	 
+	  2010-Dec-09   	MYLAN-CITALOPRAM 20 MG TABLET 	Pharmasave #337
+	
+14  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET DAILY * CONTINUATION OF CARE * EMERGENCY FILL, SEEING DR. IRVINE DEC 29 2010
+   MYLAN-CITALOPRAM 20 MG TABLET (Citalopram Hydrobromide)   (Dispensing information only) 	Kumar, Vilas (MD)
+						(403) 783-7643
+  	Dispenses: 	 
+	  2010-Dec-06   	MYLAN-CITALOPRAM 20 MG TABLET 	Pharmasave #337
+	
+7  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET DAILY
+   APO-RAMIPRIL 2.5 MG CAPSULE (Ramipril)   (Dispensing information only) 	Kumar, Vilas (MD)
+						(403) 783-7643
+  	Dispenses: 	 
+	  2010-Dec-06   	APO-RAMIPRIL 2.5 MG CAPSULE 	Pharmasave #337
+	
+14  Capsule(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY ( FOR BLOOD PRESSURE )
+   MYLAN-TRAZODONE 100 MG TABLET (Trazodone HCL)   (Dispensing information only) 	Kumar, Vilas (MD)
+						(403) 783-7643
+  	Dispenses: 	 
+	  2010-Dec-06   	MYLAN-TRAZODONE 100 MG TABLET 	Pharmasave #337
+	
+14  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+   PMS-MIRTAZAPINE 30 MG TABLET (Mirtazapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Oct-05   	RATIO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+14  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME ( FULL TABLET IN PACK ALREADY ) TAKE 1/2 TABLET IN ADDITION TO FULL TABLET IN PACK
+	  2010-May-05   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Apr-05   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Mar-01   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2009-Jul-23   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2009-Jun-24   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+50  Tablet(s) 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS DAILY AT BEDTIME
+	  2009-May-21   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+45  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 1/2 TABLETS DAILY AT BEDTIME
+	  2009-May-11   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+8  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1/4 TABLET DAILY AT BEDTIME
+	  2009-Apr-16   	PMS-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+8  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1/4 TABLET DAILY AT BEDTIME
+   LIPITOR 40 MG TABLET (Atorvastatin Calcium)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Sep-22   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Aug-26   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Jul-27   	RATIO-ATORVASTATIN 40 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Jun-28   	LIPITOR 40 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Jun-01   	LIPITOR 40 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   MYLAN-MIRTAZAPINE 30 MG TABLET (Mirtazapine)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Sep-22   	RATIO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Aug-26   	RATIO-MIRTAZAPINE 30 MG TAB 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Jul-27   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Jun-28   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Jun-01   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   SENNA LAXATIVE 8.6 MG TABLET (Sennosides)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Aug-26   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Jul-27   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Jun-28   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Jun-01   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Aug-26   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Jul-27   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Jun-28   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Jun-01   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+   NOVO-DOCUSATE 100 MG CAPSULE (Docusate Sodium)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Aug-26   	NOVO-DOCUSATE 100 MG CAPSULE 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+	  2010-Jul-27   	NOVO-DOCUSATE 100 MG CAPSULE 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+	  2010-Jun-28   	NOVO-DOCUSATE 100 MG CAPSULE 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+   ATIVAN 0.5 MG TABLET SL (Lorazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Aug-16   	ATIVAN 0.5 MG TABLET SL 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE DAILY AT BEDTIME
+   WELLBUTRIN XL 150 MG TABLET (Bupropion HCL)   (Dispensing information only) 	D'Costa, Joseph (MD)
+						(403) 343-2102
+  	Dispenses: 	 
+	  2010-Aug-12   	WELLBUTRIN XL 150 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY IN THE MORNING (NOT IN BLISTER PACK)
+   NOVO-LORAZEM 1 MG TABLET (Lorazepam)   (Dispensing information only) 	Physician/Practitioner, Unknown
+						
+  	Dispenses: 	 
+	  2010-Aug-07   	NOVO-LORAZEM 1 MG TABLET 	Shoppers Drug Mart #343
+	
+15  Tablet(s) 	  for   5  days 
+		(403) 845-3066
+	
+TAKE 1 TABLET 3 TIMES DAILY AS NEEDED
+   APO-IMIPRAMINE 25 MG TABLET (Imipramine HCL)   (Dispensing information only) 	D'Costa, Joseph (MD)
+						(403) 343-2102
+  	Dispenses: 	 
+	  2010-Jul-29   	APO-IMIPRAMINE 25 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME FOR 3 DAYS THEN INCREASE TO TAKE 2 TABLETS AT BEDTIME FOR 3 DAYS THEN TAKE 3 TABLETS AT BEDTIME FOR 3 DAYS THEN TAKE 4 TABLETS AT BEDTIME THERE-AFTER (NOT IN BLISTER PACK)
+   AGGRENOX CAPSULE SA (Acetylsalicylic Acid/Dipyridamole)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Jun-28   	AGGRENOX CAPSULE SA 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE TWICE DAILY
+	  2010-Jun-09   	AGGRENOX CAPSULE SA 	Pharmasave #337
+	
+40  Capsule(s) 	  for   20  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE TWICE DAILY
+   PMS-DIAZEPAM 5 MG TABLET (Diazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Jun-25   	PMS-DIAZEPAM 5 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+   ANDROGEL 1% GEL (Testosterone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-Jun-25   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY 1 PACKET DAILY
+   PLAVIX 75 MG TABLET (Clopidogrel Bisulfate)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Jun-19   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+15  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-May-13   	RATIO-CODEINE PHOS 30 MG TAB 	Shoppers Drug Mart #343
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 845-3066
+	
+TAKE 4 TABLETS EVERY MORNING AND TAKE 2 TABLETS AT NOON AND TAKE 2 TABLETS EVERY EVENING AS NEEDED
+   NOVO-OLANZAPINE 5 MG TABLET (Olanzapine)   (Dispensing information only) 	D'Costa, Joseph (MD)
+						(403) 343-2102
+  	Dispenses: 	 
+	  2010-May-06   	NOVO-OLANZAPINE 5 MG TABLET 	Shoppers Drug Mart #343
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 845-3066
+	
+TAKE 1 TABLET EVERY DAY AT BEDTIME
+	  2010-Apr-15   	NOVO-OLANZAPINE 5 MG TABLET 	Shoppers Drug Mart #343
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 845-3066
+	
+TAKE 1 TABLET EVERY DAY AT BEDTIME
+   PLAVIX 75 MG TABLET (Clopidogrel Bisulfate)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-May-05   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Apr-05   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Mar-01   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Feb-03   	PLAVIX 75 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   LIPITOR 40 MG TABLET (Atorvastatin Calcium)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-May-05   	LIPITOR 40 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Apr-05   	LIPITOR 40 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Mar-01   	LIPITOR 40 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+	  2010-Feb-03   	LIPITOR 40 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY
+   ASCORBIC ACID 500 MG TABLET (Ascorbic Acid)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-May-05   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET EACH MORNING
+	  2010-Apr-05   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET EACH MORNING
+	  2010-Mar-01   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET EACH MORNING
+	  2010-Feb-03   	ASCORBIC ACID 500 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET EACH MORNING
+   ASA 81 MG TABLET EC (Acetylsalicylic Acid)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-May-05   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Apr-05   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Mar-01   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+	  2010-Feb-03   	ASA 81 MG TABLET EC 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WITH FOOD
+   SENNA LAXATIVE 8.6 MG TABLET (Sennosides)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-May-05   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Apr-05   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Mar-01   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2010-Feb-03   	SENNA LAXATIVE 8.6 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   NOVO-DOCUSATE 100 MG CAPSULE (Docusate Sodium)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-May-05   	NOVO-DOCUSATE 100 MG CAPSULE 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+	  2010-Apr-05   	NOVO-DOCUSATE 100 MG CAPSULE 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+	  2010-Mar-01   	DOCUSATE SODIUM 100 MG CAP 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+	  2010-Feb-03   	NOVO-DOCUSATE 100 MG CAPSULE 	Pharmasave #337
+	
+56  Capsule(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING (STOOL SOFTENER)
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2010-May-05   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+50  Tablet(s) 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+	  2009-Jul-23   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2009-Jun-22   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+360  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 4- 6 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2009-May-21   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+120  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2009-Apr-16   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+120  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2009-Mar-16   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+120  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2009-Feb-13   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+120  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2009-Jan-04   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2008-Nov-26   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   NOVAMOXIN 500 MG CAPSULE (Amoxicillin Trihydrate)   (Dispensing information only) 	Rowntree, Carol (MD)
+						(403) 559-6043
+  	Dispenses: 	 
+	  2010-Apr-06   	NOVAMOXIN 500 MG CAPSULE 	Pharmasave #337
+	
+21  Capsule(s) 	  for   7  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE THREE TIMES DAILY UNTIL FINISHED (NOT IN BLISTER PACK)
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-Apr-05   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+224  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 4 TABLETS EACH MORNING AND TAKE 2 TABLETS AT LUNCH AND TAKE 2 TABLETS AT SUPPER
+	  2010-Mar-01   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+224  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 4 TABLETS EACH MORNING AND TAKE 2 TABLETS AT LUNCH AND TAKE 2 TABLETS AT SUPPER
+	  2010-Feb-04   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS EVERY 4 HOURS WHEN REQUIRED ( TO A MAXIMUM OF 2 DOSES/24 HOURS ) (NOT IN BLISTER PACK)
+	  2010-Feb-03   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+224  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 4 TABLETS EACH MORNING AND TAKE 2 TABLETS AT LUNCH AND TAKE 2 TABLETS AT SUPPER
+   NOVAMOXIN 500 MG CAPSULE (Amoxicillin Trihydrate)   (Dispensing information only) 	Peens, Erus (MD)
+						(403) 845-2815
+  	Dispenses: 	 
+	  2010-Mar-11   	NOVAMOXIN 500 MG CAPSULE 	Shoppers Drug Mart #343
+	
+21  Capsule(s) 	  for   7  days 
+		(403) 845-3066
+	
+TAKE 1 CAPSULE THREE TIMES DAILY UNTIL FINISHED
+   ATIVAN 0.5 MG TABLET SL (Lorazepam)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-Feb-04   	ATIVAN 0.5 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   50  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE TWICE DAILY WHEN REQUIRED (NOT IN BLISTER PACK)
+   APO-QUETIAPINE 25 MG TABLET (Quetiapine Fumarate)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-Feb-03   	APO-QUETIAPINE 25 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+   MYLAN-MIRTAZAPINE 30 MG TABLET (Mirtazapine)   (Dispensing information only) 	Rattan, Nav (MD)
+						(403) 342-7270
+  	Dispenses: 	 
+	  2010-Feb-03   	MYLAN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+42  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 AND 1/2 TABLETS DAILY AT BEDTIME
+   ANDROGEL 1% GEL (Testosterone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-Aug-05   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2009-Jun-22   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2009-Apr-16   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2009-Feb-13   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2009-Jan-04   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2008-Nov-26   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2008-Aug-18   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2008-Jun-17   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2008-May-06   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2008-Apr-02   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+   APO-TRAZODONE 50 MG TABLET (Trazodone HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-Jul-23   	APO-TRAZODONE 50 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME
+RATIO-MORPHINE SR 15 MG TAB (Morphine Sulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-Jun-22   	RATIO-MORPHINE SR 15 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2009-May-21   	RATIO-MORPHINE SR 15 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2009-Apr-17   	RATIO-MORPHINE SR 15 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2009-Mar-16   	RATIO-MORPHINE SR 15 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2009-Feb-13   	RATIO-MORPHINE SR 15 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET EVERY 12 HOURS
+	  2009-Jan-14   	RATIO-MORPHINE SR 15 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET EVERY 12 HOURS
+   NOVO-GABAPENTIN 100 MG CAP (Gabapentin)   (Dispensing information only) 	Hernberger, Julie (MD)
+						(403) 887-2261
+  	Dispenses: 	 
+	  2009-Jun-09   	NOVO-GABAPENTIN 100 MG CAP 	Fisher's Pharmasave #384
+	
+166  Capsule(s) 	  for   90  days 
+		(403) 782-3999
+	
+TAKE 1 CAPSULE DAILY IN THE MORNING FOR 14 DAYS THEN INCREASE TO 1 CAPSULE IN THE MORNING AND 1 CAPSULE AT 2PM
+   NOVO-GABAPENTIN 300 MG CAP (Gabapentin)   (Dispensing information only) 	Hernberger, Julie (MD)
+						(403) 887-2261
+  	Dispenses: 	 
+	  2009-Jun-09   	NOVO-GABAPENTIN 300 MG CAP 	Fisher's Pharmasave #384
+	
+90  Capsule(s) 	  for   90  days 
+		(403) 782-3999
+	
+TAKE 1 CAPSULE AT BEDTIME
+   C# COMPOUND PRESCRIPTION: Ketoconazole, Unspecified Ingredient(s)   (Dispensing information only)
+	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-May-21   	COMPOUND PRESCRIPTION: Ketoconazole, Unspecified Ingredient(s) 	Pharmasave #337
+	
+30  Unit 	  for   10  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY
+	  2008-Oct-10   	COMPOUND PRESCRIPTION: Ketoconazole, Unspecified Ingredient(s) 	Pharmasave #337
+	
+60  Unit 	  for   20  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY
+	  2008-Feb-06   	COMPOUND PRESCRIPTION: Ketoconazole, Unspecified Ingredient(s) 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY
+   RATIO-ECTOSONE 0.1% CREAM (Betamethasone Valerate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-Mar-16   	RATIO-ECTOSONE 0.1% CREAM 	Pharmasave #337
+	
+30  g 	  for   5  days 
+		(403) 638-4944
+	
+APPLY TWICE DAILY TO AFFECTED AREA AS DIRECTED
+	  2008-Oct-29   	RATIO-ECTOSONE 0.1% CREAM 	Pharmasave #337
+	
+30  g 	  for   5  days 
+		(403) 638-4944
+	
+APPLY TWICE DAILY TO AFFECTED AREA AS DIRECTED
+   LEVITRA 10 MG TABLET (Vardenafil HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-Feb-13   	LEVITRA 10 MG TABLET 	Pharmasave #337
+	
+4  Tablet(s) 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AS DIRECTED
+   GEN-MIRTAZAPINE 30 MG TABLET (Mirtazapine)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2009-Jan-18   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS DAILY AS DIRECTED
+	  2008-Oct-16   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS DAILY AS DIRECTED
+	  2008-Sep-16   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS DAILY AS DIRECTED
+	  2008-Aug-25   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE ONE TABLET DAILY OR AS DIRECTED
+	  2008-Jul-31   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE ONE TABLET DAILY OR AS DIRECTED
+	  2008-Jul-16   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+21  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE ONE AND A-HALF TABLETS AT BEDTIME
+	  2008-Jul-02   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+21  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE ONE AND A-HALF TABLETS AT BEDTIME
+	  2008-May-06   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET DAILY AT BEDTIME FOR 2 WEEKS, THEN TAKE 1 TABLET DAILY AT BEDTIME FOR 2 WEEKS.
+	  2008-Apr-10   	GEN-MIRTAZAPINE 30 MG TABLET 	Pharmasave #337
+	
+21  Tablet(s) 	  for   28  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET DAILY AT BEDTIME FOR 2 WEEKS, THEN TAKE 1 TABLET DAILY AT BEDTIME FOR 2 WEEKS.
+STATEX 5 MG TABLET (Morphine Sulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2009-Jan-14   	STATEX 5 MG TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   APO-ZOPICLONE 7.5 MG TAB (Zopiclone)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2008-Nov-13   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2008-Oct-16   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2008-Sep-16   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2008-Aug-25   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2008-Jul-31   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2008-Jul-16   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+14  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+	  2008-Jul-02   	APO-ZOPICLONE 7.5 MG TAB 	Pharmasave #337
+	
+14  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME
+ENDOCET TABLET (Oxycodone HCL/Acetaminophen)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2008-Oct-29   	ENDOCET TABLET 	Pharmasave #337
+	
+120  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   TYLENOL W/CODEINE NO. 3 TAB (Codeine Phos/Acetaminophen/Caffeine)   (Dispensing information only) 	Kowalsky, Glenn (MD)
+						(403) 309-3652
+  	Dispenses: 	 
+	  2008-Jun-09   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+50  Tablet(s) 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   TYLENOL W/CODEINE NO. 3 TAB (Codeine Phos/Acetaminophen/Caffeine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2008-Apr-04   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+50  Tablet(s) 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-Jun-13   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-May-30   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-May-16   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   RATIO-CODEINE PHOS 30 MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2008-Feb-06   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-Jan-18   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-Jan-04   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Dec-21   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   EMO-CORT 1% LOTION (Hydrocortisone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Dec-07   	EMO-CORT 1% LOTION 	Pharmasave #337
+	
+60  mL 	  for   30  days 
+		(403) 638-4944
+	
+APPLY TO RASH TWICE DAILY
+   RATIO-ECTOSONE 0.1% CREAM (Betamethasone Valerate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Dec-07   	RATIO-ECTOSONE 0.1% CREAM 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY WHEN REQUIRED
+	  2007-May-16   	RATIO-ECTOSONE 0.1% CREAM 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+APPLY TO AFFECTED AREA TWICE DAILY
+   NOVO-VENLAFAXINE XR 37.5 MG (Venlafaxine HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Oct-15   	NOVO-VENLAFAXINE XR 37.5 MG 	Pharmasave #337
+	
+14  Capsule(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   NOVO-VENLAFAXINE XR 150 MG (Venlafaxine HCL)   (Dispensing information only) 	Maher, Lauren Heather
+						
+  	Dispenses: 	 
+	  2007-Sep-24   	NOVO-VENLAFAXINE XR 150 MG 	Pharmasave #337
+	
+14  Capsule(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY ( EMERGENCY FILL, SEEING DR. IN 2 WEEKS )
+	  2007-Aug-14   	NOVO-VENLAFAXINE XR 150 MG 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+   ATIVAN 1 MG TABLET SL (Lorazepam)   (Dispensing information only) 	Maher, Lauren Heather
+						
+  	Dispenses: 	 
+	  2007-Aug-14   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+12  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+   TYLENOL W/CODEINE NO. 3 TAB (Codeine Phos/Acetaminophen/Caffeine)   (Dispensing information only) 	Maher, Lauren Heather
+						
+  	Dispenses: 	 
+	  2007-Aug-14   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+   ATIVAN 1 MG TABLET SL (Lorazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jul-25   	ATIVAN 1 MG TABLET SL 	Pharmasave #337
+	
+100  Tablet(s) 	  for   33  days 
+		(403) 638-4944
+	
+DISSOLVE 1 TABLET UNDER THE TONGUE 3 TIMES DAILY WHEN REQUIRED
+   ANDROGEL 1% GEL (Testosterone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jul-25   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2007-Jun-24   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2007-May-12   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2007-Mar-13   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2007-Feb-01   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-Dec-31   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-Nov-21   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-Oct-18   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-Jul-17   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   150  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-Jun-16   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   150  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-May-16   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+	  2006-Apr-01   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+150  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+ENDOCET TABLET (Oxycodone HCL/Acetaminophen)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jul-25   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-Feb-01   	ENDOCET TABLET 	Pharmasave #337
+	
+50  Tablet(s) 	  for   6  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-Jan-18   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2007-Jan-04   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Dec-21   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Dec-06   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Nov-16   	ENDOCET TABLET 	Pharmasave #337
+	
+120  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Oct-18   	ENDOCET TABLET 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Sep-18   	ENDOCET TABLET 	Pharmasave #337
+	
+240  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Aug-21   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Aug-04   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Jul-17   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Jun-07   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-May-24   	ENDOCET TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Apr-05   	ENDOCET TABLET 	Pharmasave #337
+	
+50  Tablet(s) 	  for   6  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Mar-20   	ENDOCET TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   RATIO-EMTEC-30 TABLET (Acetaminophen/Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jul-11   	RATIO-EMTEC-30 TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY AS REQUIRED FOR PAIN
+	  2007-Jun-28   	RATIO-EMTEC-30 TABLET 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY AS REQUIRED FOR PAIN
+   KETODERM 2% CREAM (Ketoconazole)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jun-28   	KETODERM 2% CREAM 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+APPLY TO FACE TWICE DAILY
+   APO-BUSPIRONE 10 MG TABLET (Buspirone HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jun-28   	APO-BUSPIRONE 10 MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET 3 TIMES DAILY WHEN REQUIRED FOR ANXIETY
+   APO-CLONAZEPAM 0.5 MG TABLET (Clonazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-May-16   	NOVO-CLONAZEPAM 0.5 MG TAB 	Pharmasave #337
+	
+15  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET DAILY
+	  2007-Jan-18   	NOVO-CLONAZEPAM 0.5 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Dec-31   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Oct-24   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Aug-21   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   TYLENOL W/CODEINE NO. 3 TAB (Codeine Phos/Acetaminophen/Caffeine)   (Dispensing information only) 	Cayer, Nathalie (MD)
+						
+  	Dispenses: 	 
+	  2007-May-12   	TYLENOL W/CODEINE NO. 3 TAB 	Pharmasave #337
+	
+20  Tablet(s) 	  for   5  days 
+		(403) 638-4944
+	
+TAKE AS DIRECTED
+OXYCONTIN 10 MG TABLET (Oxycodone HCL)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Apr-23   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+42  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET 3 TIMES DAILY
+	  2007-Apr-09   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+42  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET 3 TIMES DAILY
+	  2007-Apr-02   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   7  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS TWICE DAILY
+	  2007-Mar-15   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+56  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS TWICE DAILY
+	  2007-Mar-01   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+56  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS TWICE DAILY
+	  2007-Feb-15   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+56  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 TABLETS TWICE DAILY
+	  2007-Feb-01   	OXYCONTIN 10 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   NOVO-SERTRALINE 25 MG CAP (Sertraline HCL)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2007-Apr-02   	NOVO-SERTRALINE 25 MG CAP 	Pharmasave #337
+	
+10  Capsule(s) 	  for   2  days 
+		(403) 638-4944
+	
+TAKE 4 CAPSULES DAILY OR AS DIRECTED
+   APO-CLONAZEPAM 0.5 MG TABLET (Clonazepam)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2007-Apr-02   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2007-Feb-23   	NOVO-CLONAZEPAM 0.5 MG TAB 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Dec-19   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Dec-06   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Nov-21   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+28  Tablet(s) 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   NOVO-SERTRALINE 50 MG CAP (Sertraline HCL)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2007-Mar-13   	NOVO-SERTRALINE 50 MG CAP 	Pharmasave #337
+	
+15  Capsule(s) 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES DAILY
+	  2006-Dec-31   	NOVO-SERTRALINE 50 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2006-Dec-19   	NOVO-SERTRALINE 50 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2006-Nov-30   	NOVO-SERTRALINE 50 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+	  2006-Nov-01   	NOVO-SERTRALINE 50 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE DAILY
+   NOVO-SERTRALINE 100 MG CAP (Sertraline HCL)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2007-Feb-15   	NOVO-SERTRALINE 100 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE ONCE DAILY
+	  2007-Jan-18   	NOVO-SERTRALINE 100 MG CAP 	Pharmasave #337
+	
+30  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 CAPSULE ONCE DAILY
+   SAB-GENTAMICIN 0.3% OPH DPS (Gentamicin Sulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jan-18   	SAB-GENTAMICIN 0.3% OPH DPS 	Pharmasave #337
+	
+5  Bottle(s) 	  for   2  days 
+		(403) 638-4944
+	
+INSTILL 2 DROPS IN EACH EYE 3 TIMES DAILY
+   APO-TEMAZEPAM 15 MG CAP (Temazepam)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jan-18   	APO-TEMAZEPAM 15 MG CAP 	Pharmasave #337
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 CAPSULES DAILY AT BEDTIME WHEN REQUIRED FOR SLEEP
+	  2006-Dec-21   	APO-TEMAZEPAM 15 MG CAP 	Pharmasave #337
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 CAPSULES DAILY AT BEDTIME WHEN REQUIRED FOR SLEEP
+	  2006-Nov-16   	APO-TEMAZEPAM 15 MG CAP 	Pharmasave #337
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 CAPSULES DAILY AT BEDTIME WHEN REQUIRED FOR SLEEP
+	  2006-Nov-03   	APO-TEMAZEPAM 15 MG CAP 	Pharmasave #337
+	
+60  Capsule(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 CAPSULES AT BEDTIME WHEN NECESSARY FOR SLEEP
+   ZITHROMAX 250MG TABLET (Azithromycin)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2007-Jan-04   	SANDOZ AZITHROMYCIN TABLET 	Pharmasave #337
+	
+6  Unit 	  for   5  days 
+		(403) 638-4944
+	
+Take 2 TABLETS on day one then take 1 TABLET daily from days 2 to 5 as directed.
+	  2005-Jul-22   	ZITHROMAX 250MG TABLET 	Pharmasave #337
+	
+6  Unit 	  for   5  days 
+		(403) 638-4944
+	
+Take 2 TABLETS on day one then take 1 TABLET daily from days 2 to 5 as directed. [Pharmacy Batch dispensing record]
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-Dec-06   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Nov-16   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+120  Unit 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Sep-18   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+240  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Aug-21   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Aug-04   	RATIO-CODEINE PHOS 30 MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Jul-17   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-May-24   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-May-17   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Apr-05   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+100  Unit 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Mar-20   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+60  Unit 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2006-Mar-08   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+30  Unit 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+	  2005-Dec-20   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Nov-02   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Oct-07   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Sep-16   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   17  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Aug-25   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   75  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Aug-03   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   19  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Jul-12   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   16  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Jun-24   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   19  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Jun-10   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+150  Unit 	  for   11  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+   GEN-CLONAZEPAM 0.5MG TABLET (Clonazepam)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2006-Sep-29   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+60  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+	  2006-Aug-17   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+16  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-Aug-05   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-Jul-17   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-Jul-02   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-Jun-23   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-Jun-14   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-May-30   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-May-20   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-May-16   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2006-Apr-27   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED
+	  2005-Dec-14   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+56  Unit 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Nov-21   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Nov-06   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Oct-29   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Oct-20   	APO-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Sep-23   	NOVO-CLONAZEPAM 0.5MG TAB 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Sep-06   	NOVO-CLONAZEPAM 0.5MG TAB 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Aug-25   	NOVO-CLONAZEPAM 0.5MG TAB 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Aug-17   	NOVO-CLONAZEPAM 0.5MG TAB 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Aug-03   	NOVO-CLONAZEPAM 0.5MG TAB 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Jul-27   	NOVO-CLONAZEPAM 0.5MG TAB 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Jul-06   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Jun-24   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Jun-06   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+60  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-May-20   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-May-05   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Apr-28   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+30  Unit 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Mar-30   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+60  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+   VIAGRA 25 MG TABLET (Sildenafil Citrate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-Sep-18   	VIAGRA 25 MG TABLET 	Pharmasave #337
+	
+4  Tablet(s) 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET 1/2 TO 1 HOUR BEFORE SEXUAL ACTIVITY OR AS DIRECTED BY YOUR DOCTOR
+   APO-CLONAZEPAM 0.5 MG TABLET (Clonazepam)   (Dispensing information only) 	Warren, Peter (MD)
+						(780) 989-5300
+  	Dispenses: 	 
+	  2006-Sep-08   	APO-CLONAZEPAM 0.5 MG TABLET 	Pharmasave #337
+	
+60  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY
+   ANDROGEL 1% GEL (Testosterone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-Aug-21   	ANDROGEL 1% GEL 	Pharmasave #337
+	
+180  Tube 	  for   30  days 
+		(403) 638-4944
+	
+APPLY DAILY AS DIRECTED
+   HYDERM 1% CREAM (Hydrocortisone Acetate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-Jul-17   	HYDERM 1% CREAM 	Pharmasave #337
+	
+100  g 	  for   20  days 
+		(403) 638-4944
+	
+APPLY TO ITCHY SPOTS TWICE DAILY AS DIRECTED
+   APO-ZOPICLONE 7.5MG TAB (Zopiclone)   (Dispensing information only) 	Konkin, D. (MD)
+						(780) 492-0828
+  	Dispenses: 	 
+	  2006-Jun-30   	APO-ZOPICLONE 7.5MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Konkin, D. (MD)
+						(780) 492-0828
+  	Dispenses: 	 
+	  2006-Jun-30   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+100  Tablet(s) 	  for   12  days 
+		(403) 638-4944
+	
+TAKE 1 TO 2 TABLETS 4 TIMES DAILY WHEN REQUIRED
+   APO-NAPROXEN 500MG TABLET (Naproxen)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-May-24   	APO-NAPROXEN 500MG TABLET 	Pharmasave #337
+	
+30  Tablet(s) 	  for   15  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WITH FOOD
+   APO-ZOPICLONE 7.5MG TAB (Zopiclone)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-May-24   	APO-ZOPICLONE 7.5MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED
+	  2006-May-17   	APO-ZOPICLONE 7.5MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY AT BEDTIME WHEN REQUIRED
+	  2006-Apr-05   	APO-ZOPICLONE 7.5MG TAB 	Pharmasave #337
+	
+30  Tablet(s) 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET AT BEDTIME WHEN REQUIRED
+   CIALIS 20MG TABLET (Tadalafil)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2006-Mar-23   	CIALIS 20MG TABLET 	Pharmasave #337
+	
+4  Unit 	  for   8  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET AS DIRECTED ( NO MORE THAN 2 PER DAY )
+	  2004-Dec-30   	CIALIS 20MG TABLET 	Pharmasave #337
+	
+4  Unit 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1/2 TO 1 TABLET DAILY AS DIRECTED (MAX 1 TABLET DAILY ) [Pharmacy Batch dispensing record]
+   NOVO-SERTRALINE 100MG CAP (Sertraline HCL)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2005-Dec-14   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Nov-14   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Nov-12   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Oct-29   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Oct-13   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Sep-28   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Sep-14   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Aug-17   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jul-30   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jul-19   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jul-06   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jun-21   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jun-09   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-May-27   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-May-20   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+20  Unit 	  for   10  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-May-13   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+14  Unit 	  for   7  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-May-05   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+14  Unit 	  for   7  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Apr-28   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+10  Unit 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Apr-25   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+5  Unit 	  for   2  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Apr-18   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+10  Unit 	  for   5  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Apr-12   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+15  Unit 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Mar-31   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+15  Unit 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Mar-21   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+15  Unit 	  for   8  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Feb-11   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+60  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+RATIO-MORPHINE SR 30MG TAB (Morphine Sulfate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Sep-29   	RATIO-MORPHINE SR 30MG TAB 	Pharmasave #337
+	
+60  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY AS DIRECTED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Jul-22   	RATIO-MORPHINE SR 30MG TAB 	Pharmasave #337
+	
+60  Unit 	  for   30  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY AS DIRECTED FOR PAIN [Pharmacy Batch dispensing record]
+   ZYPREXA 5MG TABLET (Olanzapine)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Sep-16   	ZYPREXA 5MG TABLET 	Pharmasave #337
+	
+8  Unit 	  for   16  days 
+		(403) 638-4944
+	
+TAKE A-HALF TABLET AT BEDTIME [Pharmacy Batch dispensing record]
+   AVELOX 400MG TABLET (Moxifloxacin HCL)   (Dispensing information only) 	Warren, Peter (MD)
+						(780) 989-5300
+  	Dispenses: 	 
+	  2005-Aug-10   	AVELOX 400MG TABLET 	Pharmasave #337
+	
+14  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY UNTIL FINISHED [Pharmacy Batch dispensing record]
+   DELATESTRYL 200MG/ML VIAL (Testosterone Enanthate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Jun-24   	DELATESTRYL 200MG/ML VIAL 	Pharmasave #337
+	
+5  Unit 	  for   35  days 
+		(403) 638-4944
+	
+1 ML TO BE INJECTED EVERY 4 WEEKS AS DIRECTED [Pharmacy Batch dispensing record]
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Jun-03   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+75  Unit 	  for   19  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-May-19   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+150  Unit 	  for   38  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+	  2005-Apr-20   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   75  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Mar-25   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   35  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+   GEN-CLONAZEPAM 0.5MG TABLET (Clonazepam)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2005-Mar-21   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Mar-05   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+	  2005-Feb-03   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET TWICE DAILY WHEN REQUIRED [Pharmacy Batch dispensing record]
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Mar-01   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+211  Unit 	  for   28  days 
+		(403) 638-4944
+	
+TAKE 2 TO 4 TABLETS 4 TIMES DAILY WHEN REQUIRED FOR PAIN [Pharmacy Batch dispensing record]
+   RATIO-CODEINE PHOS 15MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Feb-04   	RATIO-CODEINE PHOS 15MG TAB 	Pharmasave #337
+	
+600  Unit 	  for   25  days 
+		(403) 638-4944
+	
+TAKE 4-8 TABLETS 4 TIMES DAILY AS REQUIRED FOR PAIN AS DIRECTED [Pharmacy Batch dispensing record]
+   GEN-CLONAZEPAM 0.5MG TABLET (Clonazepam)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2005-Jan-29   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+14  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jan-22   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+14  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jan-12   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+14  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jan-06   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+14  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+   NOVO SERTRALINE 100MG CAP (Sertraline HCL)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2005-Jan-29   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2005-Jan-14   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2004-Dec-31   	NOVO-SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2004-Dec-17   	NOVO SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2005-Jan-07   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   19  days 
+		(403) 638-4944
+	
+TAKE 2-4 TABLETS 4 TIMES DAILY AS REQUIRED FOR PAIN AS DIRECTED [Pharmacy Batch dispensing record]
+   GEN-CLONAZEPAM 0.5MG TABLET (Clonazepam)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2004-Dec-24   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+24  Unit 	  for   24  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+	  2004-Dec-17   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   20  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+	  2004-Dec-07   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+20  Unit 	  for   20  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET DAILY WHEN REQUIRED AS DIRECTED [Pharmacy Batch dispensing record]
+	  2004-Nov-22   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+10  Unit 	  for   10  days 
+		(403) 638-4944
+	
+Pharmacy Batch dispense record.
+   RATIO-CODEINE PHOS 30MG TAB (Codeine Phos)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2004-Dec-16   	RATIO-CODEINE PHOS 30MG TAB 	Pharmasave #337
+	
+300  Unit 	  for   75  days 
+		(403) 638-4944
+	
+TAKE 2-4 TABLETS 4 TIMES DAILY AS REQUIRED FOR PAIN AS DIRECTED [Pharmacy Batch dispensing record]
+   VIAGRA 25MG TABLET (Sildenafil Citrate)   (Dispensing information only) 	Irvine, Harland (MD)
+						(403) 638-3333
+  	Dispenses: 	 
+	  2004-Dec-09   	VIAGRA 25MG TABLET 	Pharmasave #337
+	
+4  Unit 	  for   4  days 
+		(403) 638-4944
+	
+TAKE 1 TABLET 1/2 TO 1 HOUR BEFORE SEXUAL ACTIVITY OR AS DIRECTED BY YOUR DOCTOR [Pharmacy Batch dispensing record]
+   NOVO SERTRALINE 100MG CAP (Sertraline HCL)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2004-Dec-04   	NOVO SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+TAKE 2 CAPSULES EACH MORNING AS DIRECTED [Pharmacy Batch dispensing record]
+	  2004-Nov-22   	NOVO SERTRALINE 100MG CAP 	Pharmasave #337
+	
+28  Unit 	  for   14  days 
+		(403) 638-4944
+	
+Pharmacy Batch dispense record.
+   GEN-CLONAZEPAM 0.5MG TABLET (Clonazepam)   (Dispensing information only) 	Beshai, Safa (MD)
+						(403) 342-9444
+  	Dispenses: 	 
+	  2004-Nov-16   	GEN-CLONAZEPAM 0.5MG TABLET 	Pharmasave #337
+	
+10  Unit 	  for   10  days 
+		(403) 638-4944
+	
+Pharmacy Batch dispense record.
+
+
+- End of Report - 
