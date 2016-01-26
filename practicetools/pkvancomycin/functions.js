@@ -1,7 +1,7 @@
 /********************************************************************************
  *	STUDY BUFFALO VANCOMYCIN BUGS & DRUGS DOSING CALCULATOR						*
  *																				*
- *	Last Update: 2016-Jan-10													*
+ *	Last Update: 2016-Jan-25													*
  *																				*
  *	Copyright(c) Notices														*
  *		2016	Joshua R. Torrance, BSc Pharm	<studybuffalo@studybuffalo.com>	*
