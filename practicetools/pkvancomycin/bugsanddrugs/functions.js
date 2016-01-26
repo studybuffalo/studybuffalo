@@ -251,8 +251,10 @@ function calculateKe(crcl) {
 	var ke;
 	
 	if (crcl > 0) {
-		ke = round((0.00083 * crcl), 3);
-		ke = round(ke + 0.0043, 3);
+	    ke = 0.00083 * crcl
+	    ke = ke.toPrecision(2);
+	    ke = Number(ke) + 0.0043;
+	    ke = ke.toPrecision(2);
 	}
 	
 	return ke;
