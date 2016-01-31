@@ -17,4 +17,5 @@ licensing options, so please contact us if this is an issue for you.
 ## Contact Us
 You can always get a hold of us at studybuffalo@studybuffalo.com or through GitHub itself.
 
-## Testing Atom!
+## Testing Atom
+This is a test!
