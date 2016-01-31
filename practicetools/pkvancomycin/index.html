@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!--
+	*********************************************************************************
+	*	STUDY BUFFALO VANCOMYCIN BUGS & DRUGS DOSING CALCULATOR						*
+	*																				*
+	*	Last Update: 2016-Jan-26													*
+	*																				*
+	*	Copyright(c) Notices														*
+	*		2016	Joshua R. Torrance, BSc Pharm	<studybuffalo@studybuffalo.com>	*
+	*																				*
+	* 	Use, modification and sharing of this software is restricted as per the 	*
+	*	Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.	*
+	*																				*
+	*	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,	EXPRESS		*
+	*	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, *
+	*	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL		*
+	*	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER	*
+	*	LIABILITY, WHETHER IN AN ACTION	OF CONTRACT, TORT OR OTHERWISE, ARISING		*
+	*	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER			*
+	*	DEALINGS IN THE SOFTWARE.													*
+	*********************************************************************************
+	 -->
 	<?php 
 		include 'details.php';
 		$title = 'Study Buffalo - Practice Tools: ' . $title;
 		include $_SERVER['DOCUMENT_ROOT'] . '/include/php/head_content.php';
 	?>
-	<link rel="stylesheet" type="text/css" href="/practicetools/include/style.css">
+	<link rel="stylesheet" type="text/css" href="/practicetools/include/pk_style.css">
 </head>
 
 <body>
@@ -18,11 +39,351 @@
 	?>
 	
 	<div id="Main-Content">
-		<h2>UNDER CONSTRUCTION</h2>
-		<p>This page is currently under development. We hope to have a 
-		working version completed before 2016. Check back again to see 
-		if it is ready, or subscribe to one of our social media pages 
-		to receive the latest updates. Thanks!</p>
+		<p>Welcome to the Vancomycin Empiric Dosing Calculator. This calculator 
+		   generates empiric doses for vancomycin using the Bugs &#38; Drugs 
+		   algorithm. This information does not supersede any clinical assessment and 
+		   must be used in the clinical context of your patient.<br>
+		   <br>
+		   To start, enter your patient data in the fields below; the information 
+		   will automatically generate as you fill in the required fields.</p>
+		
+		<!-- Patient Data -->
+		<div class="PT1em">
+			<h2>Patient Data</h2>
+			
+			<div class="Patient-Data">
+				<span>Age:</span>
+				<input type="text" id="Patient-Age"> years
+			</div>
+			
+			<div class="Patient-Data">
+				<span>Sex:</span>
+				<select id="Patient-Sex">
+					<option>Male</option>
+					<option>Female</option>
+				</select>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>Height:</span>
+				<input type="text" id="Patient-Height">
+				<select id="Patient-Height-Unit">
+					<option>cm</option>
+					<option>in</option>
+				</select>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>Weight:</span>
+				<input type="text" id="Patient-Weight"> 
+				<select id="Patient-Weight-Unit">
+					<option>kg</option>
+					<option>lb</option>
+				</select>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>SCr:</span>
+				<input type="text" id="Patient-Scr"> &#956;mol/L
+			</div>
+			
+			<div class="Patient-Data">
+				<span>IBW:</span>
+				<span id="Patient-Ibw"></span>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>DW:</span>
+				<span id="Patient-Dw">N/A</span>
+			</div>
+			
+			<div class="Patient-Data">
+				<span>CrCl:</span>
+				<span id="Patient-Crcl"></span>
+			</div>
+		</div>
+		
+		<!-- Empiric Dosing -->
+		<div class="MT1em">
+			<h2>Empiric Dosing</h2>
+			
+			
+			<h3>Loading Dose</h3>
+			
+			<div class="Loading-Dose">
+				<span>Include?</span>
+				<label><input type="radio" class="Loading-Include-Radio" name="Loading-Include" value="Yes"> Yes</label> 
+				<label><input type="radio" class="Loading-Include-Radio" name="Loading-Include" value="No" checked> No</label>
+			</div>
+			
+			<div class="Loading-Include No">
+				<div class="Loading-Dose">
+					<span>Dose/Weight:</span>
+					<input type="text" id="Loading-Weight" value="25"> mg/kg
+				</div>
+				
+				<div class="Loading-Dose">
+					<span>Dose:</span>
+					<span id="Loading-Dose"></span>
+				</div>
+				
+				<div class="Loading-Dose">
+					<span>Rounded Dose:</span>
+					<span id="Loading-Dose-Rounded"></span>
+				</div>
+			</div>
+			
+			<h3 class="MT1em">Maintenance Dose</h3>
+			
+			<div class="Maintenance-Dose">
+				<span>Trough Target:</span>
+				<select id="Maintenance-Target">
+					<option>10-20 mg/L</option>
+					<option>15-20 mg/L</option>
+				</select>
+			</div>
+			
+			<div class="Maintenance-Dose">
+				<span>Dose/Weight:</span>
+				<input type="text" id="Maintenance-Weight" value="15"> mg/kg
+			</div>
+			
+			<div class="Maintenance-Dose">
+				<span>Dose:</span>
+				<span id="Maintenance-Dose"></span>
+			</div>
+			
+			<div class="Maintenance-Dose">
+				<span>Rounded Dose:</span>
+				<span id="Maintenance-Dose-Rounded"></span>
+			</div>
+			
+			<div class="Maintenance-Dose">
+				<span>Interval:</span>
+				<span id="Maintenance-Interval"></span>
+			</div>
+			
+			<div class="Maintenance-Dose">
+				<span>Draw Level:</span>
+				<span id="Maintenance-Draw"></span>
+			</div>
+			
+			
+			<h3 class="MT1em">Pharmacokinetic Data</h3>
+			
+			<p><em>This data is for illustrative purposes only (e.g. to show 
+				   the impact of loading doses, to visualize time to steady 
+				   state). It makes multiple assumptions based on population 
+				   pharmacokinetics that may or may not be applicable to your 
+				   patient. These level estimations cannot be assumed 
+				   accurate for your patient.</em><p>
+			
+			<div class="Pk-Data">
+				<span>k<sub>e</sub>:</span>
+				<span id="Patient-Ke"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>t<sub>1/2</sub>:</span>
+				<span id="Patient-T12"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>t<sub>SS</sub>:</span>
+				<span id="Patient-Tss"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>V<sub>d</sub>:</span>
+				<span id="Patient-Vd">0.7 L/kg</span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>C<sub>max</sub>:</span>
+				<span id="Patient-Cmax"></span>
+			</div>
+			
+			<div class="Pk-Data">
+				<span>C<sub>min</sub>:</span>
+				<span id="Patient-Cmin"></span>
+			</div>
+		</div>
+		
+		<div id="Graph-Container">
+			<canvas id="Graph" height="500px" width="1000px"></canvas>
+		</div>
+		
+		
+		<!-- Equations and Calculations -->
+		<div class="MT1em">
+			<h2>Equations &#38; Calculations</h2>
+			
+			<p><em>Calculations used to generate above data. Due to 
+				   rounding, some numbers may not add up exactly. 
+				   Calculations are rounded at each step.</em></p>
+			
+			<!-- Patient Data Calculations -->
+			<!-- Weight -->
+			<h3>Patient Weight Calculations</h3>
+			
+			<div id="Math-Ibw">
+				\begin{align}
+					IBW\ (Male) & = 50\ kg + \left(\frac {0.92\ kg}{cm} * height\ over\ 150\ cm\right) &\\[10pt]
+					IBW\ (Female) & = 45.5\ kg + \left(\frac {0.92\ kg}{in} * height\ over\ 150\ cm\right) &
+				\end{align}
+			</div>
+			
+			<!-- CrCl -->
+			<h3>Patient CrCl Calculations</h3>
+			
+			<div id="Math-Crcl">
+				\begin{align}
+					CrCl\ (Male) & = \frac{\left(140 - age\right) * weight}{SCr} * 1.2 &\\[10pt]
+					CrCl\ (Female) & = \frac{\left(140 - age\right) * weight}{SCr} &
+				\end{align}
+			</div>
+			
+			<!-- Loading Dose Calculations -->
+			<div class="Loading-Include No">
+				<h3>Loading Dose Calculations</h3>
+				
+				<div id="Math-Loading-Dose">
+					\begin{align}
+						Loading\ Dose & = \frac{25\ mg}{kg} * actual\ body\ weight &\\
+					\end{align}
+				</div>
+			</div>
+			
+			<!-- Maintenance Dose Calculations -->
+			<h3>Maintenance Dose Calculations</h3>
+			
+			<div id="Math-Maintenance-Dose">
+				\begin{align}
+					Maintenance Dose & = dose\ per\ weight * actual\ body\ weight &\\
+				\end{align}
+			</div>
+				
+			<!-- Interval Calculations -->
+			<h3>Empiric Interval Determination</h3>
+			
+			<table id="Math-Interval-Table">
+				<tr>
+					<th></th>
+					<th colspan="2">Target Trough</th>
+				</tr>
+				<tr>
+					<th>Calculated CrCl</th>
+					<th>10-20 mg/L</th>
+					<th>15-20 mg/L</th>
+				</tr>
+				<tr>
+					<td>&#8805; 80 mL/min</td>
+					<td>Q12H</td>
+					<td>Q8H</td>
+				</tr>
+				<tr>
+					<td>40-80 mL/min</td>
+					<td>Q24H</td>
+					<td>Q12H</td>
+				</tr>
+				<tr>
+					<td>20-40 mL/min</td>
+					<td>Q36H</td>
+					<td>Q24H</td>
+				</tr>
+				<tr>
+					<td>10-20 mL/min</td>
+					<td>Q48H</td>
+					<td>Q48H</td>
+				</tr>
+				<tr>
+					<td>&#8804; 10 mL/min</td>
+					<td colspan="2">Consider loading dose and pharmacist consult</td>
+				</tr>
+			</table>
+			
+			<!-- Pharmacokinetic Calculations Calculations -->
+			<h3>Pharmacokinetic Calculations</h3>
+			
+			<div id="Math-Ke">
+				\begin{align}
+					k_e & = \left(0.00083 * CrCl\right) + 0.0044 &\\
+				\end{align}
+			</div>
+			
+			<div id="Math-T12" class="PT05em">
+				\begin{align}
+					t_{1/2} & = \frac{0.693}{k_e} &\\
+				\end{align}
+			</div>
+			
+			<div id="Math-Tss" class="PT05em">
+				\begin{align}
+					t_{SS} & = t_{1/2} * 4\ or\ 5 &\\
+				\end{align}
+			</div>
+			
+			<div id="Math-Vd" class="PT05em">
+				\begin{align}
+					V_{d} & = \frac{0.7\ L}{kg} * weight &\\
+				\end{align}
+			</div>
+			
+			<div id="Math-Cmax" class="PT05em">
+				\begin{align}
+					C_{max} & = \frac{Dose\ (mg)}{V_d\ (L) * \left(1 - e^{-ke * \tau}\right)} &\\
+				\end{align}
+			</div>
+			
+			<div id="Math-Cmin" class="PT05em">
+				\begin{align}
+					C_{min} & = C_{max} * e^{-ke * \tau} &\\
+				\end{align}
+			</div>
+		</div>
+		
+		<!-- Comments -->
+		<div class="PT1em">
+			<h2>Comments</h2>
+			
+			<ul>
+				<li><b>While we strive to ensure all aspects of this 
+					calculator are reliable and accurate, you must always use 
+					your clinical judgement when applying these calculations 
+					to a patient.</b> We have provided the calculations used to 
+					allow you to verify that these numbers make sense in the 
+					context of your patient. Any additional pharmacokinetic and 
+					visual information is based on population pharmacokinetics 
+					and <b>cannot be assumed accurate for your patient</b>. This 
+					information is provided for illustrative purpose only.</li>
+				<li>Time to steady state ranges from 4 to 5 half lives. This 
+					calculator shows you both options and, through rounding up, 
+					chooses when a trough should be drawn.</li>
+				<li>Maintenance doses are capped at 2000 mg/dose. Higher doses 
+					may be used (if clinically appropriate) following trough
+					monitoring.</li>
+				<li>If you have any questions, concerns, or wish to report an error,
+					please email us at
+					<a href="mailto:studybuffalo@studybuffalo.com?subject=Alberta%20Drug%20Price%20Calculator">
+					studybuffalo@studybuffalo.com</a>.</li>
+			</ul>
+		</div>
+		
+		
+		<!-- References -->
+		<div class="PT1em">
+			<h2>References</h2>
+			
+			<p>
+			Bauer LA. Applied Clinical Pharmacokinetics. 2nd ed. USA: McGraw-Hill 
+			Companies Inc.; 2008.<br>
+			<br>
+			Blondel-Hill E, Fryters S. Bugs & Drugs. 2012.<br>
+			<br>
+			Gray M, Fryters S, Dersch Mills D, Romanick, M. Vancomycin Pharmacokinetic 
+			Summary. 2012.
+			</p>
+		</div>
 	</div>
 	
 	<?php
@@ -34,5 +395,8 @@
 	?>
 </body>
 
-<!-- JS Functions -->
+<!-- JS Functions and External Libraries -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="functions.js?version_1.1"></script>
 </html>
+
