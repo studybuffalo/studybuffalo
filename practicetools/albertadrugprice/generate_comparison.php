@@ -12,28 +12,28 @@ $db = dbConnect('abc_dbl', 'abc_vw');
 
 // Sending prepared statement to server
 $params = implode(",", array_fill(0, count($q), "?"));
-$query = "SELECT DISTINCT t1.url, t1.strength, t1.generic_name, " . 
-		 "t1.unit_price, t2.coverage, t2.criteria_sa, " . 
+$query = "SELECT DISTINCT t1.url, t1.strength, t1.generic_name, " .
+		 "t1.unit_price, t1.lca, t2.coverage, t2.criteria_sa, " .
 		 "t2.criteria_p, t2.group_1, t2.group_66, t2.group_66a, " .
-		 "t2.group_19823, t2.group_19823a, t2.group_19824, " . 
-		 "t2.group_20400, t2.group_20403, t2.group_20514, " . 
+		 "t2.group_19823, t2.group_19823a, t2.group_19824, " .
+		 "t2.group_20400, t2.group_20403, t2.group_20514, " .
 		 "t2.group_22128, t2.group_23609 " .
 		 "FROM price t1 " .
 		 "JOIN coverage t2 " .
 		 "ON t1.url = t2.url " .
 		 "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
 
-$statement = $db->prepare($query);	
+$statement = $db->prepare($query);
 $statement->execute($q);
 
 // Copy server results to array
 while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {
 	// Creates special auth entry in results
 	$temp['special_auth'] = array();
-	
+
 	// Adds results to array
 	array_push($resultArray, $temp);
-	
+
 	// Collects all URLs for special auth query
 	array_push($urlArray, $temp['url']);
 }
@@ -70,7 +70,8 @@ if (count($resultArray) > 0) {
 			$outputArray[0] = array('generic_name' => $item['generic_name'],
 									'strength' => array());
 			$outputArray[0]['strength'][0]['strength'] = $item['strength'];
-			$outputArray[0]['strength'][0]['lca'] = $item['unit_price'];
+			$outputArray[0]['strength'][0]['unit_price'] = $item['unit_price'];
+			$outputArray[0]['strength'][0]['lca'] = $item['lca'];
 			$outputArray[0]['strength'][0]['coverage'] = $item['coverage'];
 			$outputArray[0]['strength'][0]['criteria_sa'] = $item['criteria_sa'];
 			$outputArray[0]['strength'][0]['criteria_p'] = $item['criteria_p'];
@@ -89,20 +90,21 @@ if (count($resultArray) > 0) {
 		} else {
 			$genericMatch = FALSE;
 			$strengthMatch = FALSE;
-			
+
 			// Checks for matching generic name
 			for ($i = 0; $i < count($outputArray); $i++) {
 				if ($outputArray[$i]['generic_name'] == $item['generic_name']) {
 					$genericMatch = TRUE;
-					
+
 					// Then checks for matching strength
 					for ($j = 0; $j < count($outputArray[$i]['strength']); $j++) {
 						if ($outputArray[$i]['strength'][$j]['strength'] == $item['strength']) {
 							$strengthMatch = TRUE;
-							
-							// If unit price is lower, replaces the LCA & any criteria
-							if ($item['unit_price'] < $outputArray[$i]['strength'][$j]['lca']) {
-								$outputArray[$i]['strength'][$j]['lca'] = $item['unit_price'];
+
+							// If unit price is lower, replaces the array contents
+							if ($item['unit_price'] < $outputArray[$i]['strength'][$j]['unit_price']) {
+								$outputArray[$i]['strength'][$j]['unit_price'] = $item['unit_price'];
+								$outputArray[$i]['strength'][$j]['lca'] = $item['lca'];
 								$outputArray[$i]['strength'][$j]['coverage'] = $item['coverage'];
 								$outputArray[$i]['strength'][$j]['criteria_sa'] = $item['criteria_sa'];
 								$outputArray[$i]['strength'][$j]['criteria_p'] = $item['criteria_p'];
@@ -119,17 +121,18 @@ if (count($resultArray) > 0) {
 								$outputArray[$i]['strength'][$j]['group_23609'] = $item['group_23609'];
 								$outputArray[$i]['strength'][$j]['special_auth'] = $item['special_auth'];
 							}
-							
+
 							break;
 						}
 					}
-					
+
 					// If no strength match was found, adds it to this generic entry
 					if ($strengthMatch === FALSE) {
 						$index = count($outputArray[$i]['strength']);
 						$outputArray[$i]['strength'][$index] = array(
 								'strength' => $item['strength'],
-								'lca' => $item['unit_price'],
+								'unit_price' => $item['unit_price'],
+								'lca' => $item['lca'],
 								'coverage' => $item['coverage'],
 								'criteria_sa' => $item['criteria_sa'],
 								'criteria_p' => $item['criteria_p'],
@@ -146,18 +149,19 @@ if (count($resultArray) > 0) {
 								'group_23609' => $item['group_23609'],
 								'special_auth' => $item['special_auth']);
 					}
-					
+
 					break;
 				}
 			}
-			
+
 			// If no generic match was found, adds it to the array
 			if ($genericMatch == FALSE) {
 				$index = count($outputArray);
 				$outputArray[$index] = array('generic_name' => $item['generic_name'],
 											 'strength' => array());
 				$outputArray[$index]['strength'][0]['strength'] = $item['strength'];
-				$outputArray[$index]['strength'][0]['lca'] = $item['unit_price'];
+				$outputArray[$index]['strength'][0]['unit_price'] = $item['unit_price'];
+				$outputArray[$index]['strength'][0]['lca'] = $item['lca'];
 				$outputArray[$index]['strength'][0]['coverage'] = $item['coverage'];
 				$outputArray[$index]['strength'][0]['criteria_sa'] = $item['criteria_sa'];
 				$outputArray[$index]['strength'][0]['criteria_p'] = $item['criteria_p'];
@@ -182,19 +186,19 @@ if (count($resultArray) > 0) {
 if (count($outputArray) > 0) {
 	function sortFunction($a, $b) {
 		$pattern = '/([\d|\.]+\b)/';
-		
+
 		if (preg_match($pattern, $a['strength'], $matches)) {
 			$a = $matches[1];
 		} else {
 			$a = $a['strength'];
 		}
-		
+
 		if (preg_match($pattern, $b['strength'], $matches)) {
 			$b = $matches[1];
 		} else {
 			$b = $b['strength'];
 		}
-		
+
 		if ($a == $b) {
 			return 0;
 		} else if ($a < $b) {
@@ -203,7 +207,7 @@ if (count($outputArray) > 0) {
 			return 1;
 		}
 	}
-	
+
 	for ($i = 0; $i < count($outputArray); $i++) {
 		usort($outputArray[$i]['strength'], 'sortFunction');
 	}

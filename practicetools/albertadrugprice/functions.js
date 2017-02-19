@@ -726,10 +726,14 @@ function closeInfoPopup() {
 	var tempText;
 	
 	// Determines which dataSelect to retrieve data from
+	var tpIndex = 0;
+
 	if (table === "Price-Table") {
 		$dataSelect = $row.find($(".brandName")).first();
+		tpIndex = document.getElementById("Price-Table-Third-Party").selectedIndex
 	} else if (table === "Comparison-Table") {
 		$dataSelect = $row.find($(".strength")).first();
+		tpIndex = document.getElementById("Comparison-Table-Third-Party").selectedIndex
 	}
 	
 	$optionSelect = $dataSelect.children("option:selected");
@@ -779,12 +783,15 @@ function closeInfoPopup() {
 			.appendTo($infoDiv);
 	
  	// Adds drug cost & MAC if drug plan selected
-	if (document.getElementById("Price-Table-Third-Party").selectedIndex > 0) {
+	if (tpIndex > 0) {
 		var $cost = $("<p></p>");
 		var $mac = $("<p></p>");
 		var cost = $optionSelect.attr("data-cost");
 		var mac = $optionSelect.attr("data-mac");
 		var unit = $optionSelect.attr("data-unit");
+
+		// Replaces unit with "unit" if blank
+		unit = unit === "" ? unit : "unit";
 
 		tempText = "$" + cost + " per " + unit;
 		$cost.append($("<strong></strong>").text("Cost: "))
@@ -1630,8 +1637,8 @@ function processComparison(results) {
 			// Adds each strength as an option to the select
 			$tempOption = $("<option></option>");
 			$tempOption.text(temp.strength)
-					   .attr("data-cost", temp.lca)
-					   .attr("data-lca", temp.lca)
+					   .attr("data-cost", temp.unit_price)
+					   .attr("data-mac", temp.lca)
 					   .attr("data-coverage", temp.coverage)
 					   .attr("data-criteria", temp.criteria)
 					   .attr("data-criteria-p", temp.criteria_p)
