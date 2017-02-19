@@ -176,9 +176,9 @@ function calculateFees(costPerUnit, quantity) {
  *		Dispensing Fee:	A $12.30 dispensing fee is added on top of the 		*
  *						noted upcharges.									*
  ****************************************************************************/
-function calculatePrice(costPerUnit, quantity, lca, thirdParty, benefits) {
+function calculatePrice(costPerUnit, quantity, mac, thirdParty, benefits) {
 	var coverageMatch = false;
-	var mac;
+	var fees;
 	var thirdPartyPays;
 	var netPrice;
 	var benefitResult;
@@ -210,13 +210,13 @@ function calculatePrice(costPerUnit, quantity, lca, thirdParty, benefits) {
 		}
 		
 		// Calculates the MAC
-		mac = calculateFees(lca, quantity);
+		fees = calculateFees(mac, quantity);
 		
 		// Calculates net price based on coverage information
 		if (coverageMatch === false) {
 			thirdPartyPays = 0;
 		} else {
-			thirdPartyPays = calculateThirdParty(mac.grossPrice, thirdParty);
+			thirdPartyPays = calculateThirdParty(fees.grossPrice, thirdParty);
 			returnPrice.thirdParty = thirdPartyPays;
 		}
 	} else {
@@ -338,7 +338,7 @@ function priceUpdateDay(input) {
 	
 	var cost = Number($row.find(".cost").attr("data-cost")) ||
 			   Number($row.find(".cost").val());
-	var lca;
+	var mac;
 	var dosesPerDay = $row.find(".dosesPerDay").eq(index).val();
 	var daySupply = Number($row.find(".daySupply").eq(index).val());
 	var quantity;
@@ -356,8 +356,8 @@ function priceUpdateDay(input) {
 	// Calculate the total number of doses
 	quantity = processDosesPerDay(dosesPerDay) * daySupply;
 	
-	// Extract the LCA
-	lca = $dataSelect.attr("data-lca");
+	// Extract the MAC
+	mac = $dataSelect.attr("data-mac");
 	
 	// Assemble list of benefits for this medication;
 	if ($dataSelect.attr("data-group-1") == "1") {benefits.push("1");}
@@ -373,7 +373,7 @@ function priceUpdateDay(input) {
 	if ($dataSelect.attr("data-group-23609") === "1") {benefits.push("23609");}
 	
 	// Uses the determined index to calculate the price and update the span
-	price = calculatePrice(cost, quantity, lca, thirdParty, benefits);
+	price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
 	
 	$priceSpan.text("$" + price.netPrice.toFixed(2))
 			  .attr("data-drug-cost", price.drugCost)
@@ -416,7 +416,7 @@ function priceUpdateQuantity(input) {
 	var $thirdParty = $("#" + table + "-Third-Party");
 	var cost = Number($row.find(".cost").attr("data-cost")) ||
 			   Number($row.find(".cost").val());
-	var lca;
+	var mac;
 	var quantity = Number($row.find(".quantity").eq(index).val());
 	var benefits = [];
 	var thirdParty = $thirdParty.children("option:selected").val();
@@ -429,8 +429,8 @@ function priceUpdateQuantity(input) {
 		$dataSelect = $row.find(".strength").first().children("option:selected");
 	}
 	
-	// Extract the LCA
-	lca = $dataSelect.attr("data-lca");
+	// Extract the MAC
+	mac = $dataSelect.attr("data-mac");
 	
 	// Assemble list of benefits for this medication;
 	if ($dataSelect.attr("data-group-1") === "1") {benefits.push("1");}
@@ -446,7 +446,7 @@ function priceUpdateQuantity(input) {
 	if ($dataSelect.attr("data-group-23609") === "1") {benefits.push("23609");}
 	
 	// Uses the determined index to calculate the price and update the span
-	price = calculatePrice(cost, quantity, lca, thirdParty, benefits);
+	price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
 	
 	$priceSpan.text("$" + price.netPrice.toFixed(2))
 			  .attr("data-drug-cost", price.drugCost)
@@ -699,7 +699,6 @@ function closeInfoPopup() {
 	var $infoDiv = $("<div></div>");
 	var $title = $("<h3></h3>");
 	var $coverage = $("<p></p>");
-	var coverageText;
 	var $benefit = $("<p></p>");
 	var $feeTitle = $("<p></p>");
 	var $feeTable = $("<table></table>");
@@ -711,9 +710,7 @@ function closeInfoPopup() {
 	var $feeTP = $("<tr></tr>");
 	var $feeNet = $("<tr></tr>");
 	var $criteriaSA = $("<a></a>");
-	var criteriaSA;
 	var $criteriaP = $("<a></a>");
-	var criteriaP;
 	var $saFormTitle = $("<p></p>");
 	var $saForm = $("<ul></ul>");
 	var $saFormTemp;
@@ -736,9 +733,10 @@ function closeInfoPopup() {
 	}
 	
 	$optionSelect = $dataSelect.children("option:selected");
-	coverageText =  $optionSelect.attr("data-coverage");
-	criteriaSA = $optionSelect.attr("data-criteria-sa");
-	criteriaP = $optionSelect.attr("data-criteria-p");
+	
+	var coverageText =  $optionSelect.attr("data-coverage");
+	var criteriaSA = $optionSelect.attr("data-criteria-sa");
+	var criteriaP = $optionSelect.attr("data-criteria-p");
 	
 	// Determines which price span to retrieve data from
 	if (method === 0) {
@@ -780,6 +778,25 @@ function closeInfoPopup() {
 			.append($("<span></span>").text(tempText))
 			.appendTo($infoDiv);
 	
+ 	// Adds drug cost & MAC if drug plan selected
+	if (document.getElementById("Price-Table-Third-Party").selectedIndex > 0) {
+		var $cost = $("<p></p>");
+		var $mac = $("<p></p>");
+		var cost = $optionSelect.attr("data-cost");
+		var mac = $optionSelect.attr("data-mac");
+		var unit = $optionSelect.attr("data-unit");
+
+		tempText = "$" + cost + " per " + unit;
+		$cost.append($("<strong></strong>").text("Cost: "))
+			 .append($("<span></span>").text(tempText))
+			 .appendTo($infoDiv);
+
+		tempText = "$" + mac + " per " + unit;
+		$mac.append($("<strong></strong>").text("MAC: "))
+			.append($("<span></span>").text(tempText))
+			.appendTo($infoDiv);
+	}
+
 	//  Coverage Criteria
 	if (criteriaSA) {
 		$criteriaSA.text("Click here for coverage criteria")
@@ -1053,8 +1070,10 @@ function addFreeformEntry() {
 function brandUpdate(brandSelect) {
 	var $row = $(brandSelect).closest("tr");
 	var $costSpan = $row.find(".cost");
+	var $macSpan = $row.find(".mac");
 	var $brandOption = $(brandSelect).children("option:selected");
 	var cost = $brandOption.attr("data-cost");
+	var mac = $brandOption.attr("data-mac");
 	var unit = $brandOption.attr("data-unit");
 	var $daySupply = $row.find(".daySupply");
 	var $quantity = $row.find(".quantity");
@@ -1065,6 +1084,11 @@ function brandUpdate(brandSelect) {
 	$costSpan.html(tempText)
 			 .attr("data-cost", cost);
 	
+	// Updates the mac/unit span
+	tempText = "$" + mac + "<br>(per " + unit + ")";
+	$macSpan.html(tempText)
+			.attr("data-mac", mac);
+
 	// Updates day supply pricing
 	$daySupply.each(function(index, elem) {
 		priceUpdateDay(elem);
@@ -1271,6 +1295,7 @@ function addLCA(result) {
 				dosage_form: result[lcaIndex].dosage_form,
 				brand_name: "LCA",
 				unit_price: result[lcaIndex].unit_price,
+				lca: result[lcaIndex].lca,
 				unit_issue: result[lcaIndex].unit_issue,
 				coverage: result[lcaIndex].coverage,
 				criteria: result[lcaIndex].criteria,
@@ -1351,7 +1376,7 @@ function processResult(results) {
 		$tempOption.text(value.brand_name)
 				   .attr("data-cost", value.unit_price)
 				   .attr("data-unit", value.unit_issue)
-				   .attr("data-lca", results[0].unit_price)
+				   .attr("data-mac", value.lca)
 				   .attr("data-coverage", value.coverage)
 				   .attr("data-criteria-p", value.criteria_p)
 				   .attr("data-criteria-sa", value.criteria_sa)

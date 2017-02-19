@@ -12,8 +12,8 @@ $db = dbConnect('abc_dbl', 'abc_vw');
 // Sending prepared statement to server
 $params = implode(",", array_fill(0, count($q), "?"));
 $query = "SELECT DISTINCT t1.url, t1.brand_name, t1.strength, t1.route, " .
-		 "t1.dosage_form, t1.generic_name, t1.unit_price, t1.unit_issue, " .
-		 "t2.criteria, t2.coverage, t2.criteria_sa, " .
+		 "t1.dosage_form, t1.generic_name, t1.unit_price, t1.lca, " .
+		 "t1.unit_issue, t2.criteria, t2.coverage, t2.criteria_sa, " .
 		 "t2.group_1, t2.group_66, t2.group_66a, t2.group_19823, " .
 		 "t2.group_19823a, t2.group_19824, t2.group_20400, t2.group_20403, " .
 		 "t2.group_20514, t2.group_22128, t2.group_23609 " .
