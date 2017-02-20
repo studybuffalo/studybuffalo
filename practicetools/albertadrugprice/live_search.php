@@ -13,13 +13,13 @@ if (strlen($q) > 0) {
 	$q = "%" . $q . "%";
 	
 	// Establish database connection
-	$db = dbConnect('abc_dbl', 'abc_vw');
+	$db = db_connect('sb', 'abc_vw');
 	
 	// Sending prepared statement to server
 	$query = "SELECT DISTINCT t1.url , t1.brand_name, t1.strength, " . 
 			 "t1.route, t1.dosage_form, t1.generic_name " . 
-			 "FROM price t1 " . 
-			 "INNER JOIN price t2 " .
+			 "FROM abc_price t1 " . 
+			 "INNER JOIN abc_price t2 " .
 			 "ON t1.generic_name = t2.generic_name " .
 			 "WHERE ((t2.generic_name LIKE ? OR t2.brand_name LIKE ?) " . 
 			 "AND t1.unit_price IS NOT NULL)";

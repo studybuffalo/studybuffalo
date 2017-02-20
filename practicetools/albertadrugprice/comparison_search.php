@@ -41,15 +41,15 @@ function queryComplete($db, $urlList, $type) {
 	if ($type === "atc") {
 		$query = "SELECT DISTINCT t1.url, t1.route, t1.generic_name, " . 
 				 "t2.atc_1_text, t2.atc_2_text, t2.atc_3_text, t2.atc_4_text " .
-				 "FROM price t1 " .
-				 "INNER JOIN atc t2 " .
+				 "FROM abc_price t1 " .
+				 "INNER JOIN abc_atc t2 " .
 				 "ON t1.url = t2.url " .
 				 "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
 	} else if ($type === "ptc") {
 		$query = "SELECT DISTINCT t1.url, t1.route, t1.generic_name, " . 
 				 "t2.ptc_1_text, t2.ptc_2_text, t2.ptc_3_text, t2.ptc_4_text " .
-				 "FROM price t1 " .
-				 "INNER JOIN ptc t2 " .
+				 "FROM abc_price t1 " .
+				 "INNER JOIN abc_ptc t2 " .
 				 "ON t1.url = t2.url " .
 				 "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
 	}
@@ -75,7 +75,7 @@ function getAtcUrl($db, $arg) {
 	
 	// Finds all the URLs matching the query arguments
 	$query = "SELECT url, atc_1_text, atc_2_text, atc_3_text, atc_4_text " . 
-			 "FROM atc " . 
+			 "FROM abc_atc " . 
 			 "WHERE (atc_1_text LIKE ? OR atc_2_text LIKE ? OR " . 
 			 "atc_3_text LIKE ? OR atc_4_text LIKE ?)";
 	
@@ -98,7 +98,7 @@ function getPtcUrl($db, $arg) {
 	
 	// Finds all the URLs matching the query arguments
 	$query = "SELECT url, ptc_1_text, ptc_2_text, ptc_3_text, ptc_4_text " .
-			 "FROM ptc " . 
+			 "FROM abc_ptc " . 
 			 "WHERE (ptc_1_text LIKE ? OR ptc_2_text LIKE ? OR " . 
 			 "ptc_3_text LIKE ? OR ptc_4_text LIKE ?)";
 	
@@ -122,8 +122,8 @@ function getNameUrl($db, $arg, $type) {
 	
 	// Finds all brand names/generic names matching the search string
 	$query = "SELECT DISTINCT t1.url " .
-			 "FROM price t1 " .
-			 "INNER JOIN price t2 " . 
+			 "FROM abc_price t1 " .
+			 "INNER JOIN abc_price t2 " . 
 			 "ON t1.generic_name = t2.generic_name " . 
 			 "WHERE (t2.generic_name LIKE ? OR " .
 			 "t2.brand_name LIKE ?)";
@@ -143,12 +143,12 @@ function getNameUrl($db, $arg, $type) {
 		// Determine Query
 		if ($type === "atc") {
 			$query = "SELECT atc_1_text, atc_2_text, atc_3_text, atc_4_text " .
-					 "FROM atc " . 
+					 "FROM abc_atc " . 
 					 "WHERE url in ($params) " .
 					 "GROUP BY atc_1_text, atc_2_text, atc_3_text, atc_4_text";
 		} else if ($type === "ptc") {
 			$query = "SELECT ptc_1_text, ptc_2_text, ptc_3_text, ptc_4_text " .
-					 "FROM ptc " . 
+					 "FROM abc_ptc " . 
 					 "WHERE url in ($params) " .
 					 "GROUP BY ptc_1_text, ptc_2_text, ptc_3_text, ptc_4_text";
 		}
@@ -231,7 +231,7 @@ if (strlen($searchString) > 0) {
 	$q = "%" . $searchString . "%";
 	
 	// Establish database connection
-	$db = dbConnect('abc_dbl', 'abc_vw');
+	$db = db_connect('sb', 'abc_vw');
 	
 	// ATC Query
 	if ($methodATC === true) {
