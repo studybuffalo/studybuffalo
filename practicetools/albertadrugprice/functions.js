@@ -391,7 +391,8 @@ function priceUpdateDay(input) {
 	// Updates the info button class to notify of special info
 	if (price.benefit === "No") {
 		$infoButton.attr("class", "info warning");
-	} else if($dataSelect.attr("data-criteria-sa") || $dataSelect.attr("data-criteria-p")) {
+	} else if ($dataSelect.attr("data-criteria-sa") || $dataSelect.attr("data-criteria-p")
+			   || $dataSelect.attr("data-special-auth-title-1")) {
 		$infoButton.attr("class", "info notice");
 	} else {
 		$infoButton.attr("class", "info");
@@ -464,7 +465,8 @@ function priceUpdateQuantity(input) {
 	// Updates the info button class to notify of special info
 	if (price.benefit === "No") {
 		$infoButton.attr("class", "info warning");
-	} else if($dataSelect.attr("data-criteria-sa") || $dataSelect.attr("data-criteria-p")) {
+	} else if ($dataSelect.attr("data-criteria-sa") || $dataSelect.attr("data-criteria-p")
+			   || $dataSelect.attr("data-special-auth-title-1")) {
 		$infoButton.attr("class", "info notice");
 	} else {
 		$infoButton.attr("class", "info");
