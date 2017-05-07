@@ -535,7 +535,7 @@ function closeQuantityPopup(e) {
 	var $popupDiv = $("#Popup-Veil")[0];
 	var $changeButton = $("#Popup-Change")[0];
 	var $closeButton = $("#Popup-Close")[0];
-	console.log(e)
+	
 	if (e === undefined ||
 		e.target === $popupDiv || 
 		e.target === $changeButton ||
