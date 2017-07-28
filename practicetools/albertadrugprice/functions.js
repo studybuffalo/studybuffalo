@@ -540,7 +540,7 @@ function closeQuantityPopup(e) {
 		e.target === $popupDiv || 
 		e.target === $changeButton ||
 		e.target === $closeButton) {
-		$popupDiv.remove();
+			$("#Popup-Veil").remove();
 	}
 }
 
@@ -668,7 +668,7 @@ function changeQuantityPopup(buttonInput, type) {
  *						info												*
  ****************************************************************************/
 function closeInfoPopup() {
-	var $popupDiv = $("#Popup-Veil")[0];
+	var $popupDiv = $("#Popup-Veil");
 	
 	$popupDiv.remove();
 }
@@ -1160,7 +1160,7 @@ function removeRow(deleteButton) {
  *	comparisonStrength()	Updates comparison table prices based on 		*
  *							selected strength								*
  *																			*
- *	strengtSelect:	The strenght select to update							*
+ *	strengtSelect:	The strength select to update							*
  ****************************************************************************/
 function comparisonStrength(strengthSelect) {
 	var $row = $(strengthSelect).closest("tr");
@@ -1379,13 +1379,13 @@ function processResult(results) {
 				.on("change", function() {brandUpdate(this);});
 				
 	
-	$.each(results, function(index, value) {
+	$.each(results, function (index, value) {
 		$tempOption = $("<option></option>");
 		
 		$tempOption.text(value.brand_name)
 				   .attr("data-cost", value.unit_price)
 				   .attr("data-unit", value.unit_issue)
-				   .attr("data-mac", value.lca)
+				   .attr("data-mac", value.lca ? value.lca : value.unit_price)
 				   .attr("data-coverage", value.coverage)
 				   .attr("data-criteria-p", value.criteria_p)
 				   .attr("data-criteria-sa", value.criteria_sa)
@@ -1640,7 +1640,7 @@ function processComparison(results) {
 			$tempOption = $("<option></option>");
 			$tempOption.text(temp.strength)
 					   .attr("data-cost", temp.unit_price)
-					   .attr("data-mac", temp.lca)
+					   .attr("data-mac", temp.lca ? temp.lca : temp.unit_price)
 					   .attr("data-coverage", temp.coverage)
 					   .attr("data-criteria", temp.criteria)
 					   .attr("data-criteria-p", temp.criteria_p)
