@@ -1285,14 +1285,14 @@ function chooseResult(selection) {
  ****************************************************************************/
 function addLCA(result) {
 	var lcaIndex = 0;
-	var lcaCost = result[0].unit_price;
+	var lcaCost = parseInt(result[0].unit_price);
 	var lcaEntry;
 	
 	// Identifies the index of the LCA
 	for (var i = 0; i < result.length; i++) {
-		if (result[i].unit_price < lcaCost) {
+		if (parseInt(result[i].unit_price) < lcaCost) {
 			lcaIndex = i;
-			lcaCost = result[i].unitPrice;
+			lcaCost = parseInt(result[i].unit_price);
 		}
 	}
 	
