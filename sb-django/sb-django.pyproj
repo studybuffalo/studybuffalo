@@ -57,7 +57,6 @@
   <ItemGroup>
     <Content Include=".git\info\exclude" />
     <Content Include="requirements.txt" />
-    <Content Include="db.sqlite3" />
     <Content Include="sb-django\.git\info\exclude" />
     <Content Include="sb-django\templates\base_generic.html" />
     <Content Include="sb-django\templates\index.html" />
