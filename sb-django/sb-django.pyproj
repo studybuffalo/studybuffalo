@@ -48,6 +48,7 @@
     <Folder Include=".git\info\" />
     <Folder Include="sb-django\" />
     <Folder Include=".git\" />
+    <Folder Include="sb-django\.git\" />
     <Folder Include="sb-django\.git\info\" />
     <Folder Include="sb-django\templates\" />
     <Folder Include="sb-django\__pycache__\" />
