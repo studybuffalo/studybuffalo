@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    {% block title %}<title>Study Buffalo</title>{% endblock %}
+
+	{% load static %}
+
+	<!-- CSS Styles -->
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500i|Roboto:100|Ubuntu" rel="stylesheet">
+	{% block styles %}{% endblock %}
+
+	<!-- JS Files -->
+	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+	{% block js %}{% endblock %}
+</head>
+
+<body>
+	<div id="sb">
+		<div id="main-container">
+			{% block header %}
+				<div id="header">
+					<div id="title-bar">
+						<div id="social">
+							<ul>
+								<li>f</li>
+								<li>t</li>
+								<li>i</li>
+							</ul>
+						</div>
+
+						<div id="logo">
+							STUDY BUFFALO
+						</div>
+
+						<div id="contact">
+							<ul>
+								<li>e</li>
+								<li>p</li>
+							</ul>
+						</div>
+					</div>
+
+					<ul id="menu">
+						<li>Home</li>
+						<li>Play</li>
+						<li>Study</li>
+						<li>Tools</li>
+						<li>Read</li>
+						<li>Design</li>
+					</ul>
+				</div>
+			{% endblock %}
+
+			<div>
+				{% block content %}{% endblock %}
+			</div>
+
+			{% block footer %}
+			{% endblock %}
+		</div>
+	</div>
 </body>
 </html>
