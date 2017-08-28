@@ -1,10 +1,19 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import PlayPage
+from datetime import datetime
 
-def index(request):
-    """The study buffalo home page"""
+class Index(generic.ListView):
+    queryset = PlayPage.objects.filter(release_date__date__lte=datetime.now()).order_by("-id")[0]
+    context_object_name = "play_page"
+    template_name = "play/index.html"
 
-    return render(
-        request,
-        "play/index.html",
-        context={}
-    )
+class Archive(generic.ListView):
+    model = PlayPage
+
+    context_object_name = "play_page_list"
+
+class PlayPageDetail(generic.DetailView):
+    model = PlayPage
+    
+    context_object_name = "play_page"

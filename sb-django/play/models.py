@@ -81,7 +81,7 @@ class PlayImage(models.Model):
 
     # Meta Settings
     class Meta:
-        ordering = ["title"]
+        ordering = ["ordering", "title"]
         verbose_name = "Image"
         verbose_name_plural = "Images"
 

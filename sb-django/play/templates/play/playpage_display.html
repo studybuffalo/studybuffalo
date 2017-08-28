@@ -1,0 +1,15 @@
+<h2>{{ play_page.title }}</h2>
+
+{% for item in play_page.playimage_set.all %}
+	{% if item.title %}
+		<h3>{{ item.title }}</h3>
+	{% endif %}
+
+	{% if item.type == "i" %}
+		<img src="{{ item.resized_image.url }}">
+	{% endif %}
+
+	{% if item.description %}
+		<p>{{ item.description }}</p>
+	{% endif %}
+{% endfor %}
