@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    """The study buffalo home page"""
+
+    return render(
+        request,
+        "play/index.html",
+        context={}
+    )
