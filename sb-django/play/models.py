@@ -2,6 +2,8 @@ from django.db import models
 import django.utils.timezone
 import uuid
 import datetime
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 class Category(models.Model):
     """Defines categories for Play Items"""
@@ -117,3 +119,8 @@ class PlayAudio(models.Model):
     def __str__(self):
         """String representing the Play Audio object"""
         return self.title
+
+@receiver(post_delete, sender=PlayImage)
+def play_image_delete(sender, instance, **kwargs):
+    """Removes the image file on model instance deletion"""
+    instance.location.delete(False)
