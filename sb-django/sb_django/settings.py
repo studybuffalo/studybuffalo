@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
+    'carousel.apps.CarouselConfig',
     'drug_price_calculator.apps.DrugPriceCalculatorConfig',
     'play.apps.PlayConfig',
     'rdrhc_calendar.apps.RdrhcCalendarConfig',
