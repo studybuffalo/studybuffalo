@@ -4,7 +4,9 @@
 	{% endif %}
 
 	{% if item.type == "i" %}
-		<img src="{{ item.resized_image.url }}">
+		<a href="{{ item.original_image.url }}" target="_blank">
+			<img src="{{ item.resized_image.url }}">
+		</a>
 	{% endif %}
 
 	{% if item.description %}

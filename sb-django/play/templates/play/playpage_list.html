@@ -17,9 +17,9 @@
 			<tbody>
 				{% for page in play_page_list %}
 					<tr>
-						<td>{{ page.date }}</td>
-						<td>{{ page.title }}</td>
-						<td>{{ page.category }}</td>
+						<td><a href="{% url 'play_page' page.pk %}">{{ page.date }}</a></td>
+						<td><a href="{% url 'play_page' page.pk %}">{{ page.title }}</a></td>
+						<td><a href="{% url 'play_page' page.pk %}">{{ page.category }}</a></td>
 					</tr>
 				{% endfor %}
 			</tbody>
