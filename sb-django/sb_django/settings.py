@@ -130,6 +130,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+DATE_FORMAT = "%Y-%m-%d"
+
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+
 # Media settings for uploaded content
 MEDIA_URL = '/media/'
 MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['media']))

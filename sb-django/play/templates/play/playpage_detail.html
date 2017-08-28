@@ -1,9 +1,14 @@
-{% extends "play/playpage_generic.html" %}
+{% extends "base_generic.html" %}
 
 {% load static %}
 
-{% block playpage_content %}
+{% block content %}
 	{% if play_page %}
+		<h1>
+			<a href="{% url 'play_index' %}">Play</a> 
+			&gt; {{ play_page.date|date:"Y.m.d" }} - {{ play_page.title}}
+		</h1>
+
 		{% include "play/playpage_display.html" %}
 	{% endif %}
 {% endblock %}
