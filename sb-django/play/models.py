@@ -30,6 +30,9 @@ class PlayPage(models.Model):
     
     category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True)
 
+    release_date = models.DateTimeField(default=django.utils.timezone.now,
+                                        help_text="Date to release this page on")
+
     # Meta Settings
     class Meta:
         ordering = ["date", "title"]
@@ -129,7 +132,7 @@ class PlayAudio(models.Model):
                             editable=False,
                             help_text="The file type of the item")
 
-    location = models.FileField(upload_to="play/audio/",
+    audio = models.FileField(upload_to="play/audio/",
                                 help_text="The uploaded audio content")
 
     description = models.TextField(blank=True,
