@@ -22,6 +22,7 @@ class Category(models.Model):
 
 class PlayPage(models.Model):
     """Defines a page to contain PlayItem(s)"""
+    # Fields
     title = models.CharField(max_length=256,
                              help_text="Title for the page")
 
@@ -38,6 +39,28 @@ class PlayPage(models.Model):
         ordering = ["date", "title"]
         verbose_name = "Page"
         verbose_name_plural = "Pages"
+
+    # Methods
+    def last_page(self):
+        LATEST = PlayPage.objects.latest("pk").pk
+
+        return LATEST
+
+    def previous_page(self):
+        previousPK = self.pk - 1;
+
+        if previousPK > 0:
+            return previousPK
+        
+        return None
+    
+    def next_page(self):
+        nextPK = self.pk + 1
+        
+        if nextPK <= self.last_page():
+            return nextPK
+
+        return None
 
     def __str__(self):
         """String representing the Play Image object"""

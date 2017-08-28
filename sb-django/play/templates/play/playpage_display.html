@@ -11,3 +11,18 @@
 		<p>{{ item.description }}</p>
 	{% endif %}
 {% endfor %}
+
+<ul>
+	
+	{% if play_page.previous_page %}
+		<li><a href="{% url 'play_page' 1 %}">First</a></li>
+		<li><a href="{% url 'play_page' play_page.previous_page %}">Previous</a></li>
+	{% endif %}
+
+		<li><a href="{% url 'archive' %}">Archive</a></li>
+
+	{% if play_page.next_page %}
+		<li><a href="{% url 'play_page' play_page.next_page %}">Next</a></li>
+		<li><a href="{% url 'play_page' play_page.last_page %}">Last</a></li>
+	{% endif %}
+</ul>
