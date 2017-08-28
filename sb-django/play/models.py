@@ -1,7 +1,7 @@
 from django.db import models
 import django.utils.timezone
 import uuid
-import datetime
+from datetime import datetime
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from PIL import Image
@@ -42,7 +42,7 @@ class PlayPage(models.Model):
 
     # Methods
     def last_page(self):
-        LATEST = PlayPage.objects.latest("pk").pk
+        LATEST = PlayPage.objects.filter(release_date__date__lte=datetime.now()).latest("pk").pk
 
         return LATEST
 
