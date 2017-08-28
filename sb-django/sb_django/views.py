@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.views import generic
+from carousel.models import CarouselSlide
 
-def index(request):
-    """The study buffalo home page"""
+class Index(generic.ListView):
+    model = CarouselSlide
 
-    return render(
-        request,
-        "index.html",
-        context={}
-    )
+    context_object_name = "slides"
+    template_name = "index.html"

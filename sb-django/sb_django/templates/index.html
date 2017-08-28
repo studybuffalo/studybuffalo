@@ -16,13 +16,17 @@
 	<!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-				<h1>Welcome to the home of the Study Buffalo</h1>
-			</div>
-            <div class="swiper-slide">Check out our sweet stuff</div>
-            <div class="swiper-slide">IS THAT REAL CASHMERE?</div>
-            <div class="swiper-slide">YOU ALSO DO PEBC QUIZZES?</div>
-            <div class="swiper-slide">Yeah, we are pretty sweet.</div>
+			{% for slide in slides %}
+				{% if slide.background %}
+					<div class="swiper-slide" style="background-image: url({{ slide.background.url }});">
+						{{ slide.html|safe }}
+					</div>
+				{% else %}
+					<div class="swiper-slide">
+						{{ slide.html|safe }}
+					</div>
+				{% endif %}
+			{% endfor %}
         </div>
 		 <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
