@@ -52,13 +52,13 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sb-django.urls'
+ROOT_URLCONF = 'sb_django.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, "sb-django", "templates"),
+            os.path.join(BASE_DIR, "sb_django", "templates"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'sb-django.wsgi.application'
+WSGI_APPLICATION = 'sb_django.wsgi.application'
 
 
 # Database
@@ -131,5 +131,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "sb-django", "static"),
+    os.path.join(BASE_DIR, "sb_django", "static"),
 ]
