@@ -4,6 +4,8 @@ import uuid
 import datetime
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
+from PIL import Image
+from io import BytesIO
 
 class Category(models.Model):
     """Defines categories for Play Items"""
@@ -24,7 +26,7 @@ class PlayPage(models.Model):
                              help_text="Title for the page")
 
     date = models.DateField(default=django.utils.timezone.now,
-                            help_text="Date the play item was release")
+                            help_text="Date the play item was released")
     
     category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True)
 
@@ -54,8 +56,11 @@ class PlayImage(models.Model):
                             editable=False,
                             help_text="The file type of the item")
 
-    location = models.ImageField(upload_to="play/images/original/",
+    original_image = models.ImageField(upload_to="play/images/original/",
                                 help_text="The uploaded image (high quality)")
+
+    resized_image = models.ImageField(upload_to="play/images/resized/",
+                                      editable=False)
 
     alt_text = models.CharField(max_length=256,
                                 blank=True,
@@ -77,9 +82,36 @@ class PlayImage(models.Model):
         verbose_name = "Image"
         verbose_name_plural = "Images"
 
+    def save(self, *args, **kwargs):
+        """Modifies save file functionality to generate a smaller file size"""
+        
+        # Create a lower resolution image (if needed)
+        orig = Image.open(self.original_image)
+
+        if orig.width > 800:
+            oWidth = orig.width
+            oHeight = orig.height
+            nWidth = 800
+            nHeight = int(round((nWidth / oWidth) * oHeight))
+
+            resize = orig.resize((nWidth, nHeight), Image.ANTIALIAS)
+        else:
+            resize = orig
+
+        # Reduce dolor depth
+        resize_io = BytesIO()
+        resize.save(resize_io, format=orig.format, optimize=True)
+
+        # Assign the new resize image to the resized_image field
+        self.resized_image.save(self.original_image.name, resize_io, save=False)
+        
+        # Save the files
+        super(PlayImage, self).save()
+
+
     def __str__(self):
         """String representing the Play Image object"""
-        return self.location.name
+        return self.original_image.name
 
 class PlayAudio(models.Model):
     """Defines an individual audio and its characteristics"""
@@ -123,4 +155,5 @@ class PlayAudio(models.Model):
 @receiver(post_delete, sender=PlayImage)
 def play_image_delete(sender, instance, **kwargs):
     """Removes the image file on model instance deletion"""
-    instance.location.delete(False)
+    instance.original_image.delete(False)
+    instance.resized_image.delete(False)
