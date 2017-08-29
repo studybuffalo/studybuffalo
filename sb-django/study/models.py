@@ -47,16 +47,6 @@ class Guide(models.Model):
         help_text="The date of the last update",
     )
 
-    guide_type = models.CharField(
-        choices=(("d", "Document"), ("h", "HTML"),),
-        default="d",
-        help_text=(
-            "The format the guide is saved as; MUST match which guide "
-            "(document or HTML) is uploaded"
-        ),
-        max_length=1,
-    )
-
     permissions = models.CharField(
         blank=True,
         choices=(("dsm", "DSM Study Guide"),),
