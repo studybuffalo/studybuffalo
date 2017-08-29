@@ -19,5 +19,6 @@ urlpatterns = [
     url(r"^play/", include("play.urls")),
     url(r"^study/", include("study.urls")),
     url(r"^read/", include("read.urls")),
+    url(r"^design/", views.design_index, name="design_index"),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
