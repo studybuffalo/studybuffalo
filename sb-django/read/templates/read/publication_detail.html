@@ -3,18 +3,18 @@
 {% load static %}
 
 {% block content %}
-	{% if pub_page %}
+	{% if publication_page %}
 		<h1>
 			<a href="{% url 'study_index' %}">Study</a> 
-			&gt; {{ pub_page.title }} 
-			(Last Update {{ pub_page.date_published|date:"Y.m.d" }})
+			&gt; {{ publication_page.title }} 
+			(Last Update {{ publication_page.date_published|date:"Y.m.d" }})
 		</h1>
 		
-		{% for item in pub_page.htmlpublication_set.all %}
+		{% for item in publication_page.htmlpublication_set.all %}
 			<div>{{ item.html|safe }}</div>
 		{% endfor %}
 
-		{% for item in pub_page.documentpublication_set.all %}
+		{% for item in publication_page.documentpublication_set.all %}
 			<object data="{{ item.document.url }}" type="application/pdf" width="618" height="773">
 				<a href="{{ item.document.url }}" target="_blank">
 					Sorry, your browser cannot display the Publication - 

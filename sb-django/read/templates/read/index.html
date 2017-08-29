@@ -17,9 +17,9 @@
 			<tbody>
 				{% for pub in pub_list %}
 					<tr>
-						<td><a href="{% url 'pub_page' guide.pk %}">{{ pub.title }}</a></td>
-						<td><a href="{% url 'pub_page' guide.pk %}">{{ pub.short_description }}</a></td>
-						<td><a href="{% url 'pub_page' guide.pk %}">{{ pub.last_update }}</a></td>
+						<td><a href="{% url 'pub_page' pub.pk %}">{{ pub.title }}</a></td>
+						<td><a href="{% url 'pub_page' pub.pk %}">{{ pub.description }}</a></td>
+						<td><a href="{% url 'pub_page' pub.pk %}">{{ pub.date_published }}</a></td>
 					</tr>
 				{% endfor %}
 			</tbody>
