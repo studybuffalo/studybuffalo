@@ -40,7 +40,7 @@ class HTMLPublication(models.Model):
 
     # Methods
     def __str__(self):
-        return "HTML for {0}".format(self.study_guide)
+        return "HTML for {0}".format(self.publication)
 
 
 class DocumentPublication(models.Model):
@@ -59,4 +59,4 @@ class DocumentPublication(models.Model):
 
     # Methods
     def __str__(self):
-        return "Document for {0}".format(self.study_guide)
+        return "Document for {0}".format(self.publication)
