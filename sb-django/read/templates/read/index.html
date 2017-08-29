@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Read</h1>
+
+	{% if pub_list %}
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Date Published</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for pub in pub_list %}
+					<tr>
+						<td><a href="{% url 'pub_page' guide.pk %}">{{ pub.title }}</a></td>
+						<td><a href="{% url 'pub_page' guide.pk %}">{{ pub.short_description }}</a></td>
+						<td><a href="{% url 'pub_page' guide.pk %}">{{ pub.last_update }}</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}
