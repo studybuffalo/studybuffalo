@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	{% if guide_page %}
+		<h1>
+			<a href="{% url 'study_index' %}">Study</a> 
+			&gt; {{ guide_page.title }} 
+			(Last Update {{ guide_page.last_update|date:"Y.m.d" }})
+		</h1>
+		
+		{% for item in guide_page.htmlguide_set.all %}
+			<div>{{ item.html|safe }}</div>
+		{% endfor %}
+
+		{% for item in guide_page.documentguide_set.all %}
+			<object data="{{ item.document.url }}" type="application/pdf" width="618" height="773">
+				<a href="{{ item.document.url }}" target="_blank">
+					Sorry, your browser cannot display the Study Guide - 
+					click here to download it
+				</a>
+			</object>
+		{% endfor %}
+	{% endif %}
+{% endblock %}

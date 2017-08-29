@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Study</h1>
+
+	{% if guide_list %}
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Last Updated</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for guide in guide_list %}
+					<tr>
+						<td><a href="{% url 'study_guide_page' guide.pk %}">{{ guide.title }}</a></td>
+						<td><a href="{% url 'study_guide_page' guide.pk %}">{{ guide.short_description }}</a></td>
+						<td><a href="{% url 'study_guide_page' guide.pk %}">{{ guide.last_update }}</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

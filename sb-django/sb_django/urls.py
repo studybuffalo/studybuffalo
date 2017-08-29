@@ -17,5 +17,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
     url(r"^play/", include("play.urls")),
+    url(r"^study/", include("study.urls")),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
