@@ -23,7 +23,7 @@ class Publication(models.Model):
 
     # Methods
     def __str__(self):
-        return "{0} - {1})".format(self.date, self.title)
+        return "{0} - {1})".format(self.date_published, self.title)
 
 class HTMLPublication(models.Model):
     """Defines an HTML publication"""
