@@ -1,5 +1,29 @@
 ﻿{% extends "base_generic.html" %}
 
+{% load static %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{% static "css/tools.css" %}">
+{% endblock %}
+
 {% block content %}
 	<h1>Tools</h1>
+
+	<ul>
+		<li>
+			<a href="{% url 'alberta_adaptations_index' %}">
+				Alberta Adaptations
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'drug_price_calculator_index' %}">
+				Drug Price Calculator
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'vancomycin_calculator_index' %}">
+				Vancomycin Calculator
+			</a>
+		</li>
+	</ul>
 {% endblock %}
