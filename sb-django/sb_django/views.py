@@ -8,6 +8,14 @@ class Index(generic.ListView):
     context_object_name = "slides"
     template_name = "index.html"
 
+def tools_index(request):
+    """View for the tool page"""
+    return render(
+        request,
+        "tools_index.html",
+        context={},
+    )
+
 def design_index(request):
     """View for the design page"""
     return render(

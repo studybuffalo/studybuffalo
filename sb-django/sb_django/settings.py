@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'rdrhc_calendar.apps.RdrhcCalendarConfig',
     'read.apps.ReadConfig',
     'study.apps.StudyConfig',
-    'tools.apps.ToolsConfig',
     'vancomycin_calculator.apps.VancomycinCalculatorConfig'
 ]
 

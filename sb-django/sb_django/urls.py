@@ -1,8 +1,6 @@
 """
 Definition of urls for sb_django.
 """
-
-from datetime import datetime
 from django.conf.urls import url
 import django.contrib.auth.views
 
@@ -19,6 +17,11 @@ urlpatterns = [
     url(r"^play/", include("play.urls")),
     url(r"^study/", include("study.urls")),
     url(r"^read/", include("read.urls")),
+    url(r"^tools$", views.tools_index, name="tools_index"),
+    url(r"^tools/drug-price-calculator/", include("drug_price_calculator.urls")),
+    url(r"^tools/drug_price_calculator/", include("drug_price_calculator.urls")),
+    url(r"^tools/vancomycin-calculator/", include("vancomycin_calculator.urls")),
+    url(r"^tools/vancomycin_calculator/", include("vancomycin_calculator.urls")),
     url(r"^design/", views.design_index, name="design_index"),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

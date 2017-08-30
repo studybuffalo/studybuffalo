@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    """View for the main drug price calculator page"""
+    return render(
+        request,
+        "drug_price_calculator/index.html",
+        context={},
+    )
