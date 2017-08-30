@@ -1,0 +1,15 @@
+﻿{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Tools</a> &gt; Alberta Adaptation Flow Chart</h1>
+
+	<object data="{% static 'documents/alberta-adaptations.pdf' %}" type="application/pdf" width="600" height="815">
+		<a href="{% static 'documents/alberta-adaptations.pdf' %}" target="_blank">
+			Sorry, your browser cannot display this PDF - 
+			click here to download it
+		</a>
+	</object>
+	
+{% endblock %}

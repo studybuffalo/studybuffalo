@@ -16,6 +16,14 @@ def tools_index(request):
         context={},
     )
 
+def alberta_adaptations_index(request):
+    """View for the alberta adaptations page"""
+    return render(
+        request,
+        "alberta_adaptations_index.html",
+        context={},
+    )
+
 def design_index(request):
     """View for the design page"""
     return render(
