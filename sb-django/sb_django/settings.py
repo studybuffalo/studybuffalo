@@ -146,4 +146,6 @@ STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "sb_django", "static"),
+    os.path.join(BASE_DIR, "vancomycin_calculator", "static"),
+    os.path.join(BASE_DIR, "drug_price_calculator", "static"),
 ]
