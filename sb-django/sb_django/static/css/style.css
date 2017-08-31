@@ -41,10 +41,11 @@ blockquote {
 
 /* Main Header */
 #sb #title-bar {
+    align-items: flex-end;
     border-bottom: solid 1px black;
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 #sb #title-bar > div {
@@ -75,8 +76,16 @@ blockquote {
     padding: 0.25em;
 }
 
+#logo {
+    background-image: url("../images/logo.png");
+    background-size: cover;
+    width: 150px;
+    height: 100px;
+}
+
 /* Menu Bar */
 #sb #menu {
+    border-bottom: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -88,12 +97,24 @@ blockquote {
 #sb #menu li {
     list-style: none;
     display: inline-block;
-    padding: 0.25em 0.5em;
+    font-size: 3rem;
 }
 
 #sb #menu li:hover {
     background-color: #a9e883;
     cursor: pointer;
+}
+
+#sb #menu li a {
+    border-right: 1px solid black;
+    color: black;
+    display: inline-block;
+    padding: 1rem 4rem;
+    text-decoration: none;
+}
+
+#sb #menu li:first-child a {
+    border-left: 1px solid black;
 }
 
 /* Media Queries for page sizing */
