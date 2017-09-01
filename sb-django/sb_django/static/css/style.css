@@ -1,3 +1,14 @@
+/*
+	Dark Grey = rgb(101, 101, 101);
+	Grey = rgb(151, 151, 151);
+	Light Grey = rgb(200, 200, 200);
+	Lightest Grey = rgb(250, 250, 250);
+	Dark Green = rgb(31, 103, 0);
+	Green = rgb(41, 138, 0);
+	Light Green = rgb(49, 171, 0);
+	Pale Green = rgb(200, 238, 196);
+*/
+
 /* Main Styling Elements */
 html {
     font-size: 62.5%;
@@ -5,58 +16,69 @@ html {
 }
 
 body {
-    padding: 0;
-    margin: 0;
+    background-color: rgb(250, 250, 250);
     font-family: 'Ubuntu', Arial, sans-serif;
     font-size: 1.8rem;
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+#sb h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto", sans-serif;
 }
 
-h1 {
+#sb h1 {
     font-size: 4rem;
 }
 
-h2 {
+#sb h2 {
     font-size: 3rem;
 }
 
-h3 {
+#sb h3 {
     font-size: 2.5rem;
 }
 
-blockquote {
+#sb blockquote {
     font-family: "Alegreya Sans SC", "Lucida", "Verdana", sans-serif
 }
 
 /* Main Container to Size/Space Content */
 #sb {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-/* Main Header */
+/* Header */
+#sb header {
+    align-items: center;
+    border-bottom: 1px solid rgb(101, 101, 101);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Header > Title Bar*/
 #sb #title-bar {
     align-items: flex-end;
-    border-bottom: solid 1px black;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#sb #title-bar > div {
-    display: inline-block;
-}
+    #sb #title-bar > div {
+        display: inline-block;
+    }
 
-/* Social Media Bar */
+/* Header > Title Bar > Social Media Bar */
 #sb #social ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 #sb #social li {
@@ -64,11 +86,19 @@ blockquote {
     padding: 0.25em;
 }
 
-/* Contact Bar */
+/* Header > Title Bar > Logo */
+#sb #logo {
+    background-image: url("../images/logo.png");
+    background-size: cover;
+    height: 100px;
+    width: 150px;
+}
+
+/* Header > Title Bar > Contact Bar */
 #sb #contact ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 #sb #contact li {
@@ -76,50 +106,55 @@ blockquote {
     padding: 0.25em;
 }
 
-#logo {
-    background-image: url("../images/logo.png");
-    background-size: cover;
-    width: 150px;
-    height: 100px;
-}
 
-/* Menu Bar */
-#sb #menu {
-    border-bottom: 1px solid black;
+/* Header > Navigation Menu */
+#sb nav {
+    align-items: center;
+    border-bottom: 1px solid rgb(101, 101, 101);
+    background-color: rgb(255, 255, 255);
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-
+    flex-direction: column;
+    width: 100%;
 }
 
-#sb #menu li {
-    list-style: none;
-    display: inline-block;
-    font-size: 3rem;
-}
+    #sb nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
 
-#sb #menu li:hover {
-    background-color: #a9e883;
-    cursor: pointer;
-}
+    #sb nav li {
+        border-right: 1px solid rgb(101, 101, 101);
+        display: inline-block;
+        font-size: 3rem;
+        list-style: none;
+    }
 
-#sb #menu li a {
-    border-right: 1px solid black;
-    color: black;
-    display: inline-block;
-    padding: 1rem 4rem;
-    text-decoration: none;
-}
+        #sb nav li:first-child {
+            border-left: 1px solid rgb(101, 101, 101);
+        }
 
-#sb #menu li:first-child a {
-    border-left: 1px solid black;
-}
+        #sb nav li a {
+            border-bottom: 5px solid rgb(255, 255, 255);
+            color: black;
+            display: inline-block;
+            padding: 1rem 4rem;
+            text-decoration: none;
+        }
+
+            #sb nav li a:hover {
+                border-bottom: 5px solid rgb(41, 138, 0);
+                cursor: pointer;
+                display: inline-block;
+                padding: 1rem 4rem;
+                text-decoration: none;
+            }
 
 /* Media Queries for page sizing */
 @media screen and (max-width: 480px) {
-    #main-container {
+    .container {
         min-width: 320px;
         max-width: 480px;
         width: 100%;
@@ -127,7 +162,7 @@ blockquote {
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
-    #main-container {
+    .container {
         min-width: 480px;
         max-width: 768px;
         width: 100%;
@@ -135,7 +170,7 @@ blockquote {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    #main-container {
+    .container {
         min-width: 768px;
         max-width: 1024px;
         width: 100%;
@@ -143,9 +178,9 @@ blockquote {
 }
 
 @media screen and (min-width: 1024px) {
-    #main-container {
+    .container {
         min-width: 1024px;
         max-width: 1280px;
-        width: 100%;
+        
     }
 }

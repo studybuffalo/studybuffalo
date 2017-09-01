@@ -13,141 +13,143 @@
 {% endblock %}
 
 {% block content %}
-	<!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-			{% for slide in slides %}
-				{% if slide.background %}
-					<div class="swiper-slide" style="background-image: url({{ slide.background.url }});">
-						{{ slide.html|safe }}
-					</div>
-				{% else %}
-					<div class="swiper-slide">
-						{{ slide.html|safe }}
-					</div>
-				{% endif %}
-			{% endfor %}
-        </div>
-		 <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+	<div id="main-content">
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{% for slide in slides %}
+					{% if slide.background %}
+						<div class="swiper-slide" style="background-image: url({{ slide.background.url }});">
+							{{ slide.html|safe }}
+						</div>
+					{% else %}
+						<div class="swiper-slide">
+							{{ slide.html|safe }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			 <!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
 
-	<div class="content-section">
-		<h2 class="full-row">What are Study Buffalo?</h2>
+		<div class="content-section">
+			<h2 class="full-row">What are Study Buffalo?</h2>
 
-		<p class="part-row">
-			We are two polyurethane foam rubber buffalo. While we are 
-			unusual representatives, we work hard to improve the delivery 
-			of health care services, by improving both the practioners and 
-			technology supporting them.
-		</p>
-
-		<div class="part-row">Placeholder Image</div>
-	</div>
-
-	<div class="content-section">
-		<h2 class="full-row">Study</h2>
-
-		<blockquote class="full-row">
-			Practice makes perfect...
-		</blockquote>
-		
-		<div class="part-row">Placeholder Image</div>
-
-		<p class="part-row">
-			To help the next generation of pharmacists, and other health 
-			profesisonals, we provide a unique selection of study
-			tools, guides, and quizzes. For the particulary 
-			motivated student, we also offer monetary bounties to those who 
-			wish to update older resources or develop new resources.
-		</p>
-	</div>
-
-	<div class="content-section">
-		<h2 class="full-row">Tools</h2>
-
-		<blockquote class="full-row">
-			Every once in a while, a new technology, an old problem, and a 
-			big idea turn into an innovation. --Dean Kamen
-		</blockquote>
-
-		<p class="part-row">
-			While technology does not define a good practioner, we feel it 
-			can definitely make their job easier. We have developed tools 
-			to solve the real problems practioners face in their day-to-day 
-			to make the care they deliver that much better. All tools are 
-			designed to be easy-to-use, so take a look and see what you
-			can use to improve your practice today.
-		</p>
-		
-		<div class="part-row">Placeholder Image</div>
-	</div>
-
-	<div class="content-section">
-		<h2 class="full-row">Read</h2>
-
-		<blockquote class="full-row">
-			Reading is to the mind what exercise is to the body. --Richard Steele
-		</blockquote>
-		
-		<div class="part-row">Placeholder Image</div>
-
-		<p class="part-row">
-			From time to time we have the opportunity to do some writing. Take
-			the opportunity to explore our literary adventures and maybe learn 
-			a few more interesting things.
-		</p>
-	</div>
-
-
-	<div class="content-section">
-		<h2 class="full-row">Play</h2>
-
-		<blockquote class="full-row">
-			All work and no play makes Jack a dull boy --The Shining by Stephen King
-		</blockquote>
-
-		<p class="part-row">
-			A little break and go a long way to keeping the mind and body refreshed
-			and engerized for whatever you need to do. Stroll through the gallery of 
-			our adventures and you may even pick up an interesting triva fact along 
-			the way.
-		</p>
-		
-		<div class="part-row">Placeholder Image</div>
-	</div>
-
-
-	<div class="content-section">
-		<h2 class="full-row">Design</h2>
-
-		<blockquote class="full-row">
-
-		</blockquote>
-		
-		<div class="part-row">Placeholder Image</div>
-
-		<div class="part-row">
-			<p>
-				All our tools would be nothing without the technology behind them. 
-				We are strong supporters of open source software development and 
-				are happy to share all our source code and software under a 
-				<a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU GPLv3 
-				License</a>. All source code is available on our 
-				<a href="https://github.com/studybuffalo">GitHub profile</a>.
+			<p class="part-row">
+				We are two polyurethane foam rubber buffalo. While we are 
+				unusual representatives, we work hard to improve the delivery 
+				of health care services, by improving both the practioners and 
+				technology supporting them.
 			</p>
-			<p>
-				If you require a different license for a project please contact us, 
-				although we strongly will encourage the use of similar <i>copyleft</i>
-				licenses. Other licenses will be considered on a case-by-case basis.
+
+			<div class="part-row">Placeholder Image</div>
+		</div>
+
+		<div class="content-section">
+			<h2 class="full-row">Study</h2>
+
+			<blockquote class="full-row">
+				Practice makes perfect...
+			</blockquote>
+		
+			<div class="part-row">Placeholder Image</div>
+
+			<p class="part-row">
+				To help the next generation of pharmacists, and other health 
+				profesisonals, we provide a unique selection of study
+				tools, guides, and quizzes. For the particulary 
+				motivated student, we also offer monetary bounties to those who 
+				wish to update older resources or develop new resources.
 			</p>
-			<p>
-				Finally, we are available to act as consultants in health care-related
-				technology. Contact us if you would like to discuss an arrangment.
+		</div>
+
+		<div class="content-section">
+			<h2 class="full-row">Tools</h2>
+
+			<blockquote class="full-row">
+				Every once in a while, a new technology, an old problem, and a 
+				big idea turn into an innovation. --Dean Kamen
+			</blockquote>
+
+			<p class="part-row">
+				While technology does not define a good practioner, we feel it 
+				can definitely make their job easier. We have developed tools 
+				to solve the real problems practioners face in their day-to-day 
+				to make the care they deliver that much better. All tools are 
+				designed to be easy-to-use, so take a look and see what you
+				can use to improve your practice today.
 			</p>
+		
+			<div class="part-row">Placeholder Image</div>
+		</div>
+
+		<div class="content-section">
+			<h2 class="full-row">Read</h2>
+
+			<blockquote class="full-row">
+				Reading is to the mind what exercise is to the body. --Richard Steele
+			</blockquote>
+		
+			<div class="part-row">Placeholder Image</div>
+
+			<p class="part-row">
+				From time to time we have the opportunity to do some writing. Take
+				the opportunity to explore our literary adventures and maybe learn 
+				a few more interesting things.
+			</p>
+		</div>
+
+
+		<div class="content-section">
+			<h2 class="full-row">Play</h2>
+
+			<blockquote class="full-row">
+				All work and no play makes Jack a dull boy --The Shining by Stephen King
+			</blockquote>
+
+			<p class="part-row">
+				A little break and go a long way to keeping the mind and body refreshed
+				and engerized for whatever you need to do. Stroll through the gallery of 
+				our adventures and you may even pick up an interesting triva fact along 
+				the way.
+			</p>
+		
+			<div class="part-row">Placeholder Image</div>
+		</div>
+
+
+		<div class="content-section">
+			<h2 class="full-row">Design</h2>
+
+			<blockquote class="full-row">
+
+			</blockquote>
+		
+			<div class="part-row">Placeholder Image</div>
+
+			<div class="part-row">
+				<p>
+					All our tools would be nothing without the technology behind them. 
+					We are strong supporters of open source software development and 
+					are happy to share all our source code and software under a 
+					<a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU GPLv3 
+					License</a>. All source code is available on our 
+					<a href="https://github.com/studybuffalo">GitHub profile</a>.
+				</p>
+				<p>
+					If you require a different license for a project please contact us, 
+					although we strongly will encourage the use of similar <i>copyleft</i>
+					licenses. Other licenses will be considered on a case-by-case basis.
+				</p>
+				<p>
+					Finally, we are available to act as consultants in health care-related
+					technology. Contact us if you would like to discuss an arrangment.
+				</p>
+			</div>
 		</div>
 	</div>
 {% endblock %}
