@@ -52,21 +52,24 @@
 
     #sb .content-section .part-row {
         flex: 1 1 40%;
-        padding: 5%
+        padding: 5%;
     }
 
-    #sb .content-section h2::before {
-        display: inline-block;
+    #sb .content-section h2:before {
         content: "";
-        width: 100px;
-        height: 50px;
-        background: #65c761
+        display: block;
+        border-top: solid 2px rgb(49, 171, 0);
+        width: 80%;
+        height: 2px;
+        position: relative;
+        left: 10%;
+        top: 50%;
+        z-index: 1;
     }
 
-    #sb .content-section h2::after {
-        display: inline-block;
-        content: "";
-        width: 100px;
-        height: 50px;
-        background: #65c761
+    #sb .content-section h2 span {
+        background: rgb(255, 255, 255);
+        padding: 0 20px;
+        position: relative;
+        z-index: 5;
     }
