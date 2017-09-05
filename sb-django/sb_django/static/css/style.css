@@ -70,43 +70,25 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
-    #sb #title-bar > div {
-        display: inline-block;
+    #sb #title-bar #placeholder {
+        text-align: left;
+        width: 30%;
     }
 
-/* Header > Title Bar > Social Media Bar */
-#sb #social ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+    #sb #title-bar #logo {
+        background-image: url("../images/logo.png");
+        background-size: cover;
+        height: 100px;
+        width: 150px;
+    }
 
-#sb #social li {
-    display: inline-block;
-    padding: 0.25em;
-}
-
-/* Header > Title Bar > Logo */
-#sb #logo {
-    background-image: url("../images/logo.png");
-    background-size: cover;
-    height: 100px;
-    width: 150px;
-}
-
-/* Header > Title Bar > Contact Bar */
-#sb #contact ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#sb #contact li {
-    display: inline-block;
-    padding: 0.25em;
-}
+    #sb #title-bar #login {
+        text-align: right;
+        width: 30%;
+    }
 
 
 /* Header > Navigation Menu */
@@ -153,6 +135,81 @@ body {
                 padding: 1rem 4rem;
                 text-decoration: none;
             }
+
+    /* Social Media Bar */
+#sb #social {
+    align-items: center;
+    color: rgb(200, 200, 200);
+    background: rgb(50, 50, 50);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5rem 0;
+    width: 100%;
+}
+
+    #sb #social > div {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #sb #social ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #sb #social li {
+        display: inline-block;
+        padding: 0.25em;
+    }
+
+/* Footer */
+#sb footer {
+    align-items: center;
+    background-color: rgb(101, 101, 101);
+    color: rgb(200, 200, 200);
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0;
+    width: 100%;
+}
+
+    #sb footer > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #sb footer .left span {
+        border-left: solid 2px rgb(50, 50, 50);
+        padding: 0 1rem;
+        text-align: left;
+        width: 35%;
+    }
+
+        #sb footer .left span:first-child {
+            border-left: none;
+        }
+
+    #sb footer .middle {
+        text-align: center;
+    }
+
+    #sb footer .right span {
+        border-left: solid 2px rgb(50, 50, 50);
+        padding: 0 1rem;
+        text-align: right;
+        width: 35%;
+    }
+
+        #sb footer .right span:first-child {
+            border-left: none;
+        }
 
 /* Media Queries for page sizing */
 @media screen and (max-width: 480px) {
