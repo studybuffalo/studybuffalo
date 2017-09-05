@@ -58,18 +58,39 @@
     #sb .content-section h2:before {
         content: "";
         display: block;
-        border-top: solid 2px rgb(49, 171, 0);
-        width: 80%;
+        border-top: dashed 2px rgb(200, 238, 196);
         height: 2px;
         position: relative;
-        left: 10%;
-        top: 50%;
+        top: 110%;
         z-index: 1;
     }
 
-    #sb .content-section h2 span {
-        background: rgb(255, 255, 255);
-        padding: 0 20px;
-        position: relative;
-        z-index: 5;
+    #sb .content-section h2.what:before {
+        width: 60%;
+        left: 35%;
+    }
+
+    #sb .content-section h2.study:before {
+        width: 50%;
+        left: 5%;
+    }
+
+    #sb .content-section h2.tools:before {
+        width: 50%;
+        left: 45%;
+    }
+
+    #sb .content-section h2.read:before {
+        width: 50%;
+        left: 5%;
+    }
+
+    #sb .content-section h2.play:before {
+        width: 50%;
+        left: 45%;
+    }
+
+    #sb .content-section h2.design:before {
+        width: 52%;
+        left: 5%;
     }
