@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -20,7 +20,8 @@
 
 <body>
 	<div id="sb">
-			{% block header %}
+		{% block header %}
+			<div id="header-container">
 				<header>
 					<div id="title-bar" class="container">
 						<div id="placeholder"></div>
@@ -43,13 +44,18 @@
 						<li><a href="{% url 'design_index' %}">Design</a></li>
 					</ul>
 				</nav>
-			{% endblock %}
-
-			<div class="container">
-				{% block content %}{% endblock %}
 			</div>
+		{% endblock %}
 
-			{% block footer %}
+		{% block content-container %}
+			<div id="main-content-container" class="container">
+				{% block content %}
+				{% endblock %}
+			{% endblock %}
+		</div>
+
+		{% block footer %}
+			<div id="footer-container">
 				<section id="social">
 					<div class="container">
 						<div>
@@ -66,7 +72,6 @@
 				</section>
 
 				<footer>
-					
 					<div class="container">
 						<div class="left">
 							<span><a href="">Privacy Policy</a></span>
@@ -83,7 +88,8 @@
 						</div>
 					</div>
 				</footer>
-			{% endblock %}
-		</div>
+			</div>
+		{% endblock %}
+	</div>
 </body>
 </html>

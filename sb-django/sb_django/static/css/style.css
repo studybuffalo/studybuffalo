@@ -46,14 +46,20 @@ body {
     font-family: "Alegreya Sans SC", "Lucida", "Verdana", sans-serif
 }
 
-/* Main Container to Size/Space Content */
+/* Main containers to size & space content */
 #sb {
     align-items: center;
     display: flex;
     flex-direction: column;
+    min-height: 100%;
 }
 
 /* Header */
+#sb #header-container {
+    flex: none;
+    width: 100%;
+}
+
 #sb header {
     align-items: center;
     border-bottom: 1px solid rgb(101, 101, 101);
@@ -167,7 +173,22 @@ body {
         padding: 0.25em;
     }
 
+/* Main Content */
+#sb #main-content-container {
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgb(240, 240, 240);
+    border-right: 1px solid rgb(240, 240, 240);
+    flex: 1 0 auto;
+    padding: 1rem;
+    
+}
+
 /* Footer */
+#sb #footer-container {
+    flex: none;
+    width: 100%;
+}
+
 #sb footer {
     align-items: center;
     background-color: rgb(101, 101, 101);

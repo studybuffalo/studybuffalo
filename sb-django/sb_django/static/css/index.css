@@ -9,13 +9,6 @@
 	Pale Green = rgb(200, 238, 196);
 */
 
-#sb #main-content {
-    background-color: rgb(255, 255, 255);
-    border-left: 1px solid rgb(240, 240, 240);
-    border-right: 1px solid rgb(240, 240, 240);
-    padding: 1rem;
-}
-
 #sb .swiper-container {
     width: 100%;
     height: auto;
