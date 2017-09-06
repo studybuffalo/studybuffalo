@@ -22,5 +22,6 @@ urlpatterns = [
     url(r"^tools/drug-price-calculator/", include("drug_price_calculator.urls")),
     url(r"^tools/vancomycin-calculator/", include("vancomycin_calculator.urls")),
     url(r"^design/", views.design_index, name="design_index"),
+    url(r"^contact/", views.contact, name="contact"),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

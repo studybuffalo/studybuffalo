@@ -31,3 +31,11 @@ def design_index(request):
         "design_index.html",
         context={},
     )
+
+def contact(request):
+    """View for the contact information page"""
+    return render(
+        request,
+        "contact.html",
+        context={},
+    )
