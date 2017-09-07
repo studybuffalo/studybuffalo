@@ -1,6 +1,10 @@
 from django.views import generic
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from carousel.models import CarouselSlide
+from .forms import ContactForm
+from django.http import HttpResponseRedirect
+from django.core.mail import EmailMessage
+from django.template.loader import get_template
 
 class Index(generic.ListView):
     model = CarouselSlide
@@ -34,8 +38,45 @@ def design_index(request):
 
 def contact(request):
     """View for the contact information page"""
+    # If POST process and send email
+    if request.method == 'POST':
+
+        # Create a form instance and populate with data
+        form = ContactForm(request.POST)
+
+        # Check if the form is valid:
+        if form.is_valid():
+            sender_name = form.cleaned_data["sender_name"]
+            sender_email = form.cleaned_data["sender_email"]
+            sender_subject = form.cleaned_data["sender_subject"]
+            message = form.cleaned_data["message"]
+
+            email_template = get_template("contact_email_template.txt")
+            
+            email_content = email_template.render({
+                "sender_name": sender_name,
+                "sender_email": sender_email,
+                "message": message,
+            })
+
+            email = EmailMessage(
+                sender_subject,
+                email_content,
+                sender_email,
+                ["info@studybuffalo.com"],
+                headers = {"Reply-To": sender_email},
+            )
+
+            email.send()
+            # redirect to a new URL:
+            return redirect("contact")
+
+    # If other request, generate (and populate) form
+    else:
+        form = ContactForm()
+
     return render(
         request,
         "contact.html",
-        context={},
+        context={'form': form},
     )

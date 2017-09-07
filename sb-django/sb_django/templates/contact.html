@@ -1,5 +1,26 @@
 ﻿{% extends "base_generic.html" %}
 
+{% block styles %}
+	<style>
+		#sb #contact-table th {
+			padding: 1rem 3rem 1rem 0;
+			text-align: left;
+			vertical-align: top;
+		}
+
+		#sb #contact-table td {
+			padding: 1rem 0;
+			text-align: left;
+			vertical-align: top;
+		}
+
+		#sb #contact-table tfoot td {
+			text-align: right;
+		}
+
+	</style>
+{% endblock %}
+
 {% load static %}
 
 {% block content %}
@@ -10,18 +31,21 @@
 	</p>
 
 	<h2>Contact us directly</h2>
-	
-	<form>
-		<label>Your Name:</label> <input type="text"><br>
-		<label>Your Email:</label> <input type="text"><br>
-		<label>Subject:</label>
-		<select>
-			<option>Study Guides</option>
-			<option>Practice Tools</option>
-			<option>Other Inquiries</option>
-		</select><br>
-		<label>Message:</label> <textarea></textarea>
-	</form>
+
+	<form action="" method="post">
+		{% csrf_token %}
+		<table id="contact-table">
+			{{ form }}
+
+			<tfoot>
+				<tr>
+					<td colspan="2">
+						<button type="submit">Send Email</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</form>	
 
 	<h2>Contact information</h2>
 

@@ -135,6 +135,14 @@ DATE_FORMAT = "%Y-%m-%d"
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
+# Email Server Settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'info@studybuffalo.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_PORT = 1025
+
 # Media settings for uploaded content
 MEDIA_URL = '/media/'
 MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['media']))
