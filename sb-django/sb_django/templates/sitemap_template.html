@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>URL</th>
+				<th>Last Modified</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			{% for url in urlset %}
+				<tr>
+					<td>
+						{% if url.item.title %}
+							{{ url.item.title }}
+						{% endif %}
+					</td>
+
+					<td>
+						{{ url.location }}
+					</td>
+					<td>
+						{% if url.lastmod %}
+							{{ url.lastmod|date:"Y-m-d" }}
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

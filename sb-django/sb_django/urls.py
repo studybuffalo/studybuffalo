@@ -32,6 +32,7 @@ urlpatterns = [
     url(r"^tools/vancomycin-calculator/", include("vancomycin_calculator.urls")),
     url(r"^design/", views.design_index, name="design_index"),
     url(r"^contact/", views.contact, name="contact"),
+    url(r"sitemap/", sitemap, {"sitemaps": sitemaps, "template_name": "sitemap_template.html", "content_type": None}, name="sitemap"),
     url(r"^sitemap\.xml$", sitemap, {"sitemaps": sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
