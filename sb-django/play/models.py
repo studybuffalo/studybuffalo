@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 import django.utils.timezone
 import uuid
 from datetime import datetime
@@ -41,6 +42,14 @@ class PlayPage(models.Model):
         verbose_name_plural = "Pages"
 
     # Methods
+    def __str__(self):
+        """String representing the Play Image object"""
+        return "{0} - {1}".format(self.date, self.title)
+
+    def get_absolute_url(self):
+        """Returns the URL to this page"""
+        return reverse("play_page", args=[str(self.id)])
+
     def last_page(self):
         LATEST = PlayPage.objects.filter(release_date__date__lte=datetime.now()).latest("pk").pk
 
@@ -61,10 +70,6 @@ class PlayPage(models.Model):
             return nextPK
 
         return None
-
-    def __str__(self):
-        """String representing the Play Image object"""
-        return "{0} - {1}".format(self.date, self.title)
 
 class PlayImage(models.Model):
     """Defines an individual image and its characteristics"""

@@ -12,6 +12,15 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import *
+
+# Dictionary containing your sitemap classes
+sitemaps = {
+   "play": PlaySitemap(),
+   "static": StaticViewSitemap,
+}
+
 urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
     url(r"^play/", include("play.urls")),
@@ -23,5 +32,6 @@ urlpatterns = [
     url(r"^tools/vancomycin-calculator/", include("vancomycin_calculator.urls")),
     url(r"^design/", views.design_index, name="design_index"),
     url(r"^contact/", views.contact, name="contact"),
+    url(r"^sitemap\.xml$", sitemap, {"sitemaps": sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
