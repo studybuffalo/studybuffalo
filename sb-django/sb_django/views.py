@@ -36,6 +36,21 @@ def design_index(request):
         context={},
     )
 
+def privacy_policy(request):
+    """View for the privacy policy page"""
+    return render(
+        request,
+        "privacy_policy.html",
+        context={},
+    )
+
+def robot_policy(request):
+    """View for the robot policy page"""
+    return render(
+        request,
+        "robot_policy.html",
+        context={},
+    )
 def contact(request):
     """View for the contact information page"""
     # If POST process and send email

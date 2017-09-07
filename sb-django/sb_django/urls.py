@@ -31,6 +31,8 @@ urlpatterns = [
     url(r"^tools/drug-price-calculator/", include("drug_price_calculator.urls")),
     url(r"^tools/vancomycin-calculator/", include("vancomycin_calculator.urls")),
     url(r"^design/", views.design_index, name="design_index"),
+    url(r"^privacy-policy/", views.privacy_policy, name="privacy_policy"),
+    url(r"^robot-policy/", views.robot_policy, name="robot_policy"),
     url(r"^contact/", views.contact, name="contact"),
     url(r"sitemap/", sitemap, {"sitemaps": sitemaps, "template_name": "sitemap_template.html", "content_type": None}, name="sitemap"),
     url(r"^sitemap\.xml$", sitemap, {"sitemaps": sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
