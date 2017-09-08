@@ -155,15 +155,23 @@ input, select, textarea, button {
             display: inline-block;
             padding: 1rem 4rem;
             text-decoration: none;
+            transition: 0.25s ease-in-out;
         }
 
             #sb #header-container nav li a:hover {
                 border-bottom: 5px solid rgb(41, 138, 0);
                 cursor: pointer;
-                display: inline-block;
-                padding: 1rem 4rem;
-                text-decoration: none;
             }
+
+            #sb #header-container nav li a.selected {
+                border-bottom: 5px solid rgb(41, 138, 0);
+                cursor: pointer;
+            }
+
+                #sb #header-container nav li a.selected:hover {
+                    border-bottom: 5px solid rgb(200, 238, 196);
+                    cursor: pointer;
+                }
 
 /* Main Content */
 #sb #main-content-container {

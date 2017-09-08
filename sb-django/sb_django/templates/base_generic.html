@@ -36,12 +36,48 @@
 
 				<nav>
 					<ul id="menu" class="container">
-						<li><a href="{% url 'index' %}">Home</a></li>
-						<li><a href="{% url 'play_index' %}">Play</a></li>
-						<li><a href="{% url 'study_index' %}">Study</a></li>
-						<li><a href="{% url 'tools_index' %}">Tools</a></li>
-						<li><a href="{% url 'pub_index' %}">Read</a></li>
-						<li><a href="{% url 'design_index' %}">Design</a></li>
+						<li>
+							{% if request.path == "/" %}
+								<a href="{% url 'index' %}" class="selected">Home</a>
+							{% else %}
+								<a href="{% url 'index' %}">Home</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":6" == "/play/" %}
+								<a href="{% url 'play_index' %}" class="selected">Play</a>
+							{% else %}
+								<a href="{% url 'play_index' %}">Play</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":7" == "/study/" %}
+								<a href="{% url 'study_index' %}" class="selected">Study</a>
+							{% else %}
+								<a href="{% url 'study_index' %}">Study</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":7" == "/tools/" %}
+								<a href="{% url 'tools_index' %}" class="selected">Tools</a>
+							{% else %}
+								<a href="{% url 'tools_index' %}">Tools</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":6" == "/read/" %}
+								<a href="{% url 'pub_index' %}" class="selected">Read</a>
+							{% else %}
+								<a href="{% url 'pub_index' %}">Read</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":8" == "/design/" %}
+								<a href="{% url 'design_index' %}" class="selected">Design</a>
+							{% else %}
+								<a href="{% url 'design_index' %}">Design</a>
+							{% endif %}
+						</li>
 					</ul>
 				</nav>
 			</div>

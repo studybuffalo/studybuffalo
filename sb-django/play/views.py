@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views import generic
 from .models import PlayPage
 from datetime import datetime
