@@ -1,30 +1,107 @@
-{% for item in play_page.playimage_set.all %}
-	{% if item.title %}
-		<h3>{{ item.title }}</h3>
-	{% endif %}
+<style>
+	#sb h2 {
+		text-align: left;
+	}
 
-	{% if item.type == "i" %}
-		<a href="{{ item.original_image.url }}" target="_blank">
-			<img src="{{ item.resized_image.url }}">
-		</a>
-	{% endif %}
+		#sb h2::after {
+			content: none;
+		}
 
-	{% if item.description %}
-		<p>{{ item.description }}</p>
-	{% endif %}
-{% endfor %}
+	#sb main a, #sb main, p {
+		text-align: center;
+	}
 
-<ul>
-	
-	{% if play_page.previous_page %}
-		<li><a href="{% url 'play_page' 1 %}">First</a></li>
-		<li><a href="{% url 'play_page' play_page.previous_page %}">Previous</a></li>
-	{% endif %}
+	#sb main a {
+		border: 1px solid rgb(200, 200, 200);
+		box-shadow: 4px 4px 10px rgb(200, 200, 200);
+		display: inline-block;
+		margin: 0;
+		padding: 5px;
+	}
 
-		<li><a href="{% url 'archive' %}">Archive</a></li>
+		#sb main a img {
+			display: block;
+		}
 
-	{% if play_page.next_page %}
-		<li><a href="{% url 'play_page' play_page.next_page %}">Next</a></li>
-		<li><a href="{% url 'play_page' play_page.last_page %}">Last</a></li>
-	{% endif %}
-</ul>
+	#sb #play-page-nav {
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        margin: 3rem 0;
+	}
+
+		#sb #play-page-nav li {
+			border-left: 2px solid rgb(101, 101, 101);
+			color: rgb(50, 50, 50);
+			display: inline-block;
+			font-size: 3rem;
+			list-style: none;
+		}
+		
+			#sb #play-page-nav li:first-child {
+				border-left: none;
+			}
+
+		#sb #play-page-nav a {
+			color: inherit;
+			display: block;
+			padding: 0 3rem;
+			text-decoration: none;
+			transition: 0.25s ease-in-out;
+		}
+
+			#sb #play-page-nav a:hover {
+				color: rgb(31, 103, 0) ;
+				cursor: pointer;
+				transform: scale(1.15);
+			}
+		
+		#sb #play-page-nav span {
+			color: rgb(151, 151, 151);
+			cursor: not-allowed;
+			display: block;
+			padding: 0 3rem;
+		}
+
+</style>
+
+<main>
+	{% for item in play_page.playimage_set.all %}
+		{% if item.title %}
+			<h2>{{ item.title }}</h2>
+		{% endif %}
+
+		{% if item.type == "i" %}
+			<a href="{{ item.original_image.url }}" target="_blank">
+				<img src="{{ item.resized_image.url }}">
+			</a>
+		{% endif %}
+
+		{% if item.description %}
+			<p>{{ item.description }}</p>
+		{% endif %}
+	{% endfor %}
+</main>
+
+<nav>
+	<ul id="play-page-nav">
+		{% if play_page.previous_page %}
+			<li><a href="{% url 'play_page' 1 %}">&lt;&lt; First</a></li>
+			<li><a href="{% url 'play_page' play_page.previous_page %}">&lt; Previous</a></li>
+		{% else %}
+			<li><span>&lt;&lt; First</span></li>
+			<li><span>&lt; Previous</span></li>
+		{% endif %}
+
+			<li><a href="{% url 'archive' %}">Archive</a></li>
+
+		{% if play_page.next_page %}
+			<li><a href="{% url 'play_page' play_page.next_page %}">Next &gt;</a></li>
+			<li><a href="{% url 'play_page' play_page.last_page %}">Last &gt;&gt;</a></li>
+		{% else %}
+			<li><span>Next &gt;</span></li>
+			<li><span>Last &gt;&gt;</span></li>
+		{% endif %}
+	</ul>
+</nav>

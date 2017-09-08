@@ -1,6 +1,20 @@
 {% extends "base_generic.html" %}
 
-{% load static %}
+{% block styles %}
+	<style>
+		#sb h1 a {
+			color: inherit;
+			cursor: pointer;
+			font-weight: 500;
+			text-decoration: none;
+			transition: 0.2s ease;
+		}
+
+			#sb h1 a:hover {
+				color: rgb(31, 103, 0);
+			}
+	</style>
+{% endblock %}
 
 {% block content %}
 	{% if play_page %}

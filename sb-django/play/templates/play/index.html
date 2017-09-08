@@ -1,9 +1,8 @@
 {% extends "base_generic.html" %}
 
-{% load static %}
 
 {% block content %}
-	<h1>Play</h1>
+	<h1><strong>Play</strong></h1>
 
 	{% if play_page %}
 		<h2>{{ play_page.date|date:"Y.m.d" }} - {{ play_page.title }}</h2>

@@ -31,6 +31,7 @@ input, select, textarea, button {
 
 #sb h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto", sans-serif;
+    font-weight: 100;
 }
 
 #sb h1 {
@@ -120,7 +121,7 @@ input, select, textarea, button {
 
 
 /* Header > Navigation Menu */
-#sb nav {
+#sb #header-container nav {
     align-items: center;
     border-bottom: 1px solid rgb(101, 101, 101);
     background-color: rgb(255, 255, 255);
@@ -129,7 +130,7 @@ input, select, textarea, button {
     width: 100%;
 }
 
-    #sb nav ul {
+    #sb #header-container nav ul {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -137,18 +138,18 @@ input, select, textarea, button {
         margin: 0;
     }
 
-    #sb nav li {
+    #sb #header-container nav li {
         border-right: 1px solid rgb(101, 101, 101);
         display: inline-block;
         font-size: 3rem;
         list-style: none;
     }
 
-        #sb nav li:first-child {
+        #sb #header-container nav li:first-child {
             border-left: 1px solid rgb(101, 101, 101);
         }
 
-        #sb nav li a {
+        #sb #header-container nav li a {
             border-bottom: 5px solid rgb(255, 255, 255);
             color: black;
             display: inline-block;
@@ -156,7 +157,7 @@ input, select, textarea, button {
             text-decoration: none;
         }
 
-            #sb nav li a:hover {
+            #sb #header-container nav li a:hover {
                 border-bottom: 5px solid rgb(41, 138, 0);
                 cursor: pointer;
                 display: inline-block;
