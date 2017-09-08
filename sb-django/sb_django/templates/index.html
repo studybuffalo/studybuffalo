@@ -4,7 +4,86 @@
 
 {% block styles %}
 	<link rel="stylesheet" href="{% static "css/swiper.min.css" %}">
-	<link rel="stylesheet" href="{% static "css/index.css" %}">
+	<style>
+		#sb .swiper-container {
+			width: 100%;
+			height: auto;
+		}
+
+		#sb .swiper-slide {
+			text-align: center;
+			font-size: 2rem;
+			background: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #65c761;
+			height: 500px;
+		}
+
+			#sb .swiper-slide:nth-child(odd) {
+				background-color: #ff5e5e;
+			}
+
+		#sb .content-section {
+			margin: 5rem 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+
+			#sb .content-section .full-row {
+				flex: 0 0 100%;
+				display: block;
+				text-align: center;
+			}
+
+			#sb .content-section .part-row {
+				flex: 1 1 40%;
+				padding: 5%;
+			}
+
+			#sb .content-section h2:after {
+				content: "";
+				display: block;
+				border-top: dashed 2px rgb(200, 238, 196);
+				height: 2px;
+				position: relative;
+				top: 1rem;
+				z-index: 1;
+			}
+
+			#sb .content-section h2.what:after {
+				width: 60%;
+				left: 35%;
+			}
+
+			#sb .content-section h2.study:after {
+				width: 50%;
+				left: 5%;
+			}
+
+			#sb .content-section h2.tools:after {
+				width: 50%;
+				left: 45%;
+			}
+
+			#sb .content-section h2.read:after {
+				width: 50%;
+				left: 5%;
+			}
+
+			#sb .content-section h2.play:after {
+				width: 50%;
+				left: 45%;
+			}
+
+			#sb .content-section h2.design:after {
+				width: 52%;
+				left: 5%;
+			}
+	</style>
 {% endblock %}
 
 {% block js %}	

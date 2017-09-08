@@ -20,6 +20,7 @@ body {
     font-family: 'Ubuntu', Arial, sans-serif;
     font-size: 2.5rem;
     height: 100%;
+    line-height: 150%;
     margin: 0;
     padding: 0;
 }
@@ -33,16 +34,33 @@ input, select, textarea, button {
 }
 
 #sb h1 {
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
-
-
 #sb h2 {
+    font-size: 4rem;
+    padding-top: 4rem;
+    text-align: center;
+}
+
+    #sb h2:after {
+        content: "";
+        display: block;
+        border-top: dashed 2px rgb(200, 238, 196);
+        height: 2px;
+        left: 15%;
+        position: relative;
+        top: 1rem;
+        width: 70%;
+        z-index: 1;
+    }
+
+
+#sb h3 {
     font-size: 3rem;
 }
 
-#sb h3 {
+#sb h4 {
     font-size: 2.5rem;
 }
 
