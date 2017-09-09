@@ -63,6 +63,9 @@ class Guide(models.Model):
     def __str__(self):
         return "{0} (Updated {1})".format(self.title, self.last_update)
 
+    def has_bounty(self):
+        return self.bounty_set.all().exists()
+
 class Bounty(models.Model):
     """Defines a bounty on a study guide"""
     # Fields
@@ -95,7 +98,7 @@ class Bounty(models.Model):
 
     # Methods
     def __str__(self):
-        return "${0} bounty on {1}".format(self.bount_amount, self.study_guide)
+        return "${0} bounty on {1}".format(self.bounty_amount, self.study_guide)
 
 
 class BountyAssignment(models.Model):

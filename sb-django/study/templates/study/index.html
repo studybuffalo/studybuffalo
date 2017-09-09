@@ -1,28 +1,105 @@
 {% extends "base_generic.html" %}
 
+{% block styles %}
+	<style>
+		#sb main {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+		}
+
+			#sb main .guide {
+				border: 2px solid rgb(101, 101, 101);
+				display: block;
+				margin: 1rem 0.2rem;
+				transition: 0.25s ease-in-out;
+				width: 100%;
+			}
+
+				#sb main .guide:hover {
+					border: 2px solid rgb(41, 138, 0);
+				}
+
+					#sb main .guide:hover h2 {
+						background-color: rgb(41, 138, 0);
+					}
+
+				#sb main .guide a {
+					color: inherit;
+					display: block;
+					text-decoration: none;
+				}
+
+				#sb main .guide h2 {
+					background-color: rgb(31, 103, 0);
+					color: rgb(250, 250, 250);
+					display: block;
+					padding: 2rem 1rem;
+					margin: 0;
+					transition: 0.25s ease-in-out;
+				}
+
+				#sb main .guide h2::after {
+					content: none;
+				}
+
+				#sb main .guide div {
+					padding: 2rem;
+				}
+
+				#sb main .guide ul {
+					background-color: rgb(50, 50, 50);
+					color: rgb(250, 250, 250);
+					display: flex;
+					flex-direction: row;
+					font-size: 1.6rem;
+					justify-content: space-between;
+					padding: 0.25rem;
+					margin: 0;
+					flex-wrap: wrap;
+				}
+
+				#sb main .guide li {
+					display: inline-block;
+					line-height: 2rem;
+					list-style: none;
+					padding: 0 2rem;
+				}
+	</style>
+{% endblock %}
+
 {% load static %}
 
 {% block content %}
 	<h1>Study</h1>
 
-	{% if guide_list %}
-		<table>
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Description</th>
-					<th>Last Updated</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for guide in guide_list %}
-					<tr>
-						<td><a href="{% url 'study_guide_page' guide.pk %}">{{ guide.title }}</a></td>
-						<td><a href="{% url 'study_guide_page' guide.pk %}">{{ guide.short_description }}</a></td>
-						<td><a href="{% url 'study_guide_page' guide.pk %}">{{ guide.last_update }}</a></td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	{% endif %}
+	<main>
+		{% if guide_list %}
+			{% for guide in guide_list %}
+				<div class="guide">
+					<a href="{% url 'study_guide_page' guide.pk %}">
+						<h2>{{ guide.title }}</h2>
+
+						<div>{{ guide.short_description }}</div>
+
+						<ul>
+							<li>
+								<i>
+									Originally released on {{ guide.date_original }}<br>
+									Last updated on {{ guide.last_update }}
+								</i>
+							</li>
+							{% if guide.has_bounty %}
+								<li>ICON</li>
+							{% else %}
+								<li></li>
+							{% endif %}
+						</ul>
+					</a>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</main>
 {% endblock %}

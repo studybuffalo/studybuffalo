@@ -23,7 +23,6 @@ class GuideAdmin(admin.ModelAdmin):
         "short_description", 
         "long_description", 
         ("date_original", "last_update"), 
-        "guide_type", 
         "permissions"
     ]
     inlines = [DocumentGuideInline, HTMLGuideInline]
