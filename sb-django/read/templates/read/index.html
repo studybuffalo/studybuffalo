@@ -1,28 +1,82 @@
 {% extends "base_generic.html" %}
 
+{% block styles %}
+	<style>
+		#sb main {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+		}
+
+			#sb main .article {
+				border: 2px solid rgb(101, 101, 101);
+				display: block;
+				margin: 1rem 0.2rem;
+				transition: 0.25s ease-in-out;
+				width: 100%;
+			}
+
+				#sb main .article:hover {
+					border: 2px solid rgb(41, 138, 0);
+				}
+
+					#sb main .article:hover h2 {
+						background-color: rgb(41, 138, 0);
+					}
+
+				#sb main .article a {
+					color: inherit;
+					display: block;
+					text-decoration: none;
+				}
+
+				#sb main .article h2 {
+					background-color: rgb(31, 103, 0);
+					color: rgb(250, 250, 250);
+					display: block;
+					padding: 2rem 1rem;
+					margin: 0;
+					transition: 0.25s ease-in-out;
+				}
+
+				#sb main .article h2::after {
+					content: none;
+				}
+
+				#sb main .article div:nth-child(2) {
+					padding: 2rem;
+				}
+
+				#sb main .article div:nth-child(3) {
+					background-color: rgb(50, 50, 50);
+					color: rgb(250, 250, 250);
+					display: block;
+					font-size: 1.6rem;
+					padding: 0.25rem 2rem;
+				}
+	</style>
+{% endblock %}
+
 {% load static %}
 
 {% block content %}
 	<h1>Read</h1>
 
-	{% if pub_list %}
-		<table>
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Description</th>
-					<th>Date Published</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for pub in pub_list %}
-					<tr>
-						<td><a href="{% url 'pub_page' pub.pk %}">{{ pub.title }}</a></td>
-						<td><a href="{% url 'pub_page' pub.pk %}">{{ pub.description }}</a></td>
-						<td><a href="{% url 'pub_page' pub.pk %}">{{ pub.date_published }}</a></td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	{% endif %}
+	<main>
+		{% if pub_list %}
+			{% for pub in pub_list %}
+				<div class="article">
+					<a href="{% url 'pub_page' pub.pk %}">
+						<h2>{{ pub.title }}</h2>
+
+						<div>{{ pub.description }}</div>
+
+						<div>Published on {{ pub.date_published }}</div>
+					</a>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</main>
 {% endblock %}
