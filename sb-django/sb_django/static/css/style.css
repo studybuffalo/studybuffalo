@@ -40,6 +40,18 @@ input, select, textarea, button {
     font-size: 5rem;
 }
 
+    #sb h1 a {
+        color: inherit;
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.2s ease;
+    }
+
+        #sb h1 a:hover {
+            color: rgb(31, 103, 0);
+        }
+
 #sb h2 {
     font-size: 4rem;
     padding-top: 4rem;
