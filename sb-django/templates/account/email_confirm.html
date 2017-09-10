@@ -6,7 +6,8 @@
 	<h1>Confirm E-mail Address</h1>
 
 	{% if confirmation %}
-		{% user_display confirmation.email_address.user as user_display %}
+		<!-- fix this up as user_display is weird -->
+		{% with confirmation.email_address.user as user_display %}
 
 		<p>
 			{% with confirmation.email_address.email as email %}
@@ -21,6 +22,7 @@
 			
 			<button type="submit">Confirm</button>
 		</form>
+		{% endwith %}
 	{% else %}
 		{% url 'account_email' as email_url %}
 		
