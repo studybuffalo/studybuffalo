@@ -12,10 +12,15 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import posixpath
+from configparser import ConfigParser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Set up config parser for credentials
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "config", "sb_config.cfg")
+config = ConfigParser()
+config.read(CONFIG_PATH)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -28,18 +33,24 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Site ID
+SITE_ID = 1
 
 # Application definition
-
 INSTALLED_APPS = [
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sessions',
     'django.contrib.sitemaps',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
     'carousel.apps.CarouselConfig',
     'drug_price_calculator.apps.DrugPriceCalculatorConfig',
@@ -59,6 +70,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'sb_django.urls'
@@ -68,6 +80,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, "sb_django", "templates"),
+            os.path.join(BASE_DIR, "templates"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -90,16 +103,16 @@ WSGI_APPLICATION = 'sb_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sb',
-        'USER': 'sb_django',
-        'PASSWORD': '735294221e2158f9f14fa143f37c1350',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config.get("postgresql", "name"),
+        'USER': config.get("postgresql", "user"),
+        'PASSWORD': config.get("postgresql", "password"),
+        'HOST': config.get("postgresql", "host"),
+        'PORT': config.get("postgresql", "port"),
     }
 }
 
 
-# Password validation
+# Password validation & authentication
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -117,6 +130,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+LOGIN_REDIRECT_URL = "/"
+
+# allauth Settings
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

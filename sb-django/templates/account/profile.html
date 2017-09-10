@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% load account socialaccount %}
+
+{% block content %}
+	<h1>Your Profile</h1>
+
+	<ul>
+		<li><strong>Email: </strong>{{ user.email }}</li>
+		<li><a href="{% url 'account_logout' %}">Logout</a></li>
+		<li>
+			{% if user.has_usable_password %}
+				<a href="{% url 'account_change_password' %}">Change account password</a>
+			{% else %}
+				<a href="{% url 'account_set_password' %}">Set account password</a>
+			{% endif %}
+		</li>
+		<li><a href="{% url 'account_reset_password'%}">Reset forgotten password</a></li>
+		<li><a href="{% url 'account_email' %}">Manage account email(s)</a></li>
+		<li><a href="{% url 'socialaccount_connections' %}">Manage social media connections</a></li>
+	</ul>
+
+	<!--
+		accounts/logout
+		accounts/password/set
+		accounts/password/change
+		accounts/password/reset
+		accounts/email
+		accounts/social/connections
+		
+	-->
+{% endblock %}

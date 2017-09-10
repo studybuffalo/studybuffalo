@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% load account socialaccount %}
+
+{% block content %}
+	<h1>Sign In</h1>
+
+	{% get_providers as socialaccount_providers %}
+
+	{% if socialaccount_providers %}
+		<p>
+			Please <a href="{{ signup_url }}">sign up</a> and sign in with your
+			{% if site_name %}{{ site_name }}{% else %}Study Buffalo{% endif %} 
+			account or use one of your existing social media accounts:
+		</p>
+	{% else %}
+		<p>
+			If you have not created an account yet, then please 
+			<a href="{{ signup_url }}">sign up</a> first.
+		</p>
+	{% endif %}
+
+	<form class="login" method="POST" action="{% url 'account_login' %}">
+		{% csrf_token %}
+
+		{{ form.as_p }}
+
+		{% if redirect_field_value %}
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+		{% endif %}
+
+		<button class="primaryAction" type="submit">Sign In</button>
+	</form>
+
+	<a class="button secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+		
+
+	{% if socialaccount_providers %}
+		test
+		<ul>
+			{% for provider in socialaccount_providers %}
+				<li>
+					<a href="{% provider_login_url provider.id process=' login ' %}">
+						Sign in with {{ provider.name }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}

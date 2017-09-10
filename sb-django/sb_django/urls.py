@@ -34,7 +34,9 @@ urlpatterns = [
     url(r"^privacy-policy/", views.privacy_policy, name="privacy_policy"),
     url(r"^robot-policy/", views.robot_policy, name="robot_policy"),
     url(r"^contact/", views.contact, name="contact"),
-    url(r"sitemap/", sitemap, {"sitemaps": sitemaps, "template_name": "sitemap_template.html", "content_type": None}, name="sitemap"),
+    url(r"^sitemap/", sitemap, {"sitemaps": sitemaps, "template_name": "sitemap_template.html", "content_type": None}, name="sitemap"),
     url(r"^sitemap\.xml$", sitemap, {"sitemaps": sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    url(r"^accounts/profile/$", views.account_profile, name="account_profile"),
+    url(r"^accounts/", include("allauth.urls")),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

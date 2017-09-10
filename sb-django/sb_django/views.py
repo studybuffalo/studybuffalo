@@ -5,6 +5,8 @@ from .forms import ContactForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
+from django.contrib.auth.decorators import login_required
+from social_django.models import UserSocialAuth
 
 class Index(generic.ListView):
     model = CarouselSlide
@@ -94,4 +96,13 @@ def contact(request):
         request,
         "contact.html",
         context={'form': form},
+    )
+
+@login_required
+def account_profile(request):
+    """The user profile page"""
+    return render(
+        request, 
+        "account/profile.html", 
+        context={},
     )

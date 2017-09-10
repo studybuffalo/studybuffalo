@@ -181,9 +181,13 @@ input, select, textarea, button {
     border-right: 1px solid rgb(240, 240, 240);
     flex: 1 0 auto;
     padding: 1rem;
-    
 }
 
+#sb .center_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 /* Social Media Bar */
 #sb #social {
@@ -284,6 +288,27 @@ input, select, textarea, button {
 
         #sb footer a:hover {
             color: rgb(200, 238, 196);
+        }
+
+/* Messages and Form Errors */
+#sb .message_list {
+    padding: 0;
+    margin: 2rem 0;
+}
+
+    #sb .message_list li {
+        font-weight: 700;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        #sb .message_list li.level_25 {
+            color: rgb(31, 103, 0);
+        }
+
+        #sb .message_list li.level_30, #sb .message_list li.level_40 {
+            color: rgb(180, 0, 0);
         }
 
 /* Media Queries for page sizing */
