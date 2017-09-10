@@ -1,6 +1,17 @@
 {% extends "base_generic.html" %}
 
-{% load static %}
+{% block styles %}
+	<style>
+		#sb .input_table tbody th {
+			padding: 0.4rem 2rem 0.4rem 0;
+			text-align: left;
+		}
+
+		#sb .input_table tfoot td {
+			text-align: right;
+		}
+	</style>
+{% endblock %}
 
 {% block content %}
 	<h1>Sign Up</h1>
@@ -8,16 +19,69 @@
 	<p>
 		Already have an account? Then please <a href="{{ login_url }}">sign in</a>.
 	</p>
+	
+	
+	<p>
+		Create a new account with StudyBuffalo.com or use your social media
+		account to sign in below.
+	</p>
+	
+	<div class="center_content">
+		<div>
+			<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+				{% csrf_token %}
 
-	<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-		{% csrf_token %}
+				<table class="input_table">
+					<thead>
+						<tr>
+							<td colspan="2">
+								{% include 'account/snippets/message_display.html' %}
+							</td>
+						</tr>
+					</thead>
 
-		{{ form.as_p }}
-	  
-		{% if redirect_field_value %}
-			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-		{% endif %}
-		
-		<button type="submit">Sign Up &raquo;</button>
-	</form>
+					<tbody>
+						{% for field in form %}
+							<tr>
+								<th>{{ field.label_tag }}</th>
+								<td>{{ field }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<button type="submit">Sign Up &raquo;</button>
+
+								{% if redirect_field_value %}
+									<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+								{% endif %}
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</form>
+		</div>
+	</div>
+
+	<div class="center_content">
+		<div>
+			{% load account socialaccount %}
+			
+			{% get_providers as socialaccount_providers %}
+			
+			{% if socialaccount_providers %}
+				<ul>
+					{% for provider in socialaccount_providers %}
+						<li>
+							<a href="{% provider_login_url provider.id process=' login ' %}">
+								Sign in with {{ provider.name }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+	</div>
 {% endblock %}

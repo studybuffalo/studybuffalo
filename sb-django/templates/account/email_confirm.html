@@ -4,7 +4,9 @@
 
 {% block content %}
 	<h1>Confirm E-mail Address</h1>
-
+	
+	{% include 'account/snippets/message_display.html' %}
+	
 	{% if confirmation %}
 		<!-- fix this up as user_display is weird -->
 		{% with confirmation.email_address.user as user_display %}

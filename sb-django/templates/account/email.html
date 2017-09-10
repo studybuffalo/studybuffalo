@@ -43,7 +43,7 @@
 {% block content %}
 	<h1><a href="{% url 'account_profile' %}">Your Profile</a> &gt; Manage E-mail Addresses</h1>
 	
-	{% include 'account/message_display.html' %}
+	{% include 'account/snippets/message_display.html' %}
 
 	{% if user.emailaddress_set.all %}
 		<p>
