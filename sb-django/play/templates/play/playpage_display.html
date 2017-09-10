@@ -87,21 +87,21 @@
 <nav>
 	<ul id="play-page-nav">
 		{% if play_page.previous_page %}
-			<li><a href="{% url 'play_page' 1 %}">&lt;&lt; First</a></li>
-			<li><a href="{% url 'play_page' play_page.previous_page %}">&lt; Previous</a></li>
+			<li><a href="{% url 'play_page' 1 %}">&laquo; First</a></li>
+			<li><a href="{% url 'play_page' play_page.previous_page %}">&lsaquo; Previous</a></li>
 		{% else %}
-			<li><span>&lt;&lt; First</span></li>
-			<li><span>&lt; Previous</span></li>
+			<li><span>&laquo; First</span></li>
+			<li><span>&lsaquo; Previous</span></li>
 		{% endif %}
 
 			<li><a href="{% url 'archive' %}">Archive</a></li>
 
 		{% if play_page.next_page %}
-			<li><a href="{% url 'play_page' play_page.next_page %}">Next &gt;</a></li>
-			<li><a href="{% url 'play_page' play_page.last_page %}">Last &gt;&gt;</a></li>
+			<li><a href="{% url 'play_page' play_page.next_page %}">Next &rsaquo;</a></li>
+			<li><a href="{% url 'play_page' play_page.last_page %}">Last &raquo;</a></li>
 		{% else %}
-			<li><span>Next &gt;</span></li>
-			<li><span>Last &gt;&gt;</span></li>
+			<li><span>Next &rsaquo;</span></li>
+			<li><span>Last &raquo;</span></li>
 		{% endif %}
 	</ul>
 </nav>

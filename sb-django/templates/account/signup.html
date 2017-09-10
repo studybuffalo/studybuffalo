@@ -3,17 +3,21 @@
 {% load static %}
 
 {% block content %}
-	<h1>Confirm Sign Out</h1>
+	<h1>Sign Up</h1>
 
-	<p>Are you sure you want to sign out?</p>
+	<p>
+		Already have an account? Then please <a href="{{ login_url }}">sign in</a>.
+	</p>
 
-	<form method="post" action="{% url 'account_logout' %}">
+	<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
 		{% csrf_token %}
 
+		{{ form.as_p }}
+	  
 		{% if redirect_field_value %}
-			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
 		{% endif %}
-
-		<button type="submit">Sign Out</button>
+		
+		<button type="submit">Sign Up &raquo;</button>
 	</form>
 {% endblock %}
