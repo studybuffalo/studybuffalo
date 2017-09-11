@@ -129,10 +129,21 @@ input, select, textarea, button {
     }
 
     #sb #title-bar #login {
+        font-size: 2rem;
+        font-weight: bold;
         text-align: right;
         width: 30%;
     }
 
+        #sb #title-bar #login a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.25s ease-in-out;
+        }
+
+            #sb #title-bar #login a:hover {
+                color: rgb(41, 138, 0);
+            }
 
 /* Header > Navigation Menu */
 #sb #header-container nav {
