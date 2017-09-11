@@ -27,6 +27,14 @@ body {
     padding: 0;
 }
 
+#sb a, #sb a:visited {
+    color: rgb(41, 138, 0);
+}
+
+    #sb a:hover, #sb a:visited:hover {
+        color: rgb(49, 171, 0);
+    }
+
 input, select, textarea, button {
     font-size: 2.5rem;
 }
@@ -40,15 +48,15 @@ input, select, textarea, button {
     font-size: 5rem;
 }
 
-    #sb h1 a {
-        color: inherit;
+    #sb h1 a, #sb h1 a:visited {
+        color: rgb(0, 0, 0);
         cursor: pointer;
         font-weight: bold;
         text-decoration: none;
         transition: 0.2s ease;
     }
 
-        #sb h1 a:hover {
+        #sb h1 a:hover, #sb h1 a:visited:hover {
             color: rgb(31, 103, 0);
         }
 
@@ -305,12 +313,12 @@ input, select, textarea, button {
             border-left: none;
         }
 
-    #sb footer a {
-        color: inherit;
+    #sb footer a, #sb footer a:visited {
+        color: rgb(200, 200, 200);
         text-decoration: none;
     }
 
-        #sb footer a:hover {
+        #sb footer a:hover, #sb footer a:visited:hover {
             color: rgb(200, 238, 196);
         }
 

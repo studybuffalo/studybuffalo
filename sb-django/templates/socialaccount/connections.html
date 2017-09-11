@@ -2,6 +2,83 @@
 
 {% load static %}
 
+{% block styles %}
+	<style>
+		#sb .current_connections thead th {
+			padding: 0 1.5rem;
+			text-align: left;
+		}
+
+		#sb .current_connections tbody td {
+			padding: 0.5rem 1.5rem;
+		}
+
+		#sb .current_connections tfoot td {
+			padding: 0.5rem 0;
+			text-align: right;
+		}
+
+		#sb .socialaccount_providers {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+		}
+
+			#sb .socialaccount_providers li {
+				border: 3px solid rgb(101, 101, 101);
+				border-radius: 8px;
+				margin: 0 0.5rem;
+				list-style: none;
+				text-align: center;
+				transition: 0.25s ease-in-out;
+			}
+
+				#sb .socialaccount_providers li:hover {
+					border-color: rgb(41, 138, 0);
+					color: rgb(41, 138, 0);
+				}
+
+			#sb .socialaccount_providers a {
+				color: inherit;
+				display: block;
+				padding: 1.5rem;
+				text-decoration: none;
+			}
+
+			#sb .socialaccount_providers div.facebook {
+				background-image: url("/static/images/social-facebook-color.svg");
+				background-repeat: no-repeat;
+				background-size: 70px 70px;
+				display: inline-block;
+				height: 70px;
+				margin-top: 1rem;
+				width: 70px;
+			}
+
+			#sb .socialaccount_providers div.google {
+				background-image: url("/static/images/social-google-color.svg");
+				background-repeat: no-repeat;
+				background-size: 70px 70px;
+				display: inline-block;
+				height: 70px;
+				margin-top: 1rem;
+				width: 70px;
+			}
+
+			#sb .socialaccount_providers div.twitter {
+				background-image: url("/static/images/social-twitter-color.svg");
+				background-repeat: no-repeat;
+				background-size: 70px 70px;
+				display: inline-block;
+				height: 70px;
+				margin-top: 1rem;
+				width: 70px;
+			}
+	</style>
+{% endblock %}
+
 {% block content %}
 	<h1><a href="{% url 'account_profile' %}">Your Profile</a> &gt; Account Connections</h1>
 
@@ -15,14 +92,22 @@
 		<form method="post" action="{% url 'socialaccount_connections' %}">
 			{% csrf_token %}
 
-			<table>
+			<table class="current_connections">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Provider</th>
+						<th>Account Name</th>
+					</tr>
+				</thead>
+
 				<tbody>
 					{% for base_account in form.accounts %}
 						{% with base_account.get_provider_account as account %}
 							<tr>
-								<td>
+								<th>
 									<input id="id_account_{{ base_account.id }}" type="radio" name="account" value="{{ base_account.id }}"/>
-								</td>
+								</th>
 								<td>
 									<label for="id_account_{{ base_account.id }}">
 										<span class="socialaccount_provider {{ base_account.provider }} {{ account.get_brand.id }}">{{account.get_brand.name}}</span>
@@ -37,6 +122,7 @@
 						{% endwith %}
 					{% endfor %}
 				</tbody>
+
 				<tfoot>
 					<tr>
 						<td colspan="3">
@@ -53,10 +139,20 @@
 	{% endif %}
 
 	<h2>Add a 3rd Party Account</h2>
-
-	<ul class="socialaccount_providers">
-		{% include "socialaccount/snippets/provider_list.html" with process="connect" %}
-	</ul>
-
-	{% include "socialaccount/snippets/login_extra.html" %}
+	
+	{% load socialaccount %}
+	{% get_providers as socialaccount_providers %}
+	
+	{% if socialaccount_providers %}
+		<ul class="socialaccount_providers">
+			{% for provider in socialaccount_providers %}
+				<li>
+					<a title="{{ provider.name }}" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+						<div>Connect your {{ provider.name }} account</div>
+						<div class="{{ provider.id }}"></div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endblock %}
