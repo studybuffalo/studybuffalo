@@ -4,6 +4,8 @@
 
 {% block content %}
 	<h1><a href="{% url 'account_profile' %}">Your Profile</a> &gt; Confirm Sign Out</h1>
+	
+	{% include 'account/snippets/message_display.html' %}
 
 	<p>Are you sure you want to sign out?</p>
 
