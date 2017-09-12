@@ -51,8 +51,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "config", "sb_config.cfg")
 config = ConfigParser()
 config.read(CONFIG_PATH)
-
 admin_regex = r"%s" % config.get("admin", "regex")
+
 urlpatterns += [
     url(admin_regex, include(admin.site.urls)),
 ]
