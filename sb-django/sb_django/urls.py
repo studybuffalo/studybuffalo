@@ -15,6 +15,9 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import *
 
+import os
+from configparser import ConfigParser
+
 # Dictionary containing your sitemap classes
 sitemaps = {
    "play": PlaySitemap("play"),
@@ -25,7 +28,6 @@ sitemaps = {
 }
 
 urlpatterns = [
-    url(r"^admin/", include(admin.site.urls)),
     url(r"^play/", include("play.urls")),
     url(r"^study/", include("study.urls")),
     url(r"^read/", include("read.urls")),
@@ -43,3 +45,14 @@ urlpatterns = [
     url(r"^accounts/", include("allauth.urls")),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Admin login obscured for security reasons
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "config", "sb_config.cfg")
+config = ConfigParser()
+config.read(CONFIG_PATH)
+
+admin_regex = r"%s" % config.get("admin", "regex")
+urlpatterns += [
+    url(admin_regex, include(admin.site.urls)),
+]
