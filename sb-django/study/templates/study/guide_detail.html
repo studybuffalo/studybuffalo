@@ -6,7 +6,10 @@
 	{% if guide_page %}
 		<h1><a href="{% url 'study_index' %}">Study</a> &gt; {{ guide_page.title }}</h1>
 		
-		<p>Last Update {{ guide_page.last_update|date:"Y.m.d" }}</p>
+		<p>
+			<strong>Last Update:</strong> 
+			{{ guide_page.last_update|date:"Y.m.d" }}
+		</p>
 		
 		{% for item in guide_page.htmlguide_set.all %}
 			<div>{{ item.html|safe }}</div>

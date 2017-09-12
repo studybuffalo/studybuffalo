@@ -4,12 +4,12 @@
 
 {% block content %}
 	{% if publication_page %}
-		<h1>
-			<a href="{% url 'study_index' %}">Study</a> 
-			&gt; {{ publication_page.title }} 
-			(Last Update {{ publication_page.date_published|date:"Y.m.d" }})
-		</h1>
+		<h1><a href="{% url 'study_index' %}">Study</a> &gt; {{ publication_page.title }}</h1>
 		
+		<p>
+			<strong>Published:</strong> 
+			{{ publication_page.date_published|date:"Y.m.d" }}
+		</p>
 		{% for item in publication_page.htmlpublication_set.all %}
 			<div>{{ item.html|safe }}</div>
 		{% endfor %}
