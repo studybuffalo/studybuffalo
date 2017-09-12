@@ -15,12 +15,20 @@
 		{% endfor %}
 
 		{% for item in publication_page.documentpublication_set.all %}
-			<object data="{{ item.document.url }}" type="application/pdf" width="618" height="773">
+			<div class="embedded_pdf">
+				<object data="{{ item.document.url }}" type="application/pdf">
+					<a href="{{ item.document.url }}" target="_blank">
+						Sorry, your browser cannot display the Publication - 
+						click here to download it
+					</a>
+				</object>
+			</div>
+			
+			<div class="center_content">
 				<a href="{{ item.document.url }}" target="_blank">
-					Sorry, your browser cannot display the Publication - 
-					click here to download it
+					Click here to open this in a new window
 				</a>
-			</object>
+			</div>
 		{% endfor %}
 	{% endif %}
 {% endblock %}
