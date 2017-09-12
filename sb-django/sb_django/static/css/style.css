@@ -343,6 +343,13 @@ input, select, textarea, button {
             color: rgb(180, 0, 0);
         }
 
+
+/* Embedded PDFs */
+    #sb .embedded_pdf {
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
 /* Media Queries for page sizing */
 @media screen and (max-width: 480px) {
     .container {
