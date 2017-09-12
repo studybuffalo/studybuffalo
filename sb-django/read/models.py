@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Publication(models.Model):
     """Defines the main publication model"""
@@ -24,6 +25,10 @@ class Publication(models.Model):
     # Methods
     def __str__(self):
         return "{0} - {1})".format(self.date_published, self.title)
+
+    def get_absolute_url(self):
+        """Returns the URL to this page"""
+        return reverse("pub_page", args=[str(self.id)])
 
 class HTMLPublication(models.Model):
     """Defines an HTML publication"""

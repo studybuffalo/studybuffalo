@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 """Planning for the Study Guides
@@ -62,6 +63,10 @@ class Guide(models.Model):
     # Methods
     def __str__(self):
         return "{0} (Updated {1})".format(self.title, self.last_update)
+
+    def get_absolute_url(self):
+        """Returns the URL to this page"""
+        return reverse("study_guide_page", args=[str(self.id)])
 
     def has_bounty(self):
         return self.bounty_set.all().exists()
