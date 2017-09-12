@@ -4,12 +4,22 @@
 
 {% block content %}
 	<h1><a href="{% url 'tools_index' %}">Tools</a> &gt; Alberta Adaptation Flow Chart</h1>
-
-	<object data="{% static 'documents/alberta-adaptations.pdf' %}" type="application/pdf" width="600" height="815">
-		<a href="{% static 'documents/alberta-adaptations.pdf' %}" target="_blank">
-			Sorry, your browser cannot display this PDF - 
-			click here to download it
-		</a>
-	</object>
 	
+	<p>
+		<strong>Last Updated:</strong> 2013.04.07
+	</p>
+	<div class="embedded_pdf">
+		<object data="{% static 'documents/alberta-adaptations.pdf' %}" type="application/pdf" width="600" height="815">
+			<a href="{% static 'documents/alberta-adaptations.pdf' %}" target="_blank">
+				Sorry, your browser cannot display this PDF - 
+				click here to download it
+			</a>
+		</object>
+	</div>
+			
+	<div class="center_content">
+		<a href="{% static 'documents/alberta-adaptations.pdf' %}" target="_blank">
+			Click here to open this in a new window
+		</a>
+	</div>
 {% endblock %}
