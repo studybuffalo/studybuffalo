@@ -306,7 +306,7 @@ input, select, textarea, button {
 #sb footer {
     align-items: center;
     background-color: rgb(101, 101, 101);
-    color: rgb(200, 200, 200);
+    color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     font-size: 2rem;
@@ -348,7 +348,7 @@ input, select, textarea, button {
         }
 
     #sb footer a, #sb footer a:visited {
-        color: rgb(200, 200, 200);
+        color: rgb(255, 255, 255);
         text-decoration: none;
     }
 
