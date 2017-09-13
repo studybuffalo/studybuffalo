@@ -400,11 +400,16 @@ input, select, textarea, button {
         max-width: 460px;
     }
 
+    #sb #header-container nav {
+        align-items: flex-start;
+    }
+
     #sb #header-container #menu {
         height: 100%;
         display: block;
         max-height: 0;
         transition: 0.25s ease-in-out;
+        width: 100%;
     }
 
         #sb #header-container #menu li {
@@ -428,6 +433,25 @@ input, select, textarea, button {
     #sb #header-container #menu-icon.open + #menu {
         max-height: 40rem;
     }
+
+    #sb #footer-container footer > div {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #sb #footer-container footer .left span,
+    #sb #footer-container footer .middle span,
+    #sb #footer-container footer .right span {
+        border: none;
+        display: block;
+        padding: 0.15rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #sb #footer-container footer .middle {
+        order: 4;
+    }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
@@ -436,12 +460,57 @@ input, select, textarea, button {
         max-width: 748px;
     }
 
+    #sb #header-container nav {
+        align-items: flex-start;
+    }
+
     #sb #header-container #menu {
-        display: none;
+        height: 100%;
+        display: block;
+        max-height: 0;
+        transition: 0.25s ease-in-out;
+        width: 100%;
+    }
+
+        #sb #header-container #menu li {
+            border-top: 1px solid rgb(101, 101, 101);
+            border-left: none;
+            border-right: none;
+            display: block;
+        }
+
+            #sb #header-container #menu li a {
+                display: block;
+                border-bottom: none;
+                border-left: 5px solid rgb(255, 255, 255);
+            }
+
+    #sb #header-container #menu-icon + #menu li a.selected {
+        border-left: 5px solid rgb(41, 138, 0);
+    }
+
+
+    #sb #header-container #menu-icon.open + #menu {
+        max-height: 40rem;
     }
 
     #sb #footer-container footer > div {
+        align-items: center;
         flex-direction: column;
+    }
+
+    #sb #footer-container footer .left span,
+    #sb #footer-container footer .middle span,
+    #sb #footer-container footer .right span {
+        border: none;
+        display: block;
+        padding: 0.15rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #sb #footer-container footer .middle {
+        order: 4;
     }
 }
 
