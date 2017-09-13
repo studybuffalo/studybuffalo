@@ -239,7 +239,13 @@ input, select, textarea, button {
     justify-content: center;
 }
 
-/* Social Media Bar */
+/* Footer */
+#sb #footer-container {
+    flex: none;
+    width: 100%;
+}
+
+/* Footer > Social Media Bar */
 #sb #social {
     align-items: center;
     color: rgb(200, 200, 200);
@@ -247,7 +253,7 @@ input, select, textarea, button {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 1.5rem 0;
+    padding: 1rem;
     width: 100%;
 }
 
@@ -256,10 +262,15 @@ input, select, textarea, button {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 1rem;
+        text-align: center;
         width: 100%;
     }
 
     #sb #social ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
         list-style: none;
         margin: 1rem 0 0 0;
         padding: 0;
@@ -281,11 +292,8 @@ input, select, textarea, button {
             transform: scale(1.15);
         }
 
-/* Footer */
-#sb #footer-container {
-    flex: none;
-    width: 100%;
-}
+/* Footer > Footer Content*/
+
 
 #sb footer {
     align-items: center;
