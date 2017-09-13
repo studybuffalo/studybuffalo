@@ -5,26 +5,22 @@
 {% block styles %}
 	<link rel="stylesheet" href="{% static "css/swiper.min.css" %}">
 	<style>
+		/*
 		#sb .swiper-container {
 			width: 100%;
-			height: auto;
+			height: 600px;
 		}
 
 		#sb .swiper-slide {
-			text-align: center;
-			font-size: 2rem;
-			background: #fff;
-			display: flex;
-			justify-content: center;
 			align-items: center;
 			background-color: #65c761;
+			display: flex;
+			font-size: 2rem;
 			height: 500px;
+			justify-content: center;
+			text-align: center;
 		}
-
-			#sb .swiper-slide:nth-child(odd) {
-				background-color: #ff5e5e;
-			}
-
+		*/
 		#sb .content-section {
 			margin: 5rem 0;
 			display: flex;
@@ -98,7 +94,7 @@
 {% endblock %}
 
 {% block content %}
-	<!-- Swiper -->
+	<!-- Swiper 
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			{% for slide in slides %}
@@ -113,13 +109,13 @@
 				{% endif %}
 			{% endfor %}
 		</div>
-			<!-- Add Pagination -->
+
 		<div class="swiper-pagination"></div>
-		<!-- Add Arrows -->
+
 		<div class="swiper-button-next"></div>
 		<div class="swiper-button-prev"></div>
 	</div>
-
+	-->
 	<div class="content-section">
 		<h2 class="full-row what">What are Study Buffalo?</h2>
 

@@ -253,7 +253,6 @@ input, select, textarea, button {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 1rem;
     width: 100%;
 }
 
@@ -386,7 +385,6 @@ input, select, textarea, button {
     #sb .container {
         min-width: 320px;
         max-width: 480px;
-        width: 100%;
     }
 
     #sb #header-container #menu {
@@ -423,11 +421,14 @@ input, select, textarea, button {
     .container {
         min-width: 480px;
         max-width: 768px;
-        width: 100%;
     }
 
     #sb #header-container #menu {
         display: none;
+    }
+
+    #sb #footer-container footer > div {
+        flex-direction: column;
     }
 }
 
@@ -435,7 +436,6 @@ input, select, textarea, button {
     .container {
         min-width: 768px;
         max-width: 1024px;
-        width: 100%;
     }
 
     #sb #header-container #menu-icon {

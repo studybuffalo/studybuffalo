@@ -8,10 +8,11 @@ function startSwiper() {
         centeredSlides: true,
         autoplay: 2500,
         loop: true,
-        autoplayDisableOnInteraction: false
+        autoplayDisableOnInteraction: false,
     });
 }
 
 $(document).ready(function () {
     startSwiper();
 });
+
