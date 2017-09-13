@@ -92,6 +92,10 @@ input, select, textarea, button {
     font-family: "Alegreya Sans SC", "Lucida", "Verdana", sans-serif
 }
 
+#sb img {
+    max-width: 100%;
+}
+
 /* Main containers to size & space content */
 #sb {
     align-items: center;

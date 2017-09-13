@@ -64,6 +64,32 @@
 			padding: 0 3rem;
 		}
 
+		@media screen and (max-width: 768px) {
+			#sb #play-page-nav {
+				align-content: center;
+				flex-direction: column;
+			}
+
+			#sb #play-page-nav li {
+				border-left: none;
+				padding: 0.5rem 0;
+				text-align: center;
+			}
+
+			#sb #play-page-nav a {
+				display: inline-block;
+			}
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1024px) {
+			#sb #play-page-nav li {
+				font-size: 2.5rem;
+			}
+
+			#sb #play-page-nav a {
+				padding: 0 1rem;
+			}
+		}
 </style>
 
 <main>
