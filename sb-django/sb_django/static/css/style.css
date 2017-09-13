@@ -126,8 +126,8 @@ input, select, textarea, button {
 }
 
     #sb #title-bar #placeholder {
+        content: " ";
         text-align: left;
-        width: 30%;
     }
 
     #sb #title-bar #logo {
@@ -140,8 +140,8 @@ input, select, textarea, button {
     #sb #title-bar #login {
         font-size: 2rem;
         font-weight: bold;
+        padding-right: 1rem;
         text-align: right;
-        width: 30%;
     }
 
         #sb #title-bar #login a {
@@ -163,6 +163,23 @@ input, select, textarea, button {
     flex-direction: column;
     width: 100%;
 }
+
+    #sb #header-container #menu-icon {
+        cursor: pointer;
+        display: block;
+        padding: 1rem 0;
+        text-align: left;
+        width: 100%;
+    }
+
+        #sb #header-container #menu-icon span {
+            vertical-align: middle;
+        }
+
+        #sb #header-container #menu-icon .icon {
+            font-size: 5rem;
+            padding: 0 1rem;
+        }
 
     #sb #header-container nav ul {
         display: flex;
@@ -358,10 +375,39 @@ input, select, textarea, button {
 
 /* Media Queries for page sizing */
 @media screen and (max-width: 480px) {
-    .container {
+    #sb .container {
         min-width: 320px;
         max-width: 480px;
         width: 100%;
+    }
+
+    #sb #header-container #menu {
+        height: 100%;
+        display: block;
+        max-height: 0;
+        transition: 0.25s ease-in-out;
+    }
+
+        #sb #header-container #menu li {
+            border-top: 1px solid rgb(101, 101, 101);
+            border-left: none;
+            border-right: none;
+            display: block;
+        }
+
+            #sb #header-container #menu li a {
+                display: block;
+                border-bottom: none;
+                border-left: 5px solid rgb(255, 255, 255);
+            }
+
+    #sb #header-container #menu-icon + #menu li a.selected {
+        border-left: 5px solid rgb(41, 138, 0);
+    }
+
+
+    #sb #header-container #menu-icon.open + #menu {
+        max-height: 40rem;
     }
 }
 
@@ -371,6 +417,10 @@ input, select, textarea, button {
         max-width: 768px;
         width: 100%;
     }
+
+    #sb #header-container #menu {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -379,12 +429,23 @@ input, select, textarea, button {
         max-width: 1024px;
         width: 100%;
     }
+
+    #sb #header-container #menu-icon {
+        display: none;
+    }
+
+    #sb #header-container #menu li a {
+        padding: 1rem 2rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
-    .container {
+    #sb .container {
         min-width: 1024px;
         max-width: 1280px;
-        
+    }
+
+    #sb #header-container #menu-icon {
+        display: none;
     }
 }

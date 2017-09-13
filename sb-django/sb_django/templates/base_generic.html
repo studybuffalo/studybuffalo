@@ -4,7 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    {% block title %}<title>Study Buffalo</title>{% endblock %}
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+	{% block title %}<title>Study Buffalo</title>{% endblock %}
 
 	{% load static %}
 
@@ -15,6 +17,7 @@
 
 	<!-- JS Files -->
 	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "js/functions.js" %}"></script>
 	{% block js %}{% endblock %}
 </head>
 
@@ -44,6 +47,10 @@
 				</header>
 
 				<nav>
+					<div id="menu-icon">
+						<span class="icon">&#8801;</span>
+						<span>Menu</span>
+					</div>
 					<ul id="menu" class="container">
 						<li>
 							{% if request.path == "/" %}
