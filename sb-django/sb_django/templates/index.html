@@ -34,7 +34,7 @@
 		}
 
 			#sb .content-section .full-row {
-				flex: 0 0 100%;
+				flex: 1 1 100%;
 				display: block;
 				text-align: center;
 			}
@@ -83,6 +83,12 @@
 				width: 52%;
 				left: 5%;
 			}
+
+		@media screen and (max-width: 768px) {
+			#sb .content-section .part-row {
+				flex: 1 1 100%;
+			}
+		}
 	</style>
 {% endblock %}
 
