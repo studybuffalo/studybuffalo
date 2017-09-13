@@ -1,0 +1,11 @@
+{
+  "background_color": "#fafafa",
+  "description": "The home page of all the Study Buffalo tools and resources",
+  "dir": "ltr",
+  "display": "browser",
+  "lang": "en-UK",
+  "name": "StudyBuffalo.com",
+  "orientation": "any",
+  "short_name": "StudyBuffalo",
+  "theme_color": "#298a00"
+}
