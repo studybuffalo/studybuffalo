@@ -115,6 +115,10 @@ input, select, textarea, button {
     width: 100%;
 }
 
+#sb .container {
+    box-sizing: border-box;
+}
+
 /* Header > Title Bar*/
 #sb #title-bar {
     align-items: flex-end;
@@ -273,6 +277,7 @@ input, select, textarea, button {
         list-style: none;
         margin: 1rem 0 0 0;
         padding: 0;
+        flex-wrap: wrap;
     }
 
     #sb #social li {
@@ -381,10 +386,14 @@ input, select, textarea, button {
     }
 
 /* Media Queries for page sizing */
+/* 
+    Note: 20px is removed from the container width to account for variations 
+    on scroll bar inclusion in viewport calculations 
+*/
 @media screen and (max-width: 480px) {
     #sb .container {
-        min-width: 320px;
-        max-width: 480px;
+        min-width: 300px;
+        max-width: 460px;
     }
 
     #sb #header-container #menu {
@@ -419,8 +428,9 @@ input, select, textarea, button {
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
     .container {
-        min-width: 480px;
-        max-width: 768px;
+        min-width: 460px;
+        max-width: 748px;
+        color: green;
     }
 
     #sb #header-container #menu {
@@ -434,8 +444,9 @@ input, select, textarea, button {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
-        min-width: 768px;
-        max-width: 1024px;
+        min-width: 748px;
+        max-width: 1004px;
+        color: blue;
     }
 
     #sb #header-container #menu-icon {
@@ -449,8 +460,9 @@ input, select, textarea, button {
 
 @media screen and (min-width: 1024px) {
     #sb .container {
-        min-width: 1024px;
-        max-width: 1280px;
+        min-width: 1004px;
+        max-width: 1260px;
+        color: red;
     }
 
     #sb #header-container #menu-icon {
