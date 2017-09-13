@@ -430,7 +430,6 @@ input, select, textarea, button {
     .container {
         min-width: 460px;
         max-width: 748px;
-        color: green;
     }
 
     #sb #header-container #menu {
@@ -446,7 +445,6 @@ input, select, textarea, button {
     .container {
         min-width: 748px;
         max-width: 1004px;
-        color: blue;
     }
 
     #sb #header-container #menu-icon {
@@ -462,7 +460,6 @@ input, select, textarea, button {
     #sb .container {
         min-width: 1004px;
         max-width: 1260px;
-        color: red;
     }
 
     #sb #header-container #menu-icon {
