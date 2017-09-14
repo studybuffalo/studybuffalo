@@ -270,6 +270,70 @@ class SpecialAuthorization(models.Model):
         null=True,
     )
 
+class SubsBSRF(models.Model):
+    """Formatting substitutions for Brand/Strength/Route/Formulation"""
+    bsrf = models.CharField(
+        max_length=250,
+    )
+
+    brand_name = models.CharField(
+        max_length=80,
+    )
+
+    strength = models.CharField(
+        max_length=200,
+        null=True
+    )
+
+    route = models.CharField(
+        max_length=20,
+        null=True
+    )
+
+    dosage_form = models.CharField(
+        max_length=40,
+        null=True
+    )
+
+class SubsGeneric(models.Model):
+    """Formatting substitutions for generic names"""
+    original = models.CharField(
+        max_length=120,
+    )
+
+    correction = models.CharField(
+        max_length=120,
+    )
+
+class SubsManufacturer(models.Model):
+    """Formatting substitutions for manufacturers"""
+    original = models.CharField(
+        max_length=120,
+    )
+
+    correction = models.CharField(
+        max_length=120,
+    )
+    
+class SubsPTC(models.Model):
+    """Substitutions for PTC"""
+    original = models.CharField(
+        max_length=120,
+    )
+
+    correction = models.CharField(
+        max_length=120,
+    )
+
+class SubsUnit(models.Model):
+    """Substitutions for units"""
+    original = models.CharField(
+        max_length=120,
+    )
+
+    correction = models.CharField(
+        max_length=120,
+    )
 
 """
     Planning for expanding the drug price calculator
