@@ -6,7 +6,6 @@ from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
-from social_django.models import UserSocialAuth
 
 import datetime
 from functools import wraps
