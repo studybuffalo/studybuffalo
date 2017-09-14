@@ -63,6 +63,17 @@ class ATC(models.Model):
         else:
             return "No atc for {0}".format(self.url)
 
+class ATCDescriptions(models.Model):
+    """Defines each ATC description for each code"""
+    code = models.CharField(
+        max_length=5,
+    )
+
+    description = models.CharField(
+        max_length=80,
+        null=True,
+    )
+
 class Coverage(models.Model):
     """Defines coverage criteria for each URL"""
     url = models.PositiveIntegerField()
