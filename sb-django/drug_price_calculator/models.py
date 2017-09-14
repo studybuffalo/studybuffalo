@@ -1,5 +1,265 @@
 from django.db import models
 
+class ATC(models.Model):
+    """Defines the ATC for each extracted URL"""
+    url = models.PositiveIntegerField()
+    
+    atc_1 = models.CharField(
+        max_length=7,
+        null=True,
+    )
+
+    atc_1_text = models.CharField(
+        max_length=200,
+        null=True,
+    )
+    
+    atc_2 = models.CharField(
+        max_length=7,
+        null=True,
+    )
+
+    atc_2_text = models.CharField(
+        max_length=200,
+        null=True,
+    )
+    
+    atc_3 = models.CharField(
+        max_length=7,
+        null=True,
+    )
+
+    atc_3_text = models.CharField(
+        max_length=200,
+        null=True,
+    )
+    
+    atc_4 = models.CharField(
+        max_length=7,
+        null=True,
+    )
+
+    atc_4_text = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    # Meta Settings
+    class Meta:
+        verbose_name = "Anatomical Therapeutic Category"
+        verbose_name_plural = "Anatomical Therapeutic Categories"
+
+    # Methods
+    def __str__(self):
+        """String of the ATC"""
+        if self.atc_4:
+            return "{0} - {1}".format(self.atc_4, self.atc_4_text)
+        elif self.atc_3:
+            return "{0} - {1}".format(self.atc_3, self.atc_3_text)
+        elif self.atc_2:
+            return "{0} - {1}".format(self.atc_2, self.atc_2_text)
+        elif self.atc_1:
+            return "{0} - {1}".format(self.atc_1, self.atc_1_text)
+        else:
+            return "No atc for {0}".format(self.url)
+
+class Coverage(models.Model):
+    """Defines coverage criteria for each URL"""
+    url = models.PositiveIntegerField()
+
+    coverage = models.CharField(
+        max_length=50,
+    )
+
+    criteria = models.BooleanField(
+
+    )
+    
+    criteria_sa = models.CharField(
+        max_length=100,
+        null=True,
+    )
+
+    criteria_p = models.CharField(
+        max_length=70,
+        null=True,
+    )
+
+    group_1 = models.BooleanField(
+        default=False,
+    )
+    
+    group_66 = models.BooleanField(
+        default=False,
+    )
+    
+    group_66a = models.BooleanField(
+        default=False,
+    )
+    
+    group_19823 = models.BooleanField(
+        default=False,
+    )
+    
+    group_19823a = models.BooleanField(
+        default=False,
+    )
+    
+    group_19824 = models.BooleanField(
+        default=False,
+    )
+    
+    group_20400 = models.BooleanField(
+        default=False,
+    )
+    
+    group_20403 = models.BooleanField(
+        default=False,
+    )
+    
+    group_20514 = models.BooleanField(
+        default=False,
+    )
+    
+    group_22128 = models.BooleanField(
+        default=False,
+    )
+    
+    group_23609 = models.BooleanField(
+        default=False,
+    )
+
+class ExtraInformation(models.Model):
+    """Defines additional information for each URL"""
+    url = models.PositiveIntegerField()
+
+    date_listed = models.DateField(
+        null=True,
+    )
+
+    date_discontinued = models.DateField(
+        null=True,
+    )
+
+    manufacturer = models.CharField(
+        max_length=50,
+    )
+
+    schedule = models.CharField(
+        max_length=10,
+    )
+
+    interchangeable = models.CharField(
+        max_length=3,
+    )
+
+class Price(models.Model):
+    url = models.PositiveIntegerField()
+
+    din = models.PositiveIntegerField()
+
+    brand_name = models.CharField(
+        max_length=70,
+        null=True,
+    )
+
+    strength = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    route = models.CharField(
+        max_length=20,
+        null=True,
+    )
+
+    dosage_form = models.CharField(
+        max_length=35,
+        null=True,
+    )
+
+    generic_name = models.CharField(
+        max_length=450,
+        null=True,
+    )
+
+    unit_price = models.DecimalField(
+        decimal_places=4,
+        max_digits=10,
+        null=True,
+    )
+
+    lca = models.DecimalField(
+        decimal_places=4,
+        max_digits=10,
+        null=True,
+    )
+
+    lca_text = models.CharField(
+        max_length=150,
+        null=True,
+    )
+
+    unit_issue = models.CharField(
+        max_length=25,
+        null=True,
+    )
+    
+class PTC(models.Model):
+    """Defines the PTC for the specified URL"""
+    url = models.PositiveIntegerField()
+    
+    ptc_1 = models.PositiveIntegerField(
+        null=True,
+    )
+
+    ptc_1_text = models.CharField(
+        max_length=75,
+        null=True,
+    )
+    
+    ptc_2 = models.PositiveIntegerField(
+        null=True,
+    )
+
+    ptc_2_text = models.CharField(
+        max_length=75,
+        null=True,
+    )
+    
+    ptc_3 = models.PositiveIntegerField(
+        null=True,
+    )
+
+    ptc_3_text = models.CharField(
+        max_length=75,
+        null=True,
+    )
+    
+    ptc_4 = models.PositiveIntegerField(
+        null=True,
+    )
+
+    ptc_4_text = models.CharField(
+        max_length=75,
+        null=True,
+    )
+
+class SpecialAuthorization(models.Model):
+    """Defines the Special Authorization criteria for specified URLs"""
+    url = models.PositiveIntegerField()
+    
+    title = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    link = models.CharField(
+        max_length=50,
+        null=True,
+    )
+
+
 """
     Planning for expanding the drug price calculator
     
@@ -31,85 +291,4 @@ from django.db import models
             ABC special auth
         NIHB coverage
             Prior approval
-"""
-# Create your models here.
-
-"""abc_atc table
-id          AI      PK
-url         int(10)
-atc_1       varchar(7)
-act_1_text  varchar(200)
-atc_2       varchar(7)
-act_2_text  varchar(200)
-atc_3       varchar(7)
-act_3_text  varchar(200)
-atc_4       varchar(7)
-act_4_text  varchar(200)
-atc_5       varchar(7)
-act_5_text  varchar(200)
-"""
-
-"""abc_coverage table
-id              AI     PK
-url             int(10)
-coverage        varchar(50)
-criteria        tinyint(1)
-criteria_sa     varchaer(100)
-criteria_p      varchar(70)
-group_1         tinyint(1)
-group_66        tinyint(1)
-group_66a       tinyint(1)
-group_19823     tinyint(1)
-group_19823a    tinyint(1)
-group_19824     tinyint(1)
-group_20400     tinyint(1)
-group_20403     tinyint(1)
-group_20514     tinyint(1)
-group_22128     tinyint(1)
-group_23609     tinyint(1)
-"""
-
-"""abc_extra_information table
-id                  AI      PK
-url                 int(10)
-date_listed         date
-date_discontinued   date
-manufacturer        varchar(50)
-schedule            varchar(10)
-interchangeable     varchar(3)
-"""
-
-"""abc_price table
-id              AI      PK
-url             int(10)
-din             int(8)
-brand_name      varchar(70)
-strength        varchar(200)
-route           varchar(20)
-dosage_form     varchar(35)
-generic_name    varchar(450)
-unit_price      decimal(10,4)
-lca             decimal(10,4)
-lca_text        varchar(150)
-unit_issue      varchar(25)
-"""
-
-"""abc_ptc table
-id          AI      PK
-url         int(10)
-ptc_1       int(8)
-ptc_1_text  varchar(75)
-ptc_2       int(8)
-ptc_2_text  varchar(75)
-ptc_3       int(8)
-ptc_3_text  varchar(75)
-ptc_4       int(8)
-ptc_4_text  varchar(75)
-"""
-
-"""abc_special_authorization table
-id      int(11)
-url     int(10)
-title   varchar(200)
-link    varchar(50)
 """
