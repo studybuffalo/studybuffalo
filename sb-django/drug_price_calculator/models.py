@@ -335,6 +335,69 @@ class SubsUnit(models.Model):
         max_length=120,
     )
 
+class PendBSRF(models.Model):
+    """Pending substitutions for BSRF"""
+    url = models.PositiveIntegerField()
+
+    original = models.CharField(
+        max_length=250,
+    )
+
+    brand_name = models.CharField(
+        max_length=80,
+    )
+
+    strength = models.CharField(
+        max_length=200,
+        null=True,
+    )
+
+    route = models.CharField(
+        max_length=20,
+        null=True,
+    )
+
+    dosage_form = models.CharField(
+        max_length=40,
+        null=True,
+    )
+
+class PendGeneric(models.Model):
+    """Pending substitutions for Generic Names"""
+    url = models.PositiveIntegerField()
+    
+    original = models.CharField(
+        max_length=150,
+    )
+
+    correction = models.CharField(
+        max_length=150,
+    )
+
+class PendManufacturer(models.Model):
+    """Pending substitutions for Manufacturers"""
+    url = models.PositiveIntegerField()
+    
+    original = models.CharField(
+        max_length=150,
+    )
+
+    correction = models.CharField(
+        max_length=150,
+    )
+
+class PendPTC(models.Model):
+    """Pending substitutions for PTC"""
+    url = models.PositiveIntegerField()
+    
+    original = models.CharField(
+        max_length=150,
+    )
+
+    correction = models.CharField(
+        max_length=150,
+    )
+
 """
     Planning for expanding the drug price calculator
     
