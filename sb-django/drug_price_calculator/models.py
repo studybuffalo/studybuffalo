@@ -67,6 +67,7 @@ class ATCDescriptions(models.Model):
     """Defines each ATC description for each code"""
     code = models.CharField(
         max_length=5,
+        unique=True,
     )
 
     description = models.CharField(
@@ -274,6 +275,7 @@ class SubsBSRF(models.Model):
     """Formatting substitutions for Brand/Strength/Route/Formulation"""
     bsrf = models.CharField(
         max_length=250,
+        unique=True,
     )
 
     brand_name = models.CharField(
@@ -299,6 +301,7 @@ class SubsGeneric(models.Model):
     """Formatting substitutions for generic names"""
     original = models.CharField(
         max_length=120,
+        unique=True,
     )
 
     correction = models.CharField(
@@ -309,6 +312,7 @@ class SubsManufacturer(models.Model):
     """Formatting substitutions for manufacturers"""
     original = models.CharField(
         max_length=120,
+        unique=True,
     )
 
     correction = models.CharField(
@@ -319,6 +323,7 @@ class SubsPTC(models.Model):
     """Substitutions for PTC"""
     original = models.CharField(
         max_length=120,
+        unique=True,
     )
 
     correction = models.CharField(
@@ -329,6 +334,7 @@ class SubsUnit(models.Model):
     """Substitutions for units"""
     original = models.CharField(
         max_length=120,
+        unique=True,
     )
 
     correction = models.CharField(
@@ -337,10 +343,9 @@ class SubsUnit(models.Model):
 
 class PendBSRF(models.Model):
     """Pending substitutions for BSRF"""
-    url = models.PositiveIntegerField()
-
     original = models.CharField(
         max_length=250,
+        unique=True,
     )
 
     brand_name = models.CharField(
@@ -364,10 +369,9 @@ class PendBSRF(models.Model):
 
 class PendGeneric(models.Model):
     """Pending substitutions for Generic Names"""
-    url = models.PositiveIntegerField()
-    
     original = models.CharField(
         max_length=150,
+        unique=True,
     )
 
     correction = models.CharField(
@@ -376,10 +380,9 @@ class PendGeneric(models.Model):
 
 class PendManufacturer(models.Model):
     """Pending substitutions for Manufacturers"""
-    url = models.PositiveIntegerField()
-    
     original = models.CharField(
         max_length=150,
+        unique=True,
     )
 
     correction = models.CharField(
@@ -388,10 +391,9 @@ class PendManufacturer(models.Model):
 
 class PendPTC(models.Model):
     """Pending substitutions for PTC"""
-    url = models.PositiveIntegerField()
-    
     original = models.CharField(
         max_length=150,
+        unique=True,
     )
 
     correction = models.CharField(
