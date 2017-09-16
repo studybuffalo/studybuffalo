@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'drug_price_calculator_index' %}">Drug Price Calculator</a> &gt; Substitutions &gt; BSRF List</h1>
+
+	{% if subs_bsrf_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>BSRF</th>
+                    <th>Brand Name</th>
+                    <th>Strength</th>
+                    <th>Route</th>
+                    <th>Dosage Form</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in subs_bsrf_list %}
+					<tr>
+                        <td>{{ item.bsrf }}</td>
+                        <td>{{ item.brand_name }}</td>
+                        <td>{{ item.strength }}</td>
+                        <td>{{ item.route }}</td>
+                        <td>{{ item.dosage_form }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}
