@@ -14,5 +14,6 @@ urlpatterns = [
     url(r"^subs/ptc/$", views.SubsPTCList.as_view(), name="subs_ptc_list"),
     url(r"^subs/unit/$", views.SubsUnitList.as_view(), name="subs_unit_list"),
     url(r"^special-authorization/$", views.SpecialAuthorizationList.as_view(), name="special_authorization_list"),
+    url(r"^live-search/$", views.live_search, name="live_search"),
     url(r"^$", views.index, name="drug_price_calculator_index"),
 ]

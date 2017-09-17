@@ -72,3 +72,14 @@ class SubsUnitList(generic.ListView):
     model = SubsUnit
 
     context_object_name = "subs_unit_list"
+
+
+from django.http import HttpResponse
+import json
+
+def live_search(request):
+    print("test")
+    if request.GET:
+        get_value = request.body
+        data = {"result": "test",}
+        return HttpResponse(json.dumps(data), content_type="application/json")

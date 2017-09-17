@@ -1208,7 +1208,7 @@ function showSearchResults(searchString) {
 		
 		ajaxTimer = setTimeout(function() {
 			$.ajax({
-				url: "live_search.php",
+				url: "live-search/",
 				data: {q: searchString},
 				type: "GET",
 				dataType: "html",
