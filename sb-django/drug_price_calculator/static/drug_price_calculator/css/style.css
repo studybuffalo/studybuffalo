@@ -268,14 +268,14 @@ input[type="button"] {
 
     #Price-Table .delete {
         border: none;
-        background: url("/static/images/trash.png") 0px 0px;
+        background: url("/static/drug_price_calculator/images/trash.png") 0px 0px;
         width: 25px;
         height: 29px;
         display: block;
     }
 
         #Price-Table .delete:hover {
-            background: url("/static/images/trash.png") 0px 29px;
+            background: url("/static/drug_price_calculator/images/trash.png") 0px 29px;
             width: 25px;
             height: 29px;
             cursor: pointer;
@@ -283,7 +283,7 @@ input[type="button"] {
 
 .info {
     border: none;
-    background: url("/static/images/info.png") 0px 29px;
+    background: url("/static/drug_price_calculator/images/info.png") 0px 29px;
     width: 29px;
     height: 29px;
     display: block;
@@ -291,7 +291,7 @@ input[type="button"] {
 
     .info.notice {
         border: none;
-        background: url("/static/images/info.png") 0px 87px;
+        background: url("/static/drug_price_calculator/images/info.png") 0px 87px;
         width: 29px;
         height: 29px;
         display: block;
@@ -299,14 +299,14 @@ input[type="button"] {
 
     .info.warning {
         border: none;
-        background: url("/static/images/info.png") 0px 116px;
+        background: url("/static/drug_price_calculator/images/info.png") 0px 116px;
         width: 29px;
         height: 29px;
         display: block;
     }
 
     .info:hover {
-        background: url("/static/images/info.png") 0px 58px;
+        background: url("/static/drug_price_calculator/images/info.png") 0px 58px;
         width: 29px;
         height: 29px;
         cursor: pointer;
