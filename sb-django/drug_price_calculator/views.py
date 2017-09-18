@@ -75,172 +75,145 @@ class SubsUnitList(generic.ListView):
 
 
 from django.http import HttpResponse
+from django.db.models import Q
 from django.core import serializers
-import json
 
 def live_search(request):
     """Handles AJAX request to display drug name search results"""
+    response = ""
+
     # If there is a GET request, search for results
     if request.GET:
         # Get the search value
         search_value = request.GET["q"]
 
         if search_value:
-            search_results = Price.objects.filter(generic_name__contains=search_value)
+            search_results = Price.objects.filter(
+                Q(generic_name__icontains=search_value) | 
+                Q(brand_name__icontains=search_value)).order_by("generic_name")
 
             if search_results:
-                data = serializers.serialize("json", search_results)
+                result_list = []
+                first_entry = True
 
-                return HttpResponse(data, content_type="application/json")
-
-    return HttpResponse({}, content_type="application/json")
-
-    """
-    require_once '../../../../config/db_config.php';
-
-    $response = "";
-
-    // Only run search if $q is not blank
-    if (strlen($q) > 0) {
-	    // Sending prepared statement to server
-	    $query = "SELECT DISTINCT t1.url , t1.brand_name, t1.strength, " . 
-			     "t1.route, t1.dosage_form, t1.generic_name " . 
-			     "FROM abc_price t1 " . 
-			     "INNER JOIN abc_price t2 " .
-			     "ON t1.generic_name = t2.generic_name " .
-			     "WHERE ((t2.generic_name LIKE ? OR t2.brand_name LIKE ?) " . 
-			     "AND t1.unit_price IS NOT NULL)";
-	
-	    $resultArray = returnResults($db, $query, [$q, $q]);
-	
-	    // If results were obtained, finish processing
-	    if (count($resultArray) > 0) {
-		    // For each group of generic names + strength + route + 
-		    // dosage form, combines the brand names
-		    $tempArray = array();
-		
-		    foreach ($resultArray as $key => $item) {
-			    $tempText = $item['generic_name'] . " (" . $item['strength'] . " " . 
+                for item in search_results:
+                    title = item.generic_name
+                    
+                    """
+                    $tempText = $item['generic_name'] . " (" . $item['strength'] . " " . 
 						    $item['route'] . " " . $item['dosage_form'] . ")";
 						
-			    //Cleans up the tempText in case an item was missing
-			    $tempText = str_replace("  ", " ", $tempText);
-			    $tempText = str_replace("  ", " ", $tempText);
-			    $tempText = str_replace("( ", "(", $tempText);
-			    $tempText = str_replace(" )", ")", $tempText);
-			    $tempText = str_replace(" ()", "", $tempText);
-			
-			    if ($key == 0) {
-				    $tempArray[0] = array('title' => $tempText,
-									      'url' => $item['url'],
-									      'brand_name' => $item['brand_name']);
-			    } else {
-				    $match = FALSE;
-				
-				    for ($i = 0; $i < count($tempArray); $i++) {
-					    if ($tempArray[$i]['title'] == $tempText) {
-						    $tempArray[$i]['url'] .= "," . $item['url'];
-						    $tempArray[$i]['brand_name'] .= ", " . $item['brand_name'];
-						    $match = TRUE;
-						    break;
-					    }
-				    }
-				
-				    if ($match == FALSE) {
-					    $index = count($tempArray);
-					    $tempArray[$index] = array('title' => $tempText,
-											       'url' => $item['url'],
-											       'brand_name' => $item['brand_name']);
-				    }
-			    }
-		    }
+			        //Cleans up the tempText in case an item was missing
+			        $tempText = str_replace("  ", " ", $tempText);
+			        $tempText = str_replace("  ", " ", $tempText);
+			        $tempText = str_replace("( ", "(", $tempText);
+			        $tempText = str_replace(" )", ")", $tempText);
+			        $tempText = str_replace(" ()", "", $tempText);
+                    """
 
-		    $resultArray = array_values($tempArray);
-		    $entries = "";
-		
-		    //Creates list for return via AJAX function
-		    foreach ($resultArray as $index => $item) {
-			    $entries .= "<li><a id='Search-Result-" . $index . "' " .
-						    "data-url='" . $item['url'] . "' " .
-						
-						    "onclick='chooseResult(this)'>" .
-						    "<strong>" . $item['title'] . "</strong><br>" .
-						    "<em>also known as " . $item['brand_name'] . "</em></a></li>";
-		    }
-		
-		    $response = "<ul>" . $entries . "</ul>";
-	    } else {
-		    $response = "<ul><li><a><strong>No medication found</strong></a></li></ul>";
-	    }
-    }
+                    if first_entry:
+                        temp_dict = {
+                            "title": title,
+                            "url": item.url,
+                            "brand_name": item.brand_name,
+                        }
+                        
+                        result_list.append(temp_dict)
 
-    // Output the response
-    echo $response;
-    ?>
-    """
+                        first_entry = False
+                    else:
+                        title_match = False
+
+                        # Look for a title match
+                        for list_index, list_item in enumerate(result_list):
+                            if list_item["title"] == title:
+                                result_list[list_index]["url"] = "%s,%s" % (result_list[list_index]["url"], item.url)
+                                result_list[list_index]["brand_name"] = "%s,%s" % (result_list[list_index]["brand_name"], item.brand_name)
+                                
+                                title_match = True
+                                
+                                break
+
+                        if not title_match:
+                            temp_dict = {
+                                "title": title,
+                                "url": item.url,
+                                "brand_name": item.brand_name,
+                            }
+
+                            result_list.append(temp_dict)
+                
+                li_elements = []
+
+                for index, item in enumerate(result_list):
+                    element = (
+                        "<li><a id='Search-Result-%s' data-url='%s' "
+                        "onclick='chooseResult(this)'><strong>%s</strong><br>"
+                        "<em>also known as %s</em></a></li>") % (
+                            index, item["url"], item["title"], item["brand_name"]
+                        )
+                    
+                    li_elements.append(element)
+
+                response = "<ul>%s</ul>" % ("".join(li_elements))
+            else:
+                response = "<ul><li><a><strong>No medication found</strong></a></li></ul>"
+
+    return HttpResponse(response, content_type="text/html")
+
+import json
 
 def add_item(request):
-    """
-        <?php
+    response = []
 
-        require_once '../../../../config/db_config.php';
+    selection = request.GET["q"].split(",")
+    
+    for url in selection:
+        # Get all the required price, coverage data, and special_auth data
+        price = Price.objects.get(url=url)
+        coverage = Coverage.objects.get(url=url)
+        special_auth = SpecialAuthorization.objects.filter(url=url)
 
-        $q = explode(",", $_GET["q"]);
-        $resultArray = array();
-        $urlArray = array();
+        # Create a dictionary out of both querysets (if there is a unit price)
+        if price.unit_price:
+            combo = {
+                "url": url,
+                "brand_name": price.brand_name,
+                "strength": price.strength,
+                "route": price.route,
+                "dosage_form": price.dosage_form,
+                "generic_name": price.generic_name,
+                "unit_price": str(price.unit_price),
+                "lca": str(price.lca),
+                "unit_issue": price.unit_issue,
+                "criteria": coverage.criteria,
+                "coverage": coverage.coverage,
+                "criteria_sa": coverage.criteria_sa,
+                "criteria_p": coverage.criteria_p,
+		        "group_1": coverage.group_1,
+                "group_66": coverage.group_66,
+                "group_66a": coverage.group_66a,
+                "group_19823": coverage.group_19823,
+		        "group_19823a": coverage.group_19823a,
+                "group_19824": coverage.group_19824,
+                "group_20400": coverage.group_20400,
+                "group_20403": coverage.group_20403,
+                "group_20514": coverage.group_20514,
+                "group_22128": coverage.group_22128,
+                "group_23609": coverage.group_23609,
+                "special_auth": [],
+            }
 
-        // Establish database connection
-        $db = db_connect('sb', 'abc_vw');
+            for item in special_auth:
+                if item.title:
+                    combo["special_auth"].append({
+                        "title": item.title,
+                        "link": item.link,
+                    })
 
-        // Sending prepared statement to server
-        $params = implode(",", array_fill(0, count($q), "?"));
-        $query = "SELECT DISTINCT t1.url, t1.brand_name, t1.strength, t1.route, " .
-		         "t1.dosage_form, t1.generic_name, t1.unit_price, t1.lca, " .
-		         "t1.unit_issue, t2.criteria, t2.coverage, t2.criteria_sa, " .
-		         "t2.group_1, t2.group_66, t2.group_66a, t2.group_19823, " .
-		         "t2.group_19823a, t2.group_19824, t2.group_20400, t2.group_20403, " .
-		         "t2.group_20514, t2.group_22128, t2.group_23609 " .
-		         "FROM abc_price t1 " .
-		         "JOIN abc_coverage t2 " .
-		         "ON t1.url = t2.url " .
-		         "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
+            response.append(combo)
 
-        $statement = $db->prepare($query);	
-        $statement->execute($q);
-
-        // Copy server results to array
-        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {
-	        // Creates special auth entry in results
-	        $temp['special_auth'] = array();
-	
-	        // Adds results to array
-	        array_push($resultArray, $temp);
-	
-	        // Collects all URLs for special auth query
-	        array_push($urlArray, $temp['url']);
-        }
-
-        // Collects retrieved URLs and retrieves special auth information
-        $params = implode(",", array_fill(0, count($urlArray), "?"));
-        $query = "SELECT url, title, link " .
-		         "FROM abc_special_authorization " .
-		         "WHERE url IN ($params) AND title IS NOT NULL";
-
-        $statement = $db->prepare($query);
-        $statement->execute($urlArray);
-
-        // Matches the special auth data to the appropriate $resultArray entries
-        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {
-	        for ($i = 0; $i < count($resultArray); $i++) {
-		        if ($resultArray[$i]['url'] === $temp['url']) {
-			        array_push($resultArray[$i]['special_auth'], $temp);
-		        }
-	        }
-        }
-
-        echo json_encode($resultArray);
-        ?>
-    """
+    return HttpResponse(json.dumps(response), content_type="application/json")
 
 def comparison_search(request):
     """

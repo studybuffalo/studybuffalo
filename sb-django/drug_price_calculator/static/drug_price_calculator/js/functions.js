@@ -1253,7 +1253,7 @@ function chooseResult(selection) {
 	showSearchResults("");
 	
 	$.ajax({
-		url: "add_item.php",
+		url: "add-item/",
 		data: {q: query},
 		type: "GET",
 		dataType: "json",
@@ -1264,7 +1264,8 @@ function chooseResult(selection) {
 			$("#Search-Bar").val("");
 			$("#Search-Bar").focus();
 		},
-		error: function () {
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(textStatus + ": " + errorThrown)
 			var error = "Sorry we have experienced an error with our " +
 						"server. Please refresh your page and try " +
 						"again. If you continue to run into issues, " +
