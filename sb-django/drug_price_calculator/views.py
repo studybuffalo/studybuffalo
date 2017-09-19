@@ -216,334 +216,258 @@ def add_item(request):
     return HttpResponse(json.dumps(response), content_type="application/json")
 
 def comparison_search(request):
-    """
-        <?php
+    def bool_convert(txt):
+        if txt == "true":
+            return True
+        else:
+            return False
 
-        function boolConvert($string) {
-	        if ($string === "true") {
-		        return True;
-	        } else {
-		        return False;
-	        }
-        }
+    def find_last_description(category, category_type):
+        """Find the most specific classification"""
+        if category_type == "ptc":
+            if category.ptc_4_text:
+                return category.ptc_4_text
+            elif category.ptc_3_text:
+                return category.ptc_3_text
+            elif category.ptc_2_text:
+                return category.ptc_2_text
+            elif category.ptc_1_text:
+                return category.ptc_1_text
+        elif category_type == "atc":
+            if category.atc_4_text:
+                return category.atc_4_text
+            elif category.atc_3_text:
+                return category.atc_3_text
+            elif category.atc_2_text:
+                return category.atc_2_text
+            elif category.atc_1_text:
+                return category.atc_1_text
 
-        function findLastCode($array, $type) {
-	        // Finds the most specific classification
-	        if ($type === "ptc") {
-		        if ($array["ptc_4_text"]) {
-			        return $array["ptc_4_text"];
-		        } else if ($array["ptc_3_text"]) {
-			        return $array["ptc_3_text"];
-		        } else if ($array["ptc_2_text"]) {
-			        return $array["ptc_2_text"];
-		        } else if ($array["ptc_1_text"]) {
-			        return $array["ptc_1_text"];
-		        }
-	        } else if ($type === "atc") {
-		        if ($array["atc_4_text"]) {
-			        return $array["atc_4_text"];
-		        } else if ($array["atc_3_text"]) {
-			        return $array["atc_3_text"];
-		        } else if ($array["atc_2_text"]) {
-			        return $array["atc_2_text"];
-		        } else if ($array["atc_1_text"]) {
-			        return $array["atc_1_text"];
-		        }
-	        }
-        }
+    def query_complete(urls, category_type):
+        # Remove duplicate URLs
+        urls = list(set(urls))
 
-        function queryComplete($db, $urlList, $type) {
-	        $outputArray = array();
-	        $params = implode(",", array_fill(0, count($urlList), "?"));
-	
-	        // Generates appropriate query
-	        if ($type === "atc") {
-		        $query = "SELECT DISTINCT t1.url, t1.route, t1.generic_name, " . 
-				         "t2.atc_1_text, t2.atc_2_text, t2.atc_3_text, t2.atc_4_text " .
-				         "FROM abc_price t1 " .
-				         "INNER JOIN abc_atc t2 " .
-				         "ON t1.url = t2.url " .
-				         "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
-	        } else if ($type === "ptc") {
-		        $query = "SELECT DISTINCT t1.url, t1.route, t1.generic_name, " . 
-				         "t2.ptc_1_text, t2.ptc_2_text, t2.ptc_3_text, t2.ptc_4_text " .
-				         "FROM abc_price t1 " .
-				         "INNER JOIN abc_ptc t2 " .
-				         "ON t1.url = t2.url " .
-				         "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
-	        }
-	
-	        $statement = $db->prepare($query);
-	        $statement->execute($urlList);
-	
-	        // Gathers all the required data to generate final AJAX response
-	        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {
-		        $temp['type'] = $type;
-		        array_push($outputArray, $temp);
-	        }
-	
-	        return $outputArray;
-        }
+        # Cycle through each URL and collect needed data
+        output = []
 
-        function getAtcUrl($db, $arg) {
-	        $outputArray = array();
-	        $urlList = array();
-	
-	        // Converts $args to properly formatted array for PDO execution
-	        $args = array($arg, $arg, $arg, $arg);
-	
-	        // Finds all the URLs matching the query arguments
-	        $query = "SELECT url, atc_1_text, atc_2_text, atc_3_text, atc_4_text " . 
-			         "FROM abc_atc " . 
-			         "WHERE (atc_1_text LIKE ? OR atc_2_text LIKE ? OR " . 
-			         "atc_3_text LIKE ? OR atc_4_text LIKE ?)";
-	
-	        $statement = $db->prepare($query);	
-	        $statement->execute($args);
-	
-	        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {		   
-		        array_push($urlList, $temp['url']);
-	        }
-	
-	        return $urlList;
-        }
+        for url in urls:
+            # Assemble dictionary from appropriate models
+            if category_type == "atc":
+                price = Price.objects.get(url=url)
+                atc = ATC.objects.get(url=url)
 
-        function getPtcUrl($db, $arg) {
-	        $outputArray = array();
-	        $urlList = array();
-	
-	        // Converts $args to properly formatted array for PDO execution
-	        $args = array($arg, $arg, $arg, $arg);
-	
-	        // Finds all the URLs matching the query arguments
-	        $query = "SELECT url, ptc_1_text, ptc_2_text, ptc_3_text, ptc_4_text " .
-			         "FROM abc_ptc " . 
-			         "WHERE (ptc_1_text LIKE ? OR ptc_2_text LIKE ? OR " . 
-			         "ptc_3_text LIKE ? OR ptc_4_text LIKE ?)";
-	
-	        $statement = $db->prepare($query);	
-	        $statement->execute($args);
-	
-	        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {		   
-		        array_push($urlList, $temp['url']);
-	        }
-	
-	        return $urlList;
-        }
+                # Only include entries with a price
+                if price.unit_price:
+                    output.append({
+                        "url": str(url),
+                        "type": "atc",
+                        "route": price.route,
+                        "generic_name": price.generic_name,
+                        "description": find_last_description(atc, "atc")
+                    })
+            elif category_type == "ptc":
+                price = Price.objects.get(url=url)
+                ptc = PTC.objects.get(url=url)
 
-        function getNameUrl($db, $arg, $type) {
-	        $outputArray = array();
-	        $urlList = array();
-	        $codeList = array();
-	
-	        // Converts $args to properly formatted array for PDO execution
-	        $args = array($arg, $arg);
-	
-	        // Finds all brand names/generic names matching the search string
-	        $query = "SELECT DISTINCT t1.url " .
-			         "FROM abc_price t1 " .
-			         "INNER JOIN abc_price t2 " . 
-			         "ON t1.generic_name = t2.generic_name " . 
-			         "WHERE (t2.generic_name LIKE ? OR " .
-			         "t2.brand_name LIKE ?)";
-	
-	        $statement = $db->prepare($query);	
-	        $statement->execute($args);
-	
-	        // Isolates the urls found
-	        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {		   
-		        array_push($urlList, $temp['url']);
-	        }
-	
-	        // Finds all unique ATC & PTC text
-	        if (count($urlList) > 0) {
-		        $params = implode(",", array_fill(0, count($urlList), "?"));
-		
-		        // Determine Query
-		        if ($type === "atc") {
-			        $query = "SELECT atc_1_text, atc_2_text, atc_3_text, atc_4_text " .
-					         "FROM abc_atc " . 
-					         "WHERE url in ($params) " .
-					         "GROUP BY atc_1_text, atc_2_text, atc_3_text, atc_4_text";
-		        } else if ($type === "ptc") {
-			        $query = "SELECT ptc_1_text, ptc_2_text, ptc_3_text, ptc_4_text " .
-					         "FROM abc_ptc " . 
-					         "WHERE url in ($params) " .
-					         "GROUP BY ptc_1_text, ptc_2_text, ptc_3_text, ptc_4_text";
-		        }
-		
-		        $statement = $db->prepare($query);	
-		        $statement->execute($urlList);
-		
-		        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {		   
-			        $lastCode = findLastCode($temp, $type);
-			        array_push($codeList, $lastCode);
-		        }
-	        }
-	
-	        // Takes the codes and extracts all the matching URLs
-	        if (count($codeList) > 0 && $type === "atc") {
-		        foreach ($codeList as $code) {
-			        $outputArray = array_merge($outputArray, getAtcUrl($db, $code));
-		        }
-	        } else if (count($codeList) > 0 && $type === "ptc") {
-		        foreach ($codeList as $code) {
-			        $outputArray = array_merge($outputArray, getPtcUrl($db, $code));
-		        }
-	        }
-	
-	        return $outputArray;
-        }
+                # Only include entries with a price
+                if price.unit_price:
+                    output.append({
+                        "url": str(url),
+                        "type": "ptc",
+                        "route": price.route,
+                        "generic_name": price.generic_name,
+                        "description": find_last_description(ptc, "ptc")
+                    })
 
-        function processAtc($db, $arg) {
-	        $outputArray = array();
-	        $urlList = array();
-	
-	        // Get ATC urls
-	        $urlList = array_merge($urlList, getAtcUrl($db, $arg));
-	
-	        // Get medication name urls
-	        $urlList = array_merge($urlList, getNameUrl($db, $arg, "atc"));
-	
-	        // Takes the isolated URLs to collect the full data
-	        if (count($urlList) > 0) {
-		        $outputArray = queryComplete($db, $urlList, "atc");
-	        }
-	
-	        return $outputArray;
-        }
+        return output
 
-        function processPtc($db, $arg) {
-	        $outputArray = array();
-	        $urlList = array();
-	
-	        // Get PTC urls
-	        $urlList = array_merge($urlList, getPtcUrl($db, $arg));
-	
-	        // Get medication name urls
-	        $urlList = array_merge($urlList, getNameUrl($db, $arg, "ptc"));
-	
-	        // Takes the isolated URLs to collect the full data
-	        if (count($urlList) > 0) {
-		        $outputArray = queryComplete($db, $urlList, "ptc");
-	        }
-	
-	        return $outputArray;
-        }
+    def get_atc_url(search_string):
+        """Searches for any match against all ATC records"""
+        atc = ATC.objects.filter(
+            Q(atc_1_text__icontains=search_string) |
+            Q(atc_2_text__icontains=search_string) |
+            Q(atc_3_text__icontains=search_string) |
+            Q(atc_4_text__icontains=search_string)
+        )
 
-        require_once '../../../../config/db_config.php';
+        urls = []
 
-        $response = "";
-        $tempArray;
-        $htmlList = array();
+        for item in atc:
+            urls.append(item.url)
 
-        // Get parameters from URL
-        $searchString = $_GET["search"];
-        $methodATC = boolConvert($_GET["methodATC"]);
-        $methodPTC = boolConvert($_GET["methodPTC"]);
+        return urls
 
-        // Only run search if $q is not blank
-        if (strlen($searchString) > 0) {
-	        $resultArray = array();
-	
-	        // Adding wildcard markers to query
-	        $q = "%" . $searchString . "%";
-	
-	        // Establish database connection
-	        $db = db_connect('sb', 'abc_vw');
-	
-	        // ATC Query
-	        if ($methodATC === true) {
-		        $tempArray = processAtc($db, $q);
-		
-		        if (count($tempArray) > 0) {
-			        $resultArray = array_merge($resultArray, $tempArray);
-		        }
-	        }
-	
-	        // PTC Query
-	        if ($methodPTC === true) {
-		        $tempArray = processPtc($db, $q);
-		
-		        if (count($tempArray) > 0) {
-			        $resultArray = array_merge($resultArray, $tempArray);
-		        }
-	        }
-        }
+    def get_ptc_url(search_string):
+        """Searches for any match against all PTC records"""
+        atc = ATC.objects.filter(
+            Q(ptc_1_text__icontains=search_string) |
+            Q(ptc_2_text__icontains=search_string) |
+            Q(ptc_3_text__icontains=search_string) |
+            Q(ptc_4_text__icontains=search_string)
+        )
+
+        urls = []
+
+        for item in atc:
+            urls.append(item.url)
+
+        return urls
+
+    def get_name_url(search_string, category_type):
+        """Retrieves any match against generic or brand name"""
+        # Find any matching brand or generic name
+        names = Price.objects.filter(
+            Q(brand_name__icontains=search_string) |
+            Q(generic_name__icontains=search_string)
+        )
+        
+        description_list = []
+        urls = []
+
+        if category_type == "atc":
+            # Use the URL of each match to find what the ATC code
+            for item in names:
+                atc = ATC.objects.get(url=item.url)
+                description_list.append(find_last_description(atc, "atc"))
+
+            # Use the collected ATC codes to find any matching URLs
+            for desc in description_list:
+                atc_urls = get_atc_url(desc)
+
+                urls = urls + atc_urls
+        elif category_type == "ptc":
+            # Use the URL of each match to find what the PTC code
+            for item in names:
+                ptc = PTC.objects.get(url=item.url)
+                description_list.append(find_last_description(ptc, "ptc"))
+            
+            # Use the collected PTC codes to find any matching URLs
+            for desc in description_list:
+                atc = PTC.objects.filter(get_ptc_url(desc))
+
+                urls.append(ptc.url)
+      
+        return urls
+
+    def process_atc(search_string):
+        """Searches and returns data matching search string (ATC & names)"""
+        # Collects any matching ATC urls
+        atc_urls = get_atc_url(search_string)
+
+        # Collects any matching mediction name URLs
+        name_urls = get_name_url(search_string, "atc")
+
+        # Combine URL results
+        urls = atc_urls + name_urls
+
+        # Use collected URLs to collect the full entry data
+        if len(urls):
+            return query_complete(urls, "atc")
+        else:
+            return []
+
+    def process_ptc(search_string):
+        """Searches and returns data matching search string (ATC & names)"""
+        # Collects any matching ATC urls
+        ptc_urls = get_ptc_url(search_string)
+
+        # Collects any matching mediction name URLs
+        name_urls = get_name_url(search_string, "ptc")
+
+        # Combine URL results
+        urls = ptc_urls + name_urls
+
+        # Use collected URLs to collect the full entry data
+        if len(urls):
+            return query_complete(urls, "ptc")
+        else:
+            return []
+
+    response = ""
+    htmlList = []
+
+    search_string = request.GET["search"]
+    method_atc = bool_convert(request.GET["methodATC"])
+    method_ptc = bool_convert(request.GET["methodPTC"])
+    
+    # Only process request if there is a search string
+    if search_string:
+        result_list = []
+
+        # Retrieve ATC results
+        if method_atc:
+            temp_list = process_atc(search_string)
+            result_list = result_list + temp_list
+
+        # Retrieve PTC results
+        if method_ptc:
+            temp_list = process_ptc(search_string)
+            result_list = result_list + temp_list
 
 
-        // Only continues if at least one result returned
-        if (count($resultArray) > 0) {
-	        foreach ($resultArray as $key => $item) {
-		        // Assemble the common title
-		        $tempText = findLastCode($item, $item['type']);
-		        $tempText .= " (" . strtoupper($item['type']) . ")";
-		
-		        // Creates a new array entry for each unique title
-		        // Entries with the same title have their url and drug name added
-		        if ($key == 0) {
-			        $htmlList[0] = array('title' => $tempText,
-								          'url' => $item['url'],
-								          'drugs' => $item['generic_name']);
-		        } else {
-			        $match = FALSE;
-			
-			        for ($i = 0; $i < count($htmlList); $i++) {
-				        if ($htmlList[$i]['title'] == $tempText) {
-					        // Appends new URL
-					        $htmlList[$i]['url'] .= "," . $item['url'];
-					
-					        // Appends generic name if it is unique
-					        if (strpos($htmlList[$i]['drugs'], $item['generic_name']) === false) {
-						        $htmlList[$i]['drugs'] .= ", " . $item['generic_name'];
-					        }
-					
-					        $match = TRUE;
-					        break;
-				        }
-			        }
-			
-			        if ($match == FALSE) {
-				        $index = count($htmlList);
-				        $htmlList[$index] = array('title' => $tempText,
-										           'url' => $item['url'],
-										           'drugs' => $item['generic_name']);
-			        }
-		        }
-	        }
-        }
+    # Group retrieved items under common category descriptions
+    first_item = True
+    grouped_items = []
 
-        // Take newly organized list and create html list for insertion
-        if (count($htmlList) > 0) {
-	        $entries = "";
-	
-	        //Creates list for return via AJAX function
-	        foreach ($htmlList as $index => $item) {
-		        $entries .= "<li><a id='Comparison-Result-" . $index . "' " .
-					        "data-url='" . $item['url'] . "' " .
-					
-					        "onclick='chooseComparison(this)'>" .
-					        "<strong>" . $item['title'] . "</strong><br>" .
-					        "<em>Examples: " . $item['drugs'] . "</em></a></li>";
-	        }
-	
-	        $response = "<ul>" . $entries . "</ul>";
-        } else {
-	        if ($methodATC === false && $methodPTC === false) {
-		        $response = "<ul><li><a><strong>" .
-					        "Please select a classification system above" .
-					        "</strong></a></li></ul>";
-	        } else {
-		        $response = "<ul><li><a><strong>" .
-					        "No results found" .
-					        "</strong></a></li></ul>";
-	        }
-        }
+    for item in result_list:
+        # Assemble a common title
+        title = "%s (%s)" % (item["description"], item["type"].upper())
+        
+        if first_item:
+            grouped_items.append({
+                "title": title,
+                "url": item["url"],
+                "drugs": item["generic_name"]
+            })
+            first_item = False
+        else:
+            match = False
 
-        // Output the response
-        echo $response;
-        ?>
-    """
+            for index, group in enumerate(grouped_items):
+                if group["title"] == title:
+                    # Append new URL
+                    grouped_items[index]["url"] += ",%s" % group["url"]
+
+                    # Append generic name (if unique)
+                    # TODO: Fix bug where a partial name match (e.g. 
+                    # "lidocaine" in "lidocaine HCl" is not added
+                    if item["generic_name"] not in grouped_items[index]["drugs"]:
+                        grouped_items[index]["drugs"] += ", %s" % item["generic_name"]
+
+                    match = True
+
+                    break
+
+            if match == False:
+                grouped_items.append({
+                    "title": title,
+                    "url": item["url"],
+                    "drugs": item["generic_name"]
+                })
+
+    # Takes the grouped items and converts to an HTML list
+    if len(grouped_items):
+        list_items = []
+
+        for index, item in enumerate(grouped_items):
+            list_items.append(
+                "<li><a id='Comparison-Result-%s' data-url='%s' "
+                "onclick='chooseComparison(this)'>"
+                "<strong>%s</strong><br><em>Examples: %s</em></a>"
+                "</li>" % (index, item["url"], item["title"], item["drugs"])
+            )
+
+        response = "<ul>%s</ul>" % "".join(list_items)
+    else:
+        # If no grouped items are available, provide appropriate user response
+        if method_atc == False and method_ptc == False:
+            response = ("<ul><li><a><strong>Please select a classification "
+                        "system above</strong></a></li></ul>")
+        else:
+            response = ("<ul><li><a><strong>No results "
+                        "found</strong></a></li></ul>")
+
+    return HttpResponse(response, content_type="text/html")
 
 def generate_comparison(request):
     """

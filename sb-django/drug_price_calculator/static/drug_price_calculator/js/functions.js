@@ -1522,7 +1522,7 @@ function showComparisonResults(searchString) {
 		
 		ajaxTimer = setTimeout(function() {
 			$.ajax({
-				url: "comparison_search.php",
+				url: "comparison-search/",
 				data: {search: searchString,
 					   methodATC: $searchMethod1,
 					   methodPTC: $searchMethod2},
