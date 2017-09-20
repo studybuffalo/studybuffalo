@@ -370,12 +370,12 @@ class PendBSRF(models.Model):
 class PendGeneric(models.Model):
     """Pending substitutions for Generic Names"""
     original = models.CharField(
-        max_length=175,
+        max_length=350,
         unique=True,
     )
 
     correction = models.CharField(
-        max_length=175,
+        max_length=350,
     )
 
 class PendManufacturer(models.Model):
