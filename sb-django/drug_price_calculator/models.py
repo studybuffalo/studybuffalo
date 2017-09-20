@@ -300,12 +300,12 @@ class SubsBSRF(models.Model):
 class SubsGeneric(models.Model):
     """Formatting substitutions for generic names"""
     original = models.CharField(
-        max_length=120,
+        max_length=450,
         unique=True,
     )
 
     correction = models.CharField(
-        max_length=120,
+        max_length=450,
     )
 
 class SubsManufacturer(models.Model):
@@ -370,12 +370,12 @@ class PendBSRF(models.Model):
 class PendGeneric(models.Model):
     """Pending substitutions for Generic Names"""
     original = models.CharField(
-        max_length=350,
+        max_length=450,
         unique=True,
     )
 
     correction = models.CharField(
-        max_length=350,
+        max_length=450,
     )
 
 class PendManufacturer(models.Model):
