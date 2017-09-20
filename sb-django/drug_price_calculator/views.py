@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from django.views import generic
+from django.http import HttpResponse
+from django.db.models import Q
+from django.core import serializers
+import json
+from django.core.serializers.json import DjangoJSONEncoder
 from .models import (ATC, Coverage, ExtraInformation, Price, PTC, 
                      SpecialAuthorization, ATCDescriptions, SubsBSRF, 
                      SubsGeneric, SubsManufacturer, SubsPTC, SubsUnit)
@@ -74,9 +79,6 @@ class SubsUnitList(generic.ListView):
     context_object_name = "subs_unit_list"
 
 
-from django.http import HttpResponse
-from django.db.models import Q
-from django.core import serializers
 
 def live_search(request):
     """Handles AJAX request to display drug name search results"""
@@ -161,8 +163,6 @@ def live_search(request):
 
     return HttpResponse(response, content_type="text/html")
 
-import json
-
 def add_item(request):
     response = []
 
@@ -183,8 +183,8 @@ def add_item(request):
                 "route": price.route,
                 "dosage_form": price.dosage_form,
                 "generic_name": price.generic_name,
-                "unit_price": str(price.unit_price),
-                "lca": str(price.lca),
+                "unit_price": price.unit_price,
+                "lca": price.lca,
                 "unit_issue": price.unit_issue,
                 "criteria": coverage.criteria,
                 "coverage": coverage.coverage,
@@ -213,7 +213,7 @@ def add_item(request):
 
             response.append(combo)
 
-    return HttpResponse(json.dumps(response), content_type="application/json")
+    return HttpResponse(json.dumps(response, cls=DjangoJSONEncoder), content_type="application/json")
 
 def comparison_search(request):
     def bool_convert(txt):
@@ -470,222 +470,196 @@ def comparison_search(request):
     return HttpResponse(response, content_type="text/html")
 
 def generate_comparison(request):
-    """
-        <?php
+    # Collect pricing information for the selected urls
+    results = []
 
-        require_once '../../../../config/db_config.php';
+    urls = request.GET["q"].split(",")
 
-        $resultArray = array();
-        $urlArray = array();
-        $outputList = array();
-        $q = explode(",", $_GET["q"]);
+    for url in urls:
+        # Get data from required objects
+        price = Price.objects.get(url=url)
+        coverage = Coverage.objects.get(url=url)
+        special_auth = SpecialAuthorization.objects.filter(url=url)
 
-        // Establish database connection
-        $db = db_connect('sb', 'abc_vw');
+        # Add results to results list if price is not null
+        if price.unit_price:
+            result = {
+                "url": url,
+                "strength": price.strength,
+                "generic_name": price.generic_name,
+                "unit_price": price.unit_price,
+                "lca": price.lca,
+                "unit_issue": price.unit_issue,
+                "criteria": coverage.criteria,
+                "coverage": coverage.coverage,
+                "criteria_sa": coverage.criteria_sa,
+                "criteria_p": coverage.criteria_p,
+		        "group_1": coverage.group_1,
+                "group_66": coverage.group_66,
+                "group_66a": coverage.group_66a,
+                "group_19823": coverage.group_19823,
+		        "group_19823a": coverage.group_19823a,
+                "group_19824": coverage.group_19824,
+                "group_20400": coverage.group_20400,
+                "group_20403": coverage.group_20403,
+                "group_20514": coverage.group_20514,
+                "group_22128": coverage.group_22128,
+                "group_23609": coverage.group_23609,
+                "special_auth": [],
+            }
 
-        // Sending prepared statement to server
-        $params = implode(",", array_fill(0, count($q), "?"));
-        $query = "SELECT DISTINCT t1.url, t1.strength, t1.generic_name, " .
-		         "t1.unit_price, t1.lca, t2.coverage, t2.criteria_sa, " .
-		         "t2.criteria_p, t2.group_1, t2.group_66, t2.group_66a, " .
-		         "t2.group_19823, t2.group_19823a, t2.group_19824, " .
-		         "t2.group_20400, t2.group_20403, t2.group_20514, " .
-		         "t2.group_22128, t2.group_23609 " .
-		         "FROM abc_price t1 " .
-		         "JOIN abc_coverage t2 " .
-		         "ON t1.url = t2.url " .
-		         "WHERE t1.url IN ($params) AND t1.unit_price IS NOT NULL";
+            # Add any special auth links
+            for item in special_auth:
+                if item.title:
+                    result["special_auth"].append({
+                        "title": item.title,
+                        "link": item.link,
+                    })
 
-        $statement = $db->prepare($query);
-        $statement->execute($q);
+            results.append(result)
 
-        // Copy server results to array
-        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {
-	        // Creates special auth entry in results
-	        $temp['special_auth'] = array();
+    # Combines the results list into single generic names
+    combined_list = []
+    first_item = True
 
-	        // Adds results to array
-	        array_push($resultArray, $temp);
+    for result in results:
+        # Group by generic Name
+        if first_item:
+            combined_list.append({
+                "generic_name": result["generic_name"],
+                "strength": [{
+                    "strength": result["strength"],
+                    "unit_price": result["unit_price"],
+                    "lca": result["lca"],
+                    "criteria": result["criteria"],
+                    "coverage": result["coverage"],
+                    "criteria_sa": result["criteria_sa"],
+                    "criteria_p": result["criteria_p"],
+		            "group_1": result["group_1"],
+                    "group_66": result["group_66"],
+                    "group_66a": result["group_66a"],
+                    "group_19823": result["group_19823"],
+		            "group_19823a": result["group_19823a"],
+                    "group_19824": result["group_19824"],
+                    "group_20400": result["group_20400"],
+                    "group_20403": result["group_20403"],
+                    "group_20514": result["group_20514"],
+                    "group_22128": result["group_22128"],
+                    "group_23609": result["group_23609"],
+                    "special_auth": result["special_auth"],
+                }],
+            })
 
-	        // Collects all URLs for special auth query
-	        array_push($urlArray, $temp['url']);
-        }
+            first_item = False
+        else:
+            generic_match = False
+            strength_match = False
 
-        // Collects retrieved URLs and retrieves special auth information
-        $params = implode(",", array_fill(0, count($urlArray), "?"));
-        $query = "SELECT url, title, link " .
-		         "FROM abc_special_authorization " .
-		         "WHERE url IN ($params) AND title IS NOT NULL";
+            # Check for a matching generic name
+            for g, generic_item in enumerate(combined_list):
+                if result["generic_name"] == generic_item["generic_name"]:
+                    generic_match = True
 
-        $statement = $db->prepare($query);
-        $statement->execute($urlArray);
+                    # Check for matching strength
+                    for s, strength_item in enumerate(generic_item["strength"]):
+                        if result["strength"] == strength_item["strength"]:
+                            strength_match = True
 
-        // Matches the special auth data to the appropriate $resultArray entries
-        while ($temp = $statement->fetch(PDO::FETCH_ASSOC)) {
-	        for ($i = 0; $i < count($resultArray); $i++) {
-		        if ($resultArray[$i]['url'] === $temp['url']) {
-			        array_push($resultArray[$i]['special_auth'], $temp);
-		        }
-	        }
-        }
+                            # If unit price is lower, replace the contents
+                            if result["unit_price"] < strength_item["unit_price"]:
+                                combined_list[g]["strength"][s]["unit_price"] = result["unit_price"]
+                                combined_list[g]["strength"][s]["lca"] = result["lca"],
+                                combined_list[g]["strength"][s]["criteria"] = result["criteria"],
+                                combined_list[g]["strength"][s]["coverage"] = result["coverage"],
+                                combined_list[g]["strength"][s]["criteria_sa"] = result["criteria_sa"],
+                                combined_list[g]["strength"][s]["criteria_p"] = result["criteria_p"],
+                                combined_list[g]["strength"][s]["group_1"] = result["group_1"],
+                                combined_list[g]["strength"][s]["group_66"] = result["group_66"],
+                                combined_list[g]["strength"][s]["group_66a"] = result["group_66a"],
+                                combined_list[g]["strength"][s]["group_19823"] = result["group_19823"],
+                                combined_list[g]["strength"][s]["group_19823a"] = result["group_19823a"],
+                                combined_list[g]["strength"][s]["group_19824"] = result["group_19824"],
+                                combined_list[g]["strength"][s]["group_20400"] = result["group_20400"],
+                                combined_list[g]["strength"][s]["group_20403"] = result["group_20403"],
+                                combined_list[g]["strength"][s]["group_20514"] = result["group_20514"],
+                                combined_list[g]["strength"][s]["group_22128"] = result["group_22128"],
+                                combined_list[g]["strength"][s]["group_23609"] = result["group_23609"],
+                                combined_list[g]["strength"][s]["special_auth"] = result["special_auth"],
 
-        /*
-	        Group each drug by generic name
-	        Create drop downs for each available strength
-	        Each strength linked to the LCA
-        */
+                            break
 
-        // Format results into an array for html processing
-        if (count($resultArray) > 0) {
-	        foreach ($resultArray as $key => $item) {
-		        // Groups each entry by generic name and strength
-		        if ($key == 0) {
-			        $outputArray[0] = array('generic_name' => $item['generic_name'],
-									        'strength' => array());
-			        $outputArray[0]['strength'][0]['strength'] = $item['strength'];
-			        $outputArray[0]['strength'][0]['unit_price'] = $item['unit_price'];
-			        $outputArray[0]['strength'][0]['lca'] = $item['lca'];
-			        $outputArray[0]['strength'][0]['coverage'] = $item['coverage'];
-			        $outputArray[0]['strength'][0]['criteria_sa'] = $item['criteria_sa'];
-			        $outputArray[0]['strength'][0]['criteria_p'] = $item['criteria_p'];
-			        $outputArray[0]['strength'][0]['group_1'] = $item['group_1'];
-			        $outputArray[0]['strength'][0]['group_66'] = $item['group_66'];
-			        $outputArray[0]['strength'][0]['group_66a'] = $item['group_66a'];
-			        $outputArray[0]['strength'][0]['group_19823'] = $item['group_19823'];
-			        $outputArray[0]['strength'][0]['group_19823a'] = $item['group_19823a'];
-			        $outputArray[0]['strength'][0]['group_19824'] = $item['group_19824'];
-			        $outputArray[0]['strength'][0]['group_20400'] = $item['group_20400'];
-			        $outputArray[0]['strength'][0]['group_20403'] = $item['group_20403'];
-			        $outputArray[0]['strength'][0]['group_20514'] = $item['group_20514'];
-			        $outputArray[0]['strength'][0]['group_22128'] = $item['group_22128'];
-			        $outputArray[0]['strength'][0]['group_23609'] = $item['group_23609'];
-			        $outputArray[0]['strength'][0]['special_auth'] = $item['special_auth'];
-		        } else {
-			        $genericMatch = FALSE;
-			        $strengthMatch = FALSE;
+                    # If no strength match found, create a new entry
+                    if strength_match == False:
+                        combined_list[g]["strength"].append({
+                            "strength": result["strength"],
+                            "unit_price": result["unit_price"],
+                            "lca": result["lca"],
+                            "criteria": result["criteria"],
+                            "coverage": result["coverage"],
+                            "criteria_sa": result["criteria_sa"],
+                            "criteria_p": result["criteria_p"],
+		                    "group_1": result["group_1"],
+                            "group_66": result["group_66"],
+                            "group_66a": result["group_66a"],
+                            "group_19823": result["group_19823"],
+		                    "group_19823a": result["group_19823a"],
+                            "group_19824": result["group_19824"],
+                            "group_20400": result["group_20400"],
+                            "group_20403": result["group_20403"],
+                            "group_20514": result["group_20514"],
+                            "group_22128": result["group_22128"],
+                            "group_23609": result["group_23609"],
+                            "special_auth": result["special_auth"],
+                        })
+                
+                    break
+               
+            # If not generic match found, create a new entry
+            if generic_match == False:
+                combined_list.append({
+                    "generic_name": result["generic_name"],
+                    "strength": [{
+                        "strength": result["strength"],
+                        "unit_price": result["unit_price"],
+                        "lca": result["lca"],
+                        "criteria": result["criteria"],
+                        "coverage": result["coverage"],
+                        "criteria_sa": result["criteria_sa"],
+                        "criteria_p": result["criteria_p"],
+		                "group_1": result["group_1"],
+                        "group_66": result["group_66"],
+                        "group_66a": result["group_66a"],
+                        "group_19823": result["group_19823"],
+		                "group_19823a": result["group_19823a"],
+                        "group_19824": result["group_19824"],
+                        "group_20400": result["group_20400"],
+                        "group_20403": result["group_20403"],
+                        "group_20514": result["group_20514"],
+                        "group_22128": result["group_22128"],
+                        "group_23609": result["group_23609"],
+                        "special_auth": result["special_auth"],
+                    }],
+                })
 
-			        // Checks for matching generic name
-			        for ($i = 0; $i < count($outputArray); $i++) {
-				        if ($outputArray[$i]['generic_name'] == $item['generic_name']) {
-					        $genericMatch = TRUE;
+    # Sorts the combined_list so strengths appear form lowest to highest
+    import re
 
-					        // Then checks for matching strength
-					        for ($j = 0; $j < count($outputArray[$i]['strength']); $j++) {
-						        if ($outputArray[$i]['strength'][$j]['strength'] == $item['strength']) {
-							        $strengthMatch = TRUE;
+    for index, combo in enumerate(combined_list):
+        def sort_by_strength(strength):
+            """Returns the numerical value of the "strength" key"""
+            regex = r"/([\d|\.]+\b)/"
 
-							        // If unit price is lower, replaces the array contents
-							        if ($item['unit_price'] < $outputArray[$i]['strength'][$j]['unit_price']) {
-								        $outputArray[$i]['strength'][$j]['unit_price'] = $item['unit_price'];
-								        $outputArray[$i]['strength'][$j]['lca'] = $item['lca'];
-								        $outputArray[$i]['strength'][$j]['coverage'] = $item['coverage'];
-								        $outputArray[$i]['strength'][$j]['criteria_sa'] = $item['criteria_sa'];
-								        $outputArray[$i]['strength'][$j]['criteria_p'] = $item['criteria_p'];
-								        $outputArray[$i]['strength'][$j]['group_1'] = $item['group_1'];
-								        $outputArray[$i]['strength'][$j]['group_66'] = $item['group_66'];
-								        $outputArray[$i]['strength'][$j]['group_66a'] = $item['group_66a'];
-								        $outputArray[$i]['strength'][$j]['group_19823'] = $item['group_19823'];
-								        $outputArray[$i]['strength'][$j]['group_19823a'] = $item['group_19823a'];
-								        $outputArray[$i]['strength'][$j]['group_19824'] = $item['group_19824'];
-								        $outputArray[$i]['strength'][$j]['group_20400'] = $item['group_20400'];
-								        $outputArray[$i]['strength'][$j]['group_20403'] = $item['group_20403'];
-								        $outputArray[$i]['strength'][$j]['group_20514'] = $item['group_20514'];
-								        $outputArray[$i]['strength'][$j]['group_22128'] = $item['group_22128'];
-								        $outputArray[$i]['strength'][$j]['group_23609'] = $item['group_23609'];
-								        $outputArray[$i]['strength'][$j]['special_auth'] = $item['special_auth'];
-							        }
 
-							        break;
-						        }
-					        }
+            strength_regex = re.match(strength["strength"], regex)
 
-					        // If no strength match was found, adds it to this generic entry
-					        if ($strengthMatch === FALSE) {
-						        $index = count($outputArray[$i]['strength']);
-						        $outputArray[$i]['strength'][$index] = array(
-								        'strength' => $item['strength'],
-								        'unit_price' => $item['unit_price'],
-								        'lca' => $item['lca'],
-								        'coverage' => $item['coverage'],
-								        'criteria_sa' => $item['criteria_sa'],
-								        'criteria_p' => $item['criteria_p'],
-								        'group_1' => $item['group_1'],
-								        'group_66' => $item['group_66'],
-								        'group_66a' => $item['group_66a'],
-								        'group_19823' => $item['group_19823'],
-								        'group_19823a' => $item['group_19823a'],
-								        'group_19824' => $item['group_19824'],
-								        'group_20400' => $item['group_20400'],
-								        'group_20403' => $item['group_20403'],
-								        'group_20514' => $item['group_20514'],
-								        'group_22128' => $item['group_22128'],
-								        'group_23609' => $item['group_23609'],
-								        'special_auth' => $item['special_auth']);
-					        }
+            if strength_regex:
+                return strength_regex.group(1)
+            else:
+                return strength["strength"]
 
-					        break;
-				        }
-			        }
+        sorted(combo["strength"], key=sort_by_strength)
 
-			        // If no generic match was found, adds it to the array
-			        if ($genericMatch == FALSE) {
-				        $index = count($outputArray);
-				        $outputArray[$index] = array('generic_name' => $item['generic_name'],
-											         'strength' => array());
-				        $outputArray[$index]['strength'][0]['strength'] = $item['strength'];
-				        $outputArray[$index]['strength'][0]['unit_price'] = $item['unit_price'];
-				        $outputArray[$index]['strength'][0]['lca'] = $item['lca'];
-				        $outputArray[$index]['strength'][0]['coverage'] = $item['coverage'];
-				        $outputArray[$index]['strength'][0]['criteria_sa'] = $item['criteria_sa'];
-				        $outputArray[$index]['strength'][0]['criteria_p'] = $item['criteria_p'];
-				        $outputArray[$index]['strength'][0]['group_1'] = $item['group_1'];
-				        $outputArray[$index]['strength'][0]['group_66'] = $item['group_66'];
-				        $outputArray[$index]['strength'][0]['group_66a'] = $item['group_66a'];
-				        $outputArray[$index]['strength'][0]['group_19823'] = $item['group_19823'];
-				        $outputArray[$index]['strength'][0]['group_19823a'] = $item['group_19823a'];
-				        $outputArray[$index]['strength'][0]['group_19824'] = $item['group_19824'];
-				        $outputArray[$index]['strength'][0]['group_20400'] = $item['group_20400'];
-				        $outputArray[$index]['strength'][0]['group_20403'] = $item['group_20403'];
-				        $outputArray[$index]['strength'][0]['group_20514'] = $item['group_20514'];
-				        $outputArray[$index]['strength'][0]['group_22128'] = $item['group_22128'];
-				        $outputArray[$index]['strength'][0]['group_23609'] = $item['group_23609'];
-				        $outputArray[$index]['strength'][0]['special_auth'] = $item['special_auth'];
-			        }
-		        }
-	        }
-        }
-
-        // Sorts the strength items from lowest to highest
-        if (count($outputArray) > 0) {
-	        function sortFunction($a, $b) {
-		        $pattern = '/([\d|\.]+\b)/';
-
-		        if (preg_match($pattern, $a['strength'], $matches)) {
-			        $a = $matches[1];
-		        } else {
-			        $a = $a['strength'];
-		        }
-
-		        if (preg_match($pattern, $b['strength'], $matches)) {
-			        $b = $matches[1];
-		        } else {
-			        $b = $b['strength'];
-		        }
-
-		        if ($a == $b) {
-			        return 0;
-		        } else if ($a < $b) {
-			        return -1;
-		        } else {
-			        return 1;
-		        }
-	        }
-
-	        for ($i = 0; $i < count($outputArray); $i++) {
-		        usort($outputArray[$i]['strength'], 'sortFunction');
-	        }
-        }
-
-        echo json_encode($outputArray);
-        ?>
-    """
+    return HttpResponse(
+        json.dumps(combined_list, cls=DjangoJSONEncoder), 
+        content_type="application/json"
+    )

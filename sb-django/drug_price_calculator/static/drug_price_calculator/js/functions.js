@@ -1563,7 +1563,7 @@ function chooseComparison(selection) {
 	showComparisonResults("");
 	
 	$.ajax({
-		url: "generate_comparison.php",
+		url: "generate-comparison/",
 		data: {q: query},
 		type: "GET",
 		dataType: "json",
@@ -1572,7 +1572,8 @@ function chooseComparison(selection) {
 			// Reset search bar
 			$("#Comparison-Search").val("");
 		},
-		error: function () {
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(textStatus + ": " + errorThrown)
 			var error = "Sorry we have experienced an error with our " +
 						"server. Please refresh your page and try " +
 						"again. If you continue to run into issues, " +
