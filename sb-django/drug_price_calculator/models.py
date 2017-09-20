@@ -154,7 +154,7 @@ class ExtraInformation(models.Model):
     )
 
     manufacturer = models.CharField(
-        max_length=50,
+        max_length=60,
     )
 
     schedule = models.CharField(
@@ -370,12 +370,12 @@ class PendBSRF(models.Model):
 class PendGeneric(models.Model):
     """Pending substitutions for Generic Names"""
     original = models.CharField(
-        max_length=150,
+        max_length=175,
         unique=True,
     )
 
     correction = models.CharField(
-        max_length=150,
+        max_length=175,
     )
 
 class PendManufacturer(models.Model):
