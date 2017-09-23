@@ -279,21 +279,6 @@ function loadingBar() {
 /****************************************************************************
  *	FUNCTIONS GENERAL TO TABLES												*
  ****************************************************************************/
- /****************************************************************************
- *	changePriceTable()	Updates column display properites depending on the 	*
- *						calcultaion method selected							*
- ****************************************************************************/
-function changePriceTableCols(table) {
-	var index = $("#" + table + "-Method")[0].selectedIndex;
-	var $table = $("#" + table);
-	
-	if (index === 0) {
-		$table.attr("class", "methodDay");
-	} else if (index === 1) {
-		$table.attr("class", "methodQuantity");
-	}
-}
-
 /****************************************************************************
  *	processDosesPerDay()	Converts doses per day fraction inputs to a		*
  *							number											*
@@ -319,191 +304,91 @@ function processDosesPerDay(value) {
 	return output;
 }
 
-/****************************************************************************
- *	priceUpdateDay()	Updates the price for a "day supply" price span		*
- *																			*
- *	input:		the input that changed										*
- *	elemIndex:	the index of the trigger input (optional)					*
- *	cost:		the cost per unit for the applicable medication (optional)	*
- ****************************************************************************/
-function priceUpdateDay(input) {
-	var table = $(input).closest("table").attr("id");
-	var $row = $(input).closest("tr");
-	var inputArray = $row.find("." + $(input).attr("class"));
-	var index = getElementIndex(input, inputArray);
-	var $priceSpan = $row.find(".dayPrice").eq(index);
-	var $infoButton = $row.find(".info");
-	var $thirdParty = $("#" + table + "-Third-Party");
-	var $dataSelect;
-	
-	var cost = Number($row.find(".cost").attr("data-cost")) ||
-			   Number($row.find(".cost").val());
-	var mac;
-	var dosesPerDay = $row.find(".dosesPerDay").eq(index).val();
-	var daySupply = Number($row.find(".daySupply").eq(index).val());
-	var quantity;
-	var thirdParty = $thirdParty.children("option:selected").val();
-	var benefits = [];
-	var price;
-	
-	// Determines the proper dataSelect
-	if (table === "Price-Table") {
-		$dataSelect = $row.find(".brandName").first().children("option:selected");
-	} else if (table === "Comparison-Table") {
-		$dataSelect = $row.find(".strength").first().children("option:selected");
-	}
-	
-	// Calculate the total number of doses
-	quantity = processDosesPerDay(dosesPerDay) * daySupply;
-	
-	// Extract the MAC
-	mac = $dataSelect.attr("data-mac");
-	
-	// Assemble list of benefits for this medication;
-	if ($dataSelect.attr("data-group-1") == "1") {benefits.push("1");}
-	if ($dataSelect.attr("data-group-66") === "1") {benefits.push("66");}
-	if ($dataSelect.attr("data-group-66a") === "1") {benefits.push("66a");}
-	if ($dataSelect.attr("data-group-19823") === "1") {benefits.push("19823");}
-	if ($dataSelect.attr("data-group-19823a") === "1") {benefits.push("19823a");}
-	if ($dataSelect.attr("data-group-19824") === "1") {benefits.push("19824");}
-	if ($dataSelect.attr("data-group-20400") === "1") {benefits.push("20400");}
-	if ($dataSelect.attr("data-group-20403") === "1") {benefits.push("20403");}
-	if ($dataSelect.attr("data-group-20514") === "1") {benefits.push("20514");}
-	if ($dataSelect.attr("data-group-22128") === "1") {benefits.push("22128");}
-	if ($dataSelect.attr("data-group-23609") === "1") {benefits.push("23609");}
-	
-	// Uses the determined index to calculate the price and update the span
-	price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
-	
-	$priceSpan.text("$" + price.netPrice.toFixed(2))
-			  .attr("data-drug-cost", price.drugCost)
-			  .attr("data-upcharge-1", price.upcharge1)
-			  .attr("data-upcharge-2", price.upcharge2)
-			  .attr("data-dispensing-fee", price.dispensingFee)
-			  .attr("data-gross-price", price.grossPrice)
-			  .attr("data-third-party", price.thirdParty)
-			  .attr("data-net-price", price.netPrice)
-			  .attr("data-benefit", price.benefit);
-	
-	// Updates the total price
-	totalUpdate($priceSpan);
-	
-	// Updates the info button class to notify of special info
-	if (price.benefit === "No") {
-		$infoButton.attr("class", "info warning");
-	} else if ($dataSelect.attr("data-criteria-sa") || $dataSelect.attr("data-criteria-p")
-			   || $dataSelect.attr("data-special-auth-title-1")) {
-		$infoButton.attr("class", "info notice");
-	} else {
-		$infoButton.attr("class", "info");
-	}
+
+function priceUpdate($item) {
+    // Get the appropriate brand/strength select
+    let $select = $item.find("select").eq(0);
+
+    // Assemble list of benefits
+    let benefits = [];
+    if ($select.attr("data-group-1") === "1") { benefits.push("1"); }
+    if ($select.attr("data-group-66") === "1") { benefits.push("66"); }
+    if ($select.attr("data-group-66a") === "1") { benefits.push("66a"); }
+    if ($select.attr("data-group-19823") === "1") { benefits.push("19823"); }
+    if ($select.attr("data-group-19823a") === "1") { benefits.push("19823a"); }
+    if ($select.attr("data-group-19824") === "1") { benefits.push("19824"); }
+    if ($select.attr("data-group-20400") === "1") { benefits.push("20400"); }
+    if ($select.attr("data-group-20403") === "1") { benefits.push("20403"); }
+    if ($select.attr("data-group-20514") === "1") { benefits.push("20514"); }
+    if ($select.attr("data-group-22128") === "1") { benefits.push("22128"); }
+    if ($select.attr("data-group-23609") === "1") { benefits.push("23609"); }
+
+    // Calculate the price of this medication
+    const cost = Number($item.find(".item-cost span").attr("data-cost"))
+                 || Number($item.find(".item-cost input").val());
+
+    const quantity = Number($item.find(".item-quantity input").val());
+
+    const mac = $select.children("option:selected").attr("data-mac");
+
+    let $table = $item.parent(".content").parent("div")
+    const tableName = $table.attr("id");
+    const $thirdParty = $("#" + tableName + "-third-party");
+    const thirdParty = $thirdParty.children("option:selected").val();
+
+    const price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
+
+    // Update the Price Div
+    let $priceDiv = $item.find(".item-price div");
+    $priceDiv
+        .text("$" + price.netPrice.toFixed(2))
+        .attr("data-drug-cost", price.drugCost)
+        .attr("data-upcharge-1", price.upcharge1)
+        .attr("data-upcharge-2", price.upcharge2)
+        .attr("data-dispensing-fee", price.dispensingFee)
+        .attr("data-gross-price", price.grossPrice)
+        .attr("data-third-party", price.thirdParty)
+        .attr("data-net-price", price.netPrice)
+        .attr("data-benefit", price.benefit);
+
+    // Update the total price
+    totalUpdate($table);
+
+    // Updates class on the Info button
+    let $infoButton = $item.find(".info");
+
+    if (price.benefit === "No") {
+        $infoButton.attr("class", "info warning");
+    } else if (
+        $select.attr("data-criteria-sa")
+        || $select.attr("data-criteria-p")
+        || $select.attr("data-special-auth-title-1")
+    ) {
+        $infoButton.attr("class", "info notice");
+    } else {
+        $infoButton.attr("class", "info");
+    }
 }
 
 /****************************************************************************
- *	priceUpdateQuantity()	Updates the price for a "quantity" price span	*
+ *	totalUpdate()	Updates the relevant total price span					*
  *																			*
- *	quantityInput:	the input that changed									*
- *	elemIndex:	the index of the trigger input (optional)					*
- *	cost:		the cost per unit for the applicable medication (optional)	*
+ *	$table: a JQuery object of the table to update                          *
  ****************************************************************************/
-function priceUpdateQuantity(input) {
-	var table = $(input).closest("table").attr("id");
-	var $row = $(input).closest("tr");
-	var inputArray = $row.find("." + $(input).attr("class"));
-	var index = getElementIndex(input, inputArray);
-	var $priceSpan = $row.find(".quantityPrice").eq(index);
-	var $infoButton = $row.find(".info");
-	var $dataSelect;
-	var $thirdParty = $("#" + table + "-Third-Party");
-	var cost = Number($row.find(".cost").attr("data-cost")) ||
-			   Number($row.find(".cost").val());
-	var mac;
-	var quantity = Number($row.find(".quantity").eq(index).val());
-	var benefits = [];
-	var thirdParty = $thirdParty.children("option:selected").val();
-	var price;
-	
-	// Determines the proper dataSelect
-	if (table === "Price-Table") {
-		$dataSelect = $row.find(".brandName").first().children("option:selected");
-	} else if (table === "Comparison-Table") {
-		$dataSelect = $row.find(".strength").first().children("option:selected");
-	}
-	
-	// Extract the MAC
-	mac = $dataSelect.attr("data-mac");
-	
-	// Assemble list of benefits for this medication;
-	if ($dataSelect.attr("data-group-1") === "1") {benefits.push("1");}
-	if ($dataSelect.attr("data-group-66") === "1") {benefits.push("66");}
-	if ($dataSelect.attr("data-group-66a") === "1") {benefits.push("66a");}
-	if ($dataSelect.attr("data-group-19823") === "1") {benefits.push("19823");}
-	if ($dataSelect.attr("data-group-19823a") === "1") {benefits.push("19823a");}
-	if ($dataSelect.attr("data-group-19824") === "1") {benefits.push("19824");}
-	if ($dataSelect.attr("data-group-20400") === "1") {benefits.push("20400");}
-	if ($dataSelect.attr("data-group-20403") === "1") {benefits.push("20403");}
-	if ($dataSelect.attr("data-group-20514") === "1") {benefits.push("20514");}
-	if ($dataSelect.attr("data-group-22128") === "1") {benefits.push("22128");}
-	if ($dataSelect.attr("data-group-23609") === "1") {benefits.push("23609");}
-	
-	// Uses the determined index to calculate the price and update the span
-	price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
-	
-	$priceSpan.text("$" + price.netPrice.toFixed(2))
-			  .attr("data-drug-cost", price.drugCost)
-			  .attr("data-upcharge-1", price.upcharge1)
-			  .attr("data-upcharge-2", price.upcharge2)
-			  .attr("data-dispensing-fee", price.dispensingFee)
-			  .attr("data-gross-price", price.grossPrice)
-			  .attr("data-third-party", price.thirdParty)
-			  .attr("data-net-price", price.netPrice)
-			  .attr("data-benefit", price.benefit);
-	
-	// Updates the total price
-	totalUpdate($priceSpan);
-	
-	// Updates the info button class to notify of special info
-	if (price.benefit === "No") {
-		$infoButton.attr("class", "info warning");
-	} else if ($dataSelect.attr("data-criteria-sa") || $dataSelect.attr("data-criteria-p")
-			   || $dataSelect.attr("data-special-auth-title-1")) {
-		$infoButton.attr("class", "info notice");
-	} else {
-		$infoButton.attr("class", "info");
-	}
-}
+function totalUpdate($table) {
+    // Collect all the price divs and calculate the total price
+    const $priceDivs = $table.find(".item-price");
+    let finalTotal = 0;
 
-/****************************************************************************
- *	totalUpdate()	Updates the relevant "total price" span					*
- *																			*
- *	priceArray:	the array of spans containing the updated price				*
- *	totalSpan:	the "total price" span array containing the span to be 		*
- *				updated														*
- *	elemIndex:	the index of the trigger element							*
- *	numRows:	the number of rows in the table								*
- *																			*
- *	Returns a JSON array with the selected database entries					*
- ****************************************************************************/
-function totalUpdate(priceSpan) {
-	// Determines which column needs to be updated based on the passed span
-	var $cell = $(priceSpan).closest("td");
-	var $cells = $cell.closest("tr").children("td");
-	var $rows = $("#Price-Table tbody:first tr")
-	var colIndex = getElementIndex($cell, $cells);
-	var $totalSpan = $("#Price-Table tfoot th:eq(" + colIndex + ") span");
-	var finalTotal = 0;
-	var tempPrice;
-	
-	$rows.each(function(index, row) {
-		tempPrice = Number($(row).children("td").eq(colIndex)
-							  .find("span").attr("data-net-price"));
+    $priceDivs.each(function (index, div) {
+        price = Number($(div).find("div").attr("data-net-price"));
 		
-		if (!isNaN(tempPrice) && tempPrice > 0) {
-			finalTotal += tempPrice;
+        if (!isNaN(price) && price > 0) {
+            finalTotal += price;
 		}
 	});
 	
-	$totalSpan.text("$" + finalTotal.toFixed(2));
+	$table.find(".item-total span").text("TOTAL $" + finalTotal.toFixed(2));
 }
 
 /****************************************************************************
@@ -941,7 +826,44 @@ function closeInfoPopup() {
 }
 
 
+function updateQuantity(input) {
+    // Get the containing item div
+    let $item = $(input).closest(".item");
 
+    // Calculate a new day quantity
+    const doses = processDosesPerDay($item.find(".item-dose input").val());
+    const supply = Number($item.find(".item-supply input").val())
+    let quantity = 0;
+
+    if (doses && !isNaN(doses) && doses > 0
+        && supply && !isNaN(supply) && supply > 0
+    ) {
+        quantity = Math.round(doses * supply * 100)/100;
+    }
+
+    // Update the quantity input
+    $item.find(".item-quantity input").val(quantity);
+}
+
+
+function updateSupply(input) {
+    // Get the containing item div
+    let $item = $(input).closest(".item");
+
+    // Calculate a new day supply
+    const doses = processDosesPerDay($item.find(".item-dose input").val());
+    const quantity = Number($item.find(".item-quantity input").val());
+    let supply = 0;
+
+    if (doses && !isNaN(doses) && doses > 0
+        && quantity && !isNaN(quantity) && quantity > 0
+    ) {
+        supply = Math.round((quantity / doses) * 100) / 100;
+    }
+
+    // Update the supply input
+    $item.find(".item-supply input").val(supply);
+}
 
 /****************************************************************************
  *	FUNCTIONS SPECIFIC TO PRICE-TABLE										*
@@ -1077,36 +999,25 @@ function addFreeformEntry() {
  *	brandSelect:	The select object that was changed.						*
  ****************************************************************************/
 function brandUpdate(brandSelect) {
-	var $row = $(brandSelect).closest("tr");
-	var $costSpan = $row.find(".cost");
-	var $macSpan = $row.find(".mac");
-	var $brandOption = $(brandSelect).children("option:selected");
-	var cost = $brandOption.attr("data-cost");
-	var mac = $brandOption.attr("data-mac");
-	var unit = $brandOption.attr("data-unit");
-	var $daySupply = $row.find(".daySupply");
-	var $quantity = $row.find(".quantity");
-	var tempText;
-	
+    // Collect the relevant data values
+	let $brandOption = $(brandSelect).children("option:selected");
+	const cost = $brandOption.attr("data-cost");
+	const mac = $brandOption.attr("data-mac");
+    const unit = $brandOption.attr("data-unit");
+    
 	// Updates the cost/unit span
-	tempText = "$" + cost + "<br>(per " + unit + ")";
-	$costSpan.html(tempText)
-			 .attr("data-cost", cost);
-	
-	// Updates the mac/unit span
-	tempText = "$" + mac + "<br>(per " + unit + ")";
-	$macSpan.html(tempText)
-			.attr("data-mac", mac);
+    let $item = $(brandSelect).closest(".item");
 
-	// Updates day supply pricing
-	$daySupply.each(function(index, elem) {
-		priceUpdateDay(elem);
-	});
-	
-	// Updates quantity pricing
-	$quantity.each(function(index, elem) {
-		priceUpdateQuantity(elem);
-	});
+    let $costSpan = $item.find(".item-cost span");
+    $costSpan
+        .attr("data-cost", cost)
+        .text("$" + cost);
+
+    let $costEm = $item.find(".item-cost em");
+    $costEm.text("per " + unit)
+
+    // Update the total price
+    priceUpdate($item);
 }
 
 /****************************************************************************
@@ -1115,20 +1026,9 @@ function brandUpdate(brandSelect) {
  *	costInput:		The input object that was changed.						*
  ****************************************************************************/
 function costUpdate(costInput) {
-	var $row = $(costInput).closest("tr");
-	var cost = costInput.value;
-	var $daySupply = $row.find(".daySupply");
-	var $quantity = $row.find(".quantity");
-	
-	// Updates day supply pricing
-	$daySupply.each(function(index, elem) {
-		priceUpdateDay(elem);
-	});
-	
-	// Updates quantity pricing
-	$quantity.each(function(index, elem) {
-		priceUpdateQuantity(elem);
-	});
+    let $item = $(costInput).closest(".item");
+
+    priceUpdate($item);
 }
 
 /****************************************************************************
@@ -1137,17 +1037,13 @@ function costUpdate(costInput) {
  *	deleteButton:	the button that was clicked								*
  ****************************************************************************/
 function removeRow(deleteButton) {
-	var $row = $(deleteButton).closest("tr");
-	var $cells = $(deleteButton).closest("tbody").children("tr:first");
-	var $spans = $cells.find("td.cellPrice span");
-	
-	// Removes row
-	$row.remove();
+    // Removes row
+    var $item = $(deleteButton).closest(".item");
+	$item.remove();
 	
 	// Updates total prices
-	$spans.each(function(index, span) {
-		totalUpdate(span)
-	});
+    $table = $item.closest(".content").parent("div");
+    totalUpdate($table);
 }
 
 
@@ -1249,7 +1145,7 @@ function showSearchResults(searchString) {
  ****************************************************************************/
 function chooseResult(selection) {
 	// Extract indices for MySQL query
-	var query = $(selection).attr("data-url");
+    var query = $(selection).attr("data-url");
 	showSearchResults("");
 	
 	$.ajax({
@@ -1285,6 +1181,7 @@ function chooseResult(selection) {
  *	Returns a JSON array with the LCA entry added to the front				*
  ****************************************************************************/
 function addLCA(result) {
+    console.log(result);
 	var lcaIndex = 0;
 	var lcaCost = parseFloat(result[0].unit_price);
 	var lcaEntry;
@@ -1337,162 +1234,228 @@ function addLCA(result) {
  *	array:	the JSON array containing the data to insert					*
  ****************************************************************************/
 function processResult(results) {
-	var $tbody = $("#Price-Table tbody:first");
-	var $row = $("<tr></tr>");
-	var $medicationCell = $("<td></td>");
-	var $brandCell = $("<td></td>");
-	var $brandSelect = $("<select></select>");
-	var $costCell = $("<td></td>");
-	var $costSpan = $("<span></span>");
-	var $dosesCell = $("<td></td>");
-	var dosesInput = document.createElement("input");
-	var $supplyCell = $("<td></td>");
-	var supplyInput = document.createElement("input");
-	var $dayPriceCell = $("<td></td>");
-	var $dayPriceSpan = $("<span></span>");
-	var $quantityCell = $("<td></td>");
-	var quantityInput = document.createElement("input");
-	var $quantityPriceCell = $("<td></td>");
-	var $quantityPriceSpan = $("<span></span>");
-	var $infoCell = $("<td></td>");
-	var $infoButton = $("<span></span>");
-	var $deleteCell = $("<td></td>");
-	var $deleteButton = $("<span></span>");
-	var $colDay = $("#Price-Table thead th.cellDay.cellPrice");
-	var $colQuantity = $("#Price-Table thead th.cellQuantity.cellPrice");
-	var $tempText;
-	var $tempOption;
-	var attributeName;
-	var attributeValue;
-	
-	// Add an entry to the result array for the LCA
-	results = addLCA(results);
-	
+    console.log(results);
+    // Add an entry to the result array for the LCA
+    results = addLCA(results);
+
+    // Generate a unique ID for element IDs
+    const id = (new Date()).getTime().toString(36)
+        + Math.random().toString(36);
+
+    // Set up containers
+    let $content = $("#price-table .content:first");
+
+    let $item = $("<div></div>");
+    $item.addClass("item");
+    
 	// Medication Name
-	$medicationCell.append(
-		"<strong>" + results[0].generic_name + "</strong>" + "<br>" + 
-		"<em>" + results[0].strength + " " + results[0].route + " " + 
-		results[0].dosage_form + "</em>");
-	$medicationCell.appendTo($row)
-	
-	// Brand Name
-	$brandSelect.addClass("brandName")
-				.on("change", function() {brandUpdate(this);});
-				
-	
-	$.each(results, function (index, value) {
-		$tempOption = $("<option></option>");
-		
-		$tempOption.text(value.brand_name)
-				   .attr("data-cost", value.unit_price)
-				   .attr("data-unit", value.unit_issue)
-				   .attr("data-mac", value.lca ? value.lca : value.unit_price)
-				   .attr("data-coverage", value.coverage)
-				   .attr("data-criteria-p", value.criteria_p)
-				   .attr("data-criteria-sa", value.criteria_sa)
-				   .attr("data-group-1", value.group_1)
-				   .attr("data-group-66", value.group_66)
-				   .attr("data-group-66a", value.group_66a)
-				   .attr("data-group-19823", value.group_19823)
-				   .attr("data-group-19823a", value.group_19823a)
-				   .attr("data-group-19824", value.group_19824)
-				   .attr("data-group-20400", value.group_20400)
-				   .attr("data-group-20403", value.group_20403)
-				   .attr("data-group-20514", value.group_20514)
-				   .attr("data-group-22128", value.group_22128)
-				   .attr("data-group-23609", value.group_23609)
-				   .appendTo($brandSelect);
-				   
-		// Generates format for special auth data objects
-		$.each(value.special_auth, function(index, temp) {
-			attributeName = "data-special-auth-title-" + (index + 1);
-			attributeValue = temp.title;
-			$tempOption.attr(attributeName, attributeValue);
-			
-			attributeName = "data-special-auth-link-" + (index + 1);
-			attributeValue = temp.link;
-			$tempOption.attr(attributeName, attributeValue);
-		});
-	});
-	
-	$brandCell.append($brandSelect);
-	$brandCell.appendTo($row);
-	
-	// Cost
-	$costSpan.addClass("cost");
-	
-	$costCell.append($costSpan);
-	$costCell.appendTo($row);
-	
-	// Doses per day
-	dosesInput.type= "text";
-	$(dosesInput).addClass("dosesPerDay")
-				 .val(1)
-				 .on("keyup", function() {priceUpdateDay(this, "#Price-Table");});
-			
-	// Day Supply
-	supplyInput.type = "text";
-	$(supplyInput).addClass("daySupply")
-				  .val("100")
-				  .on("keyup", function() {priceUpdateDay(this, "#Price-Table");});
-	// Price
-	$dayPriceSpan.addClass("dayPrice");
-	
-	// Adds the required number of elements
-	$colDay.each(function() {
-		$dosesCell.addClass("cellDay")
-				  .append(dosesInput)
-				  .appendTo($row);
-		
-		$supplyCell.addClass("cellDay")
-				   .append(supplyInput)
-				   .appendTo($row);
-		
-		$dayPriceCell.addClass("cellDay cellPrice")
-					 .append($dayPriceSpan)
-					 .appendTo($row);
-	});
-	
-	// Quantity
-	quantityInput.type = "text";
-	$(quantityInput).addClass("quantity")
-					.val("100")
-					.on("keyup", function() {priceUpdateQuantity(this);});
-	
-	// Price
-	$quantityPriceSpan.addClass("quantityPrice")
-		
-	$colQuantity.each(function() {
-		$quantityCell.addClass("cellQuantity")
-					 .append(quantityInput)
-					 .appendTo($row);
-		
-		$quantityPriceCell.addClass("cellQuantity cellPrice")
-						  .append($quantityPriceSpan)
-						  .appendTo($row);
-	});
-	
-	// Info
-	$infoButton.addClass("info")
-				 .text(" ")
-				 .on("click", function() {showInfo(this);});
-				 
-	$infoCell.append($infoButton)
-			 .appendTo($row);
-	
-	// Delete
-	$deleteButton.addClass("delete")
-				 .text(" ")
-				 .on("click", function() {removeRow(this);});
-				 
-	$deleteCell.append($deleteButton)
-			   .appendTo($row);
-	
-	//Adds row to table
-	$tbody.append($row);
-	
-	// Calculates table values
-	brandUpdate($brandSelect);
+    const medicationID = "medication-" + id;
+
+    let $medicationLabel = $("<label></label>");
+    $medicationLabel
+        .attr("for", medicationID)
+        .text("Medication");
+
+    let $medicationStrong = $("<strong></strong>");
+    $medicationStrong.text(results[0].generic_name);
+
+    let $medicationEm = $("<em></em>");
+    $medicationEm.text(
+        results[0].strength + " "
+        + results[0].route + " "
+        + results[0].dosage_form
+    );
+
+    let $medicationDiv = $("<div></div>")
+    $medicationDiv
+        .attr("id", medicationID)
+        .append($medicationStrong, $medicationEm)
+    
+    let $medication = $("<div></div>");
+    $medication
+        .addClass("item-medication")
+        .append($medicationLabel, $medicationDiv)
+        .appendTo($item)
+
+    // Brand Name
+    const brandID = "brand-" + id;
+
+    let $brandLabel = $("<label></label>");
+    $brandLabel
+        .attr("for", brandID)
+        .text("Brand");
+    
+    let $brandSelect = $("<select></select>");
+    $brandSelect
+        .attr("id", brandID)
+        .on("change", function () { brandUpdate(this); });
+
+    $.each(results, function (index, value) {
+        let $tempOption = $("<option></option>");
+
+        $tempOption
+            .text(value.brand_name)
+            .attr("data-cost", value.unit_price)
+            .attr("data-unit", value.unit_issue)
+            .attr("data-mac", value.lca ? value.lca : value.unit_price)
+            .attr("data-coverage", value.coverage)
+            .attr("data-criteria-p", value.criteria_p)
+            .attr("data-criteria-sa", value.criteria_sa)
+            .attr("data-group-1", value.group_1)
+            .attr("data-group-66", value.group_66)
+            .attr("data-group-66a", value.group_66a)
+            .attr("data-group-19823", value.group_19823)
+            .attr("data-group-19823a", value.group_19823a)
+            .attr("data-group-19824", value.group_19824)
+            .attr("data-group-20400", value.group_20400)
+            .attr("data-group-20403", value.group_20403)
+            .attr("data-group-20514", value.group_20514)
+            .attr("data-group-22128", value.group_22128)
+            .attr("data-group-23609", value.group_23609)
+            .appendTo($brandSelect);
+
+        // Generates format for special auth data objects
+        $.each(value.special_auth, function (index, temp) {
+            let attributeName = "data-special-auth-title-" + (index + 1);
+            let attributeValue = temp.title;
+            $tempOption.attr(attributeName, attributeValue);
+
+            attributeName = "data-special-auth-link-" + (index + 1);
+            attributeValue = temp.link;
+            $tempOption.attr(attributeName, attributeValue);
+        });
+    });
+
+    let $brand = $("<div></div>");
+    $brand
+        .addClass("item-brand")
+        .append($brandLabel, $brandSelect)
+        .appendTo($item);
+
+    // Cost Per Unit
+    let costID = "cost-" + id;
+
+    let $costLabel = $("<label></label>");
+    $costLabel
+        .attr("for", costID)
+        .text("Cost Per Unit");
+
+    let $costSpan = $("<span></span>");
+
+    let $costEm = $("<em></em>");;
+
+    let $costDiv = $("<div></div>");
+    $costDiv
+        .attr("id", costID)
+        .append($costSpan, $costEm);
+
+    let $cost = $("<div></div>");
+    $cost
+        .addClass("item-cost")
+        .append($costLabel, $costDiv)
+        .appendTo($item);
+
+    // Does Per Day
+    const doseID = "doses-" + id;
+
+    let $doseLabel = $("<label></label>");
+    $doseLabel
+        .attr("for", doseID)
+        .text("Doses Per Day");
+
+    let $doseInput = $("<input type='text'>");
+    $doseInput
+        .attr("id", doseID)
+        .on("keyup", function () {updateQuantity(this);})
+        .val(1);
+
+    let $dose = $("<div></div>");
+    $dose
+        .addClass("item-dose")
+        .append($doseLabel, $doseInput)
+        .appendTo($item);
+
+    // Day Supply
+    const supplyID = "supply-" + id;
+
+    let $supplyLabel = $("<label></label>");
+    $supplyLabel
+        .attr("for", supplyID)
+        .text("Day Supply");
+
+    let $supplyInput = $("<input type='text'>");
+    $supplyInput
+        .attr("id", supplyID)
+        .on("keyup", function () {updateQuantity(this);})
+        .val(100);
+
+    let $supply = $("<div></div>");
+    $supply
+        .addClass("item-supply")
+        .append($supplyLabel, $supplyInput)
+        .appendTo($item);
+
+    // Quantity
+    const quantityID = "quantity-" + id;
+
+    let $quantityLabel = $("<label></label>");
+    $quantityLabel
+        .attr("for", quantityID)
+        .text("Quantity");
+
+    let $quantityInput = $("<input type='text'>");
+    $quantityInput
+        .attr("id", quantityID)
+        .on("keyup", function () {updateSupply(this);})
+        .val(1);
+
+    let $quantity = $("<div></div>");
+    $quantity
+        .addClass("item-quantity")
+        .append($quantityLabel, $quantityInput)
+        .appendTo($item);
+
+    // Price
+    const priceID = "price-" + id;
+
+    let $priceLabel = $("<label></label>");
+    $priceLabel
+        .attr("for", priceID)
+        .text("Price");
+
+    let $priceDiv = $("<div></div>");
+    $priceDiv.attr("id", priceID);
+
+    let $price = $("<div></div>");
+    $price
+        .addClass("item-price")
+        .append($priceLabel, $priceDiv)
+        .appendTo($item);
+
+    // Info and Delete Buttons
+    let $infoButton = $("<input type='button'>");
+    $infoButton
+        .addClass("info")
+        .on("click", function () { showInfo(this); })
+        .val("Information");
+
+    let $deleteButton = $("<input type='button'>");
+    $deleteButton
+        .addClass("delete")
+        .on("click", function () { removeRow(this); })
+        .val("Delete");
+
+    let $buttons = $("<div></div>")
+    $buttons
+        .addClass("item-buttons")
+        .append($infoButton, $deleteButton)
+        .appendTo($item);
+
+    // Add the completed $item to the $content container
+    $content.append($item)
+
+    // Calculate the default price values for table
+    brandUpdate($brandSelect);
 }
 
 
@@ -1927,14 +1890,6 @@ $(document).ready(function() {
 		"change",
 		function(){changeThirdParty("Price-Table");});
 	
-	$("#Price-Table-Method").on(
-		"change",
-		function(){changePriceTableCols("Price-Table");});
-
-	$("input.changeSupply").on(
-		"click",
-		function(){changeQuantityPopup(this, "supply");});
-
 	$("input.changeQuantity").on(
 		"click",
 		function(){changeQuantityPopup(this, "quantity");});
@@ -1951,18 +1906,11 @@ $(document).ready(function() {
 		"change",
 		function(){changeThirdParty("Comparison-Table");});
 	
-	$("#Comparison-Table-Method").on(
-		"change",
-		function(){changePriceTableCols("Comparison-Table");});
-	
 	$("#Print-Medication-Prices").on(
 		"click",
 		function(){printPrices();});
 
 	$("#Search-Bar").focus();
-	
-	changePriceTableCols("Price-Table");
-	changePriceTableCols("Comparison-Table");
 	
 	//Left aligns the MathJax output
 	MathJax.Hub.Config({

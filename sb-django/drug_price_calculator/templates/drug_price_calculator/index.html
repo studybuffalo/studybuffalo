@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="thirdPartyContainer">		
-			<select id="Price-Table-Third-Party" class="thirdPartySelect">
+			<select id="price-table-third-party" class="thirdPartySelect">
 				<option value="">None</option>
 				<option value="1">Non-Group Coverage (Group 1)</option>
 				<option value="66">Coverage for Seniors (Group 66)</option>
@@ -55,54 +55,9 @@
 				<option value="23609">Alberta Adult Health Benefit (AAHB) (Group 23609)</option>
 			</select>
 		</div>
-		
-		<div id="price-table">
-			<div class="header">
-				<div class="item-medication">Medication</div>
-				<div class="item-brand">Brand</div>
-				<div class="item-cost">Cost Per Unit</div>
-				<div class="item-dose">Doses Per Day</div>
-				<div class="item-supply">Day Supply</div>
-				<div class="item-quantity">Quantity</div>
-				<div class="item-price">Price</div>
-				<div class="item-buttons"></div>
-			</div>
 
-			<div class="content">
-				<div class="item">
-					<div class="item-medication">
-						<label for="medication-1">Medication</label>
-						<div id="medication-1">
-							<strong>warfarin sodiumaldklaflkadjfkkdafjladfj</strong>
-							<em>1 mg oral tablet</em>
-						</div>
-					</div>
-					<div class="item-brand">
-						<label for="brand-1">Brand</label>
-						<select id="brand-1">
-							<option>LCA</option>
-							<option>Really long option goes over here for more testing</option>
-						</select>
-					</div>
-					<div class="item-cost">
-						<label for="cost-1">Cost Per Unit</label>
-						<div id="cost-1">
-							<span>$0.0780</span> 
-							<em>(per tablet)</em>
-						</div>
-					</div>
-					<div class="item-dose">
-						<label for="doses-1">Doses Per Day</label>
-						<input type="text" id="doses-1" value="1">
-					</div>
-					<div class="item-supply">
-						<label for="supply-1">Day Supply</label>
-						<input type="text" id="supply-1" value="1">
-					</div>
-					<div class="item-quantity">
-						<label for="quantity-1">Quantity</label>
-						<input type="text" id="quantity-1" value="100">
-					</div>
+		<!--
+			<div class="item">
 					<div class="item-price">
 						<label for="price-1">Price</label>
 						<div id="price-1">
@@ -206,14 +161,30 @@
 						<input type="button" class="delete" value="Delete">
 					</div>
 				</div>
+		-->
+		
+		<div id="price-table">
+			<div class="header">
+				<div class="item-medication">Medication</div>
+				<div class="item-brand">Brand</div>
+				<div class="item-cost">Cost Per Unit</div>
+				<div class="item-dose">Doses Per Day</div>
+				<div class="item-supply">Day Supply</div>
+				<div class="item-quantity">Quantity</div>
+				<div class="item-price">Price</div>
+				<div class="item-buttons"></div>
+			</div>
+
+			<div class="content">
+				
 			</div>
 
 			<div class="footer">
 				<div class="item-freeform">
-					<input type="button" value="Add freeform entry">
+					<input type="button" id="Add-Freeform" value="Add freeform entry">
 				</div>
 				<div class="item-change">
-					<input type="button" value="Change all quantities/supplies">
+					<input type="button" class="changeQuantity" value="Change all quantities/supplies">
 				</div>
 				<div class="item-buttons"> </div>
 				<div class="item-total">
