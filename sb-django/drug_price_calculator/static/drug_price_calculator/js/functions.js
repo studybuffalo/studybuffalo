@@ -205,7 +205,7 @@ function calculatePrice(costPerUnit, quantity, mac, thirdParty, benefits) {
 	// Calculates the third party pays amount
 	if (thirdParty) {
 		// Compares third party coverage against benefits to see if match
-		for (var i = 0; i < benefits.length; i++) {
+        for (var i = 0; i < benefits.length; i++) {
 			if (thirdParty === benefits[i]) {coverageMatch = true;}
 		}
 		
@@ -308,28 +308,29 @@ function processDosesPerDay(value) {
 function priceUpdate($item) {
     // Get the appropriate brand/strength select
     let $select = $item.find("select").eq(0);
+    let $option = $select.children("option:selected");
 
     // Assemble list of benefits
     let benefits = [];
-    if ($select.attr("data-group-1") === "1") { benefits.push("1"); }
-    if ($select.attr("data-group-66") === "1") { benefits.push("66"); }
-    if ($select.attr("data-group-66a") === "1") { benefits.push("66a"); }
-    if ($select.attr("data-group-19823") === "1") { benefits.push("19823"); }
-    if ($select.attr("data-group-19823a") === "1") { benefits.push("19823a"); }
-    if ($select.attr("data-group-19824") === "1") { benefits.push("19824"); }
-    if ($select.attr("data-group-20400") === "1") { benefits.push("20400"); }
-    if ($select.attr("data-group-20403") === "1") { benefits.push("20403"); }
-    if ($select.attr("data-group-20514") === "1") { benefits.push("20514"); }
-    if ($select.attr("data-group-22128") === "1") { benefits.push("22128"); }
-    if ($select.attr("data-group-23609") === "1") { benefits.push("23609"); }
-
+    if ($option.attr("data-group-1") === "true") { benefits.push("1"); }
+    if ($option.attr("data-group-66") === "true") { benefits.push("66"); }
+    if ($option.attr("data-group-66a") === "true") { benefits.push("66a"); }
+    if ($option.attr("data-group-19823") === "true") { benefits.push("19823"); }
+    if ($option.attr("data-group-19823a") === "true") { benefits.push("19823a"); }
+    if ($option.attr("data-group-19824") === "true") { benefits.push("19824"); }
+    if ($option.attr("data-group-20400") === "true") { benefits.push("20400"); }
+    if ($option.attr("data-group-20403") === "true") { benefits.push("20403"); }
+    if ($option.attr("data-group-20514") === "true") { benefits.push("20514"); }
+    if ($option.attr("data-group-22128") === "true") { benefits.push("22128"); }
+    if ($option.attr("data-group-23609") === "true") { benefits.push("23609"); }
+    
     // Calculate the price of this medication
     const cost = Number($item.find(".item-cost span").attr("data-cost"))
                  || Number($item.find(".item-cost input").val());
 
     const quantity = Number($item.find(".item-quantity input").val());
 
-    const mac = $select.children("option:selected").attr("data-mac");
+    const mac = $option.attr("data-mac");
 
     let $table = $item.parent(".content").parent("div")
     const tableName = $table.attr("id");
@@ -396,16 +397,18 @@ function totalUpdate($table) {
  *						third party coverage								*
  ****************************************************************************/
 function changeThirdParty(table) {
-	var $rows = $("#" + table + " tbody tr");
-	var $dataSelect;
-	
-	$rows.each(function(index, row) {
-		if (table === "Price-Table") {
-			$dataSelect = $(row).find(".brandName").first();
-			brandUpdate($dataSelect);
-		} else if (table === "Comparison-Table") {
-			$dataSelect = $(row).find(".strength").first();
-			comparisonStrength($dataSelect);
+    // Get all the item divs
+    let $table = $("#" + table);
+    let $itemDivs = $table.find(".item");
+
+    // Cycle through each item div and update the price
+    $itemDivs.each(function(index, item) {
+		if (table === "price-table") {
+            select = $(item).find("select").first();
+            brandUpdate(select);
+		} else if (table === "comparison-table") {
+            select = $(item).find("select").first();
+            comparisonStrength(select);
 		}
 	});
 }
@@ -564,265 +567,277 @@ function closeInfoPopup() {
  *																			*
  *	infoButton:		the button that was clicked								*
  ****************************************************************************/
- function showInfo(infoButton) {
-	var table = $(infoButton).closest("table").attr("id");
-	var $row = $(infoButton).closest("tr");
-	var method = $("#" + table + "-Method")[0].selectedIndex;
-	var $dataSelect;
-	var $optionSelect;
-	var $price;
-	
+function showInfo(infoButton) {
+    let $infoButton = $(infoButton);
+    let $item = $infoButton.closest(".item");
+
 	// Collect page, viewport, and element dimensions/coordinates
-	var pageHt = $(document).height();
-	var pageWid = $(document).width();
-	var screenWid = $(window).width();
-	var scrollHt = document.body.scrollTop ||
+	const pageHt = $(document).height();
+    const pageWid = $(document).width();
+    const screenWid = $(window).width();
+    const scrollHt = document.body.scrollTop ||
 				   document.documentElement.scrollTop;		   
-	var buttonTop = $(infoButton).offset().top
-	var buttonLeft = $(infoButton).offset().left;
+    const buttonTop = $infoButton.offset().top
+    const buttonLeft = $infoButton.offset().left;
+    
+    // Popup div positions to left of trigger button
+    let $infoDiv = $("<div></div>");
+    $infoDiv
+        .attr("id", "Info-Popup")
+        .css({
+            "right": ((screenWid - buttonLeft) + 10) + "px",
+            "top": (buttonTop) + "px"
+        });
 
-	
-	var $coverDiv = $("<div></div>");
-	var $infoDiv = $("<div></div>");
-	var $title = $("<h3></h3>");
-	var $coverage = $("<p></p>");
-	var $benefit = $("<p></p>");
-	var $feeTitle = $("<p></p>");
-	var $feeTable = $("<table></table>");
-	var $feeDrug = $("<tr></tr>");
-	var $feeUpcharge1 = $("<tr></tr>");
-	var $feeUpcharge2 = $("<tr></tr>");
-	var $feeDispensing = $("<tr></tr>");
-	var $feeGross = $("<tr></tr>");
-	var $feeTP = $("<tr></tr>");
-	var $feeNet = $("<tr></tr>");
-	var $criteriaSA = $("<a></a>");
-	var $criteriaP = $("<a></a>");
-	var $saFormTitle = $("<p></p>");
-	var $saForm = $("<ul></ul>");
-	var $saFormTemp;
-	var saFormTest = true;
-	var saFormAttrT;
-	var saFormAttrL;
-	var saCounter = 1;
-	var saFormName;
-	var saFormLink;
-	var $close = $("<div></div>");
-	var closeButton = document.createElement("input");
-	
-	var tempText;
-	
-	// Determines which dataSelect to retrieve data from
-	var tpIndex = 0;
+    // The Pop-Up Div Title
+    let $title = $("<h3></h3>");
+    $title
+        .text("Coverage Information")
+        .appendTo($infoDiv);
 
-	if (table === "Price-Table") {
-		$dataSelect = $row.find($(".brandName")).first();
-		tpIndex = document.getElementById("Price-Table-Third-Party").selectedIndex
-	} else if (table === "Comparison-Table") {
-		$dataSelect = $row.find($(".strength")).first();
-		tpIndex = document.getElementById("Comparison-Table-Third-Party").selectedIndex
-	}
-	
-	$optionSelect = $dataSelect.children("option:selected");
-	
-	var coverageText =  $optionSelect.attr("data-coverage");
-	var criteriaSA = $optionSelect.attr("data-criteria-sa");
-	var criteriaP = $optionSelect.attr("data-criteria-p");
-	
-	// Determines which price span to retrieve data from
-	if (method === 0) {
-		$price = $row.find(".cellDay.cellPrice").children().first();
-	} else if (method === 1) {
-		$price = $row.find(".cellQuantity.cellPrice").children().first();
-	}
-	
-	// Position cover div to fill entire page
-	$coverDiv.attr("id", "Popup-Veil")
-			 .height(pageHt)
-			 .width(pageWid)
-			 .on("click", function(e){closeQuantityPopup(e);})
-			 .on("keydown", function(e) {changeQuantityKeypress(
-				 inputText, colIndex, type, e);})
-			 .appendTo("body");
-	
-	// Popup div positions to left of trigger button
-	$infoDiv.attr("id","Info-Popup")
-			.css({"right": ((screenWid - buttonLeft) + 10) + "px",
-				  "top": (buttonTop) + "px"})
-			.appendTo($coverDiv);
-	
-	// Pop Up Title
-	$title.text("Coverage Information")
-		  .appendTo($infoDiv);
-	
-	// Benefit Type
-	coverageText = coverageText ?  coverageText : "Not a benefit";
-	$coverage.append($("<strong></strong>").text("Benefit Type: "))
-			 .append($("<span></span>").text(coverageText))
-			 .appendTo($infoDiv);
-	
-	// If this drug is a benefit or not
-	tempText = $price.attr("data-benefit")
-	tempText = tempText ? tempText : "N/A";
-	
-	$benefit.append($("<strong></strong>").text("Benefit: "))
-			.append($("<span></span>").text(tempText))
-			.appendTo($infoDiv);
-	
- 	// Adds drug cost & MAC if drug plan selected
-	if (tpIndex > 0) {
-		var $cost = $("<p></p>");
-		var $mac = $("<p></p>");
-		var cost = $optionSelect.attr("data-cost");
-		var mac = $optionSelect.attr("data-mac");
-		var unit = $optionSelect.attr("data-unit");
+    // Benefit Type
+    const $option = $item.find("select").children("option:selected");
 
-		// Replaces unit with "unit" if blank
-		unit = unit === "" ? unit : "unit";
+    let coverageText = $option.attr("data-coverage");
+    coverageText = coverageText ? coverageText : "Not a benefit";
 
-		tempText = "$" + cost + " per " + unit;
-		$cost.append($("<strong></strong>").text("Cost: "))
-			 .append($("<span></span>").text(tempText))
-			 .appendTo($infoDiv);
+    let $coverage = $("<p></p>");
+    $coverage
+        .append($("<strong></strong>").text("Benefit Type: "))
+        .append($("<span></span>").text(coverageText))
+        .appendTo($infoDiv);
 
-		tempText = "$" + mac + " per " + unit;
-		$mac.append($("<strong></strong>").text("MAC: "))
-			.append($("<span></span>").text(tempText))
-			.appendTo($infoDiv);
-	}
+    // Whether this is a drug benefit or not
+    let $price = $item.find(".item-price div");
 
-	//  Coverage Criteria
-	if (criteriaSA) {
-		$criteriaSA.text("Click here for coverage criteria")
-				   .attr("href", criteriaSA)
-				   .attr("target", "_blank")
-		
-		$("<p></p>").append($criteriaSA)
-					.appendTo($infoDiv)
-					.addClass("MT05em");
-	}
-	
-	// Paliative Care Link
-	if (criteriaP) {
-		$criteriaP.text("Click here for Palliative program information")
-				  .attr("href", criteriaP)
-				  .attr("target", "_blank")
-		
-		$("<p></p>").append($criteriaP)
-					.appendTo($infoDiv)
-					.addClass("MT05em");
-	}
-	
-	// Price Information
-	$feeTitle.append($("<strong></strong>").text("Price Breakdown"))
-			 .addClass("MT1em")
-			 .appendTo($infoDiv);
-	
-	$feeTable.appendTo($infoDiv);
-	
-	// Drug Costs
-	tempText = Number($price.attr("data-drug-cost"))
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeDrug.append($("<td></td>").text("Drug Cost:"))
-	$feeDrug.append($("<td></td>"))
-		    .append($("<td></td>").text(tempText))
-			.appendTo($feeTable);
-	
-	// Upcharge #1
-	tempText = Number($price.attr("data-upcharge-1"));	
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeUpcharge1.append($("<td></td>").text("Upcharge #1:"))
-				 .append($("<td></td>").text("+"))
-				 .append($("<td></td>").text(tempText))
-				 .appendTo($feeTable);
-	
-	// Upcharge #2
-	tempText = Number($price.attr("data-upcharge-2"));
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeUpcharge2.append($("<td></td>").text("Upcharge #2:"))
-				 .append($("<td></td>").text("+"))
-				 .append($("<td></td>").text(tempText))
-				 .appendTo($feeTable);
-	
-	// Dispensing Fee
-	tempText = Number($price.attr("data-dispensing-fee"));
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeDispensing.append($("<td></td>").text("Dispensing Fee:"))
-				  .append($("<td></td>").text("+"))
-				  .append($("<td></td>").text(tempText))
-				  .appendTo($feeTable);
-	
-	// Gross Price
-	tempText = Number($price.attr("data-gross-price"));
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeGross.append($("<td></td>").text("Sub-Total:"))
-			 .append($("<td></td>"))
-			 .append($("<td></td>").text(tempText))
-			 .addClass("totalRow")
-			 .appendTo($feeTable);
-	
-	// Insurance Pays Portion
-	tempText = Number($price.attr("data-third-party"));
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeTP.append($("<td></td>").text("Third Party Portion:"))
-		  .append($("<td></td>").text("-"))
-		  .append($("<td></td>").text(tempText))
-		  .appendTo($feeTable);
-	
-	// Patient Pays Portion
-	tempText = Number($price.attr("data-net-price"));
-	tempText = isNaN(tempText) ? "$0.00" : "$" + tempText.toFixed(2);
-	
-	$feeNet.append($("<td></td>").text("Patient Pays:"))
-		   .append($("<td></td>"))
-		   .append($("<td></td>").text(tempText))
-		   .addClass("totalRow")
-		   .appendTo($feeTable);
-	
-	// Special Authorization Form Links
-	while (saFormTest === true) {
-		saFormAttrL = "data-special-auth-link-" + saCounter;
-		saFormAttrT = "data-special-auth-title-" + saCounter;
-		
-		if ($optionSelect.attr(saFormAttrL)) {
-			if (saCounter === 1) {
-				$saFormTitle.append($("<strong></strong>").text("Special Authorization Forms"))
-							.addClass("MT1em")
-							.appendTo($infoDiv);
-							
-				$saForm.appendTo($infoDiv);
-			}
-			
-			$saFormTemp = $("<a></a>");
-			saFormLink = $optionSelect.attr(saFormAttrL);
-			saFormName = $optionSelect.attr(saFormAttrT);
-			
-			$saFormTemp.text(saFormName)
-				   .attr("href", saFormLink)
-				   .attr("target", "_blank");
-			
-			$("<li></li>").append($saFormTemp).appendTo($saForm);
-			
-			saCounter++
-		} else {
-			saFormTest = false;
-		}
-	}
-	
-	// Close Button
-	closeButton.type = "button";
-	$(closeButton).val("Close")
-				  .on("click", function(){closeInfoPopup();})
-				  .appendTo($close);
-	
-	$close.attr("class", "close")
-		  .appendTo($infoDiv);
+    let benefitText = $price.attr("data-benefit");
+    benefitText = benefitText ? benefitText : "N/A";
+
+    let $benefit = $("<p></p>");
+    $benefit
+        .append($("<strong></strong>").text("Benefit: "))
+        .append($("<span></span>").text(benefitText))
+        .appendTo($infoDiv);
+
+    // Check if any third party coverage is applied
+    const tableName = $item.parent(".content").parent("div").attr("id")
+    const $thirdPartySelect = $("#" + tableName + "-third-party")
+    const thirdParty = $thirdPartySelect.val();
+
+    // Add drug cost & MAC if the drug plan was selected
+    if (thirdParty) {
+        // Collect the relevant data
+        const cost = $option.attr("data-cost");
+        const mac = $option.attr("data-mac");
+        let unit = $option.attr("data-unit");
+
+        // Replaces unit with "unit" if blank
+        unit = unit === "" ? unit : "unit";
+
+        // Cost
+        let $cost = $("<p></p>");
+        $cost
+            .append($("<strong></strong>").text("Cost: "))
+            .append($("<span></span>").text("$" + cost + " per " + unit))
+            .appendTo($infoDiv);
+
+        // MAC
+        let $mac = $("<p></p>");
+        $mac
+            .append($("<strong></strong>").text("MAC: "))
+            .append($("<span></span>").text("$" + mac + " per " + unit))
+            .appendTo($infoDiv);
+    }
+
+    // Add any coverage criteria
+    const criteriaSA = $option.attr("data-criteria-sa");
+    if (criteriaSA) {
+        let $criteriaSA = $("<a></a>");
+        $criteriaSA
+            .text("Click here for coverage criteria")
+            .attr("href", criteriaSA)
+            .attr("target", "_blank")
+            .attr("rel", "noopener");
+
+        let $criteriaSAP = $("<p></p>")
+        $criteriaSAP
+            .append($criteriaSA)
+            .appendTo($infoDiv)
+            .css("margin-top: 0.5em;");
+    }
+
+    // Add any palliative care details
+    const criteriaP = $option.attr("data-criteria-p");
+
+    if (criteriaP) {
+        let $criteriaP = $("<a></a>");
+        $criteriaP
+            .text("Click here for Palliative program information")
+            .attr("href", criteriaP)
+            .attr("target", "_blank")
+            .attr("rel", "noopener");
+
+        let $criteriaPP = $("<p></p>")
+        $criteriaPP
+            .append($criteriaP)
+            .appendTo($infoDiv)
+            .css("margin-top: 0.5em;");
+    }
+
+    // Price Information
+    let $feeTitle = $("<p></p>");
+    $feeTitle
+        .append($("<strong></strong>").text("Price Breakdown"))
+        .addClass("MT1em")
+        .appendTo($infoDiv);
+
+    // Drug Costs & Fees Table
+    let $feeTable = $("<table></table>");
+    $feeTable.appendTo($infoDiv);
+
+    // Drug Costs
+    let drugCost = Number($price.attr("data-drug-cost"));
+    drugCost = isNaN(drugCost) ? "$0.00" : "$" + drugCost.toFixed(2);
+
+    let $feeDrug = $("<tr></tr>");
+    $feeDrug
+        .append($("<td></td>").text("Drug Cost:"))
+        .append($("<td></td>"))
+        .append($("<td></td>").text(drugCost))
+        .appendTo($feeTable);
+
+    // Upcharge #1
+    let upcharge1 = Number($price.attr("data-upcharge-1"));
+    upcharge1 = isNaN(upcharge1) ? "$0.00" : "$" + upcharge1.toFixed(2);
+
+    let $feeUpcharge1 = $("<tr></tr>");
+    $feeUpcharge1
+        .append($("<td></td>").text("Upcharge #1:"))
+        .append($("<td></td>").text("+"))
+        .append($("<td></td>").text(upcharge1))
+        .appendTo($feeTable);
+
+    // Upcharge #2
+    let upcharge2 = Number($price.attr("data-upcharge-2"));
+    upcharge2 = isNaN(upcharge2) ? "$0.00" : "$" + upcharge2.toFixed(2);
+
+    let $feeUpcharge2 = $("<tr></tr>");
+    $feeUpcharge2
+        .append($("<td></td>").text("Upcharge #2:"))
+        .append($("<td></td>").text("+"))
+        .append($("<td></td>").text(upcharge2))
+        .appendTo($feeTable);
+
+    // Dispensing Fee
+    let dispensingFee = Number($price.attr("data-dispensing-fee"));
+    dispensingFee = isNaN(dispensingFee) ? "$0.00" : "$" + dispensingFee.toFixed(2);
+
+    let $feeDispensing = $("<tr></tr>");
+    $feeDispensing
+        .append($("<td></td>").text("Dispensing Fee:"))
+        .append($("<td></td>").text("+"))
+        .append($("<td></td>").text(dispensingFee))
+        .appendTo($feeTable);
+
+    // Gross Price
+    let gross = Number($price.attr("data-gross-price"));
+    gross = isNaN(gross) ? "$0.00" : "$" + gross.toFixed(2);
+
+    let $feeGross = $("<tr></tr>");
+    $feeGross
+        .append($("<td></td>").text("Sub-Total:"))
+        .append($("<td></td>"))
+        .append($("<td></td>").text(gross))
+        .addClass("totalRow")
+        .appendTo($feeTable);
+
+    // Third Party Portion
+    let tp = Number($price.attr("data-third-party"));
+    tp = isNaN(tp) ? "$0.00" : "$" + tp.toFixed(2);
+
+    let $feeTP = $("<tr></tr>");
+    $feeTP
+        .append($("<td></td>").text("Third Party Portion:"))
+        .append($("<td></td>").text("-"))
+        .append($("<td></td>").text(tp))
+        .appendTo($feeTable);
+
+    // Net Total
+    let net = Number($price.attr("data-net-price"));
+    net = isNaN(net) ? "$0.00" : "$" + net.toFixed(2);
+
+    let $feeNet = $("<tr></tr>");
+    $feeNet
+        .append($("<td></td>").text("Patient Pays:"))
+        .append($("<td></td>"))
+        .append($("<td></td>").text(net))
+        .addClass("totalRow")
+        .appendTo($feeTable);
+    
+    // Special Authorization Form Links
+    let $saFormTitle = $("<p></p>");
+    let $saForm = $("<ul></ul>");
+    
+    let saFormTest = true;
+    let saCounter = 1;
+
+    while (saFormTest === true) {
+        let saFormAttrL = "data-special-auth-link-" + saCounter;
+        let saFormAttrT = "data-special-auth-title-" + saCounter;
+
+        if ($option.attr(saFormAttrL)) {
+            if (saCounter === 1) {
+                $saFormTitle
+                    .append($("<strong></strong>").text("Special Authorization Forms"))
+                    .addClass("MT1em")
+                    .appendTo($infoDiv);
+
+                $saForm.appendTo($infoDiv);
+            }
+
+            let $saFormA = $("<a></a>");
+            let saFormLink = $option.attr(saFormAttrL);
+            let saFormName = $option.attr(saFormAttrT);
+
+            $saFormA
+                .text(saFormName)
+                .attr("href", saFormLink)
+                .attr("target", "_blank")
+                .atrr("rel", "noopner");
+
+            $("<li></li>").append($saFormTemp).appendTo($saForm);
+
+            saCounter++
+        } else {
+            saFormTest = false;
+        }
+    }
+
+    // Close Button
+    let $close = $("<div></div>");
+    $close
+        .attr("class", "close")
+        .appendTo($infoDiv);
+
+    let $closeButton = $("<input type='button'>")
+    $closeButton
+        .val("Close")
+        .on("click", function () { closeInfoPopup(); })
+        .appendTo($close);
+
+    
+    // Position cover div to fill entire page
+    let $coverDiv = $("<div></div>");
+    $coverDiv
+        .attr("id", "Popup-Veil")
+        .height(pageHt)
+        .on("click", function (e) { closeQuantityPopup(e); })
+        .on("keydown", function (e) {
+            changeQuantityKeypress(
+                inputText, colIndex, type, e);
+        })
+        .prependTo("body")
+        .append($infoDiv);
 }
 
 
@@ -1004,7 +1019,7 @@ function brandUpdate(brandSelect) {
 	const cost = $brandOption.attr("data-cost");
 	const mac = $brandOption.attr("data-mac");
     const unit = $brandOption.attr("data-unit");
-    
+
 	// Updates the cost/unit span
     let $item = $(brandSelect).closest(".item");
 
@@ -1181,7 +1196,6 @@ function chooseResult(selection) {
  *	Returns a JSON array with the LCA entry added to the front				*
  ****************************************************************************/
 function addLCA(result) {
-    console.log(result);
 	var lcaIndex = 0;
 	var lcaCost = parseFloat(result[0].unit_price);
 	var lcaEntry;
@@ -1234,7 +1248,6 @@ function addLCA(result) {
  *	array:	the JSON array containing the data to insert					*
  ****************************************************************************/
 function processResult(results) {
-    console.log(results);
     // Add an entry to the result array for the LCA
     results = addLCA(results);
 
@@ -1886,9 +1899,9 @@ $(document).ready(function() {
 		trigger,
 		function(){showSearchResults(this.value);});
 	
-	$("#Price-Table-Third-Party").on(
+	$("#price-table-third-party").on(
 		"change",
-		function(){changeThirdParty("Price-Table");});
+		function(){changeThirdParty("price-table");});
 	
 	$("input.changeQuantity").on(
 		"click",
@@ -1902,9 +1915,9 @@ $(document).ready(function() {
 		trigger,
 		function(){showComparisonResults(this.value);});
 	
-	$("#Comparison-Table-Third-Party").on(
+	$("#comparison-table-third-party").on(
 		"change",
-		function(){changeThirdParty("Comparison-Table");});
+		function(){changeThirdParty("comparison-table");});
 	
 	$("#Print-Medication-Prices").on(
 		"click",

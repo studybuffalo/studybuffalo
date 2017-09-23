@@ -123,98 +123,107 @@
     }
 
 
+/* General Popup Formatting */
+#Popup-Veil {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100vw;
+}
+
+    #Popup-Veil #Change-Popup, #Popup-Veil #Info-Popup {
+        position: absolute;
+        margin: auto;
+        background-color: rgb(245, 245, 245);
+        border: 1px solid rgb(0, 0, 0);
+        z-index: 3;
+        box-shadow: 2px 2px 5px rgb(101, 101, 101);
+    }
+
+    /* Change All Popup Formatting */
+        #Popup-Veil #Change-Popup span {
+            display: block;
+            padding: 0.25em;
+        }
+
+        #Popup-Veil #Change-Popup input[type="text"] {
+            display: block;
+            width: 3em;
+            margin: 0.25em
+        }
+
+        #Popup-Veil #Change-Popup input[type="button"] {
+            margin: 0.25em;
+        }
+
 /* Info Popup */
-#sb #Info-Popup {
+#Popup-Veil #Info-Popup {
     min-width: 300px;
     max-width: 600px;
     word-wrap: break-word;
 }
 
-    #sb #Info-Popup h3 {
-        text-align: center;
-        max-width: 100%;
+    #Popup-Veil #Info-Popup h3 {
         background-color: rgb(31, 103, 0);
         color: rgb(255, 255, 255);
+        margin: 0;
+        max-width: 100%;
+        padding: 1rem;
+        text-align: center;
     }
 
-    #sb #Info-Popup .close {
+    #Popup-Veil #Info-Popup p {
+        margin: 0;
+        padding: 1rem;
+    }
+
+    #Popup-Veil #Info-Popup .close {
         margin: 0 auto;
         width: 73px;
         padding: 10px 0;
     }
 
-    #sb #Info-Popup a {
+    #Popup-Veil #Info-Popup a {
         font-weight: 400;
     }
 
-    #sb #Info-Popup table {
+    #Popup-Veil #Info-Popup table {
         border-collapse: collapse;
         margin: 0 10px;
     }
 
-        #sb #Info-Popup table td {
+        #Popup-Veil #Info-Popup table td {
             padding: 2px 0;
         }
 
-        #sb #Info-Popup table tr td:nth-child(1) {
+        #Popup-Veil #Info-Popup table tr td:nth-child(1) {
             padding: 0 10px 0 0;
         }
 
-        #sb #Info-Popup table tr td:nth-child(2) {
+        #Popup-Veil #Info-Popup table tr td:nth-child(2) {
             font-weight: 700;
             text-align: right;
         }
 
-        #sb #Info-Popup table tr td:nth-child(3) {
+        #Popup-Veil #Info-Popup table tr td:nth-child(3) {
             text-align: right;
         }
 
-    #sb #Info-Popup tr.totalRow td:nth-child(2),
-    #sb #Info-Popup tr.totalRow td:nth-child(3) {
+    #Popup-Veil #Info-Popup tr.totalRow td:nth-child(2),
+    #Popup-Veil #Info-Popup tr.totalRow td:nth-child(3) {
         border-top: 1px solid rgb(0, 0, 0);
         font-weight: 700;
     }
 
-    #sb #Info-Popup ul {
+    #Popup-Veil #Info-Popup ul {
         margin: 0;
     }
 
-        #sb #Info-Popup ul li {
+        #Popup-Veil #Info-Popup ul li {
             padding: 4px 0;
         }
 
-/* General Popup Formatting */
-#sb #Popup-Veil {
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    top: 0;
-}
-
-#sb #Change-Popup, #sb #Info-Popup {
-    position: absolute;
-    margin: auto;
-    background-color: rgb(245, 245, 245);
-    border: 1px solid rgb(0, 0, 0);
-    z-index: 3;
-    box-shadow: 2px 2px 5px rgb(101, 101, 101);
-}
-
-    /* Change All Popup Formatting */
-    #sb #Change-Popup span {
-        display: block;
-        padding: 0.25em;
-    }
-
-    #sb #Change-Popup input[type="text"] {
-        display: block;
-        width: 3em;
-        margin: 0.25em
-    }
-
-    #sb #Change-Popup input[type="button"] {
-        margin: 0.25em;
-    }
 
 /* Comparison Search Method Formatting */
 #sb .comparisonSearchMethod {
