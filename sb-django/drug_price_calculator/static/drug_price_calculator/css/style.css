@@ -77,12 +77,13 @@
 
 /* Info and Delete Buttons */
 #sb .info {
-    border: none;
     background: url("/static/drug_price_calculator/images/info.png") 0px 29px;
-    width: 29px;
-    height: 29px;
+    border: none;
     display: inline-block;
+    height: 29px;
+    margin: 4px;
     text-indent: -9999px;
+    width: 29px;
 }
 
     #sb .info.notice {
@@ -107,12 +108,13 @@
     }
 
 #sb .delete {
-    border: none;
     background: url("/static/drug_price_calculator/images/trash.png") 0px 0px;
-    width: 25px;
-    height: 29px;
+    border: none;
     display: inline-block;
+    height: 29px;
+    margin: 4px;
     text-indent: -9999px;
+    width: 25px;
 }
 
     #sb .delete:hover {
