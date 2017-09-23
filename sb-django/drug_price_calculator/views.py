@@ -91,8 +91,9 @@ def live_search(request):
 
         if search_value:
             search_results = Price.objects.filter(
-                Q(generic_name__icontains=search_value) | 
-                Q(brand_name__icontains=search_value)).order_by("generic_name")
+                Q(generic_name__icontains=search_value) or 
+                Q(brand_name__icontains=search_value)).exclude(
+                    unit_price__isnull=True).order_by("generic_name")
 
             if search_results:
                 result_list = []
@@ -168,7 +169,7 @@ def add_item(request):
     response = []
 
     selection = request.GET["q"].split(",")
-    
+
     for url in selection:
         # Get all the required price, coverage data, and special_auth data
         price = Price.objects.get(url=url)
