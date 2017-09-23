@@ -195,7 +195,7 @@ function calculatePrice(costPerUnit, quantity, mac, thirdParty, benefits) {
 	var tempPrice;
 	
 	// Calculate total drug price
-	tempPrice = calculateFees(costPerUnit, quantity);
+    tempPrice = calculateFees(costPerUnit, quantity);
 	returnPrice.drugCost = tempPrice.drugCost;
 	returnPrice.upcharge1 = tempPrice.upcharge1;
 	returnPrice.upcharge2 = tempPrice.upcharge2;
@@ -329,7 +329,7 @@ function priceUpdate($item) {
                  || Number($item.find(".item-cost input").val());
 
     const quantity = Number($item.find(".item-quantity input").val());
-
+    
     const mac = $option.attr("data-mac");
 
     let $table = $item.parent(".content").parent("div")
@@ -579,13 +579,16 @@ function showInfo(infoButton) {
 				   document.documentElement.scrollTop;		   
     const buttonTop = $infoButton.offset().top
     const buttonLeft = $infoButton.offset().left;
-    
+
+    // Calculate where to place the popup
+    let divRight = screenWid < 580 ? 10 : (screenWid - buttonLeft) - 10;
+
     // Popup div positions to left of trigger button
     let $infoDiv = $("<div></div>");
     $infoDiv
         .attr("id", "Info-Popup")
         .css({
-            "right": ((screenWid - buttonLeft) + 10) + "px",
+            "right": divRight + "px",
             "top": (buttonTop) + "px"
         });
 
@@ -831,6 +834,7 @@ function showInfo(infoButton) {
     $coverDiv
         .attr("id", "Popup-Veil")
         .height(pageHt)
+        .width(pageWid)
         .on("click", function (e) { closeQuantityPopup(e); })
         .on("keydown", function (e) {
             changeQuantityKeypress(
@@ -1420,7 +1424,7 @@ function processResult(results) {
     $quantityInput
         .attr("id", quantityID)
         .on("keyup", function () {updateSupply(this);})
-        .val(1);
+        .val(100);
 
     let $quantity = $("<div></div>");
     $quantity

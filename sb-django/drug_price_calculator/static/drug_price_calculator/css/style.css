@@ -129,7 +129,6 @@
     z-index: 2;
     left: 0;
     top: 0;
-    width: 100vw;
 }
 
     #Popup-Veil #Change-Popup, #Popup-Veil #Info-Popup {
@@ -159,8 +158,8 @@
 
 /* Info Popup */
 #Popup-Veil #Info-Popup {
-    min-width: 300px;
-    max-width: 600px;
+    min-width: 280px;
+    max-width: 580px;
     word-wrap: break-word;
 }
 
@@ -175,7 +174,7 @@
 
     #Popup-Veil #Info-Popup p {
         margin: 0;
-        padding: 1rem;
+        padding: 0.25rem;
     }
 
     #Popup-Veil #Info-Popup .close {
