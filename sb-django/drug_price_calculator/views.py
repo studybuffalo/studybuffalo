@@ -99,19 +99,20 @@ def live_search(request):
                 first_entry = True
 
                 for item in search_results:
-                    title = item.generic_name
-                    
-                    """
-                    $tempText = $item['generic_name'] . " (" . $item['strength'] . " " . 
-						    $item['route'] . " " . $item['dosage_form'] . ")";
-						
-			        //Cleans up the tempText in case an item was missing
-			        $tempText = str_replace("  ", " ", $tempText);
-			        $tempText = str_replace("  ", " ", $tempText);
-			        $tempText = str_replace("( ", "(", $tempText);
-			        $tempText = str_replace(" )", ")", $tempText);
-			        $tempText = str_replace(" ()", "", $tempText);
-                    """
+                    # Assemble the title
+                    description = []
+
+                    if item.strength: description.append(item.strength)
+                    if item.route: description.append(item.route)
+                    if item.dosage_form: description.append(item.dosage_form)
+
+                    if len(description):
+                        title = "%s (%s)" % (
+                            item.generic_name,
+                            " ".join(description)
+                        )
+                    else:                    
+                        title = item.generic_name
 
                     if first_entry:
                         temp_dict = {

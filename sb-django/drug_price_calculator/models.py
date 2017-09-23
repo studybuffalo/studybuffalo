@@ -154,7 +154,7 @@ class ExtraInformation(models.Model):
     )
 
     manufacturer = models.CharField(
-        max_length=60,
+        max_length=75,
     )
 
     schedule = models.CharField(

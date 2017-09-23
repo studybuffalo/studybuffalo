@@ -1968,8 +1968,7 @@ $(document).ready(function() {
 	MathJax.Hub.Config({
 		jax: ["input/TeX","output/HTML-CSS"],
 		displayAlign: "left",
-		messageStyle: "none",
-		tex2jax: {preview: "none"}
+        tex2jax: { preview: "none" }
 	});
 });
 

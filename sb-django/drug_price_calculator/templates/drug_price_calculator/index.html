@@ -22,18 +22,25 @@
 	<div class="line MT1em">
 		<h2>Medication Prices</h2>
 			
-		<p><strong>Search for a drug name (generic or brand name):</strong></p>
-			
-		<div id="Search-Container">
-			<input type="search" id="Search-Bar" incremental="incremental">
-				
-			<div class="line"><div id="Search-Results"></div></div>
+		<div class="MT1em">
+			<strong>Search for a drug name (generic or brand name):</strong>
 		</div>
 			
-		<p class="MT05em">
-			<strong>Third Party Coverage:</strong>
+		<div class="searchContainer">
+			<input type="search" id="Search-Bar" class="searchBar" incremental="incremental">
 				
-			<select id="Price-Table-Third-Party" class="em15">
+			<div class="line">
+				<div id="Search-Results" class="searchResults">
+				</div>
+			</div>
+		</div>
+		
+		<div class="MT1em">
+			<strong>Third Party Coverage:</strong>
+		</div>
+
+		<div class="thirdPartyContainer">		
+			<select id="Price-Table-Third-Party" class="thirdPartySelect">
 				<option value="">None</option>
 				<option value="1">Non-Group Coverage (Group 1)</option>
 				<option value="66">Coverage for Seniors (Group 66)</option>
@@ -47,17 +54,176 @@
 				<option value="22128">Learners Program (Group 22128)</option>
 				<option value="23609">Alberta Adult Health Benefit (AAHB) (Group 23609)</option>
 			</select>
-		</p>
-			
-		<p class="MT05em">
-			<strong>Price Calculation Method:</strong>
-			<select id="Price-Table-Method">
-				<option>By day supply</option>
-				<option>By quantity</option>
-			</select>
-		</p>
-			
-		<p class="MT1em">
+		</div>
+		
+		<div id="price-table">
+			<div class="header">
+				<div class="item-medication">Medication</div>
+				<div class="item-brand">Brand</div>
+				<div class="item-cost">Cost Per Unit</div>
+				<div class="item-dose">Doses Per Day</div>
+				<div class="item-supply">Day Supply</div>
+				<div class="item-quantity">Quantity</div>
+				<div class="item-price">Price</div>
+				<div class="item-buttons"></div>
+			</div>
+
+			<div class="content">
+				<div class="item">
+					<div class="item-medication">
+						<label for="medication-1">Medication</label>
+						<div id="medication-1">
+							<strong>warfarin sodiumaldklaflkadjfkkdafjladfj</strong>
+							<em>1 mg oral tablet</em>
+						</div>
+					</div>
+					<div class="item-brand">
+						<label for="brand-1">Brand</label>
+						<select id="brand-1">
+							<option>LCA</option>
+							<option>Really long option goes over here for more testing</option>
+						</select>
+					</div>
+					<div class="item-cost">
+						<label for="cost-1">Cost Per Unit</label>
+						<div id="cost-1">
+							<span>$0.0780</span> 
+							<em>(per tablet)</em>
+						</div>
+					</div>
+					<div class="item-dose">
+						<label for="doses-1">Doses Per Day</label>
+						<input type="text" id="doses-1" value="1">
+					</div>
+					<div class="item-supply">
+						<label for="supply-1">Day Supply</label>
+						<input type="text" id="supply-1" value="1">
+					</div>
+					<div class="item-quantity">
+						<label for="quantity-1">Quantity</label>
+						<input type="text" id="quantity-1" value="100">
+					</div>
+					<div class="item-price">
+						<label for="price-1">Price</label>
+						<div id="price-1">
+							$99999.90
+						</div>
+					</div>
+					<div class="item-buttons">
+						<input type="button" class="info" value="Information">
+						<input type="button" class="delete" value="Delete">
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="item-medication">
+						<label for="medication-1">Medication</label>
+						<div id="medication-1">
+							<strong>Adalimumab</strong>
+							<em>1 mg oral tablet</em>
+						</div>
+					</div>
+					<div class="item-brand">
+						<label for="brand-1">Brand</label>
+						<select id="brand-1">
+							<option>LCA</option>
+							<option>Humira</option>
+						</select>
+					</div>
+					<div class="item-cost">
+						<label for="cost-1">Cost Per Unit</label>
+						<div id="cost-1">
+							<span>$1042.4223</span> 
+							<em>(per syringe)</em>
+						</div>
+					</div>
+					<div class="item-dose">
+						<label for="doses-1">Doses Per Day</label>
+						<input type="text" id="doses-1" value="3">
+					</div>
+					<div class="item-supply">
+						<label for="supply-1">Day Supply</label>
+						<input type="text" id="supply-1" value="1/28">
+					</div>
+					<div class="item-quantity">
+						<label for="quantity-1">Quantity</label>
+						<input type="text" id="quantity-1" value="84">
+					</div>
+					<div class="item-price">
+						<label for="price-1">Price</label>
+						<div id="price-1">
+							$5000.00
+						</div>
+					</div>
+					<div class="item-buttons">
+						<input type="button" class="info" value="Information">
+						<input type="button" class="delete" value="Delete">
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="item-medication">
+						<label for="medication-1">Medication</label>
+						<div id="medication-1">
+							<strong>metformin</strong>
+							<em>500 mg oral tablet</em>
+						</div>
+					</div>
+					<div class="item-brand">
+						<label for="brand-1">Brand</label>
+						<select id="brand-1">
+							<option>LCA</option>
+							<option>Glucophage</option>
+						</select>
+					</div>
+					<div class="item-cost">
+						<label for="cost-1">Cost Per Unit</label>
+						<div id="cost-1">
+							<span>$0.0780</span> 
+							<em>(per tablet)</em>
+						</div>
+					</div>
+					<div class="item-dose">
+						<label for="doses-1">Doses Per Day</label>
+						<input type="text" id="doses-1" value="1">
+					</div>
+					<div class="item-supply">
+						<label for="supply-1">Day Supply</label>
+						<input type="text" id="supply-1" value="2">
+					</div>
+					<div class="item-quantity">
+						<label for="quantity-1">Quantity</label>
+						<input type="text" id="quantity-1" value="200">
+					</div>
+					<div class="item-price">
+						<label for="price-1">Price</label>
+						<div id="price-1">
+							$27.90
+						</div>
+					</div>
+					<div class="item-buttons">
+						<input type="button" class="info" value="Information">
+						<input type="button" class="delete" value="Delete">
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<div class="item-freeform">
+					<input type="button" value="Add freeform entry">
+				</div>
+				<div class="item-change">
+					<input type="button" value="Change all quantities/supplies">
+				</div>
+				<div class="item-buttons"> </div>
+				<div class="item-total">
+					<span id="price-table-total">TOTAL $10,900.20</span>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		<div class="tableContainer">
 			<table id="Price-Table">
 				<thead>
 					<tr>
@@ -77,18 +243,14 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td><input type="button" id="Add-Freeform" value="Add Freeform Entry"></td>
-						<td></td>
-						<td></td>
+						<td colspan="3"><input type="button" id="Add-Freeform" value="Add Freeform Entry"></td>
 						<td class="cellDay"></td>
-						<td class="cellDay changeCell">
+						<td colspan="2" class="cellDay changeCell">
 							<input type="button" class="changeSupply" value="Change All">
 						</td>
-						<td class="cellDay"></td>
-						<td class="cellQuantity changeCell">
+						<td colspan="2" class="cellQuantity changeCell">
 							<input type="button" class="changeQuantity" value="Change All">
 						</td>
-						<td class="cellQuantity"></td>
 						<td></td>
 						<td></td>
 					</tr>
@@ -106,49 +268,51 @@
 					</tr>
 				</tfoot>
 			</table>
+		</div>
+		-->
+		<p>
+			<table class="legend">
+				<tr>
+					<th>Tip:</th>
+					<td>You can enter fractions into the "Doses per Day" 
+						field using a "#/#" format. For example, 1 dose 
+						every 7 days can be entered as "1/7".</td>
+				</tr>
+				<tr>
+					<th>LCA:</th>
+					<td>Least Cost Alternative</td>
+				</tr>
+				<tr>
+			   		<th>MAC:</th>
+			   		<td>Maximum Allowable Cost (i.e. the cost the insurance plan will cover)</td>
+				</tr>
+				<tr>
+					<th><span class="info"> </span></th>
+					<td>Click for additional medication information</th>
+				</tr>
+				<tr>
+					<th><span class="info notice"> </span></th>
+					<td>Additional coverage criteria may apply</td>
+				</tr>
+				<tr>
+					<th><span class="info warning"> </span></th>
+					<td>Medication not a benefit under selected insurance plan</td>
+				</tr>
+			</table>
 		</p>
-			
-		<p><table class="legend">
-			<tr>
-				<th>Tip:</th>
-				<td>You can enter fractions into the "Doses per Day" 
-					field using a "#/#" format. For example, 1 dose 
-					every 7 days can be entered as "1/7".</td>
-			</tr>
-			<tr>
-				<th>LCA:</th>
-				<td>Least Cost Alternative</td>
-			</tr>
-			<tr>
-			   	<th>MAC:</th>
-			   	<td>Maximum Allowable Cost (i.e. the cost the insurance plan will cover)</td>
-			</tr>
-			<tr>
-				<th><span class="info"> </span></th>
-				<td>Click for additional medication information</th>
-			</tr>
-			<tr>
-				<th><span class="info notice"> </span></th>
-				<td>Additional coverage criteria may apply</td>
-			</tr>
-			<tr>
-				<th><span class="info warning"> </span></th>
-				<td>Medication not a benefit under selected insurance plan</td>
-			</tr>
-		</table></p>
-			
-		<!-- Print Prices -->
+	
 		<h3 class="MT05em">Print Medication Prices</h3>
 				
 		<p>
 			<b>Patient Name (Optional):</b>
-			<input type="text" id="Patient-Name" class="em10">
+			<input type="text" id="Patient-Name">
 		</p>
 				
 		<p class="MT05em"><input type="button" id="Print-Medication-Prices" value="Print Medication Prices"></p>
 	</div>
-		
+	
 	<!-- Comparing Prices -->
+	
 	<div class="line MT1em">
 		<hr>
 			
@@ -161,47 +325,51 @@
 			Classification (PTC).
 		</p>
 			
-		<p class="MT1em">
+		<div class="MT1em">
 			<strong>Classification System to Search:</strong>
-				
-			<div class="selectDiv">
-				<ul>
-					<li>
-						<input type="checkbox"
-								id="Comparison-Search-Method-1"
-								name="Comparison-Search-Method"
-								checked>
-						<label for="Comparison-Search-Method-1">
-							Anatomical Therapeutic Chemical (ATC) Classification
-						</label>
-					</li>
-					<li>
-						<input type="checkbox"
-								id="Comparison-Search-Method-2"
-								name="Comparison-Search-Method">
-						<label for="Comparison-Search-Method-2">
-							Pharmacologic-Therapeutic Classification (PTC)
-						</label>
-					</li>
-				</ul>
-			</div>
-		</p>
-			
-		<p class="MT1em">
+		</div>
+		
+		<div class="comparisonSearchMethod">
+			<ul>
+				<li>
+					<input type="checkbox"
+							id="Comparison-Search-Method-1"
+							name="Comparison-Search-Method"
+							checked>
+					<label for="Comparison-Search-Method-1">
+						Anatomical Therapeutic Chemical (ATC) Classification
+					</label>
+				</li>
+				<li>
+					<input type="checkbox"
+							id="Comparison-Search-Method-2"
+							name="Comparison-Search-Method">
+					<label for="Comparison-Search-Method-2">
+						Pharmacologic-Therapeutic Classification (PTC)
+					</label>
+				</li>
+			</ul>
+		</div>
+
+		<div class="MT1em">
 			<strong>
 				Search by category or medication name (generic or brand):
 			</strong>
-				
-			<div class="searchContainer">
-				<input type="search" id="Comparison-Search" class="searchBar" incremental="incremental">
-				<div class="line"><div id="Comparison-Results" class="searchResults"></div></div>
+		</div>	
+
+		<div class="searchContainer">
+			<input type="search" id="Comparison-Search" class="searchBar" incremental="incremental">
+			<div class="line">
+				<div id="Comparison-Results" class="searchResults"></div>
 			</div>
-		</p>
-			
-		<p class="MT05em">
+		</div>
+		
+		<div class="MT1em">
 			<strong>Third Party Coverage:</strong>
-				
-			<select id="Comparison-Table-Third-Party" class="em15">
+		</div>	
+		
+		<div class="thirdPartyContainer">
+			<select id="Comparison-Table-Third-Party" class="thirdPartySelect">
 				<option value="">None</option>
 				<option value="1">Non-Group Coverage (Group 1)</option>
 				<option value="66">Coverage for Seniors (Group 66)</option>
@@ -215,29 +383,127 @@
 				<option value="22128">Learners Program (Group 22128)</option>
 				<option value="23609">Alberta Adult Health Benefit (AAHB) (Group 23609)</option>
 			</select>
-		</p>
-			
-		<p class="MT05em MB1em">
-			<strong>Price Calculation Method:</strong>
-				
-			<select id="Comparison-Table-Method">
-				<option>By day supply</option>
-				<option>By quantity</option>
-			</select>
-		</p>
-			
+		</div>
+
+		<div id="comparison-table">
+			<div class="header">
+				<div class="item-medication">Medication</div>
+				<div class="item-strength">Strength</div>
+				<div class="item-lca">LCA</div>
+				<div class="item-dose">Doses Per Day</div>
+				<div class="item-supply">Day Supply</div>
+				<div class="item-quantity">Quantity</div>
+				<div class="item-price">Price</div>
+				<div class="item-buttons"></div>
+			</div>
+
+			<div class="content">
+				<div class="item">
+					<div class="item-medication">
+						<label for="medication-1">Medication</label>
+						<div id="comparison-medication-1">
+							acenocoumarol
+						</div>
+					</div>
+					<div class="item-strength">
+						<label for="comparison-strength-1">Strength</label>
+						<select id="comparison-strength-1">
+							<option>1 mg</option>
+							<option>4 mg</option>
+						</select>
+					</div>
+					<div class="item-lca">
+						<label for="comparison-lca-1">LCA</label>
+						<div id="comparison-lca-1">
+							$9999.5417
+						</div>
+					</div>
+					<div class="item-dose">
+						<label for="doses-1">Doses Per Day</label>
+						<input type="text" id="doses-1" value="1">
+					</div>
+					<div class="item-supply">
+						<label for="supply-1">Day Supply</label>
+						<input type="text" id="supply-1" value="1">
+					</div>
+					<div class="item-quantity">
+						<label for="quantity-1">Quantity</label>
+						<input type="text" id="quantity-1" value="100">
+					</div>
+					<div class="item-price">
+						<label for="price-1">Price</label>
+						<div id="price-1">
+							$99999.90
+						</div>
+					</div>
+					<div class=item-buttons>
+						<input type="button" class="info" value="Information">
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="item-medication">
+						<label for="medication-1">Medication</label>
+						<div id="comparison-medication-1">
+							warfarin
+						</div>
+					</div>
+					<div class="item-strength">
+						<label for="comparison-strength-1">Strength</label>
+						<select id="comparison-strength-1">
+							<option>1 mg</option>
+							<option>2 mg</option>
+						</select>
+					</div>
+					<div class="item-lca">
+						<label for="comparison-lca-1">LCA</label>
+						<div id="comparison-lca-1">
+							$0.0780
+						</div>
+					</div>
+					<div class="item-dose">
+						<label for="doses-1">Doses Per Day</label>
+						<input type="text" id="doses-1" value="1">
+					</div>
+					<div class="item-supply">
+						<label for="supply-1">Day Supply</label>
+						<input type="text" id="supply-1" value="1">
+					</div>
+					<div class="item-quantity">
+						<label for="quantity-1">Quantity</label>
+						<input type="text" id="quantity-1" value="100">
+					</div>
+					<div class="item-price">
+						<label for="price-1">Price</label>
+						<div id="price-1">
+							$20.90
+						</div>
+					</div>
+					<div class=item-buttons>
+						<input type="button" class="info" value="Information">
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<input type="button" value="Change all quantities/supplies">
+			</div>
+		</div>
+		<!--
 		<div id="Comparison-Table-Div" class="methodDay">
 			<table id="Comparison-Table">
 				<thead>
-					<th>Medication</th>
-					<th>Strength</th>
-					<th>LCA Cost ($)</th>
-					<th class="cellDay">Doses Per Day</th>
-					<th class="cellDay">Day Supply</th>
-					<th class="cellDay cellPrice">Price</th>
-					<th class="cellQuantity">Quantity</th>
-					<th class="cellQuantity cellPrice">Price</th>
-					<th></th>
+					<tr>
+						<th>Medication</th>
+						<th>Strength</th>
+						<th>LCA Cost ($)</th>
+						<th class="cellDay">Doses Per Day</th>
+						<th class="cellDay">Day Supply</th>
+						<th class="cellDay cellPrice">Price</th>
+						<th class="cellQuantity">Quantity</th>
+						<th class="cellQuantity cellPrice">Price</th>
+						<th></th>
+					</tr>
 				</thead>
 				<tbody>
 				</tbody>
@@ -269,38 +535,41 @@
 						<th></th>
 					</tr>
 				</tfoot>
-		</table>
-			
-		<p><table class="legend">
-			<tr>
-				<th>Tip:</th>
-				<td>You can enter fractions into the "Doses per Day" 
-					field using a "#/#" format. For example, 1 dose 
-					every 7 days can be entered as "1/7".</td>
-			</tr>
-			<tr>
-				<th>LCA:</th>
-				<td>Least Cost Alternative</td>
-			</tr>
-			<tr>
-			   	<th>MAC:</th>
-			   	<td>Maximum Allowable Cost (i.e. the cost the insurance plan will cover)</td>
-			</tr>
-			<tr>
-				<th><span class="info"> </span></th>
-				<td>Click for additional medication information</th>
-			</tr>
-			<tr>
-				<th><span class="info notice"> </span></th>
-				<td>Additional coverage criteria may apply</td>
-			</tr>
-			<tr>
-				<th><span class="info warning"> </span></th>
-				<td>Medication not a benefit under selected insurance plan</td>
-			</tr>
-		</table></p>
+			</table>
+		-->
+		<p>
+			<table class="legend">
+				<tr>
+					<th>Tip:</th>
+					<td>You can enter fractions into the "Doses per Day" 
+						field using a "#/#" format. For example, 1 dose 
+						every 7 days can be entered as "1/7".</td>
+				</tr>
+				<tr>
+					<th>LCA:</th>
+					<td>Least Cost Alternative</td>
+				</tr>
+				<tr>
+			   		<th>MAC:</th>
+			   		<td>Maximum Allowable Cost (i.e. the cost the insurance plan will cover)</td>
+				</tr>
+				<tr>
+					<th><span class="info"> </span></th>
+					<td>Click for additional medication information</th>
+				</tr>
+				<tr>
+					<th><span class="info notice"> </span></th>
+					<td>Additional coverage criteria may apply</td>
+				</tr>
+				<tr>
+					<th><span class="info warning"> </span></th>
+					<td>Medication not a benefit under selected insurance plan</td>
+				</tr>
+			</table>
+		</p>
 	</div>
-		
+	
+
 	<!-- Disclaimers & Notices -->
 	<div class="line MT1em">
 		<hr>
@@ -348,76 +617,96 @@
 			
 		<p>
 			If you have any questions, concerns, or wish to report an error,
-			please email us at
-			<a href="mailto:studybuffalo@studybuffalo.com?subject=Alberta%20Drug%20Price%20Calculator">
-			studybuffalo@studybuffalo.com</a>.
+			please <a href="{% url 'contact' %}">contact us</a>.
 		</p>
 			
 		<p class="center-content MT1em">
 			<strong>Prices last updated:</strong> <span id="Last-Update"><?php echo $update ?></span>
 		</p>
 	</div>
-		
+
 	<!-- Price Calculations -->
+	<!--
 	<div class="line MT1em">
 		<hr>
 			
 		<h2>Price Calculations</h2>
 			
-		<p>Below is an example of how prices are calculated, with the example of 100 
-		tablets of a medication (Unit Price = $0.10/tablet):</p>
+		<p>
+			Below is an example of how prices are calculated, with the example of 100 
+			tablets of a medication (Unit Price = $0.10/tablet):
+		</p>
 			
 		<h3 class="MT05em">Medication Cost</h3>
-		<p>The cost per unit multiplied by the number of units.
+		
+		<p>
+			The cost per unit multiplied by the number of units.
+		</p>
+
+		<div class="equation">
 			\begin{align}
 				Medication\ Cost & = Cost\ Per\ Unit * Quantity &\\
 				& = \frac{$0.10}{tablet} * 100\ tablets &\\
 				& = $10.00
 			\end{align}
-		</p>
+		</div>
 			
 		<h3>Allowable Upcharge #1</h3>
-		<p>3% of the medication cost.
-				
+		
+		<p>
+			3% of the medication cost.
+		</p>
+		
+		<div class="equation">
 			\begin{align}
 				Allowable\ Upcharge\ \#1 & = Medication\ Cost * 0.03 &\\
 				& = $10.00 * 0.03 &\\
 				& = $0.30
 			\end{align}
-		</p>
+		</div>
 			
 		<h3>Allowable Upcharge #2</h3>
-		<p>6% of the total of medication cost &#38; allowable upcharge #1.
-				
+
+		<p>
+			6% of the total of medication cost &#38; allowable upcharge #1.
+		</p>
+
+		<div class="equation">	
 			\begin{align}
 				Allowable\ Upcharge\ \#2 & = \left(Medication\ Cost + Allowable\ Upcharge\ \#1\right) * 0.06 &\\
 				& = \left($10.00 + $0.30\right) * 0.06 &\\
 				& = $10.30 * 0.06 &\\
 				& = $0.62
 			\end{align}
-		</p>
+		</div>
 			
 		<h3>Dispensing Fee</h3>
+
 		<p>A flat fee of $12.30.</p>
 			
 		<h3 class="MT05em">Final Price</h3>
-		<p>All the above fees are added to the medication cost to generate the final total.
-			
+		
+		<p>
+			All the above fees are added to the medication cost to generate the final total.
+		</p>
+
+		<div class="equation">
 			\begin{align}
 				Total\ Cost & = Medication\ Cost + Allowable\ Upcharge\ \#1 + Allowable\ Upcharge\ \#2 + Dispensing\ Fee &\\
 				& = $10.00 + $0.30 + $0.62 + $12.30 &\\
 				& = $23.22
 			\end{align}
-		</p>
+		</div>
 	</div>
-		
+	-->
+
 	<!-- Third Party Coverage Calculations -->
 	<div class="line MT1em">
 		<hr>
 			
 		<h2>Third Party Coverage Calculations</h2>
-			
-		<p><table class="bordered">
+		
+		<table id="third-party-coverages">
 			<thead>
 				<tr>
 					<th>Third Party Coverage</th>
@@ -493,9 +782,9 @@
 					<th class="shade">Alberta Adult Health Benefit (AAHB) (Group 23609)</th>
 				</tr>
 			</tbody>
-		</table></p>
+		</table>
 	</div>
-
+	
 	<!-- JS Functions and External Libraries -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<script type="text/javascript" src="{% static 'drug_price_calculator\js\functions.js' %}"></script>
