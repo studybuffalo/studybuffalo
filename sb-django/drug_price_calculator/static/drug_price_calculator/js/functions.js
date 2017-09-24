@@ -357,16 +357,17 @@ function priceUpdate($item) {
 
     // Updates class on the Info button
     let $infoButton = $item.find(".info");
-
+    
     if (price.benefit === "No") {
         $infoButton.attr("class", "info warning");
     } else if (
-        $select.attr("data-criteria-sa")
-        || $select.attr("data-criteria-p")
-        || $select.attr("data-special-auth-title-1")
+        $option.attr("data-criteria-sa")
+        || $option.attr("data-criteria-p")
+        || $option.attr("data-special-auth-title-1")
     ) {
         $infoButton.attr("class", "info notice");
     } else {
+        console.log("No match");
         $infoButton.attr("class", "info");
     }
 }
@@ -855,9 +856,9 @@ function showInfo(infoButton) {
                 .text(saFormName)
                 .attr("href", saFormLink)
                 .attr("target", "_blank")
-                .atrr("rel", "noopner");
+                .attr("rel", "noopner");
 
-            $("<li></li>").append($saFormTemp).appendTo($saForm);
+            $("<li></li>").append($saFormA).appendTo($saForm);
 
             saCounter++
         } else {
