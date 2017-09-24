@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 import datetime
 from functools import wraps
@@ -17,10 +18,16 @@ from django.utils.http import http_date
 
 
 class Index(generic.ListView):
-    model = Update
-
     context_object_name = "updates"
     template_name = "index.html"
+
+    def get_queryset(self):
+        today = datetime.datetime.today()
+        return Update.objects.filter(
+            start_date__lte=today
+        ).filter(
+            Q(end_date__isnull=True) | Q(end_date__gt=today)
+        )
     
 def tools_index(request):
     """View for the tool page"""
