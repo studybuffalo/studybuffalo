@@ -136,7 +136,9 @@ input, select, textarea, button {
 
     #sb #title-bar #placeholder {
         content: " ";
+        height: 1px;
         text-align: left;
+        width: 0;
     }
 
     #sb #title-bar #logo {
@@ -390,6 +392,10 @@ input, select, textarea, button {
         max-width: 1004px;
     }
 
+    #sb #title-bar #placeholder {
+        width: 150px;
+    }
+
     #sb #header-container nav {
         align-items: center;
     }
@@ -450,6 +456,10 @@ input, select, textarea, button {
     #sb .container {
         min-width: 1004px;
         max-width: 1260px;
+    }
+
+    #sb #title-bar #placeholder {
+        width: 150px;
     }
 
     #sb #header-container nav {
