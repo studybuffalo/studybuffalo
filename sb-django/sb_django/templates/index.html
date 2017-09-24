@@ -19,7 +19,7 @@
 			}
 
 			#sb .content-section .part-row {
-				flex: 1 1 40%;
+				flex: 1 1 100%;
 				padding: 5%;
 			}
 
@@ -73,14 +73,31 @@
 			height: 400px;
 		}
 
+		#sb #updates .update {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 100%;
+			width: 100%;
+		}
+
 		#sb #updates .hide {
 			display: none;
 		}
 
+		#sb #updates .update-link.selected {
+			opacity: 1;
+		}
+
+		#sb #updates .selected .link-text {
+			font-weight: 700;
+		}
+
 		#sb #updates .update-link {
+			align-items: center;
 			display: flex;
 			flex-direction: row;
-			align-items: center;
+			opacity: 0.5;
 		}
 
 		#sb #updates .link-image {
@@ -93,21 +110,43 @@
 			width: 100px;
 		}
 
-		#sb #updates .selected {
-			border: 2px solid rgb(101, 101, 101);
-			box-shadow: 0 0 5px 1px rgb(101, 101, 101);
-			transition: all ease-in-out 0.15s;
-		}
-
 		#sb #updates .link-text {
 			display: inline-block;
 			padding: 10px;
+			transition: all ease-in-out 0.15s;
 			width: 100%;
 		}
 
-		@media screen and (max-width: 768px) {
+		#sb #updates a {
+			color: rgb(0, 0, 0);
+		}
+
+		#sb #updates a:hover {
+			cursor: pointer;
+		}
+
+		#sb #updates h2 {
+			margin: 0;
+			padding: 2rem;
+		}
+
+		@media screen and (min-width: 768px) {
 			#sb .content-section .part-row {
-				flex: 1 1 100%;
+				flex: 1 1 40%;
+			}
+		}
+
+		@media screen and (min-width: 1024px) {
+			#sb #updates {
+				flex-direction: row;
+			}
+
+			#sb #updates #displayed-update {
+				order: 2;
+			}
+
+			#sb #updates #update-links {
+				order: 1;
 			}
 		}
 	</style>
@@ -121,26 +160,21 @@
 	<div id="updates" data-loop="true">
 		<div id="displayed-update">
 			{% for update in updates %}
-				{% if update.priority == 1 %}
-					<div class="update" data-id="{{ update.id }}">
-						{{ update.html|safe }}
-					</div>
-				{% else %}
-					<div class="update hide" data-id="{{ update.id }}">
-						{{ update.html|safe }}
-					</div>
-				{% endif %}
+				<div data-id="{{ update.id }}" 
+					 class="update {% if update.priority > 1 %}hide{% endif %}" 
+					 {% if update.background %}style="background-image:url('{{ update.background.url }}')"{% endif %}>					 
+					
+					{{ update.html|safe }}
+				</div>
 			{% endfor %}
 		</div>
 		<div id="update-links">
+			<h2>Updates</h2>
 			{% for update in updates %}
-				<a class="update-link" onclick="changeUpdateIcon(this)" data-id="{{ update.id }}">
-					{% if update.priority == 1 %}
-						<img class="link-image selected" src="{{ update.icon.url }}">
-					{% else %}
-						<img class="link-image" src="{{ update.icon.url }}">
-					{% endif %}
+				<a class="update-link {% if update.priority == 1 %}selected{% endif %}" 
+				   onclick="changeUpdateIcon(this)" data-id="{{ update.id }}">
 					
+					<img class="link-image" src="{{ update.icon.url }}">
 					<div class="link-text">{{ update.title }}</div>
 				</a>
 			{% endfor %}

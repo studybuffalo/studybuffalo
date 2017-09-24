@@ -1,14 +1,14 @@
 function changeUpdateIcon(update) {
     let $update = $(update);
-
+    console.log($update);
     // Stop the update loop
-    $("#updates").attr("data-loop", "")
+    $("#updates").attr("data-loop", "");
 
     // Remove selection from all updates
-    $(".link-image").removeClass("selected");
+    $(".update-link").removeClass("selected");
 
     // Add selected to this icon
-    $update.find(".link-image").addClass("selected");
+    $update.addClass("selected");
 
     // Change the update display
     const id = $update.attr("data-id");
@@ -38,7 +38,7 @@ function cycleUpdates() {
     if (loop) {
         // Get the currently selected item
         const $selection = $("#updates .selected");
-        const $sibling = $selection.parent().next().find(".link-image");
+        const $sibling = $selection.next();
 
         // Remove the current selection
         $selection.removeClass("selected");
@@ -49,11 +49,12 @@ function cycleUpdates() {
 
         if ($sibling.length) {
             $sibling.addClass("selected");
-            id = $sibling.parent(".update-link").attr("data-id");
+            id = $sibling.attr("data-id");
         } else {
-            const $firstItem = $selection.parents("#update-links").find(".link-image").eq(0);
+            const $firstItem = $selection.parent().children().eq(1);
+            
             $firstItem.addClass("selected");
-            id = $firstItem.parent(".update-link").attr("data-id");
+            id = $firstItem.attr("data-id");
         }
 
         // Update the display
