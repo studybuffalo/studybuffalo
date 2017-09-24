@@ -91,7 +91,7 @@ def live_search(request):
 
         if search_value:
             search_results = Price.objects.filter(
-                Q(generic_name__icontains=search_value) or 
+                Q(generic_name__icontains=search_value) | 
                 Q(brand_name__icontains=search_value)).exclude(
                     unit_price__isnull=True).order_by("generic_name")
 
