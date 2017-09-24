@@ -218,6 +218,10 @@ def add_item(request):
     return HttpResponse(json.dumps(response, cls=DjangoJSONEncoder), content_type="application/json")
 
 def comparison_search(request):
+    """Returns a list of medications with matching generic name, 
+    brand name, ATC, or PTC"""
+    # TOFIX: If a name match occurs and the ATC/PTC is not a 4th 
+    # level code, it will pull all children codes for that 1-3rd level code
     def bool_convert(txt):
         if txt == "true":
             return True
@@ -328,7 +332,6 @@ def comparison_search(request):
             for item in names:
                 atc = ATC.objects.get(url=item.url)
                 description_list.add(find_last_description(atc, "atc"))
-
             # Use the collected ATC codes to find any matching URLs
             for desc in description_list:
                 atc_urls = get_atc_url(desc)
@@ -354,6 +357,7 @@ def comparison_search(request):
         atc_urls = get_atc_url(search_string)
         
         # Collects any matching mediction name URLs
+        print ("Searchin for name match")
         name_urls = get_name_url(search_string, "atc")
 
         # Combine URL results
