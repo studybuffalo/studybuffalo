@@ -3,6 +3,10 @@
     margin-top: 1em;
 }
 
+#sb input[type="button"] {
+    white-space: normal;
+}
+
 /* Search Bar Styles */
 #sb .searchContainer {
     width: 100%;
