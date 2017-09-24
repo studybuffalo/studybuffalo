@@ -143,20 +143,21 @@
     }
 
     /* Change All Popup Formatting */
-        #Popup-Veil #Change-Popup span {
-            display: block;
-            padding: 0.25em;
+    #Popup-Veil #Change-Popup {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 10px;
+    }
+        #Popup-Veil #Change-Popup > div {
+            text-align: center;
         }
 
-        #Popup-Veil #Change-Popup input[type="text"] {
-            display: block;
-            width: 3em;
-            margin: 0.25em
-        }
+    #Popup-Veil #change-amount {
+        width: 100px;
+    }
 
-        #Popup-Veil #Change-Popup input[type="button"] {
-            margin: 0.25em;
-        }
 
 /* Info Popup */
 #Popup-Veil #Info-Popup {

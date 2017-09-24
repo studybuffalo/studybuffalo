@@ -420,17 +420,35 @@ function changeThirdParty(table) {
  *	e:			The element triggering the function							*
  ****************************************************************************/
 function closeQuantityPopup(e) {
-	var $popupDiv = $("#Popup-Veil")[0];
-	var $changeButton = $("#Popup-Change")[0];
-	var $closeButton = $("#Popup-Close")[0];
+	var popupDiv = $("#Popup-Veil")[0];
+	var closeButton = $("#close-change-popup")[0];
 	
 	if (e === undefined ||
-		e.target === $popupDiv || 
-		e.target === $changeButton ||
-		e.target === $closeButton) {
+		e.target === popupDiv || 
+		e.target === closeButton) {
 			$("#Popup-Veil").remove();
 	}
 }
+
+
+function changeSupply(table) {
+    const amount = $("#change-amount").val();
+
+    let $items = $("#" + table).find(".item");
+
+    $items.each(function (index, item) {
+        $item = $(item);
+        $input = $item.find(".item-supply input")
+        $input.val(amount);
+
+        // Update the day supplies
+        updateQuantity($input[0]);
+    });
+
+    // Closes Popup
+    $("#Popup-Veil").remove();
+}
+
 
 /****************************************************************************
  *	changeQuantity()	Updates the quantities in an entire column			*
@@ -441,22 +459,22 @@ function closeQuantityPopup(e) {
  *					column													*
  *	table:			The table ID containing the columns to update			*
  ****************************************************************************/
-function changeQuantity(amount, colIndex, type, table) {
-	var $rows = $("#" + table + " tbody tr");
-	
-	$rows.each(function(index, row) {
-		$input = $(row).children("td").eq(colIndex).children("input:first");
-		$input.val(amount.value);
-		
-		if (type === "supply") {
-			priceUpdateDay($input, table);
-		} else if (type === "quantity") {
-			priceUpdateQuantity($input, table);
-		}
+function changeQuantity(table) {
+    const amount = $("#change-amount").val();
+
+    let $items = $("#" + table).find(".item");
+
+    $items.each(function (index, item) {
+        $item = $(item);
+        $input = $item.find(".item-quantity input")
+        $input.val(amount);
+
+        // Update the day supplies
+        updateSupply($input[0]);
 	});
-	
+
 	// Closes Popup
-	$(amount).parent().parent().remove();
+    $("#Popup-Veil").remove();
 }
 
 /****************************************************************************
@@ -485,70 +503,101 @@ function changeQuantityKeypress(amount, colIndex, type, table, e) {
  *	buttonInput:	The button trigger the change							*
  *	name:			The calculation method this button applies to			*
  ****************************************************************************/
-function changeQuantityPopup(buttonInput, type) {
+function changeQuantityPopup(buttonInput) {
 	// Collect page, viewport, and element dimensions/coordinates
-	var pageHt = $(document).height();
-	var pageWid = $(document).width();
-	var screenWid = $(window).width();
-	var scrollHt = document.body.scrollTop ||
-				   document.documentElement.scrollTop;		   
-	var buttonTop = $(buttonInput).offset().top
-	var buttonLeft = $(buttonInput).offset().left;
-	var inputHt = 200;
-	var inputWid = 300;
-	
-	var $coverDiv = $("<div></div>");
-	var $inputDiv = $("<div></div>");
-	var $inputLabel = $("<span></span>");
-	var inputText = document.createElement("input");
-	var inputButton = document.createElement("input");
-	var inputClose = document.createElement("input");
-	
-	var $cell = $(buttonInput).closest("td");
-	var $cells = $cell.closest("tr").children("td");
-	var table = $cell.closest("table").attr("id");
-	var colIndex = getElementIndex($cell, $cells);
-	
-	// Position cover div to fill entire page
-	$coverDiv.attr("id", "Popup-Veil")
-			 .height(pageHt)
-			 .width(pageWid)
-			 .on("click", function(e){closeQuantityPopup(e);})
-			 .on("keydown", function(e) {changeQuantityKeypress(
-				 inputText, colIndex, type, table, e);});
-	
-	// Popup div positions to left of trigger button
-	$inputDiv.attr("id","Change-Popup")
-			 .css({"min-width": inputWid + "px",
-				  "right": ((screenWid - buttonLeft) + 10) + "px",
-				  "top": (buttonTop) + "px"});
-	
-	// Creating popup window input elements
-	$inputLabel.text("Enter new amount: ");
-	
-	inputText.type = "text";
-	
-	inputButton.type = "button";
-	$(inputButton).attr("id", "Popup-Change")
-				  .val("Change Amounts")
-				  .on("click", function() {changeQuantity(
-					  inputText, colIndex, type, table);});
-	
-	inputClose.type = "button";
-	$(inputClose).attr("id","Popup-Close")
-				 .val("Cancel")
-				 .on("click", function(e){closeQuantityPopup(e);});
-	
-	// Assembling popup window
-	$coverDiv.appendTo("body");
-	$inputDiv.appendTo($coverDiv)
-			 .append($inputLabel)
-			 .append(inputText)
-			 .append(inputButton)
-			 .append(inputClose);
-	
+	const pageHt = $(document).height();
+    const pageWid = $(document).width();
+    const screenWid = $(window).width();
+    const scrollHt = document.body.scrollTop ||
+				   document.documentElement.scrollTop;
+    const viewHt = $(window).height();
+    
+    // Position cover div to fill entire page
+    let $coverDiv = $("<div></div>");
+    $coverDiv
+        .attr("id", "Popup-Veil")
+        .on("click", function (e) { closeQuantityPopup(e); })
+        .height(pageHt)
+        .width(pageWid)
+        .prependTo("body");
+
+    // Position the popup in the center of the screen
+    const inputHt = 300;
+    const inputWid = 300;
+    const inputLeft = (pageWid - inputWid) / 2;
+    const inputTop = scrollHt + (viewHt / 2) - (inputHt / 2);
+
+    let $popupDiv = $("<div></div>");
+    $popupDiv
+        .attr("id", "Change-Popup")
+        .css({
+            "height": inputHt + "px",
+            "width": inputWid + "px",
+            "left": inputLeft + "px",
+            "top": inputTop + "px"
+        })
+        .appendTo($coverDiv);
+
+    // Instruction Text
+    let $instruction = $("<div></div>")
+    $instruction
+        .text("Enter new day supply or quantity")
+        .appendTo($popupDiv);
+
+    // Input Amount
+    let $input = $("<input type='text'>")
+    $input.attr("id", "change-amount")
+
+    let $inputDiv = $("<div></div>")
+    $inputDiv
+        .append($input)
+        .appendTo($popupDiv)
+        
+    // Get the table name
+    const tableName = $(buttonInput).closest(".footer").parent("div").attr("id");
+
+    // Change Day Supply
+    let $buttonSupply = $("<input type='button'>")
+    $buttonSupply
+        .attr("id", "change-supply")
+        .on("click", function () {
+            changeSupply(tableName);
+        })
+        .val("Change Day Supply")
+
+    let $supplyDiv = $("<div></div>")
+    $supplyDiv
+        .append($buttonSupply)
+        .appendTo($popupDiv)
+
+    // Change Quantity
+    let $buttonQuantity = $("<input type='button'>")
+    $buttonQuantity
+        .attr("id", "change-quantity")
+        .on("click", function () {
+            changeQuantity(tableName);
+        })
+        .val("Change Quantity")
+
+    let $quantityDiv = $("<div></div>")
+    $quantityDiv
+        .append($buttonQuantity)
+        .appendTo($popupDiv)
+
+    // Close BUtton
+    let $buttonClose = $("<input type='button'>")
+    $buttonClose
+        .attr("id", "close-change-popup")
+        .on("click", function (e) { closeQuantityPopup(e); })
+        .val("Cancel");
+
+    let $closeDiv = $("<div></div>")
+    $closeDiv
+        .append($buttonClose)
+        .appendTo($popupDiv)
+    
 	// Bring focus to popup
-	inputText.focus();
+    $input.focus();
 }
 
 /****************************************************************************
@@ -862,6 +911,9 @@ function updateQuantity(input) {
 
     // Update the quantity input
     $item.find(".item-quantity input").val(quantity);
+
+    // Recalculate the total price
+    priceUpdate($item);
 }
 
 
@@ -882,6 +934,9 @@ function updateSupply(input) {
 
     // Update the supply input
     $item.find(".item-supply input").val(supply);
+
+    // Recalculate the total price
+    priceUpdate($item);
 }
 
 /****************************************************************************
@@ -1909,7 +1964,7 @@ $(document).ready(function() {
 	
 	$("input.changeQuantity").on(
 		"click",
-		function(){changeQuantityPopup(this, "quantity");});
+		function(){changeQuantityPopup(this);});
 
 	$("#Add-Freeform").on(
 		"click",
