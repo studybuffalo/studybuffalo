@@ -363,7 +363,7 @@ def comparison_search(request):
         if len(urls):
             return query_complete(urls, "atc")
         else:
-            return set()
+            return []
 
     def process_ptc(search_string):
         """Searches and returns data matching search string (ATC & names)"""
