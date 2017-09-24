@@ -20,7 +20,7 @@ html {
 body {
     background-color: rgb(250, 250, 250);
     font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     height: 100%;
     line-height: 150%;
     margin: 0;
@@ -36,7 +36,7 @@ body {
     }
 
 input, select, textarea, button {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 #sb h1, h2, h3, h4, h5, h6 {
@@ -46,7 +46,7 @@ input, select, textarea, button {
 }
 
 #sb h1 {
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
     #sb h1 a, #sb h1 a:visited {
@@ -62,7 +62,7 @@ input, select, textarea, button {
         }
 
 #sb h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     padding-top: 4rem;
     text-align: center;
 }
@@ -78,7 +78,6 @@ input, select, textarea, button {
         width: 70%;
         z-index: 1;
     }
-
 
 #sb h3 {
     font-size: 3rem;
@@ -121,6 +120,8 @@ input, select, textarea, button {
 
 #sb .container {
     box-sizing: border-box;
+    max-width: 748px;
+    min-width: 300px;
 }
 
 /* Header > Title Bar*/
@@ -179,6 +180,10 @@ input, select, textarea, button {
         text-align: left;
         width: 100%;
     }
+        #sb #header-container #menu-icon.open {
+            border-left: 1px solid rgb(101, 101, 101);
+            border-right: 1px solid rgb(101, 101, 101);
+        }
 
         #sb #header-container #menu-icon span {
             vertical-align: middle;
@@ -189,48 +194,49 @@ input, select, textarea, button {
             padding: 0 1rem;
         }
 
-    #sb #header-container nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding: 0;
+    #sb #header-container #menu {
+        height: 100%;
+        display: block;
         margin: 0;
+        max-height: 0;
+        padding: 0;
+        transition: 0.25s ease-in-out;
+        width: 100%;
     }
 
-    #sb #header-container nav li {
-        border-right: 1px solid rgb(101, 101, 101);
-        display: inline-block;
-        font-size: 3rem;
-        list-style: none;
-    }
-
-        #sb #header-container nav li:first-child {
+        #sb #header-container #menu li {
+            border-top: 1px solid rgb(101, 101, 101);
             border-left: 1px solid rgb(101, 101, 101);
+            border-right: 1px solid rgb(101, 101, 101);
+            display: block;
+            list-style: none;
         }
 
-        #sb #header-container nav li a {
-            border-bottom: 5px solid rgb(255, 255, 255);
-            color: black;
-            display: inline-block;
-            padding: 1rem 4rem;
-            text-decoration: none;
-            transition: 0.25s ease-in-out;
-        }
-
-            #sb #header-container nav li a:hover {
-                border-bottom: 5px solid rgb(41, 138, 0);
+            #sb #header-container #menu li a {
+                border-bottom: none;
+                border-left: 5px solid rgb(255, 255, 255);
+                color: rgb(0, 0, 0);
                 cursor: pointer;
+                display: block;
+                padding: 1rem 4rem;
+                text-decoration: none;
+                transition: 0.25s ease-in-out;
             }
 
-            #sb #header-container nav li a.selected {
-                border-bottom: 5px solid rgb(41, 138, 0);
-                cursor: pointer;
-            }
-
-                #sb #header-container nav li a.selected:hover {
-                    border-bottom: 5px solid rgb(200, 238, 196);
-                    cursor: pointer;
+                #sb #header-container #menu li a.selected {
+                    border-left: 5px solid rgb(41, 138, 0);
                 }
+                    #sb #header-container #menu li a.selected:hover {
+                        border-left: 5px solid rgb(200, 238, 196);
+                    }
+
+                #sb #header-container #menu li a:hover {
+                    border-left: 5px solid rgb(41, 138, 0);
+                }
+
+    #sb #header-container #menu-icon.open + #menu {
+        max-height: 40rem;
+    }
 
 /* Main Content */
 #sb #main-content-container {
@@ -301,8 +307,6 @@ input, select, textarea, button {
         }
 
 /* Footer > Footer Content*/
-
-
 #sb footer {
     align-items: center;
     background-color: rgb(101, 101, 101);
@@ -314,38 +318,23 @@ input, select, textarea, button {
     width: 100%;
 }
 
-    #sb footer > div {
+    #sb #footer > div {
+        align-items: center;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         width: 100%;
     }
 
-    #sb footer .left span {
-        border-left: solid 2px rgb(50, 50, 50);
-        padding: 0 1rem;
-        text-align: left;
-        width: 35%;
-    }
-
-        #sb footer .left span:first-child {
-            border-left: none;
-        }
-
-    #sb footer .middle {
+    #sb footer .policies span,
+    #sb footer .other-links span,
+    #sb footer .copyright span {
+        box-sizing: border-box;
+        display: block;
+        padding: 0.15rem 0;
         text-align: center;
+        width: 100%;
     }
-
-    #sb footer .right span {
-        border-left: solid 2px rgb(50, 50, 50);
-        padding: 0 1rem;
-        text-align: right;
-        width: 35%;
-    }
-
-        #sb footer .right span:first-child {
-            border-left: none;
-        }
 
     #sb footer a, #sb footer a:visited {
         color: rgb(255, 255, 255);
@@ -394,125 +383,6 @@ input, select, textarea, button {
     Note: 20px is removed from the container width to account for variations 
     on scroll bar inclusion in viewport calculations 
 */
-@media screen and (max-width: 480px) {
-    #sb .container {
-        min-width: 300px;
-        max-width: 460px;
-    }
-
-    #sb #header-container nav {
-        align-items: flex-start;
-    }
-
-    #sb #header-container #menu {
-        height: 100%;
-        display: block;
-        max-height: 0;
-        transition: 0.25s ease-in-out;
-        width: 100%;
-    }
-
-        #sb #header-container #menu li {
-            border-top: 1px solid rgb(101, 101, 101);
-            border-left: none;
-            border-right: none;
-            display: block;
-        }
-
-            #sb #header-container #menu li a {
-                display: block;
-                border-bottom: none;
-                border-left: 5px solid rgb(255, 255, 255);
-            }
-
-    #sb #header-container #menu-icon + #menu li a.selected {
-        border-left: 5px solid rgb(41, 138, 0);
-    }
-
-
-    #sb #header-container #menu-icon.open + #menu {
-        max-height: 40rem;
-    }
-
-    #sb #footer-container footer > div {
-        align-items: center;
-        flex-direction: column;
-    }
-
-    #sb #footer-container footer .left span,
-    #sb #footer-container footer .middle span,
-    #sb #footer-container footer .right span {
-        border: none;
-        display: block;
-        padding: 0.15rem 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    #sb #footer-container footer .middle {
-        order: 4;
-    }
-}
-
-@media screen and (min-width: 480px) and (max-width: 768px) {
-    .container {
-        min-width: 460px;
-        max-width: 748px;
-    }
-
-    #sb #header-container nav {
-        align-items: flex-start;
-    }
-
-    #sb #header-container #menu {
-        height: 100%;
-        display: block;
-        max-height: 0;
-        transition: 0.25s ease-in-out;
-        width: 100%;
-    }
-
-        #sb #header-container #menu li {
-            border-top: 1px solid rgb(101, 101, 101);
-            border-left: none;
-            border-right: none;
-            display: block;
-        }
-
-            #sb #header-container #menu li a {
-                display: block;
-                border-bottom: none;
-                border-left: 5px solid rgb(255, 255, 255);
-            }
-
-    #sb #header-container #menu-icon + #menu li a.selected {
-        border-left: 5px solid rgb(41, 138, 0);
-    }
-
-
-    #sb #header-container #menu-icon.open + #menu {
-        max-height: 40rem;
-    }
-
-    #sb #footer-container footer > div {
-        align-items: center;
-        flex-direction: column;
-    }
-
-    #sb #footer-container footer .left span,
-    #sb #footer-container footer .middle span,
-    #sb #footer-container footer .right span {
-        border: none;
-        display: block;
-        padding: 0.15rem 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    #sb #footer-container footer .middle {
-        order: 4;
-    }
-}
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
@@ -520,13 +390,60 @@ input, select, textarea, button {
         max-width: 1004px;
     }
 
+    #sb #header-container nav {
+        align-items: center;
+    }
+
     #sb #header-container #menu-icon {
         display: none;
     }
 
-    #sb #header-container #menu li a {
-        padding: 1rem 2rem;
+    #sb #header-container #menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+        max-height: 100%;
+        padding: 0;
+        transition: border-bottom 0.25s ease-in-out;
     }
+
+        #sb #header-container #menu li {
+            border-right: 1px solid rgb(101, 101, 101);
+            border-left: none;
+            border-top: none;
+            display: inline-block;
+            font-size: 2.5rem;
+        }
+
+            #sb #header-container #menu li:first-child {
+                border-left: 1px solid rgb(101, 101, 101);
+            }
+
+            #sb #header-container #menu li a {
+                border-bottom: 5px solid rgb(255, 255, 255);
+                border-left: none;
+                display: inline-block;
+                padding: 1rem 2rem;
+            }
+
+                #sb #header-container #menu li a:hover {
+                    border-bottom: 5px solid rgb(41, 138, 0);
+                    border-left: none;
+                    cursor: pointer;
+                }
+
+                #sb #header-container #menu li a.selected {
+                    border-bottom: 5px solid rgb(41, 138, 0);
+                    border-left: none;
+                    cursor: pointer;
+                }
+
+                    #sb #header-container #menu li a.selected:hover {
+                        border-bottom: 5px solid rgb(200, 238, 196);
+                        border-left: none;
+                        cursor: pointer;
+                    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -535,7 +452,106 @@ input, select, textarea, button {
         max-width: 1260px;
     }
 
+    #sb #header-container nav {
+        align-items: center;
+    }
+
     #sb #header-container #menu-icon {
         display: none;
+    }
+
+    #sb #header-container #menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+        max-height: 100%;
+        padding: 0;
+        transition: border-bottom 0.25s ease-in-out;
+    }
+
+        #sb #header-container #menu li {
+            border-right: 1px solid rgb(101, 101, 101);
+            border-left: none;
+            border-top: none;
+            display: inline-block;
+            font-size: 3rem;
+        }
+
+        #sb #header-container #menu li:first-child {
+            border-left: 1px solid rgb(101, 101, 101);
+        }
+
+            #sb #header-container #menu li a {
+                border-bottom: 5px solid rgb(255, 255, 255);
+                border-left: none;
+                display: inline-block;
+            }
+
+                #sb #header-container #menu li a:hover {
+                    border-bottom: 5px solid rgb(41, 138, 0);
+                    border-left: none;
+                    cursor: pointer;
+                }
+
+                #sb #header-container #menu li a.selected {
+                    border-bottom: 5px solid rgb(41, 138, 0);
+                    border-left: none;
+                    cursor: pointer;
+                }
+
+                    #sb #header-container #menu li a.selected:hover {
+                        border-bottom: 5px solid rgb(200, 238, 196);
+                        border-left: none;
+                        cursor: pointer;
+                    }
+
+    #sb footer > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #sb footer .policies {
+        display: inline-block;
+        order: 1;
+        width: 35%;
+    }
+
+    #sb footer .policies span {
+        border-left: solid 2px rgb(50, 50, 50);
+        display: inline-block;
+        padding: 0 1rem;
+        text-align: left;
+        width: auto;
+    }
+
+        #sb footer .policies span:first-child {
+            border-left: none;
+        }
+
+    #sb footer .other-links {
+        display: inline-block;
+        order: 3;
+        width: 35%;
+        text-align: right;
+    }
+
+        #sb footer .other-links span {
+            border-left: solid 2px rgb(50, 50, 50);
+            display: inline-block;
+            padding: 0 1rem;
+            width: auto;
+        }
+
+        #sb footer .other-links span:first-child {
+            border-left: none;
+        }
+
+    #sb footer .copyright {
+        display: inline-block;
+        order: 2;
+        width: 30%;
     }
 }

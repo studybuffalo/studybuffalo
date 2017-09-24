@@ -59,7 +59,7 @@
 				</header>
 
 				<nav>
-					<div id="menu-icon">
+					<div id="menu-icon" class="container">
 						<span class="icon">&#8801;</span>
 						<span>Menu</span>
 					</div>
@@ -153,18 +153,18 @@
 
 				<footer>
 					<div class="container">
-						<div class="left">
+						<div class="policies">
 							<span><a href="{% url 'privacy_policy' %}">Privacy Policy</a></span>
 							<span><a href="{% url 'robot_policy' %}">Robot Policy</a></span>
 						</div>
-
-						<div class="middle">
-							<span>&copy; {% now "Y" %} Study Buffalo</span>
-						</div>
-
-						<div class="right">
+						
+						<div class="other-links">
 							<span><a href="{% url 'contact' %}">Contact</a></span>
 							<span><a href="{% url 'sitemap' %}">Site Map</a></span>
+						</div>
+
+						<div class="copyright">
+							<span>&copy; {% now "Y" %} Study Buffalo</span>
 						</div>
 					</div>
 				</footer>
