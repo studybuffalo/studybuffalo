@@ -77,7 +77,10 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
+			box-sizing: border-box;
 			height: 100%;
+			padding: 2rem;
+			text-align: center;
 			width: 100%;
 		}
 
@@ -141,14 +144,9 @@
 				flex-direction: row;
 			}
 
-			#sb #updates #displayed-update {
-				order: 2;
-			}
-
 			#sb #updates #update-links {
 				max-width: 500px;
 				min-width: 300px;
-				order: 1;
 			}
 		}
 	</style>
@@ -160,16 +158,6 @@
 
 {% block content %}
 	<div id="updates" data-loop="true">
-		<div id="displayed-update">
-			{% for update in updates %}
-				<div data-id="{{ update.id }}" 
-					 class="update {% if update.priority > 1 %}hide{% endif %}" 
-					 {% if update.background %}style="background-image:url('{{ update.background.url }}')"{% endif %}>					 
-					
-					{{ update.html|safe }}
-				</div>
-			{% endfor %}
-		</div>
 		<div id="update-links">
 			<h2>Updates</h2>
 			{% for update in updates %}
@@ -179,6 +167,16 @@
 					<img class="link-image" src="{{ update.icon.url }}">
 					<div class="link-text">{{ update.title }}</div>
 				</a>
+			{% endfor %}
+		</div>
+		<div id="displayed-update">
+			{% for update in updates %}
+				<div data-id="{{ update.id }}" 
+					 class="update {% if update.priority > 1 %}hide{% endif %}" 
+					 {% if update.background %}style="background-image:url('{{ update.background.url }}')"{% endif %}>					 
+					
+					{{ update.html|safe }}
+				</div>
 			{% endfor %}
 		</div>
 	</div>
