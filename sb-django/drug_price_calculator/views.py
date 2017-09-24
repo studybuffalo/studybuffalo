@@ -246,9 +246,6 @@ def comparison_search(request):
                 return category.atc_1_text
 
     def query_complete(urls, category_type):
-        # Remove duplicate URLs
-        urls = list(set(urls))
-
         # Cycle through each URL and collect needed data
         output = []
 
@@ -292,10 +289,10 @@ def comparison_search(request):
             Q(atc_4_text__icontains=search_string)
         )
 
-        urls = []
+        urls = set()
 
         for item in atc:
-            urls.append(item.url)
+            urls.add(item.url)
 
         return urls
 
@@ -323,20 +320,20 @@ def comparison_search(request):
             Q(generic_name__icontains=search_string)
         )
         
-        description_list = []
-        urls = []
+        description_list = set()
+        urls = set()
 
         if category_type == "atc":
             # Use the URL of each match to find what the ATC code
             for item in names:
                 atc = ATC.objects.get(url=item.url)
-                description_list.append(find_last_description(atc, "atc"))
+                description_list.add(find_last_description(atc, "atc"))
 
             # Use the collected ATC codes to find any matching URLs
             for desc in description_list:
                 atc_urls = get_atc_url(desc)
 
-                urls = urls + atc_urls
+                urls = urls.union(atc_urls)
         elif category_type == "ptc":
             # Use the URL of each match to find what the PTC code
             for item in names:
@@ -345,9 +342,9 @@ def comparison_search(request):
             
             # Use the collected PTC codes to find any matching URLs
             for desc in description_list:
-                atc = PTC.objects.filter(get_ptc_url(desc))
+                ptc_urls = PTC.objects.filter(get_ptc_url(desc))
 
-                urls.append(ptc.url)
+                urls = urls.union(ptc_urls)
       
         return urls
 
@@ -355,18 +352,18 @@ def comparison_search(request):
         """Searches and returns data matching search string (ATC & names)"""
         # Collects any matching ATC urls
         atc_urls = get_atc_url(search_string)
-
+        
         # Collects any matching mediction name URLs
         name_urls = get_name_url(search_string, "atc")
 
         # Combine URL results
-        urls = atc_urls + name_urls
+        urls = atc_urls.union(name_urls)
 
         # Use collected URLs to collect the full entry data
         if len(urls):
             return query_complete(urls, "atc")
         else:
-            return []
+            return set()
 
     def process_ptc(search_string):
         """Searches and returns data matching search string (ATC & names)"""
@@ -424,29 +421,29 @@ def comparison_search(request):
             first_item = False
         else:
             match = False
-
+            
             for index, group in enumerate(grouped_items):
                 if group["title"] == title:
                     # Append new URL
-                    grouped_items[index]["url"] += ",%s" % group["url"]
-
+                    grouped_items[index]["url"] += ",%s" % item["url"]
+                    
                     # Append generic name (if unique)
                     # TODO: Fix bug where a partial name match (e.g. 
                     # "lidocaine" in "lidocaine HCl" is not added
                     if item["generic_name"] not in grouped_items[index]["drugs"]:
                         grouped_items[index]["drugs"] += ", %s" % item["generic_name"]
-
+                    
                     match = True
-
+                    
                     break
-
+                    
             if match == False:
                 grouped_items.append({
                     "title": title,
                     "url": item["url"],
                     "drugs": item["generic_name"]
                 })
-
+            
     # Takes the grouped items and converts to an HTML list
     if len(grouped_items):
         list_items = []
