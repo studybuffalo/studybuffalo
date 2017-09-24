@@ -646,17 +646,19 @@ def generate_comparison(request):
     for index, combo in enumerate(combined_list):
         def sort_by_strength(strength):
             """Returns the numerical value of the "strength" key"""
-            regex = r"/([\d|\.]+\b)/"
+            regex = r"([\d|\.]+\b)"
 
-
-            strength_regex = re.match(strength["strength"], regex)
-
+            strength_regex = re.search(regex, strength["strength"])
+            
             if strength_regex:
-                return strength_regex.group(1)
+                return float(strength_regex.group(1))
             else:
                 return strength["strength"]
 
-        sorted(combo["strength"], key=sort_by_strength)
+        combined_list[index]["strength"] = sorted(
+            combo["strength"], key=sort_by_strength
+        )
+        
 
     return HttpResponse(
         json.dumps(combined_list, cls=DjangoJSONEncoder), 
