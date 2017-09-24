@@ -326,7 +326,8 @@ function priceUpdate($item) {
     
     // Calculate the price of this medication
     const cost = Number($item.find(".item-cost span").attr("data-cost"))
-                 || Number($item.find(".item-cost input").val());
+                 || Number($item.find(".item-cost input").val())
+                 || Number($item.find(".item-cost div").attr("data-cost"));
 
     const quantity = Number($item.find(".item-quantity input").val());
     
@@ -338,7 +339,7 @@ function priceUpdate($item) {
     const thirdParty = $thirdParty.children("option:selected").val();
 
     const price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
-
+    
     // Update the Price Div
     let $priceDiv = $item.find(".item-price div");
     $priceDiv
@@ -367,7 +368,6 @@ function priceUpdate($item) {
     ) {
         $infoButton.attr("class", "info notice");
     } else {
-        console.log("No match");
         $infoButton.attr("class", "info");
     }
 }
@@ -1144,26 +1144,20 @@ function removeRow(deleteButton) {
  *	strengtSelect:	The strength select to update							*
  ****************************************************************************/
 function comparisonStrength(strengthSelect) {
-	var $row = $(strengthSelect).closest("tr");
-	var $costSpan = $row.find(".cost");
-	var $strengthOption = $(strengthSelect).children("option:selected");
-	var cost = $strengthOption.attr("data-cost");
-	var $daySupply = $row.find(".daySupply");
-	var $quantity = $row.find(".quantity");
-	
-	// Updates the cost/unit span
-	$costSpan.text("$" + cost)
-			 .attr("data-cost", cost);
-	
-	// Updates day supply pricing
-	$daySupply.each(function(index, elem) {
-		priceUpdateDay(elem, "#Comparison-Table");
-	});
-	
-	// Updates quantity pricing
-	$quantity.each(function(index, elem) {
-		priceUpdateQuantity(elem, "#Comparison-Table");
-	});
+    // Collect the relevant data values
+    let $strengthOption = $(strengthSelect).children("option:selected");
+    const cost = $strengthOption.attr("data-cost");
+
+    // Updates the cost/unit span
+    let $item = $(strengthSelect).closest(".item");
+    
+    let $costDiv = $item.find(".item-cost div");
+    $costDiv
+        .attr("data-cost", cost)
+        .text("$" + cost);
+    
+    // Update the total price
+    priceUpdate($item);
 }
 
 
@@ -1638,160 +1632,207 @@ function chooseComparison(selection) {
  *	results:	the JSON array containing the data to insert				*
  ****************************************************************************/
 function processComparison(results) {
-	var $tbody = $("#Comparison-Table tbody:first");
-	var $row;
-	var $medicationCell;
-	var $strengthCell;
-	var $strengthSelect;
-	var $costCell;
-	var $costSpan;
-	var $dosesCell;
-	var dosesInput;
-	var $supplyCell;
-	var supplyInput;
-	var $dayPriceCell;
-	var $dayPriceSpan;
-	var $quantityCell;
-	var quantityInput;
-	var $quantityPriceCell;
-	var $quantityPriceSpan;
-	var $infoCell;
-	var $infoButton;
-	var $tempText;
-	var $tempOption;
-	var attributeName;
-	var attributeValue;
+	// Reset the contents
+    let $content = $("#comparison-table .content");
+    $content.html("");
+
 	
-	// Reset the table
-	$tbody.empty();
-	
-	// Cycles through the JSON array to generate an entry for each generic name
-	$.each(results, function(index, value) {
-		$row = $("<tr></tr>");
-		$row.appendTo($tbody);
+	// Cycles through the results to generate the HTML content
+    $.each(results, function (index, value) {
+        // Generate a unique ID for element IDs
+        const id = (new Date()).getTime().toString(36)
+            + Math.random().toString(36);
+
+        // Create the item dive to contain the content
+		let $item = $("<div></div>");
+        $item
+            .addClass("item")
+            .appendTo($content);
 		
 		// Medication Name
-		$medicationCell = $("<td></td>");
-		$medicationCell.html($("<strong></strong>").text(value.generic_name))
-					   .appendTo($row);
-		
+        const medicationID = "medication-" + id;
+
+        let $medicationLabel = $("<label></label>");
+        $medicationLabel
+            .attr("for", medicationID)
+            .text("Medication");
+
+        let $medicationDiv = $("<div></div>");
+        $medicationDiv
+            .attr("id", medicationID)
+            .text(value.generic_name);
+
+        let $medication = $("<div></div>")
+        $medication
+            .addClass("item-medication")
+            .append($medicationLabel, $medicationDiv)
+            .appendTo($item);
+        
 		// Strength
-		$strengthCell = $("<td></td>");
-		$strengthCell.appendTo($row);
-		$strengthSelect = $("<select></select>");
-		$strengthSelect.on("change", function(){comparisonStrength(this);})
-					   .addClass("strength")
-					   .appendTo($strengthCell);
-		
-		$.each(value.strength, function(index, temp) {
-			// Adds each strength as an option to the select
-			$tempOption = $("<option></option>");
-			$tempOption.text(temp.strength)
-					   .attr("data-cost", temp.unit_price)
-					   .attr("data-mac", temp.lca ? temp.lca : temp.unit_price)
-					   .attr("data-coverage", temp.coverage)
-					   .attr("data-criteria", temp.criteria)
-					   .attr("data-criteria-p", temp.criteria_p)
-					   .attr("data-criteria-sa", temp.criteria_sa)
-					   .attr("data-group-1", temp.group_1)
-					   .attr("data-group-66", temp.group_66)
-					   .attr("data-group-66a", temp.group_66a)
-					   .attr("data-group-19823", temp.group_19823)
-					   .attr("data-group-19823a", temp.group_19823a)
-					   .attr("data-group-19824", temp.group_19824)
-					   .attr("data-group-20400", temp.group_20400)
-					   .attr("data-group-20403", temp.group_20403)
-					   .attr("data-group-20514", temp.group_20514)
-					   .attr("data-group-22128", temp.group_22128)
-					   .attr("data-group-23609", temp.group_23609)
-					   .appendTo($strengthSelect);
-					   
-			// Generates format for special auth data objects
-			$.each(temp.special_auth, function(index, temp2) {
-				attributeName = "data-special-auth-title-" + (index + 1);
-				attributeValue = temp2.title;
-				$tempOption.attr(attributeName, attributeValue);
-				
-				attributeName = "data-special-auth-link-" + (index + 1);
-				attributeValue = temp2.link;
-				$tempOption.attr(attributeName, attributeValue);
-			});
-		});
-		
+        const strengthID = "strength-" + id;
+
+        let $strengthLabel = $("<label></label>");
+        $strengthLabel
+            .attr("for", strengthID)
+            .text("Strength");
+
+        let $strengthSelect = $("<select></select>")
+        $strengthSelect
+            .attr("id", strengthID)
+            .on("change", function () { comparisonStrength(this); });
+
+        let $strength = $("<div></div>")
+        $strength
+            .addClass("item-strength")
+            .append($strengthLabel, $strengthSelect)
+            .appendTo($item);
+
+        // Add the various strengths to the select
+        
+        $.each(value.strength, function (index, temp) {
+            let $strengthOption = $("<option></option>");
+            $strengthOption
+                .text(temp.strength)
+                .attr("data-cost", temp.unit_price)
+                .attr("data-mac", temp.lca ? temp.lca : temp.unit_price)
+                .attr("data-coverage", temp.coverage)
+                .attr("data-criteria", temp.criteria)
+                .attr("data-criteria-p", temp.criteria_p)
+                .attr("data-criteria-sa", temp.criteria_sa)
+                .attr("data-group-1", temp.group_1)
+                .attr("data-group-66", temp.group_66)
+                .attr("data-group-66a", temp.group_66a)
+                .attr("data-group-19823", temp.group_19823)
+                .attr("data-group-19823a", temp.group_19823a)
+                .attr("data-group-19824", temp.group_19824)
+                .attr("data-group-20400", temp.group_20400)
+                .attr("data-group-20403", temp.group_20403)
+                .attr("data-group-20514", temp.group_20514)
+                .attr("data-group-22128", temp.group_22128)
+                .attr("data-group-23609", temp.group_23609)
+                .appendTo($strengthSelect);
+            
+            // Generates format for special auth data objects
+            $.each(temp.special_auth, function (index2, temp2) {
+                // Add the title
+                let attributeName = "data-special-auth-title-" + (index2 + 1);
+                let attributeValue = temp2.title;
+                $strengthOption.attr(attributeName, attributeValue);
+
+                // Add the link
+                attributeName = "data-special-auth-link-" + (index2 + 1);
+                attributeValue = temp2.link;
+                $strengthOption.attr(attributeName, attributeValue);
+            });
+        });
+        
 		// LCA Cost
-		$costCell = $("<td></td>");
-		$costCell.appendTo($row);
-		
-		$costSpan = $("<span></span>");
-		$costSpan.addClass("cost")
-				 .appendTo($costCell);
-		
+        const lcaID = "lca-" + id;
+
+        let $lcaLabel = $("<label></label>");
+        $lcaLabel
+            .attr("for", lcaID)
+            .text("LCA");
+        
+        let $lcaDiv = $("<div></div>")
+        $lcaDiv.attr("id", lcaID);
+
+        let $lca = $("<div></div>");
+        $lca
+            .addClass("item-cost")
+            .append($lcaLabel, $lcaDiv)
+            .appendTo($item);
+        
 		// Doses per Day
-		$dosesCell = $("<td></td>");
-		$dosesCell.addClass("cellDay")
-				  .appendTo($row)
-		
-		dosesInput = document.createElement("input");
-		dosesInput.type= "text";
-		$(dosesInput).addClass("dosesPerDay")
-					 .val(1)
-					 .on("keyup", function(){priceUpdateDay(this);})
-					 .appendTo($dosesCell);
-					 
+        const doseID = "dose-" + id;
+
+        let $doseLabel = $("<label></label>");
+        $doseLabel
+            .attr("for", doseID)
+            .text("Doses Per Day");
+
+        let $doseInput = $("<input type='text'>")
+        $doseInput
+            .attr("id", doseID)
+            .on("keyup", function () { updateQuantity(this); })
+            .val(1);
+
+        let $dose = $("<div></div>");
+        $dose
+            .addClass("item-dose")
+            .append($doseLabel, $doseInput)
+            .appendTo($item);
+        
 		// Day Supply
-		$supplyCell = $("<td></td>");
-		$supplyCell.addClass("cellDay")
-				   .appendTo($row);
-		
-		supplyInput = document.createElement("input");
-		supplyInput.type = "text";
-		$(supplyInput).addClass("daySupply")
-					  .val("100")
-					  .on("keyup", function(){priceUpdateDay(this);})
-					  .appendTo($supplyCell);
-					  
-		// Day Price
-		$dayPriceCell = $("<td></td>");
-		$dayPriceCell.addClass("cellDay")
-					 .addClass("cellPrice")
-					 .appendTo($row);
-		
-		$dayPriceSpan = $("<span></span>");
-		$dayPriceSpan.addClass("dayPrice")
-					 .appendTo($dayPriceCell);
-		
+        const supplyID = "supply-" + id;
+
+        let $supplyLabel = $("<label></label>");
+        $supplyLabel
+            .attr("for", supplyID)
+            .text("Day Supply");
+
+        let $supplyInput = $("<input type='text'>")
+        $supplyInput
+            .attr("id", supplyID)
+            .on("keyup", function () { updateQuantity(this); })
+            .val(100);
+
+        let $supply = $("<div></div>");
+        $supply
+            .addClass("item-supply")
+            .append($supplyLabel, $supplyInput)
+            .appendTo($item);
+        
 		// Quantity
-		$quantityCell = $("<td></td>");
-		$quantityCell.addClass("cellQuantity")
-					 .appendTo($row);
-		
-		quantityInput = document.createElement("input");
-		quantityInput.type = "text";
-		$(quantityInput).addClass("quantity")
-						.val("100")
-						.on("keyup", function(){priceUpdateQuantity(this);})
-						.appendTo($quantityCell);
-		
-		// Quantity Price
-		$quantityPriceCell = $("<td></td>");
-		$quantityPriceCell.addClass("cellQuantity")
-						  .addClass("cellPrice")
-						  .appendTo($row);
-		
-		$quantityPriceSpan = $("<span></span>");
-		$quantityPriceSpan.addClass("quantityPrice")
-						  .appendTo($quantityPriceCell);
-		
+        const quantityID = "quantity-" + id;
+
+        let $quantityLabel = $("<label></label>");
+        $quantityLabel
+            .attr("for", quantityID)
+            .text("Quantity");
+
+        let $quantityInput = $("<input type='text'>")
+        $quantityInput
+            .attr("id", quantityID)
+            .on("keyup", function () { updateSupply(this); })
+            .val(100);
+
+        let $quantity = $("<div></div>");
+        $quantity
+            .addClass("item-quantity")
+            .append($quantityLabel, $quantityInput)
+            .appendTo($item);
+        
+		// Price
+        const priceID = "price-" + id;
+
+        let $priceLabel = $("<label></label>");
+        $priceLabel
+            .attr("for", priceID)
+            .text("Price");
+
+        let $priceDiv = $("<div></div>");
+        $priceDiv.attr("id", priceID);
+
+        let $price = $("<div></div>");
+        $price
+            .addClass("item-price")
+            .append($priceLabel, $priceDiv)
+            .appendTo($item);
+        
 		// Info
-		$infoCell = $("<td></td>");
-		$infoCell.appendTo($row);
-				 
-		$infoButton = $("<span></span>");
-		$infoButton.addClass("info")
-				   .text(" ")
-				   .on("click", function() {showInfo(this);})
-				   .appendTo($infoCell);
-		
+        let $infoButton = $("<input type='button'>");
+        $infoButton
+            .addClass("info")
+            .on("click", function () { showInfo(this); })
+            .val("Information");
+
+        let $buttons = $("<div></div>");
+        $buttons
+            .addClass("item-buttons")
+            .append($infoButton)
+            .appendTo($item);
+        
 		// Calls functions to update data
 		comparisonStrength($strengthSelect);
 	});

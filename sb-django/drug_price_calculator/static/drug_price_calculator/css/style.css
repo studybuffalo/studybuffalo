@@ -507,7 +507,7 @@
 
     #sb #comparison-table .item-medication,
     #sb #comparison-table .item-strength,
-    #sb #comparison-table .item-lca,
+    #sb #comparison-table .item-cost,
     #sb #comparison-table .item-dose,
     #sb #comparison-table .item-supply,
     #sb #comparison-table .item-quantity,
@@ -534,17 +534,17 @@
         min-width: 145px;
     }
 
-    #sb #comparison-table .item-lca {
+    #sb #comparison-table .item-cost {
         flex: 1 1 160px;
         min-width: 105px;
         text-align: right;
     }
 
-        #sb #comparison-table .item-lca span {
+        #sb #comparison-table .item-cost span {
             display: block;
         }
 
-        #sb #comparison-table .item-lca em {
+        #sb #comparison-table .item-cost em {
             display: block;
             font-size: 90%;
         }
@@ -776,15 +776,15 @@
         order: 2;
     }
 
-    #sb #comparison-table .item-lca {
+    #sb #comparison-table .item-cost {
         flex: 1 1 50%;
         order: 6;
         min-width: 50%;
         text-align: center;
     }
 
-        #sb #comparison-table .item-lca span,
-        #sb #comparison-table .item-lca em {
+        #sb #comparison-table .item-cost span,
+        #sb #comparison-table .item-cost em {
             display: inline-block;
         }
 
@@ -966,15 +966,15 @@
         order: 2;
     }
 
-    #sb #comparison-table .item-lca {
+    #sb #comparison-table .item-cost {
         flex: 1 1 50%;
         order: 6;
         min-width: 50%;
         text-align: center;
     }
 
-        #sb #comparison-table .item-lca span,
-        #sb #comparison-table .item-lca em {
+        #sb #comparison-table .item-cost span,
+        #sb #comparison-table .item-cost em {
             display: inline-block;
         }
 
