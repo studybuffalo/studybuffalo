@@ -357,7 +357,6 @@ def comparison_search(request):
         atc_urls = get_atc_url(search_string)
         
         # Collects any matching mediction name URLs
-        print ("Searchin for name match")
         name_urls = get_name_url(search_string, "atc")
 
         # Combine URL results
