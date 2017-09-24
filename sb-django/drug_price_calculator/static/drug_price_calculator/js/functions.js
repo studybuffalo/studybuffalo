@@ -630,16 +630,26 @@ function showInfo(infoButton) {
     const buttonTop = $infoButton.offset().top
     const buttonLeft = $infoButton.offset().left;
 
-    // Calculate where to place the popup
-    let divRight = screenWid < 580 ? 10 : (screenWid - buttonLeft) - 10;
+    // Calculate pop-up width;
+    let popupWid = screenWid < 600 ? screenWid - 20 : 580;
 
+    // Calculate where to place the popup (center it if it can't fit by button)
+    let divRight = 0;
+
+    if (buttonLeft < popupWid + 10) {
+        divRight = (screenWid - popupWid) / 2;
+    } else {
+        divRight = (screenWid - buttonLeft) - 10;
+    }
+    
     // Popup div positions to left of trigger button
     let $infoDiv = $("<div></div>");
     $infoDiv
         .attr("id", "Info-Popup")
         .css({
             "right": divRight + "px",
-            "top": (buttonTop) + "px"
+            "top": (buttonTop) + "px",
+            "width": popupWid + "px"
         });
 
     // The Pop-Up Div Title

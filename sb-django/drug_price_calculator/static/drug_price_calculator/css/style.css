@@ -161,9 +161,6 @@
 
 /* Info Popup */
 #Popup-Veil #Info-Popup {
-    min-width: 280px;
-    max-width: 580px;
-    width: 100%;
     word-wrap: break-word;
 }
 
