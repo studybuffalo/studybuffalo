@@ -1849,145 +1849,101 @@ function processComparison(results) {
  *	Returns a new window.document formatted for printing					*
  ****************************************************************************/
 function printPrices() {
-	var printPage = window.open().document;
-	var html = "";
+	let printPage = window.open().document;
+	let html = "";
 	
-	var method = $("#Price-Table-Method").prop("selectedIndex");
-	var pageNum = method === 0 ? 
-	  $("#Price-Table thead th.cellDay.cellPrice").length :
-	  $("#Price-Table thead th.cellQuantity.cellPrice").length;
-	
-	var patientName = $("#Patient-Name").val();
-	
-	var $table;
-	var $thead;
-	var $headRow;
-	var headMedication = "Medication";
-	var headQuantity = method === 0 ? "Day Supply" : "Quantity";
-	var headPrice = "Price";
-	
-	var $tbody
-	var $bodyRow;
-	var $bodyMedication;
-	var $bodyNumber;
-	var $bodyPrice;
-	var $rows = $("#Price-Table tbody:first").children();
-	var $medicationData;
-	var $quantityData;
-	var $priceData;
-	
-	var $tfoot;
-	var $footRow;
-	var $footTotal;
-	var $totalData;
-	
-	var $disclaimer = $("<p></p>");
-	var lastUpdate = document.getElementById("Last-Update").innerHTML;
-	var today = getTodaysDate();
-	
-	var tempArray;
+    const $items = $("#price-table .item");
+
+	const patientName = $("#Patient-Name").val();
 	
 	html = "<head>" +
-				"<link rel='stylesheet' type='text/css', href='http://www.studybuffalo.com/practicetools/include/abc_print_style.css?version=1.0'></link>" +
+				"<link rel='stylesheet' type='text/css', href='/static/drug_price_calculator/css/print.css'></link>" +
 				"<title>Medications Prices</title>" +
 		   "</head>";
 	
-	// Cycle through the table rows and enter them into the print table
-	html += "<body>";
-	
-	for (var page = 0; page < pageNum; page++) {
-		// Header
-		html += "<h1>";
-		
-		html += patientName === "" ? 
-				"Medication Price List" : 
-				"Medication Price List for " + patientName;
-		
-		html += "</h1>";
-		
-		// Medication Table
-		
-		html += "<table>" +
-					"<thead>" +
-						"<tr>" +
-							"<th>" + headMedication + "</th>" +
-							"<th>" + headQuantity + "</th>" +
-							"<th>" + headPrice + "</th>" +
-						"</tr>" +
-					"</thead>";
-		
-		html += "<tbody>";
-					
-		$rows.each(function(index, row) {
-			$row = $(row);
+    html += "<body>";
+
+    // Header
+    html += "<h1>";
+
+    html += patientName === "" ?
+        "Medication Price List" :
+        "Medication Price List for " + patientName;
+
+    html += "</h1>";
+
+    // Table Header
+    html += "<table>" +
+        "<thead>" +
+        "<tr>" +
+        "<th>Medication</th>" +
+        "<th>Day Supply</th>" +
+        "<th>Quantity</th>" +
+        "<th>Price</th>" +
+        "</tr>" +
+        "</thead>";
+
+    // Cycle through the table rows and enter them into the print table
+    html += "<tbody>";
+    
+    $items.each(function (index, item) {
+        let $item = $(item);
 			
-			html += "<tr>";
+		html += "<tr>";
 			
-			// Medication Name
-			$medicationData = $row.children().first();
+		// Medication Name
+        const $medication = $item.find(".item-medication")
+
+        const medicationName = $medication.find("strong").text() ||
+                             $medication.find("input").val();
+
+        const medicationInfo = $medication.find("em").text();
 			
-			tempArray = [];
-			
-			if ($medicationData.find("input").length === 0) {
-				tempArray.push($medicationData.children().eq(0).text());
-				tempArray.push($medicationData.children().eq(2).text());
-			} else {
-				tempArray.push($medicationData.children().eq(0).val());
-				tempArray.push("");
-			}
-			
-			html += "<td>" + 
-						"<strong>" + tempArray[0] + "</strong>" +
-						"<br>" +
-						"<em>" + tempArray[1] + "</em>" +
-					"</td>";
+		html += "<td>" + 
+				"<strong>" + medicationName + "</strong>" +
+				"<br>" +
+				"<em>" + medicationInfo + "</em>" +
+				"</td>";
 						   
-			// Day supply/Quantity
-			$quantityData = method === 0 ? 
-							$row.children().find("input.daySupply") :
-							$row.children().find("input.quantity");
-			$quantityData = $quantityData.eq(page).val();
+		// Day supply
+        const supply = $item.find(".item-supply input").val();
+		html += "<td>" + supply + "</td>";
+
+        // Quantity
+        quantity = $item.find(".item-quantity input").val();
+        html += "<td>" + quantity + "</td>";
+
+		// Price
+        const price = $item.find(".item-price div").text();
+        html += "<td>" + price + "</td>";
 			
-			html += "<td>" + $quantityData + "</td>";
-			
-			// Price
-			$priceData = method === 0 ?
-						 $row.find(".cellDay.cellPrice span:first").text() :
-						 $row.find(".cellQuantity.cellPrice span:first").text();
-			
-			html += "<td>" + $priceData + "</td>";
-			
-			html += "</tr>";
-		});
+		html += "</tr>";
+	});
 		
-		html += "</tbody>";
+	html += "</tbody>";
 	
-	
-		// Footer
-		$totalData = method === 0 ? 
-			$("#Price-Table tfoot .cellDay span.total").eq(page).text() :
-			$("#Price-Table tfoot .cellQuantity span.total").eq(page).text();
+	// Footer
+    const total = $("#price-table-total").text();
+
+	html += "<tfoot>" +
+				"<tr>" +
+					"<th colspan='4'>" + total + "</th>" +
+				"</tr>" +
+			"</tfoot>";
 		
-		html += "<tfoot>" +
-					"<tr>" +
-						"<th></th>" +
-						"<th>TOTAL</th>" + 
-						"<th>" + $totalData + "</th>" +
-					"</tr>" +
-				"</tfoot>";
+	html += "</table>";
 		
-		html += "</table>";
-		
-		// Disclaimer text
-		html += "These medications costs are estimates based " +
-				"on the best available information. Actual " +
-				"costs may vary depending on your pharmacy " +
-				"and third-party drug coverage.<br><br>" +
-				"<i>Printed on: " + today + "</i>";
-	}
+	// Disclaimer text
+    const today = getTodaysDate();
+
+	html += "These medications costs are estimates based " +
+			"on the best available information. Actual " +
+			"costs may vary depending on your pharmacy " +
+			"and third-party drug coverage.<br><br>" +
+			"<i>Printed on: " + today + "</i>";
 	
 	html += "</body>";
-	
+    
 	// Writes HTML to document window
 	printPage.write(html);
 	
