@@ -1379,13 +1379,15 @@ function processResult(results) {
     let $medicationStrong = $("<strong></strong>");
     $medicationStrong.text(results[0].generic_name);
 
-    let $medicationEm = $("<em></em>");
-    $medicationEm.text(
-        results[0].strength + " "
-        + results[0].route + " "
-        + results[0].dosage_form
-    );
+    let medEmText = "";
+    medEmText += results[0].strength ? results[0].strength + " " : "";
+    medEmText += results[0].route ? results[0].route + " " : "";
+    medEmText += results[0].dosage_form ? results[0].dosage_form + " " : "";
+    medEmText = medEmText.trim();
 
+    let $medicationEm = $("<em></em>");
+    $medicationEm.text(medEmText);
+    
     let $medicationDiv = $("<div></div>")
     $medicationDiv
         .attr("id", medicationID)
