@@ -298,17 +298,17 @@ def comparison_search(request):
 
     def get_ptc_url(search_string):
         """Searches for any match against all PTC records"""
-        atc = ATC.objects.filter(
+        ptc = PTC.objects.filter(
             Q(ptc_1_text__icontains=search_string) |
             Q(ptc_2_text__icontains=search_string) |
             Q(ptc_3_text__icontains=search_string) |
             Q(ptc_4_text__icontains=search_string)
         )
 
-        urls = []
+        urls = set()
 
-        for item in atc:
-            urls.append(item.url)
+        for item in ptc:
+            urls.add(item.url)
 
         return urls
 
@@ -338,11 +338,11 @@ def comparison_search(request):
             # Use the URL of each match to find what the PTC code
             for item in names:
                 ptc = PTC.objects.get(url=item.url)
-                description_list.append(find_last_description(ptc, "ptc"))
+                description_list.add(find_last_description(ptc, "ptc"))
             
             # Use the collected PTC codes to find any matching URLs
             for desc in description_list:
-                ptc_urls = PTC.objects.filter(get_ptc_url(desc))
+                ptc_urls = get_ptc_url(desc)
 
                 urls = urls.union(ptc_urls)
       
@@ -374,7 +374,7 @@ def comparison_search(request):
         name_urls = get_name_url(search_string, "ptc")
 
         # Combine URL results
-        urls = ptc_urls + name_urls
+        urls = ptc_urls.union(name_urls)
 
         # Use collected URLs to collect the full entry data
         if len(urls):
