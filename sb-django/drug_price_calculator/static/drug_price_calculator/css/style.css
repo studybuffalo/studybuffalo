@@ -163,6 +163,14 @@
     }
 
 
+    #Popup-Veil a, #Popup-Veil a:visited {
+        color: rgb(41, 138, 0);
+    }
+
+        #Popup-Veil a:hover, #Popup-Veil a:visited:hover {
+            color: rgb(49, 171, 0);
+        }
+
 /* Info Popup */
 #Popup-Veil #Info-Popup {
     word-wrap: break-word;
@@ -186,10 +194,6 @@
         margin: 0 auto;
         width: 73px;
         padding: 10px 0;
-    }
-
-    #Popup-Veil #Info-Popup a {
-        font-weight: 400;
     }
 
     #Popup-Veil #Info-Popup table {
