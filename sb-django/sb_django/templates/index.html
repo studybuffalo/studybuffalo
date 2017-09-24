@@ -5,22 +5,20 @@
 {% block styles %}
 	<style>
 		#sb .content-section {
+			align-items: center;
 			margin: 5rem 0;
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			justify-content: space-between;
 			flex-wrap: wrap;
 		}
-
-			#sb .content-section .full-row {
-				flex: 1 1 100%;
-				display: block;
-				text-align: center;
+		
+			#sb .content-section h2 {
+				width: 100%;
 			}
 
-			#sb .content-section .part-row {
-				flex: 1 1 100%;
-				padding: 5%;
+			#sb .content-section blockquote {
+				width: 100%;
 			}
 
 			#sb .content-section h2:after {
@@ -33,36 +31,49 @@
 				z-index: 1;
 			}
 
-			#sb .content-section h2.what:after {
+			#sb .content-section.what h2:after {
 				width: 60%;
 				left: 35%;
 			}
 
-			#sb .content-section h2.study:after {
+			#sb .content-section.study h2:after {
 				width: 50%;
 				left: 5%;
 			}
 
-			#sb .content-section h2.tools:after {
+			#sb .content-section.after h2:after {
 				width: 50%;
 				left: 45%;
 			}
 
-			#sb .content-section h2.read:after {
+			#sb .content-section.read h2:after {
 				width: 50%;
 				left: 5%;
 			}
 
-			#sb .content-section h2.play:after {
+			#sb .content-section.play h2:after {
 				width: 50%;
 				left: 45%;
 			}
 
-			#sb .content-section h2.design:after {
+			#sb .content-section.design h2:after {
 				width: 52%;
 				left: 5%;
 			}
-			
+
+			#sb .content-section div {
+				box-sizing: border-box;
+				display: inline-block;
+				padding: 2rem;
+				text-align: center;
+				width: 100%;
+			}
+
+			#sb .content-section img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+
 		#sb #updates {
 			display: flex;
 			flex-direction: column;
@@ -134,8 +145,18 @@
 		}
 
 		@media screen and (min-width: 768px) {
-			#sb .content-section .part-row {
-				flex: 1 1 40%;
+			#sb .content-section {
+				flex-direction: row;
+			}
+
+			#sb .content-section div {
+				flex: 1 0 50%;
+				max-width: 50%;
+			}
+
+			#sb .content-section img {
+				max-width: 100%;
+				max-height: 100%;
 			}
 		}
 
@@ -181,102 +202,114 @@
 		</div>
 	</div>
 
-	<div class="content-section">
-		<h2 class="full-row what">What are Study Buffalo?</h2>
+	<div class="content-section what">
+		<h2>What are Study Buffalo?</h2>
 
-		<p class="part-row">
+		<div>
 			We are two polyurethane foam rubber buffalo. While we are 
 			unusual representatives, we work hard to improve the delivery 
 			of health care services, by improving both the practioners and 
 			technology supporting them.
-		</p>
+		</div>
 
-		<div class="part-row">Placeholder Image</div>
+		<div>
+			<img src="{% static 'images/home-1.jpg' %}">
+		</div>
 	</div>
 
-	<div class="content-section">
-		<h2 class="full-row study">Study</h2>
+	<div class="content-section study">
+		<h2>Study</h2>
 
-		<blockquote class="full-row">
+		<blockquote>
 			Practice makes perfect...
 		</blockquote>
 		
-		<div class="part-row">Placeholder Image</div>
+		<div>
+			<img src="{% static 'images/home-2.jpg' %}">
+		</div>
 
-		<p class="part-row">
+		<div>
 			To help the next generation of pharmacists, and other health 
 			profesisonals, we provide a unique selection of study
 			tools, guides, and quizzes. For the particulary 
 			motivated student, we also offer monetary bounties to those who 
 			wish to update older resources or develop new resources.
-		</p>
+		</div>
 	</div>
 
-	<div class="content-section">
-		<h2 class="full-row tools">Tools</h2>
+	<div class="content-section tools">
+		<h2>Tools</h2>
 
-		<blockquote class="full-row">
+		<blockquote>
 			Every once in a while, a new technology, an old problem, and a 
 			big idea turn into an innovation. --Dean Kamen
 		</blockquote>
 
-		<p class="part-row">
+		<div>
 			While technology does not define a good practioner, we feel it 
 			can definitely make their job easier. We have developed tools 
 			to solve the real problems practioners face in their day-to-day 
 			to make the care they deliver that much better. All tools are 
 			designed to be easy-to-use, so take a look and see what you
 			can use to improve your practice today.
-		</p>
+		</div>
 		
-		<div class="part-row">Placeholder Image</div>
+		<div>
+			<img src="{% static 'images/home-3.jpg' %}">
+		</div>
 	</div>
 
-	<div class="content-section">
-		<h2 class="full-row read">Read</h2>
+	<div class="content-section read">
+		<h2>Read</h2>
 
-		<blockquote class="full-row">
+		<blockquote>
 			Reading is to the mind what exercise is to the body. --Richard Steele
 		</blockquote>
 		
-		<div class="part-row">Placeholder Image</div>
+		<div>
+			<img src="{% static 'images/home-4.jpg' %}">
+		</div>
 
-		<p class="part-row">
+		<div>
 			From time to time we have the opportunity to do some writing. Take
 			the opportunity to explore our literary adventures and maybe learn 
 			a few more interesting things.
-		</p>
+		</div>
 	</div>
 
 
-	<div class="content-section">
-		<h2 class="full-row play">Play</h2>
+	<div class="content-section play">
+		<h2>Play</h2>
 
-		<blockquote class="full-row">
+		<blockquote>
 			All work and no play makes Jack a dull boy --The Shining by Stephen King
 		</blockquote>
 
-		<p class="part-row">
+		<div>
 			A little break and go a long way to keeping the mind and body refreshed
 			and engerized for whatever you need to do. Stroll through the gallery of 
 			our adventures and you may even pick up an interesting triva fact along 
 			the way.
-		</p>
+		</div>
 		
-		<div class="part-row">Placeholder Image</div>
+		<div>
+			<img src="{% static 'images/home-5.jpg' %}">
+		</div>
 	</div>
 
 
-	<div class="content-section">
-		<h2 class="full-row design">Design</h2>
+	<div class="content-section design">
+		<h2>Design</h2>
 
-		<blockquote class="full-row">
+		<blockquote>
 
 		</blockquote>
 		
-		<div class="part-row">Placeholder Image</div>
+		<div>
+			<img src="{% static 'images/home-6.jpg' %}">
+		</div>
 
-		<div class="part-row">
+		<div>
 			<p>
 				All our tools would be nothing without the technology behind them. 
 				We are strong supporters of open source software development and 
