@@ -958,124 +958,167 @@ function updateSupply(input) {
  *						medication prices.									*
  ****************************************************************************/
 function addFreeformEntry() {
-	var $tbody = $("#Price-Table tbody:first");
-	var $row = $("<tr></tr>");
-	var $medicationCell = $("<td></td>");
-	var medicationInput = document.createElement("input");
-	var $brandCell = $("<td></td>");
-	var $brandSpan = $("<span></span>");
-	var $costCell = $("<td></td>");
-	var costInput = document.createElement("input");
-	var $dosesCell = $("<td></td>");
-	var dosesInput = document.createElement("input");
-	var $supplyCell = $("<td></td>");
-	var supplyInput = document.createElement("input");
-	var $dayPriceCell = $("<td></td>");
-	var $dayPriceSpan = $("<span></span>");
-	var $quantityCell = $("<td></td>");
-	var quantityInput = document.createElement("input");
-	var $quantityPriceCell = $("<td></td>");
-	var $quantityPriceSpan = $("<span></span>");
-	var $infoCell = $("<td></td>");
-	var $infoButton = $("<span></span>");
-	var $deleteCell = $("<td></td>");
-	var $deleteButton = $("<span></span>");
-	var $colDay = $("#Price-Table thead th.cellDay.cellPrice");
-	var $colQuantity = $("#Price-Table thead th.cellQuantity.cellPrice");
-	var $tempText;
-	var $tempOption;
-	
-	// Medication Name
-	medicationInput.type = "text";
-	
-	$medicationCell.append(medicationInput)
-				   .appendTo($row);
-	
-	// Brand Name
-	$brandSpan.addClass("brandName")
-			  .text("N/A");
-	
-	$brandCell.append($brandSpan);
-	$brandCell.appendTo($row);
-	
-	// Cost
-	
-	// Cost
-	costInput.type = "text";
-	$(costInput).addClass("cost")
-				.on("keyup", function() {costUpdate(this, "#Price-Table");});
+    // Generate a unique ID for element IDs
+    const id = (new Date()).getTime().toString(36)
+        + Math.random().toString(36);
 
-	$costCell.append(costInput);
-	$costCell.appendTo($row);
-	
-	// Doses per day
-	dosesInput.type= "text";
-	$(dosesInput).addClass("dosesPerDay")
-				 .val(1)
-				 .on("keyup", function() {priceUpdateDay(this, "#Price-Table");});
-			
-	// Day Supply
-	supplyInput.type = "text";
-	$(supplyInput).addClass("daySupply")
-				  .val("100")
-				  .on("keyup", function() {priceUpdateDay(this, "#Price-Table");});
-	// Price
-	$dayPriceSpan.addClass("dayPrice");
-	
-	// Adds the required number of elements
-	$colDay.each(function() {
-		$dosesCell.addClass("cellDay")
-				  .append(dosesInput)
-				  .appendTo($row);
-		
-		$supplyCell.addClass("cellDay")
-				   .append(supplyInput)
-				   .appendTo($row);
-		
-		$dayPriceCell.addClass("cellDay cellPrice")
-					 .append($dayPriceSpan)
-					 .appendTo($row);
-	});
-	
-	// Quantity
-	quantityInput.type = "text";
-	$(quantityInput).addClass("quantity")
-					.val("100")
-					.on("keyup", function() {priceUpdateQuantity(this);});
-	
-	// Price
-	$quantityPriceSpan.addClass("quantityPrice")
-		
-	$colQuantity.each(function() {
-		$quantityCell.addClass("cellQuantity")
-					 .append(quantityInput)
-					 .appendTo($row);
-		
-		$quantityPriceCell.addClass("cellQuantity cellPrice")
-						  .append($quantityPriceSpan)
-						  .appendTo($row);
-	});
-	
-	// Info
-	$infoButton.addClass("info")
-				 .text(" ")
-				 .on("click", function() {showInfo(this);});
-				 
-	$infoCell.append($infoButton)
-			 .appendTo($row);
-	
-	// Delete
-	$deleteButton.addClass("delete")
-				 .html(" ")
-				 .on("click", function() {removeRow(this);});
-				 
-	$deleteCell.append($deleteButton)
-			   .appendTo($row);
-			   
-	//Adds row to table
-	$tbody.append($row);
-	
-	medicationInput.focus();
+    // Set up containers
+    let $content = $("#price-table .content:first");
+
+    let $item = $("<div></div>");
+    $item.addClass("item");
+
+    // Medication Name
+    const medicationID = "medication-" + id;
+
+    let $medicationLabel = $("<label></label>");
+    $medicationLabel
+        .attr("for", medicationID)
+        .text("Medication");
+
+    let $medicationInput = $("<input type='text'>");
+    $medicationInput.attr("id", medicationID);
+    
+    let $medication = $("<div></div>");
+    $medication
+        .addClass("item-medication")
+        .append($medicationLabel, $medicationInput)
+        .appendTo($item)
+
+    // Brand Name
+    const brandID = "brand-" + id;
+
+    let $brandLabel = $("<label></label>");
+    $brandLabel
+        .attr("for", brandID)
+        .text("Brand");
+
+    let $brandDiv = $("<div></div>");
+    $brandDiv
+        .attr("id", brandID)
+        .text("N/A");
+
+    let $brand = $("<div></div>");
+    $brand
+        .addClass("item-brand")
+        .append($brandLabel, $brandDiv)
+        .appendTo($item);
+
+    // Cost Per Unit
+    let costID = "cost-" + id;
+
+    let $costLabel = $("<label></label>");
+    $costLabel
+        .attr("for", costID)
+        .text("Cost Per Unit");
+
+    let $costInput = $("<input type='text'>");
+    $costInput.attr("id", costID);
+
+    let $cost = $("<div></div>");
+    $cost
+        .addClass("item-cost")
+        .append($costLabel, $costInput)
+        .appendTo($item);
+
+    // Does Per Day
+    const doseID = "doses-" + id;
+
+    let $doseLabel = $("<label></label>");
+    $doseLabel
+        .attr("for", doseID)
+        .text("Doses Per Day");
+
+    let $doseInput = $("<input type='text'>");
+    $doseInput
+        .attr("id", doseID)
+        .on("keyup", function () { updateQuantity(this); })
+        .val(1);
+
+    let $dose = $("<div></div>");
+    $dose
+        .addClass("item-dose")
+        .append($doseLabel, $doseInput)
+        .appendTo($item);
+
+    // Day Supply
+    const supplyID = "supply-" + id;
+
+    let $supplyLabel = $("<label></label>");
+    $supplyLabel
+        .attr("for", supplyID)
+        .text("Day Supply");
+
+    let $supplyInput = $("<input type='text'>");
+    $supplyInput
+        .attr("id", supplyID)
+        .on("keyup", function () { updateQuantity(this); })
+        .val(100);
+
+    let $supply = $("<div></div>");
+    $supply
+        .addClass("item-supply")
+        .append($supplyLabel, $supplyInput)
+        .appendTo($item);
+
+    // Quantity
+    const quantityID = "quantity-" + id;
+
+    let $quantityLabel = $("<label></label>");
+    $quantityLabel
+        .attr("for", quantityID)
+        .text("Quantity");
+
+    let $quantityInput = $("<input type='text'>");
+    $quantityInput
+        .attr("id", quantityID)
+        .on("keyup", function () { updateSupply(this); })
+        .val(100);
+
+    let $quantity = $("<div></div>");
+    $quantity
+        .addClass("item-quantity")
+        .append($quantityLabel, $quantityInput)
+        .appendTo($item);
+
+    // Price
+    const priceID = "price-" + id;
+
+    let $priceLabel = $("<label></label>");
+    $priceLabel
+        .attr("for", priceID)
+        .text("Price");
+
+    let $priceDiv = $("<div></div>");
+    $priceDiv.attr("id", priceID);
+
+    let $price = $("<div></div>");
+    $price
+        .addClass("item-price")
+        .append($priceLabel, $priceDiv)
+        .appendTo($item);
+
+    // Info and Delete Buttons
+    let $infoButton = $("<input type='button'>");
+    $infoButton
+        .addClass("info")
+        .on("click", function () { showInfo(this); })
+        .val("Information");
+
+    let $deleteButton = $("<input type='button'>");
+    $deleteButton
+        .addClass("delete")
+        .on("click", function () { removeRow(this); })
+        .val("Delete");
+
+    let $buttons = $("<div></div>")
+    $buttons
+        .addClass("item-buttons")
+        .append($infoButton, $deleteButton)
+        .appendTo($item);
+
+    // Add the completed $item to the $content container
+    $content.append($item)
 }
 
 /****************************************************************************

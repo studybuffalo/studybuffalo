@@ -373,6 +373,10 @@
                 font-size: 90%;
             }
 
+            #sb #price-table .item-medication input[type="text"] {
+                width: 100%;
+            }
+
         #sb #price-table .item-brand {
             flex: 1 1 200px;
             min-width: 145px;
