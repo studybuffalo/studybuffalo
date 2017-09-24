@@ -640,6 +640,9 @@ def generate_comparison(request):
                     }],
                 })
 
+    # Sorts the combined_list so generic names appear in alphabetical order
+    combined_list = sorted(combined_list, key=lambda x: x["generic_name"])
+    
     # Sorts the combined_list so strengths appear form lowest to highest
     import re
 
