@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import CarouselSlide
+from .models import Update
 
-@admin.register(CarouselSlide)
-class CarouselSlideAdmin(admin.ModelAdmin):
+@admin.register(Update)
+class UpdateSlideAdmin(admin.ModelAdmin):
     list_display = ("start_date", "end_date", "priority", "background")
     list_filter = ("start_date", "end_date")

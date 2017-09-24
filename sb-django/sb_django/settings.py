@@ -54,13 +54,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
-    'carousel.apps.CarouselConfig',
     'drug_price_calculator.apps.DrugPriceCalculatorConfig',
     'play.apps.PlayConfig',
     'rdrhc_calendar.apps.RdrhcCalendarConfig',
     'read.apps.ReadConfig',
     'study.apps.StudyConfig',
-    'vancomycin_calculator.apps.VancomycinCalculatorConfig'
+    'vancomycin_calculator.apps.VancomycinCalculatorConfig',
+    'updates.apps.UpdatesConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

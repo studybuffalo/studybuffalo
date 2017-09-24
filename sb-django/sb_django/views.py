@@ -1,6 +1,6 @@
 from django.views import generic
 from django.shortcuts import render, get_object_or_404, redirect
-from carousel.models import CarouselSlide
+from updates.models import Update
 from .forms import ContactForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
@@ -15,12 +15,13 @@ from django.http import Http404
 from django.template.response import TemplateResponse
 from django.utils.http import http_date
 
+
 class Index(generic.ListView):
-    model = CarouselSlide
+    model = Update
 
-    context_object_name = "slides"
+    context_object_name = "updates"
     template_name = "index.html"
-
+    
 def tools_index(request):
     """View for the tool page"""
     return render(
