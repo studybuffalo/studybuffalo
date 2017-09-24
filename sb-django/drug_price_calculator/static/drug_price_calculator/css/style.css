@@ -23,10 +23,10 @@
 }
 
 #sb .searchResults {
-    width: 100%;
-    padding: 0em;
+    display: inline-block;
     margin: 0em;
-    display: block;
+    max-width: 100%;
+    padding: 0em;
 }
 
     #sb .searchResults ul {
