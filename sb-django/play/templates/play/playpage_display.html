@@ -100,12 +100,12 @@
 
 		{% if item.type == "i" %}
 			<a href="{{ item.original_image.url }}" target="_blank">
-				<img src="{{ item.resized_image.url }}">
+				<img src="{{ item.resized_image.url }}" title="{{ item.alt_text }}">
 			</a>
 		{% endif %}
 
 		{% if item.description %}
-			<p>{{ item.description }}</p>
+			<p>{{ item.description|linebreaks }}</p>
 		{% endif %}
 	{% endfor %}
 </main>

@@ -144,7 +144,7 @@ class PlayImage(models.Model):
 
     def __str__(self):
         """String representing the Play Image object"""
-        return self.original_image.name
+        return self.original_image.name or ""
 
 class PlayAudio(models.Model):
     """Defines an individual audio and its characteristics"""
