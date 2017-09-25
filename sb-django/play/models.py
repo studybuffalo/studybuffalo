@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
-from PIL import Image
+from PIL import Image, ImageFile
 from io import BytesIO
 
 class Category(models.Model):
@@ -115,7 +115,9 @@ class PlayImage(models.Model):
 
     def save(self, *args, **kwargs):
         """Modifies save file functionality to generate a smaller file size"""
-        
+        # Fix for truncated image files
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+
         # Create a lower resolution image (if needed)
         orig = Image.open(self.original_image)
 
