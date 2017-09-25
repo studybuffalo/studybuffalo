@@ -122,6 +122,7 @@ input, select, textarea, button {
     box-sizing: border-box;
     max-width: 748px;
     min-width: 300px;
+    width: 100%;
 }
 
 /* Header > Title Bar*/
