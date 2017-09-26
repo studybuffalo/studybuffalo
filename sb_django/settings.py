@@ -18,7 +18,7 @@ from configparser import ConfigParser
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Set up config parser for credentials
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "config", "sb_config.cfg")
+CONFIG_PATH = os.path.join(os.path.dirname(BASE_DIR), "config", "sb_config.cfg")
 config = ConfigParser()
 config.read(CONFIG_PATH)
 

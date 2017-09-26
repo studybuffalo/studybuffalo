@@ -48,7 +48,7 @@ urlpatterns = [
 
 # Admin login obscured for security reasons
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "config", "sb_config.cfg")
+CONFIG_PATH = os.path.join(os.path.dirname(BASE_DIR), "config", "sb_config.cfg")
 config = ConfigParser()
 config.read(CONFIG_PATH)
 admin_regex = r"%s" % config.get("admin", "regex")
