@@ -15,8 +15,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import *
 
-import os
-from configparser import ConfigParser
+import environ
 
 # Dictionary containing your sitemap classes
 sitemaps = {
@@ -46,12 +45,15 @@ urlpatterns = [
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# Admin login obscured for security reasons
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_PATH = os.path.join(os.path.dirname(BASE_DIR), "config", "sb_config.cfg")
-config = ConfigParser()
-config.read(CONFIG_PATH)
-admin_regex = r"%s" % config.get("admin", "regex")
+# Set a secure path for the admin site
+# Set the Base Directory
+BASE_DIR = environ.Path(__file__) - 2
+
+# Connect to the .env file
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env(env_file=BASE_DIR.path('..', 'config').file('studybuffalo.env'))
+
+admin_regex = r"%s" % env('ADMIN_URL')
 
 urlpatterns += [
     url(admin_regex, include(admin.site.urls)),
