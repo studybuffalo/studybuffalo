@@ -4,7 +4,7 @@ from .models import PlayPage
 from datetime import datetime
 
 class Index(generic.ListView):
-    queryset = PlayPage.objects.filter(release_date__date__lte=datetime.now()).order_by("-id")[0]
+    queryset = PlayPage.objects.filter(release_date__date__lte=datetime.now()).order_by("-id").first()
     context_object_name = "play_page"
     template_name = "play/index.html"
 
