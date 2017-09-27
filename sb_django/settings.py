@@ -8,15 +8,15 @@ import environ
 BASE_DIR = environ.Path(__file__) - 2
 
 # Connect to the .env file
-env = environ.Env(DEBUG=(bool, False),)
+env = environ.Env()
 environ.Env.read_env(env_file=BASE_DIR.path('..', 'config').file('studybuffalo.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+DEBUG = True if env('DEBUG') == "True" else False
+ALLOWED_HOSTS = [env('SERVER_ADDRESS')]
 
 # Site ID
 SITE_ID = 1
