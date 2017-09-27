@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'drug_price_calculator_index' %}">Drug Price Calculator</a> &gt; Extra Information List</h1>
+
+	{% if extra_information_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>URL</th>
+                    <th>Date Listed</th>
+                    <th>Date Discontinued</th>
+                    <th>Manufacturer</th>
+                    <th>Schedule</th>
+                    <th>Schedule</th>
+                    <th>Interchangeable</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in extra_information_list %}
+					<tr>
+                        <td>{{ item.url }}</td>
+                        <td>{{ item.date_listed }}</td>
+                        <td>{{ item.date_discontinued }}</td>
+                        <td>{{ item.manufacturer }}</td>
+                        <td>{{ item.schedule }}</td>
+                        <td>{{ item.interchangeable }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

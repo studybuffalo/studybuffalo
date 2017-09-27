@@ -1,0 +1,134 @@
+<style>
+	#sb h2 {
+		text-align: left;
+	}
+
+		#sb h2::after {
+			content: none;
+		}
+
+	#sb main a, #sb main, p {
+		text-align: center;
+	}
+
+	#sb main a {
+		border: 1px solid rgb(200, 200, 200);
+		box-shadow: 4px 4px 10px rgb(200, 200, 200);
+		display: inline-block;
+		margin: 0;
+		padding: 5px;
+	}
+
+		#sb main a img {
+			display: block;
+			max-height: 90vh;
+		}
+
+	#sb #play-page-nav {
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        margin: 3rem 0;
+	}
+
+		#sb #play-page-nav li {
+			border-left: 2px solid rgb(101, 101, 101);
+			color: rgb(50, 50, 50);
+			display: inline-block;
+			font-size: 3rem;
+			list-style: none;
+		}
+		
+			#sb #play-page-nav li:first-child {
+				border-left: none;
+			}
+
+		#sb #play-page-nav a {
+			color: inherit;
+			display: block;
+			padding: 0 3rem;
+			text-decoration: none;
+			transition: 0.25s ease-in-out;
+		}
+
+			#sb #play-page-nav a:hover {
+				color: rgb(31, 103, 0) ;
+				cursor: pointer;
+				transform: scale(1.15);
+			}
+		
+		#sb #play-page-nav span {
+			color: rgb(151, 151, 151);
+			cursor: not-allowed;
+			display: block;
+			padding: 0 3rem;
+		}
+
+		@media screen and (max-width: 768px) {
+			#sb #play-page-nav {
+				align-content: center;
+				flex-direction: column;
+			}
+
+			#sb #play-page-nav li {
+				border-left: none;
+				padding: 0.5rem 0;
+				text-align: center;
+			}
+
+			#sb #play-page-nav a {
+				display: inline-block;
+			}
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1024px) {
+			#sb #play-page-nav li {
+				font-size: 2.5rem;
+			}
+
+			#sb #play-page-nav a {
+				padding: 0 1rem;
+			}
+		}
+</style>
+
+<main>
+	{% for item in play_page.playimage_set.all %}
+		{% if item.title %}
+			<h2>{{ item.title }}</h2>
+		{% endif %}
+
+		{% if item.type == "i" %}
+			<a href="{{ item.original_image.url }}" target="_blank">
+				<img src="{{ item.resized_image.url }}" title="{{ item.alt_text }}">
+			</a>
+		{% endif %}
+
+		{% if item.description %}
+			<p>{{ item.description|linebreaks }}</p>
+		{% endif %}
+	{% endfor %}
+</main>
+
+<nav>
+	<ul id="play-page-nav">
+		{% if play_page.previous_page %}
+			<li><a href="{% url 'play_page' 1 %}">&laquo; First</a></li>
+			<li><a href="{% url 'play_page' play_page.previous_page %}">&lsaquo; Previous</a></li>
+		{% else %}
+			<li><span>&laquo; First</span></li>
+			<li><span>&lsaquo; Previous</span></li>
+		{% endif %}
+
+			<li><a href="{% url 'archive' %}">Archive</a></li>
+
+		{% if play_page.next_page %}
+			<li><a href="{% url 'play_page' play_page.next_page %}">Next &rsaquo;</a></li>
+			<li><a href="{% url 'play_page' play_page.last_page %}">Last &raquo;</a></li>
+		{% else %}
+			<li><span>Next &rsaquo;</span></li>
+			<li><span>Last &raquo;</span></li>
+		{% endif %}
+	</ul>
+</nav>

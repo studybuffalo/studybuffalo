@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'account_profile' %}">Your Profile</a> &gt; Login Cancelled</h1>
+
+	{% include 'socialaccount/snippets/message_display.html' %}
+	
+	{% url 'account_login' as login_url %}
+
+	<p>
+		You decided to cancel logging in to our site using one of your 
+		existing accounts. If this was a mistake, please proceed to 
+		<a href="{{login_url}}">sign in</a>.
+	</p>
+{% endblock %}

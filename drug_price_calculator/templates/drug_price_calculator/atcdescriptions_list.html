@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'drug_price_calculator_index' %}">Drug Price Calculator</a> &gt; Substitutions &gt; ATC List</h1>
+
+	{% if subs_atc_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Code</th>
+                    <th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in subs_atc_list %}
+					<tr>
+                        <td>{{ item.code }}</td>
+                        <td>{{ item.description }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

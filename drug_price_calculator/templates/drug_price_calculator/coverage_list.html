@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'drug_price_calculator_index' %}">Drug Price Calculator</a> &gt; Coverage List</h1>
+
+	{% if coverage_list %}
+		<table>
+			<thead>
+                <tr>
+                    <th rowspan="2">URL</th>
+                    <th rowspan="2">Coverage</th>
+                    <th rowspan="2">Criteria</th>
+                    <th rowspan="2">S.A. Criteria</th>
+                    <th rowspan="2">Pal. Criteria</th>
+                    <th colspan="11">Group</th>
+                </tr>
+				<tr>
+                    <th>1</th>
+                    <th>66</th>
+                    <th>66a</th>
+                    <th>19823</th>
+                    <th>19823a</th>
+                    <th>19824</th>
+                    <th>20400</th>
+                    <th>20403</th>
+                    <th>20514</th>
+                    <th>22128</th>
+                    <th>23609</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in coverage_list %}
+					<tr>
+                        <td>{{ item.url }}</td>
+                        <td>{{ item.coverage }}</td>
+                        <td>{{ item.criteria }}</td>
+                        <td>{{ item.criteria_sa }}</td>
+                        <td>{{ item.criteria_p }}</td>
+                        <td>{{ item.group_1 }}</td>
+                        <td>{{ item.group_66 }}</td>
+                        <td>{{ item.group_66a }}</td>
+                        <td>{{ item.group_19823 }}</td>
+                        <td>{{ item.group_19823a }}</td>
+                        <td>{{ item.group_19824 }}</td>
+                        <td>{{ item.group_20400 }}</td>
+                        <td>{{ item.group_20403 }}</td>
+                        <td>{{ item.group_20514 }}</td>
+                        <td>{{ item.group_22128 }}</td>
+                        <td>{{ item.group_23609 }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

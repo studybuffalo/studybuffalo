@@ -1,0 +1,175 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb .input_table tbody th {
+			padding: 0.4rem 2rem 0.4rem 0;
+			text-align: left;
+		}
+
+		#sb .input_table tfoot td {
+			text-align: right;
+		}
+
+		#sb .input_table a {
+			color: inherit;
+			font-weight: bold;
+			text-decoration: none;
+			transition: 0.25s ease-in-out;
+		}
+			#sb .input_table a:hover {
+				color: rgb(41, 138, 0);
+			}
+
+		#sb .socialaccount_providers {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin: 2rem 0 0 0;
+			padding: 0;
+		}
+
+			#sb .socialaccount_providers li {
+				border: 3px solid rgb(101, 101, 101);
+				border-radius: 8px;
+				margin: 0 0.5rem;
+				list-style: none;
+				text-align: center;
+				transition: 0.25s ease-in-out;
+			}
+
+				#sb .socialaccount_providers li:hover {
+					border-color: rgb(41, 138, 0);
+					color: rgb(41, 138, 0);
+				}
+
+			#sb .socialaccount_providers a {
+				color: inherit;
+				display: block;
+				padding: 1.5rem;
+				text-decoration: none;
+			}
+
+			#sb .socialaccount_providers div.facebook {
+				background-image: url("/static/images/social-facebook-color.svg");
+				background-repeat: no-repeat;
+				background-size: 70px 70px;
+				display: inline-block;
+				height: 70px;
+				margin-top: 1rem;
+				width: 70px;
+			}
+
+			#sb .socialaccount_providers div.google {
+				background-image: url("/static/images/social-google-color.svg");
+				background-repeat: no-repeat;
+				background-size: 70px 70px;
+				display: inline-block;
+				height: 70px;
+				margin-top: 1rem;
+				width: 70px;
+			}
+
+			#sb .socialaccount_providers div.twitter {
+				background-image: url("/static/images/social-twitter-color.svg");
+				background-repeat: no-repeat;
+				background-size: 70px 70px;
+				display: inline-block;
+				height: 70px;
+				margin-top: 1rem;
+				width: 70px;
+			}
+	</style>
+{% endblock %}
+
+{% load account socialaccount %}
+
+{% block content %}
+	<h1>Sign In</h1>
+
+	{% get_providers as socialaccount_providers %}
+	
+	{% if socialaccount_providers %}
+		<p>
+			Please <a href="{{ signup_url }}">sign up</a> and sign in with your
+			{% if site_name %}{{ site_name }}{% else %}Study Buffalo{% endif %} 
+			account or use one of your existing social media accounts:
+		</p>
+	{% else %}
+		<p>
+			If you have not created an account yet, then please 
+			<a href="{{ signup_url }}">sign up</a> first.
+		</p>
+	{% endif %}
+	
+	<div class="center_content">
+		<div>
+			<form class="login" method="POST" action="{% url 'account_login' %}">
+				{% csrf_token %}
+				<table class="input_table">
+					<thead>
+						<tr>
+							<td colspan="2">
+								{% include 'account/snippets/message_display.html' %}
+							</td>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<th>{{ form.login.label_tag }}</th>
+							<td>{{ form.login }}</td>
+						</tr>
+						<tr>
+							<th>{{ form.password.label_tag }}</th>
+							<td>{{ form.password }}</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								{{ form.remember.label_tag }} {{ form.remember}}
+							</td>
+						</tr>
+					</tbody>
+
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<button class="primaryAction" type="submit">Sign In</button>
+
+								{% if redirect_field_value %}
+									<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+								{% endif %}
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2">
+								<a class="button secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+							</th>
+						</tr>
+					</tfoot>
+				</table>
+			</form>
+		</div>
+	</div>
+
+	<div class="center_content">
+		<div>
+			{% load account socialaccount %}
+			
+			{% get_providers as socialaccount_providers %}
+			
+			{% if socialaccount_providers %}
+				<ul class="socialaccount_providers">
+					{% for provider in socialaccount_providers %}
+						<li>
+							<a href="{% provider_login_url provider.id process=' login ' %}">
+								<div>Sign in with your {{ provider.name }} account</div>
+								<div class="{{ provider.id }}"></div>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

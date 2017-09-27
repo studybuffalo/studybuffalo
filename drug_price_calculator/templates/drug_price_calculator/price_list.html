@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'drug_price_calculator_index' %}">Drug Price Calculator</a> &gt; Price List</h1>
+
+	{% if price_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>URL</th>
+                    <th>DIN</th>
+                    <th>Brand Name</th>
+                    <th>Strength</th>
+                    <th>Route</th>
+                    <th>Dosage Form</th>
+                    <th>Generic Name</th>
+                    <th>Unit Price</th>
+                    <th>LCA</th>
+                    <th>LCA Text</th>
+                    <th>Unit of Issue</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in price_list %}
+					<tr>
+                        <td>{{ item.url }}</td>
+                        <td>{{ item.din }}</td>
+                        <td>{{ item.brand_name }}</td>
+                        <td>{{ item.strength }}</td>
+                        <td>{{ item.route }}</td>
+                        <td>{{ item.dosage_form }}</td>
+                        <td>{{ item.generic_name }}</td>
+                        <td>{{ item.unit_price }}</td>
+                        <td>{{ item.lca }}</td>
+                        <td>{{ item.lca_text }}</td>
+                        <td>{{ item.unit_issue }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

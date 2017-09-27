@@ -1,0 +1,128 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block styles %}
+	<style>
+		#sb main {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+		}
+
+			#sb main .tool {
+				border: 2px solid rgb(101, 101, 101);
+				display: block;
+				margin: 1rem 0.2rem;
+				transition: 0.25s ease-in-out;
+				width: 100%;
+			}
+
+				#sb main .tool:hover {
+					border: 2px solid rgb(41, 138, 0);
+				}
+
+					#sb main .tool:hover h2 {
+						background-color: rgb(41, 138, 0);
+					}
+
+				#sb main .tool a {
+					color: inherit;
+					display: block;
+					text-decoration: none;
+				}
+
+				#sb main .tool h2 {
+					background-color: rgb(31, 103, 0);
+					color: rgb(250, 250, 250);
+					display: block;
+					padding: 2rem 1rem;
+					margin: 0;
+					transition: 0.25s ease-in-out;
+				}
+
+				#sb main .tool h2::after {
+					content: none;
+				}
+
+				#sb main .tool div:nth-child(2) {
+					padding: 2rem;
+				}
+
+				#sb main .tool div:nth-child(3) {
+					background-color: rgb(50, 50, 50);
+					color: rgb(250, 250, 250);
+					display: block;
+					font-size: 1.6rem;
+					padding: 0.25rem;
+					margin: 0;
+				}
+
+					#sb main .tool div:nth-child(3) span {
+						padding: 0 2rem;
+					}
+	</style>
+{% endblock %}
+
+
+{% block content %}
+	<h1>Tools</h1>
+
+	<main>
+		<div class="tool">
+			<a href="{% url 'alberta_adaptations_index' %}">
+				<h2>Alberta Adaptations</h2>
+
+				<div>
+					A flow chart to help Alberta Pharmacists quickly determine 
+					what type of adaptation they are performing.
+				</div>
+				
+				<div>
+					<span>Originally released on</span>
+					<span>Last updated on</span>
+				</div>
+			</a>
+		</div>
+	
+		<div class="tool">
+			<a href="{% url 'drug_price_calculator_index' %}">
+				<h2>Drug Price Calculator</h2>
+
+				<div>
+					A tool that helps health care professionals and patients 
+					determine the cost of medications. Includes additional 
+					information on insurance plans, fee calculations, and 
+					any special criteria for drug coverage.
+				</div>
+				
+				<div>
+					<span>Originally released on</span>
+					<span>Last updated on</span>
+				</div>
+			</a>
+		</div>
+	
+		<div class="tool">
+			<a href="{% url 'vancomycin_calculator_index' %}">
+				<h2>Vancomycin Calculator</h2>
+
+				<div>
+					A calculator that uses the patient height, weight, and 
+					renal function to calculate an empiric vancomycin dose. 
+					Based on the vancomycin dosing algorithm used by Alberta 
+					Health Services. Also provides information on the 
+					calculations performed and patient-specific pharmacokinetic 
+					parameters.
+				</div>
+
+				<div>
+					<span>Originally released on</span>
+					<span>Last updated on</span>
+				</div>
+			</a>
+		</div>
+	</main>
+{% endblock %}

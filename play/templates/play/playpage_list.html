@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Play</h1>
+
+	{% if play_page_list %}
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Title</th>
+					<th>Category</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for page in play_page_list %}
+					<tr>
+						<td><a href="{% url 'play_page' page.pk %}">{{ page.date }}</a></td>
+						<td><a href="{% url 'play_page' page.pk %}">{{ page.title }}</a></td>
+						<td><a href="{% url 'play_page' page.pk %}">{{ page.category }}</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

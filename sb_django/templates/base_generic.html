@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#298a00">
+	<meta name="msapplication-config" content="/images/browserconfig.xml">
+
+	{% block title %}<title>Study Buffalo</title>{% endblock %}
+
+	{% load static %}
+
+	<!-- Manifest -->
+	<link rel="manifest" href="{% static 'manifests/manifest.json' %}">
+
+	<!-- Icons/Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static '/images/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static '/images/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static '/images/favicon-16x16.png' %}">
+	<link rel="mask-icon" href="{% static '/images/safari-pinned-tab.svg' %}" color="#298a00' %}">
+	<link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">
+	
+	<!-- CSS Styles -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300i|Roboto:100,500|Ubuntu" rel="stylesheet">
+	{% block styles %}{% endblock %}
+
+	<!-- JS Files -->
+	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "js/functions.js" %}"></script>
+	{% block js %}{% endblock %}
+</head>
+
+<body>
+	<div id="sb">
+		{% block header %}
+			<div id="header-container">
+				<header>
+					<div id="title-bar" class="container">
+						<div id="placeholder"></div>
+
+						<div id="logo"></div>
+
+						<div id="login">
+							{% if user.is_authenticated %}
+								<a href="{% url 'account_profile' %}">Your Profile</a><br> 
+								<a href="{% url 'account_logout' %}?next={{request.path}}">
+									Logout
+								</a>
+							{% else %}
+								<a href="{% url 'account_login' %}?next={{request.path}}">
+									Signup or Login
+								</a>
+							{% endif %}
+						</div>
+					</div>
+				</header>
+
+				<nav>
+					<div id="menu-icon" class="container">
+						<span class="icon">&#8801;</span>
+						<span>Menu</span>
+					</div>
+					<ul id="menu" class="container">
+						<li>
+							{% if request.path == "/" %}
+								<a href="{% url 'index' %}" class="selected">Home</a>
+							{% else %}
+								<a href="{% url 'index' %}">Home</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":6" == "/play/" %}
+								<a href="{% url 'play_index' %}" class="selected">Play</a>
+							{% else %}
+								<a href="{% url 'play_index' %}">Play</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":7" == "/study/" %}
+								<a href="{% url 'study_index' %}" class="selected">Study</a>
+							{% else %}
+								<a href="{% url 'study_index' %}">Study</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":7" == "/tools/" %}
+								<a href="{% url 'tools_index' %}" class="selected">Tools</a>
+							{% else %}
+								<a href="{% url 'tools_index' %}">Tools</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":6" == "/read/" %}
+								<a href="{% url 'pub_index' %}" class="selected">Read</a>
+							{% else %}
+								<a href="{% url 'pub_index' %}">Read</a>
+							{% endif %}
+						</li>
+						<li>
+							{% if request.path|slice:":8" == "/design/" %}
+								<a href="{% url 'design_index' %}" class="selected">Design</a>
+							{% else %}
+								<a href="{% url 'design_index' %}">Design</a>
+							{% endif %}
+						</li>
+					</ul>
+				</nav>
+			</div>
+		{% endblock %}
+
+		{% block content-container %}
+			<div id="main-content-container" class="container">
+				{% block content %}
+				{% endblock %}
+			{% endblock %}
+		</div>
+
+		{% block footer %}
+			<div id="footer-container">
+				<section id="social">
+					<div class="container">
+						<div>
+							Keep up-to-date with us through social media
+						</div>
+
+						<ul>
+							<li>
+								<a href="https://www.facebook.com/StudyBuffalo/" target="_blank" rel="noopener">
+									<img src="{% static 'images/social-facebook-gray.svg' %}" alt="Facebook">
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/StudyBuffalo" target="_blank" rel="noopener">
+									<img src="{% static 'images/social-twitter-gray.svg' %}" alt="Twitter">
+								</a>
+							</li>
+							<li>
+								<a  href="https://www.instagram.com/studybuffalo/" target="_blank" rel="noopener">
+									<img src="{% static 'images/social-instagram-gray.svg' %}" alt="Instagram">
+								</a>
+							</li>
+							<li>
+								<a  href="https://plus.google.com/u/0/115534373351831644201" target="_blank" rel="noopener">
+									<img src="{% static 'images/social-google-gray.svg' %}" alt="Google Plus">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<footer>
+					<div class="container">
+						<div class="policies">
+							<span><a href="{% url 'privacy_policy' %}">Privacy Policy</a></span>
+							<span><a href="{% url 'robot_policy' %}">Robot Policy</a></span>
+						</div>
+						
+						<div class="other-links">
+							<span><a href="{% url 'contact' %}">Contact</a></span>
+							<span><a href="{% url 'sitemap' %}">Site Map</a></span>
+						</div>
+
+						<div class="copyright">
+							<span>&copy; {% now "Y" %} Study Buffalo</span>
+						</div>
+					</div>
+				</footer>
+			</div>
+		{% endblock %}
+	</div>
+</body>
+</html>

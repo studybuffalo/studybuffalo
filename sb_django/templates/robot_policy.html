@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<h1>Robot and Data Extraction Policy</h1>
+
+	<p>
+		Studybuffalo.com is a website designed to provide practice 
+		tools and information to health care practitioners in Alberta 
+		(and anywhere else where they may be value). Some of our tools take 
+		available resources and redesign them into user-friendly 
+		interfaces that provide unique functionality and information. 
+		To power these tools we often will extract data from 
+		publically available databases to incorporate into our systems.
+	</p>
+		
+	<h2>Web Crawlers</h2>
+		<p>
+			The aforementioned data extraction is powered by various 
+			web crawlers written in Python. We strive to minimize the impact 
+			on the crawled servers and complying with the best practice 
+			recommendations for web crawlers.
+		</p>
+
+		<p>
+			All our web crawlers will identify themselves and link to 
+			this page so that their activity can be audited. They all comply
+			with the robots.txt file on the server (looking for it 
+			automatically in the root directory).
+		</p>
+		
+		<p>
+			We try to limit our downloads and data extraction to times and 
+			days where it is unlikely to be disruptive for regular users of 
+			the site. We strive to limit the activity of the crawlers and 
+			generally will run then no more than once a week where possible.
+			We further limit the impact by only requesting data once, in a 
+			manner that can the resources used to serve the crawler. All
+			additional manipulation and processing of the data is done with
+			the single copy of data we retrieve.
+		</p>
+		
+	<h2>Contacting Study Buffalo</h2>
+		<p>
+			If you are the owner of a website and would like to discuss the 
+			use of our web crawlers on your site, please feel free to contact 
+			us via our <a href="{% url 'contact' %}">contact page</a>.
+{% endblock %}

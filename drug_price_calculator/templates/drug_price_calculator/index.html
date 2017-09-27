@@ -1,0 +1,519 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block styles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'drug_price_calculator\css\style.css' %}">
+{% endblock %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Tools</a> &gt; Drug Price Calculator</h1>
+	
+	<div class="line">
+		<p>Welcome to the Alberta Drug Price Calculator. To start, enter your drug in 
+		the search bar below and click on the entry you want to calculate the price for.
+		You may add multiple items at a time and print off a complete list in the end.</p>
+			
+		<p class="MT1em">Please see notices on the bottom of the page for the assumptions 
+		made by the calculator.</p>
+	</div>
+		
+	<!-- Medication Price -->
+	<div class="line MT1em">
+		<h2>Medication Prices</h2>
+			
+		<div class="MT1em">
+			<strong>Search for a drug name (generic or brand name):</strong>
+		</div>
+			
+		<div class="searchContainer">
+			<input type="search" id="Search-Bar" class="searchBar" incremental="incremental">
+				
+			<div class="line">
+				<div id="Search-Results" class="searchResults">
+				</div>
+			</div>
+		</div>
+		
+		<div class="MT1em">
+			<strong>Third Party Coverage:</strong>
+		</div>
+
+		<div class="thirdPartyContainer">		
+			<select id="price-table-third-party" class="thirdPartySelect">
+				<option value="">None</option>
+				<option value="1">Non-Group Coverage (Group 1)</option>
+				<option value="66">Coverage for Seniors (Group 66)</option>
+				<option value="66a">Alberta Widows' Pension Plan (Group 66A)</option>
+				<option value="19823">Income Support (Group 19823)</option>
+				<option value="19823a">Alberta Human Services (AISH) (Group 19823A)</option>
+				<option value="19824">Children and Youth Services (Group 19824)</option>
+				<option value="20400">Alberta Child Health Benefit (Group 20400, 20401, 20402)</option>
+				<option value="20403">Child and Family Services (Group 20403)</option>
+				<option value="20514">Palliative Coverage (Group 20514)</option>
+				<option value="22128">Learners Program (Group 22128)</option>
+				<option value="23609">Alberta Adult Health Benefit (AAHB) (Group 23609)</option>
+			</select>
+		</div>
+		
+		<div id="price-table">
+			<div class="header">
+				<div class="item-medication">Medication</div>
+				<div class="item-brand">Brand</div>
+				<div class="item-cost">Cost Per Unit</div>
+				<div class="item-dose">Doses Per Day</div>
+				<div class="item-supply">Day Supply</div>
+				<div class="item-quantity">Quantity</div>
+				<div class="item-price">Price</div>
+				<div class="item-buttons"></div>
+			</div>
+
+			<div class="content"></div>
+
+			<div class="footer">
+				<div class="item-freeform">
+					<input type="button" id="Add-Freeform" value="Add freeform entry">
+				</div>
+				<div class="item-change">
+					<input type="button" class="changeQuantity" value="Change all quantities/supplies">
+				</div>
+				<div class="item-buttons"> </div>
+				<div class="item-total">
+					<span id="price-table-total"></span>
+				</div>
+			</div>
+		</div>
+
+		<p>
+			<table class="legend">
+				<tr>
+					<th>Tip:</th>
+					<td>You can enter fractions into the "Doses per Day" 
+						field using a "#/#" format. For example, 1 dose 
+						every 7 days can be entered as "1/7".</td>
+				</tr>
+				<tr>
+					<th>LCA:</th>
+					<td>Least Cost Alternative</td>
+				</tr>
+				<tr>
+			   		<th>MAC:</th>
+			   		<td>Maximum Allowable Cost (i.e. the cost the insurance plan will cover)</td>
+				</tr>
+				<tr>
+					<th><span class="info"> </span></th>
+					<td>Click for additional medication information</th>
+				</tr>
+				<tr>
+					<th><span class="info notice"> </span></th>
+					<td>Additional coverage criteria may apply</td>
+				</tr>
+				<tr>
+					<th><span class="info warning"> </span></th>
+					<td>Medication not a benefit under selected insurance plan</td>
+				</tr>
+			</table>
+		</p>
+	
+		<h3 class="MT05em">Print Medication Prices</h3>
+				
+		<p>
+			<b>Patient Name (Optional):</b>
+			<input type="text" id="Patient-Name">
+		</p>
+				
+		<p class="MT05em"><input type="button" id="Print-Medication-Prices" value="Print Medication Prices"></p>
+	</div>
+	
+	<!-- Comparing Prices -->
+	
+	<div class="line MT1em">
+		<hr>
+			
+		<h2>Drug Price Comparison</h2>
+			
+		<p>
+			Compare drugs across pharmacological classes. Medications 
+			classes are based on either the Anatomical Therapeutic 
+			Chemical (ATC) Classification or Pharmacologic-Therapeutic 
+			Classification (PTC).
+		</p>
+			
+		<div class="MT1em">
+			<strong>Classification System to Search:</strong>
+		</div>
+		
+		<div class="comparisonSearchMethod">
+			<ul>
+				<li>
+					<input type="checkbox"
+							id="Comparison-Search-Method-1"
+							name="Comparison-Search-Method"
+							checked>
+					<label for="Comparison-Search-Method-1">
+						Anatomical Therapeutic Chemical (ATC) Classification
+					</label>
+				</li>
+				<li>
+					<input type="checkbox"
+							id="Comparison-Search-Method-2"
+							name="Comparison-Search-Method">
+					<label for="Comparison-Search-Method-2">
+						Pharmacologic-Therapeutic Classification (PTC)
+					</label>
+				</li>
+			</ul>
+		</div>
+
+		<div class="MT1em">
+			<strong>
+				Search by category or medication name (generic or brand):
+			</strong>
+		</div>	
+
+		<div class="searchContainer">
+			<input type="search" id="Comparison-Search" class="searchBar" incremental="incremental">
+			<div class="line">
+				<div id="Comparison-Results" class="searchResults"></div>
+			</div>
+		</div>
+		
+		<div class="MT1em">
+			<strong>Third Party Coverage:</strong>
+		</div>	
+		
+		<div class="thirdPartyContainer">
+			<select id="comparison-table-third-party" class="thirdPartySelect">
+				<option value="">None</option>
+				<option value="1">Non-Group Coverage (Group 1)</option>
+				<option value="66">Coverage for Seniors (Group 66)</option>
+				<option value="66a">Alberta Widows' Pension Plan (Group 66A)</option>
+				<option value="19823">Income Support (Group 19823)</option>
+				<option value="19823a">Alberta Human Services (AISH) (Group 19823A)</option>
+				<option value="19824">Children and Youth Services (Group 19824)</option>
+				<option value="20400">Alberta Child Health Benefit (Group 20400, 20401, 20402)</option>
+				<option value="20403">Child and Family Services (Group 20403)</option>
+				<option value="20514">Palliative Coverage (Group 20514)</option>
+				<option value="22128">Learners Program (Group 22128)</option>
+				<option value="23609">Alberta Adult Health Benefit (AAHB) (Group 23609)</option>
+			</select>
+		</div>
+
+		<div id="comparison-table">
+			<div class="header">
+				<div class="item-medication">Medication</div>
+				<div class="item-strength">Strength</div>
+				<div class="item-cost">LCA</div>
+				<div class="item-dose">Doses Per Day</div>
+				<div class="item-supply">Day Supply</div>
+				<div class="item-quantity">Quantity</div>
+				<div class="item-price">Price</div>
+				<div class="item-buttons"></div>
+			</div>
+
+			<div class="content"></div>
+
+			<div class="footer">
+				<input type="button" class="changeQuantity" value="Change all quantities/supplies">
+			</div>
+		</div>
+		<!--
+		<div id="Comparison-Table-Div" class="methodDay">
+			<table id="Comparison-Table">
+				<thead>
+					<tr>
+						<th>Medication</th>
+						<th>Strength</th>
+						<th>LCA Cost ($)</th>
+						<th class="cellDay">Doses Per Day</th>
+						<th class="cellDay">Day Supply</th>
+						<th class="cellDay cellPrice">Price</th>
+						<th class="cellQuantity">Quantity</th>
+						<th class="cellQuantity cellPrice">Price</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="cellDay"></td>
+						<td class="cellDay changeCell">
+							<input type="button" class="changeSupply" value="Change All">
+						</td>
+						<td class="cellDay"></td>
+						<td class="cellQuantity changeCell">
+							<input type="button" class="changeQuantity" value="Change All">
+						</td>
+						<td class="cellQuantity"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<th></th>
+						<th></th>
+						<th class="cellDay"></th>
+						<th class="cellDay"></th>
+						<th class="cellDay"></th>
+						<th class="cellQuantity"></th>
+						<th class="cellQuantity"></th>
+						<th></th>
+					</tr>
+				</tfoot>
+			</table>
+		-->
+		<p>
+			<table class="legend">
+				<tr>
+					<th>Tip:</th>
+					<td>You can enter fractions into the "Doses per Day" 
+						field using a "#/#" format. For example, 1 dose 
+						every 7 days can be entered as "1/7".</td>
+				</tr>
+				<tr>
+					<th>LCA:</th>
+					<td>Least Cost Alternative</td>
+				</tr>
+				<tr>
+			   		<th>MAC:</th>
+			   		<td>Maximum Allowable Cost (i.e. the cost the insurance plan will cover)</td>
+				</tr>
+				<tr>
+					<th><span class="info"> </span></th>
+					<td>Click for additional medication information</th>
+				</tr>
+				<tr>
+					<th><span class="info notice"> </span></th>
+					<td>Additional coverage criteria may apply</td>
+				</tr>
+				<tr>
+					<th><span class="info warning"> </span></th>
+					<td>Medication not a benefit under selected insurance plan</td>
+				</tr>
+			</table>
+		</p>
+	</div>
+	
+
+	<!-- Disclaimers & Notices -->
+	<div class="line MT1em">
+		<hr>
+			
+		<h2>Disclaimers & Notices</h2>
+			
+		<p>
+			This calculator is based off the prices listed off the 
+			<a href="https://idbl.ab.bluecross.ca/idbl/load.do">Alberta 
+			Blue Cross Interactive Drug Benefit List (iDBL)</a>. While we 
+			strive to keep our information updated and accurate, there may 
+			be issues outside of our control. The data found on the iDBL 
+			will supersede anything reported here. We are not responsible 
+			for how this information is used - the following are 
+			considerations to make when using this website:
+		</p>
+			
+		<ul>
+			<li class="MT05em">To reduce the burden on the Alberta Blue 
+				Cross servers, we update this information weekly (last 
+				updated on <?php echo $update ?>).</li>
+			<li class="MT05em">Much of this information is automatically 
+				generated - this could result in inaccuracies in the data 
+				that we have not caught.</li>
+			<li class="MT05em">Prices are calculated assuming that the 
+				pharmacy is charging the maximum amount allowed in the 
+				<em>Alberta Blue Cross Pharmacy Services Agreement</em>. 
+				Pharmacies may choose to charge less than these amounts
+				when billing a third-party coverage. Pharmacies may choose
+				to charge more than these amounts for patients paying 
+				out-of-pocket.</li>
+			<li class="MT05em">The benefit information listed is only 
+				accurate for publicly-funded Alberta Blue Cross insurance 
+				plans. While it may be applicable to other insurance plans, 
+				we cannot guarantee this. Other insurance plans may choose 
+				to cover different products at different prices.</li>
+			<li class="MT05em">The prices generated when applying third 
+				party coverage cannot be guaranteed. We calculate these 
+				prices based on the information provided publically by 
+				Alberta Blue Cross, but this information may have changed 
+				since we last updated and there may be additional client 
+				costs/fees that we are unaware of (e.g. deductibles, plan 
+				maximums).</li>
+		</ul>
+			
+		<p>
+			If you have any questions, concerns, or wish to report an error,
+			please <a href="{% url 'contact' %}">contact us</a>.
+		</p>
+			
+		<p class="center-content MT1em">
+			<strong>Prices last updated:</strong> <span id="Last-Update"><?php echo $update ?></span>
+		</p>
+	</div>
+
+	<!-- Price Calculations -->
+	<!--
+	<div class="line MT1em">
+		<hr>
+			
+		<h2>Price Calculations</h2>
+			
+		<p>
+			Below is an example of how prices are calculated, with the example of 100 
+			tablets of a medication (Unit Price = $0.10/tablet):
+		</p>
+			
+		<h3 class="MT05em">Medication Cost</h3>
+		
+		<p>
+			The cost per unit multiplied by the number of units.
+		</p>
+
+		<div class="equation">
+			\begin{align}
+				Medication\ Cost & = Cost\ Per\ Unit * Quantity &\\
+				& = \frac{$0.10}{tablet} * 100\ tablets &\\
+				& = $10.00
+			\end{align}
+		</div>
+			
+		<h3>Allowable Upcharge #1</h3>
+		
+		<p>
+			3% of the medication cost.
+		</p>
+		
+		<div class="equation">
+			\begin{align}
+				Allowable\ Upcharge\ \#1 & = Medication\ Cost * 0.03 &\\
+				& = $10.00 * 0.03 &\\
+				& = $0.30
+			\end{align}
+		</div>
+			
+		<h3>Allowable Upcharge #2</h3>
+
+		<p>
+			6% of the total of medication cost &#38; allowable upcharge #1.
+		</p>
+
+		<div class="equation">	
+			\begin{align}
+				Allowable\ Upcharge\ \#2 & = \left(Medication\ Cost + Allowable\ Upcharge\ \#1\right) * 0.06 &\\
+				& = \left($10.00 + $0.30\right) * 0.06 &\\
+				& = $10.30 * 0.06 &\\
+				& = $0.62
+			\end{align}
+		</div>
+			
+		<h3>Dispensing Fee</h3>
+
+		<p>A flat fee of $12.30.</p>
+			
+		<h3 class="MT05em">Final Price</h3>
+		
+		<p>
+			All the above fees are added to the medication cost to generate the final total.
+		</p>
+
+		<div class="equation">
+			\begin{align}
+				Total\ Cost & = Medication\ Cost + Allowable\ Upcharge\ \#1 + Allowable\ Upcharge\ \#2 + Dispensing\ Fee &\\
+				& = $10.00 + $0.30 + $0.62 + $12.30 &\\
+				& = $23.22
+			\end{align}
+		</div>
+	</div>
+	-->
+
+	<!-- Third Party Coverage Calculations -->
+	<div class="line MT1em">
+		<hr>
+			
+		<h2>Third Party Coverage Calculations</h2>
+		
+		<table id="third-party-coverages">
+			<thead>
+				<tr>
+					<th>Third Party Coverage</th>
+					<th>Coverage Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Non-Group Coverage (Group 1)</th>
+					<td rowspan="4">
+						<ul>
+							<li>Patient pays 30% of the final drug cost.</li>
+							<li>The patient will only pay a maximum of 
+								$25.00 per prescription refill.</li>
+							<li>Plans may be subject to annual 
+								deductibles and annual maximums (e.g. 
+								$600 maximum on diabetes supplies).</li>
+							<li>If patient chooses a brand of medication
+								with a unit price exceeding the maximum 
+								allowable cost (MAC), the third party 
+								provider will only pay for drug costs 
+								and fees at that MAC. The patient will be 
+								required  to pay the remaining 
+								difference.</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Coverage for Seniors (Group 66)</th>
+				</tr>
+				<tr>
+					<th>Alberta Widows' Pension Plan (Group 66A)</th>
+				</tr>
+				<tr>
+					<th>Palliative Coverage (Group 20514)</th>
+				</tr>
+				<tr>
+					<th class="shade">Income Support (Group 19823)</th>
+					<td class="shade" rowspan="7">
+						<ul>
+							<li>Patient has no copay on benefit 
+								medications.</li>
+							<li>Plans may be subject to annual maximums 
+								(e.g. $600 maximum on diabetes 
+								supplies).</li>
+							<li>If patient chooses a brand of medication
+								with a unit price exceeding the maximum
+								allowable cost (MAC), the third party
+								provider will only pay for drug costs
+								and fees at that MAC. The patient will be
+								required  to pay the remaining
+								difference.
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th class="shade">Alberta Human Services (AISH) (Group 19823A)</th>
+				</tr>
+				<tr>
+					<th class="shade">Children and Youth Services (Group 19824)</th>
+				</tr>
+				<tr>
+					<th class="shade">Alberta Child Health Benefit (Group 20400, 20401, 20402)</th>
+				</tr>
+				<tr>
+					<th class="shade">Child and Family Services (Group 20403)</th>
+				</tr>
+				<tr>
+					<th class="shade">Learners Program (Group 22128)</th>
+				</tr>
+				<tr>
+					<th class="shade">Alberta Adult Health Benefit (AAHB) (Group 23609)</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<!-- JS Functions and External Libraries -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script type="text/javascript" src="{% static 'drug_price_calculator\js\functions.js' %}"></script>
+{% endblock %}
