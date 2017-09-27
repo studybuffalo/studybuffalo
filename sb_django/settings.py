@@ -11,9 +11,6 @@ BASE_DIR = environ.Path(__file__) - 2
 env = environ.Env(DEBUG=(bool, False),)
 environ.Env.read_env(env_file=BASE_DIR.path('..', 'config').file('studybuffalo.env'))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
@@ -173,3 +170,10 @@ STATICFILES_DIRS = [
     BASE_DIR('vancomycin_calculator', 'static'),
     BASE_DIR('drug_price_calculator', 'static'),
 ]
+
+# SECURITY SETTINGS
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True if env('SECURE_SSL_REDIRECT') == "True" else False
+SECURE_SESSION_COOKIE = True if env('SECURE_SESSION_COOKIE') == "True" else False
+X_FRAME_OPTIONS: 'DENY'
