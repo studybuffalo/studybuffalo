@@ -1,15 +1,12 @@
 # Study Buffalo
 ## What You Will Find
 Hello, we are the Study Buffalo! We are excited to see you taking an interest in our project.
-This area is specifically the web hosting side of our projects. This will include all html, 
-CSS, JS, and PHP files to run our website. Most of this is pretty boring stuff to be honest, 
-but some of our practice tool stuff may be of interest to you. In progress versions will
-be branched out for development and then merged back in when ready for release.
-
-Finally, we are actually learning all this GitHub stuff from scratch, so apologies when we
-inevitably screw something up!
+This area is specifically the web hosting side of our projects. This website is currently 
+created with the Django framework. This framework is part of our other projects, such as 
+the Drug Price Calculator and the Equivalent Pharmaceutical ID projects.
 
 ## Setup Process for a Linode Server
+**_WORK IN PROGRESS_**
 ### Set up the Linode
 1. Complete all the required security protocols
 
@@ -239,9 +236,10 @@ sudo service nginx restart
 sudo service uwsgi start
 ```
 ## Licensing
-Like everything else, we strive to keep our projects accessible to all. Everything here is 
-open source under the the GNU Public License. We are always open to discussing other 
-licensing options, so please contact us if this is an issue for you.
+We strive to keep our projects accessible to all. Everything here is open source under
+the GNU Public License. We are always open to discussing other licensing options, so 
+please contact us if this is an issue for you.
 
 ## Contact Us
-You can always get a hold of us at studybuffalo@studybuffalo.com or through GitHub itself.
+You can always get a hold of us at studybuffalo@gmail.com, info@studybuffalo.com, or through 
+GitHub itself.
