@@ -1,5 +1,5 @@
 """
-Definition of urls for sb_django.
+Definition of urls for studybuffalo.
 """
 from django.conf.urls import url
 import django.contrib.auth.views

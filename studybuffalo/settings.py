@@ -59,13 +59,13 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sb_django.urls'
+ROOT_URLCONF = 'studybuffalo.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR("sb_django", "templates"),
+            BASE_DIR("studybuffalo", "templates"),
             BASE_DIR("templates"),
         ],
         'APP_DIRS': True,
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'sb_django.wsgi.application'
+WSGI_APPLICATION = 'studybuffalo.wsgi.application'
 
 
 # Database
@@ -166,7 +166,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR('static')
 
 STATICFILES_DIRS = [
-    BASE_DIR('sb_django', 'static'),
+    BASE_DIR('studybuffalo', 'static'),
     BASE_DIR('vancomycin_calculator', 'static'),
     BASE_DIR('drug_price_calculator', 'static'),
 ]
