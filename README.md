@@ -200,7 +200,7 @@ server {
 ```
 ```
 SITE_NAME: the name given to this file
-WEBSITE_ADDRESS: the web address for this site
+WEBSITE_ADDRESS: the web address(es) for this site
 ACCESS_LOG_LOCATION: where to store access logs
 ERROR_LOG_LOCATION: where to store error logs
 STATIC_FILE_LOCATION: the location for the django site static files
@@ -235,6 +235,10 @@ sudo service nginx restart
 ```sh
 sudo service uwsgi start
 ```
+
+### Set Up the Email Server
+1. See: https://help.ubuntu.com/lts/serverguide/exim4.html
+
 ## Licensing
 We strive to keep our projects accessible to all. Everything here is open source under
 the GNU Public License. We are always open to discussing other licensing options, so 
