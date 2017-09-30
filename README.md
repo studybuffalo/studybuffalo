@@ -200,7 +200,7 @@ server {
 ```
 ```
 SITE_NAME: the name given to this file
-WEBSITE_ADDRESS: the web address for this site
+WEBSITE_ADDRESS: the web address(es) for this site
 ACCESS_LOG_LOCATION: where to store access logs
 ERROR_LOG_LOCATION: where to store error logs
 STATIC_FILE_LOCATION: the location for the django site static files
@@ -235,6 +235,73 @@ sudo service nginx restart
 ```sh
 sudo service uwsgi start
 ```
+
+### Setup SSL ###
+1. Ensure ports 80 and 443 are open to allow certbot verfication
+```sh
+sudo ufw status numbered
+sudo ufw allow 80
+sudo ufw allow 443
+```
+
+2. Install certbot
+```sh
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx
+```
+
+3. Generate the needed certificate(s)
+```sh
+sudo certbot --nginx -d SITE_NAME.com -d www.SITE_NAME.com
+```
+```
+SITE_NAME = the domain the SSL certificate will apply to
+```
+
+4. Set up the certificate for auto renewal by generating a cron job
+```sh
+sudo crontab -e
+```
+```
+...
+30 3 * * 5 /usr/bin/certbot renew --quiet
+...
+```
+
+5. Generate a new Diffie-Hellman paramater
+```sh
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+```
+
+6. Update the Nginx server block with the new parameter
+```sh
+sudo nano /etc/nginx/sites-available/BLOCK_NAME
+```
+```
+...
+ssl_dhparam /et/ssl/certs/dhparam.pem;
+...
+```
+```
+BLOCK_NAME = the name of the server block file
+```
+
+7. Confirm the configuration file was saved correctly
+```sh
+sudo nginx -t
+```
+
+8. Reload Nginx
+```sh
+sudo systemctl reload nginx
+```
+
+9. Test out the SSL certificate at [SSL Labs](https://www.ssllabs.com/ssltest/)
+
+### Set Up the Email Server
+1. See the [Exim documentation](https://help.ubuntu.com/lts/serverguide/exim4.html)
+
 ## Licensing
 We strive to keep our projects accessible to all. Everything here is open source under
 the GNU Public License. We are always open to discussing other licensing options, so 
