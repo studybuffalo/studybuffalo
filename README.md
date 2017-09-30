@@ -265,7 +265,7 @@ sudo crontab -e
 ```
 ```
 ...
-30 30 * * 5 * /usr/bin/certbot renew --quiet
+30 3 * * 5 /usr/bin/certbot renew --quiet
 ...
 ```
 
