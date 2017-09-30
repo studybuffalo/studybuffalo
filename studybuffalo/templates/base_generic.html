@@ -27,10 +27,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300i|Roboto:100,500|Ubuntu" rel="stylesheet">
 	{% block styles %}{% endblock %}
 
-	<!-- JS Files -->
-	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-	<script src="{% static "js/functions.js" %}"></script>
-	{% block js %}{% endblock %}
 </head>
 
 <body>
@@ -171,5 +167,10 @@
 			</div>
 		{% endblock %}
 	</div>
+
+	<!-- JS Files -->
+	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "js/functions.js" %}"></script>
+	{% block js %}{% endblock %}
 </body>
 </html>
