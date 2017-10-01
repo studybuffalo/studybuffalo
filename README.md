@@ -310,6 +310,75 @@ sudo systemctl reload nginx
 ### Set Up the Email Server
 1. See the [Exim documentation](https://help.ubuntu.com/lts/serverguide/exim4.html)
 
+2. Enter an SPF record to the DNS zone
+```
+Name    DOMAIN.COM
+Value   v=spf1 mx a mx:MAIL_DOMAIN.COM -all
+```
+```
+DOMAIN.COM = The domain this spf applies to
+MAIL_DOMAIN.COM = The mail server name, as defined in the DNS zone
+```
+
+3. Generate an DKIM key
+```sh
+cd /etc/exim4
+openssl genrsa -out dkim.private 1024
+openssl rsa -in dkim.private -out dkim.public -pubout -outform PEM
+```
+
+4. Get the public key (make sure to copy it as a single line with no spaces)
+```sh
+nano /etc/exim4/dkim.public
+```
+```
+-----BEGIN PUBLIC KEY-----
+abCdefGhijKLm
+noPQRsTuvWxyZ
+-----END PUBLIC KEY-----
+```
+
+5. Add the DKIM record to the DNS zone
+```
+dkim._domainkey.DOMAIN.COM TXT "k=rsa; p=abCdefGhijKLmnoPQRsTuvWxyZ"
+```
+```
+DOMAIN.COM = the domain this DKIM applies to
+```
+
+6. Update the Exim configuration
+```
+nano /etc/exim4/exim4.conf.template
+```
+```
+After line CONFDIR = /etc/exim4, add:
+
+# DKIM loading
+DKIM_CANON = relaxed
+DKIM_DOMAIN = ${sender_address_domain}
+DKIM_PRIVATE_KEY = CONFDIR/dkim.private
+DKIM_SELECTOR = dkim
+```
+
+7. Add a DMARC record to the DNS zone
+```
+Name    _dmarc.DOMAIN.COM
+Value   v=DMARC1;p=none
+```
+```
+DOMAIN.COM = the domain this DMARC applies to
+```
+
+8. Ensure a reverse lookup is present for both the ipv4 and ipv6 addresses for the linode
+```
+ - Login to the Linode Manager
+ - Chose your linode
+ - Go to the Remote Access
+ - Click the Reverse DNS link under Public IPs
+ - Lookup your linode server with the Target domain already listed
+ - Select the IP address you want to add as a reverse lookup
+```
+
 ## Licensing
 We strive to keep our projects accessible to all. Everything here is open source under
 the GNU Public License. We are always open to discussing other licensing options, so 
