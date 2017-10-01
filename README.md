@@ -379,6 +379,15 @@ DOMAIN.COM = the domain this DMARC applies to
  - Select the IP address you want to add as a reverse lookup
 ```
 
+9. Create system users without login ability to receive mail (if needed)
+```
+sudo useradd -M -r -s /bin/false USERNAME
+sudo passwd USERNAME
+```
+```
+USERNAME = the name of the user account
+```
+ 
 ## Licensing
 We strive to keep our projects accessible to all. Everything here is open source under
 the GNU Public License. We are always open to discussing other licensing options, so 
