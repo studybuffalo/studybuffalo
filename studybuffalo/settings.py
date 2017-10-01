@@ -60,8 +60,38 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+# Error Log Settings
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'app_log_file': {
+            'level': env('APP_LOG_LEVEL'),
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': env('APP_LOG_LOCATION'),
+            'filters': ['require_debug_false'],
+            'maxBytes': 1024*1024*15,
+            'backupCount': 10,
+        }
+    },
+    'loggers': {
+        'studybuffalo': {
+            'handlers': ['app_log_file',],
+            'level': env('APP_LOG_LEVEL'),
+        },
+    }
+}
+
+# URL Settings
 ROOT_URLCONF = 'studybuffalo.urls'
 
+# Template Settings
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
