@@ -181,10 +181,11 @@ DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 # Email Server Settings
 EMAIL_BACKEND = env('EMAIL_BACKEND')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-EMAIL_PORT = 1025
+EMAIL_USE_TLS = True if env('EMAIL_USE_TLS') == "True" else False
+EMAIL_PORT = env('EMAIL_PORT')
 
 # Media settings for uploaded content
 MEDIA_URL = '/media/'
