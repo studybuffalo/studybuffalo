@@ -184,17 +184,24 @@ sudo nano /etc/nginx/sites-available/SITE_NAME
 ```
 server {
     listen 80;
-    server_name WEBSITE_ADDRESS.com
-    access_log ACCESS_LOG_LOCATION
-    error_log ERROR_LOG_LOCATION
+    server_name WEBSITE_ADDRESS;
+
+    access_log ACCESS_LOG_LOCATION;
+    error_log ERROR_LOG_LOCATION;
+
     location = /favicon.ico { access_log off; log_not_found off; }
+
     location /static/ {
-        root STATIC_FILE_LOCATION
+        root STATIC_FILE_LOCATION;
+    }
+
+    location /media/ {
+        root MEDIA_FILE_LOCATION;
     }
 
     location / {
         include         uwsgi_params;
-        uwsgi_pass      unix:LOCATION_TO_SOCKET_FILE
+        uwsgi_pass      unix:LOCATION_TO_SOCKET_FILE;
     }
 }
 ```
@@ -204,6 +211,7 @@ WEBSITE_ADDRESS: the web address(es) for this site
 ACCESS_LOG_LOCATION: where to store access logs
 ERROR_LOG_LOCATION: where to store error logs
 STATIC_FILE_LOCATION: the location for the django site static files
+MEDIA_FILE_LOCATION: the location for the django site media files
 LOCATION_TO_SOCKET_FILE: wherever was specified in the uWSGI configuration file
 ```
 
