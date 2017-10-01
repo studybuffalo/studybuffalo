@@ -65,23 +65,23 @@ MIDDLEWARE_CLASSES = [
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s - %(levelname)s - %(message)s'
         }
     },
     'handlers': {
         'app_log_file': {
             'level': env('APP_LOG_LEVEL'),
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': env('APP_LOG_LOCATION'),
-            'filters': ['require_debug_false'],
+            'filename': env('APP_LOG_FILE'),
+            'formatter': 'standard',
             'maxBytes': 1024*1024*15,
             'backupCount': 10,
         }
     },
     'loggers': {
-        'studybuffalo': {
+        'django': {
             'handlers': ['app_log_file',],
             'level': env('APP_LOG_LEVEL'),
         },

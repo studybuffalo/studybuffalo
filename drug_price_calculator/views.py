@@ -35,7 +35,7 @@ class ExtraInformationList(generic.ListView):
 
 class PriceList(generic.ListView):
     model = Price
-
+    
     context_object_name = "price_list"
 
 class PTCList(generic.ListView):
