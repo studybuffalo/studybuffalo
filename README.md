@@ -308,9 +308,164 @@ sudo systemctl reload nginx
 9. Test out the SSL certificate at [SSL Labs](https://www.ssllabs.com/ssltest/)
 
 ### Set Up the Email Server
-1. See the [Exim documentation](https://help.ubuntu.com/lts/serverguide/exim4.html)
+1. Install Postfix and Dovecot (and remove Exim, if installed)
+```sh
+sudo apt-get install postfix
+sudo apt-get install dovecot-core dovecot-imapd dovecot-pop3d
+sudo apt-get remove exim4
+sudo apt-get purge exim4
+```
 
-2. Enter an SPF record to the DNS zone
+2. Make note of your SSL certificates generated above, as they will be needed in the future steps
+```
+Certificate => /etc/letsencrypt/live/DOMAIN.COM/fullchain.pem
+Private Key => /etc/letsencrypt/live/DOMAIN.COM/privkey.pem
+```
+
+3. Configure the Postfix master.cf file by adding/uncommenting the following:
+```sh
+sudo nano /etc/postfix/master.cf
+```
+```
+submission inet n       -       y       -       -       smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_wrappermode=no
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject
+  -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
+  -o milter_macro_daemon_name=ORIGINATING
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+```
+
+4. Configure the Postfix main.cf file by adding the following (note the cert_file and key_file locations - they should match the ones you recorded above):
+```
+# TLS Parameters
+smtpd_use_tls=yes
+smtpd_tls_cert_file = /etc/letsencrypt/live/HOST_NAME.COM/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/HOST_NAME.COM/privkey.pem
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtpd_tls_security_level = may
+smtpd_tls_auth_only = no
+smtpd_tls_CAfile = /etc/postfix/ssl/cacert.pem
+smtpd_tls_loglevel = 1
+smtpd_tls_received_header = yes
+smtpd_tls_session_cache_timeout = 3600s
+smtpd_tls_protocols = !SSLv2, !SSLv3
+smtpd_sasl_local_domain =
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_recipient_restrictions = permit_sasl_authenticated,permit_mynetworks,reject_unauth_destination
+smtp_tls_security_level = may
+smtp_tls_note_starttls_offer = yes
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+tls_random_source = dev:/dev/urandom
+
+# Hostname and user account details
+myhostname = HOST_NAME.COM
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+local_recipient_maps = proxy:unix:passwd.byname $alias_maps
+myorigin = /etc/mailname
+mydestination = $myhostname, HOST_NAME.COM, localhost
+relayhost =
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+inet_protocols = all
+broken_sasl_auth_clients = yes
+
+# Configuration for DKIM
+milter_protocol = 2
+milter_default_action = accept
+smtpd_milters = inet:localhost:12301
+```
+```
+HOST_NAME.COM = Name of your domain/server
+```
+
+5. Setup the alias config
+```sh
+sudo nano /etc/aliases
+```
+```
+mailer-daemon: postmaster
+postmaster: root
+nobody: root
+hostmaster: root
+usenet: root
+news: root
+webmaster: root
+www: root
+ftp: root
+abuse: root
+root: USERNAME
+```
+```
+USERNAME = user account you would like these emails to direct to
+```
+
+6. Setup the Dovecot config by replacing __ the entire conents of the file__ (remember to use the proper paths for the certificate and key)
+```sh
+sudo nano /etc/dovecot/dovecot.conf
+```
+```
+
+# Mailbox locations
+mail_location = mbox:~/mail:INBOX=/var/mail/%u
+
+# Setup IMAP and POP3
+protocols = imap  pop3
+
+disable_plaintext_auth = no
+mail_privileged_group = mail
+mail_location = mbox:~/mail:INBOX=/var/mail/%u
+
+userdb {
+  driver = passwd
+}
+
+passdb {
+  args = %s
+  driver = pam
+}
+
+service auth {
+  unix_listener /var/spool/postfix/private/auth {
+    group = postfix
+    mode = 0660
+    user = postfix
+  }
+}
+
+# Set up SSL
+ssl=required
+ssl_cert = </etc/letsencrypt/live/DOMAIN_NAME.COM/fullchain.pem
+ssl_key = </etc/letsencrypt/live/DOMAIN_NAME.COM/privkey.pem
+
+# Enable Verbose Logging
+auth_verbose = yes
+auth_verbose_passwords = yes
+auth_debug = yes
+auth_debug_passwords = yes
+mail_debug = yes
+verbose_ssl = yes
+```
+```
+DOMAIN_NAME.COM = the domain name used to register the certificate
+```
+
+7. Restart the services
+```
+sudo newaliases
+sudo systemctl restart postfix
+sudo systemctl restart dovecot
+```
+
+8. Enter an SPF record to the DNS zone
 ```
 Name    DOMAIN.COM
 Value   v=spf1 mx a mx:MAIL_DOMAIN.COM -all
@@ -320,47 +475,151 @@ DOMAIN.COM = The domain this spf applies to
 MAIL_DOMAIN.COM = The mail server name, as defined in the DNS zone
 ```
 
-3. Generate an DKIM key
+9. Install OpenDKIM
 ```sh
-cd /etc/exim4
-openssl genrsa -out dkim.private 1024
-openssl rsa -in dkim.private -out dkim.public -pubout -outform PEM
+sudo apt-get install opendkim opendkim-tools
 ```
 
-4. Get the public key (make sure to copy it as a single line with no spaces)
+10. Modify the OpenDKIM configuration file by adding the following records
 ```sh
-nano /etc/exim4/dkim.public
+sudo nano /etc/opendkim.conf
 ```
 ```
------BEGIN PUBLIC KEY-----
-abCdefGhijKLm
-noPQRsTuvWxyZ
------END PUBLIC KEY-----
+# Log to syslog
+Syslog                  yes
+SyslogSuccess           yes
+LogWhy                  yes
+
+# Required to use local socket with MTAs that access the socket as a non-
+# privileged user (e.g. Postfix)
+UMask                   002
+
+# Set default oversign header
+OversignHeaders         From
+
+TrustAnchorFile       /usr/share/dns/root.key
+
+AutoRestart             Yes
+AutoRestartRate         10/1h
+
+Canonicalization        relaxed/simple
+
+ExternalIgnoreList      refile:/etc/opendkim/TrustedHosts
+InternalHosts           refile:/etc/opendkim/TrustedHosts
+KeyTable                refile:/etc/opendkim/KeyTable
+SigningTable            refile:/etc/opendkim/SigningTable
+
+Mode                    sv
+PidFile                 /var/run/opendkim/opendkim.pid
+SignatureAlgorithm      rsa-sha256
+
+UserID                  opendkim:opendkim
+
+Socket                  inet:12301@localhost
 ```
 
-5. Add the DKIM record to the DNS zone
+11. Connect the milter to Postfix by specifying the socket at the bottom of the file
+```sh
+sudo nano /etc/default/opendkim
 ```
-dkim._domainkey.DOMAIN.COM TXT "k=rsa; p=abCdefGhijKLmnoPQRsTuvWxyZ"
+```
+SOCKET="inet:12301@localhost"
+```
+
+12. If not already done above, modify the Postfix main.cf file to use the milter
+```sh
+sudo nano /etc/postfix/main.cf
+```
+```
+milter_protocol = 2
+milter_default_action = accept
+smtpd_milters = inet:localhost:12301
+non_smtpd_milters = inet:localhost:12301
+```
+
+13. Create the directory structure to hold the keys
+```sh
+sudo mkdir /etc/opendkim
+sudo mkdir /etc/opendkim/keys
+```
+
+14. Specify the trusted hosts
+```sh
+sudo nano /etc/opendkim/TrustedHosts
+```
+```
+127.0.0.1
+localhost
+192.168.0.1/24
+
+*.DOMAIN_NAME.COM
+```
+```
+DOMAIN_NAME.COM = the domain name the mail server resides on
+```
+
+15. Create a key table
+```sh
+sudo nano /etc/opendkim/KeyTable
+```
+```
+mail._domainkey.DOMAIN_NAME.COM DOMAIN_NAME.COM:mail:/etc/opendkim/keys/DOMAIN_NAME.COM/mail.private
+```
+```
+DOMAIN_NAME.COM = the domain name the mail server resides on
+```
+
+16. Create a signing table
+```sh
+sudo nano /etc/opendkim/SigningTable
+```
+```
+*@DOMAIN_NAME.COM mail._domainkey.DOMAIN_NAME.COM
+```
+```
+DOMAIN_NAME.COM = the domain name the mail server resides on
+```
+
+17. Create the directories to hold the DKIM keys
+```sh
+cd /etc/opendkim/keys
+sudo mkdir DOMAIN_NAME.COM
+cd DOMAIN_NAME.COM
+```
+```
+DOMAIN_NAME.COM = the domain name the mail server resides on
+```
+
+18. Create the keys
+```sh
+sudo opendkim-genkey -s mail -d DOMAIN_NAME.COM
+```
+```
+DOMAIN_NAME.COM = the domain name the mail server resides on
+```
+
+19. Change ownership of the keys to opendkim
+```sh
+sudo chown opendkim:opendkim mail.private
+```
+
+20. Copy the TXT entry from the mail.txt file
+```sh
+sudo nano mail.txt
+```
+```
+mail._domainkey IN TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5N3lnvvrYgPCRSoqn+awTpE+iGYcKBPpo8HHbcFfCIIV10Hwo4PhCoGZSaKVHOjDm4yefKXhQjM7iKzEPuBatE7O47hAx1CJpNuIdLxhILSbEmbMxJrJAG0HZVn8z6EAoOHZNaPHmK2h4UUrjOG8zA5BHfzJf7tGwI+K619fFUwIDAQAB" ; ----- DKIM key mail for example.com
+```
+
+21. Add the DKIM record to the DNS zone (make sure it is on one line with no spaces)
+```
+mail._domainkey.DOMAIN.COM TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5N3lnvvrYgPCRSoqn+awTpE+iGYcKBPpo8HHbcFfCIIV10Hwo4PhCoGZSaKVHOjDm4yefKXhQjM7iKzEPuBatE7O47hAx1CJpNuIdLxhILSbEmbMxJrJAG0HZVn8z6EAoOHZNaPHmK2h4UUrjOG8zA5BHfzJf7tGwI+K619fFUwIDAQAB"
 ```
 ```
 DOMAIN.COM = the domain this DKIM applies to
 ```
 
-6. Update the Exim configuration
-```
-nano /etc/exim4/exim4.conf.template
-```
-```
-After line CONFDIR = /etc/exim4, add:
-
-# DKIM loading
-DKIM_CANON = relaxed
-DKIM_DOMAIN = ${sender_address_domain}
-DKIM_PRIVATE_KEY = CONFDIR/dkim.private
-DKIM_SELECTOR = dkim
-```
-
-7. Add a DMARC record to the DNS zone
+22. Add a DMARC record to the DNS zone
 ```
 Name    _dmarc.DOMAIN.COM
 Value   v=DMARC1;p=none
@@ -369,7 +628,7 @@ Value   v=DMARC1;p=none
 DOMAIN.COM = the domain this DMARC applies to
 ```
 
-8. Ensure a reverse lookup is present for both the ipv4 and ipv6 addresses for the linode
+23. Ensure a reverse lookup is present for both the ipv4 and ipv6 addresses for the linode
 ```
  - Login to the Linode Manager
  - Chose your linode
@@ -379,15 +638,21 @@ DOMAIN.COM = the domain this DMARC applies to
  - Select the IP address you want to add as a reverse lookup
 ```
 
-9. Create system users without login ability to receive mail (if needed)
+24. Create system users without login ability to receive mail (if needed)
 ```
-sudo useradd -M -r -s /bin/false USERNAME
-sudo passwd USERNAME
+sudo adduser USERNAME --shell=/bin/false
 ```
 ```
 USERNAME = the name of the user account
 ```
  
+25. Restar all the mail systems
+```sh
+sudo systemctl restart postfix
+sudo systemctl restart opendkim
+sudo systemctl restart dovecot
+```
+
 ## Licensing
 We strive to keep our projects accessible to all. Everything here is open source under
 the GNU Public License. We are always open to discussing other licensing options, so 
