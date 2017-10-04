@@ -67,6 +67,27 @@ class ShiftCode(models.Model):
         help_text="The shift code used in the Excel schedule",
         max_length=10,
     )
+    
+    user = models.ForeignKey(
+        CalendarUser,
+        blank=True,
+        help_text=(
+            "Which user this shift code applies to (leave blank for "
+            "a default entry"
+        ),
+        null=True,
+        on_delete=models.CASCADE,
+    )
+
+    role = models.CharField(
+        choices=(
+            ("a", "Pharmacy Assistant"),
+            ("p", "Pharmacist"),
+            ("t", "Pharmacy Technician"),
+        ),
+        help_text="The role/profession this code applies to",
+        max_length=1,
+    )
 
     monday_start = models.TimeField(
         blank=True,
@@ -203,7 +224,6 @@ class ShiftCode(models.Model):
         help_text="The duration of the shift in hours (defaults to 15 hours)",
         max_digits=4,
     )
-
 
 class Shift(models.Model):
     name = models.ForeignKey(
