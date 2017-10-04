@@ -59,8 +59,16 @@ class CalendarUser(models.Model):
         null=True
     )
 
+    class Meta:
+        verbose_name = "RDRHC Calendar User"
+        verbose_name_plural = "RDRHC Calendar Users"
+
 class StatHolidays(models.Model):
     date = models.DateField()
+
+    class Meta:
+        verbose_name = "Stat Holidays"
+        verbose_name_plural = "Stat Holidays'"
 
 class ShiftCode(models.Model):
     code = models.CharField(
@@ -224,6 +232,10 @@ class ShiftCode(models.Model):
         help_text="The duration of the shift in hours (defaults to 15 hours)",
         max_digits=4,
     )
+
+    class Meta:
+        verbose_name = "Shift Code"
+        verbose_name_plural = "Shift Codes"
 
 class Shift(models.Model):
     name = models.ForeignKey(

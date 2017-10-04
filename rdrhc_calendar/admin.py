@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import CalendarUser, StatHolidays, ShiftCode, Shift
 
+admin.site.register(CalendarUser)
+admin.site.register(ShiftCode)
+admin.site.register(StatHolidays)
+
 class CalendarUserAdmin(admin.ModelAdmin):
     model = CalendarUser
     list_display = (
