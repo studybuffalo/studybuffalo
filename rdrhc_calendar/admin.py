@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import CalendarUser, StatHolidays, ShiftCode, Shift
+from .models import CalendarUser, StatHoliday, ShiftCode, Shift
 
 admin.site.register(CalendarUser)
 admin.site.register(ShiftCode)
-admin.site.register(StatHolidays)
+admin.site.register(StatHoliday)
 
 class CalendarUserAdmin(admin.ModelAdmin):
     model = CalendarUser
@@ -16,4 +16,4 @@ class ShiftCode(admin.ModelAdmin):
     list_display = ("code", "role", "user", "monday_start", "monday_duration")
 
 class StatHolidayAdmin(admin.ModelAdmin):
-    model = StatHolidays
+    model = StatHoliday

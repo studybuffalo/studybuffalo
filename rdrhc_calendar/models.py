@@ -63,11 +63,11 @@ class CalendarUser(models.Model):
         verbose_name = "RDRHC Calendar User"
         verbose_name_plural = "RDRHC Calendar Users"
 
-class StatHolidays(models.Model):
+class StatHoliday(models.Model):
     date = models.DateField()
 
     class Meta:
-        verbose_name = "Stat Holidays"
+        verbose_name = "Stat Holiday"
         verbose_name_plural = "Stat Holidays'"
 
 class ShiftCode(models.Model):
