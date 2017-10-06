@@ -248,6 +248,7 @@ class ShiftCode(models.Model):
     )
 
     class Meta:
+        unique_together = ("code", "user", "role",)
         verbose_name = "Shift Code"
         verbose_name_plural = "Shift Codes"
 
