@@ -74,7 +74,7 @@ class StatHoliday(models.Model):
         verbose_name_plural = "Stat Holidays'"
 
     def __str__(self):
-        return self.date
+        return "{0}".format(self.date)
 
 class ShiftCode(models.Model):
     code = models.CharField(
