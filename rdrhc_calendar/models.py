@@ -114,6 +114,7 @@ class ShiftCode(models.Model):
     )
 
     monday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -132,6 +133,7 @@ class ShiftCode(models.Model):
     )
 
     tuesday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -150,6 +152,7 @@ class ShiftCode(models.Model):
     )
 
     wednesday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -168,6 +171,7 @@ class ShiftCode(models.Model):
     )
 
     thursday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -186,6 +190,7 @@ class ShiftCode(models.Model):
     )
 
     friday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -204,6 +209,7 @@ class ShiftCode(models.Model):
     )
 
     saturday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -222,6 +228,7 @@ class ShiftCode(models.Model):
     )
 
     sunday_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
@@ -240,6 +247,7 @@ class ShiftCode(models.Model):
     )
 
     stat_duration = models.DecimalField(
+        blank=True,
         decimal_places=2,
         default=15.00,
         help_text="The duration of the shift in hours (defaults to 15 hours)",
