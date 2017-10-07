@@ -269,7 +269,7 @@ class ShiftCode(models.Model):
             return "{0} - {1}".format(self.get_role_display(), self.code)
        
 class Shift(models.Model):
-    name = models.ForeignKey(
+    user = models.ForeignKey(
         CalendarUser,
         help_text="The user this shit applies to",
         on_delete=models.CASCADE,
