@@ -281,8 +281,15 @@ class Shift(models.Model):
 
     shift_code = models.ForeignKey(
         ShiftCode,
+        blank=True,
         help_text="The shift code for this shift",
+        null=True,
         on_delete=models.PROTECT,
+    )
+
+    text_shift_code = models.CharField(
+        help_text="Text representation of the shift code",
+        max_length=20,
     )
 
     def __str__(self):
