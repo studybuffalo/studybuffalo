@@ -37,7 +37,7 @@ class AppData(models.Model):
         null=True,
     )
 
-    update_minutes = models.PositiveSmallIntegerField(
+    review_minute = models.PositiveSmallIntegerField(
         blank=True,
         help_text="The minutes of an hour to update on",
         null=True,
@@ -46,7 +46,7 @@ class AppData(models.Model):
         ]
     )
 
-    update_hours = models.PositiveSmallIntegerField(
+    review_hour = models.PositiveSmallIntegerField(
         blank=True,
         help_text="The hour of the day to update on (0 = midnight)",
         null=True,
@@ -55,7 +55,7 @@ class AppData(models.Model):
         ]
     )
 
-    update_days = models.PositiveSmallIntegerField(
+    review_day = models.PositiveSmallIntegerField(
         blank=True,
         help_text="The day of the month to update on (1-31)",
         null=True,
@@ -64,7 +64,7 @@ class AppData(models.Model):
         ]
     )
 
-    update_month = models.PositiveSmallIntegerField(
+    review_month = models.PositiveSmallIntegerField(
         blank=True,
         help_text="The month to update on (1 = January, 12 = December)",
         null=True,
@@ -73,7 +73,7 @@ class AppData(models.Model):
         ]
     )
 
-    update_weekday = models.PositiveSmallIntegerField(
+    review_weekday = models.PositiveSmallIntegerField(
         blank=True,
         help_text="The weekday to update on (0 = Sunday, 6 = Saturday)",
         null=True,
@@ -81,13 +81,17 @@ class AppData(models.Model):
             MaxValueValidator(6),
         ]
     )
-
-    last_update = models.DateTimeField(
-        auto_now=True,
+    
+    next_review = models.DateTimeField(
+        default=datetime.now(),
     )
 
-    next_update = models.DateTimeField(
+    last_reviewed_log = models.DateTimeField(
         default=datetime.now(),
+    )
+
+    last_review = models.DateTimeField(
+        auto_now=True,
     )
 
 class LogEntry(models.Model):
