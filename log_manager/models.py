@@ -8,12 +8,33 @@ from datetime import datetime
 class AppData(models.Model):
     """Records information on apps to collect log data on"""
     name = models.CharField(
+        help_text="Name of the application to be monitored",
     )
 
     log_location = models.CharField(
+        help_text="Absolute directory containing the log file(s)",
     )
 
     file_name = models.CharField(
+        help_text="Regex expression that matches the log file name(s)",
+    )
+
+    flag_start = models.CharField(
+        blank=True,
+        help_text=(
+            "Text located in the log file that notes the application has "
+            "started properly"
+        ),
+        null=True,
+    )
+    
+    flag_end = models.CharField(
+        blank=True,
+        help_text=(
+            "Text located in the log file that notes the application has "
+            "finished properly"
+        ),
+        null=True,
     )
 
     update_minutes = models.PositiveSmallIntegerField(
