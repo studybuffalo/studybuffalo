@@ -9,14 +9,17 @@ class AppData(models.Model):
     """Records information on apps to collect log data on"""
     name = models.CharField(
         help_text="Name of the application to be monitored",
+        max_length = 256,
     )
 
     log_location = models.CharField(
         help_text="Absolute directory containing the log file(s)",
+        max_length = 512,
     )
 
     file_name = models.CharField(
         help_text="Regex expression that matches the log file name(s)",
+        max_length = 512,
     )
 
     flag_start = models.CharField(
@@ -25,6 +28,7 @@ class AppData(models.Model):
             "Text located in the log file that notes the application has "
             "started properly"
         ),
+        max_length = 512,
         null=True,
     )
     
@@ -34,6 +38,7 @@ class AppData(models.Model):
             "Text located in the log file that notes the application has "
             "finished properly"
         ),
+        max_length = 512,
         null=True,
     )
 
@@ -119,21 +124,25 @@ class LogEntry(models.Model):
 
     file_name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     func_name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     level_name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     level_no = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
@@ -144,6 +153,7 @@ class LogEntry(models.Model):
 
     module = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
@@ -159,21 +169,25 @@ class LogEntry(models.Model):
 
     name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     path_name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     process = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     process_name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
@@ -189,11 +203,13 @@ class LogEntry(models.Model):
 
     thread = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
     thread_name = models.CharField(
         blank=True,
+        max_length = 512,
         null=True,
     )
 
