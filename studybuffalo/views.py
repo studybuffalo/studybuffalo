@@ -143,7 +143,7 @@ def unsubscribe(request):
 
     # If other request, generate (and populate) form
     else:
-        form = ContactForm()
+        form = UnsubscribeForm()
 
     return render(
         request,
