@@ -117,14 +117,11 @@ def unsubscribe(request):
     """View for the email unsubscribe page"""
     # If POST process and send email
     if request.method == 'POST':
-        print("POST RECEIVED")
-
         # Create a form instance and populate with data
         form = UnsubscribeForm(request.POST)
 
         # Check if the form is valid:
         if form.is_valid():
-            print("Valid Form)")
             sender_email = form.cleaned_data["email"]
             
             email_template = get_template("unsubscribe_email_template.txt")
@@ -143,8 +140,7 @@ def unsubscribe(request):
 
             # redirect to a new URL:
             return redirect("unsubscribe_complete")
-        else:
-            print("INVALID FORM")
+
     # If other request, generate (and populate) form
     else:
         form = ContactForm()
