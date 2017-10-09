@@ -1,0 +1,66 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb #unsubscribe-table tfoot td {
+			text-align: right;
+		}
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Unsubscribe from email notifications</h1>
+
+	<p>
+		If you would no longer like to receive emails from studybuffalo.com, 
+		please enter your email below and click "unsubscribe".
+	</p>
+	
+	<div class="center_content">
+		<div>
+			<form action="" method="post">
+				{% csrf_token %}
+
+				<table id="unsubscribe-table">
+					<thead>
+						<tr>
+							<td colspan="2">
+								{% if messages or form.errors or form.non_field_errors %}
+									<ul class="message_list">
+										{% for message in messages %}
+											{% if message.level %}
+												<li class="level_{{ message.level }}">{{ message }}</li>
+											{% else %}
+												<li>{{ message }}</li>
+											{% endif %}
+										{% endfor %}
+
+										{% for field, error in form.errors.items %}
+											<li class="level_40">{{ error|striptags }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</td>
+						</tr>
+					</thead>
+			
+					<tbody>
+						<tr>
+							<th>{{ form.email.label_tag }}</th>
+							<td>{{ form.email }}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<button type="submit">Unsubscribe</button>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</form>	
+		</div>
+	</div>
+{% endblock %}

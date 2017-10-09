@@ -35,3 +35,13 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.Textarea,
     )
+
+class UnsubscribeForm(forms.Form):
+    email = forms.EmailField(
+        error_messages={
+            "required": "Please provide an email to unsubscribe",
+            "invalid": "Please enter a valid email to unsubscribe",
+        },
+        label="Your email",
+        required=True,
+    )

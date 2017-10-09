@@ -1,7 +1,7 @@
 from django.views import generic
 from django.shortcuts import render, get_object_or_404, redirect
 from updates.models import Update
-from .forms import ContactForm
+from .forms import ContactForm, UnsubscribeForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
@@ -111,6 +111,55 @@ def contact(request):
         request,
         "contact.html",
         context={'form': form},
+    )
+
+def unsubscribe(request):
+    """View for the email unsubscribe page"""
+    # If POST process and send email
+    if request.method == 'POST':
+        print("POST RECEIVED")
+
+        # Create a form instance and populate with data
+        form = UnsubscribeForm(request.POST)
+
+        # Check if the form is valid:
+        if form.is_valid():
+            print("Valid Form)")
+            sender_email = form.cleaned_data["email"]
+            
+            email_template = get_template("unsubscribe_email_template.txt")
+            
+            email_content = email_template.render({"email": sender_email})
+
+            email = EmailMessage(
+                "Email Unsubscribe Request",
+                email_content,
+                sender_email,
+                ["info@studybuffalo.com"],
+                headers = {"Reply-To": sender_email},
+            )
+
+            email.send()
+
+            # redirect to a new URL:
+            return redirect("unsubscribe_complete")
+        else:
+            print("INVALID FORM")
+    # If other request, generate (and populate) form
+    else:
+        form = ContactForm()
+
+    return render(
+        request,
+        "unsubscribe.html",
+        context={"form": form},
+    )
+
+def unsubscribe_complete(request):
+    return render(
+        request,
+        "unsubscribe_complete.html",
+        context={},
     )
 
 @login_required
