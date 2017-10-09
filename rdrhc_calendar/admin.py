@@ -24,3 +24,10 @@ class StatHolidayAdmin(admin.ModelAdmin):
     model = StatHoliday
 
     ordering = ("date",)
+
+@admin.register(Shift)
+class ShiftAdmin(admin.ModelAdmin):
+    model = Shift
+
+    list_display = ("user", "date", "text_shift_code")
+    ordering = ("user", "date")
