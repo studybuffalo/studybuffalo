@@ -5,6 +5,7 @@ from datetime import datetime, time
 class CalendarUser(models.Model):
     sb_user = models.OneToOneField(
         User,
+        blank=True,
         null=True,
     )
 
