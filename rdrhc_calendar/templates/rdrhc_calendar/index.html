@@ -1,0 +1,427 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>RDRHC Calendars</h1>
+	
+	<h2>Using These Calendars</h2>
+	<p>
+		The calendar files are saved as an .ics file. This file type is 
+		a standard form in which numerous calendar and scheduling 
+		programs can use to share the same calendar. These files are 
+		hosted here so that you can keep your calendar synced up 
+		across multiple locations and programs, or to share a schedule 
+		with someone else.
+	</p>
+		
+	<p>
+		The instructions for how to utilize these files will vary depending 
+		on the program. Below are several guides on how to set up some of 
+		the common calendar programs. Some calendars support adding either 
+		an online calendar (one hosted on a website) or an offline 
+		calendars (one you download to your computer and manually add). 
+		<b>We recommend following the online instructions, as this will ensure 
+		your calendar automatically stays up-to-date when changes are made.</b>
+			
+		<ul>
+			<li><a href="#smart_phone">Smart Phone - Online Calendar</a></li>
+			<li><a href="#iphone">Apple iPhone Calendars - Online Calendar</a></li>
+			<li><a href="#outlook_online">Microsoft Outlook (2013) - Online Calendar</a></li>
+			<li><a href="#outlook_offline">Microsoft Outlook (2013) - Offline Calendar</a></li>
+			<li><a href="#google_online">Google Calendar - Online Calendar</a></li>
+			<li><a href="#google_offline">Google Calendar - Offline Calendar</a></li>
+		</ul>
+	</p>
+		
+	<hr>
+		
+	<h2>
+		<a name="smart_phone">Smart Phone - Online Calendar</a>
+	</h2>
+		
+	<ol>
+		<li>
+			View the email received from studybuffalo@gmail.com regarding 
+			your schedule from your smart phone.
+		</li>
+		
+		<li>
+			Click on the link to your schedule located at the bottom of 
+			the email.
+		</li>
+			
+		<li>
+			Your device should automatically subscribe to your work 
+			schedule calendar. If this does not work, please proceed 
+			to the Manual Set-Up instructions below.
+		</li>
+	</ol>
+		
+	<hr>
+		
+	<h2>
+		<a name="iphone">iPhone Calendars - Online Calendar</a>
+	</h2>
+		
+	<ol>
+		<li>
+			Start by going into your iPhone settings by clicking the 
+			<b>Settings</b> icon.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_1.png' %}" alt="iPhone Step 1">				
+		</li>
+			
+		<li>
+			Scroll down in the Settings menu and click on the 
+			<b>Calendar</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_2.png' %}" alt="iPhone Step 2">	
+		</li>
+			
+		<li>
+			Click on the <b>Accounts</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_3.png' %}" alt="iPhone Step 3">	
+		</li>
+			
+		<li>
+			Click on the <b>Add Account</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_4.png' %}" alt="iPhone Step 4">	
+		</li>
+			
+		<li>
+			Click on the <b>Other</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_5.png' %}" alt="iPhone Step 5">	
+		</li>
+			
+		<li>
+			Click on the <b>Add Subscribed Calendar</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_6.png' %}" alt="iPhone Step 6">	
+		</li>
+			
+		<li>
+			Enter in the web address to your calendar (e.g. 
+			"http://www.studybuffalo.com/calendar/example.ics").<br>
+			<img src="{% static 'rdrhc_calendar/iphone_7.png' %}" alt="iPhone Step 7">	
+		</li>
+			
+		<li>
+			Click the <b>Next</b> button. If you get an error here, 
+			make sure you have entered in your calendar correctly.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_8.png' %}" alt="iPhone Step 8">	
+		</li>
+			
+		<li>
+			If desired, you can specify a title for the calendar by 
+			changing the <b>Description</b> field. Make sure you leave
+			the User Name and Password fields blank and the Use SSL
+			button off. Click the <b>Save</b> button to add the calendar.
+			Your calendar should now be accessible in your iPhone 
+			calendar apps.<br>
+			<img src="{% static 'rdrhc_calendar/iphone_9.png' %}" alt="iPhone Step 9">	
+		</li>
+	</ol>
+		
+	<hr>
+		
+	<h2>
+		<a name="outlook_online">Microsoft Outlook (2013) - Online Calendar</a>
+	</h2>
+		
+	<ol>
+		<li>
+			Open up Microsoft Outlook and click on the <b>Calendar</b> tab.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_online_1.png' %}" alt="Outlook (Online) Step 1">	
+		</li>
+			
+		<li>
+			Click on the <b>Open Calendar</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_online_2.png' %}" alt="Outlook (Online) Step 2">	
+		</li>
+			
+		<li>
+			From the drop-down menu, select the <b>From Internet...</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_online_3.png' %}" alt="Outlook (Online) Step 3">	
+		</li>
+			
+		<li>
+			In the New Internet Calendar Subscription pop-up, enter in 
+			your calendar web address. <b>NOTE:</b> You will need to 
+			replace the "http" in the web address with "webcal". For 
+			example, http://www.studybuffalo.com/calendar/example.ics 
+			would become webcal://www.studybuffalo.com/calendar/example.ics.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_online_4.png' %}" alt="Outlook (Online) Step 4">	
+		</li>
+			
+		<li>
+			Click the <b>OK</b> button. If you don't get the pop-up in step 
+			6, double check that you entered the proper address in step 4 
+			(including the "webcal" portion).<br>
+			<img src="{% static 'rdrhc_calendar/outlook_online_5.png' %}" alt="Outlook (Online) Step 5">	
+		</li>
+			
+		<li>
+			You should receive another pop-up asking if you want to add 
+			this calendar and subscribe to updates. Click <b>Yes</b> to 
+			finishing adding the calendar.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_online_6.png' %}" alt="Outlook (Online) Step 6">	
+		</li>
+	</ol>
+		
+	<hr>
+		
+	<h2>
+		<a name="outlook_offline">Microsoft Outlook (2013) - Offline Calendar</a>
+	</h2>
+		
+	<ol>
+		<li>
+			Open up Microsoft Outlook and click the <b>File</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_offline_1.png' %}" alt="Outlook (Offline) Step 1">	
+		</li>
+			
+		<li>
+			Click on the <b>Open & Export</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_offline_2.png' %}" alt="Outlook (Offline) Step 2">	
+		</li>
+			
+		<li>
+			Click on the <b>Open Calendar</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_offline_3.png' %}" alt="Outlook (Offline) Step 3">	
+		</li>
+			
+		<li>
+			Find the .ics calendar file, select it, and click on the 
+			<b>OK</b> button. Your calendar should now be added to your 
+			Microsoft Outlook account.<br>
+			<img src="{% static 'rdrhc_calendar/outlook_offline_4.png' %}" alt="Outlook (Offline) Step 4">	
+		</li>
+	</ol>
+		
+	<hr>
+		
+	<h2>
+		<a name="google_online">Google Calendar - Online Calendar</a>
+	</h2>
+		
+	<ol>
+		<li>
+			Open up your Google Calendar 
+			(<a href="https://www.calendar.google.com">
+			https://www.calendar.google.com</a>).
+		</li>
+			
+		<li>
+			Click on the triangle menu button under the 
+			<b>Other calendars</b> section.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_2.png' %}" alt="Google Calendar (Online) Step 2">	
+		</li>
+			
+		<li>
+			Click on the <b>Add by URL</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_3.png' %}" alt="Google Calendar (Online) Step 3">	
+		</li>
+			
+		<li>
+			Add in the web address to the calendar you want to add.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_4.png' %}" alt="Google Calendar (Online) Step 4">	
+		</li>
+			
+		<li>
+			Click on the <b>Add Calendar</b> button to add the calendar to 
+			you Google Calendar account.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_5.png' %}" alt="Google Calendar (Online) Step 5">	
+		</li>
+			
+		<li>
+			If you want to customize the settings to your newly added 
+			calendar, click on the triangle menu button of the calendar 
+			and select <b>Calendar settings</b>.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_6.png' %}" alt="Google Calendar (Online) Step 6">	
+		</li>
+			
+		<li>
+			Change the settings you want, such as the Calendar Name.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_7.png' %}" alt="Google Calendar (Online) Step 7">	
+		</li>
+			
+		<li>	
+			When you are finished changing your settings, click the 
+			<b>Save</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/google_online_8.png' %}" alt="Google Calendar (Online) Step 8">	
+		</li>
+	</ol>
+		
+	<hr>
+		
+	<h2>
+		<a name="google_offline">Google Calendar - Offline Calendar</a>
+	</h2>
+		
+	<ol>
+		<li>
+			Open up your Google Calendar 
+			(<a href="https://www.calendar.google.com">
+			https://www.calendar.google.com</a>).
+		</li>
+			
+		<li>
+			Click on the <b>gear icon</b>.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_2.png' %}" alt="Google Calendar (Offline) Step 2">
+		</li>
+
+		<li>
+			Click on the <b>Settings</b> item.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_3.png' %}" alt="Google Calendar (Offline) Step 3">
+		</li>
+			
+		<li>
+			Click on the <b>Calendars</b> link.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_4.png' %}" alt="Google Calendar (Offline) Step 4">
+		</li>
+			
+		<li>
+			Click on the <b>Import calendar</b> link.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_5.png' %}" alt="Google Calendar (Offline) Step 5">
+		</li>
+			
+		<li>
+			Click on the <b>Choose File</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_6.png' %}" alt="Google Calendar (Offline) Step 6">
+		</li>
+			
+		<li>
+			Find the .ics calendar file, select it, and click on the 
+			<b>Open</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_7.png' %}" alt="Google Calendar (Offline) Step 7">
+		</li>
+			
+		<li>
+			Choose which <b>Calendar</b> you want to add the new calendar 
+			events to and click the <b>Import</b> button. It is convenient 
+			to create a new calendar specifically for the work schedule, 
+			as it is easier to upload a new version of the .ics file at a 
+			later date. Continue on to step 9 to see how to create a new 
+			calendar.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_8.png' %}" alt="Google Calendar (Offline) Step 8">
+		</li>
+			
+		<li>
+			Complete steps 1-4 to get to the Calendar Settings Page.
+		</li>
+			
+		<li>
+			Click on the <b>Create new calendar</b> button.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_10.png' %}" alt="Google Calendar (Offline) Step 10">
+		</li>
+			
+		<li>
+			Enter in a <b>Calendar Name</b>. You may also fill in the 
+			other fields if desired.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_11.png' %}" alt="Google Calendar (Offline) Step 11">
+		</li>
+			
+		<li>
+			Click the <b>Create Calendar</b> button. You may complete 
+			steps 1-8 again and import into this calendar if desired.<br>
+			<img src="{% static 'rdrhc_calendar/google_offline_12.png' %}" alt="Google Calendar (Offline) Step 12">
+		</li>
+	</ol>
+		
+	<hr>
+		
+	<h2>Program Information & Disclaimers</h2>
+		
+	<h3>Security</h3>
+
+	<p>
+		To make your schedule accessible to all your devices and programs, 
+		the calendar must be: 1) publically available; and 2) hosted on 
+		our own personal server.
+
+		<ol>
+			<li>
+				This means that anyone with your schedule link could view 
+				your calendar. To minimize the risk of this, the calendar 
+				file does not actually use your name, but rather a code 
+				name. These names are generally a long enough/complex 
+				enough that it makes someone guessing your calendar very 
+				unlikely.
+			</li>
+			<li>
+				While our own servers are also secured, we would suspect 
+				the safety of the AHS Network would still be superior. To 
+				our knowledge all major steps have been taken to secure 
+				the server, but this can change rapidly and it can take 
+				time to implement fixes.
+			</li>
+		</ol>
+	</p>
+
+	<h3>Disclaimers</h3>
+		
+	<p>
+		This program relies on a number of assumptions to properly 
+		generate a correct work schedule. There are numerous factors that 
+		can cause issues with the generation of these schedules, such as 
+		new shift codes, typos in the Microsoft Excel document, or 
+		duplicate names on the spreadsheet. While we do try to account for 
+		many of these, it will never be perfect. To reduce these risks, 
+		you will be emailed whenever your updated schedule varies from the 
+		previous version of the schedule. You will also receive a list of 
+		all the assumptions the program made. <strong>You are strongly 
+		encouraged to review these emails for any possible errors.</strong>
+	</p>
+
+	<p>
+		There is also the risk that there will be an issue with our own 
+		servers that may cause delays in schedule updates. While we do try 
+		to limit these occurrences, there is always the possibility of 
+		unexpected issues that can take several days (or longer) to 
+		resolve.
+	</p>
+
+	<p>
+		Finally, this whole project is done on our own spare time with our 
+		own resources. We am happy to provide some degree of assistance in 
+		using these programs (largely in the forms of tutorials or how-to 
+		documents), but from a practical standpoint we cannot provide 
+		individual and personalized tech support.
+	</p>
+
+	<h3>Customizability</h3>
+
+	<p>
+		We do offer some degree of customization to you schedule. Due to 
+		the potential volume of requests from multiple users, the options 
+		are limited to the following:
+	</p>
+
+	<ul>
+		<li>
+			Choosing your anonymous calendar name (pending availability of 
+			names)
+		</li>
+		<li>
+			Have calendar generate shifts as "Full Day" events
+		</li>
+		<li>
+			Customize start and stop times for specific shifts
+		</li>
+	</ul>
+
+	<p>
+		Should you wish to make use of any of these customizations, please 
+		let us know and we will update it at my earliest convenience.
+	</p>
+		
+	<h3>Contact Us</h3>
+		
+	<p>
+		Please feel free to contact us at 
+		<a href="mailto: info@studybuffalo.com">
+		info@studybuffalo.com</a> with any questions, comments, 
+		or concerns.
+	</p>
+{% endblock %}
