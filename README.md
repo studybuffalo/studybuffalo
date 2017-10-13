@@ -214,7 +214,22 @@ STATIC_FILE_LOCATION: the location for the django site static files
 MEDIA_FILE_LOCATION: the location for the django site media files
 LOCATION_TO_SOCKET_FILE: wherever was specified in the uWSGI configuration file
 ```
+```
+Note: To redirect all HTTP requests to HTTPS, change the following:
+server {
+    listen 80;
+    listen [::]:80;
+    server_name SITE_NAME;
+    return 301 https://$server_name$request_uri;
+}
 
+server {
+    listen 443 ssl;
+    ssl_certificate ...
+    ssl_certificate_key ...
+    ...
+}
+```
 3. Link the configuration file to the sites-enabled folder
 ```sh
 sudo ln -s /etc/nginx/sites-available/SITE_NAME /etc/nginx/sites-enabled
