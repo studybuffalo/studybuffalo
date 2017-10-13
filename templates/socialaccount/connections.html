@@ -147,7 +147,7 @@
 		<ul class="socialaccount_providers">
 			{% for provider in socialaccount_providers %}
 				<li>
-					<a title="{{ provider.name }}" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+					<a title="{{ provider.name }}" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process='connect' %}">
 						<div>Connect your {{ provider.name }} account</div>
 						<div class="{{ provider.id }}"></div>
 					</a>
