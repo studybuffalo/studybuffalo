@@ -161,6 +161,17 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
+SOCIALACCOUNT_PROVIDERS = {
+    "facebook": {
+        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
+        "METHOD": "oauth2",
+        "SCOPE": ["email",],
+    },
+    "google": {
+        "AUTH_PARAMS": {"access_type": "online"},
+        "SCOPE": ["email",],
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
