@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import CalendarSettingsForm
 
 def calendar_index(request):
     """View for the tool page"""
@@ -6,4 +7,13 @@ def calendar_index(request):
         request,
         "rdrhc_calendar/index.html",
         context={},
+    )
+
+def calendar_settings(request):
+    form = CalendarSettingsForm()
+
+    return render(
+        request, 
+        "rdrhc_calendar/calendar_settings.html", 
+        {'form': form}
     )
