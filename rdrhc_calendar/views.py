@@ -1,5 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -65,16 +66,18 @@ def calendar_settings(request):
         {'form': form}
     )
 
-class ShiftCodeList(generic.ListView):
+class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
+    permission_required = "rdrhc_calendar.can_view"
     context_object_name = "shift_code_list"
     template_name = "shiftcode_list.html"
 
     def get_queryset(self):
-        return ShiftCode.objects.filter(user=self.request.sb_user)
+        return ShiftCode.objects.filter(sb_user=self.request.user)
 
 @permission_required("rdrhc_calendar.can_view", login_url="/accounts/login/")
-def calendar_shift_code(request):
-    shift = get_object_or_404(Shift, pk=request.shift.id)
+def calendar_shift_code(request, code):
+    # Get the Shift Code instance for this user
+    shift_code = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':
@@ -110,6 +113,6 @@ def calendar_shift_code(request):
 
     return render(
         request, 
-        "rdrhc_calendar/calendar_shift.html", 
+        "rdrhc_calendar/shiftcode_detail.html", 
         {'form': form}
     )
