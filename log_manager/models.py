@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 
-from datetime import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -88,11 +88,11 @@ class AppData(models.Model):
     )
     
     next_review = models.DateTimeField(
-        default=datetime.now(),
+        default=timezone.now,
     )
 
     last_reviewed_log = models.DateTimeField(
-        default=datetime.now(),
+        default=timezone.now,
     )
 
     last_review = models.DateTimeField(
