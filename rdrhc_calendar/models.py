@@ -23,10 +23,6 @@ class CalendarUser(models.Model):
         unique=True,
     )
 
-    email = models.EmailField(
-        help_text="The email to use for contacting the user with their calendar",
-    )
-
     role = models.CharField(
         choices=(
             ("a", "Pharmacy Assistant"),

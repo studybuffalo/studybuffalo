@@ -6,7 +6,7 @@ class CalendarUserAdmin(admin.ModelAdmin):
     model = CalendarUser
     
     list_display = (
-        "name", "role", "schedule_name", "email", "first_email_sent"
+        "name", "role", "schedule_name", "first_email_sent"
     )
     list_filter = ("role",)
     ordering = ("role", "name",)
