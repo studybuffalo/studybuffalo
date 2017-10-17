@@ -69,20 +69,24 @@
 	<form action="" method="post">
 		{% csrf_token %}
 
-		{% if messages %}
-			<ul class="message_list">
-				{% for message in messages %}
-					{% if message.level %}
-						<li class="level_{{ message.level }}">{{ message }}</li>
-					{% else %}
-						<li>{{ message }}</li>
-					{% endif %}
-				{% endfor %}
-			</ul>
-		{% endif %}
-
 		<table class="input_table">
-			<thead></thead>
+			{% if messages %}
+				<thead>
+					<tr>
+						<td colspan="4">
+							<ul class="message_list">
+								{% for message in messages %}
+									{% if message.level %}
+										<li class="level_{{ message.level }}">{{ message }}</li>
+									{% else %}
+										<li>{{ message }}</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+				</thead>
+			{% endif %}
 
 			<tbody>
 				<tr>
