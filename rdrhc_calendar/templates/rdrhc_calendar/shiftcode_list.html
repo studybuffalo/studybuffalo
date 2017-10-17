@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; Customize Shift Times</h1>
+
+	{% if shift_code_list %}
+		<ul>
+			{% for code in shift_code_list %}
+				<li><a href="{% url 'calendar_shift_code' code.code %}">{{ code.code }}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}

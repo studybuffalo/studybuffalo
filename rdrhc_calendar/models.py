@@ -85,8 +85,8 @@ class ShiftCode(models.Model):
         max_length=20,
     )
     
-    user = models.ForeignKey(
-        CalendarUser,
+    sb_user = models.ForeignKey(
+        User,
         blank=True,
         help_text=(
             "Which user this shift code applies to (leave blank for "
@@ -259,7 +259,7 @@ class ShiftCode(models.Model):
     )
 
     class Meta:
-        unique_together = ("code", "user", "role",)
+        unique_together = ("code", "sb_user", "role",)
         verbose_name = "Shift Code"
         verbose_name_plural = "Shift Codes"
 
@@ -272,8 +272,8 @@ class ShiftCode(models.Model):
             return "{0} - {1}".format(self.get_role_display(), self.code)
        
 class Shift(models.Model):
-    user = models.ForeignKey(
-        CalendarUser,
+    sb_user = models.ForeignKey(
+        User,
         help_text="The user this shit applies to",
         on_delete=models.CASCADE,
     )

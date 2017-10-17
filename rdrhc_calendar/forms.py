@@ -1,5 +1,5 @@
 from django import forms
-from .models import CalendarUser
+from .models import CalendarUser, ShiftCode
 
 class CalendarSettingsForm(forms.ModelForm):
     full_day = forms.ChoiceField(
@@ -29,4 +29,27 @@ class CalendarSettingsForm(forms.ModelForm):
             "calendar_name",
             "full_day",
             "reminder",
+        ]
+
+class CalendarShiftCodeForm(forms.ModelForm):
+    class Meta:
+        model = ShiftCode
+        fields = [
+            "code",
+            "monday_start",
+            "monday_duration",
+            "tuesday_start",
+            "tuesday_duration",
+            "wednesday_start",
+            "wednesday_duration",
+            "thursday_start",
+            "thursday_duration",
+            "friday_start",
+            "friday_duration",
+            "saturday_start",
+            "saturday_duration",
+            "sunday_start",
+            "sunday_duration",
+            "stat_start",
+            "stat_duration",
         ]

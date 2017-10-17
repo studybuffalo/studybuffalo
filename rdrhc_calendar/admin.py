@@ -15,9 +15,9 @@ class CalendarUserAdmin(admin.ModelAdmin):
 class ShiftCode(admin.ModelAdmin):
     model = ShiftCode
     
-    list_display = ("code", "role", "user", "monday_start", "monday_duration")
+    list_display = ("code", "role", "sb_user", "monday_start", "monday_duration")
     list_filter = ("role",)
-    ordering = ("role", "user", "code",)
+    ordering = ("role", "sb_user", "code",)
 
 @admin.register(StatHoliday)
 class StatHolidayAdmin(admin.ModelAdmin):
@@ -29,5 +29,5 @@ class StatHolidayAdmin(admin.ModelAdmin):
 class ShiftAdmin(admin.ModelAdmin):
     model = Shift
 
-    list_display = ("user", "date", "text_shift_code")
-    ordering = ("user", "date")
+    list_display = ("sb_user", "date", "text_shift_code")
+    ordering = ("sb_user", "date")
