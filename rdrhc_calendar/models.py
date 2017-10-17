@@ -63,7 +63,7 @@ class CalendarUser(models.Model):
         verbose_name_plural = "RDRHC Calendar Users"
 
     def __str__(self):
-        return "{0} - {1} - {2}".format(self.role, self.name, self.email)
+        return "{0} - {1}".format(self.role, self.name)
 
 class StatHoliday(models.Model):
     date = models.DateField()
