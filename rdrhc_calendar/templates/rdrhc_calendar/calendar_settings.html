@@ -20,14 +20,16 @@
 						<li>{{ message }}</li>
 					{% endif %}
 				{% endfor %}
-
-				{% for field, error in form.errors.items %}
-					<li class="level_40">{{ error|striptags }}</li>
-				{% endfor %}
 			</ul>
 		{% endif %}
 
 		<h2>Calendar Name</h2>
+
+		<ul class="message_list">
+			{% for error in form.calendar_name.errors %}
+				<li class="level_40">{{ error|striptags }}</li>
+			{% endfor %}
+		</ul>
 
 		<p>
 			<strong>{{ form.calendar_name.help_text }}</strong><br>
@@ -39,6 +41,12 @@
 
 		<h2>Full Day Shifts</h2>
 		
+		<ul class="message_list">
+			{% for error in form.full_day.errors %}
+				<li class="level_40">{{ error|striptags }}</li>
+			{% endfor %}
+		</ul>
+
 		<p>
 			<strong>{{ form.full_day.help_text }}</strong><br>
 			<label for="{{ form.full_day.id_for_label}}">
@@ -49,6 +57,12 @@
 
 		<h2>Shift Reminders</h2>
 		
+		<ul class="message_list">
+			{% for error in form.reminder.errors %}
+				<li class="level_40">{{ error|striptags }}</li>
+			{% endfor %}
+		</ul>
+
 		<p>
 			<strong>{{ form.reminder.help_text }}</strong><br>
 			<label for="{{ form.reminder.id_for_label}}">

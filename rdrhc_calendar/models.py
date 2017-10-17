@@ -4,9 +4,7 @@ from datetime import datetime, time
 
 class CalendarUser(models.Model):
     sb_user = models.OneToOneField(
-        User,
-        blank=True,
-        null=True,
+        User
     )
 
     name = models.CharField(
@@ -20,8 +18,9 @@ class CalendarUser(models.Model):
     )
 
     calendar_name = models.CharField(
-        help_text="The name of calendar (the .ics file)",
+        help_text="The name of your calendar file",
         max_length=50,
+        unique=True,
     )
 
     email = models.EmailField(
@@ -61,6 +60,9 @@ class CalendarUser(models.Model):
     )
 
     class Meta:
+        permissions = (
+            ("can_view", "Can view the RDRHC Calendar settings view"),
+        )
         verbose_name = "RDRHC Calendar User"
         verbose_name_plural = "RDRHC Calendar Users"
 

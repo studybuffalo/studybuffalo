@@ -1,15 +1,12 @@
 from django import forms
+from .models import CalendarUser
 
-from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
-
-class CalendarSettingsForm(forms.Form):
-    calendar_name = forms.CharField(
-        help_text="The name of your calendar",
-        max_length="256",
-    )
-
-    full_day = forms.BooleanField(
+class CalendarSettingsForm(forms.ModelForm):
+    full_day = forms.ChoiceField(
+        choices=(
+            ("False", "No"),
+            ("True", "Yes"),
+        ),
         help_text=(
             "Whether your schedule should display your shifts as "
             "full day events or not"
@@ -23,4 +20,13 @@ class CalendarSettingsForm(forms.Form):
         ),
         max_value=60,
         min_value=0,
+        required=False,
     )
+
+    class Meta:
+        model = CalendarUser
+        fields = [
+            "calendar_name",
+            "full_day",
+            "reminder",
+        ]
