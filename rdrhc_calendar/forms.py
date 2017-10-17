@@ -32,6 +32,11 @@ class CalendarSettingsForm(forms.ModelForm):
         ]
 
 class CalendarShiftCodeForm(forms.ModelForm):
+    code = forms.CharField(
+        help_text="The shift code used in the Excel schedule",
+        max_length=20,
+    )
+
     class Meta:
         model = ShiftCode
         fields = [

@@ -1,6 +1,54 @@
 {% extends "base_generic.html" %}
 
 {% block styles %}
+	<style>
+		#sb .input_table {
+			font-size: 1.4rem;
+		}
+
+		#sb .input_table td, #sb .input_table th {
+			padding: 0;
+			vertical-align: top;
+		}
+
+		#sb .input_table tfoot td {
+			text-align: right;
+		}
+
+		#sb input[type="text"] {
+			font-size: 1.5rem;
+			text-align: center;
+			width: 6rem;
+		}
+
+		#sb input[type="number"] {
+			font-size: 1.5rem;
+			text-align: right;
+			width: 6rem;
+		}
+
+		@media screen and (min-width: 500px) {
+			#sb .input_table {
+				font-size: 2rem;
+			}
+			 
+			#sb .input_table td {
+				padding: 0.5rem 0.25rem;
+			}
+
+			#sb input[type="text"] {
+				font-size: 2rem;
+				text-align: center;
+				width: 10rem;
+			}
+
+			#sb input[type="number"] {
+				font-size: 2rem;
+				text-align: right;
+				width: 10rem;
+			}
+		}
+	</style>
 {% endblock %}
 
 {% load static %}
@@ -8,35 +56,39 @@
 {% block content %}
 	<h1>
 		<a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; 
-		<a href="{% url 'calendar_shift_code_list' %}">Custom Shift Codes</a> &gt; 
-		Customize Shift Times
+		<a href="{% url 'calendar_code_list' %}">Custom Shift Codes</a> &gt; 
+		Add New Shift Code
 	</h1>
 
 	<form action="" method="post">
 		{% csrf_token %}
 
-		{% if messages or form.errors or form.non_field_errors %}
-			<ul class="message_list">
-				{% for message in messages %}
-					{% if message.level %}
-						<li class="level_{{ message.level }}">{{ message }}</li>
-					{% else %}
-						<li>{{ message }}</li>
-					{% endif %}
-				{% endfor %}
-			</ul>
-		{% endif %}
-
 		<table class="input_table">
-			<thead></thead>
-
+			{% if messages %}
+				<thead>
+					<tr>
+						<td>
+							<ul class="message_list">
+								{% for message in messages %}
+									{% if message.level %}
+										<li class="level_{{ message.level }}">{{ message }}</li>
+									{% else %}
+										<li>{{ message }}</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+				</thead>
+			{% endif %}
+			
 			<tbody>
 				<tr>
 					<th>Shift Code</th>
 					<td colspan="2">{{ form.code }}</td>
 					<td>
 						<ul>
-							{% for error in form.code.errors.items %}
+							{% for error in form.code.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -54,11 +106,11 @@
 					<td>{{ form.monday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.monday_start.errors.items %}
+							{% for error in form.monday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.monday_duration.errors.items %}
+							{% for error in form.monday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -70,11 +122,11 @@
 					<td>{{ form.tuesday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.tuesday_start.errors.items %}
+							{% for error in form.tuesday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.tuesday_duration.errors.items %}
+							{% for error in form.tuesday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -86,11 +138,11 @@
 					<td>{{ form.wednesday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.wednesday_start.errors.items %}
+							{% for error in form.wednesday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.wednesday_duration.errors.items %}
+							{% for error in form.wednesday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -102,11 +154,11 @@
 					<td>{{ form.thursday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.thursday_start.errors.items %}
+							{% for error in form.thursday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.thursday_duration.errors.items %}
+							{% for error in form.thursday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -118,11 +170,11 @@
 					<td>{{ form.friday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.friday_start.errors.items %}
+							{% for error in form.friday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.friday_duration.errors.items %}
+							{% for error in form.friday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -134,11 +186,11 @@
 					<td>{{ form.saturday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.saturday_start.errors.items %}
+							{% for error in form.saturday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.saturday_duration.errors.items %}
+							{% for error in form.saturday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -150,11 +202,11 @@
 					<td>{{ form.sunday_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.sunday_start.errors.items %}
+							{% for error in form.sunday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.sunday_duration.errors.items %}
+							{% for error in form.sunday_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -166,11 +218,11 @@
 					<td>{{ form.stat_duration }} hours</td>
 					<td>
 						<ul>
-							{% for error in form.stat_start.errors.items %}
+							{% for error in form.stat_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 
-							{% for error in form.stat_duration.errors.items %}
+							{% for error in form.stat_duration.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
 						</ul>
@@ -181,7 +233,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="4">
-						<button type="submit">Save Custom Shift Code Times</button>
+						<button type="submit">Add New Shift Code</button>
 					</td>
 				</tr>
 			</tfoot>

@@ -1,0 +1,244 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb .input_table {
+			font-size: 1.4rem;
+		}
+
+		#sb .input_table td, #sb .input_table th {
+			padding: 0;
+			vertical-align: top;
+		}
+
+		#sb .input_table tfoot td {
+			text-align: right;
+		}
+
+		#sb input[type="text"] {
+			font-size: 1.5rem;
+			text-align: center;
+			width: 6rem;
+		}
+
+		#sb input[type="number"] {
+			font-size: 1.5rem;
+			text-align: right;
+			width: 6rem;
+		}
+
+		@media screen and (min-width: 500px) {
+			#sb .input_table {
+				font-size: 2rem;
+			}
+			 
+			#sb .input_table td {
+				padding: 0.5rem 0.25rem;
+			}
+
+			#sb input[type="text"] {
+				font-size: 2rem;
+				text-align: center;
+				width: 10rem;
+			}
+
+			#sb input[type="number"] {
+				font-size: 2rem;
+				text-align: right;
+				width: 10rem;
+			}
+		}
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>
+		<a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; 
+		<a href="{% url 'calendar_code_list' %}">Custom Shift Codes</a> &gt; 
+		Customize Shift Times
+	</h1>
+	
+	<p>
+		Fill out the information below to customize your shift times. You may
+		leave the start time and duration blank if the shift will not apply 
+		on that day.
+	</p>
+
+	<form action="" method="post">
+		{% csrf_token %}
+
+		{% if messages %}
+			<ul class="message_list">
+				{% for message in messages %}
+					{% if message.level %}
+						<li class="level_{{ message.level }}">{{ message }}</li>
+					{% else %}
+						<li>{{ message }}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<table class="input_table">
+			<thead></thead>
+
+			<tbody>
+				<tr>
+					<th>Shift Code</th>
+					<td colspan="2">{{ form.code }}</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.code.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<th>Start Time</th>
+					<th>Shift Duration</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>Monday</th>
+					<td>{{ form.monday_start }}</td>
+					<td>{{ form.monday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.monday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.monday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Tuesday</th>
+					<td>{{ form.tuesday_start }}</td>
+					<td>{{ form.tuesday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.tuesday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.tuesday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Wednesday</th>
+					<td>{{ form.wednesday_start }}</td>
+					<td>{{ form.wednesday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.wednesday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.wednesday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Thursday</th>
+					<td>{{ form.thursday_start }}</td>
+					<td>{{ form.thursday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.thursday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.thursday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Friday</th>
+					<td>{{ form.friday_start }}</td>
+					<td>{{ form.friday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.friday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.friday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Saturday</th>
+					<td>{{ form.saturday_start }}</td>
+					<td>{{ form.saturday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.saturday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.saturday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Sunday</th>
+					<td>{{ form.sunday_start }}</td>
+					<td>{{ form.sunday_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.sunday_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.sunday_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Statutory Holidays</th>
+					<td>{{ form.stat_start }}</td>
+					<td>{{ form.stat_duration }} hours</td>
+					<td>
+						<ul  class="message_list">
+							{% for error in form.stat_start.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+
+							{% for error in form.stat_duration.errors %}
+								<li class="level_40">{{ error|striptags }}</li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<td colspan="4">
+						<button type="submit">Save Custom Shift Code Times</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</form>
+{% endblock %}

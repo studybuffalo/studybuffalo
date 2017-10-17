@@ -264,9 +264,9 @@ class ShiftCode(models.Model):
         verbose_name_plural = "Shift Codes"
 
     def __str__(self):
-        if self.user:
+        if self.sb_user:
             return "{0} - {1} - {2}".format(
-                self.get_role_display(), self.user, self.code
+                self.get_role_display(), self.sb_user, self.code
             )
         else:
             return "{0} - {1}".format(self.get_role_display(), self.code)
@@ -287,7 +287,7 @@ class Shift(models.Model):
         blank=True,
         help_text="The shift code for this shift",
         null=True,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
     )
 
     text_shift_code = models.CharField(

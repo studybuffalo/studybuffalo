@@ -1,18 +1,87 @@
 {% extends "base_generic.html" %}
 
 {% block styles %}
+	<style>
+		#sb .center_content {
+			margin: 2rem 0;
+		}
+
+		#sb #code_list {
+			border-collapse: collapse;
+		}
+
+		#sb #code_list td {
+			border: 1px solid rgb(50, 50, 50);
+			text-align: center;
+		}
+
+			#sb #code_list td a {
+				display: block;
+				padding: 1rem;
+				transition: ease-in-out 0.3s;
+			}
+
+			#sb #code_list td a:hover {
+				background-color: rgb(200, 200, 200);
+				display: block;
+			}
+		
+		#sb #code_list tr td:first-child {
+			font-weight: 700;
+			width: 15rem;
+		}
+
+		#sb #code_list a {
+			color: inherit;
+			text-decoration: none;
+		}
+	</style>
 {% endblock %}
 
 {% load static %}
 
 {% block content %}
 	<h1><a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; Custom Shift Codes</h1>
-
-	{% if shift_code_list %}
-		<ul>
-			{% for code in shift_code_list %}
-				<li><a href="{% url 'calendar_shift_code' code.code %}">{{ code.code }}</a></li>
+	
+	{% if messages %}
+		<ul class="message_list">
+			{% for message in messages %}
+				{% if message.level %}
+					<li class="level_{{ message.level }}">{{ message }}</li>
+				{% else %}
+					<li>{{ message }}</li>
+				{% endif %}
 			{% endfor %}
 		</ul>
+	{% endif %}
+
+	<div class="center_content">
+		<a href="{% url 'calendar_code_add' %}">Click here to add a new shift code</a>
+	</div>
+	
+	{% if shift_code_list %}
+		<div class="center_content">
+			Click on the shift code below to edit its start and stop times
+		</div>
+
+		<div class="center_content">
+			<table id="code_list">
+				{% for code in shift_code_list %}
+			
+					<tr>
+						<td>
+							<a href="{% url 'calendar_code_edit' code.code %}">
+								{{ code.code }}
+							</a>
+						</td>
+						<td>
+							<a href="{% url 'calendar_code_delete' code.code %}">
+								Delete
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
 	{% endif %}
 {% endblock %}
