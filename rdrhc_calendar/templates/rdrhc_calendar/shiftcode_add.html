@@ -87,7 +87,7 @@
 					<th>Shift Code</th>
 					<td colspan="2">{{ form.code }}</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.code.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -105,7 +105,7 @@
 					<td>{{ form.monday_start }}</td>
 					<td>{{ form.monday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.monday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -121,7 +121,7 @@
 					<td>{{ form.tuesday_start }}</td>
 					<td>{{ form.tuesday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.tuesday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -137,7 +137,7 @@
 					<td>{{ form.wednesday_start }}</td>
 					<td>{{ form.wednesday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.wednesday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -153,7 +153,7 @@
 					<td>{{ form.thursday_start }}</td>
 					<td>{{ form.thursday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.thursday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -169,7 +169,7 @@
 					<td>{{ form.friday_start }}</td>
 					<td>{{ form.friday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.friday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -185,7 +185,7 @@
 					<td>{{ form.saturday_start }}</td>
 					<td>{{ form.saturday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.saturday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -201,7 +201,7 @@
 					<td>{{ form.sunday_start }}</td>
 					<td>{{ form.sunday_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.sunday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -217,7 +217,7 @@
 					<td>{{ form.stat_start }}</td>
 					<td>{{ form.stat_duration }} hours</td>
 					<td>
-						<ul>
+						<ul class="message_list">
 							{% for error in form.stat_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
