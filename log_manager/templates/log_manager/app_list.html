@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Application Log Manager</h1>
+	
+	{% if messages %}
+		<ul class="message_list">
+			{% for message in messages %}
+				{% if message.level %}
+					<li class="level_{{ message.level }}">{{ message }}</li>
+				{% else %}
+					<li>{{ message }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<p><a href="{% url 'app_add' %}">Click here to add a new application to the log manager</a></p>
+{% endblock %}

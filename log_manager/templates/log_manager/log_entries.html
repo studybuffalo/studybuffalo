@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Log Entries</h1>
+	
+	{% if messages %}
+		<ul class="message_list">
+			{% for message in messages %}
+				{% if message.level %}
+					<li class="level_{{ message.level }}">{{ message }}</li>
+				{% else %}
+					<li>{{ message }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<ul>
+		{% for entry in log_entries %}
+			<li>{{ entry.app_name }} - {{ entry.asc_time }} - {{ entry.message }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

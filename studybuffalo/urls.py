@@ -41,6 +41,7 @@ urlpatterns = [
     url(r"^contact/", views.contact, name="contact"),
     url(r"^sitemap/", views.custom_sitemap, {"sitemaps": sitemaps, "template_name": "sitemap_template.html", "content_type": None}, name="sitemap"),
     url(r"^sitemap\.xml$", sitemap, {"sitemaps": sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    url(r"^logs/", include("log_manager.urls")),
     url(r"^unsubscribe/$", views.unsubscribe, name="unsubscribe"),
     url(r"^unsubscribe/complete$", views.unsubscribe_complete, name="unsubscribe_complete"),
     url(r"^accounts/profile/$", views.account_profile, name="account_profile"),

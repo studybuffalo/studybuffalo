@@ -1,0 +1,290 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb #form_content {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#sb #form_content > div {
+			display: flex;
+			flex-direction: column;
+		}
+
+			#sb #form_content > div:nth-child(even) {
+				background-color: rgb(235, 235, 235);
+			}
+
+		#sb #form_content > div label,
+		#sb #form_content > div span, 
+		#sb #form_content > div em, 
+		#sb #form_content > div ul {
+			display: block;
+			padding: 0.5rem;
+		}
+
+		#sb #form_content > div label {
+			font-weight: 700;
+		}
+
+		#sb #form_content > div em {
+			font-size: 1.5rem;
+			line-height: 1.5rem;
+		}
+
+		#sb div.right_align {
+			padding: 0.5rem;
+			text-align: right;
+		}
+
+		@media screen and (min-width: 1280px) {
+			#sb #form_content > div {
+				align-items: center;
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+
+				#sb #form_content > div label {
+					display: inline-block;
+					flex: 1 1 320px;
+					max-width: 320px;
+				}
+
+				#sb #form_content > div span {
+					display: inline-block;
+					flex: 1 1 200px;
+				}
+				
+				#sb #form_content > div em {
+					display: inline-block;
+					flex: 1 1 200px;
+				}
+
+				#sb #form_content > div ul {
+					display: inline-block;
+					flex: 1 1 100%;
+					margin: 0;
+				}
+		}
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Application Log Manager &gt; Add Application</h1>
+	
+	<form action="" method="post">
+		{% csrf_token %}
+
+		{% if messages %}
+			<ul class="message_list">
+				{% for message in messages %}
+					{% if message.level %}
+						<li class="level_{{ message.level }}">{{ message }}</li>
+					{% else %}
+						<li>{{ message }}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+			
+		<div id="form_content">
+			<div>
+				<label label for="{{ form.name.id_for_label }}">
+					Application Name:
+				</label>
+				<span>
+					{{ form.name }}
+				</span>
+				<em>
+					The name of the application
+				</em>
+				{% if form.name.errors %}
+					<ul class="message_list">
+						{% for error in form.name.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.log_location.id_for_label }}">
+					Log Location:
+				</label>
+				<span>
+					{{ form.log_location }}
+				</span>
+				<em>
+					Absolute location of where the log is located
+				</em>
+				{% if form.log_location.errors %}
+					<ul class="message_list">
+						{% for error in form.log_location.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.file_name.id_for_label }}">
+					File Name:
+				</label>
+				<span>
+					{{ form.file_name }}
+				</span>
+				<em>
+					The regex pattern to match the file name at the log location
+				</em>
+				{% if form.file_name.errors %}
+					<ul class="message_list">
+						{% for error in form.file_name.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.flag_start.id_for_label }}">
+					Application Start String:
+				</label>
+				<span>
+					{{ form.flag_start }}
+				</span>
+				<em>
+					Regex string of the text in the log that notes the 
+					application has started running
+				</em>
+				{% if form.flag_start.errors %}
+					<ul class="message_list">
+						{% for error in form.flag_start.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.flag_end.id_for_label }}">
+					Application Complete String:
+				</label>
+				<span>
+					{{ form.flag_end }}
+				</span>
+				<em>
+					Regex string of the text in the log that notes the 
+					application has finished running
+				</em>
+				{% if form.flag_end.errors %}
+					<ul class="message_list">
+						{% for error in form.flag_end.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.review_minute.id_for_label }}">
+					Review Schedule - Minute:
+				</label>
+				<span>
+					{{ form.review_minute }}
+				</span>
+				<em>
+					Which minute to run the review on (formatted as a cron schedule)
+				</em>
+				{% if form.review_minute.errors %}
+					<ul class="message_list">
+						{% for error in form.review_minute.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.review_hour.id_for_label }}">
+					Review Schedule - Minute:
+				</label>
+				<span>
+					{{ form.review_hour }}
+				</span>
+				<em>
+					Which hour to run the review on (formatted as a cron schedule)
+				</em>
+				{% if form.review_hour.errors %}
+					<ul class="message_list">
+						{% for error in form.review_hour.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.review_day.id_for_label }}">
+					Review Schedule - Day:
+				</label>
+				<span>
+					{{ form.review_day }}
+				</span>
+				<em>
+					Which day to run the review on (formatted as a cron schedule)
+				</em>
+				{% if form.review_day.errors %}
+					<ul class="message_list">
+						{% for error in form.review_day.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.review_month.id_for_label }}">
+					Review Schedule - Month:
+				</label>
+				<span>
+					{{ form.review_month }}
+				</span>
+				<em>
+					Which month to run the review on (formatted as a cron schedule)
+				</em>
+				{% if form.review_month.errors %}
+					<ul class="message_list">
+						{% for error in form.review_month.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.review_weekday.id_for_label }}">
+					Review Schedule - Weekday:
+				</label>
+				<span>
+					{{ form.review_weekday }}
+				</span>
+				<em>
+					Which weekday to run the review on (formatted as a cron schedule)
+				</em>
+				{% if form.review_weekday.errors %}
+					<ul class="message_list">
+						{% for error in form.review_weekday.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+		</div>
+		<div class="right_align">
+			<button type="submit">Add New Application</button>
+		</div>
+	</form>
+{% endblock %}

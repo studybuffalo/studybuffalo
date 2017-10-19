@@ -99,6 +99,11 @@ class AppData(models.Model):
         auto_now=True,
     )
 
+    class Meta:
+        permissions = (
+            ("can_view", "Can view the app log data"),
+        )
+
 class LogEntry(models.Model):
     """Records a single log entry on an app"""
     
