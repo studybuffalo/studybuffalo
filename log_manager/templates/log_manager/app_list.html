@@ -1,13 +1,48 @@
 {% extends "base_generic.html" %}
 
 {% block styles %}
+	<style>
+		#sb .center_content {
+			margin: 2rem 0;
+		}
+
+		#sb #app_list {
+			border-collapse: collapse;
+		}
+
+		#sb #app_list td {
+			border: 1px solid rgb(50, 50, 50);
+			text-align: center;
+		}
+
+			#sb #app_list td a {
+				display: block;
+				padding: 1rem;
+				transition: ease-in-out 0.3s;
+			}
+
+			#sb #app_list td a:hover {
+				background-color: rgb(200, 200, 200);
+				display: block;
+			}
+		
+		#sb #app_list tr td:first-child {
+			font-weight: 700;
+			width: 15rem;
+		}
+
+		#sb #app_list a {
+			color: inherit;
+			text-decoration: none;
+		}
+	</style>
 {% endblock %}
 
 {% load static %}
 
 {% block content %}
-	<h1>Application Log Manager</h1>
-	
+	<h1><a href="{% url 'log_entries' %}">Log Manager</a> &gt; Apps</h1>
+
 	{% if messages %}
 		<ul class="message_list">
 			{% for message in messages %}
@@ -20,5 +55,35 @@
 		</ul>
 	{% endif %}
 
-	<p><a href="{% url 'app_add' %}">Click here to add a new application to the log manager</a></p>
+	<p>
+		<a href="{% url 'app_add' %}">
+			Click here to add a new application to the log manager
+		</a>
+	</p>
+
+	{% if app_list %}
+		<div class="center_content">
+			Click on the shift code below to edit its start and stop times
+		</div>
+
+		<div class="center_content">
+			<table id="app_list">
+				{% for app in app_list %}
+			
+					<tr>
+						<td>
+							<a href="{% url 'app_edit' app.id %}">
+								{{ app.name}}
+							</a>
+						</td>
+						<td>
+							<a href="{% url 'app_delete' app.id %}">
+								Delete
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
 {% endblock %}

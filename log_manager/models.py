@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.validators import MaxValueValidator
 
 from django.utils import timezone
 
@@ -42,49 +41,44 @@ class AppData(models.Model):
         null=True,
     )
 
-    review_minute = models.PositiveSmallIntegerField(
+    review_minute = models.CharField(
         blank=True,
+        default="*",
         help_text="The minutes of an hour to update on",
-        null=True,
-        validators=[
-            MaxValueValidator(59),
-        ]
+        max_length=100,
+        null=True
     )
 
-    review_hour = models.PositiveSmallIntegerField(
+    review_hour = models.CharField(
         blank=True,
+        default="*",
         help_text="The hour of the day to update on (0 = midnight)",
-        null=True,
-        validators=[
-            MaxValueValidator(59),
-        ]
+        max_length=100,
+        null=True
     )
 
-    review_day = models.PositiveSmallIntegerField(
+    review_day = models.CharField(
         blank=True,
+        default="*",
         help_text="The day of the month to update on (1-31)",
-        null=True,
-        validators=[
-            MaxValueValidator(59),
-        ]
+        max_length=100,
+        null=True
     )
 
-    review_month = models.PositiveSmallIntegerField(
+    review_month = models.CharField(
         blank=True,
+        default="*",
         help_text="The month to update on (1 = January, 12 = December)",
-        null=True,
-        validators=[
-            MaxValueValidator(59),
-        ]
+        max_length=100,
+        null=True
     )
 
-    review_weekday = models.PositiveSmallIntegerField(
+    review_weekday = models.CharField(
         blank=True,
+        default="*",
         help_text="The weekday to update on (0 = Sunday, 6 = Saturday)",
-        null=True,
-        validators=[
-            MaxValueValidator(6),
-        ]
+        max_length=100,
+        null=True
     )
     
     next_review = models.DateTimeField(

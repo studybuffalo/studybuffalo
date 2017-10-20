@@ -1,5 +1,9 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from django.views import generic
 
@@ -70,4 +74,98 @@ def app_add(request):
         request, 
         "log_manager/app_add.html", 
         {'form': form}
+    )
+
+@permission_required("log_manager.can_view", login_url="/accounts/login/")
+def app_edit(request, id):
+    # Get the Shift Code instance for this user
+    app_instance = get_object_or_404(AppData, id=id)
+
+    # If this is a POST request then process the Form data
+    if request.method == "POST":
+        # Create a form instance and populate it with data from the request (binding):
+        form = AppDataForm(request.POST, instance=app_instance)
+
+        # Check if the form is valid:
+        if form.is_valid():
+            # Collect the form fields
+            name = form.cleaned_data["name"]
+            log_location = form.cleaned_data["log_location"]
+            file_name = form.cleaned_data["file_name"]
+            flag_start = form.cleaned_data["flag_start"]
+            flag_end = form.cleaned_data["flag_end"]
+            review_minute = form.cleaned_data["review_minute"]
+            review_hour = form.cleaned_data["review_hour"]
+            review_day = form.cleaned_data["review_day"]
+            review_month = form.cleaned_data["review_month"]
+            review_weekday = form.cleaned_data["review_weekday"]
+
+            # Upate the user settings
+            app_instance.name = name
+            app_instance.log_location = log_location
+            app_instance.file_name = file_name
+            app_instance.flag_start = flag_start
+            app_instance.flag_end = flag_end
+            app_instance.review_minute = review_minute
+            app_instance.review_hour = review_hour
+            app_instance.review_day = review_day
+            app_instance.review_month = review_month
+            app_instance.review_weekday = review_weekday
+
+            app_instance.save()
+
+            # redirect to a new URL:
+            messages.success(request, "Application details updated")
+            return HttpResponseRedirect(reverse('app_list'))
+
+    # If this is a GET (or any other method) create the default form
+    else:
+        # Set the default form values
+        name = app_instance.name
+        log_location = app_instance.log_location
+        file_name = app_instance.file_name
+        flag_start = app_instance.flag_start
+        flag_end = app_instance.flag_end
+        review_minute = app_instance.review_minute
+        review_hour = app_instance.review_hour
+        review_day = app_instance.review_day
+        review_month = app_instance.review_month
+        review_weekday = app_instance.review_weekday
+        
+        form = AppDataForm(initial={
+            "name": name,
+            "log_location": log_location,
+            "file_name": file_name,
+            "flag_start": flag_start,
+            "flag_end": flag_end,
+            "review_minute": review_minute,
+            "review_hour": review_hour,
+            "review_day": review_day,
+            "review_month": review_month,
+            "review_weekday": review_weekday,
+        })
+
+    return render(
+        request, 
+        "log_manager/app_edit.html", 
+        {'form': form}
+    )
+
+@permission_required("log_manager.can_view", login_url="/accounts/login/")
+def app_delete(request, id):
+     # Get the Shift Code instance for this user
+    app_instance = get_object_or_404(AppData, id=id)
+
+    # If this is a POST request then process the Form data
+    if request.method == "POST":
+        app_instance.delete()
+       
+        # Redirect back to main list
+        messages.success(request, "Application deleted")
+        return HttpResponseRedirect(reverse('app_list'))
+  
+    return render(
+        request, 
+        "log_manager/app_delete.html", 
+        {"app": app_instance.name}
     )
