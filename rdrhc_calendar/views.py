@@ -261,7 +261,7 @@ def calendar_code_add(request):
 
 @permission_required("rdrhc_calendar.can_view", login_url="/accounts/login/")
 def calendar_code_delete(request, code):
-     # Get the Shift Code instance for this user
+    # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
 
     # If this is a POST request then process the Form data
