@@ -99,6 +99,7 @@ def app_edit(request, id):
             review_day = form.cleaned_data["review_day"]
             review_month = form.cleaned_data["review_month"]
             review_weekday = form.cleaned_data["review_weekday"]
+            next_review = form.cleaned_data["next_review"]
 
             # Upate the user settings
             app_instance.name = name
@@ -111,6 +112,7 @@ def app_edit(request, id):
             app_instance.review_day = review_day
             app_instance.review_month = review_month
             app_instance.review_weekday = review_weekday
+            app_instance.next_review = next_review
 
             app_instance.save()
 
@@ -131,6 +133,7 @@ def app_edit(request, id):
         review_day = app_instance.review_day
         review_month = app_instance.review_month
         review_weekday = app_instance.review_weekday
+        next_review  = app_instance.next_review
         
         form = AppDataForm(initial={
             "name": name,
@@ -143,6 +146,7 @@ def app_edit(request, id):
             "review_day": review_day,
             "review_month": review_month,
             "review_weekday": review_weekday,
+            "next_review": next_review
         })
 
     return render(

@@ -301,6 +301,25 @@
 					</ul>
 				{% endif %}
 			</div>
+
+			<div>
+				<label label for="{{ form.next_review.id_for_label }}">
+					Next Review:
+				</label>
+				<span>
+					{{ form.next_review }}
+				</span>
+				<em>
+					When to run the next review
+				</em>
+				{% if form.next_review.errors %}
+					<ul class="message_list">
+						{% for error in form.next_review.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
 		</div>
 		<div class="right_align">
 			<button type="submit">Save Changes Application</button>

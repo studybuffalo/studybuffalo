@@ -18,4 +18,5 @@ class AppDataForm(forms.ModelForm):
             "review_day",
             "review_month",
             "review_weekday",
+            "next_review",
         ]
