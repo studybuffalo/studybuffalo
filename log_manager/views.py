@@ -148,7 +148,7 @@ def app_edit(request, id):
     return render(
         request, 
         "log_manager/app_edit.html", 
-        {'form': form}
+        {"form": form, "id": id}
     )
 
 @permission_required("log_manager.can_view", login_url="/accounts/login/")

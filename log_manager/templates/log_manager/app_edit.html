@@ -88,6 +88,12 @@
 		Edit
 	</h1>
 
+	<p>
+		<a href="{% url 'app_delete' id %}">
+			Click her to remove this application
+		</a>
+	</p>
+
 	<form action="" method="post">
 		{% csrf_token %}
 
@@ -222,7 +228,7 @@
 
 			<div>
 				<label label for="{{ form.review_hour.id_for_label }}">
-					Review Schedule - Minute:
+					Review Schedule - Hour:
 				</label>
 				<span>
 					{{ form.review_hour }}
@@ -300,4 +306,5 @@
 			<button type="submit">Save Changes Application</button>
 		</div>
 	</form>
+	
 {% endblock %}

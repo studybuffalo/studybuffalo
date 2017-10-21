@@ -7,33 +7,63 @@
 		}
 
 		#sb #app_list {
-			border-collapse: collapse;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
 		}
 
-		#sb #app_list td {
-			border: 1px solid rgb(50, 50, 50);
-			text-align: center;
-		}
-
-			#sb #app_list td a {
-				display: block;
-				padding: 1rem;
-				transition: ease-in-out 0.3s;
-			}
-
-			#sb #app_list td a:hover {
-				background-color: rgb(200, 200, 200);
-				display: block;
-			}
-		
-		#sb #app_list tr td:first-child {
-			font-weight: 700;
-			width: 15rem;
-		}
-
-		#sb #app_list a {
+		#sb #app_list > div a {
 			color: inherit;
+			display: flex;
+			flex-direction: column;
 			text-decoration: none;
+			transition: ease-in-out 0.4s;
+			width: 100%;
+		}
+		
+			#sb #app_list > div a:nth-child(even) {
+				background-color: rgb(240, 240, 240);
+			}
+
+			#sb #app_list > div a:hover {
+				background-color: rgb(200, 200, 200);
+			}
+
+		#sb #app_list > div em {
+			display: block;
+			font-size: 1.5rem;
+		}
+
+		#sb #app_list .headers {
+			display: none;
+			font-weight: 700;
+		}
+
+		@media screen and (min-width: 760px) {
+			#sb #app_list .headers {
+				display: flex;
+				flex-direction: row;
+			}
+
+			#sb #app_list > div a {
+				flex-direction: row;
+			}
+
+			#sb #app_list > div em {
+				display: none;
+			}
+
+			#sb #app_list .app_name {
+				flex: 1 1 275px;
+			}
+
+			#sb #app_list .app_next_review {
+				flex: 1 1 200px;
+			}
+
+			#sb #app_list .app_last_review {
+				flex: 1 1 200px;
+			}
 		}
 	</style>
 {% endblock %}
@@ -63,27 +93,36 @@
 
 	{% if app_list %}
 		<div class="center_content">
-			Click on the shift code below to edit its start and stop times
+			Click on the application below to modify or remove it
 		</div>
 
 		<div class="center_content">
-			<table id="app_list">
+			<div id="app_list">
+				<div class="headers">
+					<span class="app_name">Name</span>
+					<span class="app_last_review">Last Review</span>
+					<span class="app_next_review">Next Review</span>
+				</div>
+				
 				{% for app in app_list %}
-			
-					<tr>
-						<td>
-							<a href="{% url 'app_edit' app.id %}">
+					<div>
+						<a href="{% url 'app_edit' app.id %}">
+							<span class="app_name">
+								<em>Name</em>
 								{{ app.name}}
-							</a>
-						</td>
-						<td>
-							<a href="{% url 'app_delete' app.id %}">
-								Delete
-							</a>
-						</td>
-					</tr>
+							</span>
+							<span class="app_last_review">
+								<em>Last Review</em>
+								{{ app.last_review}}
+							</span>
+							<span class="app_next_review">
+								<em>Next Review</em>
+								{{ app.next_review }}
+							</span>
+						</a>
+					</div>
 				{% endfor %}
-			</table>
+			</div>
 		</div>
 	{% endif %}
 {% endblock %}

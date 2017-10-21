@@ -93,6 +93,9 @@ class AppData(models.Model):
         auto_now=True,
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         permissions = (
             ("can_view", "Can view the app log data"),

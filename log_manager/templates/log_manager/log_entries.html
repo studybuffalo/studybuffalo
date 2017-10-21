@@ -8,6 +8,11 @@
 {% block content %}
 	<h1>Log Entries</h1>
 	
+	<p>
+		<a href="{% url 'app_list' %}">
+			Click here to view and modify the monitored applications
+		</a>
+	</p>
 	{% if messages %}
 		<ul class="message_list">
 			{% for message in messages %}
