@@ -15,6 +15,8 @@ You can always get a hold of us at studybuffalo@gmail.com, info@studybuffalo.com
 GitHub itself.
 
 ## Setup Process for a Linode Server
+Note: The following processes were written for a Ubuntu 16.04 server.
+
 ### Set up the Linode
 1. Follow the linode instructions for connecting to the server via SSH as root
 
