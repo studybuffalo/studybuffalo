@@ -200,6 +200,45 @@
 					</ul>
 				{% endif %}
 			</div>
+			
+			<div>
+				<label label for="{{ form.asc_time_format.id_for_label }}">
+					asc_time Format:
+				</label>
+				<span>
+					{{ form.asc_time_format }}
+				</span>
+				<em>
+					The format for the asc_time field (as per the Python 
+					DateTime module formatting strings)
+				</em>
+				{% if form.asc_time_format.errors %}
+					<ul class="message_list">
+						{% for error in form.asc_time_format.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.log_timezone.id_for_label }}">
+					Timezone:
+				</label>
+				<span>
+					{{ form.log_timezone }}
+				</span>
+				<em>
+					Timezone used for the logs datetimes
+				</em>
+				{% if form.log_timezone.errors %}
+					<ul class="message_list">
+						{% for error in form.log_timezone.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
 
 			<div>
 				<label label for="{{ form.review_minute.id_for_label }}">

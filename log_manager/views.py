@@ -55,6 +55,8 @@ def app_add(request):
             file_name = form.cleaned_data["file_name"]
             flag_start = form.cleaned_data["flag_start"]
             flag_end = form.cleaned_data["flag_end"]
+            asc_time_format = form.cleaned_data["asc_time_format"]
+            log_timezone = form.cleaned_data["log_timezone"]
             review_minute = form.cleaned_data["review_minute"]
             review_hour = form.cleaned_data["review_hour"]
             review_day = form.cleaned_data["review_day"]
@@ -67,6 +69,8 @@ def app_add(request):
             app_data.file_name = file_name
             app_data.flag_start = flag_start
             app_data.flag_end = flag_end
+            app_instance.asc_time_format = asc_time_format
+            app_instance.log_timezone = log_timezone
             app_data.review_minute = review_minute
             app_data.review_hour = review_hour
             app_data.review_day = review_day
