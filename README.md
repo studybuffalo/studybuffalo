@@ -5,16 +5,97 @@ This area is specifically the web hosting side of our projects. This website is 
 created with the Django framework. This framework is part of our other projects, such as 
 the Drug Price Calculator and the Equivalent Pharmaceutical ID projects.
 
+## Licensing
+We strive to keep our projects accessible to all. Everything here is open source under
+the GNU Public License. We are always open to discussing other licensing options, so 
+please contact us if this is an issue for you.
+
+## Contact Us
+You can always get a hold of us at studybuffalo@gmail.com, info@studybuffalo.com, or through 
+GitHub itself.
+
 ## Setup Process for a Linode Server
-**_WORK IN PROGRESS_**
 ### Set up the Linode
-1. Complete all the required security protocols
+1. Follow the linode instructions for connecting to the server via SSH as root
 
-2. Create a user for running the server and Django applications
+2. Run any server upgrades
+```sh
+apt-get update
+apt-get upgrade
+```
 
-3. Add user to the sudo group (if needed)
+3. Set your server hostname
+```sh
+hostnamectl set-hostname EXAMPLE
+```
+```
+EXAMPLE = your desired host name
+```
 
-4. Ensure the user has read, write, and executable access to everything in the home directory
+4. Set your timezone
+```sh
+dpkg-reconfigure tzdata
+```
+
+5. Create a user for running the server and Django applications
+```sh
+adduser USERNAME
+```
+```
+USERNAME = what you wish to name the user
+```
+
+6. Add user to the sudo group (if needed)
+```sh
+adduser USERNAME sudo
+```
+```
+USERNAME = the user to add to the sudo group
+```
+
+7. Ensure the user has read, write, and executable access to everything in the home directory. You may need to adjust things with chown. Switch to your new user.
+```sh
+su USERNAME
+```
+
+8. Using your preferred tool, generate a RSA key-pair (on your LOCAL computer)
+
+9. Create a folder and authorized_keys file to copy your public key into the file (all on one line)
+```sh
+mkdir ~/.ssh
+nano ~/.ssh/authorized_keys
+```
+
+10. Set permission the directory and key file
+```sh
+sudo chmod 700 -R ~/.ssh
+sudo chmod 600 ~/.ssh/authorized_keys
+```
+
+11. Logout and test that your SSH access works
+
+12. Once the SSH is set up correctly, disallow root logins, password authentication, and set which protocol to listen on
+
+```sh
+sudo nano /etc/ssh/sshd_config
+```
+```
+...
+PermitRootLogin no
+...
+PasswordAuthentication no
+...
+AdressFamily inet # listens on IPv4
+# AddressFamily inet6 # listens on IPv6
+...
+```
+
+13. Restart the SSH service
+```sh
+sudo systemctl restart sshd
+```
+
+14. Consider setting up Fail2Ban and closing down uneeded ports on the firewall with UFW
 
 ### Setup the pip files and virtual environment
 1. Install pip
@@ -423,7 +504,7 @@ root: USERNAME
 USERNAME = user account you would like these emails to direct to
 ```
 
-6. Setup the Dovecot config by replacing __ the entire conents of the file__ (remember to use the proper paths for the certificate and key)
+6. Setup the Dovecot config by replacing __the entire conents of the file__ (remember to use the proper paths for the certificate and key)
 ```sh
 sudo nano /etc/dovecot/dovecot.conf
 ```
@@ -661,18 +742,11 @@ sudo adduser USERNAME --shell=/bin/false
 USERNAME = the name of the user account
 ```
  
-25. Restar all the mail systems
+25. Restart all the mail systems
 ```sh
 sudo systemctl restart postfix
 sudo systemctl restart opendkim
 sudo systemctl restart dovecot
 ```
 
-## Licensing
-We strive to keep our projects accessible to all. Everything here is open source under
-the GNU Public License. We are always open to discussing other licensing options, so 
-please contact us if this is an issue for you.
 
-## Contact Us
-You can always get a hold of us at studybuffalo@gmail.com, info@studybuffalo.com, or through 
-GitHub itself.
