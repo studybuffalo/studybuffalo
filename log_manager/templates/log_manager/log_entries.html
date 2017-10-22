@@ -1,6 +1,29 @@
 {% extends "base_generic.html" %}
 
 {% block styles %}
+	<style>
+		#sb #log_entries {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#sb #log_entries > a {
+			color: inherit;
+			display: flex;
+			flex-direction: column;
+			transition: ease-in-out 0.4s;
+		}
+			#sb #log_entries > a:hover {
+				background-color: rgb(200, 200, 200);
+				cursor: pointer;
+			}
+
+		@media screen and (min-width: 760px) {
+			#sb #log_entries > a {
+				flex-direction: row;
+			}
+		}
+	</style>
 {% endblock %}
 
 {% load static %}
@@ -13,21 +36,39 @@
 			Click here to view and modify the monitored applications
 		</a>
 	</p>
-	{% if messages %}
-		<ul class="message_list">
-			{% for message in messages %}
-				{% if message.level %}
-					<li class="level_{{ message.level }}">{{ message }}</li>
+	
+	<div id="log_entries">
+		{% for entry in log_entries %}
+			<a class="level_{{ entry.level_no }}" data-id="{{ entry.id }}">
+				<span class="asc_time">{{ entry.asc_time|date:"Y-m-d H:i:s T" }}</span>
+				<span class="app_name">{{ entry.app_name }}</span>
+				<span class="func_name">{{ entry.func_name }}</span>
+				<span class="message">{{ entry.message }}</span>
+			</a>
+		{% endfor %}
+	</div>
+	
+	{% if is_paginated %}
+		<ul class="pagination">
+			{% if page_obj.has_previous %}
+				<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+			{% else %}
+				<li class="disabled"><span>&laquo;</span></li>
+			{% endif %}
+
+			{% for i in paginator.page_range %}
+				{% if page_obj.number == i %}
+					<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
 				{% else %}
-					<li>{{ message }}</li>
+					<li><a href="?page={{ i }}">{{ i }}</a></li>
 				{% endif %}
 			{% endfor %}
+			
+			{% if page_obj.has_next %}
+				<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+			{% else %}
+				<li class="disabled"><span>&raquo;</span></li>
+			{% endif %}
 		</ul>
 	{% endif %}
-
-	<ul>
-		{% for entry in log_entries %}
-			<li>{{ entry.app_name }} - {{ entry.asc_time }} - {{ entry.message }}</li>
-		{% endfor %}
-	</ul>
 {% endblock %}

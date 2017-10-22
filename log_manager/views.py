@@ -2,9 +2,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.urlresolvers import reverse
+from django.db.models import Q
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.views import generic
 
 from .models import AppData, LogEntry
@@ -19,12 +19,27 @@ class AppList(PermissionRequiredMixin, generic.ListView):
     template_name = "log_manager/app_list.html"
 
 class LogEntries(PermissionRequiredMixin, generic.ListView):
-    model = LogEntry
-    
     permission_required = "log_manager.can_view"
     context_object_name = "log_entries"
     template_name = "log_manager/log_entries.html"
+    paginate_by = 200
 
+    def get_queryset(self):
+        queryset = LogEntry.objects.filter(
+            Q(level_name__contains="WARN") | Q(level_name__contains="CRIT")
+        ).order_by("-asc_time")
+
+        return queryset
+
+@permission_required("log_manager.can_view", login_url="/accounts/login/")
+def update_entries(request):
+    # Return query data as JSON
+    if request.method == "GET":
+        entries = LogEntry.object.all()
+
+    response = [{"things": "otherthings"}]
+ 
+    return HttpResponse(response, content_type="text/html")
 @permission_required("log_manager.can_view", login_url="/accounts/login/")
 def app_add(request):
     # If this is a POST request then process the Form data

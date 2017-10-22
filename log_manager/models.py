@@ -142,9 +142,8 @@ class LogEntry(models.Model):
         null=True,
     )
 
-    level_no = models.CharField(
+    level_no = models.PositiveSmallIntegerField(
         blank=True,
-        max_length = 512,
         null=True,
     )
 
