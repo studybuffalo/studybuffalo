@@ -25,9 +25,7 @@ class LogEntries(PermissionRequiredMixin, generic.ListView):
     paginate_by = 200
 
     def get_queryset(self):
-        queryset = LogEntry.objects.filter(
-            Q(level_name__contains="WARN") | Q(level_name__contains="CRIT")
-        ).order_by("-asc_time")
+        queryset = LogEntry.objects.filter(level_no__gte=30).order_by("-asc_time")
 
         return queryset
 
@@ -109,6 +107,8 @@ def app_edit(request, id):
             file_name = form.cleaned_data["file_name"]
             flag_start = form.cleaned_data["flag_start"]
             flag_end = form.cleaned_data["flag_end"]
+            asc_time_format = form.cleaned_data["asc_time_format"]
+            log_timezone = form.cleaned_data["log_timezone"]
             review_minute = form.cleaned_data["review_minute"]
             review_hour = form.cleaned_data["review_hour"]
             review_day = form.cleaned_data["review_day"]
@@ -122,6 +122,8 @@ def app_edit(request, id):
             app_instance.file_name = file_name
             app_instance.flag_start = flag_start
             app_instance.flag_end = flag_end
+            app_instance.asc_time_format = asc_time_format
+            app_instance.log_timezone = log_timezone
             app_instance.review_minute = review_minute
             app_instance.review_hour = review_hour
             app_instance.review_day = review_day
@@ -143,6 +145,8 @@ def app_edit(request, id):
         file_name = app_instance.file_name
         flag_start = app_instance.flag_start
         flag_end = app_instance.flag_end
+        asc_time_format = app_instance.asc_time_format
+        log_timezone = app_instance.log_timezone
         review_minute = app_instance.review_minute
         review_hour = app_instance.review_hour
         review_day = app_instance.review_day
@@ -156,6 +160,8 @@ def app_edit(request, id):
             "file_name": file_name,
             "flag_start": flag_start,
             "flag_end": flag_end,
+            "asc_time_format": asc_time_format,
+            "log_timezone": log_timezone,
             "review_minute": review_minute,
             "review_hour": review_hour,
             "review_day": review_day,

@@ -13,6 +13,8 @@ class AppDataForm(forms.ModelForm):
             "file_name",
             "flag_start",
             "flag_end",
+            "asc_time_format",
+            "log_timezone",
             "review_minute",
             "review_hour",
             "review_day",

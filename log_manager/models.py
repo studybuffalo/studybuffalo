@@ -1,6 +1,7 @@
 from django.db import models
-
 from django.utils import timezone
+
+import pytz
 
 # Create your models here.
 
@@ -38,6 +39,24 @@ class AppData(models.Model):
             "finished properly"
         ),
         max_length = 512,
+        null=True,
+    )
+
+    asc_time_format = models.CharField(
+        help_text="The format of the asc_time field",
+        max_length=50,
+    )
+
+    TIMEZONE_LIST = []
+
+    for tz in pytz.common_timezones:
+        TIMEZONE_LIST.append((tz, tz))
+
+    log_timezone = models.CharField(
+        blank=True,
+        choices = TIMEZONE_LIST,
+        help_text="What timezone this log file uses for times",
+        max_length=35,
         null=True,
     )
 
