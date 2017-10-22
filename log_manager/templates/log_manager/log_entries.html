@@ -7,20 +7,141 @@
 			flex-direction: column;
 		}
 
+		#sb #log_entries #headers {
+			display: none;
+		}
+
 		#sb #log_entries > a {
+			border-bottom: 1px solid rgb(0, 0, 0);
 			color: inherit;
 			display: flex;
 			flex-direction: column;
 			transition: ease-in-out 0.4s;
 		}
-			#sb #log_entries > a:hover {
-				background-color: rgb(200, 200, 200);
+
+			#sb #log_entries > a:hover,
+			#sb #legend > a:hover {
 				cursor: pointer;
 			}
+
+		#sb #log_entries > a.level_0,
+		#sb #legend > a.level_0 {
+			background-color: inherit;
+		}
+
+			#sb #log_entries > a.level_0:hover,
+			#sb #legend > a.level_0:hover {
+					background-color: rgb(230, 230, 230);
+				}
+
+		#sb #log_entries > a.level_10,
+		#sb #legend > a.level_10{
+			background-color: rgb(200, 238, 196);
+		}
+		
+			#sb #log_entries > a.level_10:hover,
+			#sb #legend > a.level_10:hover{
+					background-color: rgb(100, 200, 90);
+				}
+
+		#sb #log_entries > a.level_20,
+		#sb #legend > a.level_20{
+			background-color: inherit;
+		}
+		
+			#sb #log_entries > a.level_20:hover,
+			#sb #legend > a.level_20:hover {
+					background-color: rgb(230, 230, 230);
+				}
+
+		#sb #log_entries > a.level_30,
+		#sb #legend > a.level_30 {
+			background-color: rgb(255, 250, 170);
+		}
+
+			#sb #log_entries > a.level_30:hover,
+			#sb #legend > a.level_30:hover {
+					background-color: rgb(255, 240, 40);
+				}
+
+		#sb #log_entries > a.level_40,
+		#sb #legend > a.level_40 {
+			background-color: rgb(255, 210, 130);
+		}
+
+			#sb #log_entries > a.level_40:hover,
+			#sb #legend > a.level_40:hover {
+					background-color: rgb(255, 170, 0);
+				}
+
+		#sb #log_entries > a.level_50,
+		#sb #legend > a.level_50 {
+			background-color: rgb(255, 150, 150);
+		}
+
+			#sb #log_entries > a.level_50:hover,
+			#sb #legend > a.level_50:hover {
+				background-color: rgb(255, 50, 50);
+			}
+
+		#sb #log_entries > a > span {
+			display: inline-block;
+			overflow-wrap: break-word;
+			padding: 0.5rem;
+			word-break: break-word;
+		}
+
+			#sb #log_entries > a > span > em {
+				display: block;
+				font-size: 1.5rem;
+				font-weight: 700;
+			}
+
+		#sb #legend {
+			margin: 1rem 0;
+		}
+
+		#sb #legend > a {
+			color: inherit;
+			display: inline-block;
+			font-weight: 700;
+			margin: 0.5rem 0;
+			text-align: center;
+			width: 150px;
+		}
 
 		@media screen and (min-width: 760px) {
 			#sb #log_entries > a {
 				flex-direction: row;
+			}
+
+			#sb #log_entries > a > span > em {
+					display: none;
+				}
+
+			#sb #log_entries #headers {
+				display: flex;
+				flex-direction: row;
+			}
+
+				#sb #log_entries #headers > span {
+					padding: 0.5rem;
+				}
+
+			#sb #log_entries .asc_time {
+				flex: 1 1 150px;
+			}
+
+			#sb #log_entries .app_name {
+				flex: 1 1 150px;
+			}
+
+			#sb #log_entries .func_name {
+				flex: 1 1 150px;
+			}
+
+			#sb #log_entries .message {
+				flex: 2 1 300px;
 			}
 		}
 	</style>
@@ -36,14 +157,43 @@
 			Click here to view and modify the monitored applications
 		</a>
 	</p>
+
+	<div id="legend">
+		<span><strong><u>Legend:</u></strong></span>
+		<a class="level_0">No Level</a>
+		<a class="level_10">Debug</a>
+		<a class="level_20">Info</a>
+		<a class="level_30">Warning</a>
+		<a class="level_40">Error</a>
+		<a class="level_50">Critical</a>
+	</div>
 	
 	<div id="log_entries">
+		<div id="headers">
+			<span class="asc_time">Datetime</span>
+			<span class="app_name">Application</span>
+			<span class="func_name">Function</span>
+			<span class="message">Message</span>
+		</div>
+
 		{% for entry in log_entries %}
 			<a class="level_{{ entry.level_no }}" data-id="{{ entry.id }}">
-				<span class="asc_time">{{ entry.asc_time|date:"Y-m-d H:i:s T" }}</span>
-				<span class="app_name">{{ entry.app_name }}</span>
-				<span class="func_name">{{ entry.func_name }}</span>
-				<span class="message">{{ entry.message }}</span>
+				<span class="asc_time">
+					<em>Datetime</em>
+					{{ entry.asc_time|date:"Y-m-d H:i:s T" }}
+				</span>
+				<span class="app_name">
+					<em>Appplication</em>
+					{{ entry.app_name }}
+				</span>
+				<span class="func_name">
+					<em>Function</em>
+					{{ entry.func_name }}
+				</span>
+				<span class="message">
+					<em>Message</em>
+					{{ entry.message }}
+				</span>
 			</a>
 		{% endfor %}
 	</div>

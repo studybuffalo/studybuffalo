@@ -25,7 +25,7 @@ class LogEntries(PermissionRequiredMixin, generic.ListView):
     paginate_by = 200
 
     def get_queryset(self):
-        queryset = LogEntry.objects.filter(level_no__gte=30).order_by("-asc_time")
+        queryset = LogEntry.objects.filter(level_no__gte=10).order_by("-asc_time")
 
         return queryset
 
