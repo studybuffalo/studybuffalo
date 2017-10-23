@@ -1,18 +1,16 @@
 """
 Definition of urls for studybuffalo.
 """
-from django.conf.urls import url
+
 import django.contrib.auth.views
-
-from django.conf.urls import include
-from django.contrib import admin
-from django.views.generic import RedirectView
-from . import views
-
 from django.conf import settings
+from django.conf.urls import include, url
 from django.conf.urls.static import static
-
+from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
+from django.views.generic import RedirectView, TemplateView
+
+from . import views
 from .sitemaps import *
 
 import environ
@@ -46,6 +44,7 @@ urlpatterns = [
     url(r"^unsubscribe/complete$", views.unsubscribe_complete, name="unsubscribe_complete"),
     url(r"^accounts/profile/$", views.account_profile, name="account_profile"),
     url(r"^accounts/", include("allauth.urls")),
+    url(r"^robots\.txt$", TemplateView.as_view(template_name="robots.txt"), name="robots.txt"),
     url(r"^$", views.Index.as_view(), name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
