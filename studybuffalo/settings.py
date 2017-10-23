@@ -212,6 +212,7 @@ STATICFILES_DIRS = [
     BASE_DIR('studybuffalo', 'static'),
     BASE_DIR('vancomycin_calculator', 'static'),
     BASE_DIR('drug_price_calculator', 'static'),
+    BASE_DIR('log_manager', 'static'),
 ]
 
 # SECURITY SETTINGS

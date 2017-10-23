@@ -2,6 +2,43 @@
 
 {% block styles %}
 	<style>
+		#sb #filters {
+			display: flex;
+			flex-direction: column;
+			margin: 1rem 0;
+			width: 100%;
+		}
+
+		#sb #filters > div {
+			color: inherit;
+			display: inline-block;
+			margin: 0.5rem 2rem;
+		}
+
+			#sb #filters > div > strong {
+				display: block;
+			}
+
+		#sb #applications label {
+			cursor: pointer;
+			display: block;
+		}
+
+		#sb #log_level {
+			max-width: 15rem;
+			width: 100%;
+		}
+
+			#sb #log_level label {
+				cursor: pointer;
+				display: block;
+				padding-left: 1rem;
+			}
+
+		#sb #filter_time input {
+			width: 20rem;
+		}
+
 		#sb #log_entries {
 			display: flex;
 			flex-direction: column;
@@ -24,63 +61,51 @@
 				cursor: pointer;
 			}
 
-		#sb #log_entries > a.level_0,
-		#sb #legend > a.level_0 {
+		#sb .level_0 {
 			background-color: inherit;
 		}
 
-			#sb #log_entries > a.level_0:hover,
-			#sb #legend > a.level_0:hover {
+			#sb .level_0:hover {
 					background-color: rgb(230, 230, 230);
 				}
 
-		#sb #log_entries > a.level_10,
-		#sb #legend > a.level_10{
+		#sb .level_10 {
 			background-color: rgb(200, 238, 196);
 		}
 		
-			#sb #log_entries > a.level_10:hover,
-			#sb #legend > a.level_10:hover{
+			#sb .level_10:hover {
 					background-color: rgb(100, 200, 90);
 				}
 
-		#sb #log_entries > a.level_20,
-		#sb #legend > a.level_20{
+		#sb .level_20 {
 			background-color: inherit;
 		}
 		
-			#sb #log_entries > a.level_20:hover,
-			#sb #legend > a.level_20:hover {
+			#sb .level_20:hover {
 					background-color: rgb(230, 230, 230);
 				}
 
-		#sb #log_entries > a.level_30,
-		#sb #legend > a.level_30 {
+		#sb .level_30 {
 			background-color: rgb(255, 250, 170);
 		}
 
-			#sb #log_entries > a.level_30:hover,
-			#sb #legend > a.level_30:hover {
+			#sb .level_30:hover {
 					background-color: rgb(255, 240, 40);
 				}
 
-		#sb #log_entries > a.level_40,
-		#sb #legend > a.level_40 {
+		#sb .level_40 {
 			background-color: rgb(255, 210, 130);
 		}
 
-			#sb #log_entries > a.level_40:hover,
-			#sb #legend > a.level_40:hover {
+			#sb .level_40:hover {
 					background-color: rgb(255, 170, 0);
 				}
 
-		#sb #log_entries > a.level_50,
-		#sb #legend > a.level_50 {
+		#sb .level_50 {
 			background-color: rgb(255, 150, 150);
 		}
 
-			#sb #log_entries > a.level_50:hover,
-			#sb #legend > a.level_50:hover {
+			#sb .level_50:hover {
 				background-color: rgb(255, 50, 50);
 			}
 
@@ -97,20 +122,18 @@
 				font-weight: 700;
 			}
 
-		#sb #legend {
-			margin: 1rem 0;
-		}
-
-		#sb #legend > a {
-			color: inherit;
-			display: inline-block;
-			font-weight: 700;
-			margin: 0.5rem 0;
-			text-align: center;
-			width: 150px;
-		}
-
 		@media screen and (min-width: 760px) {
+			#sb #filters {
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			
+			#sb #filter_buttons {
+				text-align: center;
+				flex: 1 1 100%;
+			}
+
 			#sb #log_entries > a {
 				flex-direction: row;
 			}
@@ -158,14 +181,54 @@
 		</a>
 	</p>
 
-	<div id="legend">
-		<span><strong><u>Legend:</u></strong></span>
-		<a class="level_0">No Level</a>
-		<a class="level_10">Debug</a>
-		<a class="level_20">Info</a>
-		<a class="level_30">Warning</a>
-		<a class="level_40">Error</a>
-		<a class="level_50">Critical</a>
+	<div id="filters">
+		<div id="applications">
+			<strong>Applications</strong>
+			{% for app in applications %}
+				<label>
+					<input type="checkbox" class="filter_app" value="{{ app.id }}" checked="checked">
+					<span>{{ app.name }}</span>
+				</label>
+			{% endfor %}
+		</div>
+
+		<div id="log_level">
+			<strong>Log Level</strong>
+			<label class="level_0">
+				<input type="checkbox" class="filter_level" value="0">
+				<span>No Level</span>
+			</label>
+			<label class="level_10">
+				<input type="checkbox" class="filter_level" value="10">
+				<span>Debug</span>
+			</label>
+			<label class="level_20">
+				<input type="checkbox" class="filter_level" value="20" checked="checked">
+				<span>Info</span>
+			</label>
+			<label class="level_30">
+				<input type="checkbox" class="filter_level" value="30" checked="checked">
+				<span>Warning</span>
+			</label>
+			<label class="level_40">
+				<input type="checkbox" class="filter_level" value="40" checked="checked">
+				<span>Error</span>
+			</label>
+			<label class="level_50">
+				<input type="checkbox" class="filter_level" value="50" checked="checked">
+				<span>Critical</span>
+			</label>
+		</div>
+
+		<div id="filter_time">
+			<strong>Datetime</strong>
+			<input type="datetime" id="filter_time_start" value="{{ start_date|date:"Y-m-d H:i:s" }}"> to 
+			<input type="datetime" id="filter_time_end" value="{{ end_date|date:"Y-m-d H:i:s" }}">
+		</div>
+
+		<div id="filter_buttons">
+			<input type="button" id="filter_entries" value="Filter Entries">
+		</div>
 	</div>
 	
 	<div id="log_entries">
@@ -175,50 +238,10 @@
 			<span class="func_name">Function</span>
 			<span class="message">Message</span>
 		</div>
-
-		{% for entry in log_entries %}
-			<a class="level_{{ entry.level_no }}" data-id="{{ entry.id }}">
-				<span class="asc_time">
-					<em>Datetime</em>
-					{{ entry.asc_time|date:"Y-m-d H:i:s T" }}
-				</span>
-				<span class="app_name">
-					<em>Appplication</em>
-					{{ entry.app_name }}
-				</span>
-				<span class="func_name">
-					<em>Function</em>
-					{{ entry.func_name }}
-				</span>
-				<span class="message">
-					<em>Message</em>
-					{{ entry.message }}
-				</span>
-			</a>
-		{% endfor %}
 	</div>
-	
-	{% if is_paginated %}
-		<ul class="pagination">
-			{% if page_obj.has_previous %}
-				<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-			{% else %}
-				<li class="disabled"><span>&laquo;</span></li>
-			{% endif %}
+{% endblock %}
 
-			{% for i in paginator.page_range %}
-				{% if page_obj.number == i %}
-					<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-				{% else %}
-					<li><a href="?page={{ i }}">{{ i }}</a></li>
-				{% endif %}
-			{% endfor %}
-			
-			{% if page_obj.has_next %}
-				<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-			{% else %}
-				<li class="disabled"><span>&raquo;</span></li>
-			{% endif %}
-		</ul>
-	{% endif %}
+{% block js %}
+	<!-- JS Scripts -->
+	<script type="text/javascript" src="{% static 'log_manager/js/log_entries.js' %}"></script>
 {% endblock %}
