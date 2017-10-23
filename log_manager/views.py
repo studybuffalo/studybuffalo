@@ -149,7 +149,8 @@ def update_entries(request):
 @permission_required("log_manager.can_view", login_url="/accounts/login/")
 def app_add(request):
     # If this is a POST request then process the Form data
-    if request.method == 'POST':
+    if request.method == "POST":
+        print("Data to save")
         app_data = AppData()
 
         # Create a form instance and populate it with data from the request (binding):
@@ -177,8 +178,8 @@ def app_add(request):
             app_data.file_name = file_name
             app_data.flag_start = flag_start
             app_data.flag_end = flag_end
-            app_instance.asc_time_format = asc_time_format
-            app_instance.log_timezone = log_timezone
+            app_data.asc_time_format = asc_time_format
+            app_data.log_timezone = log_timezone
             app_data.review_minute = review_minute
             app_data.review_hour = review_hour
             app_data.review_day = review_day

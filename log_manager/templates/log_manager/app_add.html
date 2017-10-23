@@ -88,20 +88,22 @@
 		Add
 	</h1>
 
+	{% if messages %}
+		<ul class="message_list">
+			{% for message in messages %}
+				{% if message.level %}
+					<li class="level_{{ message.level }}">{{ message }}</li>
+				{% else %}
+					<li>{{ message }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
 	<form action="" method="post">
 		{% csrf_token %}
 
-		{% if messages %}
-			<ul class="message_list">
-				{% for message in messages %}
-					{% if message.level %}
-						<li class="level_{{ message.level }}">{{ message }}</li>
-					{% else %}
-						<li>{{ message }}</li>
-					{% endif %}
-				{% endfor %}
-			</ul>
-		{% endif %}
+		
 			
 		<div id="form_content">
 			<div>
@@ -329,6 +331,25 @@
 				{% if form.review_weekday.errors %}
 					<ul class="message_list">
 						{% for error in form.review_weekday.errors %}
+							<li class="level_40">{{ error|striptags }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+
+			<div>
+				<label label for="{{ form.next_review.id_for_label }}">
+					Next Review:
+				</label>
+				<span>
+					{{ form.next_review }}
+				</span>
+				<em>
+					When the next review is scheduled to run
+				</em>
+				{% if form.next_review.errors %}
+					<ul class="message_list">
+						{% for error in form.next_review.errors %}
 							<li class="level_40">{{ error|striptags }}</li>
 						{% endfor %}
 					</ul>
