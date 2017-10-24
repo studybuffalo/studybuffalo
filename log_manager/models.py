@@ -133,8 +133,9 @@ class LogEntry(models.Model):
         null=True,
     )
 
-    created = models.TimeField(
+    created = models.CharField(
         blank=True,
+        max_length=25,
         null=True,
     )
 
