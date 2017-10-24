@@ -25,6 +25,14 @@ class AppList(PermissionRequiredMixin, generic.ListView):
     context_object_name = "app_list"
     template_name = "log_manager/app_list.html"
     
+class AllLogEntries(PermissionRequiredMixin, generic.ListView):
+    model = LogEntry
+    
+    permission_required = "log_manager.can_view"
+    context_object_name = "log_entries"
+    template_name = "log_manager/log_entries_all.html"
+
+
 @permission_required("log_manager.can_view", login_url="/accounts/login/")
 def log_entries(request):
     # Retrieve list of all the application names
