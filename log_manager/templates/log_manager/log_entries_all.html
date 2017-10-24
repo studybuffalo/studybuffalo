@@ -17,26 +17,26 @@
 			<tbody>
 				{% for entry in log_entries %}
 					<tr>
-						<td>entry.app_name</td>
-						<td>entry.asc_time</td>
-						<td>entry.created</td>
-						<td>entry.exc_info</td>
-						<td>entry.file_name</td>
-						<td>entry.func_name</td>
-						<td>entry.level_name</td>
-						<td>entry.level_no</td>
-						<td>entry.line_no</td>
-						<td>entry.module</td>
-						<td>entry.msecs</td>
-						<td>entry.message</td>
-						<td>entry.name</td>
-						<td>entry.path_name</td>
-						<td>entry.process</td>
-						<td>entry.process_name</td>
-						<td>entry.relative_created</td>
-						<td>entry.stack_info</td>
-						<td>entry.thread</td>
-						<td>entry.thread_name</td>
+						<td>{{ entry.app_name }}<td>
+						<td>{{ entry.asc_time }}<td>
+						<td>{{ entry.created }}<td>
+						<td>{{ entry.exc_info }}<td>
+						<td>{{ entry.file_name }}<td>
+						<td>{{ entry.func_name }}<td>
+						<td>{{ entry.level_name }}<td>
+						<td>{{ entry.level_no }}<td>
+						<td>{{ entry.line_no }}<td>
+						<td>{{ entry.module }}<td>
+						<td>{{ entry.msecs }}<td>
+						<td>{{ entry.message }}<td>
+						<td>{{ entry.name }}<td>
+						<td>{{ entry.path_name }}<td>
+						<td>{{ entry.process }}<td>
+						<td>{{ entry.process_name }}<td>
+						<td>{{ entry.relative_created }}<td>
+						<td>{{ entry.stack_info }}<td>
+						<td>{{ entry.thread }}<td>
+						<td>{{ entry.thread_name }}<td>
 					</tr>
 				{% endfor %}
 			</tbody>
