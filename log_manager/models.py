@@ -146,19 +146,19 @@ class LogEntry(models.Model):
 
     file_name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
     func_name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
     level_name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
@@ -174,7 +174,7 @@ class LogEntry(models.Model):
 
     module = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
@@ -190,30 +190,31 @@ class LogEntry(models.Model):
 
     name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
     path_name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
     process = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
     process_name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
-    relative_created = models.PositiveSmallIntegerField(
+    relative_created = models.CharField(
         blank=True,
+        max_length=25,
         null=True,
     )
 
@@ -224,13 +225,13 @@ class LogEntry(models.Model):
 
     thread = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 
     thread_name = models.CharField(
         blank=True,
-        max_length = 512,
+        max_length=512,
         null=True,
     )
 

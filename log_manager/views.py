@@ -158,7 +158,6 @@ def update_entries(request):
 def app_add(request):
     # If this is a POST request then process the Form data
     if request.method == "POST":
-        print("Data to save")
         app_data = AppData()
 
         # Create a form instance and populate it with data from the request (binding):
