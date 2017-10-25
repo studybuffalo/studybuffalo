@@ -170,45 +170,25 @@
 			</div>
 
 			<div>
-				<label label for="{{ form.flag_start.id_for_label }}">
-					Application Start String:
+				<label label for="{{ form.monitor_start.id_for_label }}">
+					Monitor Application Start:
 				</label>
 				<span>
-					{{ form.flag_start }}
+					{{ form.monitor_start }}
 				</span>
 				<em>
-					Regex string of the text in the log that notes the 
-					application has started running (leave blank to omit)
+					Whether to notify the user or not if there are no new log
+					entries when the log monitor checks at the specified time
 				</em>
-				{% if form.flag_start.errors %}
+				{% if form.monitor_start.errors %}
 					<ul class="message_list">
-						{% for error in form.flag_start.errors %}
+						{% for error in form.monitor_start.errors %}
 							<li class="level_40">{{ error|striptags }}</li>
 						{% endfor %}
 					</ul>
 				{% endif %}
 			</div>
 
-			<div>
-				<label label for="{{ form.flag_end.id_for_label }}">
-					Application Complete String:
-				</label>
-				<span>
-					{{ form.flag_end }}
-				</span>
-				<em>
-					Regex string of the text in the log that notes the 
-					application has finished running (leave blank to omit)
-				</em>
-				{% if form.flag_end.errors %}
-					<ul class="message_list">
-						{% for error in form.flag_end.errors %}
-							<li class="level_40">{{ error|striptags }}</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
-			</div>
-			
 			<div>
 				<label label for="{{ form.asc_time_format.id_for_label }}">
 					asc_time Format:

@@ -169,8 +169,7 @@ def app_add(request):
             name = form.cleaned_data["name"]
             log_location = form.cleaned_data["log_location"]
             file_name = form.cleaned_data["file_name"]
-            flag_start = form.cleaned_data["flag_start"]
-            flag_end = form.cleaned_data["flag_end"]
+            monitor_start = form.cleaned_data["monitor_start"]
             asc_time_format = form.cleaned_data["asc_time_format"]
             log_timezone = form.cleaned_data["log_timezone"]
             review_minute = form.cleaned_data["review_minute"]
@@ -183,8 +182,7 @@ def app_add(request):
             app_data.name = name
             app_data.log_location = log_location
             app_data.file_name = file_name
-            app_data.flag_start = flag_start
-            app_data.flag_end = flag_end
+            app_data.monitor_start = monitor_start
             app_data.asc_time_format = asc_time_format
             app_data.log_timezone = log_timezone
             app_data.review_minute = review_minute
@@ -225,8 +223,7 @@ def app_edit(request, id):
             name = form.cleaned_data["name"]
             log_location = form.cleaned_data["log_location"]
             file_name = form.cleaned_data["file_name"]
-            flag_start = form.cleaned_data["flag_start"]
-            flag_end = form.cleaned_data["flag_end"]
+            monitor_start = form.cleaned_data["monitor_start"]
             asc_time_format = form.cleaned_data["asc_time_format"]
             log_timezone = form.cleaned_data["log_timezone"]
             review_minute = form.cleaned_data["review_minute"]
@@ -240,8 +237,7 @@ def app_edit(request, id):
             app_instance.name = name
             app_instance.log_location = log_location
             app_instance.file_name = file_name
-            app_instance.flag_start = flag_start
-            app_instance.flag_end = flag_end
+            app_instance.monitor_start = monitor_start
             app_instance.asc_time_format = asc_time_format
             app_instance.log_timezone = log_timezone
             app_instance.review_minute = review_minute
@@ -263,8 +259,7 @@ def app_edit(request, id):
         name = app_instance.name
         log_location = app_instance.log_location
         file_name = app_instance.file_name
-        flag_start = app_instance.flag_start
-        flag_end = app_instance.flag_end
+        monitor_start = app_instance.monitor_start
         asc_time_format = app_instance.asc_time_format
         log_timezone = app_instance.log_timezone
         review_minute = app_instance.review_minute
@@ -278,8 +273,7 @@ def app_edit(request, id):
             "name": name,
             "log_location": log_location,
             "file_name": file_name,
-            "flag_start": flag_start,
-            "flag_end": flag_end,
+            "monitor_start": monitor_start,
             "asc_time_format": asc_time_format,
             "log_timezone": log_timezone,
             "review_minute": review_minute,

@@ -22,29 +22,12 @@ class AppData(models.Model):
         max_length = 512,
     )
 
-    flag_start = models.CharField(
-        blank=True,
+    monitor_start = models.BooleanField(
+        default=False,
         help_text=(
-            "Text located in the log file that notes the application has "
-            "started properly"
-        ),
-        max_length = 512,
-        null=True,
-    )
-    
-    flag_end = models.CharField(
-        blank=True,
-        help_text=(
-            "Text located in the log file that notes the application has "
-            "finished properly"
-        ),
-        max_length = 512,
-        null=True,
-    )
-
-    asc_time_format = models.CharField(
-        help_text="The format of the asc_time field",
-        max_length=50,
+            "Whether to notify the user or not if there are no new log"
+            "entries when the log monitor checks at the specified time"
+        )
     )
 
     TIMEZONE_LIST = []
