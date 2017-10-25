@@ -29,6 +29,11 @@ class AppData(models.Model):
             "entries when the log monitor checks at the specified time"
         )
     )
+    
+    asc_time_format = models.CharField(
+        help_text="The format of the asc_time field",
+        max_length=50,
+    )
 
     TIMEZONE_LIST = []
 
