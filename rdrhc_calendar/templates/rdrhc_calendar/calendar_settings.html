@@ -8,6 +8,11 @@
 {% block content %}
 	<h1><a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; Settings</h1>
 
+	<p>
+		You may modify the following details of your schedule. Please note that 
+		the changes may take up to 24 hours to take effect.
+	</p>
+
 	<form action="" method="post">
 		{% csrf_token %}
 
