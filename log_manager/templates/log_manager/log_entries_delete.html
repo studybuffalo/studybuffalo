@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb .center_content table td, #sb .center_content table th {
+			padding: 1rem;
+		}
+
+		#sb .center_content table thead th,
+		#sb .center_content table tbody td {
+			text-align: center;
+		}
+
+		#sb .center_content table tfoot td {
+			text-align: right;
+		}
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>
+		<a href="{% url 'log_entries' %}">Log Manager</a> &gt; 
+		<a href="{% url 'app_list' %}">Apps</a> &gt; 
+		Edit &gt; Delete
+	</h1>
+
+	<form action="" method="post">
+		{% csrf_token %}
+
+		<div class="center_content">
+			<table>
+				<thead>
+					<tr>
+						<th>Are you sure you want to delete all the log entries for this application:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ app }}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td><button type="submit">Delete</button></td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</form>
+{% endblock %}

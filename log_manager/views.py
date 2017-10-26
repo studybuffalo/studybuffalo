@@ -308,3 +308,23 @@ def app_delete(request, id):
         "log_manager/app_delete.html", 
         {"app": app_instance.name}
     )
+
+@permission_required("log_manager.can_view", login_url="/accounts/login/")
+def log_entries_delete(request, id):
+     # Get the Shift Code instance for this user
+    app_instance = get_object_or_404(AppData, id=id)
+
+    # If this is a POST request then process the Form data
+    if request.method == "POST":
+        log_entries = LogEntry.objects.filter(app_name=app_instance)
+        log_entries.delete()
+       
+        # Redirect back to main list
+        messages.success(request, "Log entries deleted")
+        return HttpResponseRedirect(reverse('app_list'))
+  
+    return render(
+        request, 
+        "log_manager/log_entries_delete.html", 
+        {"app": app_instance.name}
+    )
