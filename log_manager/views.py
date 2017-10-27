@@ -62,99 +62,6 @@ def log_entries(request):
     )
 
 @permission_required("log_manager.can_view", login_url="/accounts/login/")
-def update_entries(request):
-    # Return query data as JSON
-    if request.GET:
-        # Assemble the app name list
-        if request.GET["app_names"]:
-            app_names_strings = request.GET["app_names"].split(",")
-
-            # Convert the app name codes into integers
-            app_names = []
-
-            for app in app_names_strings:
-                app_names.append(int(app))
-        else:
-            app_names = []
-        
-        
-        # Assemble the log level list
-        if request.GET["log_levels"]:
-            log_levels_string = request.GET["log_levels"].split(",")
-
-            # Conver the log levels into integers
-            log_levels = []
-
-            for level in log_levels_string:
-                log_levels.append(int(level))
-        else:
-            log_levels = []
-
-        # Format the datetime values
-        if request.GET["start_date"]:
-            start_date_string = request.GET["start_date"]
-
-            # Try to format it into a datetime object, otherwise use default
-            try:
-                start_date_naive = datetime.strptime(
-                    start_date_string,
-                    "%Y-%m-%d %H:%M:%S"
-                )
-
-                start_date = pytz.timezone("UTC").localize(start_date_naive)
-            except Exception:
-                start_date = timezone.now() - timedelta(months=144)
-        else:
-            start_date = timezone.now() - timedelta(months=144)
-
-        if request.GET["start_date"]:
-            end_date_string = request.GET["end_date"]
-
-            # Try to format it into a datetime object, otherwise use default
-            try:
-                end_date_naive = datetime.strptime(
-                    end_date_string,
-                    "%Y-%m-%d %H:%M:%S"
-                )
-
-                end_date = pytz.timezone("UTC").localize(end_date_naive)
-            except Exception:
-                end_date = timezone.now()
-        else:
-            end_date = timezone.now()
-        
-    # Create a queryset object that matches all the required criteria
-    log_entries = LogEntry.objects.filter(
-        app_name__in=app_names
-    ).filter(
-        level_no__in=log_levels
-    ).filter(
-        asc_time__gte=start_date
-    ).filter(
-        asc_time__lte=end_date
-    ).order_by(
-        "-asc_time"
-    )
-
-    # Format the log_entries as a json dictionary
-    response = []
-
-    for entry in log_entries:
-        response.append({
-            "entry_id": entry.id,
-            "asc_time": entry.asc_time.strftime("%Y-%m-%d %H:%M:%S %Z"),
-            "app_name": entry.app_name.name,
-            "func_name": entry.func_name,
-            "message": entry.message,
-            "level_no": entry.level_no
-        })
-
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder), 
-        content_type="application/json"
-    )
-
-@permission_required("log_manager.can_view", login_url="/accounts/login/")
 def app_add(request):
     # If this is a POST request then process the Form data
     if request.method == "POST":
@@ -327,4 +234,139 @@ def log_entries_delete(request, id):
         request, 
         "log_manager/log_entries_delete.html", 
         {"app": app_instance.name}
+    )
+
+@permission_required("log_manager.can_view", login_url="/accounts/login/")
+def update_entries(request):
+    # Return query data as JSON
+    if request.GET:
+        # Assemble the app name list
+        if request.GET["app_names"]:
+            app_names_strings = request.GET["app_names"].split(",")
+
+            # Convert the app name codes into integers
+            app_names = []
+
+            for app in app_names_strings:
+                app_names.append(int(app))
+        else:
+            app_names = []
+        
+        
+        # Assemble the log level list
+        if request.GET["log_levels"]:
+            log_levels_string = request.GET["log_levels"].split(",")
+
+            # Conver the log levels into integers
+            log_levels = []
+
+            for level in log_levels_string:
+                log_levels.append(int(level))
+        else:
+            log_levels = []
+
+        # Format the datetime values
+        if request.GET["start_date"]:
+            start_date_string = request.GET["start_date"]
+
+            # Try to format it into a datetime object, otherwise use default
+            try:
+                start_date_naive = datetime.strptime(
+                    start_date_string,
+                    "%Y-%m-%d %H:%M:%S"
+                )
+
+                start_date = pytz.timezone("UTC").localize(start_date_naive)
+            except Exception:
+                start_date = timezone.now() - timedelta(months=144)
+        else:
+            start_date = timezone.now() - timedelta(months=144)
+
+        if request.GET["start_date"]:
+            end_date_string = request.GET["end_date"]
+
+            # Try to format it into a datetime object, otherwise use default
+            try:
+                end_date_naive = datetime.strptime(
+                    end_date_string,
+                    "%Y-%m-%d %H:%M:%S"
+                )
+
+                end_date = pytz.timezone("UTC").localize(end_date_naive)
+            except Exception:
+                end_date = timezone.now()
+        else:
+            end_date = timezone.now()
+        
+    # Create a queryset object that matches all the required criteria
+    log_entries = LogEntry.objects.filter(
+        app_name__in=app_names
+    ).filter(
+        level_no__in=log_levels
+    ).filter(
+        asc_time__gte=start_date
+    ).filter(
+        asc_time__lte=end_date
+    ).order_by(
+        "-asc_time"
+    )
+
+    # Format the log_entries as a json dictionary
+    response = []
+
+    for entry in log_entries:
+        response.append({
+            "entry_id": entry.id,
+            "asc_time": entry.asc_time.strftime("%Y-%m-%d %H:%M:%S %Z"),
+            "app_name": entry.app_name.name,
+            "func_name": entry.func_name,
+            "message": entry.message,
+            "level_no": entry.level_no
+        })
+
+    return HttpResponse(
+        json.dumps(response, cls=DjangoJSONEncoder), 
+        content_type="application/json"
+    )
+
+@permission_required("log_manager.can_view", login_url="/accounts/login/")
+def retrieve_entry(request):
+    # Return query data as JSON
+    if request.GET:
+        # Assemble the app name list
+        entry_id = request.GET["entry_id"] if request.GET["entry_id"] else None
+
+        if entry_id:
+            entry = LogEntry.objects.filter(id=entry_id).get()
+
+            # Format the entry as a json dictionary
+            response = {
+                "app_name": entry.app_name.name,
+                "asc_time": entry.asc_time.strftime("%Y-%m-%d %H:%M:%S"),
+                "timezone": entry.asc_time.strftime("%Z"),
+                "created": entry.created,
+                "exc_info": entry.exc_info,
+                "file_name": entry.file_name,
+                "func_name": entry.func_name,
+                "level_name": entry.level_name,
+                "level_no": entry.level_no,
+                "line_no": entry.line_no,
+                "message": entry.message,
+                "module": entry.module,
+                "msec": entry.msecs,
+                "name": entry.name,
+                "path_name": entry.path_name,
+                "process": entry.process,
+                "process_name": entry.process_name,
+                "relative_created": entry.relative_created,
+                "stack_info": entry.stack_info,
+                "thread": entry.thread,
+                "thread_name": entry.thread_name
+            }
+        else:
+            response = {}
+   
+    return HttpResponse(
+        json.dumps(response, cls=DjangoJSONEncoder), 
+        content_type="application/json"
     )

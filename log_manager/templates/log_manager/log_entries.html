@@ -122,6 +122,27 @@
 				font-weight: 700;
 			}
 
+		#popup {
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: 0;
+		}
+
+			#popup #log_entry_info {
+				background-color: rgb(245, 245, 245);
+				border: 1px solid rgb(0, 0, 0);
+				box-shadow: 2px 2px 5px rgb(101, 101, 101);
+				margin: auto;
+				padding: 1rem;
+				position: absolute;
+				z-index: 3;
+			}
+
+			#popup pre {
+				overflow-x:scroll;
+			}
+
 		@media screen and (min-width: 760px) {
 			#sb #filters {
 				flex-direction: row;
