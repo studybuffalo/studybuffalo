@@ -293,3 +293,25 @@ class Shift(models.Model):
 
     def __str__(self):
         return "{0} - {1}".format(self.date, self.shift_code)
+
+class MissingShiftCode(models.Model):
+    code = models.CharField(
+        help_text="The shift code used in the Excel schedule",
+        max_length=20,
+    )
+    
+    role = models.CharField(
+        choices=(
+            ("a", "Pharmacy Assistant"),
+            ("p", "Pharmacist"),
+            ("t", "Pharmacy Technician"),
+        ),
+        help_text="The role/profession this code applies to",
+        max_length=1,
+    )
+
+    def __str__(self):
+        return "{0} - {1}".format(self.code, self.role)
+
+    class Meta:
+        unique_together = ["code", "role"]
