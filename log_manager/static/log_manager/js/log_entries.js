@@ -111,9 +111,10 @@ function retrieveEntries() {
  *						info												*
  ****************************************************************************/
 function closePopup(e) {
-    let info_popup = $("#log_entry_info")[0]
+    let popupCover = $("#popup")[0]
+    let closeButton = $("#popup .close input")[0]
     
-    if (e !== info_popup) {
+    if (e && (e.target === popupCover || e.target === closeButton)) {
         $("#popup").remove();
     }
 }
@@ -132,14 +133,14 @@ function displayDetails(entry) {
         .attr("id", "popup")
         .height(pageHt)
         .width(pageWid)
-        .on("click", function (e) { closePopup(this); })
+        .on("click", function (e) { closePopup(e); })
         .prependTo("body");
     
     // Calculate pop-up width (90% of the window)
-    let popupWid = screenWid * 0.9;
+    let popupWid = screenWid - 40;
 
     // Give the popup a 5% margin on both sides
-    let popupLeft = screenWid * 0.05;
+    let popupLeft = 5;
 
     // Place the popup at the top of the viewport
     let popupTop = scrollHt + 10;
