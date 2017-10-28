@@ -295,7 +295,7 @@ def missing_code_add(request, id):
     if request.method == 'POST':
 
         # Create a form instance and populate it with data from the request (binding):
-        form = MissingCodeForm(request.POST, instance=missing_code_instance)
+        form = MissingCodeForm(request.POST)
 
         # Check if the form is valid:
         if form.is_valid():
@@ -348,6 +348,9 @@ def missing_code_add(request, id):
 
                 new_code.save()
 
+                # If save succeed, delete this MissingShiftCode
+                missing_code_instance.delete()
+                
                 # redirect to a new URL
                 messages.success(request, "Shift code added")
                 return HttpResponseRedirect(reverse('calendar_missing_code_list'))
