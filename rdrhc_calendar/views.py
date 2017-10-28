@@ -363,7 +363,11 @@ def missing_code_add(request, id):
     return render(
         request, 
         "rdrhc_calendar/missingshiftcode_add.html", 
-        {'form': form}
+        {
+            "form": form,
+            "shift_code": missing_code_instance.code,
+            "role": missing_code_instance.role,
+        }
     )
 
 @permission_required("rdrhc_calendar.can_add_default_codes", login_url="/accounts/login/")

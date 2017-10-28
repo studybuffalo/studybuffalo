@@ -27,6 +27,20 @@
 			width: 6rem;
 		}
 
+		#sb #quick_set {
+			font-size: 1.5rem;
+		}
+
+			#sb #quick_set > div {
+				padding: 0.3rem 0;
+			}
+
+			#sb #quick_set label {
+				display: inline-block;
+				font-weight: 700;
+				min-width: 12rem;
+			}
+
 		@media screen and (min-width: 500px) {
 			#sb .input_table {
 				font-size: 2rem;
@@ -47,6 +61,15 @@
 				text-align: right;
 				width: 10rem;
 			}
+
+			#sb #quick_set {
+				font-size: 2rem;
+			}
+			
+			#sb #quick_set label {
+				display: inline-block;
+				min-width: 15rem;
+			}
 		}
 	</style>
 {% endblock %}
@@ -59,6 +82,30 @@
 		<a href="{% url 'calendar_missing_code_list' %}">Missing Shift Codes</a> &gt; 
 		Add New Shift Code
 	</h1>
+	
+	<div>
+		<strong>Shift Code: </strong>{{ shift_code }}<br>
+		<strong>Role: </strong>{{ role }}
+	</div>
+
+	<h2>Quick Set All Values</h2>
+
+	<div id="quick_set">
+		<div>
+			<label for="quick_start_time">Start Time: </label>
+			<input type="text" id="quick_start_time" value="07:00:00">
+		</div>
+
+		<div>
+			<label for="quick_duration">Shift Duration: </label>
+			<input type="number" id="quick_duration" value="8.25" step="0.01">
+		</div>
+		<div>
+			<input type="button" id="set_all_values" value="Set for all values">
+		</div>
+	</div>
+
+	<h2>Set Start Times and Durations</h2>
 
 	<form action="" method="post">
 		{% csrf_token %}
@@ -84,17 +131,6 @@
 			
 			<tbody>
 				<tr>
-					<th>Shift Code</th>
-					<td colspan="2">{{ form.code }}</td>
-					<td>
-						<ul class="message_list">
-							{% for error in form.code.errors %}
-								<li class="level_40">{{ error|striptags }}</li>
-							{% endfor %}
-						</ul>
-					</td>
-				</tr>
-				<tr>
 					<th></th>
 					<th>Start Time</th>
 					<th>Shift Duration</th>
@@ -102,8 +138,8 @@
 				</tr>
 				<tr>
 					<th>Monday</th>
-					<td>{{ form.monday_start }}</td>
-					<td>{{ form.monday_duration }} hours</td>
+					<td class="start_time">{{ form.monday_start }}</td>
+					<td class="duration">{{ form.monday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.monday_start.errors %}
@@ -118,8 +154,8 @@
 				</tr>
 				<tr>
 					<th>Tuesday</th>
-					<td>{{ form.tuesday_start }}</td>
-					<td>{{ form.tuesday_duration }} hours</td>
+					<td class="start_time">{{ form.tuesday_start }}</td>
+					<td class="duration">{{ form.tuesday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.tuesday_start.errors %}
@@ -134,8 +170,8 @@
 				</tr>
 				<tr>
 					<th>Wednesday</th>
-					<td>{{ form.wednesday_start }}</td>
-					<td>{{ form.wednesday_duration }} hours</td>
+					<td class="start_time">{{ form.wednesday_start }}</td>
+					<td class="duration">{{ form.wednesday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.wednesday_start.errors %}
@@ -150,8 +186,8 @@
 				</tr>
 				<tr>
 					<th>Thursday</th>
-					<td>{{ form.thursday_start }}</td>
-					<td>{{ form.thursday_duration }} hours</td>
+					<td class="start_time">{{ form.thursday_start }}</td>
+					<td class="duration">{{ form.thursday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.thursday_start.errors %}
@@ -166,8 +202,8 @@
 				</tr>
 				<tr>
 					<th>Friday</th>
-					<td>{{ form.friday_start }}</td>
-					<td>{{ form.friday_duration }} hours</td>
+					<td class="start_time">{{ form.friday_start }}</td>
+					<td class="duration">{{ form.friday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.friday_start.errors %}
@@ -182,8 +218,8 @@
 				</tr>
 				<tr>
 					<th>Saturday</th>
-					<td>{{ form.saturday_start }}</td>
-					<td>{{ form.saturday_duration }} hours</td>
+					<td class="start_time">{{ form.saturday_start }}</td>
+					<td class="duration">{{ form.saturday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.saturday_start.errors %}
@@ -198,8 +234,8 @@
 				</tr>
 				<tr>
 					<th>Sunday</th>
-					<td>{{ form.sunday_start }}</td>
-					<td>{{ form.sunday_duration }} hours</td>
+					<td class="start_time">{{ form.sunday_start }}</td>
+					<td class="duration">{{ form.sunday_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.sunday_start.errors %}
@@ -214,8 +250,8 @@
 				</tr>
 				<tr>
 					<th>Statutory Holidays</th>
-					<td>{{ form.stat_start }}</td>
-					<td>{{ form.stat_duration }} hours</td>
+					<td class="start_time">{{ form.stat_start }}</td>
+					<td class="duration">{{ form.stat_duration }} hours</td>
 					<td>
 						<ul class="message_list">
 							{% for error in form.stat_start.errors %}
@@ -233,10 +269,14 @@
 			<tfoot>
 				<tr>
 					<td colspan="4">
-						<button type="submit">Add New Shift Code</button>
+						<button type="submit">Add new shift code</button>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 	</form>
+{% endblock %}
+
+{% block js %}
+	<script src="{% static 'rdrhc_calendar/js/quick_set.js' %}" type="text/javascript"></script>
 {% endblock %}
