@@ -1,0 +1,55 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb #code_list {
+			border-collapse: collapse;
+		}
+
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; Custom Shift Codes</h1>
+	
+	{% if messages %}
+		<ul class="message_list">
+			{% for message in messages %}
+				{% if message.level %}
+					<li class="level_{{ message.level }}">{{ message }}</li>
+				{% else %}
+					<li>{{ message }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<p>
+		Click on the shift code below to edit its start and stop times
+	</p>
+
+	{% if shift_code_list %}
+		<div id="code_list">
+			<div>
+				<span>Role</span>
+				<span>Shift Code</span>
+				<span></span>
+			</div>
+			{% for code in shift_code_list %}
+				<div>
+					<a href="{% url 'calendar_missing_code_add' code.id %}">
+						{{ code.role }}
+					</a>
+					<a href="{% url 'calendar_missing_code_add' code.id %}">
+						{{ code.code }}
+					</a>
+					<a href="{% url 'calendar_missing_code_delete' code.id %}">
+						Delete
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}

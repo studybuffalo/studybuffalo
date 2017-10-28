@@ -58,3 +58,25 @@ class CalendarShiftCodeForm(forms.ModelForm):
             "stat_start",
             "stat_duration",
         ]
+        
+class MissingCodeForm(forms.ModelForm):
+    class Meta:
+        model = ShiftCode
+        fields = [
+            "monday_start",
+            "monday_duration",
+            "tuesday_start",
+            "tuesday_duration",
+            "wednesday_start",
+            "wednesday_duration",
+            "thursday_start",
+            "thursday_duration",
+            "friday_start",
+            "friday_duration",
+            "saturday_start",
+            "saturday_duration",
+            "sunday_start",
+            "sunday_duration",
+            "stat_start",
+            "stat_duration",
+        ]

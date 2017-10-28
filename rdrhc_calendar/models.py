@@ -314,4 +314,8 @@ class MissingShiftCode(models.Model):
         return "{0} - {1}".format(self.code, self.role)
 
     class Meta:
+        permissions = (
+            ("can_add_default_codes", 
+             "Can add new default codes to the ShiftCode database"),
+        )
         unique_together = ["code", "role"]
