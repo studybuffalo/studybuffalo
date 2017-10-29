@@ -20,9 +20,9 @@ class ContactForm(forms.Form):
         },
         label="Subject", 
         choices=(
-            ("a", "General Inquiry"),
-            ("b", "Study Guides"),
-            ("c", "Practice Tools"),
+            ("General Inquiry", "General Inquiry"),
+            ("Study Guides", "Study Guides"),
+            ("Practice Tools", "Practice Tools"),
         ),
         required=True,
     )

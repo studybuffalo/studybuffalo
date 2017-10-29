@@ -1,21 +1,21 @@
-from django.views import generic
-from django.shortcuts import render, get_object_or_404, redirect
-from updates.models import Update
-from .forms import ContactForm, UnsubscribeForm
-from django.http import HttpResponseRedirect
-from django.core.mail import EmailMessage
-from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
-
-import datetime
-from functools import wraps
+from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from django.http import Http404
+from django.db.models import Q
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.template.loader import get_template
 from django.template.response import TemplateResponse
 from django.utils.http import http_date
+from django.views import generic
 
+from .forms import ContactForm, UnsubscribeForm
+from functools import wraps
+from updates.models import Update
+
+import datetime
 
 class Index(generic.ListView):
     context_object_name = "updates"
@@ -68,6 +68,7 @@ def robot_policy(request):
         "robot_policy.html",
         context={},
     )
+
 def contact(request):
     """View for the contact information page"""
     # If POST process and send email
@@ -98,10 +99,32 @@ def contact(request):
                 ["info@studybuffalo.com"],
                 headers = {"Reply-To": sender_email},
             )
+            
+            try:
+                # Send the email
+                email.send()
+                
+                # Generate the success message
+                messages.success(
+                    request, 
+                    (
+                        "Your message has been sent, we will get back "
+                        "to you as soon as we can."
+                    )
+                )
 
-            email.send()
-            # redirect to a new URL:
-            return redirect("contact")
+                # redirect to a new URL:
+                return redirect("contact")
+            except Exception:
+                # Notify user of the error
+                messages.error(
+                    request, 
+                    (
+                        "There was an error sending your message - "
+                        "please confirm your email has been entered "
+                        "properly"
+                    )
+                )
 
     # If other request, generate (and populate) form
     else:
@@ -136,10 +159,22 @@ def unsubscribe(request):
                 headers = {"Reply-To": sender_email},
             )
 
-            email.send()
-
-            # redirect to a new URL:
-            return redirect("unsubscribe_complete")
+            try:
+                # Send the email
+                email.send()
+                
+                # redirect to a new URL:
+                return redirect("unsubscribe_complete")
+            except Exception:
+                # Notify user of the error
+                messages.error(
+                    request, 
+                    (
+                        "There was an error processing your request - "
+                        "please confirm your email has been entered "
+                        "properly"
+                    )
+                )
 
     # If other request, generate (and populate) form
     else:
