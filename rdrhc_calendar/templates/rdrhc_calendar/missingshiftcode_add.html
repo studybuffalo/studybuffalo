@@ -26,7 +26,7 @@
 			text-align: right;
 			width: 6rem;
 		}
-		
+
 		#sb #quick_set {
 			font-size: 1.5rem;
 		}
@@ -61,7 +61,7 @@
 				text-align: right;
 				width: 10rem;
 			}
-			
+
 			#sb #quick_set {
 				font-size: 2rem;
 			}
@@ -79,16 +79,16 @@
 {% block content %}
 	<h1>
 		<a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; 
-		<a href="{% url 'calendar_code_list' %}">Custom Shift Codes</a> &gt; 
-		Customize Shift Times
+		<a href="{% url 'calendar_missing_code_list' %}">Missing Shift Codes</a> &gt; 
+		Add New Shift Code
 	</h1>
 	
-	<h2>Quick Set All Values</h2>
+	<div>
+		<strong>Shift Code: </strong>{{ shift_code }}<br>
+		<strong>Role: </strong>{{ role }}
+	</div>
 
-	<p>
-		You can set all the start time and durations quickly by 
-		filling out this section and clicking the "Set for all values" button.
-	</p>
+	<h2>Quick Set All Values</h2>
 
 	<div id="quick_set">
 		<div>
@@ -106,14 +106,6 @@
 	</div>
 
 	<h2>Set Start Times and Durations</h2>
-
-	<p>
-		Fill out the form below to create your custom shift times. Please note 
-		that if a section is missing a start time or duration, it will not appear 
-		on your calendar if the shift falls on that day. When you have finished 
-		setting your start times and durations, click the "Save shift code" button
-		to save your changes. You may edit or delete these changes at any time.
-	</p>
 
 	<form action="" method="post">
 		{% csrf_token %}
@@ -136,19 +128,8 @@
 					</tr>
 				</thead>
 			{% endif %}
-
+			
 			<tbody>
-				<tr>
-					<th>Shift Code</th>
-					<td colspan="2">{{ form.code }}</td>
-					<td>
-						<ul  class="message_list">
-							{% for error in form.code.errors %}
-								<li class="level_40">{{ error|striptags }}</li>
-							{% endfor %}
-						</ul>
-					</td>
-				</tr>
 				<tr>
 					<th></th>
 					<th>Start Time</th>
@@ -160,7 +141,7 @@
 					<td class="start_time">{{ form.monday_start }}</td>
 					<td class="duration">{{ form.monday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.monday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -176,7 +157,7 @@
 					<td class="start_time">{{ form.tuesday_start }}</td>
 					<td class="duration">{{ form.tuesday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.tuesday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -192,7 +173,7 @@
 					<td class="start_time">{{ form.wednesday_start }}</td>
 					<td class="duration">{{ form.wednesday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.wednesday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -208,7 +189,7 @@
 					<td class="start_time">{{ form.thursday_start }}</td>
 					<td class="duration">{{ form.thursday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.thursday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -224,7 +205,7 @@
 					<td class="start_time">{{ form.friday_start }}</td>
 					<td class="duration">{{ form.friday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.friday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -240,7 +221,7 @@
 					<td class="start_time">{{ form.saturday_start }}</td>
 					<td class="duration">{{ form.saturday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.saturday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -256,7 +237,7 @@
 					<td class="start_time">{{ form.sunday_start }}</td>
 					<td class="duration">{{ form.sunday_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.sunday_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -272,7 +253,7 @@
 					<td class="start_time">{{ form.stat_start }}</td>
 					<td class="duration">{{ form.stat_duration }} hours</td>
 					<td>
-						<ul  class="message_list">
+						<ul class="message_list">
 							{% for error in form.stat_start.errors %}
 								<li class="level_40">{{ error|striptags }}</li>
 							{% endfor %}
@@ -288,7 +269,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="4">
-						<button type="submit">Save shift code</button>
+						<button type="submit">Add new shift code</button>
 					</td>
 				</tr>
 			</tfoot>

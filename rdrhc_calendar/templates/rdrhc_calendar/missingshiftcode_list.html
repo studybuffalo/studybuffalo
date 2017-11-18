@@ -1,0 +1,106 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb #code_list {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+		}
+
+		#sb #code_list > div {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			transition: ease-in-out 0.4s;
+			width: 100%;
+		}
+			#sb #code_list > div.code_row {
+				padding: 0.5rem 0;
+			}
+
+				#sb #code_list > div.code_row:nth-child(even) {
+					background-color: rgb(240, 240, 240);
+				}
+
+				#sb #code_list > div.code_row:hover {
+					background-color: rgb(200, 200, 200);
+				}
+
+			#sb #code_list > div .role {
+				flex: 1 1 75px;
+				max-width: 150px;
+			}
+
+				#sb #code_list > div a.role {
+					color: inherit;
+					text-decoration: none;
+				}
+
+			#sb #code_list > div .shift {
+				flex: 1 1 125px;
+				max-width: 150px;
+			}
+
+				#sb #code_list > div a.shift {
+					color: inherit;
+					text-decoration: none;
+				}
+
+			#sb #code_list > div .delete {
+				flex: 1 1 125px;
+				max-width: 150px;
+			}
+
+				#sb #code_list > div a.delete {
+					font-weight: 700;
+					text-decoration: none;
+				}
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; Missing Shift Codes</h1>
+	
+	{% if messages %}
+		<ul class="message_list">
+			{% for message in messages %}
+				{% if message.level %}
+					<li class="level_{{ message.level }}">{{ message }}</li>
+				{% else %}
+					<li>{{ message }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<p>
+		Click on the shift code below to sets its default start and stop times
+	</p>
+
+	{% if shift_code_list %}
+		<div id="code_list">
+			<div>
+				<strong class="role">Role</strong>
+				<strong class="shift">Shift Code</strong>
+				<strong class="delete"></strong>
+			</div>
+			{% for code in shift_code_list %}
+				<div class="code_row">
+					<a href="{% url 'calendar_missing_code_add' code.id %}" class="role">
+						{{ code.role }}
+					</a>
+					<a href="{% url 'calendar_missing_code_add' code.id %}" class="shift">
+						{{ code.code }}
+					</a>
+					<a href="{% url 'calendar_missing_code_delete' code.id %}" class="delete">
+						Delete
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}
