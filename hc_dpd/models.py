@@ -178,12 +178,10 @@ class DrugProduct(models.Model):
         max_length=210,
         null=True,
     )
-    pediatric_flag = models.BooleanField(
-        blank=True,
-        null=True,
-    )
+    pediatric_flag = models.BooleanField()
     accession_number = models.CharField(
         blank=True,
+        max_length=5,
         null=True,
     )
     number_of_ais = models.CharField(
