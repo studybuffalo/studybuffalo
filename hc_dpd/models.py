@@ -162,9 +162,8 @@ class DrugProduct(models.Model):
         max_length=80,
         null=True,
     )
-    drug_product_class = models.CharField(
+    class_ = models.CharField(
         blank=True,
-        help_text="The class field from the data extract",
         max_length=40,
         null=True,
     )
