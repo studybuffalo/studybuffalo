@@ -360,7 +360,10 @@ class Status(models.Model):
         max_length=80,
         null=True,
     )
-    expiration_date = models.DateField()
+    expiration_date = models.DateField(
+        blank=True,
+        null=True,
+    )
 
 class TherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file"""
