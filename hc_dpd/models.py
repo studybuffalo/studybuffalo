@@ -319,7 +319,7 @@ class Route(models.Model):
     )
     route_of_administration_f = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=60,
         null=True,
     )
 
