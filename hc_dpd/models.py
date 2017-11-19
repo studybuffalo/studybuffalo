@@ -93,7 +93,10 @@ class Companies(models.Model):
         max_length=5,
         null=True,
     )
-    company_code = models.PositiveIntegerField()
+    company_code = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
     company_name = models.CharField(
         blank=True,
         max_length=90,
@@ -167,6 +170,11 @@ class DrugProduct(models.Model):
         max_length=40,
         null=True,
     )
+    drug_identification_number = models.CharField(
+        blank=True,
+        max_length=8,
+        null=True,
+    )
     brand_name = models.CharField(
         blank=True,
         max_length=200,
@@ -216,7 +224,10 @@ class DrugProduct(models.Model):
 class Form(models.Model):
     """Model representing QRYM_FORM file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
-    pharm_form_code = models.PositiveIntegerField()
+    pharm_form_code = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
     pharmaceutical_form = models.CharField(
         blank=True,
         max_length=40,
@@ -232,12 +243,19 @@ class InactiveProducts(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
     drug_identification_number = models.CharField(
+        blank=True,
         max_length=8,
+        null=True,
     )
     brand_name = models.CharField(
+        blank=True,
         max_length=200,
+        null=True,
     )
-    history_date = models.DateField()
+    history_date = models.DateField(
+        blank=True,
+        null=True,
+    )
 
 class Packaging(models.Model):
     """Model representing QRYM_Packaging file"""
@@ -290,7 +308,10 @@ class PharmaceuticalStandard(models.Model):
 class Route(models.Model):
     """Model representing QRYM_ROUTE file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
-    route_of_administration_code = models.PositiveIntegerField()
+    route_of_administration_code = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
     route_of_administration = models.CharField(
         blank=True,
         max_length=40,
@@ -325,7 +346,10 @@ class Status(models.Model):
         max_length=40,
         null=True,
     )
-    history_date = models.DateField()
+    history_date = models.DateField(
+        blank=True,
+        null=True,
+    )
     status_f = models.CharField(
         blank=True,
         max_length=80,
