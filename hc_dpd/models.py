@@ -165,7 +165,7 @@ class DrugProduct(models.Model):
         max_length=80,
         null=True,
     )
-    class_ = models.CharField(
+    class_e = models.CharField(
         blank=True,
         max_length=40,
         null=True,
