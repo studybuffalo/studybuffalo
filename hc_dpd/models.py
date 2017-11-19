@@ -199,7 +199,7 @@ class DrugProduct(models.Model):
         max_length=10,
         null=True,
     )
-    late_update_date = models.DateField(
+    last_update_date = models.DateField(
         blank=True,
         null=True,
     )
