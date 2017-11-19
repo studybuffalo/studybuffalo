@@ -213,28 +213,6 @@ class DrugProduct(models.Model):
         null=True,
     )
 
-class Status(models.Model):
-    """Model representing QRYM_STATUS file"""
-    drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
-    current_status_flag = models.BooleanField()
-    status = models.CharField(
-        blank=True,
-        max_length=40,
-        null=True,
-    )
-    history_date = models.DateField()
-    status_f = models.CharField(
-        blank=True,
-        max_length=80,
-        null=True,
-    )
-    lot_number = models.CharField(
-        blank=True,
-        max_length=80,
-        null=True,
-    )
-    expiration_date = models.DateField()
-
 class Form(models.Model):
     """Model representing QRYM_FORM file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
@@ -249,6 +227,17 @@ class Form(models.Model):
         max_length=40,
         null=True,
     )
+
+class InactiveProducts(models.Model):
+    """Model representing QRYM_INACTIVE_PRODUCTS file"""
+    drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
+    drug_identification_number = models.CharField(
+        max_length=8,
+    )
+    brand_name = models.CharField(
+        max_length=200,
+    )
+    history_date = models.DateField()
 
 class Packaging(models.Model):
     """Model representing QRYM_Packaging file"""
@@ -268,7 +257,7 @@ class Packaging(models.Model):
         max_length=40,
         null=True,
     )
-    package_size_unit = models.CharField(
+    package_size = models.CharField(
         blank=True,
         max_length=10,
         null=True,
@@ -327,6 +316,28 @@ class Schedule(models.Model):
         null=True,
     )
 
+class Status(models.Model):
+    """Model representing QRYM_STATUS file"""
+    drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
+    current_status_flag = models.BooleanField()
+    status = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    history_date = models.DateField()
+    status_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    lot_number = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    expiration_date = models.DateField()
+
 class TherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
@@ -379,14 +390,3 @@ class VeterinarySpecies(models.Model):
         max_length=80,
         null=True,
     )
-
-class InactiveProducts(models.Model):
-    """Model representing QRYM_INACTIVE_PRODUCTS file"""
-    drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
-    drug_identification_number = models.CharField(
-        max_length=8,
-    )
-    brand_name = models.CharField(
-        max_length=200,
-    )
-    history_date = models.DateField()
