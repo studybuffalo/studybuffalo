@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Inactive Products List</h1>
+
+	{% if inactive_products_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Drug Code</th>
+                    <th>DIN</th>
+                    <th>Brand Name</th>
+                    <th>History Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in inactive_products_list %}
+					<tr>
+                        <td>{{ item.drug_code }}</td>
+                        <td>{{ item.drug_identification_number }}</td>
+                        <td>{{ item.brand_name }}</td>
+                        <td>{{ item.history_date }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}
