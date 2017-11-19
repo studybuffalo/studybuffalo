@@ -420,3 +420,11 @@ class VeterinarySpecies(models.Model):
         max_length=80,
         null=True,
     )
+
+class SubAHFS(models.Model):
+    original = models.CharField(
+        max_length=80,
+    )
+    substitution = models.CharField(
+        max_length=80,
+    )
