@@ -235,7 +235,7 @@ class Form(models.Model):
     )
     pharmaceutical_form_f = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=60,
         null=True,
     )
 
