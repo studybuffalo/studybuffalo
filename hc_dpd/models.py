@@ -15,6 +15,9 @@ class DPD(models.Model):
         max_length=1,
     )
 
+    def __str__(self):
+        return "{} ({})".format(self.drug_code, self.origin_file)
+
 class ActiveIngredients(models.Model):
     """Model representing QRYM_ACTIVE_INGREDIENTS file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)

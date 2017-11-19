@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Active Ingredients List</h1>
+
+	{% if active_ingredients_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Drug Code</th>
+                    <th>Active Ingredient Code</th>
+                    <th>Ingredient</th>
+                    <th>Ingredient Supplied Ind</th>
+                    <th>Strength</th>
+                    <th>Strength Unit</th>
+                    <th>Strength Type</th>
+                    <th>Dosage Value</th>
+                    <th>Base</th>
+                    <th>Dosage Unit</th>
+                    <th>Notes</th>
+                    <th>Ingredient (Fr)</th>
+                    <th>Strength Type (Fr)</th>
+                    <th>Dosage Unit (Fr)</th>
+                </tr>
+			</thead>
+			<tbody>
+				{% for item in active_ingredients_list %}
+					<tr>
+                        <td>{{ item.drug_code }}</td>
+                        <td>{{ item.active_ingredient_code }}</td>
+                        <td>{{ item.ingredient }}</td>
+                        <td>{{ item.ingredient_supplied_ind }}</td>
+                        <td>{{ item.strength }}</td>
+                        <td>{{ item.strength_unit }}</td>
+                        <td>{{ item.strength_type }}</td>
+                        <td>{{ item.dosage_value }}</td>
+                        <td>{{ item.base }}</td>
+                        <td>{{ item.dosage_unit }}</td>
+                        <td>{{ item.notes }}</td>
+                        <td>{{ item.ingredient_f }}</td>
+                        <td>{{ item.strength_type_f }}</td>
+                        <td>{{ item.dosage_unit_f }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}
