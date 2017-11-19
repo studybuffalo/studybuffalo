@@ -66,7 +66,7 @@ class ActiveIngredients(models.Model):
     )
     ingredient_f = models.CharField(
         blank=True,
-        max_length=240,
+        max_length=260,
         null=True,
     )
     strength_unit_f = models.CharField(
