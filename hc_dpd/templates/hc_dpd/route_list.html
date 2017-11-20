@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Route List</h1>
+
+	{% if route_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Drug Code</th>
+                    <th>Route of Administration Code</th>
+                    <th>Route of Administration</th>
+                    <th>Route of Administration (Fr)</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in route_list %}
+					<tr>
+                        <td>{{ item.drug_code }}</td>
+                        <td>{{ item.route_of_administration_code }}</td>
+                        <td>{{ item.route_of_administration }}</td>
+                        <td>{{ item.route_of_administration_f }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

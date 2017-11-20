@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Therapeutic Class List</h1>
+
+	{% if therapeutic_class_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Drug Code</th>
+                    <th>ATC Number</th>
+                    <th>ATC</th>
+                    <th>AHFS Number</th>
+                    <th>AHFS</th>
+                    <th>ATC (Fr)</th>
+                    <th>AHFS (Fr)</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in therapeutic_class_list %}
+					<tr>
+                        <td>{{ item.drug_code }}</td>
+                        <td>{{ item.tc_atc_number }}</td>
+                        <td>{{ item.tc_atc }}</td>
+                        <td>{{ item.tc_ahfs_number }}</td>
+                        <td>{{ item.tc_ahfs }}</td>
+                        <td>{{ item.tc_atc_f }}</td>
+                        <td>{{ item.tc_ahfs_f }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; DPD List</h1>
+
+	{% if dpd_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Drug Code</th>
+                    <th>Origin File</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in dpd_list %}
+					<tr>
+                        <td>{{ item.drug_code }}</td>
+                        <td>{{ item.origin_file }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

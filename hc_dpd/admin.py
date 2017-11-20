@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import SubAHFS
 
-# Register your models here.
+@admin.register(SubAHFS)
+class SubAHFSAdmin(admin.ModelAdmin):
+    list_display = ("original", "substitution")
+    ordering = ("original",)
