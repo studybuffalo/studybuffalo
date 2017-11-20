@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Substitutions Dashboard</h1>
+
+	<ul>
+		{% for app, models in sub_data.items %}
+		<li>{{ app }}
+			<ul>
+				{% for data in models %}
+					<li>
+						<a href="{% url 'sub_review' data.id %}">
+							{{ data.pending }} &gt; {{ data.sub }}
+							({{ data.count }} entries pending review)
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block js %}
+	<!-- JS Scripts -->
+{% endblock %}
