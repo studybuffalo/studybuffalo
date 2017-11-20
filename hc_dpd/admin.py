@@ -7,7 +7,7 @@ from .models import (
     SubRouteOfAdministration, SubRouteOfAdministrationPend, 
     SubPharmaceuticalStd, SubPharmaceuticalStdPend, 
     SubStreetName, SubStreetNamePend, SubSuiteNumber, SubSuiteNumberPend, 
-    SubUnit, SubUnitPend, SubUPC, SubUPCPend
+    SubUnit, SubUnitPend
 )
 
 @admin.register(SubAHFS)
@@ -177,17 +177,3 @@ class SubUnitPendAdmin(admin.ModelAdmin):
     ordering = ("original",)
     verbose_name = "Substitution - Unit (Pending)"
     verbose_name_plural = "Substitutions - Unit (Pending)"
-
-@admin.register(SubUPC)
-class SubUPCAdmin(admin.ModelAdmin):
-    list_display = ("original", "substitution")
-    ordering = ("original",)
-    verbose_name = "Substitution - UPC"
-    verbose_name_plural = "Substitutions - UPC"
-
-@admin.register(SubUPCPend)
-class SubUPCPendAdmin(admin.ModelAdmin):
-    list_display = ("original", "substitution")
-    ordering = ("original",)
-    verbose_name = "Substitution - UPC (Pending)"
-    verbose_name_plural = "Substitutions - UPC (Pending)"

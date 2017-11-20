@@ -732,29 +732,3 @@ class SubUnitPend(models.Model):
     class Meta:
         verbose_name = "Substitution - Unit (Pending)"
         verbose_name_plural = "Substitutions - Unit (Pending)"
-    
-class SubUPC(models.Model):
-    original = models.CharField(
-        max_length=12,
-        unique=True,
-    )
-    substitution = models.CharField(
-        max_length=12,
-    )
-
-    class Meta:
-        verbose_name = "Substitution - UPC"
-        verbose_name_plural = "Substitutions - UPC"
-
-class SubUPCPend(models.Model):
-    original = models.CharField(
-        max_length=12,
-        unique=True,
-    )
-    substitution = models.CharField(
-        max_length=12,
-    )
-    
-    class Meta:
-        verbose_name = "Substitution - UPC (Pending)"
-        verbose_name_plural = "Substitutions - UPC (Pending)"
