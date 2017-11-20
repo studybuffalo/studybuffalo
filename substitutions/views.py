@@ -63,7 +63,6 @@ def review(request, id):
         }
     )
 
-@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def retrieve_pending_entries(app_id, last_id, req_num):
     # Collect the required models
     app = Apps.objects.get(id=app_id)
@@ -123,13 +122,11 @@ def retrieve_entries(request):
     response = []
 
     # Return query data as JSON
-    if request.GET:
+    if request.POST:
         # Organize the post variables
-        app_id = request.GET["app_id"] if request.GET["app_id"] else None
-        last_id = request.GET["last_id"] if request.GET["last_id"] else 0
-        request_num = (
-            request.GET["request_num"] if request.GET["request_num"] else None
-        )
+        app_id = request.POST.get("app_id", None)
+        last_id = request.POST.get("last_id", None)
+        request_num = request.POST.get("request_num", None)
 
         if app_id and last_id and request_num:
             response = retrieve_pending_entries(app_id, last_id, request_num)
@@ -139,7 +136,6 @@ def retrieve_entries(request):
         content_type="application/json",
     )
 
-@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def add_new_substitutions(app_id, pend_id, orig, subs):
     # Get the model to insert the substitution into
     app = Apps.objects.get(id=app_id)
@@ -217,7 +213,6 @@ def verify(request):
         content_type="application/json",
     )
 
-@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def delete_entry(app_id, pend_id):
     # Get the model to insert the substitution into
     app = Apps.objects.get(id=app_id)

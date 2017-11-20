@@ -274,6 +274,17 @@ function retrieve_entries() {
         lastNum = $entries.last().attr("data-id");
     }
 
+    // Setup CSRF token for POST
+    let CSRF = $("[name=csrfmiddlewaretoken]").val();
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", CSRF);
+            }
+        }
+    });
+
     $.ajax({
         url: "retrieve-entries/",
         data: {
@@ -281,7 +292,7 @@ function retrieve_entries() {
             last_id: lastNum,
             request_num: requestNum
         },
-        type: "GET",
+        type: "POST",
         success: function (results) {
             update_entries(results);
         },
