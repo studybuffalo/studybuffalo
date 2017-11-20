@@ -21,6 +21,7 @@ class Apps(models.Model):
     class Meta:
         verbose_name = "Application"
         verbose_name_plural = "Applications"
+        permissions = (("can_view", "Can view the substitution application"),)
 
     def __str__(self):
         return self.app_name

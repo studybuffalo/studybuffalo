@@ -1,4 +1,5 @@
 from django.apps import apps
+from django.contrib.auth.decorators import permission_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Q
 from django.shortcuts import render, HttpResponse
@@ -7,6 +8,7 @@ from .models import Apps, ModelFields
 
 import json
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def dashboard(request):
     """Displays a dashboard of the monitored apps"""
     sub_data = {}
@@ -39,6 +41,7 @@ def dashboard(request):
         }
     )
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def review(request, id):
     """Generates a page to review pending substitutions"""
     # Get the Apps reference for the provided ID
@@ -60,6 +63,7 @@ def review(request, id):
         }
     )
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def retrieve_pending_entries(app_id, last_id, req_num):
     # Collect the required models
     app = Apps.objects.get(id=app_id)
@@ -114,6 +118,7 @@ def retrieve_pending_entries(app_id, last_id, req_num):
     # Return the final response
     return response
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def retrieve_entries(request):
     response = []
 
@@ -134,6 +139,7 @@ def retrieve_entries(request):
         content_type="application/json",
     )
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def add_new_substitutions(app_id, pend_id, orig, subs):
     # Get the model to insert the substitution into
     app = Apps.objects.get(id=app_id)
@@ -173,6 +179,7 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
                 "message": "Unable to locate model: {}".format(app.model_sub)
             }
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def verify(request):
     response = {}
 
@@ -210,6 +217,7 @@ def verify(request):
         content_type="application/json",
     )
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def delete_entry(app_id, pend_id):
     # Get the model to insert the substitution into
     app = Apps.objects.get(id=app_id)
@@ -247,6 +255,7 @@ def delete_entry(app_id, pend_id):
 
     return response
 
+@permission_required("substitutions.can_view", login_url="/accounts/login/")
 def delete_pend(request):
     response = {}
 
