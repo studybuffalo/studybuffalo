@@ -158,16 +158,19 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
             return {
                 "id": pend_id,
                 "success":True,
-                "message": (
-                    "New substitution added and pending entry "
-                    "(id = {} removed)"
-                ).format(pend_id)
+                "message": "New substitution added"
             }
         except Exception as e:
             return {
                 "id": pend_id,
                 "success": False,
                 "message": "Unable to save new substitution: {}".format(e)
+            }
+    else:
+        return {
+                "id": pend_id,
+                "success": False,
+                "message": "Unable to locate model: {}".format(app.model_sub)
             }
 
 def verify(request):
@@ -192,14 +195,14 @@ def verify(request):
 
             response = {
                 "success": False,
-                "message": "GET request missing arguments: {}".format(
+                "message": "POST request missing arguments: {}".format(
                     ", ".join(missing_args)
                 )
             }
     else:
         response = {
             "success": False,
-            "message": "No data received on GET request",
+            "message": "No data received on POST request",
         }
 
     return HttpResponse(
@@ -207,5 +210,74 @@ def verify(request):
         content_type="application/json",
     )
 
+def delete_entry(app_id, pend_id):
+    # Get the model to insert the substitution into
+    app = Apps.objects.get(id=app_id)
+    model_pend = apps.get_model(app.app_name, app.model_pending)
+
+    # Variable to hold the response message
+    response = {}
+
+    if model_pend:
+        model = model_pend.objects.get(id=pend_id)
+
+        try:
+            model.delete()
+
+            response = {
+                "id": pend_id,
+                "success": True,
+                "message": (
+                    "Pending entry (id = {}) successfully "
+                    "deleted".format(pend_id)
+                )
+            }
+        except Exception as e:
+            response = {
+                "id": pend_id,
+                "success": True,
+                "message": "Unable to delete pending entry: {}".format(e)
+            }
+    else:
+        response = {
+            "id": pend_id,
+            "success": True,
+            "message": "Unable to locate model: {}".format(app.model_pend)
+        }
+
+    return response
+
 def delete_pend(request):
     response = {}
+
+    if request.POST:
+        app_id = request.POST.get("app_id", None)
+        pend_id = request.POST.get("pend_id", None)
+
+        if app_id and pend_id:
+            response = delete_entry(app_id, pend_id)
+        else:
+            # Compile list of the missing arguments
+            missing_args = []
+
+            None if app_id else missing_args.append("application ID")
+            None if pend_id else missing_args.append("pending entry ID")
+
+            response = {
+               "id": pend_id,
+               "success": False,
+               "message": "POST request missing arguments: {}".format(
+                    ", ".join(missing_args)
+                )
+            }
+    else:
+        response = {
+            "id": pend_id,
+            "success": False,
+            "message": "No data received on POST request"
+        }
+
+    return HttpResponse(
+        json.dumps(response, cls=DjangoJSONEncoder), 
+        content_type="application/json",
+    )

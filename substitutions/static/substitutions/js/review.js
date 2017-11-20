@@ -31,8 +31,41 @@ function send_message(msg) {
     }
 }
 
-function remove_entry(id) {
-    console.log(id);
+function remove_entry(pendID) {
+    // Get the application ID
+    let appID = $("#app-id").text();
+
+    // Setup CSRF token for POST
+    let CSRF = $("[name=csrfmiddlewaretoken]").val();
+
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", CSRF);
+            }
+        }
+    });
+
+    $.ajax({
+        url: "delete-entry/",
+        data: {
+            app_id: appID,
+            pend_id: pendID
+        },
+        type: "POST",
+        success: function (results) {
+            if (results.success) {
+                // Remove this entry form the page
+                $("#pending-" + results.id).remove();
+            }
+
+            send_message(results.message);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error("Error deleting entry");
+            console.error(textStatus + ": " + errorThrown);
+        }
+    });
 }
 
 function verify_entry(button) {
@@ -70,6 +103,17 @@ function verify_entry(button) {
         });
     });
 
+    // Setup CSRF token for POST
+    let CSRF = $("[name=csrfmiddlewaretoken]").val();
+    
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", CSRF);
+            }
+        }
+    });
+
     $.ajax({
         url: "verify-entry/",
         data: {
@@ -87,7 +131,7 @@ function verify_entry(button) {
             send_message(results.message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error("Error retrieving entries");
+            console.error("Error verifying entries");
             console.error(textStatus + ": " + errorThrown);
         }
     });
@@ -146,6 +190,7 @@ function create_entry_dom(entry) {
     let $entryDiv = $("<div></div>");
     $entryDiv
         .addClass("entry")
+        .attr("id", "pending-" + entry.id)
         .attr("data-id", entry.id)
         .appendTo($("#entries"));
 
