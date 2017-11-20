@@ -430,6 +430,10 @@ class SubAHFS(models.Model):
         max_length=80,
     )
 
+    class Meta:
+        verbose_name = "Substitution - AHFS"
+        verbose_name_plural = "Substitutions - AHFS"
+
 class SubAHFSPend(models.Model):
     original = models.CharField(
         max_length=80,
@@ -438,3 +442,7 @@ class SubAHFSPend(models.Model):
     substitution = models.CharField(
         max_length=80,
     )
+    
+    class Meta:
+        verbose_name = "Pending Substitution - AHFS"
+        verbose_name_plural = "Pending Substitutions - AHFS"

@@ -6,6 +6,7 @@ class SubAHFSAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
 
+
 @admin.register(SubAHFSPend)
 class SubAHFSPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
