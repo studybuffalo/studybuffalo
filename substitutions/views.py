@@ -61,47 +61,56 @@ def review(request, id):
     )
 
 def retrieve_pending_entries(app_id, last_id, req_num):
-    # Get the Substitution App reference and the fields
+    # Collect the required models
     app = Apps.objects.get(id=app_id)
-    original_fields = ModelFields.objects.filter(
+    orig_fields = ModelFields.objects.filter(
         Q(app_id=app_id) & Q(field_type="o")
     )
     sub_fields = ModelFields.objects.filter(
         Q(app_id=app_id) & Q(field_type="s")
     )
-    # Get the monitored application and the required response
+
+    # Get the monitored application
     model = None
 
     if app:
         model = apps.get_model(app.app_name, app.model_pending)
 
-    if model and len(fields):
+    # Get all the entries in the monitored application
+    if model and len(orig_fields) and len(sub_fields):
         print("test")
         entries = model.objects.filter(id__gt=int(last_id))[:int(req_num)]
 
+    # Cycle through all the entries and format into dictionary
     response = []
 
     for entry in entries:
+        # Basic details of each entry
         entry_response = {
+            "id": getattr(entry, "id"),
             "orig": [],
             "subs": []
         }
 
-        for o_field in original_fields:
+        # Add all the values for the original fields
+        for o_field in orig_fields:
             entry_response["orig"].append({
-                field.field_name: getattr(entry, o_field.field_name),
+                o_field.field_name: getattr(entry, o_field.field_name),
                 "dictionary": o_field.dictionary_check,
                 "google": o_field.google_check
             })
+
+        # Add all the values for the substitution fields
         for s_field in sub_fields:
-            entry_response["orig"].append({
-                field.field_name: getattr(entry, o_field.field_name),
-                "dictionary": o_field.dictionary_check,
-                "google": o_field.google_check
+            entry_response["subs"].append({
+                s_field.field_name: getattr(entry, s_field.field_name),
+                "dictionary": s_field.dictionary_check,
+                "google": s_field.google_check
             })
 
         response.append(entry_response)
 
+    # Return the final response
     return response
 
 def retrieve_entries(request):
