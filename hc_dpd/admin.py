@@ -1,13 +1,12 @@
 from django.contrib import admin
 from .models import (
     SubAHFS, SubAHFSPend, SubBrand, SubBrandPend, 
-    SubCompanyName, SubCompanyNamePend, SubCompanyType, SubCompanyTypePend, 
-    SubDescriptor, SubDescriptorPend, SubIngredient, SubIngredientPend, 
-    SubProductCategorization, SubProductCategorizationPend, 
-    SubRouteOfAdministration, SubRouteOfAdministrationPend, 
-    SubPharmaceuticalStd, SubPharmaceuticalStdPend, 
-    SubStreetName, SubStreetNamePend, SubSuiteNumber, SubSuiteNumberPend, 
-    SubUnit, SubUnitPend
+    SubCompanyName, SubCompanyNamePend, SubDescriptor, SubDescriptorPend, 
+    SubIngredient, SubIngredientPend, SubProductCategorization, 
+    SubProductCategorizationPend, SubRouteOfAdministration, 
+    SubRouteOfAdministrationPend, SubPharmaceuticalStd, 
+    SubPharmaceuticalStdPend, SubStreetName, SubStreetNamePend, 
+    SubSuiteNumber, SubSuiteNumberPend, SubUnit, SubUnitPend
 )
 
 @admin.register(SubAHFS)
@@ -51,20 +50,6 @@ class SubCompanyNamePendAdmin(admin.ModelAdmin):
     ordering = ("original",)
     verbose_name = "Substitution - Company Name (Pending)"
     verbose_name_plural = "Substitutions - Company Name (Pending)"
-
-@admin.register(SubCompanyType)
-class SubCompanyTypeAdmin(admin.ModelAdmin):
-    list_display = ("original", "substitution")
-    ordering = ("original",)
-    verbose_name = "Substitution - Company Type"
-    verbose_name_plural = "Substitutions - Company Type"
-
-@admin.register(SubCompanyTypePend)
-class SubCompanyTypePendAdmin(admin.ModelAdmin):
-    list_display = ("original", "substitution")
-    ordering = ("original",)
-    verbose_name = "Substitution - Company Type (Pending)"
-    verbose_name_plural = "Substitutions - Company Type (Pending)"
 
 @admin.register(SubDescriptor)
 class SubDescriptorAdmin(admin.ModelAdmin):

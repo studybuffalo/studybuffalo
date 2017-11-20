@@ -499,32 +499,6 @@ class SubCompanyNamePend(models.Model):
         verbose_name = "Substitution - Company Name (Pending)"
         verbose_name_plural = "Substitutions - Company Name (Pending)"
 
-class SubCompanyType(models.Model):
-    original = models.CharField(
-        max_length=40,
-        unique=True,
-    )
-    substitution = models.CharField(
-        max_length=40,
-    )
-
-    class Meta:
-        verbose_name = "Substitution - Company Type"
-        verbose_name_plural = "Substitutions - Company Type"
-
-class SubCompanyTypePend(models.Model):
-    original = models.CharField(
-        max_length=40,
-        unique=True,
-    )
-    substitution = models.CharField(
-        max_length=40,
-    )
-    
-    class Meta:
-        verbose_name = "Substitution - Company Type (Pending)"
-        verbose_name_plural = "Substitutions - Company Type (Pending)"
-
 class SubDescriptor(models.Model):
     original = models.CharField(
         max_length=210,
