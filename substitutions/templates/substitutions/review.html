@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>
+		<a href="{% url 'dashboard' %}">Substitutions Review</a> &gt; 
+		{{ app_data.app_name }} &gt; {{ app_data.pending }}
+	</h1>
+
+	<div id="options">
+		<div>
+			Substitutions App ID: <span id="app-id">{{ app_data.id }}</span>
+		</div>
+		<div>
+			<label>Number of entries to display: </label>
+			<select id="entries-to-display">
+				<option>10</option>
+				<option>25</option>
+				<option>50</option>
+				<option selected="selected">100</option>
+				<option>500</option>
+				<option>1000</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="navigation"></div>
+
+	<div id="entries">
+
+	</div>
+
+	<div class="navigation"></div>
+{% endblock %}
+
+{% block js %}
+	<!-- JS Scripts -->
+	<script type="text/javascript" src="{% static 'substitutions/js/review.js' %}"></script>
+{% endblock %}

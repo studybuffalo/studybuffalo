@@ -15,7 +15,7 @@
 			<ul>
 				{% for data in models %}
 					<li>
-						<a href="{{ data.id }}">
+						<a href="{% url 'sub_review' data.id %}">
 							{{ data.pending }} &gt; {{ data.sub }}
 							({{ data.count }} entries pending review)
 						</a>

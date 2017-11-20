@@ -36,9 +36,21 @@ class ModelFields(models.Model):
         help_text="A field name from the model to include",
         max_length=50,
     )
+    field_type = models.CharField(
+        choices=(("o", "Original"), ("s", "Substitution"),),
+        default="s",
+        help_text="Whether this is an original or substitution field",
+        max_length=1,
+    )
     dictionary_check = models.BooleanField(
         default=False,
-        help_text="Whether to add a online search button to confirm spelling",
+        help_text="Whether to search for field value in the dictionary",
+    )
+    google_check = models.BooleanField(
+        default=False,
+        help_text=(
+            "Whether to provide a online search button with the field entry"
+        ),
     )
 
     class meta:
