@@ -173,11 +173,11 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
 def verify(request):
     response = {}
 
-    if request.GET:
-        app_id = request.GET.get("app_id", None)
-        pend_id = request.GET.get("pend_id", None)
-        orig = request.GET.get("orig")
-        subs = request.GET.get("subs")
+    if request.POST:
+        app_id = request.POST.get("app_id", None)
+        pend_id = request.POST.get("pend_id", None)
+        orig = request.POST.get("orig")
+        subs = request.POST.get("subs")
 
         if app_id and pend_id and orig and subs:
             response = add_new_substitutions(app_id, pend_id, orig, subs)
@@ -206,3 +206,6 @@ def verify(request):
         json.dumps(response, cls=DjangoJSONEncoder), 
         content_type="application/json",
     )
+
+def delete_pend(request):
+    response = {}

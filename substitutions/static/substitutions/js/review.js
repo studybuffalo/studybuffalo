@@ -78,7 +78,7 @@ function verify_entry(button) {
             orig: JSON.stringify(original),
             subs: JSON.stringify(substitutions)
         },
-        type: "GET",
+        type: "POST",
         success: function (results) {
             if (results.success) {
                 remove_entry(results.id);
