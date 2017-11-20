@@ -33,6 +33,7 @@ urlpatterns = [
     url(r"^tools/alberta-adaptations/", views.alberta_adaptations_index, name="alberta_adaptations_index"),
     url(r"^tools/dpd/", include("hc_dpd.urls")),
     url(r"^tools/drug-price-calculator/", include("drug_price_calculator.urls")),
+    url(r"^tools/substitutions/", include("substitutions.urls")),
     url(r"^tools/vancomycin-calculator/", include("vancomycin_calculator.urls")),
     url(r"^design/$", views.design_index, name="design_index"),
     url(r"^privacy-policy/", views.privacy_policy, name="privacy_policy"),
