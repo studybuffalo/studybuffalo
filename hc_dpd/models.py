@@ -444,5 +444,317 @@ class SubAHFSPend(models.Model):
     )
     
     class Meta:
-        verbose_name = "Pending Substitution - AHFS"
-        verbose_name_plural = "Pending Substitutions - AHFS"
+        verbose_name = "Substitution - AHFS (Pending)"
+        verbose_name_plural = "Substitutions - AHFS (Pending)"
+
+class SubBrand(models.Model):
+    original = models.CharField(
+        max_length=200,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=200,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Brand Name"
+        verbose_name_plural = "Substitutions - Brand Name"
+
+class SubBrandPend(models.Model):
+    original = models.CharField(
+        max_length=200,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=200,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Brand Name (Pending)"
+        verbose_name_plural = "Substitutions - Brand Name (Pending)"
+
+class SubCompanyName(models.Model):
+    original = models.CharField(
+        max_length=90,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=90,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Company Name"
+        verbose_name_plural = "Substitutions - Company Name"
+
+class SubCompanyNamePend(models.Model):
+    original = models.CharField(
+        max_length=90,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=90,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Company Name (Pending)"
+        verbose_name_plural = "Substitutions - Company Name (Pending)"
+
+class SubCompanyType(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Company Type"
+        verbose_name_plural = "Substitutions - Company Type"
+
+class SubCompanyTypePend(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Company Type (Pending)"
+        verbose_name_plural = "Substitutions - Company Type (Pending)"
+
+class SubDescriptor(models.Model):
+    original = models.CharField(
+        max_length=210,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=210,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Descriptor"
+        verbose_name_plural = "Substitutions - Descriptor"
+
+class SubDescriptorPend(models.Model):
+    original = models.CharField(
+        max_length=210,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=210,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Descriptor (Pending)"
+        verbose_name_plural = "Substitutions - Descriptor (Pending)"
+
+class SubIngredient(models.Model):
+    original = models.CharField(
+        max_length=240,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=240,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Ingredient"
+        verbose_name_plural = "Substitutions - Ingredient"
+
+class SubIngredientPend(models.Model):
+    original = models.CharField(
+        max_length=240,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=240,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Ingredient (Pending)"
+        verbose_name_plural = "Substitutions - Ingredient (Pending)"
+
+class SubProductCategorization(models.Model):
+    original = models.CharField(
+        max_length=80,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=80,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Product Categorization"
+        verbose_name_plural = "Substitutions - Product Categorization"
+
+class SubProductCategorizationPend(models.Model):
+    original = models.CharField(
+        max_length=80,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=80,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Product Categorization (Pending)"
+        verbose_name_plural = "Substitutions - Product Categorization (Pending)"
+
+class SubRouteOfAdministration(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Route of Administration"
+        verbose_name_plural = "Substitutions - Route of Administration"
+
+class SubRouteOfAdministrationPend(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Route of Administration (Pending)"
+        verbose_name_plural = "Substitutions - Route of Administration (Pending)"
+
+class SubPharmaceuticalStd(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Pharmaceutical Standard"
+        verbose_name_plural = "Substitutions - Pharmaceutical Standard"
+
+class SubPharmaceuticalStdPend(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Pharmaceutical Standard (Pending)"
+        verbose_name_plural = "Substitutions - Pharmaceutical Standard (Pending)"
+
+class SubStreetName(models.Model):
+    original = models.CharField(
+        max_length=80,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=80,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Street Name"
+        verbose_name_plural = "Substitutions - Street Name"
+
+class SubStreetNamePend(models.Model):
+    original = models.CharField(
+        max_length=80,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=80,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Street Name (Pending)"
+        verbose_name_plural = "Substitutions - Street Name (Pending)"
+
+class SubSuiteNumber(models.Model):
+    original = models.CharField(
+        max_length=20,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=20,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Suite Number"
+        verbose_name_plural = "Substitutions - Suite Number"
+
+class SubSuiteNumberPend(models.Model):
+    original = models.CharField(
+        max_length=20,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=20,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Suite Number (Pending)"
+        verbose_name_plural = "Substitutions - Suite Number (Pending)"
+
+class SubUnit(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - Unit"
+        verbose_name_plural = "Substitutions - Unit"
+
+class SubUnitPend(models.Model):
+    original = models.CharField(
+        max_length=40,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=40,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - Unit (Pending)"
+        verbose_name_plural = "Substitutions - Unit (Pending)"
+    
+class SubUPC(models.Model):
+    original = models.CharField(
+        max_length=12,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=12,
+    )
+
+    class Meta:
+        verbose_name = "Substitution - UPC"
+        verbose_name_plural = "Substitutions - UPC"
+
+class SubUPCPend(models.Model):
+    original = models.CharField(
+        max_length=12,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=12,
+    )
+    
+    class Meta:
+        verbose_name = "Substitution - UPC (Pending)"
+        verbose_name_plural = "Substitutions - UPC (Pending)"
