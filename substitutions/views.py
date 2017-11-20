@@ -135,33 +135,52 @@ def retrieve_entries(request):
     )
 
 def add_new_substitutions(app_id, pend_id, orig, subs):
-    response = {}
+    # Get the model to insert the substitution into
+    app = Apps.objects.get(id=app_id)
+    model_sub = apps.get_model(app.app_name, app.model_sub)
 
-    response = {
-        "id": 0,
-        "success": True,
-        "message": (
-            "New substitution added and pending entry (id = {} removed".format(
-                pend_id
-            )
-        )
-    }
+    # Convert the JSON strings to dictionaries
+    orig = json.loads(orig)
+    subs = json.loads(subs)
 
-    return response
+    if model_sub:
+        model = model_sub()
+
+        for field in orig:
+            setattr(model, field["field_name"], field["field_value"])
+
+        for field in subs:
+            setattr(model, field["field_name"], field["field_value"])
+
+        try:
+            model.save()
+
+            return {
+                "id": pend_id,
+                "success":True,
+                "message": (
+                    "New substitution added and pending entry "
+                    "(id = {} removed)"
+                ).format(pend_id)
+            }
+        except Exception as e:
+            return {
+                "id": pend_id,
+                "success": False,
+                "message": "Unable to save new substitution: {}".format(e)
+            }
 
 def verify(request):
     response = {}
 
     if request.GET:
-        print(request.GET)
         app_id = request.GET.get("app_id", None)
         pend_id = request.GET.get("pend_id", None)
-        orig = request.GET.getlist("orig[]")
-        subs = request.GET.getlist("subs[]")
+        orig = request.GET.get("orig")
+        subs = request.GET.get("subs")
 
         if app_id and pend_id and orig and subs:
             response = add_new_substitutions(app_id, pend_id, orig, subs)
-            print(response)
         else:
             # Compile list of the missing arguments
             missing_args = []

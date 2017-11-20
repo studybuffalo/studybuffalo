@@ -75,22 +75,22 @@ function verify_entry(button) {
         data: {
             app_id: appID,
             pend_id: pendID,
-            "orig[]": original,
-            "subs[]": substitutions
+            orig: JSON.stringify(original),
+            subs: JSON.stringify(substitutions)
         },
         type: "GET",
         success: function (results) {
             if (results.success) {
                 remove_entry(results.id);
             }
-            
+
             send_message(results.message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error("Error retrieving entries");
             console.error(textStatus + ": " + errorThrown);
         }
-    })
+    });
 }
 
 function delete_entry(button) {

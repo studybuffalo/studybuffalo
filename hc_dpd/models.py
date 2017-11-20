@@ -424,10 +424,17 @@ class VeterinarySpecies(models.Model):
 class SubAHFS(models.Model):
     original = models.CharField(
         max_length=80,
+        unique=True,
     )
     substitution = models.CharField(
         max_length=80,
     )
 
-class SubAHFSPend(SubAHFS):
-    pass
+class SubAHFSPend(models.Model):
+    original = models.CharField(
+        max_length=80,
+        unique=True,
+    )
+    substitution = models.CharField(
+        max_length=80,
+    )
