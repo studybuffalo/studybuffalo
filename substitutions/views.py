@@ -78,7 +78,6 @@ def retrieve_pending_entries(app_id, last_id, req_num):
 
     # Get all the entries in the monitored application
     if model and len(orig_fields) and len(sub_fields):
-        print("test")
         entries = model.objects.filter(id__gt=int(last_id))[:int(req_num)]
 
     # Cycle through all the entries and format into dictionary
@@ -95,7 +94,8 @@ def retrieve_pending_entries(app_id, last_id, req_num):
         # Add all the values for the original fields
         for o_field in orig_fields:
             entry_response["orig"].append({
-                o_field.field_name: getattr(entry, o_field.field_name),
+                "field_name": o_field.field_name,
+                "value": getattr(entry, o_field.field_name),
                 "dictionary": o_field.dictionary_check,
                 "google": o_field.google_check
             })
@@ -103,7 +103,8 @@ def retrieve_pending_entries(app_id, last_id, req_num):
         # Add all the values for the substitution fields
         for s_field in sub_fields:
             entry_response["subs"].append({
-                s_field.field_name: getattr(entry, s_field.field_name),
+                "field_name": s_field.field_name,
+                "value": getattr(entry, s_field.field_name),
                 "dictionary": s_field.dictionary_check,
                 "google": s_field.google_check
             })
@@ -127,6 +128,60 @@ def retrieve_entries(request):
 
         if app_id and last_id and request_num:
             response = retrieve_pending_entries(app_id, last_id, request_num)
+
+    return HttpResponse(
+        json.dumps(response, cls=DjangoJSONEncoder), 
+        content_type="application/json",
+    )
+
+def add_new_substitutions(app_id, pend_id, orig, subs):
+    response = {}
+
+    response = {
+        "id": 0,
+        "success": True,
+        "message": (
+            "New substitution added and pending entry (id = {} removed".format(
+                pend_id
+            )
+        )
+    }
+
+    return response
+
+def verify(request):
+    response = {}
+
+    if request.GET:
+        print(request.GET)
+        app_id = request.GET.get("app_id", None)
+        pend_id = request.GET.get("pend_id", None)
+        orig = request.GET.getlist("orig[]")
+        subs = request.GET.getlist("subs[]")
+
+        if app_id and pend_id and orig and subs:
+            response = add_new_substitutions(app_id, pend_id, orig, subs)
+            print(response)
+        else:
+            # Compile list of the missing arguments
+            missing_args = []
+
+            None if app_id else missing_args.append("application ID")
+            None if pend_id else missing_args.append("pending entry ID")
+            None if orig else missing_args.append("original field data")
+            None if subs else missing_args.append("substitutions field data")
+
+            response = {
+                "success": False,
+                "message": "GET request missing arguments: {}".format(
+                    ", ".join(missing_args)
+                )
+            }
+    else:
+        response = {
+            "success": False,
+            "message": "No data received on GET request",
+        }
 
     return HttpResponse(
         json.dumps(response, cls=DjangoJSONEncoder), 
