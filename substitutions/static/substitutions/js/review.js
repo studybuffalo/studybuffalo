@@ -141,7 +141,9 @@ function verify_entry(button) {
 }
 
 function delete_entry(button) {
-
+    let pendID = $(button).parents(".entry").attr("data-id");
+    
+    remove_entry(pendID);
 }
 
 
