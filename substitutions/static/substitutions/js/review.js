@@ -57,6 +57,9 @@ function remove_entry(pendID) {
             if (results.success) {
                 // Remove this entry form the page
                 $("#pending-" + results.id).remove();
+
+                // Request to display additional entries
+                retrieve_entries();
             }
 
             send_message(results.message);
@@ -287,12 +290,17 @@ function retrieve_entries() {
     })
 }
 
+function clear_displayed_entries() {
+    $("#entries").empty();
+}
+
 $(document).ready(function () {
     // Load initial items
     retrieve_entries();
 
     // Add event listener to update nubmer of queries
     $("#options").on("change", function () {
+        clear_displayed_entries();
         retrieve_entries();
     });
 
