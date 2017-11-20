@@ -428,3 +428,6 @@ class SubAHFS(models.Model):
     substitution = models.CharField(
         max_length=80,
     )
+
+class SubAHFSPend(SubAHFS):
+    pass
