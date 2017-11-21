@@ -50,7 +50,6 @@ def dashboard(request):
                 "data": [model_data]
             }
         
-    print(sub_data)
     return render(
         request,
         "substitutions/dashboard.html",
