@@ -15,22 +15,40 @@ def dashboard(request):
 
     # Get all the apps
     apps_list = Apps.objects.all()
-
+    
     # For each app, get the number of substitutions
     for app in apps_list:
+        # Get a reference to the monitored pending sub model
         model_pending = apps.get_model(app.app_name, app.model_pending)
         
+
+        # Get the verbose name (if available) or default name
+        try:
+            pending_name = model_pending._meta.verbose_name 
+        except AttributeError:
+            pending_name = app.model_pending
+
         model_data = {
             "id": app.id,
-            "pending": app.model_pending,
+            "pending": pending_name,
             "sub": app.model_sub,
             "count": model_pending.objects.all().count()
         }
 
         if app.app_name in sub_data:
-            sub_data[app.app_name].append(model_data)
+            sub_data[app.app_name]["data"].append(model_data)
         else:
-            sub_data[app.app_name] = [model_data]
+            # Create a new dictionary entry for this new app
+            # Get the App Verbose name (if available)
+            try:
+                app_name = apps.get_app_config(app.app_name).verbose_name
+            except AttributeError:
+                app_name = app.app_name
+
+            sub_data[app.app_name] = {
+                "app_name": app_name,
+                "data": [model_data]
+            }
         
     print(sub_data)
     return render(

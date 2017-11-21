@@ -10,13 +10,13 @@
 	<h1>Substitutions Dashboard</h1>
 
 	<ul>
-		{% for app, models in sub_data.items %}
-		<li>{{ app }}
+		{% for key, models in sub_data.items %}
+		<li>{{ models.app_name }}
 			<ul>
-				{% for data in models %}
+				{% for data in models.data %}
 					<li>
 						<a href="{% url 'sub_review' data.id %}">
-							{{ data.pending }} &gt; {{ data.sub }}
+							{{ data.pending }}
 							({{ data.count }} entries pending review)
 						</a>
 					</li>
