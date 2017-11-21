@@ -1,32 +1,41 @@
-function send_message(msg) {
+function check_notification_permission() {
     let permission = false;
 
     // Check for notification support
     if (!("Notification" in window)) {
         console.warn("Notifications not supported");
 
-    // Notification privileges granted
+        // Notification privileges granted
     } else if (Notification.permission === "granted") {
         permission = true;
 
-    // Request notification privileges
+        // Request notification privileges
     } else if (Notification.permission !== "denied") {
         Notification.requestPermission(function (permission) {
             if (permission === "granted") {
                 permission = true;
             }
         });
-    // Otherwise, notification permissions denied
+        // Otherwise, notification permissions denied
     } else {
         console.log("Notifications denied by user")
     }
 
+    return permission
+
+}
+function send_message(msg, tag) {
+    let permission = check_notification_permission
+    
     if (permission) {
+        // Get details of the message
         let title = "Study Buffalo Substitutions App"
         let options = {
             body: msg,
-            icon: "/static/images/android-chrome-192x192.png"
+            icon: "/static/images/android-chrome-192x192.png",
+            tag: tag
         }
+
         var notification = new Notification(title, options);
     }
 }
@@ -62,7 +71,7 @@ function remove_entry(pendID) {
                 retrieve_entries();
             }
 
-            send_message(results.message);
+            send_message(results.message, "delete-pending");
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error("Error deleting entry");
@@ -131,7 +140,7 @@ function verify_entry(button) {
                 remove_entry(results.id);
             }
 
-            send_message(results.message);
+            send_message(results.message, "new-substitution");
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error("Error verifying entries");

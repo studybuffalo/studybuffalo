@@ -178,7 +178,9 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
             return {
                 "id": pend_id,
                 "success":True,
-                "message": "New substitution added"
+                "message": "New substitution added ({})".format(
+                    apps.get_app_config(app.app_name).verbose_name
+                )
             }
         except Exception as e:
             return {
