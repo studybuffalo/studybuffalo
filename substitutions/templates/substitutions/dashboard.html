@@ -1,7 +1,32 @@
 {% extends "base_generic.html" %}
 
 {% block styles %}
-	
+	<style>
+		#applications {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+			#applications .model {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				padding: 0.5rem 0;
+			}
+
+				#applications .model a {
+					flex: 1 1 300px;
+					text-align: left;
+					max-width: 500px;
+				}
+
+				#applications .model span {
+					flex: 1 1 200px;
+					text-align: right;
+					max-width: 300px;
+				}
+	</style>
 {% endblock %}
 
 {% load static %}
@@ -9,22 +34,22 @@
 {% block content %}
 	<h1>Substitutions Dashboard</h1>
 
-	<ul>
+	<div id="applications">
 		{% for key, models in sub_data.items %}
-		<li>{{ models.app_name }}
-			<ul>
+			<div>
+				<h2>{{ models.app_name }}</h2>
+
 				{% for data in models.data %}
-					<li>
+					<div class="model">
 						<a href="{% url 'sub_review' data.id %}">
 							{{ data.pending }}
-							({{ data.count }} entries pending review)
 						</a>
-					</li>
+						<span>{{ data.count }} entries pending review</span>
+					</div>
 				{% endfor %}
-			</ul>
-		</li>
+			</div>
 		{% endfor %}
-	</ul>
+	</div>
 {% endblock %}
 
 {% block js %}
