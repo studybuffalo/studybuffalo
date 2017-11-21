@@ -317,7 +317,7 @@ class Route(models.Model):
     )
     route_of_administration = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=50,
         null=True,
     )
     route_of_administration_f = models.CharField(
@@ -579,11 +579,11 @@ class SubProductCategorizationPend(models.Model):
 
 class SubRouteOfAdministration(models.Model):
     original = models.CharField(
-        max_length=40,
+        max_length=50,
         unique=True,
     )
     substitution = models.CharField(
-        max_length=40,
+        max_length=50,
     )
 
     class Meta:
@@ -592,11 +592,11 @@ class SubRouteOfAdministration(models.Model):
 
 class SubRouteOfAdministrationPend(models.Model):
     original = models.CharField(
-        max_length=40,
+        max_length=50,
         unique=True,
     )
     substitution = models.CharField(
-        max_length=40,
+        max_length=50,
     )
     
     class Meta:
