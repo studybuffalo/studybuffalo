@@ -73,8 +73,8 @@ def retrieve_pending_entries(last_id, req_num):
         response.append({
             "id": getattr(entry, "id"),
             "word": entry.word,
-            "type": entry.dictionary_type,
-            "language": entry.language,
+            "type": entry.dictionary_type.id,
+            "language": entry.language.id,
         })
 
     # Return the final response

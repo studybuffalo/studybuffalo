@@ -174,10 +174,9 @@ function create_entry_dom(entry) {
         .appendTo($("#entries"));
 
     // Create the word div
-    $wordDiv = $("<div></div>");
+    $wordDiv = create_word_inputs(entry)
     $wordDiv
         .addClass("word-div")
-        .append(create_word_inputs(entry))
         .appendTo($entryDiv);
         
     // Create the other options

@@ -11,7 +11,7 @@
 		.entry {
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;
+			justify-content: center;
 			padding: 0.5rem 0;
 		}
 			.entry:nth-child(even) {
@@ -20,17 +20,11 @@
 
 		.word-div {
 			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
+			flex-direction: row;
+			justify-content: flex-start;
 		}
 
-			.word-div > div {
-				display: flex;
-				flex-direction: row;
-				justify-content: flex-start;
-			}
-
-			.word-div > div > button {
+			.word-div > button {
 				align-self: flex-start;
 			}
 
