@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
+    "dictionary.apps.DictionaryConfig",
     'drug_price_calculator.apps.DrugPriceCalculatorConfig',
     "hc_dpd.apps.HcDpdConfig",
     'log_manager.apps.LogManagerConfig',
