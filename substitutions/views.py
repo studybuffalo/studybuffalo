@@ -5,8 +5,72 @@ from django.db.models import Q
 from django.shortcuts import render, HttpResponse
 
 from .models import Apps, ModelFields
+from dictionary.models import Word, ExcludedWord
 
+from bisect import bisect_left
 import json
+import re
+
+def binary_search(search_list, word):
+
+    # Look for match
+    i = bisect_left(search_list, word)
+    
+    # If match found, return the corresponding object
+    if i != len(search_list) and search_list[i] == word:
+        return True
+    else:
+        return None
+
+def setup_dictionary():
+    """Retrieves all words from dictionary app & returns sorted list"""
+    dictionary = set()
+    dictionary.update(Word.objects.values_list("word", flat=True))
+    dictionary.update(ExcludedWord.objects.values_list("word", flat=True))
+    dictionary = list(dictionary)
+    dictionary.sort()
+
+    return dictionary
+
+def dictionary_check(dictionary, words):
+    return_text = ""
+    start_index = 0
+
+    # Cycle through each individual word
+    for word in re.finditer(r"[\w']+", words):
+        # Set word indices
+        word_start = word.start()
+        word_end = word.end()
+
+        # If needed, add any text before the matched word
+        if word_start > start_index:
+            return_text = "{}{}".format(
+                return_text, words[start_index:word_start]
+            )
+
+        # Search for the matched word in the dictionary
+        regular_search = binary_search(dictionary, word.group())
+        lower_case_search =  binary_search(dictionary, word.group().lower())
+
+        # Check if word was found in either search
+        if regular_search or lower_case_search:
+            # Word found, can add matched word normally
+            return_text = "{}{}".format(
+                return_text, words[word_start:word_end]
+            ) 
+        else:
+            # Word not found, mark as missing
+            return_text = "{}<span class='missing'>{}</span>".format(
+                return_text, words[word_start:word_end]
+            )
+
+        # Reset the start_index for the next loop
+        start_index = word_end
+
+    # Add any remaining text from the original string
+    return_text = "{}{}".format(return_text, words[start_index:])
+
+    return return_text
 
 @permission_required("substitutions.can_view", login_url="/accounts/login/")
 def dashboard(request):
@@ -100,6 +164,9 @@ def retrieve_pending_entries(app_id, last_id, req_num):
     if model and len(orig_fields) and len(sub_fields):
         entries = model.objects.filter(id__gt=int(last_id))[:int(req_num)]
 
+    # Download a copy of the dictionary words to perform a dictionary check
+    dictionary = setup_dictionary()
+
     # Cycle through all the entries and format into dictionary
     response = []
 
@@ -113,19 +180,27 @@ def retrieve_pending_entries(app_id, last_id, req_num):
 
         # Add all the values for the original fields
         for o_field in orig_fields:
+            value = getattr(entry, o_field.field_name)
+
+            if o_field.dictionary_check:
+                value = dictionary_check(dictionary, value)
+
             entry_response["orig"].append({
                 "field_name": o_field.field_name,
-                "value": getattr(entry, o_field.field_name),
-                "dictionary": o_field.dictionary_check,
+                "value": value,
                 "google": o_field.google_check
             })
 
         # Add all the values for the substitution fields
         for s_field in sub_fields:
+            value = getattr(entry, s_field.field_name)
+
+            if s_field.dictionary_check:
+                value = dictionary_check(dictionary, value)
+
             entry_response["subs"].append({
                 "field_name": s_field.field_name,
-                "value": getattr(entry, s_field.field_name),
-                "dictionary": s_field.dictionary_check,
+                "value": value,
                 "google": s_field.google_check
             })
 

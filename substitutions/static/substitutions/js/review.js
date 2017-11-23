@@ -179,7 +179,7 @@ function create_input_set(data) {
     $input
         .attr("contenteditable", "true")
         .addClass("editable-div")
-        .text(data.value)
+        .html(data.value)
         .appendTo($div);
     
     if (data.google) {
