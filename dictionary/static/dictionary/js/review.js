@@ -70,21 +70,36 @@ function remove_pending_word(pendingID) {
             send_message(results.message, "delete-pending");
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error("Error deleting entry");
-            console.error(textStatus + ": " + errorThrown);
+            send_message(
+                `Error deleting entry - ${textStatus}: ${errorThrown}`,
+                "error"
+            )
         }
     });
 }
 
-function add_word(button) {
+function add_word(button, e) {
+    modelName = e.modelName
+
+    messageTag = modelName === "word" ? "new-word" : "new-excluded-word";
+
     let $entry = $(button).parents(".entry");
     
     // Get the ID of the entry in the pending model
     let pendingID = $entry.attr("data-id");
 
-    // Get the word to add to the dictionary
-    // SOMETHING HERE
-    word = ""
+    // Get the word element
+    $word = $entry.find(".word");
+
+    // Get the word text
+    word = $word.text();
+
+    // Get the language of the word
+    language = $word.attr("data-language");
+
+    // Get the dictionary type of the word
+    dictionaryType = $word.attr("data-dictionary-type");
+
     // Setup CSRF token for POST
     let CSRF = $("[name=csrfmiddlewaretoken]").val();
     
@@ -97,10 +112,13 @@ function add_word(button) {
     });
 
     $.ajax({
-        url: "verify-entry/",
+        url: "add-new-word/",
         data: {
-            pending_id: pendID,
-            word: word
+            pending_id: pendingID,
+            model_name: modelName,
+            word: word,
+            language: language,
+            dictionary_type: dictionaryType
         },
         type: "POST",
         success: function (results) {
@@ -108,11 +126,13 @@ function add_word(button) {
                 remove_pending_word(results.id);
             }
 
-            send_message(results.message, "new-word");
+            send_message(results.message, messageTag);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error("Error verifying entries");
-            console.error(textStatus + ": " + errorThrown);
+            send_message(
+                `Error adding entry - ${textStatus}: ${errorThrown}`,
+                "error"
+            )
         }
     });
 }
@@ -144,10 +164,12 @@ function create_word_inputs(data) {
     let $input = $("<div></div>");
     $input
         .attr("contenteditable", "true")
+        .attr("data-language", data.language)
+        .attr("data-dictionary-type", data.dictionary_type)
         .addClass("word")
         .text(data.word)
         .appendTo($div);
-
+    
     // Create a search button
     let $googleButton = $("<button></button>");
     $googleButton
@@ -189,7 +211,9 @@ function create_entry_dom(entry) {
     let $addButton = $("<button></button>");
     $addButton
         .addClass("add")
-        .on("click", function () { add_word(this); })
+        .on("click", function () {
+            add_word(this, { modelName: "word" });
+        })
         .appendTo($otherDiv);
 
     let $addSpan = $("<span></span>");
@@ -201,7 +225,9 @@ function create_entry_dom(entry) {
     let $excludeButton = $("<button></button>");
     $excludeButton
         .addClass("exclude")
-        .on("click", function () { exclude_word(this); })
+        .on("click", function () {
+            add_word(this, { modelName: "excluded" });
+        })
         .appendTo($otherDiv);
 
     let $excludeSpan = $("<span></span>");
@@ -213,7 +239,7 @@ function create_entry_dom(entry) {
     let $deleteButton = $("<button></button>");
     $deleteButton
         .addClass("delete")
-        .on("click", function () { delete_word(this); })
+        .on("click", function () { delete_word(this) })
         .appendTo($otherDiv);
 
     let $deleteSpan = $("<span></span>");
