@@ -63,6 +63,10 @@ function remove_pending_word(pendingID) {
                 // Remove this entry form the page
                 $("#pending-" + results.id).remove();
 
+                // Reduce the pending count by 1
+                let $count = $("#word_count");
+                $count.text(Number($count.text()) - 1);
+                
                 // Request to display additional entries
                 retrieve_entries();
             }

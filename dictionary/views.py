@@ -37,10 +37,12 @@ def index(request):
 @permission_required("dictionary.can_view", login_url="/accounts/login/")
 def review(request):
     """Displays a dashboard of the pending Word entries"""
+    pending_count = WordPending.objects.all().count()
+
     return render(
         request,
         "dictionary/review.html",
-        {},
+        {"count": pending_count,},
     )
 
 @permission_required("dictionary.can_view", login_url="/accounts/login/")
