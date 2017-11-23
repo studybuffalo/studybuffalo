@@ -50,7 +50,10 @@ def dictionary_check(dictionary, words):
 
         # Search for the matched word in the dictionary
         regular_search = binary_search(dictionary, word.group())
-        lower_case_search =  binary_search(dictionary, word.group().lower())
+        lower_case_search =  binary_search(
+            dictionary, 
+            "{}{}".format(word.group()[:1].lower(), word.group()[1:])
+        )
 
         # Check if word was found in either search
         if regular_search or lower_case_search:
