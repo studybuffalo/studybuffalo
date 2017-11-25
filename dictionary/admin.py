@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     MonitoredApplication, MonitoredModel, MonitoredField, DictionaryType, 
-    Language
+    Language, Word, ExcludedWord
 )
 
 class MonitoredModelInline(admin.TabularInline):
@@ -28,4 +28,12 @@ class DictionaryTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Language)
 class LanguageAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Word)
+class WordAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(ExcludedWord)
+class ExcludedWordAdmin(admin.ModelAdmin):
     pass
