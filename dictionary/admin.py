@@ -32,8 +32,12 @@ class LanguageAdmin(admin.ModelAdmin):
 
 @admin.register(Word)
 class WordAdmin(admin.ModelAdmin):
-    list_display = ("word", "language", "dictionary_type")
+    list_display = ("word", "language", "dictionary_type",)
+    list_filter = ("language", "dictionary_type",)
+    search_fields = ("word",)
 
 @admin.register(ExcludedWord)
 class ExcludedWordAdmin(admin.ModelAdmin):
-    list_display = ("word", "language", "dictionary_type")
+    list_display = ("word", "language", "dictionary_type",)
+    list_filter = ("language", "dictionary_type",)
+    search_fields = ("word",)
