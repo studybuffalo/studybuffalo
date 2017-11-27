@@ -104,16 +104,9 @@ function add_word(button, e) {
     // Get the dictionary type of the word
     dictionaryType = $word.attr("data-dictionary-type");
 
-    // Setup CSRF token for POST
-    let CSRF = $("[name=csrfmiddlewaretoken]").val();
-    
-    $.ajaxSetup({
-        beforeSend: function (xhr, settings) {
-            if (!this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", CSRF);
-            }
-        }
-    });
+    // Get the add and exclude buttons
+    let addButton = $entry.find(".add")[0];
+    let excludeButton = $entry.find(".exclude")[0]
 
     $.ajax({
         url: "add-new-word/",
@@ -125,6 +118,18 @@ function add_word(button, e) {
             dictionary_type: dictionaryType
         },
         type: "POST",
+        beforeSend: function (jqXHR, settings) {
+            // Setup the CSRF token for the POST request
+            if (!this.crossDomain) {
+                const CSRF = $("[name=csrfmiddlewaretoken]").val();
+
+                jqXHR.setRequestHeader("X-CSRFToken", CSRF);
+            }
+
+            // Disable add/exclude buttons to prevent duplicate POSTs
+            addButton.disabled = true
+            excludeButton.disabled = true
+        },
         success: function (results) {
             if (results.success) {
                 remove_pending_word(results.id);
@@ -137,6 +142,10 @@ function add_word(button, e) {
                 `Error adding entry - ${textStatus}: ${errorThrown}`,
                 "error"
             )
+
+            // Re-enable buttons to allow re-send
+            addButton.disabled = false
+            excludeButton.disabled = false
         }
     });
 }
