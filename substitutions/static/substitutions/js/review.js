@@ -114,18 +114,7 @@ function verify_entry(button) {
             field_value: $div.find(".editable-div").text()
         });
     });
-
-    // Setup CSRF token for POST
-    let CSRF = $("[name=csrfmiddlewaretoken]").val();
     
-    $.ajaxSetup({
-        beforeSend: function (xhr, settings) {
-            if (!this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", CSRF);
-            }
-        }
-    });
-
     $.ajax({
         url: "verify-entry/",
         data: {
@@ -135,6 +124,17 @@ function verify_entry(button) {
             subs: JSON.stringify(substitutions)
         },
         type: "POST",
+        beforeSend: function (jqXHR, settings) {
+            // Setup the CSRF token for the POST request
+            if (!this.crossDomain) {
+                const CSRF = $("[name=csrfmiddlewaretoken]").val();
+
+                jqXHR.setRequestHeader("X-CSRFToken", CSRF);
+            }
+
+            // Disable the verify button to prevent duplicate send
+            button.disabled = true
+        },
         success: function (results) {
             if (results.success) {
                 remove_entry(results.id);
@@ -145,6 +145,9 @@ function verify_entry(button) {
         error: function (jqXHR, textStatus, errorThrown) {
             console.error("Error verifying entries");
             console.error(textStatus + ": " + errorThrown);
+
+            // Re-enable the button to allow re-send
+            button.disabled = false
         }
     });
 }
