@@ -121,7 +121,7 @@ class Companies(models.Model):
     )
     street_name = models.CharField(
         blank=True,
-        max_length=80,
+        max_length=90,
         null=True,
     )
     city_name = models.CharField(
@@ -631,11 +631,11 @@ class SubPharmaceuticalStdPend(models.Model):
 
 class SubStreetName(models.Model):
     original = models.CharField(
-        max_length=80,
+        max_length=90,
         unique=True,
     )
     substitution = models.CharField(
-        max_length=80,
+        max_length=90,
     )
 
     class Meta:
@@ -644,11 +644,11 @@ class SubStreetName(models.Model):
 
 class SubStreetNamePend(models.Model):
     original = models.CharField(
-        max_length=80,
+        max_length=90,
         unique=True,
     )
     substitution = models.CharField(
-        max_length=80,
+        max_length=90,
     )
     
     class Meta:
