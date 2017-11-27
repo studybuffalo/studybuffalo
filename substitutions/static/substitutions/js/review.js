@@ -158,12 +158,16 @@ function delete_entry(button) {
 
 function search_text(button) {
     // Get the editable div to retrieve the search query
-    let $button = $(button);
-    let $parentDiv = $button.parent();
-    let $content = $parentDiv.children(".editable-div");
+    const $button = $(button);
+    const $parentDiv = $button.parent();
+    const $content = $parentDiv.children(".editable-div");
 
+    // Encode the search query for the search string
+    let searchText = encodeURIComponent($content.text());
+    
     // Open a new window with the search
-    window.open("https://google.com/search?q=" + $content.text());
+    window.open("https://google.com/search?q=" + searchText);
+
 }
 
 
