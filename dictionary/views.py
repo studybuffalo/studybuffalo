@@ -65,7 +65,7 @@ def generate_select_data():
             )
         )
 
-    selects["language"] = "<select>{}</select>".format(
+    selects["language"] = "<select class='language'>{}</select>".format(
         "".join(language_options)
     )
 
@@ -81,8 +81,10 @@ def generate_select_data():
             )
         )
 
-    selects["dict_type"] = "<select>{}</select>".format(
-        "".join(dict_type_options)
+    selects["dict_type"] = (
+        "<select class='dictionary-type'>{}</select>".format(
+            "".join(dict_type_options)
+        )
     )
 
     # Generate the Dictionary Class Select
@@ -97,8 +99,10 @@ def generate_select_data():
             )
         )
 
-    selects["dict_class"] = "<select>{}</select>".format(
-        "".join(dict_class_options)
+    selects["dict_class"] = (
+        "<select class='dictionary-class'>{}</select>".format(
+            "".join(dict_class_options)
+        )
     )
 
     return selects
@@ -163,10 +167,13 @@ def add_new_word(request):
         word = request.POST.get("word")
         language = request.POST.get("language")
         dictionary_type = request.POST.get("dictionary_type")
+        dictionary_class = request.POST.get("dictionary_class")
 
-        if pending_id and model_name and word and language and dictionary_type:
+        if (pending_id and model_name and word and language 
+            and dictionary_type and dictionary_class):
+            # Add the new word and get a response base
             response = process_new_word(
-                model_name, word, language, dictionary_type
+                model_name, word, language, dictionary_type, dictionary_class
             )
 
             response["id"] = pending_id
@@ -178,7 +185,12 @@ def add_new_word(request):
             None if model_name else missing_args.append("model name")
             None if word else missing_args.append("sord")
             None if language else missing_args.append("language")
-            None if dictionary_type else missing_args.append("dictionary_type")
+            None if dictionary_type else missing_args.append(
+                "dictionary_type"
+            )
+            None if dictionary_class else missing_args.append(
+                "dictionary_class"
+            )
             
             response = {
                 "success": False,
@@ -197,13 +209,16 @@ def add_new_word(request):
         content_type="application/json",
     )
 
-def process_new_word(model_name, word, language, dictionary_type):
+def process_new_word(
+    model_name, word, language, dictionary_type, dictionary_class
+):
     # Get the proper model reference
     model_reference = Word if model_name == "word" else ExcludedWord
 
     new_word = model_reference(
         language=Language.objects.get(id=language),
         dictionary_type=DictionaryType.objects.get(id=dictionary_type),
+        dictionary_class=DictionaryClass.objects.get(id=dictionary_class),
         word=word,
     )
     

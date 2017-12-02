@@ -99,10 +99,13 @@ function add_word(button, e) {
     word = $word.text();
 
     // Get the language of the word
-    language = $word.attr("data-language");
+    language = $entry.find(".language").val();
 
     // Get the dictionary type of the word
-    dictionaryType = $word.attr("data-dictionary-type");
+    dictionaryType = $entry.find(".dictionary-type").val();
+
+    // Get the dictionary class of the word
+    dictionaryClass = $entry.find(".dictionary-class").val();
 
     // Get the add and exclude buttons
     let addButton = $entry.find(".add")[0];
@@ -115,7 +118,8 @@ function add_word(button, e) {
             model_name: modelName,
             word: word,
             language: language,
-            dictionary_type: dictionaryType
+            dictionary_type: dictionaryType,
+            dictionary_class: dictionaryClass,
         },
         type: "POST",
         beforeSend: function (jqXHR, settings) {
