@@ -17,12 +17,12 @@ class DictionaryClassAdmin(admin.ModelAdmin):
 
 @admin.register(Word)
 class WordAdmin(admin.ModelAdmin):
-    list_display = ("word", "language", "dictionary_type",)
-    list_filter = ("language", "dictionary_type",)
+    list_display = ("word", "language", "dictionary_type", "dictionary_class")
+    list_filter = ("language", "dictionary_type", "dictionary_class")
     search_fields = ("word",)
 
 @admin.register(ExcludedWord)
 class ExcludedWordAdmin(admin.ModelAdmin):
-    list_display = ("word", "language", "dictionary_type",)
-    list_filter = ("language", "dictionary_type",)
+    list_display = ("word", "language", "dictionary_type", "dictionary_class")
+    list_filter = ("language", "dictionary_type", "dictionary_class")
     search_fields = ("word",)
