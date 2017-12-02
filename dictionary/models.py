@@ -10,13 +10,15 @@ class Language(models.Model):
 class DictionaryType(models.Model):
     """Dictionary type for creation of specific dictionary categories"""
     dictionary_name = models.CharField(max_length=50,)
-    
+    dictionary_verbose_name = models.CharField(max_length=50,)
+
     def __str__(self):
         return self.dictionary_name
 
 class DictionaryClass(models.Model):
     """Specifies a dictionary classification"""
     class_name = models.CharField(max_length=20,)
+    class_verbose_name = models.CharField(max_length=20,)
 
     class Meta:
         verbose_name = "Dictionary class"
