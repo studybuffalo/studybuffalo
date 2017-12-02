@@ -13,6 +13,7 @@ from .models import (
 class SubAHFSAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - AHFS"
     verbose_name_plural = "Substitutions - AHFS"
 
@@ -20,6 +21,7 @@ class SubAHFSAdmin(admin.ModelAdmin):
 class SubAHFSPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - AHFS (Pending)"
     verbose_name_plural = "Substitutions - AHFS (Pending)"
 
@@ -27,6 +29,7 @@ class SubAHFSPendAdmin(admin.ModelAdmin):
 class SubBrandAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Brand Name"
     verbose_name_plural = "Substitutions - Brand Name"
 
@@ -34,6 +37,7 @@ class SubBrandAdmin(admin.ModelAdmin):
 class SubBrandPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Brand Name (Pending)"
     verbose_name_plural = "Substitutions - Brand Name (Pending)"
 
@@ -41,6 +45,7 @@ class SubBrandPendAdmin(admin.ModelAdmin):
 class SubCompanyNameAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Company Name"
     verbose_name_plural = "Substitutions - Company Name"
 
@@ -48,6 +53,7 @@ class SubCompanyNameAdmin(admin.ModelAdmin):
 class SubCompanyNamePendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Company Name (Pending)"
     verbose_name_plural = "Substitutions - Company Name (Pending)"
 
@@ -55,6 +61,7 @@ class SubCompanyNamePendAdmin(admin.ModelAdmin):
 class SubDescriptorAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Descriptor"
     verbose_name_plural = "Substitutions - Descriptor"
 
@@ -62,6 +69,7 @@ class SubDescriptorAdmin(admin.ModelAdmin):
 class SubDescriptorPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Descriptor (Pending)"
     verbose_name_plural = "Substitutions - Descriptor (Pending)"
 
@@ -69,6 +77,7 @@ class SubDescriptorPendAdmin(admin.ModelAdmin):
 class SubIngredientAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Ingredient"
     verbose_name_plural = "Substitutions - Ingredient"
 
@@ -76,6 +85,7 @@ class SubIngredientAdmin(admin.ModelAdmin):
 class SubIngredientPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Ingredient (Pending)"
     verbose_name_plural = "Substitutions - Ingredient (Pending)"
 
@@ -83,6 +93,7 @@ class SubIngredientPendAdmin(admin.ModelAdmin):
 class SubProductCategorizationAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Product Categorization"
     verbose_name_plural = "Substitutions - Product Categorization"
 
@@ -90,6 +101,7 @@ class SubProductCategorizationAdmin(admin.ModelAdmin):
 class SubProductCategorizationPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Product Categorization (Pending)"
     verbose_name_plural = "Substitutions - Product Categorization (Pending)"
 
@@ -97,6 +109,7 @@ class SubProductCategorizationPendAdmin(admin.ModelAdmin):
 class SubRouteOfAdministrationAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Route of Administration"
     verbose_name_plural = "Substitutions - Route of Administration"
 
@@ -104,6 +117,7 @@ class SubRouteOfAdministrationAdmin(admin.ModelAdmin):
 class SubRouteOfAdministrationPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Route of Administration (Pending)"
     verbose_name_plural = "Substitutions - Route of Administration (Pending)"
 
@@ -111,6 +125,7 @@ class SubRouteOfAdministrationPendAdmin(admin.ModelAdmin):
 class SubPharmaceuticalStdAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Pharmaceutical Standard"
     verbose_name_plural = "Substitutions - Pharmaceutical Standard"
 
@@ -118,6 +133,7 @@ class SubPharmaceuticalStdAdmin(admin.ModelAdmin):
 class SubPharmaceuticalStdPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Pharmaceutical Standard (Pending)"
     verbose_name_plural = "Substitutions - Pharmaceutical Standard (Pending)"
 
@@ -125,6 +141,7 @@ class SubPharmaceuticalStdPendAdmin(admin.ModelAdmin):
 class SubStreetNameAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Street Name"
     verbose_name_plural = "Substitutions - Street Name"
 
@@ -132,6 +149,7 @@ class SubStreetNameAdmin(admin.ModelAdmin):
 class SubStreetNamePendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Street Name (Pending)"
     verbose_name_plural = "Substitutions - Street Name (Pending)"
 
@@ -139,6 +157,7 @@ class SubStreetNamePendAdmin(admin.ModelAdmin):
 class SubSuiteNumberAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Suite Number"
     verbose_name_plural = "Substitutions - Suite Number"
 
@@ -146,6 +165,7 @@ class SubSuiteNumberAdmin(admin.ModelAdmin):
 class SubSuiteNumberPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Suite Number (Pending)"
     verbose_name_plural = "Substitutions - Suite Number (Pending)"
 
@@ -153,6 +173,7 @@ class SubSuiteNumberPendAdmin(admin.ModelAdmin):
 class SubUnitAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Unit"
     verbose_name_plural = "Substitutions - Unit"
 
@@ -160,5 +181,6 @@ class SubUnitAdmin(admin.ModelAdmin):
 class SubUnitPendAdmin(admin.ModelAdmin):
     list_display = ("original", "substitution")
     ordering = ("original",)
+    search_fields = ("original", "substitution",)
     verbose_name = "Substitution - Unit (Pending)"
     verbose_name_plural = "Substitutions - Unit (Pending)"
