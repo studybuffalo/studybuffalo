@@ -173,12 +173,33 @@ function search_text(button) {
 function create_word_inputs(data) {
     let $div = $("<div></div>");
 
+    // Create the Language select
+    let $languageSelect = $(sessionStorage.getItem("language_select"));
+    $languageSelect
+        .val(data.language)
+        .appendTo($div);
+
+    // Create the Dictionary Type select
+    let $dictionaryTypeSelect = $(
+        sessionStorage.getItem("dictionary_type_select")
+    );
+    $dictionaryTypeSelect
+        .val(data.dictionary_type)
+        .appendTo($div);
+
+    // Create the Dictionary Class select
+    let $dictionaryClassSelect = $(
+        sessionStorage.getItem("dictionary_class_select")
+    );
+
+    $dictionaryClassSelect
+        .val(data.dictionary_class)
+        .appendTo($div);
+
     // Create an editable div to hold the word
     let $input = $("<div></div>");
     $input
         .attr("contenteditable", "true")
-        .attr("data-language", data.language)
-        .attr("data-dictionary-type", data.dictionary_type)
         .addClass("word")
         .text(data.word)
         .appendTo($div);
@@ -209,7 +230,7 @@ function create_entry_dom(entry) {
         .appendTo($("#entries"));
 
     // Create the word div
-    $wordDiv = create_word_inputs(entry)
+    let $wordDiv = create_word_inputs(entry)
     $wordDiv
         .addClass("word-div")
         .appendTo($entryDiv);
@@ -314,15 +335,41 @@ function clear_displayed_entries() {
     $("#entries").empty();
 }
 
-$(document).ready(function () {
-    // Load initial items
-    retrieve_entries();
+function save_select_data(selectData) {
+    sessionStorage.setItem("language_select", selectData.language);
+    sessionStorage.setItem("dictionary_type_select", selectData.dict_type);
+    sessionStorage.setItem("dictionary_class_select", selectData.dict_class);
+}
 
+function initiate_initial_load() {
+    $.ajax({
+        url: "retrieve-select-data/",
+        data: {},
+        type: "GET",
+        success: function (results) {
+            // Save the data for the select inputs
+            save_select_data(results);
+
+            // Retrieve the initial pending entries
+            retrieve_entries()
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error("Error retrieving entries");
+            console.error(textStatus + ": " + errorThrown);
+        }
+    })
+
+}
+
+
+$(document).ready(function () {
+    // Store database input data and fetch initial query results
+    initiate_initial_load();
+    
     // Add event listener to update nubmer of queries
     $("#options").on("change", function () {
         clear_displayed_entries();
         retrieve_entries();
     });
 
-    
 })

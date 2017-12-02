@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import permission_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, HttpResponse
 
-from .models import WordPending, Word, ExcludedWord, Language, DictionaryType
+from .models import (
+    WordPending, Word, ExcludedWord, Language, DictionaryType, DictionaryClass
+)
 
 import json
 
@@ -33,6 +35,73 @@ def index(request):
         "dictionary/index.html",
         {},
     )
+
+@permission_required("dictionary.can_view", login_url="/accounts/login/")
+def retrieve_select_data(request):
+    response = generate_select_data()
+
+    return HttpResponse(
+        json.dumps(response, cls=DjangoJSONEncoder), 
+        content_type="application/json",
+    )
+
+def generate_select_data():
+    """Generates html select inputs for the review page"""
+    selects = {
+        "language": "",
+        "dict_type": "",
+        "dict_class": "",
+    }
+
+    # Generate the Language select
+    languages = Language.objects.all()
+    language_options = []
+
+    for language in languages:
+        language_options.append(
+           "<option value='{}'>{}</option>".format(
+               language.id,
+               language.language
+            )
+        )
+
+    selects["language"] = "<select>{}</select>".format(
+        "".join(language_options)
+    )
+
+    # Generate the Dictionary Type Select
+    dict_types = DictionaryType.objects.all()
+    dict_type_options = []
+
+    for dict_type in dict_types:
+        dict_type_options.append(
+           "<option value='{}'>{}</option>".format(
+               dict_type.id,
+               dict_type.dictionary_name
+            )
+        )
+
+    selects["dict_type"] = "<select>{}</select>".format(
+        "".join(dict_type_options)
+    )
+
+    # Generate the Dictionary Class Select
+    dict_classes = DictionaryClass.objects.all()
+    dict_class_options = []
+
+    for dict_class in dict_classes:
+        dict_class_options.append(
+           "<option value='{}'>{}</option>".format(
+               dict_class.id,
+               dict_class.class_name
+            )
+        )
+
+    selects["dict_class"] = "<select>{}</select>".format(
+        "".join(dict_class_options)
+    )
+
+    return selects
 
 @permission_required("dictionary.can_view", login_url="/accounts/login/")
 def review(request):
@@ -75,8 +144,9 @@ def retrieve_pending_entries(last_id, req_num):
         response.append({
             "id": getattr(entry, "id"),
             "word": entry.word,
-            "dictionary_type": entry.dictionary_type.id,
             "language": entry.language.id,
+            "dictionary_type": entry.dictionary_type.id,
+            "dictionary_class": entry.dictionary_class.id,
         })
 
     # Return the final response
