@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import (
-    DPD, ActiveIngredients, Companies, DrugProduct, Form, InactiveProducts,
+    DPD, ActiveIngredient, Company, DrugProduct, Form, InactiveProduct,
     Packaging, PharmaceuticalStandard, Route, Schedule, Status, 
     TherapeuticClass, VeterinarySpecies
 )
@@ -11,17 +11,17 @@ class DPDList(generic.ListView):
 
     context_object_name = "dpd_list"
 
-class ActiveIngredientsList(generic.ListView):
+class ActiveIngredientList(generic.ListView):
     """View of all the ActiveIngredients entries"""
-    model = ActiveIngredients
+    model = ActiveIngredient
 
-    context_object_name = "active_ingredients_list"
+    context_object_name = "active_ingredient_list"
 
-class CompaniesList(generic.ListView):
+class CompanyList(generic.ListView):
     """View of all the Companies entries"""
-    model = Companies
+    model = Company
 
-    context_object_name = "companies_list"
+    context_object_name = "company_list"
 
 class DrugProductList(generic.ListView):
     """View of all the DrugProduct entries"""
@@ -35,11 +35,11 @@ class FormList(generic.ListView):
 
     context_object_name = "form_list"
 
-class InactiveProductsList(generic.ListView):
+class InactiveProductList(generic.ListView):
     """View of all the InactiveProducts entries"""
-    model = InactiveProducts
+    model = InactiveProduct
 
-    context_object_name = "inactive_products_list"
+    context_object_name = "inactive_product_list"
 
 class PackagingList(generic.ListView):
     """View of all the Packaging entries"""

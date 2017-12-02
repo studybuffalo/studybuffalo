@@ -18,7 +18,7 @@ class DPD(models.Model):
     def __str__(self):
         return "{} ({})".format(self.drug_code, self.origin_file)
 
-class ActiveIngredients(models.Model):
+class ActiveIngredient(models.Model):
     """Model representing QRYM_ACTIVE_INGREDIENTS file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
     active_ingredient_code = models.CharField(
@@ -88,7 +88,7 @@ class ActiveIngredients(models.Model):
         null=True,
     )
 
-class Companies(models.Model):
+class Company(models.Model):
     """Model representing QRYM_COMPANIES file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
     mfr_code = models.CharField(
@@ -242,7 +242,7 @@ class Form(models.Model):
         null=True,
     )
 
-class InactiveProducts(models.Model):
+class InactiveProduct(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file"""
     drug_code = models.ForeignKey("DPD", on_delete=models.CASCADE)
     drug_identification_number = models.CharField(
