@@ -144,6 +144,7 @@ def retrieve_pending_entries(last_id, req_num):
         response.append({
             "id": getattr(entry, "id"),
             "word": entry.word,
+            "original": entry.original_words,
             "language": entry.language.id,
             "dictionary_type": entry.dictionary_type.id,
             "dictionary_class": entry.dictionary_class.id,

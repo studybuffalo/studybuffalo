@@ -170,6 +170,16 @@ function search_text(button) {
     window.open("https://google.com/search?q=" + $content.text());
 }
 
+function show_source(button) {
+    // Get the editable div to retrieve the source text
+    let $button = $(button);
+    let $parentDiv = $button.parent();
+    let $content = $parentDiv.children(".word");
+
+    // Open a new window with the search
+    alert($content.attr("data-original"));
+}
+
 function create_word_inputs(data) {
     let $div = $("<div></div>");
 
@@ -200,6 +210,7 @@ function create_word_inputs(data) {
     let $input = $("<div></div>");
     $input
         .attr("contenteditable", "true")
+        .attr("data-original", data.original)
         .addClass("word")
         .text(data.word)
         .appendTo($div);
@@ -217,6 +228,21 @@ function create_word_inputs(data) {
     $googleSpan
         .text("Search")
         .appendTo($googleButton);
+
+    // Create a show original button
+    let $originalButton = $("<button></button>");
+    $originalButton
+        .addClass("source")
+        .on("click", function () {
+            show_source(this);
+        })
+        .appendTo($div);
+
+    let $originalSpan = $("<span></span>");
+    $originalSpan
+        .text("Source")
+        .appendTo($originalButton);
+
 
     return $div;
 }
