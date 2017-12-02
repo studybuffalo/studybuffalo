@@ -18,6 +18,10 @@ class DictionaryClass(models.Model):
     """Specifies a dictionary classification"""
     class_name = models.CharField(max_length=20,)
 
+    class Meta:
+        verbose_name = "Dictionary class"
+        verbose_name_plural = "Dictionary classes"
+
     def __str__(self):
         return self.class_name
 
