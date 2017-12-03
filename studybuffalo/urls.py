@@ -62,5 +62,5 @@ environ.Env.read_env(env_file=BASE_DIR.path('..', 'config').file('studybuffalo.e
 admin_regex = r"%s/" % env('ADMIN_URL')
 
 urlpatterns += [
-    url(admin_regex, include(admin.site.urls)),
+    url(admin_regex, admin.site.urls),
 ]

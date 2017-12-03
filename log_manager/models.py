@@ -114,6 +114,7 @@ class LogEntry(models.Model):
     app_name = models.ForeignKey(
         AppData,
         help_text="The app this entry is for",
+        on_delete=models.CASCADE,
     )
 
     asc_time = models.DateTimeField(

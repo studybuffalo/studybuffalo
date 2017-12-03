@@ -4,7 +4,8 @@ from datetime import datetime, time
 
 class CalendarUser(models.Model):
     sb_user = models.OneToOneField(
-        User
+        User,
+        on_delete=models.CASCADE,
     )
 
     name = models.CharField(
