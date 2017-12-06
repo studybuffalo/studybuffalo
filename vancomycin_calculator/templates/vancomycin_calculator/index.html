@@ -4,7 +4,6 @@
 
 {% block styles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/vancomycin_calculator.css'%}">
-
 {% endblock %}
 
 {% block content %}
@@ -357,8 +356,11 @@
 		Summary. 2012.
 		</p>
 	</div>
+{% endblock %}
 
+{% block js %}
 	<!-- JS Functions and External Libraries -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<script type="text/javascript" src="{% static 'js/vancomycin_calculator.js'%}"></script>
 {% endblock %}
+
