@@ -115,17 +115,13 @@ function calculateThirdParty(mac, thirdParty) {
  *							6.5% until 2017-04-01 (1491026400000)			*
  *							7.0% thereafter									*
  *						Upcharge #2 has a total maximum of $100.00			*
- *		Dispensing Fee:	A $12.30 dispensing fee is added on top of the 		*
+ *		Dispensing Fee:	A $12.15 dispensing fee is added on top of the 		*
  *						noted upcharges.									*
  ****************************************************************************/
 function calculateFees(costPerUnit, quantity) {
-	var today = new Date();
 	var drugPrice;
 	var upcharge1 = 0.03;
-	var upcharge2 = today < 1427868000000 ? 0.055 :
-					today < 1459490400000 ? 0.06 :
-					today < 1491026400000 ? 0.065 :
-					0.07;
+	var upcharge2 = 0.07;
 	var fee1;
 	var fee2;
 	var returnPrice = {
@@ -142,12 +138,12 @@ function calculateFees(costPerUnit, quantity) {
 		fee1 = drugPrice * upcharge1;
 		fee2 = (drugPrice + fee1) * upcharge2;
 		fee2 = fee2 > 100 ? 100 : fee2;
-		grossPrice = drugPrice + fee1 + fee2 + 12.3;
+		grossPrice = drugPrice + fee1 + fee2 + 12.15;
 		
 		returnPrice.drugCost = Math.round(drugPrice * 100) / 100;
 		returnPrice.upcharge1 = Math.round(fee1 * 100) / 100;
 		returnPrice.upcharge2 = Math.round(fee2 * 100) / 100;
-		returnPrice.dispensingFee = Math.round(12.3 * 100) / 100;
+		returnPrice.dispensingFee = Math.round(12.15 * 100) / 100;
 		returnPrice.grossPrice = Math.round(grossPrice * 100) / 100;
 	}
 	
@@ -173,7 +169,7 @@ function calculateFees(costPerUnit, quantity) {
  *							6.5% until 2017-04-01 (1491026400000)			*
  *							7.0% thereafter									*
  *						Upcharge #2 has a total maximum of $100.00			*
- *		Dispensing Fee:	A $12.30 dispensing fee is added on top of the 		*
+ *		Dispensing Fee:	A $12.15 dispensing fee is added on top of the 		*
  *						noted upcharges.									*
  ****************************************************************************/
 function calculatePrice(costPerUnit, quantity, mac, thirdParty, benefits) {
