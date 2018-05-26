@@ -69,18 +69,18 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'study_buffalo.users.apps.UsersConfig',
-    'aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
-    'dictionary.apps.DictionaryConfig',
-    'drug_price_calculator.apps.DrugPriceCalculatorConfig',
-    'hc_dpd.apps.HcDpdConfig',
-    'log_manager.apps.LogManagerConfig',
-    'play.apps.PlayConfig',
-    'rdrhc_calendar.apps.RdrhcCalendarConfig',
-    'read.apps.ReadConfig',
-    'study.apps.StudyConfig',
-    'substitutions.apps.SubstitutionsConfig',
-    'updates.apps.UpdatesConfig',
-    'vancomycin_calculator.apps.VancomycinCalculatorConfig',
+    'study_buffalo.aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
+    'study_buffalo.dictionary.apps.DictionaryConfig',
+    'study_buffalo.drug_price_calculator.apps.DrugPriceCalculatorConfig',
+    'study_buffalo.hc_dpd.apps.HcDpdConfig',
+    'study_buffalo.log_manager.apps.LogManagerConfig',
+    'study_buffalo.play.apps.PlayConfig',
+    'study_buffalo.rdrhc_calendar.apps.RdrhcCalendarConfig',
+    'study_buffalo.read.apps.ReadConfig',
+    'study_buffalo.study.apps.StudyConfig',
+    'study_buffalo.substitutions.apps.SubstitutionsConfig',
+    'study_buffalo.updates.apps.UpdatesConfig',
+    'study_buffalo.vancomycin_calculator.apps.VancomycinCalculatorConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
