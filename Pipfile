@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = ">=1.11.4"
+django = {extras = ["argon2"]}
 django-allauth = ">=0.33.0"
 django-environ = ">=0.4.4"
 psycopg2 = ">=2.7.3"
