@@ -243,6 +243,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ADAPTER = 'study_buffalo.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = 'study_buffalo.users.adapters.SocialAccountAdapter'
+ACCOUNT_UNIQUE_EMAIL=True
 SOCIALACCOUNT_PROVIDERS = {
     "facebook": {
         "AUTH_PARAMS": {"auth_type": "reauthenticate"},
