@@ -8,16 +8,13 @@ ROOT_DIR = environ.Path(__file__) - 3  # (study_buffalo/config/settings/base.py 
 APPS_DIR = ROOT_DIR.path('study_buffalo')
 
 env = environ.Env()
-
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
-if READ_DOT_ENV_FILE:
-    # OS environment variables take precedence over variables from .env
-    env.read_env(str(ROOT_DIR.path('.env')))
+environ.Env.read_env(env_file=ROOT_DIR.path('..', 'config').file('study_buffalo.env'))
 
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool('DJANGO_DEBUG', False)
+
 # Local time zone. Choices are
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
@@ -59,19 +56,31 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.humanize', # Handy template tags
     'django.contrib.admin',
+    'django.contrib.sitemaps',
 ]
 THIRD_PARTY_APPS = [
-    'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
     'rest_framework',
 ]
 LOCAL_APPS = [
     'study_buffalo.users.apps.UsersConfig',
-    # Your stuff: custom apps go here
+    'aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
+    'dictionary.apps.DictionaryConfig',
+    'drug_price_calculator.apps.DrugPriceCalculatorConfig',
+    'hc_dpd.apps.HcDpdConfig',
+    'log_manager.apps.LogManagerConfig',
+    'play.apps.PlayConfig',
+    'rdrhc_calendar.apps.RdrhcCalendarConfig',
+    'read.apps.ReadConfig',
+    'study.apps.StudyConfig',
+    'substitutions.apps.SubstitutionsConfig',
+    'updates.apps.UpdatesConfig',
+    'vancomycin_calculator.apps.VancomycinCalculatorConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -234,7 +243,17 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ADAPTER = 'study_buffalo.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = 'study_buffalo.users.adapters.SocialAccountAdapter'
-
+SOCIALACCOUNT_PROVIDERS = {
+    "facebook": {
+        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
+        "METHOD": "oauth2",
+        "SCOPE": ["email",],
+    },
+    "google": {
+        "AUTH_PARAMS": {"access_type": "online"},
+        "SCOPE": ["email",],
+    }
+}
 
 # Your stuff...
 # ------------------------------------------------------------------------------
