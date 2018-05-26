@@ -1,0 +1,68 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+	<style>
+		#sb #contact-table th {
+			padding: 1rem 3rem 1rem 0;
+			text-align: left;
+			vertical-align: top;
+		}
+
+		#sb #contact-table td {
+			padding: 1rem 0;
+			text-align: left;
+			vertical-align: top;
+		}
+
+		#sb #contact-table tfoot td {
+			text-align: right;
+		}
+	</style>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Contact</h1>
+
+	<p>
+		We would love to hear what you have to say - get in touch with us!
+	</p>
+
+	<h2>Contact us directly</h2>
+
+	<form action="" method="post">
+		{% csrf_token %}
+
+		{% if messages %}
+			<ul class="message_list">
+				{% for message in messages %}
+					{% if message.level %}
+						<li class="level_{{ message.level }}">{{ message }}</li>
+					{% else %}
+						<li>{{ message }}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<table id="contact-table">
+			{{ form }}
+
+			<tfoot>
+				<tr>
+					<td colspan="2">
+						<button type="submit">Send Email</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</form>	
+
+	<h2>Contact information</h2>
+
+	<p>
+		<strong>General Inquiries: </strong> 
+		<a href="mailto: info@studybuffalo.com">info@studybuffalo.com</a>
+	</p>
+{% endblock %}

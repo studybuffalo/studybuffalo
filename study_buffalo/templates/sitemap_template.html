@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	<h1>Study Buffalo Site Map</h1>
+
+	<h2>Play Pages</h2>
+	<ul>	
+		{% for url in play_urlset %}
+			<li>
+				<a href="{{ url.location }}">
+					{{ url.item.date }} - {{ url.item.title }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Study Pages</h2>
+	<ul>	
+		{% for url in study_urlset %}
+			<li>
+				<a href="{{ url.location }}">
+					{{ url.item.title }} (Last uppdated on {{ url.item.last_update }})
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Tool Pages</h2>
+	<ul>
+		{% for url in tools_urlset %}
+			<li>
+				<a href="{{ url.location }}">{{ url.item.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Read Pages</h2>
+	<ul>	
+		{% for url in read_urlset %}
+			<li>
+				<a href="{{ url.location }}">
+					{{ url.item.date_published }} - {{ url.item.title }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h2>Other Pages</h2>
+	<ul>
+		{% for url in other_urlset %}
+			<li>
+				<a href="{{ url.location }}">{{ url.item.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
