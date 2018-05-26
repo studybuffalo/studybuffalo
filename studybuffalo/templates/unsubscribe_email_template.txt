@@ -1,3 +1,0 @@
-The following email has requested to be unsubscribed from all mailing lists: {{ email }}
-
-Please ensure this is addressed within 10 days to comply with Federal legislation.
