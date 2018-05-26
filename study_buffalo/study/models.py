@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.conf import settings
 
 """Planning for the Study Guides
     Acid-Base - Convert to PDF
@@ -96,7 +97,7 @@ class Bounty(models.Model):
     bounty_details = models.TextField(
         help_text="The details of the bounty; supports HTML",
     )
-    
+
     # Meta Statements
     class Meta:
         ordering = ["study_guide", "bounty_status"]
@@ -120,7 +121,7 @@ class BountyAssignment(models.Model):
     )
 
     assigned_user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         help_text="The user assigned to this bounty",
         on_delete=models.CASCADE,
     )
@@ -131,7 +132,7 @@ class BountyAssignment(models.Model):
         help_text="The proprtion of the bounty award the user received",
         max_digits=3,
     )
-    
+
     # Meta Statements
     class Meta:
         ordering = ["bounty", "proportion", "assigned_user"]
@@ -151,7 +152,7 @@ class HTMLGuide(models.Model):
     html = models.TextField(
         help_text="The HTML content to display the guide"
     )
-    
+
     # Meta Statements
 
     # Methods
@@ -170,7 +171,7 @@ class DocumentGuide(models.Model):
         help_text="The study guide file to upload (PDF preferred)",
         upload_to="study_guides",
     )
-    
+
     # Meta Statements
 
     # Methods

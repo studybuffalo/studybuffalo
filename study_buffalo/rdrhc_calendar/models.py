@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, time
+from django.conf import settings
 
 class CalendarUser(models.Model):
     sb_user = models.OneToOneField(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
 
@@ -81,9 +82,9 @@ class ShiftCode(models.Model):
         help_text="The shift code used in the Excel schedule",
         max_length=20,
     )
-    
+
     sb_user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         blank=True,
         help_text=(
             "Which user this shift code applies to (leave blank for "
@@ -121,7 +122,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     tuesday_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -140,7 +141,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     wednesday_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -159,7 +160,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     thursday_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -178,7 +179,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     friday_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -197,7 +198,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     saturday_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -216,7 +217,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     sunday_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -235,7 +236,7 @@ class ShiftCode(models.Model):
         max_digits=4,
         null=True,
     )
-    
+
     stat_start = models.TimeField(
         blank=True,
         default=time(7, 0),
@@ -267,10 +268,10 @@ class ShiftCode(models.Model):
             )
         else:
             return "{0} - {1}".format(self.get_role_display(), self.code)
-       
+
 class Shift(models.Model):
     sb_user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         help_text="The user this shit applies to",
         on_delete=models.CASCADE,
     )
@@ -300,7 +301,7 @@ class MissingShiftCode(models.Model):
         help_text="The shift code used in the Excel schedule",
         max_length=20,
     )
-    
+
     role = models.CharField(
         choices=(
             ("a", "Pharmacy Assistant"),
@@ -316,7 +317,7 @@ class MissingShiftCode(models.Model):
 
     class Meta:
         permissions = (
-            ("can_add_default_codes", 
+            ("can_add_default_codes",
              "Can add new default codes to the ShiftCode database"),
         )
         unique_together = ["code", "role"]
