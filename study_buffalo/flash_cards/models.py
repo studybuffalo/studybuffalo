@@ -78,7 +78,7 @@ class MatchingAnswer(models.Model):
     )
 
     question_container = models.ForeignKey(
-        MultipleChoiceContainer,
+        MatchingContainer,
         on_delete=models.CASCADE,
     )
     part_container = models.ForeignKey(
@@ -189,6 +189,7 @@ class CardDeck(models.Model):
 class Tag(models.Model):
     tag_name = models.CharField(
         max_length=100,
+        unique=True,
     )
     history = HistoricalRecords()
 
@@ -199,6 +200,7 @@ class Synonym(models.Model):
     )
     synonym_name = models.CharField(
         max_length=100,
+        unique=True,
     )
     history = HistoricalRecords()
 

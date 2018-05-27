@@ -1,15 +1,69 @@
 from rest_framework import serializers
 
+from django.utils import timezone
+
 from flash_cards.models import Tag, Synonym
 
-class TagSerializer(serializers.HyperlinkedModelSerializer):
-    synonym_set = serializers.HyperlinkedRelatedField(many=True, view_name='synonym-detail', read_only=True)
+class PartSerializer(serializers.Serializer):
+    text = serializers.CharField(max_length=2000, required=False)
+    image = serializers.ImageField(required=False)
+    audio = serializers.FileField(required=False)
+    video = serializers.FileField(required=False)
+    order = serializers.IntegerField(default=1, min_value=1)
+    def validate(self, date):
+        # Check that one part type is provided
+        provided = (
+            1 if data['text'] else 0
+            + 1 if data['image'] else 0
+            + 1 if data['audio'] else 0
+            + 1 if data['video'] else 0
+        )
 
-    class Meta:
-        model = Tag
-        fields = ('url', 'tag_name', 'synonym_set')
+        if provided == 0:
+            raise serializers.ValidationError('Must submit 1 type of content')
+        elif provided > 1:
+            raise serializers.ValidationError('Must submit only 1 type of content')
 
-class SynonymSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Synonym
-        fields = ('synonym_name', 'tag')
+        return data
+
+class MultipleChoiceSerializer(serializers.Serializer):
+    content = PartSerializer(many=True)
+    order = serializers.IntegerField(default=1, min_value=1)
+    correct = serializers.BooleanField(default=False)
+
+class MatchingSerializer(serializers.Serializer):
+    SIDE_CHOICES = (
+        ('l', 'Left'),
+        ('r', 'Right'),
+    )
+    content = PartSerializer(many=True)
+    order = serializers.IntegerField(default=1, min_value=1)
+    side = serializers.ChoiceField(choices=SIDE_CHOICES)
+    pair = serializers.IntegerField(default=1, min_value=1)
+
+class AnswerSerializer(serializers.Serializer):
+    multiple_choice = MultipleChoiceSerializer(many=True, required=False)
+    matching = MatchingSerializer(many=True, required=False)
+    freeform = PartSerializer(many=True, required=False)
+
+class DeckSerializer(serializers.Serializer):
+    deck = serializers.UUIDField()
+
+class ReferenceSerializer(serializers.Serializer):
+    reference = serializers.CharField(required=False, max_length=500)
+
+class TagSerializer(serializers.Serializer):
+    tag_name = serializers.CharField(max_length=100)
+
+class CardSerializer(serializers.Serializer):
+    uuid = serializers.UUIDField(read_only=True)
+    deck = DeckSerializer(many=True)
+    question = PartSerializer(many=True)
+    answer = AnswerSerializer()
+    rationale = PartSerializer(many=True)
+    reviewed = serializers.BooleanField(default=False)
+    active = serializers.BooleanField(default=False)
+    date_modified = serializers.DateField(default=timezone.now)
+    date_reviewed = serializers.DateField(default=timezone.now)
+    reference = ReferenceSerializer(many=True)
+    tag = TagSerializer(many=True)
