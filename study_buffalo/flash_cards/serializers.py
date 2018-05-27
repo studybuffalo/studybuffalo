@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from django.utils import timezone
 
-from flash_cards.models import Tag, Synonym
+from flash_cards.models import Card, Tag, Synonym
 
 class PartSerializer(serializers.Serializer):
     text = serializers.CharField(max_length=2000, required=False)
@@ -55,7 +55,7 @@ class ReferenceSerializer(serializers.Serializer):
 class TagSerializer(serializers.Serializer):
     tag_name = serializers.CharField(max_length=100)
 
-class CardSerializer(serializers.Serializer):
+class NewCardSerializer(serializers.Serializer):
     uuid = serializers.UUIDField(read_only=True)
     deck = DeckSerializer(many=True)
     question = PartSerializer(many=True)
@@ -67,3 +67,11 @@ class CardSerializer(serializers.Serializer):
     date_reviewed = serializers.DateField(default=timezone.now)
     reference = ReferenceSerializer(many=True)
     tag = TagSerializer(many=True)
+
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = (
+            'question', 'answer_multiple_choice', 'answer_matching', 'answer_freefrom',
+            'rationale', 'reviewed', 'active', 'date_modified', 'date_reviewed'
+        )

@@ -4,7 +4,41 @@ from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from rest_framework import status
 
-from flash_cards.models import Tag, Synonym
+from flash_cards.models import Card, Deck, Tag, Synonym
+from flash_cards.serializers import CardSerializer, DeckSerializer, TagSerializer
+
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'cards': reverse('card-list', request=request, format=format),
+        'decks': reverse('deck-list', request=request, format=format),
+        'tags': reverse('tag-list', request=request, format=format),
+    })
+
+@api_view(['GET'])
+def cards(request):
+    if request.method == 'GET':
+        cards = Card.objects.all()
+        serializer = CardSerializer(cards, many=True)
+
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def decks(request):
+    if request.method == 'GET':
+        decks = Deck.objects.all()
+        serializer = DeckSerializer(decks, many=True)
+
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def tags(request):
+    if request.method == 'GET':
+        tags = Tag.objects.all()
+        serializer = TagSerializer(tags, many=True)
+
+        return Response(serializer.data)
 
 
 # # Study Buffalo Flash Cards
