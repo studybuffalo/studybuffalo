@@ -144,10 +144,12 @@ class Card(models.Model):
         default=True,
     )
     date_modified = models.DateTimeField(
-        default=timezone.now
+        default=timezone.now,
     )
     date_reviewed = models.DateTimeField(
-        default=timezone.now
+        default=None,
+        blank=True,
+        null=True,
     )
     history = HistoricalRecords()
 
