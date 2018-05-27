@@ -1,21 +1,9 @@
-from django.db import models
-
 from simple_history.models import HistoricalRecords
 
-'''Card Model
-    ID
-    Question > Part Container IDFK
-    MC Answer > MC Container IDFK
-    Matching Answer > Matching Container IDFK
-    Freeform Answer > Part Container IDFK
-    reviewed = True/False
-    Active = True/False
-    date_modified
-    date_reviewed
+from django.contrib.auth import get_user_model
+from django.db import models
+from django.utls import timezone
 
-    Would validate model to ensure only one answer present (others = None)
-    Non-null answer determines question type and output
-'''
 
 class PartContainer(models.Model):
     '''Container to hold one or more parts'''
@@ -113,63 +101,156 @@ class MatchingAnswer(models.Model):
     history = HistoricalRecords()
 
 class Card(models.Model):
+    question = models.ForeignKey(
+        PartContainer,
+        on_delete=models.CASCADE,
+        null=True,
+    ),
+    answer_multiple_choice = models.ForeignKey(
+        MultipleChoiceContainer,
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    answer_matching = models.ForeignKey(
+        MatchingAnswer,
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    answer_freeform = models.ForeignKey(
+        PartContainer,
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    reviewed = models.BooleanField(
+        default=False,
+    )
+    active = models.BooleanField(
+        default=False,
+    )
+    date_modified = models.DateField(
+        default=timezone.now
+    )
+    date_reviewed = models.DateField(
+        default=timezone.now
+    )
+    history = HistoricalRecords()
 
-'''References Model
-    ID
-    Card IDFK
-    Reference
-'''
+class Reference(models.Model):
+    card = models.ForeignKey(
+        Card,
+        on_delete=models.CASCADE,
+    )
+    reference = models.CharField(
+        max_length=256,
+    )
+    history = HistoricalRecords()
 
-'''Tag Model
-    ID
-    tag name
-'''
+class Tag(models.Model):
+    tag_name = models.CharField(
+        max_length=128,
+    )
+    card = models.ForeignKey(
+        Card,
+        on_delete=models.CASCADE,
+    )
 
-'''Synonym model
-    ID
-    synonym name
-    tag IDFK
-'''
+class Synonym(models.Model):
+    tag = models.ForeignKey(
+        Tag,
+        on_delete=models.CASCADE,
+    )
+    tag_name = models.CharField(
+        max_length=128,
+    )
+    history = HistoricalRecords()
 
-'''Set Model
-    ID
-    Title
-    status = reviewed, pending review
-    Reviewed = True/False
-    Active = True/False
-    date_modified
-    date_reviewed
-'''
+class Deck(models.Model):
+    deck_name = models.CharField(
+        max_length=128,
+    )
+    reviewed = models.BooleanField(
+        default=False,
+    )
+    active = models.BooleanField(
+        default=False,
+    )
+    date_modified = models.DateField(
+        default=timezone.now
+    )
+    date_reviewed = models.DateField(
+        default=timezone.now
+    )
+    history = HistoricalRecords()
 
-'''Set by Card
-    ID
-    Set IDFK
-    Card IDFK
-'''
+class CardSet(models.Model):
+    deck = models.ForeignKey(
+        Deck,
+        on_delete=models.CASCADE,
+    )
+    card = model.ForeignKey(
+        Card,
+        on_delete=models.CASCADE,
+    )
+    history = HistoricalRecords()
 
-'''Set by tag
-    ID
-    Set IDFK
-    tag IDFK
-'''
+class TagSet(models.Model):
+    deck = models.ForeignKey(
+        Deck,
+        on_delete=models.CASCADE,
+    )
+    tag = model.ForeignKey(
+        Tag,
+        on_delete=models.CASCADE,
+    )
+    history = HistoricalRecords()
 
-''' User Stats for Sets
-    ID
-    user IDFK
-    Set IDFK
-    date_completed
-    # correct
-    # partially correct
-    # incorrect
-    total # of questions
-'''
+class DeckStats(models.Model):
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+    deck = models.ForeignKey(
+        Deck,
+        on_delete=models.CASCADE,
+    )
+    date_completed = models.DateField(
+        default=timezone.now
+    )
+    number_questions = models.IntegerField(
+        default=0,
+    )
+    number_correct = models.IntegerField(
+        default=0,
+    )
+    number_partially_correct = models.IntegerField(
+        default=0,
+    )
+    number_incorrect = models.IntegerField(
+        default=0,
+    )
+    history = HistoricalRecords()
 
-''' User Stats Overall
-    Total number of questions answered
-    Total number correct
-    Total number partially correct
-    Total number incorrect
-'''
+class UserStats(models.Model):
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+    number_sets = models.IntegerField(
+        default=0,
+    )
+    number_questions = models.IntegerField(
+        default=0,
+    )
+    number_correct = models.IntegerField(
+        default=0,
+    )
+    number_partially_correct = models.IntegerField(
+        default=0,
+    )
+    number_incorrect = models.IntegerField(
+        default=0,
+    )
+    history = HistoricalRecords()
 
 '''Other Stats that can be compiled from models
     Total number questions user has completed and breakdown (from sets model)
