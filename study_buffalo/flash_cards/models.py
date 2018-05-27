@@ -141,7 +141,7 @@ class Card(models.Model):
         default=False,
     )
     active = models.BooleanField(
-        default=False,
+        default=True,
     )
     date_modified = models.DateTimeField(
         default=timezone.now
@@ -173,7 +173,7 @@ class Deck(models.Model):
         default=False,
     )
     active = models.BooleanField(
-        default=False,
+        default=True,
     )
     date_modified = models.DateTimeField(
         default=timezone.now
