@@ -70,7 +70,6 @@ class CardSerializer(serializers.ModelSerializer):
 
 class NewCardSerializer(serializers.Serializer):
     uuid = serializers.UUIDField(read_only=True)
-    deck = DeckSerializer(many=True)
     question = PartSerializer(many=True)
     answer = AnswerSerializer()
     rationale = PartSerializer(many=True)
@@ -78,5 +77,29 @@ class NewCardSerializer(serializers.Serializer):
     active = serializers.BooleanField(default=False)
     date_modified = serializers.DateField(default=timezone.now)
     date_reviewed = serializers.DateField(default=timezone.now)
+    deck = serializers.ListField(
+        child=serializers.UUIDField(),
+        min_length=1,
+    )
     reference = ReferenceSerializer(many=True)
     tag = TagSerializer(many=True)
+
+    def create(self, validated_data):
+        # Create all the parts for the question
+        for parts in validated_data['question']:
+            print(parts)
+
+        # Create the answer
+
+        # Create the rationale
+
+        # Retrieve the proper decks
+
+        # Create the references
+
+        # Retrieve and create the tags
+
+        # Create all the new models
+        card = Card.objects.create()
+
+        return card

@@ -104,6 +104,10 @@ class MatchingAnswer(models.Model):
     history = HistoricalRecords()
 
 class Card(models.Model):
+    card_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False
+    )
     question = models.ForeignKey(
         PartContainer,
         on_delete=models.CASCADE,
@@ -158,7 +162,10 @@ class Reference(models.Model):
     history = HistoricalRecords()
 
 class Deck(models.Model):
-    deck_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    deck_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False
+    )
     deck_name = models.CharField(
         max_length=255,
     )
