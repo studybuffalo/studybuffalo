@@ -73,6 +73,7 @@ LOCAL_APPS = [
     'study_buffalo.aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
     'study_buffalo.dictionary.apps.DictionaryConfig',
     'study_buffalo.drug_price_calculator.apps.DrugPriceCalculatorConfig',
+    'study_buffalo.flash_cards.apps.FlashCardsConfig',
     'study_buffalo.hc_dpd.apps.HcDpdConfig',
     'study_buffalo.log_manager.apps.LogManagerConfig',
     'study_buffalo.play.apps.PlayConfig',

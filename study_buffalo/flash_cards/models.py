@@ -1,8 +1,8 @@
 from simple_history.models import HistoricalRecords
 
-from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.db import models
-from django.utls import timezone
+from django.utils import timezone
 
 
 class PartContainer(models.Model):
@@ -69,7 +69,7 @@ class MultipleChoiceAnswer(models.Model):
 
 class MatchingContainer(models.Model):
     '''Container for matching answers'''
-    history = HistorialRecords()
+    history = HistoricalRecords()
 
 class MatchingAnswer(models.Model):
     SIDE_CHOICES = (
@@ -94,7 +94,7 @@ class MatchingAnswer(models.Model):
         default=1,
     )
     pair = models.ForeignKey(
-        MatchingAnswer,
+        'MatchingAnswer',
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -108,19 +108,19 @@ class Card(models.Model):
     ),
     answer_multiple_choice = models.ForeignKey(
         MultipleChoiceContainer,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
     answer_matching = models.ForeignKey(
         MatchingAnswer,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
     answer_freeform = models.ForeignKey(
         PartContainer,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
@@ -129,6 +129,7 @@ class Card(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        related_name='answer_rationale',
     )
     reviewed = models.BooleanField(
         default=False,
@@ -178,7 +179,7 @@ class CardDeck(models.Model):
         on_delete=models.SET_NULL,
         null=True,
     )
-    card = model.ForeignKey(
+    card = models.ForeignKey(
         Card,
         on_delete=models.SET_NULL,
         null=True,
@@ -217,7 +218,7 @@ class TagDeck(models.Model):
         Deck,
         on_delete=models.CASCADE,
     )
-    tag = model.ForeignKey(
+    tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
     )
@@ -225,7 +226,7 @@ class TagDeck(models.Model):
 
 class DeckStats(models.Model):
     user = models.ForeignKey(
-        get_user_model,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
     deck = models.ForeignKey(
@@ -251,7 +252,7 @@ class DeckStats(models.Model):
 
 class UserStats(models.Model):
     user = models.ForeignKey(
-        get_user_model,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
     number_sets = models.IntegerField(
@@ -273,10 +274,11 @@ class UserStats(models.Model):
 
 class Feedback(models.Model):
     user = models.ForeignKey(
-        get_user_model,
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
         blank=True,
-        null=True,
         default=None,
+        null=True,
     )
     date_submitted = models.DateField(
         default=timezone.now
