@@ -27,7 +27,6 @@ class TextPart(AbstractPart):
     text = models.CharField(
         max_length=2048,
     )
-    history = HistoricalRecords()
 
 class MediaPart(AbstractPart):
     MEDIA_TYPES = (
@@ -43,7 +42,6 @@ class MediaPart(AbstractPart):
     media = models.FileField(
         upload_to='flash_cards',
     )
-    history = HistoricalRecords()
 
 class MultipleChoiceContainer(models.Model):
     '''Container for multiple choice answers'''
@@ -211,7 +209,7 @@ class TagSet(models.Model):
 
 class DeckStats(models.Model):
     user = models.ForeignKey(
-        get_user_model(),
+        get_user_model,
         on_delete=models.CASCADE,
     )
     deck = models.ForeignKey(
@@ -237,7 +235,7 @@ class DeckStats(models.Model):
 
 class UserStats(models.Model):
     user = models.ForeignKey(
-        get_user_model(),
+        get_user_model,
         on_delete=models.CASCADE,
     )
     number_sets = models.IntegerField(
@@ -256,6 +254,35 @@ class UserStats(models.Model):
         default=0,
     )
     history = HistoricalRecords()
+
+class Feedback(models.Model):
+    user = models.ForeignKey(
+        get_user_model,
+        null=True,
+        default=None,
+    )
+    date_submitted = models.DateField(
+        default=timezone.now
+    )
+    comment = models.CharField(
+        max_length = 1024,
+    )
+    history = HistoricalRecords()
+
+    class Meta:
+        abstract = True
+
+class CardFeedback(Feedback):
+    card = models.ForeignKey(
+        Card,
+        on_delete=models.CASCADE
+    )
+
+class DeckFeedback(Feedback):
+    Deck = models.ForeignKey(
+        Deck,
+        on_delete=models.CASCADE
+    )
 
 '''Other Stats that can be compiled from models
     Total number questions user has completed and breakdown (from sets model)
