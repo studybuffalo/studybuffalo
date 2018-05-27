@@ -66,6 +66,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'rest_framework',
+    'simple_history',
 ]
 LOCAL_APPS = [
     'study_buffalo.users.apps.UsersConfig',
