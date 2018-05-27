@@ -111,7 +111,7 @@ class Card(models.Model):
     question = models.ForeignKey(
         PartContainer,
         on_delete=models.CASCADE,
-    ),
+    )
     answer_multiple_choice = models.ForeignKey(
         MultipleChoiceContainer,
         on_delete=models.SET_NULL,
@@ -129,6 +129,7 @@ class Card(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        related_name='answer_freeform',
     )
     rationale = models.ForeignKey(
         PartContainer,
