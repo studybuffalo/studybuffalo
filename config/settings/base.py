@@ -68,7 +68,6 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
-    'study_buffalo.users.apps.UsersConfig',
     'study_buffalo.aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
     'study_buffalo.dictionary.apps.DictionaryConfig',
     'study_buffalo.drug_price_calculator.apps.DrugPriceCalculatorConfig',
@@ -81,6 +80,7 @@ LOCAL_APPS = [
     'study_buffalo.substitutions.apps.SubstitutionsConfig',
     'study_buffalo.updates.apps.UpdatesConfig',
     'study_buffalo.vancomycin_calculator.apps.VancomycinCalculatorConfig',
+    'study_buffalo.users.apps.UsersConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
