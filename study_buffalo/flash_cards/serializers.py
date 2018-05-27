@@ -54,7 +54,6 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ('tag_name')
 
-
 class DeckSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deck
