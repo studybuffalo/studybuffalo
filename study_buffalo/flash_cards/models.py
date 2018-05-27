@@ -121,6 +121,11 @@ class Card(models.Model):
         on_delete=models.CASCADE,
         null=True,
     )
+    rationale = models.ForeignKey(
+        PartContainer,
+        on_delete=models.SET_NULL,
+        null=True,
+    )
     reviewed = models.BooleanField(
         default=False,
     )
