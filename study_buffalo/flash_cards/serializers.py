@@ -49,8 +49,10 @@ class AnswerSerializer(serializers.Serializer):
 class ReferenceSerializer(serializers.Serializer):
     reference = serializers.CharField(required=False, max_length=500)
 
-class TagSerializer(serializers.Serializer):
-    tag_name = serializers.CharField(max_length=100)
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('tag_name')
 
 
 class DeckSerializer(serializers.ModelSerializer):
