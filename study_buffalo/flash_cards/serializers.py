@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from django.utils import timezone
 
-from flash_cards.models import Card, Tag, Synonym
+from flash_cards.models import Card, Deck, Tag, Synonym
 
 class PartSerializer(serializers.Serializer):
     text = serializers.CharField(max_length=2000, required=False)
@@ -46,14 +46,26 @@ class AnswerSerializer(serializers.Serializer):
     matching = MatchingSerializer(many=True, required=False)
     freeform = PartSerializer(many=True, required=False)
 
-class DeckSerializer(serializers.Serializer):
-    deck = serializers.UUIDField()
-
 class ReferenceSerializer(serializers.Serializer):
     reference = serializers.CharField(required=False, max_length=500)
 
 class TagSerializer(serializers.Serializer):
     tag_name = serializers.CharField(max_length=100)
+
+
+class DeckSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Deck
+        fields = ('deck_uuid', 'deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed')
+
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = (
+            'question', 'answer_multiple_choice', 'answer_matching', 'answer_freefrom',
+            'rationale', 'reviewed', 'active', 'date_modified', 'date_reviewed'
+        )
+
 
 class NewCardSerializer(serializers.Serializer):
     uuid = serializers.UUIDField(read_only=True)
@@ -67,11 +79,3 @@ class NewCardSerializer(serializers.Serializer):
     date_reviewed = serializers.DateField(default=timezone.now)
     reference = ReferenceSerializer(many=True)
     tag = TagSerializer(many=True)
-
-class CardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Card
-        fields = (
-            'question', 'answer_multiple_choice', 'answer_matching', 'answer_freefrom',
-            'rationale', 'reviewed', 'active', 'date_modified', 'date_reviewed'
-        )

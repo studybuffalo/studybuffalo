@@ -1,3 +1,5 @@
+import uuid
+
 from simple_history.models import HistoricalRecords
 
 from django.conf import settings
@@ -137,10 +139,10 @@ class Card(models.Model):
     active = models.BooleanField(
         default=False,
     )
-    date_modified = models.DateField(
+    date_modified = models.DateTimeField(
         default=timezone.now
     )
-    date_reviewed = models.DateField(
+    date_reviewed = models.DateTimeField(
         default=timezone.now
     )
     history = HistoricalRecords()
@@ -156,6 +158,7 @@ class Reference(models.Model):
     history = HistoricalRecords()
 
 class Deck(models.Model):
+    deck_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     deck_name = models.CharField(
         max_length=255,
     )
@@ -165,11 +168,13 @@ class Deck(models.Model):
     active = models.BooleanField(
         default=False,
     )
-    date_modified = models.DateField(
+    date_modified = models.DateTimeField(
         default=timezone.now
     )
-    date_reviewed = models.DateField(
-        default=timezone.now
+    date_reviewed = models.DateTimeField(
+        default=None,
+        blank=True,
+        null=True,
     )
     history = HistoricalRecords()
 
@@ -235,7 +240,7 @@ class DeckStats(models.Model):
         Deck,
         on_delete=models.CASCADE,
     )
-    date_completed = models.DateField(
+    date_completed = models.DateTimeField(
         default=timezone.now
     )
     number_questions = models.IntegerField(
@@ -282,7 +287,7 @@ class Feedback(models.Model):
         default=None,
         null=True,
     )
-    date_submitted = models.DateField(
+    date_submitted = models.DateTimeField(
         default=timezone.now
     )
     comment = models.TextField(
