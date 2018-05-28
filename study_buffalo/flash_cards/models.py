@@ -31,6 +31,9 @@ class TextPart(AbstractPart):
     )
     history = HistoricalRecords()
 
+    def __str__(self):
+        return '{} - {}'.format(self.order, self.text)
+
 class MediaPart(AbstractPart):
     MEDIA_TYPES = (
         ('a', 'Audio'),
@@ -47,6 +50,9 @@ class MediaPart(AbstractPart):
         upload_to='flash_cards/',
     )
     history = HistoricalRecords()
+
+    def __str__(self):
+        return '{} - {} - {}'.format(self.order, self.media_type, self.media)
 
 class MultipleChoiceContainer(models.Model):
     '''Container for multiple choice answers'''
