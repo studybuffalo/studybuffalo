@@ -30,7 +30,7 @@ urlpatterns = [
     path('tools/flash-cards/', include('flash_cards.urls')),
     path('tools/substitutions/', include('substitutions.urls')),
     path('tools/vancomycin-calculator/', include('vancomycin_calculator.urls')),
-    path('users', include('users.urls', namespace='users')),
+    path('users/', include('users.urls', namespace='users')),
     path('design/', views.design_index, name='design_index'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('robot-policy/', views.robot_policy, name='robot_policy'),
