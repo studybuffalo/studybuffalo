@@ -5,7 +5,7 @@ from flash_cards.models import TextPart
 from .utils import (
     create_text_part, create_multiple_choice_answers, create_matching_answers,
     #create_multiple_choice_card, create_matching_card,
-    create_freeform_card, create_reference, create_tag, create_synonym
+    create_freeform_card, create_deck, create_reference, create_tag, create_synonym
 )
 
 class TextPartModelTest(TestCase):
@@ -252,7 +252,55 @@ class CardModelFreeformTest(TestCase):
         # TODO: Test this once the PartContainer string is sorted out
         pass
 
-class ReferenceModelFreeformTest(TestCase):
+class DeckModelTest(TestCase):
+    def setUp(self):
+        self.deck = create_deck('Cardiology Questions')
+
+    def test_labels(self):
+        # Test deck_uuid label
+        self.assertEqual(
+            self.deck._meta.get_field('deck_uuid').verbose_name,
+            'deck UUID',
+        )
+
+        # Test deck_name label
+        self.assertEqual(
+            self.deck._meta.get_field('deck_name').verbose_name,
+            'deck name',
+        )
+
+        # Test reviewed label
+        self.assertEqual(
+            self.deck._meta.get_field('reviewed').verbose_name,
+            'reviewed',
+        )
+
+        # Test active label
+        self.assertEqual(
+            self.deck._meta.get_field('active').verbose_name,
+            'active',
+        )
+
+        # Test date_modified label
+        self.assertEqual(
+            self.deck._meta.get_field('date_modified').verbose_name,
+            'date modified',
+        )
+
+        # Test date_reviewed label
+        self.assertEqual(
+            self.deck._meta.get_field('date_reviewed').verbose_name,
+            'date reviewed',
+        )
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.deck),
+            'Cardiology Questions'
+        )
+
+class ReferenceModelTest(TestCase):
     def setUp(self):
         self.reference = create_reference()
 
@@ -276,7 +324,7 @@ class ReferenceModelFreeformTest(TestCase):
             'This is a reference'
         )
 
-class TagModelFreeformTest(TestCase):
+class TagModelTest(TestCase):
     def setUp(self):
         self.tag = create_tag()
 
@@ -294,7 +342,7 @@ class TagModelFreeformTest(TestCase):
             'cardiology'
         )
 
-class SynonymModelFreeformTest(TestCase):
+class SynonymModelTest(TestCase):
     def setUp(self):
         self.synonym = create_synonym()
 

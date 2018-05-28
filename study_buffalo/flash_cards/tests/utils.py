@@ -218,3 +218,8 @@ def create_synonym():
     )
 
     return synonym
+
+def create_deck(deck_name):
+    return models.Deck(
+        deck_name=deck_name,
+    )

@@ -219,7 +219,8 @@ class Reference(models.Model):
 class Deck(models.Model):
     deck_uuid = models.UUIDField(
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        verbose_name='deck UUID',
     )
     deck_name = models.CharField(
         max_length=255,
@@ -231,7 +232,7 @@ class Deck(models.Model):
         default=True,
     )
     date_modified = models.DateTimeField(
-        default=timezone.now
+        default=timezone.now,
     )
     date_reviewed = models.DateTimeField(
         default=None,
@@ -239,6 +240,9 @@ class Deck(models.Model):
         null=True,
     )
     history = HistoricalRecords()
+
+    def __str__(self):
+        return self.deck_name
 
 class CardDeck(models.Model):
     deck = models.ForeignKey(
