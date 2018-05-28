@@ -76,3 +76,5 @@ def create_matching_answers():
         order=1,
         pair=None,
     )
+
+    return container

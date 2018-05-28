@@ -2,7 +2,9 @@ from django.test import TestCase
 
 from flash_cards.models import TextPart
 
-from .utils import create_text_part, create_multiple_choice_answers
+from .utils import (
+    create_text_part, create_multiple_choice_answers, create_matching_answers
+)
 
 class TextPartModelTest(TestCase):
     '''Test functions for the TextPart model'''
