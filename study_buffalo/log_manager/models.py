@@ -9,17 +9,17 @@ class AppData(models.Model):
     """Records information on apps to collect log data on"""
     name = models.CharField(
         help_text="Name of the application to be monitored",
-        max_length = 256,
+        max_length=256,
     )
 
     log_location = models.CharField(
         help_text="Absolute directory containing the log file(s)",
-        max_length = 512,
+        max_length=512,
     )
 
     file_name = models.CharField(
         help_text="Regex expression that matches the log file name(s)",
-        max_length = 512,
+        max_length=512,
     )
 
     monitor_start = models.BooleanField(
@@ -29,7 +29,7 @@ class AppData(models.Model):
             "entries when the log monitor checks at the specified time"
         )
     )
-    
+
     asc_time_format = models.CharField(
         help_text="The format of the asc_time field",
         max_length=50,
@@ -42,7 +42,7 @@ class AppData(models.Model):
 
     log_timezone = models.CharField(
         blank=True,
-        choices = TIMEZONE_LIST,
+        choices=TIMEZONE_LIST,
         help_text="What timezone this log file uses for times",
         max_length=35,
         null=True,
@@ -87,7 +87,7 @@ class AppData(models.Model):
         max_length=100,
         null=True
     )
-    
+
     next_review = models.DateTimeField(
         default=timezone.now,
     )
@@ -110,7 +110,7 @@ class AppData(models.Model):
 
 class LogEntry(models.Model):
     """Records a single log entry on an app"""
-    
+
     app_name = models.ForeignKey(
         AppData,
         help_text="The app this entry is for",
