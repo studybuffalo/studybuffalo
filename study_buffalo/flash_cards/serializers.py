@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from django.utils import timezone
 
-from flash_cards.models import Card, Deck, Tag, Synonym
+from flash_cards.models import Card, Deck, Tag, Synonym, PartContainer, TextPart
 
 class PartSerializer(serializers.Serializer):
     text = serializers.CharField(max_length=2000, required=False)
@@ -10,7 +10,7 @@ class PartSerializer(serializers.Serializer):
     audio = serializers.FileField(required=False)
     video = serializers.FileField(required=False)
     order = serializers.IntegerField(default=1, min_value=1)
-    def validate(self, date):
+    def validate(self, data):
         # Check that one part type is provided
         provided = (
             1 if data['text'] else 0
@@ -47,7 +47,7 @@ class AnswerSerializer(serializers.Serializer):
     freeform = PartSerializer(many=True, required=False)
 
 class ReferenceSerializer(serializers.Serializer):
-    reference = serializers.CharField(required=False, max_length=500)
+    reference = serializers.CharField(max_length=500)
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
@@ -63,7 +63,7 @@ class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
         fields = (
-            'question', 'answer_multiple_choice', 'answer_matching', 'answer_freefrom',
+            'question', 'answer_multiple_choice', 'answer_matching', 'answer_freeform',
             'rationale', 'reviewed', 'active', 'date_modified', 'date_reviewed'
         )
 
@@ -75,8 +75,8 @@ class NewCardSerializer(serializers.Serializer):
     rationale = PartSerializer(many=True)
     reviewed = serializers.BooleanField(default=False)
     active = serializers.BooleanField(default=False)
-    date_modified = serializers.DateField(default=timezone.now)
-    date_reviewed = serializers.DateField(default=timezone.now)
+    date_modified = serializers.DateTimeField(default=timezone.now)
+    date_reviewed = serializers.DateTimeField(default=None)
     deck = serializers.ListField(
         child=serializers.UUIDField(),
         min_length=1,
@@ -86,13 +86,28 @@ class NewCardSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         # Create all the parts for the question
-        for parts in validated_data['question']:
-            print(parts)
+        question = PartContainer.objects.create()
+        TextPart.objects.create(
+            container=question,
+            order=1,
+            text=validated_data['question'][0]['text']
+        )
 
         # Create the answer
+        answer_freeform = PartContainer.objects.create()
+        answer_freeform_text = TextPart.objects.create(
+            container=answer_freeform,
+            order=1,
+            text=validated_data['answer']["freeform"][0]["text"]
+        )
 
         # Create the rationale
-
+        rationale = PartContainer.objects.create()
+        TextPart.objects.create(
+            container=rationale,
+            order=1,
+            text=validated_data['rationale'][0]['text']
+        )
         # Retrieve the proper decks
 
         # Create the references
@@ -100,6 +115,10 @@ class NewCardSerializer(serializers.Serializer):
         # Retrieve and create the tags
 
         # Create all the new models
-        card = Card.objects.create()
+        card = Card.objects.create(
+            question=question,
+            answer_freeform=answer_freeform,
+            rationale=rationale,
+        )
 
-        return card
+        return validated_data
