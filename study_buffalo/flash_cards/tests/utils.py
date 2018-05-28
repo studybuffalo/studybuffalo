@@ -167,3 +167,45 @@ def create_matching_answers():
     answer_3R.save()
 
     return container
+
+def create_multiple_choice_card():
+    card = models.Card.objects.create()
+
+    return card
+
+def create_matching_card():
+    card = models.Card.objects.create()
+
+    return card
+
+def create_freeform_card():
+    # Setup required parts
+    question_text = create_text_part('This is a question')
+    answer_text = create_text_part('This is the answer')
+    rationale = create_text_part('This is the rationale')
+
+    card = models.Card.objects.create(
+        question=question_text.container,
+        answer_multiple_choice=None,
+        answer_matching=None,
+        answer_freeform=answer_text.container,
+        rationale=rationale.container,
+    )
+
+    return card
+
+def create_reference():
+    card = create_freeform_card()
+    reference = models.Reference.objects.create(
+        card=card,
+        reference='This is a reference',
+    )
+
+    return reference
+
+def create_tag():
+    tag = models.Tag.objects.create(
+        tag_name='cardiology',
+    )
+
+    return tag

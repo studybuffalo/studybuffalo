@@ -120,15 +120,17 @@ class MatchingAnswer(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return '{} (pair = {})'.format(
+        return '{}) {} ({})'.format(
+            self.order,
             self.part_container,
-            self.pair.part_container
+            'left' if self.side == 'l' else 'right'
         )
 
 class Card(models.Model):
     card_uuid = models.UUIDField(
         default=uuid.uuid4,
-        editable=False
+        editable=False,
+        verbose_name='card UUID',
     )
     question = models.ForeignKey(
         PartContainer,
@@ -139,12 +141,14 @@ class Card(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name='multiple choice answer',
     )
     answer_matching = models.ForeignKey(
         MatchingAnswer,
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name='matching answer',
     )
     answer_freeform = models.ForeignKey(
         PartContainer,
@@ -152,6 +156,7 @@ class Card(models.Model):
         blank=True,
         null=True,
         related_name='answer_freeform',
+        verbose_name='freeform answer',
     )
     rationale = models.ForeignKey(
         PartContainer,
@@ -159,6 +164,7 @@ class Card(models.Model):
         blank=True,
         null=True,
         related_name='answer_rationale',
+        verbose_name='answer rationale',
     )
     reviewed = models.BooleanField(
         default=False,
@@ -176,6 +182,22 @@ class Card(models.Model):
     )
     history = HistoricalRecords()
 
+    def __str__(self):
+        # Format the question text
+        question_string = str(self.question)
+
+        if len(question_string) > 50:
+            question = '{}...'.format(question_string[:47])
+        else:
+            question = question_string
+
+        # Determine the answer type
+        answer_type = (
+            'multiple choice' if self.answer_multiple_choice else
+            'matching' if self.answer_matching else 'freeform'
+        )
+        return '{} ({})'.format(question, answer_type)
+
 class Reference(models.Model):
     card = models.ForeignKey(
         Card,
@@ -185,6 +207,14 @@ class Reference(models.Model):
         max_length=500,
     )
     history = HistoricalRecords()
+
+    def __str__(self):
+        if len(self.reference) > 50:
+            reference = '{}...'.format(self.reference[:50])
+        else:
+            reference = self.reference
+
+        return reference
 
 class Deck(models.Model):
     deck_uuid = models.UUIDField(
@@ -229,6 +259,9 @@ class Tag(models.Model):
         unique=True,
     )
     history = HistoricalRecords()
+
+    def __str__(self):
+        return self.tag_name
 
 class Synonym(models.Model):
     tag = models.ForeignKey(
