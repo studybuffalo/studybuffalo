@@ -8,3 +8,6 @@ def create_text_part():
     )
 
     return new_text_part
+
+def create_media_part():
+    return None
