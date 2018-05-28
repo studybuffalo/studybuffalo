@@ -34,7 +34,8 @@ django-coverage-plugin = "==1.5.0"  # https://github.com/nedbat/django_coverage_
 django-debug-toolbar = "==1.9.1"  # https://github.com/jazzband/django-debug-toolbar
 django-jenkins = ">=0.110.0" # https://github.com/kmmbvnr/django-jenkins
 django-test-plus = "==1.0.22" # https://github.com/revsys/django-test-plus/
-pylint-common = ">=0.2.5"
+pylint-common = ">=0.2.5" # https://github.com/landscapeio/pylint-common
+pylint-django = ">=0.11.1" #https://github.com/PyCQA/pylint-django
 
 [requires]
 python_version = "3.6"
