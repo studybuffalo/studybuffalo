@@ -209,3 +209,12 @@ def create_tag():
     )
 
     return tag
+
+def create_synonym():
+    tag = create_tag()
+    synonym = models.Synonym.objects.create(
+        tag=tag,
+        synonym_name='cardio',
+    )
+
+    return synonym

@@ -274,6 +274,9 @@ class Synonym(models.Model):
     )
     history = HistoricalRecords()
 
+    def __str__(self):
+        return '{} (synonym for {})'.format(self.synonym_name, self.tag)
+
 class CardTag(models.Model):
     card = models.ForeignKey(
         Card,

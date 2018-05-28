@@ -5,7 +5,7 @@ from flash_cards.models import TextPart
 from .utils import (
     create_text_part, create_multiple_choice_answers, create_matching_answers,
     #create_multiple_choice_card, create_matching_card,
-    create_freeform_card, create_reference, create_tag
+    create_freeform_card, create_reference, create_tag, create_synonym
 )
 
 class TextPartModelTest(TestCase):
@@ -292,4 +292,28 @@ class TagModelFreeformTest(TestCase):
         self.assertEqual(
             str(self.tag),
             'cardiology'
+        )
+
+class SynonymModelFreeformTest(TestCase):
+    def setUp(self):
+        self.synonym = create_synonym()
+
+    def test_labels(self):
+        # Test tag label
+        self.assertEqual(
+            self.synonym._meta.get_field('tag').verbose_name,
+            'tag',
+        )
+
+        # Test synonym_name label
+        self.assertEqual(
+            self.synonym._meta.get_field('synonym_name').verbose_name,
+            'synonym name',
+        )
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.synonym),
+            'cardio (synonym for cardiology)'
         )
