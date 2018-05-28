@@ -11,6 +11,9 @@ class PartContainer(models.Model):
     '''Container to hold one or more parts'''
     history = HistoricalRecords()
 
+    def __str__(self):
+        return 'PartContainer'
+
 class AbstractPart(models.Model):
     '''Abstract model to construct parts'''
     container = models.ForeignKey(
@@ -74,6 +77,13 @@ class MultipleChoiceAnswer(models.Model):
         default=False,
     )
     history = HistoricalRecords()
+
+    def __str__(self):
+        return '{}) {} ({})'.format(
+            self.order,
+            self.part_container,
+            'correct' if self.correct else 'incorrect'
+        )
 
 class MatchingContainer(models.Model):
     '''Container for matching answers'''
