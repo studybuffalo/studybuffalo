@@ -10,9 +10,6 @@ from django.utils.timezone import utc
 
 
 class Migration(migrations.Migration):
-
-    replaces = [('log_manager', '0001_initial'), ('log_manager', '0002_auto_20171016_1831'), ('log_manager', '0003_auto_20171016_1915'), ('log_manager', '0004_auto_20171016_1915'), ('log_manager', '0005_auto_20171016_1922'), ('log_manager', '0006_auto_20171016_2015'), ('log_manager', '0007_auto_20171016_2016'), ('log_manager', '0008_auto_20171016_2133'), ('log_manager', '0009_auto_20171016_2206'), ('log_manager', '0010_auto_20171016_2207')]
-
     initial = True
 
     dependencies = [
