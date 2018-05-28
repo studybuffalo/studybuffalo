@@ -301,7 +301,7 @@ class Feedback(models.Model):
         default=timezone.now
     )
     comment = models.TextField(
-        max_length = 2000,
+        max_length=2000,
     )
     history = HistoricalRecords()
 

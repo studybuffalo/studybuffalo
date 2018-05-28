@@ -1,8 +1,11 @@
+# pylint: disable=abstract-method,arguments-differ
 from rest_framework import serializers
 
 from django.utils import timezone
 
-from flash_cards.models import Card, Deck, Tag, Synonym, PartContainer, TextPart, CardDeck, Reference, CardTag
+from flash_cards.models import (
+    Card, Deck, Tag, Synonym, PartContainer, MediaPart, TextPart, CardDeck, Reference, CardTag
+)
 
 class PartSerializer(serializers.Serializer):
     audio = serializers.FileField(required=False, default=None)
@@ -138,7 +141,7 @@ class NewCardSerializer(serializers.Serializer):
             return container
 
         # Assemble the question
-        question=assemble_part_container(validated_data['question'])
+        question = assemble_part_container(validated_data['question'])
 
         # Create the answer
         if 'multiple_choice' in validated_data['answer']:
@@ -155,7 +158,7 @@ class NewCardSerializer(serializers.Serializer):
             answer_matching = None
 
         # Create the rationale
-        if len(validated_data['rationale']):
+        if validated_data['rationale']:
             rationale = assemble_part_container(validated_data['rationale'])
 
         # Create all the new models
@@ -179,10 +182,10 @@ class NewCardSerializer(serializers.Serializer):
             synonym = Synonym.objects.filter(synonym_name=tag)
 
             # Synonym found, match tag to card
-            if len(created_synonym):
+            if synonym:
                 CardTag.objects.create(
                     card=card,
-                    tag=created_synonym[0].tag,
+                    tag=synonym[0].tag,
                 )
 
             # New synonym/tag; create tag to match to card
@@ -200,7 +203,6 @@ class NewCardSerializer(serializers.Serializer):
                 )
 
         # Add any references for this card
-        print(validated_data['references'])
         for reference in validated_data['references']:
             Reference.objects.create(
                 card=card,
@@ -210,7 +212,7 @@ class NewCardSerializer(serializers.Serializer):
         return validated_data
 
     def validate_question(self, data):
-        if len(data) == 0:
+        if not data:
             raise serializers.ValidationError('A question is required.')
 
         return data
