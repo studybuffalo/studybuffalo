@@ -90,7 +90,7 @@ class MultipleChoiceAnswerModelTest(TestCase):
             'order',
         )
 
-        # Test order label
+        # Test correct label
         self.assertEqual(
             self.answers[0]._meta.get_field('correct').verbose_name,
             'correct',
@@ -129,22 +129,28 @@ class MatchingAnswerModelTest(TestCase):
         self.answers = answer_container.matchinganswer_set.all()
 
     def test_labels(self):
-        # Test text label
+        # Test side label
+        self.assertEqual(
+            self.answers[0]._meta.get_field('side').verbose_name,
+            'side',
+        )
+
+        # Test order label
         self.assertEqual(
             self.answers[0]._meta.get_field('order').verbose_name,
             'order',
         )
 
-        # Test order label
+        # Test pair label
         self.assertEqual(
-            self.answers[0]._meta.get_field('correct').verbose_name,
-            'correct',
+            self.answers[0]._meta.get_field('pair').verbose_name,
+            'pair',
         )
 
-        # Test container label
+        # Test question_container label
         self.assertEqual(
-            self.answers[0]._meta.get_field('container').verbose_name,
-            'container',
+            self.answers[0]._meta.get_field('question_container').verbose_name,
+            'question container',
         )
 
         # Test part container label
@@ -155,14 +161,7 @@ class MatchingAnswerModelTest(TestCase):
 
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        # Test an incorrect response
         self.assertEqual(
             str(self.answers[0]),
-            '1) PartContainer (incorrect)'
-        )
-
-        # Test an correct response
-        self.assertEqual(
-            str(self.answers[1]),
-            '2) PartContainer (correct)'
+            'PartContainer (pair = PartContainer)'
         )

@@ -119,6 +119,12 @@ class MatchingAnswer(models.Model):
     )
     history = HistoricalRecords()
 
+    def __str__(self):
+        return '{} (pair = {})'.format(
+            self.part_container,
+            self.pair.part_container
+        )
+
 class Card(models.Model):
     card_uuid = models.UUIDField(
         default=uuid.uuid4,
