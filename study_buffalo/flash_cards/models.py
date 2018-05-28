@@ -33,8 +33,8 @@ class TextPart(AbstractPart):
 
 class MediaPart(AbstractPart):
     MEDIA_TYPES = (
-        ('i', 'Image'),
         ('a', 'Audio'),
+        ('i', 'Image'),
         ('v', 'Video'),
     )
 
