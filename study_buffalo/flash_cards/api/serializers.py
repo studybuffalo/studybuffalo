@@ -78,7 +78,6 @@ class SynonymSerializer(serializers.ModelSerializer):
         fields = ('synonym_name', 'tag', )
 
 class TagSerializer(serializers.ModelSerializer):
-    #synonyms = SynonymSerializer(many=True, read_only=True)
     synonyms = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=True,
