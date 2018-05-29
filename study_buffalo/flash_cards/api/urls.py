@@ -6,11 +6,11 @@ from flash_cards import views
 
 urlpatterns = [
     path('authentication/', include('rest_framework.urls')),
-    path('v1/cards/', views.Cards.as_view(), name='card-list'),
-    path('v1/decks/', views.DeckList.as_view(), name='deck-list'),
-    path('v1/decks/<uuid:deck_uuid>/', views.DeckDetail.as_view(), name='deck-detail'),
-    path('v1/tags/', views.tags, name='tag-list'),
-    path('v1/', views.api_root, name='root'),
+    path('cards/', views.Cards.as_view(), name='card-list'),
+    path('decks/', views.DeckList.as_view(), name='deck-list'),
+    path('decks/<uuid:deck_uuid>/', views.DeckDetail.as_view(), name='deck-detail'),
+    path('tags/', views.tags, name='tag-list'),
+    path('', views.api_root, name='root'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
