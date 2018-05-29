@@ -35,7 +35,7 @@ urlpatterns = [
 
     # Website Tools and Applications
     path('design/', views.design_index, name='design_index'),
-    path('flash-cards/', include('flash_cards.urls')),
+    path('flash-cards/', include('flash_cards.urls'), name='flash_cards'),
     path('logs/', include('log_manager.urls')),
     path('play/', include('play.urls')),
     path('rdrhc-calendar/', include('rdrhc_calendar.urls')),

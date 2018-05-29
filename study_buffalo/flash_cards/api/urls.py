@@ -6,10 +6,10 @@ from flash_cards import views
 
 urlpatterns = [
     path('authentication/', include('rest_framework.urls')),
-    path('cards/', views.Cards.as_view(), name='card-list'),
-    path('decks/', views.DeckList.as_view(), name='deck-list'),
-    path('decks/<uuid:deck_uuid>/', views.DeckDetail.as_view(), name='deck-detail'),
-    path('tags/', views.tags, name='tag-list'),
+    path('cards/', views.Cards.as_view(), name='card_list'),
+    path('decks/', views.DeckList.as_view(), name='deck_list'),
+    path('decks/<uuid:deck_uuid>/', views.DeckDetail.as_view(), name='deck_detail'),
+    path('tags/', views.tags, name='tag_list'),
     path('', views.api_root, name='root'),
 ]
 
