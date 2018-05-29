@@ -66,15 +66,29 @@ class AnswerSerializer(serializers.Serializer):
 
         return data
 
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = ('tag_name', )
-
 class SynonymSerializer(serializers.ModelSerializer):
+    tag = serializers.HyperlinkedRelatedField(
+        read_only=True,
+        view_name='flash_cards:api_v1:tag_detail',
+        lookup_field='tag_name',
+    )
+
     class Meta:
         model = Synonym
-        fields = ('synonym_name', 'tag')
+        fields = ('synonym_name', 'tag', )
+
+class TagSerializer(serializers.ModelSerializer):
+    #synonyms = SynonymSerializer(many=True, read_only=True)
+    synonyms = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='flash_cards:api_v1:synonym_detail',
+        lookup_field='synonym_name',
+    )
+
+    class Meta:
+        model = Tag
+        fields = ('tag_name', 'synonyms', )
 
 class ReferenceSerializer(serializers.ModelSerializer):
     class Meta:

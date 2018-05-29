@@ -271,6 +271,7 @@ class Synonym(models.Model):
     tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
+        related_name='synonyms',
     )
     synonym_name = models.CharField(
         max_length=100,

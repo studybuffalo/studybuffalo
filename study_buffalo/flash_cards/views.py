@@ -52,14 +52,16 @@ class TagList(generics.ListCreateAPIView):
     serializer_class = TagSerializer
 
 class TagDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Deck.objects.all()
+    queryset = Tag.objects.all()
     permission_classes = (IsAuthenticated, )
     serializer_class = TagSerializer
+    lookup_field = 'tag_name'
 
 class SynonymDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Synonym.objects.all()
     permission_classes = (IsAuthenticated, )
     serializer_class = SynonymSerializer
+    lookup_field = 'synonym_name'
 
 class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Reference.objects.all()
