@@ -71,6 +71,16 @@ class TagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ('tag_name', )
 
+class SynonymSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Synonym
+        fields = ('synonym_name', 'tag')
+
+class ReferenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reference
+        fields = ('reference', 'card')
+
 class DeckSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deck

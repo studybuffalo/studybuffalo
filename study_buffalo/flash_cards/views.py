@@ -7,8 +7,8 @@ from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from rest_framework import status, generics
 
-from .models import Card, Deck, Tag
-from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer
+from .models import Card, Deck, Tag, Synonym, Reference
+from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer, SynonymSerializer, ReferenceSerializer
 
 
 @api_view(['GET'])
@@ -46,14 +46,25 @@ class DeckDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = DeckSerializer
 
-@api_view(['GET'])
-def tags(request):
-    if request.method == 'GET':
-        tag_list = Tag.objects.all()
-        serializer = TagSerializer(tag_list, many=True)
+class TagList(generics.ListCreateAPIView):
+    queryset = Tag.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = TagSerializer
 
-        return Response(serializer.data)
+class TagDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Deck.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = TagSerializer
 
+class SynonymDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Synonym.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = SynonymSerializer
+
+class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Reference.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = ReferenceSerializer
 
 # # Study Buffalo Flash Cards
 # ## Overview
