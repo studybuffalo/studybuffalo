@@ -38,10 +38,8 @@ urlpatterns = [
     path('flash-cards/', include('flash_cards.urls')),
     path('logs/', include('log_manager.urls')),
     path('play/', include('play.urls')),
-
     path('rdrhc-calendar/', include('rdrhc_calendar.urls')),
     path('read/', include('read.urls')),
-
     path('study/', include('study.urls')),
     path('tools/', views.tools_index, name='tools_index'),
     path('tools/alberta-adaptations/', views.alberta_adaptations_index, name='alberta_adaptations_index'),
