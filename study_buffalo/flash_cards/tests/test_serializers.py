@@ -26,22 +26,6 @@ class PartSerializerTest(TestCase):
             ['audio', 'image', 'text', 'video', 'order']
         )
 
-    def test_text_field_content(self):
-        serializer = PartSerializer(self.text_data)
-
-        self.assertEqual(
-            serializer.data['text'],
-            'This is test text'
-        )
-
-    def test_order_field_content(self):
-        serializer = PartSerializer(self.text_data)
-
-        self.assertEqual(
-            serializer.data['order'],
-            1
-        )
-
     def test_text_max_length(self):
         invalid_text_data = self.text_data
         invalid_text_data['text'] = 'a' * 2001
@@ -112,22 +96,6 @@ class MultipleChoiceSerializerTest(TestCase):
             ['content', 'order', 'correct']
         )
 
-    def test_order_field_content(self):
-        serializer = MultipleChoiceSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['order'],
-            1
-        )
-
-    def test_correct_field_content(self):
-        serializer = MultipleChoiceSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['correct'],
-            True
-        )
-
     def test_order_min_value(self):
         invalid_data = self.data
         invalid_data['order'] = 0
@@ -174,30 +142,6 @@ class MatchingSerializerTest(TestCase):
         self.assertCountEqual(
             serializer.data.keys(),
             ['content', 'side', 'order', 'pair']
-        )
-
-    def test_side_field_content(self):
-        serializer = MatchingSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['side'],
-            'l'
-        )
-
-    def test_order_field_content(self):
-        serializer = MatchingSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['order'],
-            1
-        )
-
-    def test_pair_field_content(self):
-        serializer = MatchingSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['pair'],
-            1
         )
 
     def test_side_choice_restrictions(self):
@@ -390,14 +334,6 @@ class TagSerializerTest(TestCase):
             ['tag_name']
         )
 
-    def test_tag_name_field_content(self):
-        serializer = TagSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['tag_name'],
-            'cardiology'
-        )
-
     def test_tag_name_max_length(self):
         invalid_text_data = self.data
         invalid_text_data['tag_name'] = 'a' * 101
@@ -443,42 +379,56 @@ class DeckSerializerTest(TestCase):
             ['deck_uuid', 'deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed']
         )
 
-    def test_deck_uuid_field_content(self):
-        serializer = DeckSerializer(self.data)
+    def test_deck_uuid_cannot_be_set(self):
+        invalid_data = self.data
+        invalid_data['deck-uuid'] = '1a'
 
-        self.assertEqual(
-            serializer.data['deck_uuid'],
-            '1e59d275-704f-479e-a911-ba2119f13d0d'
+        serializer = DeckSerializer(data=invalid_data)
+
+        # Check that serializer is valid
+        self.assertTrue(serializer.is_valid())
+
+    def test_deck_name_max_length(self):
+        invalid_data = self.data
+        invalid_data['deck_name'] = 'a' * 256
+
+        serializer = DeckSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['deck_name']
         )
 
-    def test_deck_name_field_content(self):
-        serializer = DeckSerializer(self.data)
-
+        # Check that proper error message generated
         self.assertEqual(
-            serializer.data['deck_name'],
-            'Cardiology'
+            serializer.errors['deck_name'],
+            ['Ensure this field has no more than 255 characters.']
         )
 
-    def test_reviewed_field_content(self):
-        serializer = DeckSerializer(self.data)
+    def test_invalid_date_handling(self):
+        invalid_data = self.data
+        invalid_data['date_reviewed'] = '2017-01-01'
 
-        self.assertEqual(
-            serializer.data['reviewed'],
-            False
+        serializer = DeckSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['date_reviewed']
         )
 
-    def test_active_field_content(self):
-        serializer = DeckSerializer(self.data)
-
+        # Check that proper error message generated
         self.assertEqual(
-            serializer.data['active'],
-            True
-        )
-
-    def test_date_modified_content(self):
-        serializer = DeckSerializer(self.data)
-
-        self.assertEqual(
-            serializer.data['date_modified'],
-            True
+            serializer.errors['date_reviewed'],
+            [
+                'Datetime has wrong format. Use one of these formats instead: '
+                'YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z].'
+            ]
         )
