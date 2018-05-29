@@ -235,12 +235,12 @@ def create_synonym():
     return synonym
 
 def create_deck(deck_name):
-    return models.Deck(
+    return models.Deck.objects.create(
         deck_name=deck_name,
     )
 
 def create_deck_stats():
-    return models.DeckStats(
+    return models.DeckStats.objects.create(
         user=create_user(),
         deck=create_deck('Cardiology'),
         number_questions=3,
@@ -250,11 +250,18 @@ def create_deck_stats():
     )
 
 def create_user_stats():
-    return models.UserStats(
+    return models.UserStats.objects.create(
         user=create_user(),
         number_decks=10,
         number_questions=60,
         number_correct=30,
         number_partially_correct=20,
         number_incorrect=10,
+    )
+
+def create_card_feedback():
+    return models.CardFeedback.objects.create(
+        user=create_user(),
+        comment='This is a feedback comment',
+        card=create_freeform_card(),
     )

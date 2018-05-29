@@ -388,8 +388,24 @@ class CardFeedback(Feedback):
         on_delete=models.CASCADE
     )
 
+    def __str__(self):
+        if len(self.comment) > 50:
+            comment = '{}...'.format(self.comment[:47])
+        else:
+            comment = self.comment
+
+        return '{} feedback: {}'.format(str(self.card), comment)
+
 class DeckFeedback(Feedback):
     Deck = models.ForeignKey(
         Deck,
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        if len(self.comment) > 50:
+            comment = '{}...'.format(self.comment[:47])
+        else:
+            comment = self.comment
+
+        return '{} feedback: {}'.format(str(self.deck), comment)
