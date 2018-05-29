@@ -1,12 +1,11 @@
 from django.test import TestCase
 
-from flash_cards.models import Card, CardDeck, Tag, Synonym, CardTag, Reference
+from flash_cards.models import Card, Deck, CardDeck, Tag, Synonym, CardTag, Reference
 from flash_cards.serializers import (
     PartSerializer, MultipleChoiceSerializer, MatchingSerializer, AnswerSerializer,
     TagSerializer, DeckSerializer, NewCardSerializer
 )
 
-from .utils import create_deck
 
 class PartSerializerTest(TestCase):
     def setUp(self):
@@ -438,7 +437,7 @@ class DeckSerializerTest(TestCase):
 
 class NewCardSerializerTest(TestCase):
     def setUp(self):
-        deck = create_deck('cardiology')
+        deck = Deck.objects.create(deck_name='cardiology')
 
         self.data = {
             'uuid': '',

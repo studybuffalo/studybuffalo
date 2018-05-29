@@ -7,15 +7,15 @@ from rest_framework.views import APIView
 from rest_framework import permissions, status, generics
 
 from flash_cards.models import Card, Deck, Tag
-from flash_cards.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer
+from flash_cards.api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer
 
 
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'cards': reverse('card-list', request=request, format=format),
-        'decks': reverse('deck-list', request=request, format=format),
-        'tags': reverse('tag-list', request=request, format=format),
+        'cards': reverse('flash_cards:api_v1:card_list', request=request, format=format),
+        'decks': reverse('flash_cards:api_v1:deck_list', request=request, format=format),
+        'tags': reverse('flash_cards:api_v1:tag_list', request=request, format=format),
     })
 
 class Cards(APIView):
