@@ -18,23 +18,41 @@ sitemaps = {
 }
 
 urlpatterns = [
+    # Django Admin, use {% url 'admin:index' %}
+    path(settings.ADMIN_URL, admin.site.urls),
+
+    # Account URLs
+    path('accounts/profile/', views.account_profile, name='account_profile'),
+    path('accounts/', include('allauth.urls')),
+
+    # Website Information URLs
+    path('contact/', views.contact, name='contact'),
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
+    path('robot-policy/', views.robot_policy, name='robot_policy'),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt'), name='robots.txt'),
+    path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
+    path('unsubscribe/complete/', views.unsubscribe_complete, name='unsubscribe_complete'),
+
+    # Website Tools and Applications
+    path('design/', views.design_index, name='design_index'),
+    path('flash-cards/', include('flash_cards.urls')),
+    path('logs/', include('log_manager.urls')),
     path('play/', include('play.urls')),
-    path('study/', include('study.urls')),
-    path('read/', include('read.urls')),
-    path('tools/', views.tools_index, name='tools_index'),
+
     path('rdrhc-calendar/', include('rdrhc_calendar.urls')),
+    path('read/', include('read.urls')),
+
+    path('study/', include('study.urls')),
+    path('tools/', views.tools_index, name='tools_index'),
     path('tools/alberta-adaptations/', views.alberta_adaptations_index, name='alberta_adaptations_index'),
     path('tools/dictionary/', include('dictionary.urls')),
     path('tools/dpd/', include('hc_dpd.urls')),
     path('tools/drug-price-calculator/', include('drug_price_calculator.urls')),
-    path('tools/flash-cards/', include('flash_cards.urls')),
     path('tools/substitutions/', include('substitutions.urls')),
     path('tools/vancomycin-calculator/', include('vancomycin_calculator.urls')),
     path('users/', include('users.urls', namespace='users')),
-    path('design/', views.design_index, name='design_index'),
-    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
-    path('robot-policy/', views.robot_policy, name='robot_policy'),
-    path('contact/', views.contact, name='contact'),
+
+    # Sitemap URLS
     path(
         'sitemap/',
         views.custom_sitemap,
@@ -42,17 +60,9 @@ urlpatterns = [
         name='sitemap'
     ),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('logs/', include('log_manager.urls')),
-    path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
-    path('unsubscribe/complete/', views.unsubscribe_complete, name='unsubscribe_complete'),
-    path('accounts/profile/', views.account_profile, name='account_profile'),
-    path('accounts/', include('allauth.urls')),
-    path('robots.txt', TemplateView.as_view(template_name='robots.txt'), name='robots.txt'),
-    path('', views.Index.as_view(), name='index'),
 
-    # Django Admin, use {% url 'admin:index' %}
-    path(settings.ADMIN_URL, admin.site.urls),
-    # Your stuff: custom urls includes go here
+    # Home page
+    path('', views.Index.as_view(), name='index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
