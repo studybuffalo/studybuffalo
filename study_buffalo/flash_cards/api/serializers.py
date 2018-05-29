@@ -7,6 +7,7 @@ from flash_cards.models import (
     Card, Deck, Tag, Synonym, PartContainer, MediaPart, TextPart, CardDeck, Reference, CardTag
 )
 
+
 class PartSerializer(serializers.Serializer):
     audio = serializers.FileField(required=False, default=None)
     image = serializers.ImageField(required=False, default=None)
@@ -112,13 +113,25 @@ class CardSerializer(serializers.ModelSerializer):
         view_name='flash_cards:api_v1:reference_detail',
         lookup_field='reference_uuid',
     )
+    tags = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='flash_cards:api_v1:tag_detail',
+        lookup_field='tag_name',
+    )
+    decks = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='flash_cards:api_v1:deck_detail',
+        lookup_field='deck_uuid',
+    )
 
     class Meta:
         model = Card
         fields = (
             'card_uuid', 'question', 'answer_multiple_choice', 'answer_matching',
-            'answer_freeform','rationale', 'reviewed', 'active', 'date_modified',
-            'date_reviewed', 'references'
+            'answer_freeform', 'rationale', 'reviewed', 'active', 'date_modified',
+            'date_reviewed', 'references', 'tags', 'decks'
         )
 
 class NewCardSerializer(serializers.Serializer):

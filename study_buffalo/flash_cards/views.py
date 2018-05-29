@@ -10,7 +10,10 @@ from rest_framework import status, generics
 from django.shortcuts import get_object_or_404
 
 from .models import Card, Deck, Tag, Synonym, Reference
-from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer, SynonymSerializer, ReferenceSerializer
+from .api.serializers import (
+    CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer, SynonymSerializer,
+    ReferenceSerializer
+)
 
 
 @api_view(['GET'])
@@ -25,7 +28,7 @@ def api_root(request, format=None):
 class CardList(APIView):
     def get(self, request, format=None):
         cards = Card.objects.all()
-        serializer = CardSerializer(cards, many=True)
+        serializer = CardSerializer(cards, many=True, context={'request': request})
 
         return Response(serializer.data)
 
@@ -54,6 +57,7 @@ class DeckDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Deck.objects.all()
     permission_classes = (IsAuthenticated, )
     serializer_class = DeckSerializer
+    lookup_field = 'deck_uuid'
 
 class TagList(generics.ListCreateAPIView):
     queryset = Tag.objects.all()
