@@ -262,3 +262,101 @@ class MatchingSerializerTest(TestCase):
             serializer.errors['order'],
             ['Ensure this value is greater than or equal to 1.']
         )
+
+class AnswerSerializerTest(TestCase):
+    def setUp(self):
+        self.multiple_choice_data = {
+            'multiple_choice': [
+                {
+                    'content': [
+                        {
+                            'text': 'This is test text',
+                            'order': 1,
+                        },
+                    ],
+                    'order': 1,
+                    'correct': True,
+                },
+            ]
+        }
+        self.matching_data = {
+            'multiple_choice': [
+                {
+                    'content': [
+                        {
+                            'text': 'This is test text',
+                            'order': 1,
+                        },
+                    ],
+                    'side': 'l',
+                    'order': 1,
+                    'pair': 1,
+                },
+            ]
+        }
+        self.freeform_data = {
+            'freeform': [
+                {
+                    'text': 'This is test text',
+                    'order': 1,
+                },
+            ]
+        }
+
+    def test_accepts_valid_freeform_data(self):
+        serializer = AnswerSerializer(data=self.freeform_data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = AnswerSerializer({
+            'multiple_choice': [],
+            'matching': [],
+            'freeform': []
+        })
+
+        self.assertCountEqual(
+            serializer.data.keys(),
+            ['multiple_choice', 'matching', 'freeform']
+        )
+
+    def test_zero_answer_validation(self):
+        serializer = AnswerSerializer(data={})
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['non_field_errors']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['non_field_errors'],
+            ['Must provide an answer.']
+        )
+
+    def test_more_than_one_answer_validation(self):
+        invalid_data = {
+            'multiple_choice': self.multiple_choice_data['multiple_choice'],
+            'freeform': self.freeform_data['freeform']
+        }
+
+        serializer = AnswerSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['non_field_errors']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['non_field_errors'],
+            ['Must submit only one answer type.']
+        )
