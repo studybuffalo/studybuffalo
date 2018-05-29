@@ -40,9 +40,10 @@ class MatchingSerializer(serializers.Serializer):
         ('l', 'Left'),
         ('r', 'Right'),
     )
+
     content = PartSerializer(many=True)
-    order = serializers.IntegerField(default=1, min_value=1)
     side = serializers.ChoiceField(choices=SIDE_CHOICES)
+    order = serializers.IntegerField(default=1, min_value=1)
     pair = serializers.IntegerField(default=1, min_value=1)
 
 class AnswerSerializer(serializers.Serializer):
