@@ -15,9 +15,9 @@ from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, 
 @permission_classes((IsAuthenticated, ))
 def api_root(request, format=None):
     return Response({
-        'cards': reverse('card_list', request=request, format=format),
-        'decks': reverse('deck_list', request=request, format=format),
-        'tags': reverse('tag_list', request=request, format=format),
+        'cards': reverse('flash_cards:api_v1:card_list', request=request, format=format),
+        'decks': reverse('flash_cards:api_v1:deck_list', request=request, format=format),
+        'tags': reverse('flash_cards:api_v1:tag_list', request=request, format=format),
     })
 
 class Cards(APIView):

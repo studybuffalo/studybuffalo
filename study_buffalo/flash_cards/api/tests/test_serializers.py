@@ -6,6 +6,10 @@ from flash_cards.api.serializers import (
     TagSerializer, DeckSerializer, NewCardSerializer
 )
 
+<<<<<<< HEAD:study_buffalo/flash_cards/api/tests/test_serializers.py
+=======
+
+>>>>>>> origin/flash_cards:study_buffalo/flash_cards/api/tests/test_serializers.py
 class PartSerializerTest(TestCase):
     def setUp(self):
         # TODO: Add tests for audio, image, and videos
@@ -436,9 +440,13 @@ class DeckSerializerTest(TestCase):
 
 class NewCardSerializerTest(TestCase):
     def setUp(self):
+<<<<<<< HEAD:study_buffalo/flash_cards/api/tests/test_serializers.py
         deck = Deck.objects.create(
             deck_name='cardiology'
         )
+=======
+        deck = Deck.objects.create(deck_name='cardiology')
+>>>>>>> origin/flash_cards:study_buffalo/flash_cards/api/tests/test_serializers.py
 
         self.data = {
             'uuid': '',
