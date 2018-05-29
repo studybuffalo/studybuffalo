@@ -6,7 +6,7 @@ from .utils import (
     create_text_part, create_multiple_choice_answers, create_matching_answers,
     #create_multiple_choice_card, create_matching_card,
     create_freeform_card, create_deck, create_reference, create_tag, create_synonym,
-    create_deck_stats, create_user_stats, create_card_feedback
+    create_deck_stats, create_user_stats, create_card_feedback, create_deck_feedback
 )
 
 class TextPartModelTest(TestCase):
@@ -499,6 +499,12 @@ class CardFeedbackModelTest(TestCase):
             'comment',
         )
 
+        # Test card label
+        self.assertEqual(
+            self.feedback._meta.get_field('card').verbose_name,
+            'card',
+        )
+
     def test_comment_max_length(self):
         self.assertEqual(
             self.feedback._meta.get_field('comment').max_length,
@@ -510,4 +516,46 @@ class CardFeedbackModelTest(TestCase):
         self.assertEqual(
             str(self.feedback),
             'PartContainer (freeform) feedback: This is a feedback comment'
+        )
+
+class DeckFeedbackModelTest(TestCase):
+    def setUp(self):
+        self.feedback = create_deck_feedback()
+
+    def test_labels(self):
+        # Test user label
+        self.assertEqual(
+            self.feedback._meta.get_field('user').verbose_name,
+            'user',
+        )
+
+        # Test date_submitted label
+        self.assertEqual(
+            self.feedback._meta.get_field('date_submitted').verbose_name,
+            'date submitted',
+        )
+
+        # Test comment label
+        self.assertEqual(
+            self.feedback._meta.get_field('comment').verbose_name,
+            'comment',
+        )
+
+        # Test deck label
+        self.assertEqual(
+            self.feedback._meta.get_field('deck').verbose_name,
+            'deck',
+        )
+
+    def test_comment_max_length(self):
+        self.assertEqual(
+            self.feedback._meta.get_field('comment').max_length,
+            2000
+        )
+
+    def test_short_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.feedback),
+            'Cardiology feedback: This is a feedback comment'
         )

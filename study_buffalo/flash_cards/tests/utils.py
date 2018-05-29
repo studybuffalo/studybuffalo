@@ -265,3 +265,10 @@ def create_card_feedback():
         comment='This is a feedback comment',
         card=create_freeform_card(),
     )
+
+def create_deck_feedback():
+    return models.DeckFeedback.objects.create(
+        user=create_user(),
+        comment='This is a feedback comment',
+        deck=create_deck('Cardiology'),
+    )
