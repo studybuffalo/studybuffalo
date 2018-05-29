@@ -1,10 +1,11 @@
 # pylint: disable=redefined-builtin
 
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
-from rest_framework import permissions, status, generics
+from rest_framework import status, generics
 
 from .models import Card, Deck, Tag
 from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer
@@ -36,17 +37,19 @@ class Cards(APIView):
 
 class DeckList(generics.ListCreateAPIView):
     queryset = Deck.objects.all()
+    permission_classes = (IsAuthenticated, )
     serializer_class = DeckSerializer
 
 class DeckDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Deck.objects.all()
+    permission_classes = (IsAuthenticated, )
     serializer_class = DeckSerializer
 
 @api_view(['GET'])
 def tags(request):
     if request.method == 'GET':
-        tags = Tag.objects.all()
-        serializer = TagSerializer(tags, many=True)
+        tag_list = Tag.objects.all()
+        serializer = TagSerializer(tag_list, many=True)
 
         return Response(serializer.data)
 
