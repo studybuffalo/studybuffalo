@@ -6,8 +6,8 @@ from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from rest_framework import permissions, status, generics
 
-from flash_cards.models import Card, Deck, Tag
-from flash_cards.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer
+from .models import Card, Deck, Tag
+from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer
 
 
 @api_view(['GET'])
