@@ -397,7 +397,7 @@ class CardFeedback(Feedback):
         return '{} feedback: {}'.format(str(self.card), comment)
 
 class DeckFeedback(Feedback):
-    Deck = models.ForeignKey(
+    deck = models.ForeignKey(
         Deck,
         on_delete=models.CASCADE
     )
