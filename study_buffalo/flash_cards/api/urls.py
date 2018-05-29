@@ -7,7 +7,8 @@ from flash_cards import views
 app_name = 'api_v1'
 urlpatterns = [
     path('authentication/', include('rest_framework.urls')),
-    path('cards/', views.Cards.as_view(), name='card_list'),
+    path('cards/', views.CardList.as_view(), name='card_list'),
+    path('cards/<uuid:card_uuid>/', views.CardDetail.as_view(), name='card_detail'),
     path('decks/', views.DeckList.as_view(), name='deck_list'),
     path('decks/<uuid:deck_uuid>/', views.DeckDetail.as_view(), name='deck_detail'),
     path('tags/', views.TagList.as_view(), name='tag_list'),

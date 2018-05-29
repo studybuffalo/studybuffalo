@@ -90,6 +90,12 @@ class TagSerializer(serializers.ModelSerializer):
         fields = ('tag_name', 'synonyms', )
 
 class ReferenceSerializer(serializers.ModelSerializer):
+    card = serializers.HyperlinkedRelatedField(
+        read_only=True,
+        view_name='flash_cards:api_v1:card_detail',
+        lookup_field='card_uuid',
+    )
+
     class Meta:
         model = Reference
         fields = ('reference', 'card')
@@ -100,11 +106,19 @@ class DeckSerializer(serializers.ModelSerializer):
         fields = ('deck_uuid', 'deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed')
 
 class CardSerializer(serializers.ModelSerializer):
+    references = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='flash_cards:api_v1:reference_detail',
+        lookup_field='reference_uuid',
+    )
+
     class Meta:
         model = Card
         fields = (
-            'question', 'answer_multiple_choice', 'answer_matching', 'answer_freeform',
-            'rationale', 'reviewed', 'active', 'date_modified', 'date_reviewed'
+            'card_uuid', 'question', 'answer_multiple_choice', 'answer_matching',
+            'answer_freeform','rationale', 'reviewed', 'active', 'date_modified',
+            'date_reviewed', 'references'
         )
 
 class NewCardSerializer(serializers.Serializer):

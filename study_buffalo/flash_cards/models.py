@@ -199,9 +199,15 @@ class Card(models.Model):
         return '{} ({})'.format(question, answer_type)
 
 class Reference(models.Model):
+    reference_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        verbose_name='reference UUID',
+    )
     card = models.ForeignKey(
         Card,
         on_delete=models.CASCADE,
+        related_name='references',
     )
     reference = models.TextField(
         max_length=500,

@@ -7,6 +7,8 @@ from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from rest_framework import status, generics
 
+from django.shortcuts import get_object_or_404
+
 from .models import Card, Deck, Tag, Synonym, Reference
 from .api.serializers import CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer, SynonymSerializer, ReferenceSerializer
 
@@ -20,7 +22,7 @@ def api_root(request, format=None):
         'tags': reverse('flash_cards:api_v1:tag_list', request=request, format=format),
     })
 
-class Cards(APIView):
+class CardList(APIView):
     def get(self, request, format=None):
         cards = Card.objects.all()
         serializer = CardSerializer(cards, many=True)
@@ -35,6 +37,13 @@ class Cards(APIView):
             return Response([serializer.data], status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class CardDetail(APIView):
+    def get(self, request, card_uuid, format=None):
+        card = get_object_or_404(Card, card_uuid=card_uuid)
+        serializer = CardSerializer(card, context={'request': request})
+
+        return Response(serializer.data)
 
 class DeckList(generics.ListCreateAPIView):
     queryset = Deck.objects.all()
@@ -67,6 +76,7 @@ class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Reference.objects.all()
     permission_classes = (IsAuthenticated, )
     serializer_class = ReferenceSerializer
+    lookup_field = 'reference_uuid'
 
 # # Study Buffalo Flash Cards
 # ## Overview
