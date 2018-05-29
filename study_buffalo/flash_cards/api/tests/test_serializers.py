@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from flash_cards.models import Card, Deck, CardDeck, Tag, Synonym, CardTag, Reference
-from flash_cards.serializers import (
+from flash_cards.api.serializers import (
     PartSerializer, MultipleChoiceSerializer, MatchingSerializer, AnswerSerializer,
     TagSerializer, DeckSerializer, NewCardSerializer
 )
