@@ -303,6 +303,16 @@ class AnswerSerializerTest(TestCase):
             ]
         }
 
+    def test_accepts_valid_multiple_choice_data(self):
+        serializer = AnswerSerializer(data=self.multiple_choice_data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_accepts_valid_matching_data(self):
+        serializer = AnswerSerializer(data=self.matching_data)
+
+        self.assertTrue(serializer.is_valid())
+
     def test_accepts_valid_freeform_data(self):
         serializer = AnswerSerializer(data=self.freeform_data)
 
@@ -359,4 +369,116 @@ class AnswerSerializerTest(TestCase):
         self.assertEqual(
             serializer.errors['non_field_errors'],
             ['Must submit only one answer type.']
+        )
+
+class TagSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'tag_name': 'cardiology'
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = TagSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = TagSerializer(self.data)
+
+        self.assertCountEqual(
+            serializer.data.keys(),
+            ['tag_name']
+        )
+
+    def test_tag_name_field_content(self):
+        serializer = TagSerializer(self.data)
+
+        self.assertEqual(
+            serializer.data['tag_name'],
+            'cardiology'
+        )
+
+    def test_tag_name_max_length(self):
+        invalid_text_data = self.data
+        invalid_text_data['tag_name'] = 'a' * 101
+
+        serializer = TagSerializer(data=invalid_text_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['tag_name']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['tag_name'],
+            ['Ensure this field has no more than 100 characters.']
+        )
+
+class DeckSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'deck_uuid': '1e59d275-704f-479e-a911-ba2119f13d0d',
+            'deck_name': 'Cardiology',
+            'reviewed': False,
+            'active': True,
+            'date_modified': '2018-01-01T12:01:00.000000Z',
+            'date_reviewed': '2018-02-01T12:01:00.000000Z',
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = DeckSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = DeckSerializer(self.data)
+
+        self.assertCountEqual(
+            serializer.data.keys(),
+            ['deck_uuid', 'deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed']
+        )
+
+    def test_deck_uuid_field_content(self):
+        serializer = DeckSerializer(self.data)
+
+        self.assertEqual(
+            serializer.data['deck_uuid'],
+            '1e59d275-704f-479e-a911-ba2119f13d0d'
+        )
+
+    def test_deck_name_field_content(self):
+        serializer = DeckSerializer(self.data)
+
+        self.assertEqual(
+            serializer.data['deck_name'],
+            'Cardiology'
+        )
+
+    def test_reviewed_field_content(self):
+        serializer = DeckSerializer(self.data)
+
+        self.assertEqual(
+            serializer.data['reviewed'],
+            False
+        )
+
+    def test_active_field_content(self):
+        serializer = DeckSerializer(self.data)
+
+        self.assertEqual(
+            serializer.data['active'],
+            True
+        )
+
+    def test_date_modified_content(self):
+        serializer = DeckSerializer(self.data)
+
+        self.assertEqual(
+            serializer.data['date_modified'],
+            True
         )
