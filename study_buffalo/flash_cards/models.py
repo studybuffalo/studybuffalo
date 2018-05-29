@@ -317,6 +317,7 @@ class DeckStats(models.Model):
     )
     number_questions = models.IntegerField(
         default=0,
+        verbose_name='number of questions'
     )
     number_correct = models.IntegerField(
         default=0,
@@ -329,16 +330,24 @@ class DeckStats(models.Model):
     )
     history = HistoricalRecords()
 
+    def __str__(self):
+        return '{} stats for {}'.format(
+            str(self.deck),
+            str(self.user)
+        )
+
 class UserStats(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    number_sets = models.IntegerField(
+    number_decks = models.IntegerField(
         default=0,
+        verbose_name='decks completed',
     )
     number_questions = models.IntegerField(
         default=0,
+        verbose_name='questions completed',
     )
     number_correct = models.IntegerField(
         default=0,
@@ -350,6 +359,9 @@ class UserStats(models.Model):
         default=0,
     )
     history = HistoricalRecords()
+
+    def __str__(self):
+        return 'Stats for {}'.format(str(self.user))
 
 class Feedback(models.Model):
     user = models.ForeignKey(

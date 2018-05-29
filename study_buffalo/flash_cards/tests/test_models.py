@@ -5,7 +5,8 @@ from flash_cards.models import TextPart
 from .utils import (
     create_text_part, create_multiple_choice_answers, create_matching_answers,
     #create_multiple_choice_card, create_matching_card,
-    create_freeform_card, create_deck, create_reference, create_tag, create_synonym
+    create_freeform_card, create_deck, create_reference, create_tag, create_synonym,
+    create_deck_stats, create_user_stats
 )
 
 class TextPartModelTest(TestCase):
@@ -364,4 +365,107 @@ class SynonymModelTest(TestCase):
         self.assertEqual(
             str(self.synonym),
             'cardio (synonym for cardiology)'
+        )
+
+class DeckStatsModelTest(TestCase):
+    def setUp(self):
+        self.deck_stats = create_deck_stats()
+
+
+    def test_labels(self):
+        # Test user label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('user').verbose_name,
+            'user',
+        )
+
+        # Test deck label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('deck').verbose_name,
+            'deck',
+        )
+
+        # Test date_completed label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('date_completed').verbose_name,
+            'date completed',
+        )
+
+        # Test number_questions label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_questions').verbose_name,
+            'number of questions',
+        )
+
+        # Test number_correct label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_correct').verbose_name,
+            'number correct',
+        )
+
+        # Test number_partially_correct label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_partially_correct').verbose_name,
+            'number partially correct',
+        )
+
+        # Test number_incorrect label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_incorrect').verbose_name,
+            'number incorrect',
+        )
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.deck_stats),
+            'Cardiology stats for Regular User'
+        )
+
+class UserStatsModelTest(TestCase):
+    def setUp(self):
+        self.user_stats = create_user_stats()
+
+    def test_labels(self):
+        # Test user label
+        self.assertEqual(
+            self.user_stats._meta.get_field('user').verbose_name,
+            'user',
+        )
+
+        # Test number_decks label
+        self.assertEqual(
+            self.user_stats._meta.get_field('number_decks').verbose_name,
+            'decks completed',
+        )
+
+        # Test number_questions label
+        self.assertEqual(
+            self.user_stats._meta.get_field('number_questions').verbose_name,
+            'questions completed',
+        )
+
+        # Test number_correct label
+        self.assertEqual(
+            self.user_stats._meta.get_field('number_correct').verbose_name,
+            'number correct',
+        )
+
+        # Test number_partially_correct label
+        self.assertEqual(
+            self.user_stats._meta.get_field('number_partially_correct').verbose_name,
+            'number partially correct',
+        )
+
+        # Test number_incorrect label
+        self.assertEqual(
+            self.user_stats._meta.get_field('number_incorrect').verbose_name,
+            'number incorrect',
+        )
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.user_stats),
+            'Stats for Regular User'
         )

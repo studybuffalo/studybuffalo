@@ -1,4 +1,19 @@
+from django.contrib.auth import get_user_model
+
 from flash_cards import models
+
+
+def create_user():
+    # user = apps.get_model('users', settings.AUTH_USER_MODEL).objects.create()
+    user = get_user_model().objects.create()
+    user.username = 'Regular User'
+    user.set_password('abcd123456')
+    user.is_superuser = False
+    user.is_staff = False
+    user.is_active = True
+    user.save()
+
+    return user
 
 def create_text_part(text):
     new_text_part = models.TextPart.objects.create(
@@ -222,4 +237,24 @@ def create_synonym():
 def create_deck(deck_name):
     return models.Deck(
         deck_name=deck_name,
+    )
+
+def create_deck_stats():
+    return models.DeckStats(
+        user=create_user(),
+        deck=create_deck('Cardiology'),
+        number_questions=3,
+        number_correct=1,
+        number_partially_correct=1,
+        number_incorrect=1,
+    )
+
+def create_user_stats():
+    return models.UserStats(
+        user=create_user(),
+        number_decks=10,
+        number_questions=60,
+        number_correct=30,
+        number_partially_correct=20,
+        number_incorrect=10,
     )
