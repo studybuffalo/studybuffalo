@@ -9,6 +9,12 @@ from django.utils import timezone
 
 class PartContainer(models.Model):
     '''Container to hold one or more parts'''
+    container_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='container UUID',
+    )
     history = HistoricalRecords()
 
     def __str__(self):
@@ -37,6 +43,12 @@ class PartContainer(models.Model):
 
 class AbstractPart(models.Model):
     '''Abstract model to construct parts'''
+    part_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='part UUID',
+    )
     container = models.ForeignKey(
         PartContainer,
         on_delete=models.CASCADE,
@@ -80,9 +92,21 @@ class MediaPart(AbstractPart):
 
 class MultipleChoiceContainer(models.Model):
     '''Container for multiple choice answers'''
+    container_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='container UUID',
+    )
     history = HistoricalRecords()
 
 class MultipleChoiceAnswer(models.Model):
+    answer_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='answer UUID',
+    )
     container = models.ForeignKey(
         MultipleChoiceContainer,
         on_delete=models.CASCADE,
@@ -108,6 +132,12 @@ class MultipleChoiceAnswer(models.Model):
 
 class MatchingContainer(models.Model):
     '''Container for matching answers'''
+    container_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='container UUID',
+    )
     history = HistoricalRecords()
 
 class MatchingAnswer(models.Model):
@@ -116,6 +146,12 @@ class MatchingAnswer(models.Model):
         ('r', 'Right'),
     )
 
+    answer_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='answer UUID',
+    )
     question_container = models.ForeignKey(
         MatchingContainer,
         on_delete=models.CASCADE,
@@ -178,7 +214,7 @@ class Deck(models.Model):
 class Tag(models.Model):
     tag_name = models.CharField(
         max_length=100,
-        unique=True,
+        primary_key=True,
     )
     history = HistoricalRecords()
 
@@ -186,21 +222,27 @@ class Tag(models.Model):
         return self.tag_name
 
 class Synonym(models.Model):
+    synonym_name = models.CharField(
+        max_length=100,
+        primary_key=True,
+    )
     tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
         related_name='synonyms',
-    )
-    synonym_name = models.CharField(
-        max_length=100,
-        unique=True,
     )
     history = HistoricalRecords()
 
     def __str__(self):
         return '{} (synonym for {})'.format(self.synonym_name, self.tag)
 
-class TagDeck(models.Model):
+class DeckTag(models.Model):
+    deck_tag_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='UUID',
+    )
     deck = models.ForeignKey(
         Deck,
         on_delete=models.CASCADE,
@@ -212,6 +254,12 @@ class TagDeck(models.Model):
     history = HistoricalRecords()
 
 class DeckStats(models.Model):
+    deck_stats_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='deck stats UUID',
+    )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -245,6 +293,12 @@ class DeckStats(models.Model):
         )
 
 class UserStats(models.Model):
+    user_stats_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='user stats UUID',
+    )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -271,43 +325,11 @@ class UserStats(models.Model):
     def __str__(self):
         return 'Stats for {}'.format(str(self.user))
 
-class Feedback(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.SET_NULL,
-        blank=True,
-        default=None,
-        null=True,
-    )
-    date_submitted = models.DateTimeField(
-        default=timezone.now
-    )
-    comment = models.TextField(
-        max_length=2000,
-    )
-    history = HistoricalRecords()
-
-    class Meta:
-        abstract = True
-
-class DeckFeedback(Feedback):
-    deck = models.ForeignKey(
-        Deck,
-        on_delete=models.CASCADE
-    )
-
-    def __str__(self):
-        if len(self.comment) > 50:
-            comment = '{}...'.format(self.comment[:47])
-        else:
-            comment = self.comment
-
-        return '{} feedback: {}'.format(str(self.deck), comment)
-
 class Card(models.Model):
     card_uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
+        primary_key=True,
         verbose_name='card UUID',
     )
     question = models.ForeignKey(
@@ -385,6 +407,12 @@ class Card(models.Model):
         return '{} ({})'.format(question, answer_type)
 
 class CardDeck(models.Model):
+    card_deck_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='UUID',
+    )
     deck = models.ForeignKey(
         Deck,
         on_delete=models.CASCADE,
@@ -396,6 +424,12 @@ class CardDeck(models.Model):
     history = HistoricalRecords()
 
 class CardTag(models.Model):
+    card_tag_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='UUID',
+    )
     card = models.ForeignKey(
         Card,
         on_delete=models.CASCADE,
@@ -410,6 +444,7 @@ class Reference(models.Model):
     reference_uuid = models.UUIDField(
         default=uuid.uuid4,
         editable=False,
+        primary_key=True,
         verbose_name='reference UUID',
     )
     card = models.ForeignKey(
@@ -430,6 +465,31 @@ class Reference(models.Model):
 
         return reference
 
+class Feedback(models.Model):
+    feedback_uuid = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+        verbose_name='feedback UUID',
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        blank=True,
+        default=None,
+        null=True,
+    )
+    date_submitted = models.DateTimeField(
+        default=timezone.now
+    )
+    comment = models.TextField(
+        max_length=2000,
+    )
+    history = HistoricalRecords()
+
+    class Meta:
+        abstract = True
+
 class CardFeedback(Feedback):
     card = models.ForeignKey(
         Card,
@@ -443,3 +503,17 @@ class CardFeedback(Feedback):
             comment = self.comment
 
         return '{} feedback: {}'.format(str(self.card), comment)
+
+class DeckFeedback(Feedback):
+    deck = models.ForeignKey(
+        Deck,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        if len(self.comment) > 50:
+            comment = '{}...'.format(self.comment[:47])
+        else:
+            comment = self.comment
+
+        return '{} feedback: {}'.format(str(self.deck), comment)
