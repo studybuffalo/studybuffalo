@@ -501,46 +501,67 @@ class RationalePartModelTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(str(self.part), '1 - This is some rationale')
 
-# class ReferenceModelTest(TestCase):
-#     def setUp(self):
-#         self.reference = create_reference()
+class ReferenceModelTest(TestCase):
+    def setUp(self):
+        self.reference = utils.create_reference()
 
-#     def test_labels(self):
-#         # Test card label
-#         self.assertEqual(
-#             self.reference._meta.get_field('card').verbose_name,
-#             'card',
-#         )
+    def test_labels(self):
+        # Test card label
+        self.assertEqual(
+            self.reference._meta.get_field('card').verbose_name,
+            'card',
+        )
 
-#         # Test reference label
-#         self.assertEqual(
-#             self.reference._meta.get_field('reference').verbose_name,
-#             'reference',
-#         )
+        # Test reference label
+        self.assertEqual(
+            self.reference._meta.get_field('reference').verbose_name,
+            'reference',
+        )
 
-#     def test_reference_max_length(self):
-#         self.assertEqual(
-#             self.reference._meta.get_field('reference').max_length,
-#             500
-#         )
+    def test_reference_max_length(self):
+        self.assertEqual(
+            self.reference._meta.get_field('reference').max_length,
+            500
+        )
 
-#     def test_short_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         self.assertEqual(
-#             str(self.reference),
-#             'This is a reference'
-#         )
+    def test_short_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.reference),
+            'This is a reference'
+        )
 
-#     def test_long_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         long_reference = self.reference
-#         long_reference.reference = 'a' * 51
-#         long_reference.save()
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        long_reference = self.reference
+        long_reference.reference = 'a' * 51
+        long_reference.save()
 
-#         self.assertEqual(
-#             str(self.reference),
-#             'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
-#         )
+        self.assertEqual(
+            str(self.reference),
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+        )
+
+class CardDeckModelTest(TestCase):
+    def setUp(self):
+        card = utils.create_card()
+        deck = utils.create_deck('Cardiology')
+
+        self.card_deck = utils.create_card_deck_match(card, deck)
+
+    def test_labels(self):
+        # Test card label
+        self.assertEqual(
+            self.card_deck._meta.get_field('card').verbose_name,
+            'card',
+        )
+
+        # Test deck label
+        self.assertEqual(
+            self.card_deck._meta.get_field('deck').verbose_name,
+            'card',
+        )
+
 
 # class DeckStatsModelTest(TestCase):
 #     def setUp(self):
