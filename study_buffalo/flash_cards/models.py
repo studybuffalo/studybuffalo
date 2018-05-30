@@ -424,7 +424,7 @@ class Reference(models.Model):
 
     def __str__(self):
         if len(self.reference) > 50:
-            reference = '{}...'.format(self.reference[:50])
+            reference = '{}...'.format(self.reference[:47])
         else:
             reference = self.reference
 

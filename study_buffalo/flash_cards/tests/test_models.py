@@ -339,6 +339,16 @@ class ReferenceModelTest(TestCase):
             'This is a reference'
         )
 
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        long_reference = self.reference
+        long_reference.reference = 'a' * 51
+        long_reference.save()
+
+        self.assertEqual(
+            str(self.reference),
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+        )
 class TagModelTest(TestCase):
     def setUp(self):
         self.tag = create_tag()
