@@ -399,6 +399,57 @@ class MatchingAnswerPartModelTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(str(self.part), '1 - This is a matching answer')
 
+class FreeformAnswerPartModelTest(TestCase):
+    def setUp(self):
+        self.part = utils.create_freeform_answer_part(text='This is a freeform answer')
+
+    def test_labels(self):
+        # Test part_uuid label
+        self.assertEqual(
+            self.part._meta.get_field('id').verbose_name,
+            'id',
+        )
+
+        # Test order label
+        self.assertEqual(
+            self.part._meta.get_field('order').verbose_name,
+            'order',
+        )
+
+        # Test media_type label
+        self.assertEqual(
+            self.part._meta.get_field('media_type').verbose_name,
+            'media type',
+        )
+
+        # Test text label
+        self.assertEqual(
+            self.part._meta.get_field('text').verbose_name,
+            'text',
+        )
+
+        # Test media label
+        self.assertEqual(
+            self.part._meta.get_field('media').verbose_name,
+            'media',
+        )
+
+        # Test card label
+        self.assertEqual(
+            self.part._meta.get_field('card').verbose_name,
+            'card',
+        )
+
+    def test_media_type_max_length(self):
+        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
+
+    def test_text_max_length(self):
+        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(str(self.part), '1 - This is a freeform answer')
+
 # class ReferenceModelTest(TestCase):
 #     def setUp(self):
 #         self.reference = create_reference()

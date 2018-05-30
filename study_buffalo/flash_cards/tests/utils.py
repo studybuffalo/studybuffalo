@@ -90,6 +90,16 @@ def create_matching_answer_part(text):
         order=1,
     )
 
+def create_freeform_answer_part(text):
+    card = create_card()
+
+    return models.FreeformAnswerPart.objects.create(
+        media_type='t',
+        text=text,
+        order=1,
+        card=card,
+    )
+
 # def create_multiple_choice_answers():
 #     container = models.MultipleChoiceContainer.objects.create()
 
