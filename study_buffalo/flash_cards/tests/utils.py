@@ -120,6 +120,18 @@ def create_reference():
 
     return reference
 
+def create_card_deck_match(card, deck):
+    return models.CardDeck.objects.create(
+        card=card,
+        deck=deck,
+    )
+
+def create_card_tag_match(card, tag):
+    return models.CardTag.objects.create(
+        card=card,
+        tag=tag,
+    )
+
 def create_deck_stats():
     return models.DeckStats.objects.create(
         user=create_user(),
@@ -138,12 +150,6 @@ def create_user_stats():
         number_correct=30,
         number_partially_correct=20,
         number_incorrect=10,
-    )
-
-def create_card_deck_match(card, deck):
-    return models.CardDeck.objects.create(
-        card=card,
-        deck=deck,
     )
 
 # def create_card_feedback():

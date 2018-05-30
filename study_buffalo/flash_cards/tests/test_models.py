@@ -559,64 +559,89 @@ class CardDeckModelTest(TestCase):
         # Test deck label
         self.assertEqual(
             self.card_deck._meta.get_field('deck').verbose_name,
+            'deck',
+        )
+
+class CardTagModelTest(TestCase):
+    def setUp(self):
+        card = utils.create_card()
+        tag = utils.create_tag()
+
+        self.card_tag = utils.create_card_tag_match(card, tag)
+
+    def test_labels(self):
+        # Test card label
+        self.assertEqual(
+            self.card_tag._meta.get_field('card').verbose_name,
             'card',
         )
 
+        # Test tag label
+        self.assertEqual(
+            self.card_tag._meta.get_field('tag').verbose_name,
+            'tag',
+        )
 
-# class DeckStatsModelTest(TestCase):
-#     def setUp(self):
-#         self.deck_stats = create_deck_stats()
+class DeckStatsModelTest(TestCase):
+    def setUp(self):
+        self.deck_stats = utils.create_deck_stats()
 
 
-#     def test_labels(self):
-#         # Test user label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('user').verbose_name,
-#             'user',
-#         )
+    def test_labels(self):
+        # Test id label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('id').verbose_name,
+            'id',
+        )
 
-#         # Test deck label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('deck').verbose_name,
-#             'deck',
-#         )
+        # Test user label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('user').verbose_name,
+            'user',
+        )
 
-#         # Test date_completed label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('date_completed').verbose_name,
-#             'date completed',
-#         )
+        # Test deck label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('deck').verbose_name,
+            'deck',
+        )
 
-#         # Test number_questions label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('number_questions').verbose_name,
-#             'number of questions',
-#         )
+        # Test date_completed label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('date_completed').verbose_name,
+            'date completed',
+        )
 
-#         # Test number_correct label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('number_correct').verbose_name,
-#             'number correct',
-#         )
+        # Test number_questions label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_questions').verbose_name,
+            'number of questions',
+        )
 
-#         # Test number_partially_correct label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('number_partially_correct').verbose_name,
-#             'number partially correct',
-#         )
+        # Test number_correct label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_correct').verbose_name,
+            'number correct',
+        )
 
-#         # Test number_incorrect label
-#         self.assertEqual(
-#             self.deck_stats._meta.get_field('number_incorrect').verbose_name,
-#             'number incorrect',
-#         )
+        # Test number_partially_correct label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_partially_correct').verbose_name,
+            'number partially correct',
+        )
 
-#     def test_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         self.assertEqual(
-#             str(self.deck_stats),
-#             'Cardiology stats for Regular User'
-#         )
+        # Test number_incorrect label
+        self.assertEqual(
+            self.deck_stats._meta.get_field('number_incorrect').verbose_name,
+            'number incorrect',
+        )
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.deck_stats),
+            'Cardiology stats for Regular User'
+        )
 
 # class UserStatsModelTest(TestCase):
 #     def setUp(self):
