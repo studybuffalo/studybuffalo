@@ -304,49 +304,100 @@ class MultipleChoiceAnswerPartModelTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(str(self.part), '1 - This is an MC answer')
 
-# class MatchingAnswerModelTest(TestCase):
-#     '''Test functions for the MatchingAnswer model'''
-#     def setUp(self):
-#         answer_container = create_matching_answers()
-#         self.answers = answer_container.matchinganswer_set.all()
+class MatchingAnswerModelTest(TestCase):
+    def setUp(self):
+        self.answer = utils.create_matching_answer()
 
-#     def test_labels(self):
-#         # Test side label
-#         self.assertEqual(
-#             self.answers[0]._meta.get_field('side').verbose_name,
-#             'side',
-#         )
+    def test_labels(self):
+        # Test id label
+        self.assertEqual(
+            self.answer._meta.get_field('id').verbose_name,
+            'id',
+        )
 
-#         # Test order label
-#         self.assertEqual(
-#             self.answers[0]._meta.get_field('order').verbose_name,
-#             'order',
-#         )
+        # Test card label
+        self.assertEqual(
+            self.answer._meta.get_field('card').verbose_name,
+            'card',
+        )
 
-#         # Test pair label
-#         self.assertEqual(
-#             self.answers[0]._meta.get_field('pair').verbose_name,
-#             'pair',
-#         )
+        # Test side label
+        self.assertEqual(
+            self.answer._meta.get_field('side').verbose_name,
+            'side',
+        )
 
-#         # Test question_container label
-#         self.assertEqual(
-#             self.answers[0]._meta.get_field('question_container').verbose_name,
-#             'question container',
-#         )
+        # Test order label
+        self.assertEqual(
+            self.answer._meta.get_field('order').verbose_name,
+            'order',
+        )
 
-#         # Test part container label
-#         self.assertEqual(
-#             self.answers[0]._meta.get_field('part_container').verbose_name,
-#             'part container',
-#         )
+        # Test pair label
+        self.assertEqual(
+            self.answer._meta.get_field('pair').verbose_name,
+            'pair',
+        )
 
-#     def test_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         self.assertEqual(
-#             str(self.answers[0]),
-#             '1) Left: Answer 1 (left)'
-#         )
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.answer),
+            'Matching Answer'
+        )
+
+class MatchingAnswerPartModelTest(TestCase):
+    def setUp(self):
+        self.part = utils.create_matching_answer_part(
+            text='This is a matching answer'
+        )
+
+    def test_labels(self):
+        # Test id label
+        self.assertEqual(
+            self.part._meta.get_field('id').verbose_name,
+            'id',
+        )
+
+        # Test order label
+        self.assertEqual(
+            self.part._meta.get_field('order').verbose_name,
+            'order',
+        )
+
+        # Test media_type label
+        self.assertEqual(
+            self.part._meta.get_field('media_type').verbose_name,
+            'media type',
+        )
+
+        # Test text label
+        self.assertEqual(
+            self.part._meta.get_field('text').verbose_name,
+            'text',
+        )
+
+        # Test media label
+        self.assertEqual(
+            self.part._meta.get_field('media').verbose_name,
+            'media',
+        )
+
+        # Test matching_answer label
+        self.assertEqual(
+            self.part._meta.get_field('matching_answer').verbose_name,
+            'matching answer',
+        )
+
+    def test_media_type_max_length(self):
+        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
+
+    def test_text_max_length(self):
+        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
+
+    def test_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(str(self.part), '1 - This is a matching answer')
 
 # class ReferenceModelTest(TestCase):
 #     def setUp(self):

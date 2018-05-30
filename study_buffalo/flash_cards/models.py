@@ -280,13 +280,15 @@ class MatchingAnswer(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return '{}) {} ({})'.format(
-            self.order,
-            self.part_container,
-            'left' if self.side == 'l' else 'right'
-        )
+        # TODO: Fix string representation, add tests
+        # return '{}) {} ({})'.format(
+        #     self.order,
+        #     self.part_container,
+        #     'left' if self.side == 'l' else 'right'
+        # )
+        return 'Matching Answer'
 
-class MatchingeAnswerPart(AbstractPart):
+class MatchingAnswerPart(AbstractPart):
     matching_answer = models.ForeignKey(
         MatchingAnswer,
         on_delete=models.CASCADE,

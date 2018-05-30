@@ -70,6 +70,26 @@ def create_multiple_choice_answer_part(text):
         order=1,
     )
 
+def create_matching_answer():
+    card = create_card()
+
+    return models.MatchingAnswer.objects.create(
+        card=card,
+        side='l',
+        order=1,
+        pair=None,
+    )
+
+def create_matching_answer_part(text):
+    matching_answer = create_matching_answer()
+
+    return models.MatchingAnswerPart.objects.create(
+        matching_answer=matching_answer,
+        media_type='t',
+        text=text,
+        order=1,
+    )
+
 # def create_multiple_choice_answers():
 #     container = models.MultipleChoiceContainer.objects.create()
 
