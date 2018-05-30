@@ -547,6 +547,7 @@ class CardFeedbackModelTest(TestCase):
             str(long_feedback),
             'This is a question (freeform) feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
         )
+
 class DeckFeedbackModelTest(TestCase):
     def setUp(self):
         self.feedback = create_deck_feedback()
