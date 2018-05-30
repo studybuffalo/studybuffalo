@@ -11,8 +11,9 @@ from django.shortcuts import get_object_or_404
 
 from .models import Card, Deck, Tag, Synonym, Reference
 from .api.serializers import (
-    CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer, SynonymSerializer,
-    ReferenceSerializer, #PartContainerSerializer, TextPartSerializer, MultipleChoiceContainerSerializer
+    CardSerializer, DeckSerializer, TagSerializer, SynonymSerializer,
+    ReferenceSerializer,
+    #NewCardSerializer, PartContainerSerializer, TextPartSerializer, MultipleChoiceContainerSerializer
 )
 
 
@@ -25,29 +26,41 @@ def api_root(request, format=None):
         'tags': reverse('flash_cards:api_v1:tag_list', request=request, format=format),
     })
 
-class CardList(APIView):
+# class CardList(APIView):
+#     permission_classes = (IsAuthenticated, )
+#     def get(self, request, format=None):
+#         cards = Card.objects.all()
+#         serializer = CardSerializer(cards, many=True, context={'request': request})
+
+#         return Response(serializer.data)
+
+#     def post(self, request, format=None):
+#         #serializer = NewCardSerializer(data=request.data)
+#         serializer = CardSerializer(data=request.data)
+
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response([serializer.data], status=status.HTTP_201_CREATED)
+
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# class CardDetail(APIView):
+#     def get(self, request, card_uuid, format=None):
+#         card = get_object_or_404(Card, card_uuid=card_uuid)
+#         serializer = CardSerializer(card, context={'request': request})
+
+#         return Response(serializer.data)
+
+class CardList(generics.ListCreateAPIView):
+    queryset = Card.objects.all()
     permission_classes = (IsAuthenticated, )
-    def get(self, request, format=None):
-        cards = Card.objects.all()
-        serializer = CardSerializer(cards, many=True, context={'request': request})
+    serializer_class = CardSerializer
 
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = NewCardSerializer(data=request.data)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response([serializer.data], status=status.HTTP_201_CREATED)
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class CardDetail(APIView):
-    def get(self, request, card_uuid, format=None):
-        card = get_object_or_404(Card, card_uuid=card_uuid)
-        serializer = CardSerializer(card, context={'request': request})
-
-        return Response(serializer.data)
+class CardDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Card.objects.all()
+    permission_classes = (IsAuthenticated, )
+    serializer_class = CardSerializer
+    lookup_field = 'id'
 
 class DeckList(generics.ListCreateAPIView):
     queryset = Deck.objects.all()
@@ -58,7 +71,7 @@ class DeckDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Deck.objects.all()
     permission_classes = (IsAuthenticated, )
     serializer_class = DeckSerializer
-    lookup_field = 'deck_uuid'
+    lookup_field = 'id'
 
 class TagList(generics.ListCreateAPIView):
     queryset = Tag.objects.all()
@@ -99,7 +112,7 @@ class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Reference.objects.all()
     permission_classes = (IsAuthenticated, )
     serializer_class = ReferenceSerializer
-    lookup_field = 'reference_uuid'
+    lookup_field = 'id'
 
 # # Study Buffalo Flash Cards
 # ## Overview
