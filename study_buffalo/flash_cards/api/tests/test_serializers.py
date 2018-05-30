@@ -330,7 +330,8 @@ class TagSerializerTest(TestCase):
 
     def test_expected_fields(self):
         serializer = TagSerializer(data=self.data)
-        serializer.is_valid()
+
+        self.assertTrue(serializer.is_valid())
 
         self.assertCountEqual(
             serializer.validated_data.keys(),
