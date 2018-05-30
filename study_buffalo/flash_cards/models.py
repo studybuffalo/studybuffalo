@@ -147,10 +147,6 @@ class Deck(BaseAbstractModel):
         blank=True,
         null=True,
     )
-    tags = models.ManyToManyField(
-        Tag,
-        through='DeckTag',
-    )
 
     def __str__(self):
         return self.deck_name
@@ -370,16 +366,6 @@ class DeckStats(BaseAbstractModel):
             str(self.deck),
             str(self.user)
         )
-
-class DeckTag(BaseAbstractModel):
-    deck = models.ForeignKey(
-        Deck,
-        on_delete=models.CASCADE,
-    )
-    tag = models.ForeignKey(
-        Tag,
-        on_delete=models.CASCADE,
-    )
 
 class UserStats(BaseAbstractModel):
     user = models.ForeignKey(
