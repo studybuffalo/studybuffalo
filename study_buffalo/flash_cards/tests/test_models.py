@@ -213,11 +213,14 @@ class QuestionPartModelTest(TestCase):
 
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), '1 - This is a question')
+        self.assertEqual(str(self.part), 'This is a question')
 
 class MultipleChoiceAnswerModelTest(TestCase):
     def setUp(self):
-        self.answer = utils.create_multiple_choice_answer()
+        answer_part = utils.create_multiple_choice_answer_part(
+            'This is a multiple choice answer'
+        )
+        self.answer = answer_part.multiple_choice_answer
 
     def test_labels(self):
         # Test id label
@@ -244,11 +247,24 @@ class MultipleChoiceAnswerModelTest(TestCase):
             'correct',
         )
 
-    def test_string_representation(self):
+    def test_short_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.answer),
-            'MC Answer'
+            '1) This is a multiple choice answer'
+        )
+
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        # Create a long answer
+        answer_part = utils.create_multiple_choice_answer_part(
+            'This is a very very very very long multiple choice answer'
+        )
+        answer = answer_part.multiple_choice_answer
+
+        self.assertEqual(
+            str(answer),
+            '1) This is a very very very very long...'
         )
 
 class MultipleChoiceAnswerPartModelTest(TestCase):
@@ -302,11 +318,14 @@ class MultipleChoiceAnswerPartModelTest(TestCase):
 
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), '1 - This is an MC answer')
+        self.assertEqual(str(self.part), 'This is an MC answer')
 
 class MatchingAnswerModelTest(TestCase):
     def setUp(self):
-        self.answer = utils.create_matching_answer()
+        answer_part = utils.create_matching_answer_part(
+            'This is a matching answer'
+        )
+        self.answer = answer_part.matching_answer
 
     def test_labels(self):
         # Test id label
@@ -339,11 +358,24 @@ class MatchingAnswerModelTest(TestCase):
             'pair',
         )
 
-    def test_string_representation(self):
+    def test_short_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.answer),
-            'Matching Answer'
+            'L1) This is a matching answer'
+        )
+
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        # Create a long answer
+        answer_part = utils.create_matching_answer_part(
+            'This is a very very very very long matching answer'
+        )
+        answer = answer_part.matching_answer
+
+        self.assertEqual(
+            str(answer),
+            'L1) This is a very very very very lon...'
         )
 
 class MatchingAnswerPartModelTest(TestCase):
@@ -397,7 +429,7 @@ class MatchingAnswerPartModelTest(TestCase):
 
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), '1 - This is a matching answer')
+        self.assertEqual(str(self.part), 'This is a matching answer')
 
 class FreeformAnswerPartModelTest(TestCase):
     def setUp(self):
@@ -448,7 +480,7 @@ class FreeformAnswerPartModelTest(TestCase):
 
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), '1 - This is a freeform answer')
+        self.assertEqual(str(self.part), 'This is a freeform answer')
 
 class RationalePartModelTest(TestCase):
     def setUp(self):
@@ -499,7 +531,7 @@ class RationalePartModelTest(TestCase):
 
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), '1 - This is some rationale')
+        self.assertEqual(str(self.part), 'This is some rationale')
 
 class ReferenceModelTest(TestCase):
     def setUp(self):
@@ -691,108 +723,108 @@ class UserStatsModelTest(TestCase):
             'Stats for Regular User'
         )
 
-# class CardFeedbackModelTest(TestCase):
-#     def setUp(self):
-#         self.feedback = create_card_feedback()
+class CardFeedbackModelTest(TestCase):
+    def setUp(self):
+        self.feedback = utils.create_card_feedback()
 
-#     def test_labels(self):
-#         # Test user label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('user').verbose_name,
-#             'user',
-#         )
+    def test_labels(self):
+        # Test user label
+        self.assertEqual(
+            self.feedback._meta.get_field('user').verbose_name,
+            'user',
+        )
 
-#         # Test date_submitted label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('date_submitted').verbose_name,
-#             'date submitted',
-#         )
+        # Test date_submitted label
+        self.assertEqual(
+            self.feedback._meta.get_field('date_submitted').verbose_name,
+            'date submitted',
+        )
 
-#         # Test comment label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('comment').verbose_name,
-#             'comment',
-#         )
+        # Test comment label
+        self.assertEqual(
+            self.feedback._meta.get_field('comment').verbose_name,
+            'comment',
+        )
 
-#         # Test card label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('card').verbose_name,
-#             'card',
-#         )
+        # Test card label
+        self.assertEqual(
+            self.feedback._meta.get_field('card').verbose_name,
+            'card',
+        )
 
-#     def test_comment_max_length(self):
-#         self.assertEqual(
-#             self.feedback._meta.get_field('comment').max_length,
-#             2000
-#         )
+    def test_comment_max_length(self):
+        self.assertEqual(
+            self.feedback._meta.get_field('comment').max_length,
+            2000
+        )
 
-#     def test_short_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         self.assertEqual(
-#             str(self.feedback),
-#             'This is a question (freeform) feedback: This is a feedback comment'
-#         )
+    def test_short_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.feedback),
+            'Question String feedback: This is a feedback comment'
+        )
 
-#     def test_long_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         long_feedback = self.feedback
-#         long_feedback.comment = 'a' * 51
-#         long_feedback.save()
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        long_feedback = self.feedback
+        long_feedback.comment = 'a' * 51
+        long_feedback.save()
 
-#         self.assertEqual(
-#             str(long_feedback),
-#             'This is a question (freeform) feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
-#         )
+        self.assertEqual(
+            str(long_feedback),
+            'Question String feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+        )
 
-# class DeckFeedbackModelTest(TestCase):
-#     def setUp(self):
-#         self.feedback = create_deck_feedback()
+class DeckFeedbackModelTest(TestCase):
+    def setUp(self):
+        self.feedback = utils.create_deck_feedback()
 
-#     def test_labels(self):
-#         # Test user label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('user').verbose_name,
-#             'user',
-#         )
+    def test_labels(self):
+        # Test user label
+        self.assertEqual(
+            self.feedback._meta.get_field('user').verbose_name,
+            'user',
+        )
 
-#         # Test date_submitted label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('date_submitted').verbose_name,
-#             'date submitted',
-#         )
+        # Test date_submitted label
+        self.assertEqual(
+            self.feedback._meta.get_field('date_submitted').verbose_name,
+            'date submitted',
+        )
 
-#         # Test comment label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('comment').verbose_name,
-#             'comment',
-#         )
+        # Test comment label
+        self.assertEqual(
+            self.feedback._meta.get_field('comment').verbose_name,
+            'comment',
+        )
 
-#         # Test deck label
-#         self.assertEqual(
-#             self.feedback._meta.get_field('deck').verbose_name,
-#             'deck',
-#         )
+        # Test deck label
+        self.assertEqual(
+            self.feedback._meta.get_field('deck').verbose_name,
+            'deck',
+        )
 
-#     def test_comment_max_length(self):
-#         self.assertEqual(
-#             self.feedback._meta.get_field('comment').max_length,
-#             2000
-#         )
+    def test_comment_max_length(self):
+        self.assertEqual(
+            self.feedback._meta.get_field('comment').max_length,
+            2000
+        )
 
-#     def test_short_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         self.assertEqual(
-#             str(self.feedback),
-#             'Cardiology feedback: This is a feedback comment'
-#         )
+    def test_short_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.feedback),
+            'Cardiology feedback: This is a feedback comment'
+        )
 
-#     def test_long_string_representation(self):
-#         '''Tests that the model string representaton returns as expected'''
-#         long_feedback = self.feedback
-#         long_feedback.comment = 'a' * 51
-#         long_feedback.save()
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        long_feedback = self.feedback
+        long_feedback.comment = 'a' * 51
+        long_feedback.save()
 
-#         self.assertEqual(
-#             str(long_feedback),
-#             'Cardiology feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
-#         )
+        self.assertEqual(
+            str(long_feedback),
+            'Cardiology feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+        )

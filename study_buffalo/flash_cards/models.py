@@ -1,3 +1,4 @@
+import os
 import uuid
 
 from simple_history.models import HistoricalRecords
@@ -77,12 +78,31 @@ class AbstractPart(models.Model):
         abstract = True
 
     def __str__(self):
-        # TODO: Rework the string representation
-
         if self.media_type == 't':
-            return '{} - {}'.format(self.order, self.text)
+            if len(self.text) > 40:
+                return_string = '{}...'.format(self.text[:37])
+            else:
+                return_string = self.text
         else:
-            return '{} - {} - {}'.format(self.order, self.media_type, self.media)
+            if self.media_type == 'a':
+                return_string = 'audio'
+            elif self.media_type == 'i':
+                return_string = 'image'
+            else:
+                return_string = 'video'
+
+            file_name, file_extension = os.path.splitext(self.media.path)
+
+            if len(file_name) > 32:
+                return_string = '<{} {}... {}>'.format(
+                    return_string, file_name[:32], file_extension
+                )
+            else:
+                return_string = '<{} {}{}>'.format(
+                    return_string, file_name, file_extension
+                )
+
+        return return_string
 
 class Tag(models.Model):
     tag_name = models.CharField(
@@ -232,13 +252,19 @@ class MultipleChoiceAnswer(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        # TODO: Rework the string representation & update tests
-        # return '{}) {} ({})'.format(
-        #     self.order,
-        #     self.part_container,
-        #     'correct' if self.correct else 'incorrect'
-        # )
-        return 'MC Answer'
+        parts = MultipleChoiceAnswer.objects.get(id=self.id).multiple_choice_answer_parts.order_by('order')
+
+        part_strings = []
+
+        for part in parts:
+            part_strings.append('{}) {}'.format(self.order, str(part)))
+
+        part_string = ' '.join(part_strings)
+
+        if len(part_string) > 40:
+            return '{}...'.format(part_string[:37])
+        else:
+            return part_string
 
 class MultipleChoiceAnswerPart(AbstractPart):
     multiple_choice_answer = models.ForeignKey(
@@ -280,13 +306,19 @@ class MatchingAnswer(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        # TODO: Fix string representation, add tests
-        # return '{}) {} ({})'.format(
-        #     self.order,
-        #     self.part_container,
-        #     'left' if self.side == 'l' else 'right'
-        # )
-        return 'Matching Answer'
+        parts = MatchingAnswer.objects.get(id=self.id).matching_answer_parts.order_by('order')
+
+        part_strings = []
+
+        for part in parts:
+            part_strings.append('{}{}) {}'.format(self.side.upper(), self.order, str(part)))
+
+        part_string = ' '.join(part_strings)
+
+        if len(part_string) > 40:
+            return '{}...'.format(part_string[:37])
+
+        return part_string
 
 class MatchingAnswerPart(AbstractPart):
     matching_answer = models.ForeignKey(

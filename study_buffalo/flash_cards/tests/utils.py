@@ -152,16 +152,16 @@ def create_user_stats():
         number_incorrect=10,
     )
 
-# def create_card_feedback():
-#     return models.CardFeedback.objects.create(
-#         user=create_user(),
-#         comment='This is a feedback comment',
-#         card=create_freeform_card(),
-#     )
+def create_card_feedback():
+    return models.CardFeedback.objects.create(
+        user=create_user(),
+        comment='This is a feedback comment',
+        card=create_card(),
+    )
 
-# def create_deck_feedback():
-    # return models.DeckFeedback.objects.create(
-    #     user=create_user(),
-    #     comment='This is a feedback comment',
-    #     deck=create_deck('Cardiology'),
-    # )
+def create_deck_feedback():
+    return models.DeckFeedback.objects.create(
+        user=create_user(),
+        comment='This is a feedback comment',
+        deck=create_deck('Cardiology'),
+    )
