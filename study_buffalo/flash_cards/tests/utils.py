@@ -132,6 +132,12 @@ def create_card_tag_match(card, tag):
         tag=tag,
     )
 
+def create_deck_tag_match(deck, tag):
+    return models.DeckTag.objects.create(
+        deck=deck,
+        tag=tag,
+    )
+
 def create_deck_stats():
     return models.DeckStats.objects.create(
         user=create_user(),

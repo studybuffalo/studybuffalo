@@ -161,22 +161,6 @@ class Deck(models.Model):
     def __str__(self):
         return self.deck_name
 
-class DeckTag(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
-    deck = models.ForeignKey(
-        Deck,
-        on_delete=models.CASCADE,
-    )
-    tag = models.ForeignKey(
-        Tag,
-        on_delete=models.CASCADE,
-    )
-    history = HistoricalRecords()
-
 class Card(models.Model):
     id = models.UUIDField(
         default=uuid.uuid4,
@@ -434,6 +418,22 @@ class DeckStats(models.Model):
             str(self.deck),
             str(self.user)
         )
+
+class DeckTag(models.Model):
+    id = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        primary_key=True,
+    )
+    deck = models.ForeignKey(
+        Deck,
+        on_delete=models.CASCADE,
+    )
+    tag = models.ForeignKey(
+        Tag,
+        on_delete=models.CASCADE,
+    )
+    history = HistoricalRecords()
 
 class UserStats(models.Model):
     id = models.UUIDField(

@@ -98,6 +98,26 @@ class DeckModelTest(TestCase):
             'Cardiology Questions'
         )
 
+class DeckTagModelTest(TestCase):
+    def setUp(self):
+        deck = utils.create_deck('Cardiology')
+        tag = utils.create_tag()
+
+        self.deck_tag = utils.create_deck_tag_match(deck, tag)
+
+    def test_labels(self):
+        # Test deck label
+        self.assertEqual(
+            self.deck_tag._meta.get_field('deck').verbose_name,
+            'deck',
+        )
+
+        # Test tag label
+        self.assertEqual(
+            self.deck_tag._meta.get_field('tag').verbose_name,
+            'tag',
+        )
+
 # class CardModelFreeformTest(TestCase):
 #     def setUp(self):
 #         self.card = utils.create_freeform_card()
@@ -214,6 +234,8 @@ class QuestionPartModelTest(TestCase):
     def test_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(str(self.part), 'This is a question')
+
+    # TODO: Create tests for the other media types when working properly
 
 class MultipleChoiceAnswerModelTest(TestCase):
     def setUp(self):
