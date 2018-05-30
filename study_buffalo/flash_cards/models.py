@@ -8,7 +8,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class AbstractPartContainer(models.Model):
+class BaseAbstractModel(models.Model):
     '''Container to hold one or more parts'''
     id = models.UUIDField(
         default=uuid.uuid4,
@@ -44,7 +44,7 @@ class AbstractPartContainer(models.Model):
 
     #     return return_string
 
-class AbstractPart(models.Model):
+class AbstractPart(BaseAbstractModel):
     '''Abstract model to construct parts'''
     MEDIA_TYPES = (
         ('a', 'Audio'),
@@ -53,11 +53,6 @@ class AbstractPart(models.Model):
         ('v', 'Video'),
     )
 
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
     order = models.PositiveIntegerField(
         default=1,
     )
@@ -72,7 +67,6 @@ class AbstractPart(models.Model):
     media = models.FileField(
         upload_to='flash_cards/',
     )
-    history = HistoricalRecords()
 
     class Meta:
         abstract = True
@@ -129,12 +123,7 @@ class Synonym(models.Model):
     def __str__(self):
         return '{} (synonym for {})'.format(self.synonym_name, self.tag)
 
-class Deck(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class Deck(BaseAbstractModel):
     deck_name = models.CharField(
         max_length=255,
     )
@@ -156,17 +145,11 @@ class Deck(models.Model):
         Tag,
         through='DeckTag',
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         return self.deck_name
 
-class Card(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class Card(BaseAbstractModel):
     reviewed = models.BooleanField(
         default=False,
     )
@@ -189,7 +172,6 @@ class Card(models.Model):
         Deck,
         through='CardDeck',
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         question_parts = str(self.question_parts.all().first())
@@ -216,12 +198,7 @@ class QuestionPart(AbstractPart):
         related_name='question_parts'
     )
 
-class MultipleChoiceAnswer(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class MultipleChoiceAnswer(BaseAbstractModel):
     card = models.ForeignKey(
         Card,
         on_delete=models.CASCADE,
@@ -233,7 +210,6 @@ class MultipleChoiceAnswer(models.Model):
     correct = models.BooleanField(
         default=False,
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         parts = MultipleChoiceAnswer.objects.get(id=self.id).multiple_choice_answer_parts.order_by('order')
@@ -257,17 +233,12 @@ class MultipleChoiceAnswerPart(AbstractPart):
         related_name='multiple_choice_answer_parts',
     )
 
-class MatchingAnswer(models.Model):
+class MatchingAnswer(BaseAbstractModel):
     SIDE_CHOICES = (
         ('l', 'Left'),
         ('r', 'Right'),
     )
 
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
     card = models.ForeignKey(
         Card,
         on_delete=models.CASCADE,
@@ -287,7 +258,6 @@ class MatchingAnswer(models.Model):
         null=True,
         blank=True,
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         parts = MatchingAnswer.objects.get(id=self.id).matching_answer_parts.order_by('order')
@@ -325,12 +295,7 @@ class RationalePart(AbstractPart):
         related_name='rationale_parts',
     )
 
-class Reference(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class Reference(BaseAbstractModel):
     card = models.ForeignKey(
         Card,
         on_delete=models.CASCADE,
@@ -339,7 +304,6 @@ class Reference(models.Model):
     reference = models.TextField(
         max_length=500,
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         if len(self.reference) > 50:
@@ -349,12 +313,7 @@ class Reference(models.Model):
 
         return reference
 
-class CardDeck(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class CardDeck(BaseAbstractModel):
     deck = models.ForeignKey(
         Deck,
         on_delete=models.CASCADE,
@@ -363,14 +322,8 @@ class CardDeck(models.Model):
         Card,
         on_delete=models.CASCADE,
     )
-    history = HistoricalRecords()
 
-class CardTag(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class CardTag(BaseAbstractModel):
     card = models.ForeignKey(
         Card,
         on_delete=models.CASCADE,
@@ -379,14 +332,8 @@ class CardTag(models.Model):
         Tag,
         on_delete=models.CASCADE,
     )
-    history = HistoricalRecords()
 
-class DeckStats(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class DeckStats(BaseAbstractModel):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -411,7 +358,6 @@ class DeckStats(models.Model):
     number_incorrect = models.IntegerField(
         default=0,
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         return '{} stats for {}'.format(
@@ -419,12 +365,7 @@ class DeckStats(models.Model):
             str(self.user)
         )
 
-class DeckTag(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class DeckTag(BaseAbstractModel):
     deck = models.ForeignKey(
         Deck,
         on_delete=models.CASCADE,
@@ -433,7 +374,6 @@ class DeckTag(models.Model):
         Tag,
         on_delete=models.CASCADE,
     )
-    history = HistoricalRecords()
 
 class UserStats(models.Model):
     id = models.UUIDField(
