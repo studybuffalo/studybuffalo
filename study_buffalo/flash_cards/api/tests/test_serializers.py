@@ -320,7 +320,7 @@ class AnswerSerializerTest(TestCase):
 class TagSerializerTest(TestCase):
     def setUp(self):
         self.data = {
-            'tag_name': 'cardiology'
+            'tag_name': 'cardiology',
         }
 
     def test_accepts_valid_data(self):
@@ -329,11 +329,12 @@ class TagSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid())
 
     def test_expected_fields(self):
-        serializer = TagSerializer(self.data)
+        serializer = TagSerializer(data=self.data)
+        serializer.is_valid()
 
         self.assertCountEqual(
-            serializer.data.keys(),
-            ['tag_name']
+            serializer.validated_data.keys(),
+            ['tag_name', ]
         )
 
     def test_tag_name_max_length(self):
