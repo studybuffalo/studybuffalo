@@ -15,7 +15,9 @@ class BaseAbstractModel(models.Model):
         editable=False,
         primary_key=True,
     )
-    history = HistoricalRecords()
+    history = HistoricalRecords(
+        inherit=True,
+    )
 
     class Meta:
         abstract = True
@@ -375,12 +377,7 @@ class DeckTag(BaseAbstractModel):
         on_delete=models.CASCADE,
     )
 
-class UserStats(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class UserStats(BaseAbstractModel):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -402,17 +399,11 @@ class UserStats(models.Model):
     number_incorrect = models.IntegerField(
         default=0,
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         return 'Stats for {}'.format(str(self.user))
 
-class Feedback(models.Model):
-    id = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False,
-        primary_key=True,
-    )
+class Feedback(BaseAbstractModel):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -426,7 +417,6 @@ class Feedback(models.Model):
     comment = models.TextField(
         max_length=2000,
     )
-    history = HistoricalRecords()
 
     class Meta:
         abstract = True
