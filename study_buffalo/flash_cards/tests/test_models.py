@@ -116,13 +116,13 @@ class MultipleChoiceAnswerModelTest(TestCase):
         # Test an incorrect response
         self.assertEqual(
             str(self.answers[0]),
-            '1) PartContainer (incorrect)'
+            '1) Answer 1 (incorrect)'
         )
 
         # Test an correct response
         self.assertEqual(
             str(self.answers[1]),
-            '2) PartContainer (correct)'
+            '2) Answer 2 (correct)'
         )
 
 class MatchingAnswerModelTest(TestCase):
@@ -166,7 +166,7 @@ class MatchingAnswerModelTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.answers[0]),
-            '1) PartContainer (left)'
+            '1) Left: Answer 1 (left)'
         )
 
 # class CardModelMultipleChoiceTest(TestCase):
@@ -246,7 +246,7 @@ class CardModelFreeformTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.card),
-            'PartContainer (freeform)'
+            'This is a question (freeform)'
         )
 
     def test_long_string_representation(self):
@@ -515,7 +515,7 @@ class CardFeedbackModelTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.feedback),
-            'PartContainer (freeform) feedback: This is a feedback comment'
+            'This is a question (freeform) feedback: This is a feedback comment'
         )
 
 class DeckFeedbackModelTest(TestCase):

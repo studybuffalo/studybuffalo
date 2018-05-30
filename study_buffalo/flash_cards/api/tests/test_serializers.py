@@ -669,7 +669,7 @@ class NewCardSerializerTest(TestCase):
 
         self.assertEqual(
             str(Card.objects.last()),
-            'PartContainer (freeform)'
+            'This is question text part 1 This is question t... (freeform)'
         )
 
         # Check for new card-deck match

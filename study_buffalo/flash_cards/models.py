@@ -12,7 +12,28 @@ class PartContainer(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return 'PartContainer'
+        # Get all the parts of the question
+        text_parts = PartContainer.objects.get(id=self.id).textpart_set.all().values_list('order', 'text')
+        media_parts = PartContainer.objects.get(id=self.id).mediapart_set.all().values_list('order', 'media_type')
+
+        # Combined parts by order
+        parts = []
+
+        for part in text_parts:
+            parts.insert(part[0], part[1])
+
+        for part in media_parts:
+            parts.insert(part[0], '<{}>'.format(part[1]))
+
+        combined_parts = ' '.join(parts)
+
+        # Truncate parts if length is too long
+        if len(combined_parts) > 50:
+            return_string = '{}...'.format(combined_parts[:47])
+        else:
+            return_string = combined_parts
+
+        return return_string
 
 class AbstractPart(models.Model):
     '''Abstract model to construct parts'''
