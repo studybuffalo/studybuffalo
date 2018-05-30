@@ -65,9 +65,13 @@ class AbstractPart(BaseAbstractModel):
     )
     text = models.TextField(
         max_length=2000,
+        blank=True,
+        null=True,
     )
     media = models.FileField(
         upload_to='flash_cards/',
+        blank=True,
+        null=True,
     )
 
     class Meta:
