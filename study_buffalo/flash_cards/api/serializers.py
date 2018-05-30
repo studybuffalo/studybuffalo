@@ -4,7 +4,8 @@ from rest_framework import serializers
 from django.utils import timezone
 
 from flash_cards.models import (
-    Card, Deck, Tag, Synonym, PartContainer, MediaPart, TextPart, CardDeck, Reference, CardTag
+    Card, Deck, Tag, Synonym, PartContainer, MediaPart, TextPart, CardDeck,
+    Reference, CardTag, MultipleChoiceContainer, MatchingContainer
 )
 
 
@@ -107,6 +108,16 @@ class DeckSerializer(serializers.ModelSerializer):
         fields = ('deck_uuid', 'deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed')
 
 class CardSerializer(serializers.ModelSerializer):
+    question = serializers.HyperlinkedRelatedField(
+        read_only=True,
+        view_name='flash_cards:api_v1:part_container_detail',
+        lookup_field='container_uuid',
+    )
+    answer_freeform = serializers.HyperlinkedRelatedField(
+        read_only=True,
+        view_name='flash_cards:api_v1:part_container_detail',
+        lookup_field='container_uuid',
+    )
     references = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=True,
@@ -274,3 +285,36 @@ class NewCardSerializer(serializers.Serializer):
                 raise serializers.ValidationError('Specified deck does not exist.')
 
         return data
+
+class PartContainerSerializer(serializers.ModelSerializer):
+    text_parts = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='flash_cards:api_v1:text_part_detail',
+        lookup_field='part_uuid',
+    )
+
+    class Meta:
+        model = PartContainer
+        fields = ('text_parts',)
+
+class TextPartSerializer(serializers.ModelSerializer):
+    container = serializers.HyperlinkedRelatedField(
+        read_only=True,
+        view_name='flash_cards:api_v1:part_container_detail',
+        lookup_field='container_uuid',
+    )
+
+    class Meta:
+        model = TextPart
+        fields = ('part_uuid', 'container', 'order', 'text')
+
+class MultipleChoiceContainerSerializer(serializers.ModelSerializer):
+    answers = serializers.HyperlinkedRelatedField(
+        read_only=True,
+        view_name='flash_cards:api_v1:multiple_choice_container_detail',
+        lookup_field='container_uuid',
+    )
+    class Meta:
+        model = MultipleChoiceContainer
+        fields = ('container_uuid', 'answers')

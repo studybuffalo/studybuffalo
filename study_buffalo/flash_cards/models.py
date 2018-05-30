@@ -49,10 +49,6 @@ class AbstractPart(models.Model):
         primary_key=True,
         verbose_name='part UUID',
     )
-    container = models.ForeignKey(
-        PartContainer,
-        on_delete=models.CASCADE,
-    )
     order = models.PositiveIntegerField(
         default=1,
     )
@@ -62,6 +58,11 @@ class AbstractPart(models.Model):
         abstract = True
 
 class TextPart(AbstractPart):
+    container = models.ForeignKey(
+        PartContainer,
+        on_delete=models.CASCADE,
+        related_name='text_parts',
+    )
     text = models.TextField(
         max_length=2000,
     )
@@ -77,6 +78,11 @@ class MediaPart(AbstractPart):
         ('v', 'Video'),
     )
 
+    container = models.ForeignKey(
+        PartContainer,
+        on_delete=models.CASCADE,
+        related_name='media_parts',
+    )
     media_type = models.CharField(
         max_length=1,
         choices=MEDIA_TYPES,
@@ -110,6 +116,7 @@ class MultipleChoiceAnswer(models.Model):
     container = models.ForeignKey(
         MultipleChoiceContainer,
         on_delete=models.CASCADE,
+        related_name='answers',
     )
     part_container = models.ForeignKey(
         PartContainer,
