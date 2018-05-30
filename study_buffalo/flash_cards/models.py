@@ -372,8 +372,8 @@ class Card(models.Model):
         # Format the question text
         question_string = str(self.question)
 
-        if len(question_string) > 50:
-            question = '{}...'.format(question_string[:47])
+        if len(question_string) > 40:
+            question = '{}...'.format(question_string[:37])
         else:
             question = question_string
 

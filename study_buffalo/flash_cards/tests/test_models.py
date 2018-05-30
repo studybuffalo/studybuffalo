@@ -250,8 +250,16 @@ class CardModelFreeformTest(TestCase):
         )
 
     def test_long_string_representation(self):
-        # TODO: Test this once the PartContainer string is sorted out
-        pass
+        long_card = self.card
+
+        long_card_text = long_card.question.textpart_set.first()
+        long_card_text.text = 'a' * 50
+        long_card_text.save()
+
+        self.assertEqual(
+            str(long_card),
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (freeform)'
+        )
 
 class DeckModelTest(TestCase):
     def setUp(self):
