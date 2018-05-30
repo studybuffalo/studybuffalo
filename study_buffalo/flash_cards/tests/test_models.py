@@ -349,6 +349,7 @@ class ReferenceModelTest(TestCase):
             str(self.reference),
             'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
         )
+
 class TagModelTest(TestCase):
     def setUp(self):
         self.tag = create_tag()
@@ -536,6 +537,16 @@ class CardFeedbackModelTest(TestCase):
             'This is a question (freeform) feedback: This is a feedback comment'
         )
 
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        long_feedback = self.feedback
+        long_feedback.comment = 'a' * 51
+        long_feedback.save()
+
+        self.assertEqual(
+            str(long_feedback),
+            'This is a question (freeform) feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+        )
 class DeckFeedbackModelTest(TestCase):
     def setUp(self):
         self.feedback = create_deck_feedback()
@@ -576,4 +587,15 @@ class DeckFeedbackModelTest(TestCase):
         self.assertEqual(
             str(self.feedback),
             'Cardiology feedback: This is a feedback comment'
+        )
+
+    def test_long_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        long_feedback = self.feedback
+        long_feedback.comment = 'a' * 51
+        long_feedback.save()
+
+        self.assertEqual(
+            str(long_feedback),
+            'Cardiology feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
         )
