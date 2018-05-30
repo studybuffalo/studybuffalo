@@ -21,10 +21,10 @@ class APIRootTest(TestCase):
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
 
-    def test_exists_at_proper_location(self):
+    def test_accessible_by_url(self):
         """Checks that the dashboard uses the correct URL"""
         self.client.login(username=self.user.username, password="abcd123456")
-        response = self.client.get("/flash_cards/api/v1/")
+        response = self.client.get("/flash-cards/api/v1/")
 
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
@@ -47,10 +47,10 @@ class CardListTest(TestCase):
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
 
-    def test_exists_at_proper_location(self):
+    def test_accessible_by_url(self):
         """Checks that the dashboard uses the correct URL"""
         self.client.login(username=self.user.username, password="abcd123456")
-        response = self.client.get("/flash_cards/api/v1/card-list/")
+        response = self.client.get("/flash-cards/api/v1/cards/")
 
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
@@ -85,10 +85,10 @@ class DeckListTest(TestCase):
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
 
-    def test_exists_at_proper_location(self):
+    def test_accessible_by_url(self):
         """Checks that the dashboard uses the correct URL"""
         self.client.login(username=self.user.username, password="abcd123456")
-        response = self.client.get("/flash_cards/api/v1/deck-list/")
+        response = self.client.get("/flash-cards/api/v1/decks/")
 
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
@@ -123,10 +123,10 @@ class TagListTest(TestCase):
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
 
-    def test_exists_at_proper_location(self):
+    def test_accessible_by_url(self):
         """Checks that the dashboard uses the correct URL"""
         self.client.login(username=self.user.username, password="abcd123456")
-        response = self.client.get("/flash_cards/api/v1/tag-list/")
+        response = self.client.get("/flash-cards/api/v1/tags/")
 
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
@@ -149,10 +149,10 @@ class TagDetailTest(TestCase):
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)
 
-    def test_exists_at_proper_location(self):
+    def test_accessible_by_url(self):
         """Checks that the dashboard uses the correct URL"""
         self.client.login(username=self.user.username, password="abcd123456")
-        response = self.client.get("/flash_cards/api/v1/tag-list/")
+        response = self.client.get("/flash-cards/api/v1/tags/")
 
         # Check that page is accessible
         self.assertEqual(response.status_code, 200)

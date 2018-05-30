@@ -26,6 +26,7 @@ def api_root(request, format=None):
     })
 
 class CardList(APIView):
+    permission_classes = (IsAuthenticated, )
     def get(self, request, format=None):
         cards = Card.objects.all()
         serializer = CardSerializer(cards, many=True, context={'request': request})
