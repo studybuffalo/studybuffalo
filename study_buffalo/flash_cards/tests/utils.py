@@ -158,11 +158,33 @@ def create_user_stats():
         number_incorrect=10,
     )
 
+def create_freeform_card():
+    # Create a card
+    card = create_card()
+
+    # Adding a question to the card
+    models.QuestionPart.objects.create(
+        card=card,
+        media_type='t',
+        text='This is a question',
+        order=1,
+    )
+
+    # Adding a freeform answer to the card
+    models.FreeformAnswerPart.objects.create(
+        card=card,
+        media_type='t',
+        text='This is a freeform answer',
+        order=1,
+    )
+
+    return card
+
 def create_card_feedback():
     return models.CardFeedback.objects.create(
         user=create_user(),
         comment='This is a feedback comment',
-        card=create_card(),
+        card=create_freeform_card(),
     )
 
 def create_deck_feedback():

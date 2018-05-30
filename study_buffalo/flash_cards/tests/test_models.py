@@ -98,92 +98,6 @@ class DeckModelTest(TestCase):
             'Cardiology Questions'
         )
 
-class DeckTagModelTest(TestCase):
-    def setUp(self):
-        deck = utils.create_deck('Cardiology')
-        tag = utils.create_tag()
-
-        self.deck_tag = utils.create_deck_tag_match(deck, tag)
-
-    def test_labels(self):
-        # Test deck label
-        self.assertEqual(
-            self.deck_tag._meta.get_field('deck').verbose_name,
-            'deck',
-        )
-
-        # Test tag label
-        self.assertEqual(
-            self.deck_tag._meta.get_field('tag').verbose_name,
-            'tag',
-        )
-
-# class CardModelFreeformTest(TestCase):
-#     def setUp(self):
-#         self.card = utils.create_freeform_card()
-
-#     def test_labels(self):
-#         # Test card_uuid label
-#         self.assertEqual(
-#             self.card._meta.get_field('card_uuid').verbose_name,
-#             'card UUID',
-#         )
-
-#         # Test reviewed label
-#         self.assertEqual(
-#             self.card._meta.get_field('reviewed').verbose_name,
-#             'reviewed',
-#         )
-
-#         # Test active label
-#         self.assertEqual(
-#             self.card._meta.get_field('active').verbose_name,
-#             'active',
-#         )
-
-#         # Test date_modified label
-#         self.assertEqual(
-#             self.card._meta.get_field('date_modified').verbose_name,
-#             'date modified',
-#         )
-
-#         # Test date_reviewed label
-#         self.assertEqual(
-#             self.card._meta.get_field('date_reviewed').verbose_name,
-#             'date reviewed',
-#         )
-
-#         # Test tags label
-#         self.assertEqual(
-#             self.card._meta.get_field('tags').verbose_name,
-#             'tags',
-#         )
-
-#         # Test decks label
-#         self.assertEqual(
-#             self.card._meta.get_field('decks').verbose_name,
-#             'decks',
-#         )
-
-    # def test_short_string_representation(self):
-    #     '''Tests that the model string representaton returns as expected'''
-    #     self.assertEqual(
-    #         str(self.card),
-    #         'This is a question (freeform)'
-    #     )
-
-    # def test_long_string_representation(self):
-    #     long_card = self.card
-
-    #     long_card_text = long_card.question.textpart_set.first()
-    #     long_card_text.text = 'a' * 50
-    #     long_card_text.save()
-
-    #     self.assertEqual(
-    #         str(long_card),
-    #         'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (freeform)'
-    #     )
-
 class QuestionPartModelTest(TestCase):
     def setUp(self):
         self.part = utils.create_question_part(text='This is a question')
@@ -636,6 +550,26 @@ class CardTagModelTest(TestCase):
             'tag',
         )
 
+class DeckTagModelTest(TestCase):
+    def setUp(self):
+        deck = utils.create_deck('Cardiology')
+        tag = utils.create_tag()
+
+        self.deck_tag = utils.create_deck_tag_match(deck, tag)
+
+    def test_labels(self):
+        # Test deck label
+        self.assertEqual(
+            self.deck_tag._meta.get_field('deck').verbose_name,
+            'deck',
+        )
+
+        # Test tag label
+        self.assertEqual(
+            self.deck_tag._meta.get_field('tag').verbose_name,
+            'tag',
+        )
+
 class DeckStatsModelTest(TestCase):
     def setUp(self):
         self.deck_stats = utils.create_deck_stats()
@@ -784,18 +718,18 @@ class CardFeedbackModelTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.feedback),
-            'Question String feedback: This is a feedback comment'
+            'This is a question (freeform) feedback: This is a feedback comment'
         )
 
     def test_long_string_representation(self):
         '''Tests that the model string representaton returns as expected'''
-        long_feedback = self.feedback
-        long_feedback.comment = 'a' * 51
-        long_feedback.save()
+        # Update the question
+        self.feedback.comment = 'a' * 51
+        self.feedback.save()
 
         self.assertEqual(
-            str(long_feedback),
-            'Question String feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+            str(self.feedback),
+            'This is a question (freeform) feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
         )
 
 class DeckFeedbackModelTest(TestCase):
@@ -849,4 +783,68 @@ class DeckFeedbackModelTest(TestCase):
         self.assertEqual(
             str(long_feedback),
             'Cardiology feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
+        )
+
+class CardModelFreeformTest(TestCase):
+    def setUp(self):
+        self.card = utils.create_freeform_card()
+
+    def test_labels(self):
+        # Test id label
+        self.assertEqual(
+            self.card._meta.get_field('id').verbose_name,
+            'id',
+        )
+
+        # Test reviewed label
+        self.assertEqual(
+            self.card._meta.get_field('reviewed').verbose_name,
+            'reviewed',
+        )
+
+        # Test active label
+        self.assertEqual(
+            self.card._meta.get_field('active').verbose_name,
+            'active',
+        )
+
+        # Test date_modified label
+        self.assertEqual(
+            self.card._meta.get_field('date_modified').verbose_name,
+            'date modified',
+        )
+
+        # Test date_reviewed label
+        self.assertEqual(
+            self.card._meta.get_field('date_reviewed').verbose_name,
+            'date reviewed',
+        )
+
+        # Test tags label
+        self.assertEqual(
+            self.card._meta.get_field('tags').verbose_name,
+            'tags',
+        )
+
+        # Test decks label
+        self.assertEqual(
+            self.card._meta.get_field('decks').verbose_name,
+            'decks',
+        )
+
+    def test_short_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.card),
+            'This is a question (freeform)'
+        )
+
+    def test_long_string_representation(self):
+        question = self.card.question_parts.all().first()
+        question.text = 'a' * 50
+        question.save()
+
+        self.assertEqual(
+            str(self.card),
+            'aaaaaaaaaaaaaaaaaaaaaaaaaa... (freeform)'
         )

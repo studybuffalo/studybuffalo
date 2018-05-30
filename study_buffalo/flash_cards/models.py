@@ -192,22 +192,22 @@ class Card(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        # # Format the question text
-        # question_string = str(self.question)
+        question_parts = str(self.question_parts.all().first())
 
-        # if len(question_string) > 40:
-        #     question = '{}...'.format(question_string[:37])
-        # else:
-        #     question = question_string
+        if self.multiple_choice_answers.exists():
+            question_type = 'multiple choice'
+            max_length = 20
+        elif self.multiple_choice_answers.exists():
+            question_type = 'matching'
+            max_length = 29
+        else:
+            question_type = 'freeform'
+            max_length = 29
 
-        # # Determine the answer type
-        # answer_type = (
-        #     'multiple choice' if self.answer_multiple_choice else
-        #     'matching' if self.answer_matching else 'freeform'
-        # )
-        # return '{} ({})'.format(question, answer_type)
+        if len(question_parts) > max_length:
+            return '{}... ({})'.format(question_parts[:max_length - 3], question_type)
 
-        return 'Question String'
+        return '{} ({})'.format(question_parts, question_type)
 
 class QuestionPart(AbstractPart):
     card = models.ForeignKey(
