@@ -220,10 +220,10 @@ class MultipleChoiceAnswerModelTest(TestCase):
         self.answer = utils.create_multiple_choice_answer()
 
     def test_labels(self):
-        # Test multiple_choice_answer_uuid label
+        # Test id label
         self.assertEqual(
-            self.answer._meta.get_field('multiple_choice_answer_uuid').verbose_name,
-            'answer UUID',
+            self.answer._meta.get_field('id').verbose_name,
+            'id',
         )
 
         # Test card label

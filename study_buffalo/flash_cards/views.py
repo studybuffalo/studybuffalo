@@ -9,10 +9,10 @@ from rest_framework import status, generics
 
 from django.shortcuts import get_object_or_404
 
-from .models import Card, Deck, Tag, Synonym, Reference, PartContainer, TextPart, MediaPart
+from .models import Card, Deck, Tag, Synonym, Reference
 from .api.serializers import (
     CardSerializer, NewCardSerializer, DeckSerializer, TagSerializer, SynonymSerializer,
-    ReferenceSerializer, PartContainerSerializer, TextPartSerializer, MultipleChoiceContainerSerializer
+    ReferenceSerializer, #PartContainerSerializer, TextPartSerializer, MultipleChoiceContainerSerializer
 )
 
 
@@ -77,23 +77,23 @@ class SynonymDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SynonymSerializer
     lookup_field = 'synonym_name'
 
-class PartContainerDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = PartContainer.objects.all()
-    permission_classes = (IsAuthenticated, )
-    serializer_class = PartContainerSerializer
-    lookup_field = 'container_uuid'
+# class PartContainerDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = PartContainer.objects.all()
+#     permission_classes = (IsAuthenticated, )
+#     serializer_class = PartContainerSerializer
+#     lookup_field = 'container_uuid'
 
-class TextPartDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = TextPart.objects.all()
-    permission_classes = (IsAuthenticated, )
-    serializer_class = TextPartSerializer
-    lookup_field = 'part_uuid'
+# class TextPartDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = TextPart.objects.all()
+#     permission_classes = (IsAuthenticated, )
+#     serializer_class = TextPartSerializer
+#     lookup_field = 'part_uuid'
 
-class MultipleChoiceContainerDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = PartContainer.objects.all()
-    permission_classes = (IsAuthenticated, )
-    serializer_class = MultipleChoiceContainerSerializer
-    lookup_field = 'container_uuid'
+# class MultipleChoiceContainerDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = PartContainer.objects.all()
+#     permission_classes = (IsAuthenticated, )
+#     serializer_class = MultipleChoiceContainerSerializer
+#     lookup_field = 'container_uuid'
 
 class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Reference.objects.all()
