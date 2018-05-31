@@ -11,15 +11,12 @@ class SynonymSerializer(serializers.ModelSerializer):
         model = models.Synonym
         fields = ('synonym_name', )
 
-class TagSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.Serializer):
+    tag_name = serializers.CharField(max_length=100, required=True)
     synonyms = SynonymSerializer(
         many=True,
         required=False,
     )
-
-    class Meta:
-        model = models.Tag
-        fields = ('tag_name', 'synonyms', )
 
     def create(self, validated_data):
         # Extract any synonyms
