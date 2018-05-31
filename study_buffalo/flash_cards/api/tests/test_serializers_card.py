@@ -361,6 +361,23 @@ class CardSerializerTest(TestCase):
             deck_tag_total + 1
         )
 
+    def test_freeform_without_rationale(self):
+        # Remove rationale
+        data = self.freeform_data
+        data.pop('rationale_parts')
+
+        # Create and save serializer
+        serializer = serializers.CardSerializer(data=data)
+        self.assertTrue(serializer.is_valid())
+
+        try:
+            serializer.save()
+            errors = False
+        except KeyError:
+            errors = True
+
+        self.assertFalse(errors)
+
     def test_old_tags_retrieved(self):
         # Get current counts
         tag_total = models.Tag.objects.all().count()
