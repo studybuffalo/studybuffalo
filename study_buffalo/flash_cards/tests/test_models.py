@@ -1,9 +1,108 @@
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 
+from flash_cards import models
 from flash_cards.tests import utils
 
-# TODO: Build tests for the abstrac models to reduce test code
-# TODO: Add tests for MinValueValidator of the order fields
+
+class BaseAbstractModelTest(TestCase):
+    def setUp(self):
+        self.base_abstract = models.BaseAbstractModel()
+
+    def test_labels(self):
+        # Test id label
+        self.assertEqual(
+            self.base_abstract._meta.get_field('id').verbose_name,
+            'id',
+        )
+
+class AbstractPartModelTest(TestCase):
+    def setUp(self):
+        self.part = models.AbstractPart(
+            order=1,
+            media_type='t',
+            text='This is text',
+            media=None
+        )
+
+    def test_labels(self):
+        # Test order label
+        self.assertEqual(
+            self.part._meta.get_field('order').verbose_name,
+            'order',
+        )
+
+        # Test media_type label
+        self.assertEqual(
+            self.part._meta.get_field('media_type').verbose_name,
+            'media type',
+        )
+
+        # Test text label
+        self.assertEqual(
+            self.part._meta.get_field('text').verbose_name,
+            'text',
+        )
+
+        # Test media label
+        self.assertEqual(
+            self.part._meta.get_field('media').verbose_name,
+            'media',
+        )
+
+    def test_order_validation(self):
+        part = models.AbstractPart(order=0, media_type='t')
+
+        try:
+            part.clean_fields()
+            errors = False
+        except ValidationError as e:
+            errors = dict(e)
+
+        # Check for errors
+        self.assertTrue(errors)
+
+        # Check for proper error
+        self.assertTrue('order' in errors)
+        self.assertEqual(
+            errors['order'],
+            ["Ensure this value is greater than or equal to 1."]
+        )
+    def test_media_type_max_length(self):
+        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
+
+    def test_media_type_choices(self):
+        part = models.AbstractPart(media_type='z')
+
+        try:
+            part.clean_fields()
+            errors = False
+        except ValidationError as e:
+            errors = dict(e)
+
+        # Check for errors
+        self.assertTrue(errors)
+
+        # Check for proper error
+        self.assertTrue('media_type' in errors)
+        self.assertEqual(
+            errors['media_type'],
+            ["Value 'z' is not a valid choice."]
+        )
+
+    def test_text_max_length(self):
+        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
+
+    def test_short_text_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(str(self.part), 'This is text')
+
+    def test_long_text_string_representation(self):
+        part = models.AbstractPart(text='a' * 41)
+
+        self.assertEqual(str(part), 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...')
+
+    # TODO: Create tests for the other media types when working properly
 
 class TagModelTest(TestCase):
     def setUp(self):
@@ -100,53 +199,11 @@ class QuestionPartModelTest(TestCase):
         self.part = utils.create_question_part(text='This is a question')
 
     def test_labels(self):
-        # Test part_uuid label
-        self.assertEqual(
-            self.part._meta.get_field('id').verbose_name,
-            'id',
-        )
-
-        # Test order label
-        self.assertEqual(
-            self.part._meta.get_field('order').verbose_name,
-            'order',
-        )
-
-        # Test media_type label
-        self.assertEqual(
-            self.part._meta.get_field('media_type').verbose_name,
-            'media type',
-        )
-
-        # Test text label
-        self.assertEqual(
-            self.part._meta.get_field('text').verbose_name,
-            'text',
-        )
-
-        # Test media label
-        self.assertEqual(
-            self.part._meta.get_field('media').verbose_name,
-            'media',
-        )
-
         # Test card label
         self.assertEqual(
             self.part._meta.get_field('card').verbose_name,
             'card',
         )
-
-    def test_media_type_max_length(self):
-        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
-
-    def test_text_max_length(self):
-        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
-
-    def test_string_representation(self):
-        '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), 'This is a question')
-
-    # TODO: Create tests for the other media types when working properly
 
 class MultipleChoiceAnswerModelTest(TestCase):
     def setUp(self):
@@ -207,51 +264,11 @@ class MultipleChoiceAnswerPartModelTest(TestCase):
         )
 
     def test_labels(self):
-        # Test part_uuid label
-        self.assertEqual(
-            self.part._meta.get_field('id').verbose_name,
-            'id',
-        )
-
-        # Test order label
-        self.assertEqual(
-            self.part._meta.get_field('order').verbose_name,
-            'order',
-        )
-
-        # Test media_type label
-        self.assertEqual(
-            self.part._meta.get_field('media_type').verbose_name,
-            'media type',
-        )
-
-        # Test text label
-        self.assertEqual(
-            self.part._meta.get_field('text').verbose_name,
-            'text',
-        )
-
-        # Test media label
-        self.assertEqual(
-            self.part._meta.get_field('media').verbose_name,
-            'media',
-        )
-
         # Test multiple_choice_answer label
         self.assertEqual(
             self.part._meta.get_field('multiple_choice_answer').verbose_name,
             'multiple choice answer',
         )
-
-    def test_media_type_max_length(self):
-        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
-
-    def test_text_max_length(self):
-        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
-
-    def test_string_representation(self):
-        '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), 'This is an MC answer')
 
 class MatchingAnswerModelTest(TestCase):
     def setUp(self):
@@ -318,153 +335,33 @@ class MatchingAnswerPartModelTest(TestCase):
         )
 
     def test_labels(self):
-        # Test id label
-        self.assertEqual(
-            self.part._meta.get_field('id').verbose_name,
-            'id',
-        )
-
-        # Test order label
-        self.assertEqual(
-            self.part._meta.get_field('order').verbose_name,
-            'order',
-        )
-
-        # Test media_type label
-        self.assertEqual(
-            self.part._meta.get_field('media_type').verbose_name,
-            'media type',
-        )
-
-        # Test text label
-        self.assertEqual(
-            self.part._meta.get_field('text').verbose_name,
-            'text',
-        )
-
-        # Test media label
-        self.assertEqual(
-            self.part._meta.get_field('media').verbose_name,
-            'media',
-        )
-
         # Test matching_answer label
         self.assertEqual(
             self.part._meta.get_field('matching_answer').verbose_name,
             'matching answer',
         )
 
-    def test_media_type_max_length(self):
-        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
-
-    def test_text_max_length(self):
-        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
-
-    def test_string_representation(self):
-        '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), 'This is a matching answer')
-
 class FreeformAnswerPartModelTest(TestCase):
     def setUp(self):
         self.part = utils.create_freeform_answer_part(text='This is a freeform answer')
 
     def test_labels(self):
-        # Test part_uuid label
-        self.assertEqual(
-            self.part._meta.get_field('id').verbose_name,
-            'id',
-        )
-
-        # Test order label
-        self.assertEqual(
-            self.part._meta.get_field('order').verbose_name,
-            'order',
-        )
-
-        # Test media_type label
-        self.assertEqual(
-            self.part._meta.get_field('media_type').verbose_name,
-            'media type',
-        )
-
-        # Test text label
-        self.assertEqual(
-            self.part._meta.get_field('text').verbose_name,
-            'text',
-        )
-
-        # Test media label
-        self.assertEqual(
-            self.part._meta.get_field('media').verbose_name,
-            'media',
-        )
-
         # Test card label
         self.assertEqual(
             self.part._meta.get_field('card').verbose_name,
             'card',
         )
-
-    def test_media_type_max_length(self):
-        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
-
-    def test_text_max_length(self):
-        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
-
-    def test_string_representation(self):
-        '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), 'This is a freeform answer')
 
 class RationalePartModelTest(TestCase):
     def setUp(self):
         self.part = utils.create_rationale_part(text='This is some rationale')
 
     def test_labels(self):
-        # Test part_uuid label
-        self.assertEqual(
-            self.part._meta.get_field('id').verbose_name,
-            'id',
-        )
-
-        # Test order label
-        self.assertEqual(
-            self.part._meta.get_field('order').verbose_name,
-            'order',
-        )
-
-        # Test media_type label
-        self.assertEqual(
-            self.part._meta.get_field('media_type').verbose_name,
-            'media type',
-        )
-
-        # Test text label
-        self.assertEqual(
-            self.part._meta.get_field('text').verbose_name,
-            'text',
-        )
-
-        # Test media label
-        self.assertEqual(
-            self.part._meta.get_field('media').verbose_name,
-            'media',
-        )
-
         # Test card label
         self.assertEqual(
             self.part._meta.get_field('card').verbose_name,
             'card',
         )
-
-    def test_media_type_max_length(self):
-        self.assertEqual(self.part._meta.get_field('media_type').max_length, 1)
-
-    def test_text_max_length(self):
-        self.assertEqual(self.part._meta.get_field('text').max_length, 2000)
-
-    def test_string_representation(self):
-        '''Tests that the model string representaton returns as expected'''
-        self.assertEqual(str(self.part), 'This is some rationale')
 
 class ReferenceModelTest(TestCase):
     def setUp(self):
