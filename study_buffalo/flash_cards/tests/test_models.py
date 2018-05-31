@@ -3,6 +3,7 @@ from django.test import TestCase
 from flash_cards.tests import utils
 
 # TODO: Build tests for the abstrac models to reduce test code
+# TODO: Add tests for MinValueValidator of the order fields
 
 class TagModelTest(TestCase):
     def setUp(self):

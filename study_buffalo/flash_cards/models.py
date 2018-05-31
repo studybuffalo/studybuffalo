@@ -4,6 +4,7 @@ import uuid
 from simple_history.models import HistoricalRecords
 
 from django.conf import settings
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils import timezone
 
@@ -22,30 +23,6 @@ class BaseAbstractModel(models.Model):
     class Meta:
         abstract = True
 
-    # def __str__(self):
-    #     # Get all the parts of the question
-    #     text_parts = PartContainer.objects.get(id=self.id).textpart_set.all().values_list('order', 'text')
-    #     media_parts = PartContainer.objects.get(id=self.id).mediapart_set.all().values_list('order', 'media_type')
-
-    #     # Combined parts by order
-    #     parts = []
-
-    #     for part in text_parts:
-    #         parts.insert(part[0], part[1])
-
-    #     for part in media_parts:
-    #         parts.insert(part[0], '<{}>'.format(part[1]))
-
-    #     combined_parts = ' '.join(parts)
-
-    #     # Truncate parts if length is too long
-    #     if len(combined_parts) > 50:
-    #         return_string = '{}...'.format(combined_parts[:47])
-    #     else:
-    #         return_string = combined_parts
-
-    #     return return_string
-
 class AbstractPart(BaseAbstractModel):
     '''Abstract model to construct parts'''
     MEDIA_TYPES = (
@@ -57,6 +34,7 @@ class AbstractPart(BaseAbstractModel):
 
     order = models.PositiveIntegerField(
         default=1,
+        validators=[MinValueValidator(1), ]
     )
     media_type = models.CharField(
         max_length=1,
@@ -208,6 +186,7 @@ class MultipleChoiceAnswer(BaseAbstractModel):
     )
     order = models.PositiveIntegerField(
         default=1,
+        validators=[MinValueValidator(1), ],
     )
     correct = models.BooleanField(
         default=False,
@@ -253,6 +232,7 @@ class MatchingAnswer(BaseAbstractModel):
     )
     order = models.PositiveIntegerField(
         default=1,
+        validators=[MinValueValidator(1), ],
     )
     pair = models.ForeignKey(
         'MatchingAnswer',
