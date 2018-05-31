@@ -82,27 +82,25 @@ class AbstractPart(BaseAbstractModel):
 
         return return_string
 
-class Tag(models.Model):
+class Tag(BaseAbstractModel):
     tag_name = models.CharField(
         max_length=100,
-        primary_key=True,
+        unique=True
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         return self.tag_name
 
-class Synonym(models.Model):
+class Synonym(BaseAbstractModel):
     synonym_name = models.CharField(
         max_length=100,
-        primary_key=True,
+        unique=True,
     )
     tag = models.ForeignKey(
         Tag,
         on_delete=models.CASCADE,
         related_name='synonyms',
     )
-    history = HistoricalRecords()
 
     def __str__(self):
         return '{} (synonym for {})'.format(self.synonym_name, self.tag)
