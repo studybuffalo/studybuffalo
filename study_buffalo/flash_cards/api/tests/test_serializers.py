@@ -245,6 +245,7 @@ class QuestionPartSerializerTest(TestCase):
             serializer.errors['order'],
             ['Ensure this value is greater than or equal to 1.']
         )
+
 class MultipleChoiceAnswerPartSerializerTest(TestCase):
     def setUp(self):
         answer = models.MultipleChoiceAnswer.objects.create(
@@ -308,6 +309,56 @@ class MultipleChoiceAnswerPartSerializerTest(TestCase):
         invalid_data['order'] = 0
 
         serializer = serializers.MultipleChoiceAnswerPartSerializer(
+            data=invalid_data,
+        )
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['order']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['order'],
+            ['Ensure this value is greater than or equal to 1.']
+        )
+
+class MultipleChoiceAnswerSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'order': 1,
+            'correct': True,
+            'multiple_choice_answer_parts': [],
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.MultipleChoiceAnswerSerializer(
+            data=self.data,
+        )
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = serializers.MultipleChoiceAnswerSerializer(
+            data=self.data,
+        )
+
+        self.assertTrue(serializer.is_valid())
+
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            ['order', 'correct', 'multiple_choice_answer_parts', ]
+        )
+
+    def test_order_min_value(self):
+        invalid_data = self.data
+        invalid_data['order'] = 0
+
+        serializer = serializers.MultipleChoiceAnswerSerializer(
             data=invalid_data,
         )
 
