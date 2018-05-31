@@ -2,12 +2,9 @@
 from rest_framework import serializers
 
 from django.core.exceptions import ObjectDoesNotExist
-from django.utils import timezone
 from django.urls import reverse
 from flash_cards import models
 
-
-# TODO: Add Reference Serializer
 
 class SynonymSerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,15 +40,39 @@ class QuestionPartSerializer(serializers.ModelSerializer):
         model = models.QuestionPart
         fields = ('order', 'media_type', 'text', 'media')
 
+class MultipleChoiceAnswerPartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.MultipleChoiceAnswerPart
+        fields = (
+            'multiple_choice_answer', 'order', 'media_type', 'text', 'media',
+        )
+
 class MultipleChoiceAnswerSerializer(serializers.ModelSerializer):
+    multiple_choice_answer_parts = MultipleChoiceAnswerPartSerializer(
+        many=True,
+        required=True,
+    )
+
     class Meta:
         model = models.MultipleChoiceAnswer
-        fields = ('order', 'correct', )
+        fields = ('order', 'correct', 'multiple_choice_answer_parts', )
+
+class MatchingAnswerPartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.MultipleChoiceAnswerPart
+        fields = (
+            'matching_answer', 'order', 'media_type', 'text', 'media'
+        )
 
 class MatchingAnswerSerializer(serializers.ModelSerializer):
+    matching_answer_parts = MatchingAnswerPartSerializer(
+        many=True,
+        required=True,
+    )
+
     class Meta:
         model = models.MatchingAnswer
-        fields = ('side', 'order', 'pair', )
+        fields = ('side', 'order', 'pair', 'matching_answer_parts', )
 
 class FreeformAnswerPartSerializer(serializers.ModelSerializer):
     class Meta:
@@ -62,6 +83,11 @@ class RationalePartSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.RationalePart
         fields = ('order', 'media_type', 'text', 'media')
+
+class ReferenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Reference
+        fields = ('card', 'reference', )
 
 class DeckForCardSerializer(serializers.Serializer):
     id = serializers.UUIDField()
@@ -86,19 +112,20 @@ class DeckForCardSerializer(serializers.Serializer):
         return data
 
 class CardSerializer(serializers.ModelSerializer):
-    question_parts = QuestionPartSerializer(many=True)
-    multiple_choice_answers = MultipleChoiceAnswerSerializer(many=True, required=False)
-    matching_answers = MatchingAnswerSerializer(many=True, required=False)
-    freeform_answers = FreeformAnswerPartSerializer(many=True, required=False)
-    rationale_parts = RationalePartSerializer(many=True, required=False)
-    tags = TagSerializer(many=True)
-    decks = DeckForCardSerializer(many=True)
+    question_parts = QuestionPartSerializer(many=True, )
+    multiple_choice_answers = MultipleChoiceAnswerSerializer(many=True, required=False, )
+    matching_answers = MatchingAnswerSerializer(many=True, required=False, )
+    freeform_answer_parts = FreeformAnswerPartSerializer(many=True, required=False, )
+    rationale_parts = RationalePartSerializer(many=True, required=False, )
+    references = ReferenceSerializer(many=True, required=True, )
+    tags = TagSerializer(many=True, )
+    decks = DeckForCardSerializer(many=True, )
 
     class Meta:
         model = models.Card
         fields = (
             'id', 'question_parts', 'multiple_choice_answers', 'matching_answers',
-            'freeform_answers', 'rationale_parts', 'reviewed', 'active',
+            'freeform_answer_parts', 'rationale_parts', 'reviewed', 'active',
             'date_modified', 'date_reviewed', 'references', 'tags', 'decks'
         )
         depth = 2

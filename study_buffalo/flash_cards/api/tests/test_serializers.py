@@ -223,52 +223,108 @@ class QuestionPartSerializerTest(TestCase):
             ['Ensure this field has no more than 2000 characters.']
         )
 
-# class MultipleChoiceSerializerTest(TestCase):
-#     def setUp(self):
-#         self.data = {
-#             'content': [
-#                 {
-#                     'text': 'This is test text',
-#                     'order': 1,
-#                 },
-#             ],
-#             'order': 1,
-#             'correct': True,
-#         }
+    def test_order_min_value(self):
+        invalid_data = self.data
+        invalid_data['order'] = 0
 
-#     def test_accepts_valid_data(self):
-#         serializer = MultipleChoiceSerializer(data=self.data)
+        serializer = serializers.QuestionPartSerializer(
+            data=invalid_data,
+        )
 
-#         self.assertTrue(serializer.is_valid())
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
 
-#     def test_expected_fields(self):
-#         serializer = MultipleChoiceSerializer(self.data)
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['order']
+        )
 
-#         self.assertCountEqual(
-#             serializer.data.keys(),
-#             ['content', 'order', 'correct']
-#         )
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['order'],
+            ['Ensure this value is greater than or equal to 1.']
+        )
+class MultipleChoiceAnswerPartSerializerTest(TestCase):
+    def setUp(self):
+        answer = models.MultipleChoiceAnswer.objects.create(
+            card=models.Card.objects.create(),
+            order=1,
+            correct=True,
+        )
 
-#     def test_order_min_value(self):
-#         invalid_data = self.data
-#         invalid_data['order'] = 0
+        self.data = {
+            'multiple_choice_answer': answer.id,
+            'order': 1,
+            'media_type': 't',
+            'text': 'This is a multiple choice answer',
+            'media': None,
+        }
 
-#         serializer = MultipleChoiceSerializer(data=invalid_data)
+    def test_accepts_valid_data(self):
+        serializer = serializers.MultipleChoiceAnswerPartSerializer(
+            data=self.data,
+        )
 
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
+        self.assertTrue(serializer.is_valid())
 
-#         # Check that only the text error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['order']
-#         )
+    def test_expected_fields(self):
+        serializer = serializers.MultipleChoiceAnswerPartSerializer(
+            data=self.data,
+        )
 
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['order'],
-#             ['Ensure this value is greater than or equal to 1.']
-#         )
+        self.assertTrue(serializer.is_valid())
+
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            ['multiple_choice_answer', 'order', 'media_type', 'text', 'media', ]
+        )
+
+    def test_text_max_length(self):
+        invalid_data = self.data
+        invalid_data['text'] = 'a' * 2001
+
+        serializer = serializers.MultipleChoiceAnswerPartSerializer(
+            data=invalid_data,
+        )
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['text']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['text'],
+            ['Ensure this field has no more than 2000 characters.']
+        )
+
+    def test_order_min_value(self):
+        invalid_data = self.data
+        invalid_data['order'] = 0
+
+        serializer = serializers.MultipleChoiceAnswerPartSerializer(
+            data=invalid_data,
+        )
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['order']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['order'],
+            ['Ensure this value is greater than or equal to 1.']
+        )
 
 # class MatchingSerializerTest(TestCase):
 #     def setUp(self):
