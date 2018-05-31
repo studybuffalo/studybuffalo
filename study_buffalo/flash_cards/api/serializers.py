@@ -318,4 +318,36 @@ class CardSerializer(serializers.ModelSerializer):
 
         return card
 
-    # TODO: Add validation to only allow 1 type of answer
+    def validate(self, data):
+        # VALIDATION: ensure exactly 1 answer type provided
+        # Get any multiple choice answers
+        try:
+            multiple_choice = data['multiple_choice_answers']
+        except KeyError:
+            multiple_choice = False
+
+        # Get any matching answers
+        try:
+            matching = data['matching_answers']
+        except KeyError:
+            matching = False
+
+        # Get any freeform answers
+        try:
+            freeform = data['freeform_answer_parts']
+        except KeyError:
+            freeform = False
+
+        # Total the number of answers
+        answer_total = (
+            (1 if multiple_choice else 0)
+            + (1 if matching else 0)
+            + (1 if freeform else 0)
+        )
+
+        if answer_total == 0:
+            raise serializers.ValidationError('Must provide an answer.')
+        elif answer_total > 1:
+            raise serializers.ValidationError('Must provide only one answer type.')
+
+        return data

@@ -427,3 +427,45 @@ class CardSerializerTest(TestCase):
             models.Synonym.objects.all().count(),
             synonym_total + 1
         )
+
+    def test_no_answer_validation(self):
+        data = self.freeform_data
+        data.pop('freeform_answer_parts')
+
+        serializer = serializers.CardSerializer(data=data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['non_field_errors']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['non_field_errors'],
+            ['Must provide an answer.']
+        )
+
+    def test_multiple_answer_validation(self):
+        data = self.freeform_data
+        data['multiple_choice_answers'] = self.multiple_choice_data['multiple_choice_answers']
+
+        serializer = serializers.CardSerializer(data=data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['non_field_errors']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['non_field_errors'],
+            ['Must provide only one answer type.']
+        )
