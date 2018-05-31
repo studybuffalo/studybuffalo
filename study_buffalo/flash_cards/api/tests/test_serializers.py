@@ -52,7 +52,9 @@ class TagSerializerTest(TestCase):
     def setUp(self):
         self.data = {
             'tag_name': 'cardiology',
-            'synonyms': [],
+            'synonyms': [
+                {'synonym_name': 'cardio'},
+            ],
         }
 
     def test_accepts_valid_data(self):
@@ -91,7 +93,105 @@ class TagSerializerTest(TestCase):
             ['Ensure this field has no more than 100 characters.']
         )
 
-    # TODO: Add validation for create and update functions
+    def test_custom_create_with_synonym(self):
+        # Count model numbers
+        tag_total = models.Tag.objects.all().count()
+        synonym_total = models.Synonym.objects.all().count()
+
+        # Serialize and save data
+        serializer = serializers.TagSerializer(data=self.data)
+        self.assertTrue(serializer.is_valid())
+        serializer.save()
+
+        # Check that models were created
+        self.assertEqual(
+            models.Tag.objects.all().count(),
+            tag_total + 1
+        )
+
+        self.assertEqual(
+            models.Synonym.objects.all().count(),
+            synonym_total + 2
+        )
+
+    def test_custom_create_without_synonym(self):
+        # Count model numbers
+        tag_total = models.Tag.objects.all().count()
+        synonym_total = models.Synonym.objects.all().count()
+
+        # Serialize and save data
+        serializer = serializers.TagSerializer(data={'tag_name': 'cardiology'})
+        self.assertTrue(serializer.is_valid())
+        serializer.save()
+
+        # Check that models were created
+        self.assertEqual(
+            models.Tag.objects.all().count(),
+            tag_total + 1
+        )
+
+        self.assertEqual(
+            models.Synonym.objects.all().count(),
+            synonym_total + 1
+        )
+
+    def test_custom_update_with_synonym(self):
+        tag = models.Tag.objects.create(
+            tag_name='cardio'
+        )
+        models.Synonym.objects.create(
+            tag=tag,
+            synonym_name='heart stuff'
+        )
+
+        # Count model numbers
+        tag_total = models.Tag.objects.all().count()
+        synonym_total = models.Synonym.objects.all().count()
+
+        # Serialize and save data
+        serializer = serializers.TagSerializer(tag, data=self.data)
+        self.assertTrue(serializer.is_valid())
+        serializer.save()
+
+        # Check that models were updated/created
+        self.assertEqual(
+            models.Tag.objects.all().count(),
+            tag_total
+        )
+
+        self.assertEqual(
+            models.Synonym.objects.all().count(),
+            synonym_total + 2
+        )
+
+    def test_custom_update_without_synonym(self):
+        tag = models.Tag.objects.create(
+            tag_name='cardio'
+        )
+        models.Synonym.objects.create(
+            tag=tag,
+            synonym_name='cardio'
+        )
+
+        # Count model numbers
+        tag_total = models.Tag.objects.all().count()
+        synonym_total = models.Synonym.objects.all().count()
+
+        # Serialize and save data
+        serializer = serializers.TagSerializer(tag, data={'tag_name': 'cardiology'})
+        self.assertTrue(serializer.is_valid())
+        serializer.save()
+
+        # Check that models were updated/created
+        self.assertEqual(
+            models.Tag.objects.all().count(),
+            tag_total
+        )
+
+        self.assertEqual(
+            models.Synonym.objects.all().count(),
+            synonym_total + 1
+        )
 
 class DeckSerializerTest(TestCase):
     def setUp(self):
