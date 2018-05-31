@@ -4,7 +4,6 @@ from django.test import TestCase
 
 from flash_cards import models
 from flash_cards.api import serializers
-from flash_cards.tests.utils import create_user
 
 
 class SynonymSerializerTest(TestCase):
@@ -251,14 +250,7 @@ class QuestionPartSerializerTest(TestCase):
 
 class MultipleChoiceAnswerPartSerializerTest(TestCase):
     def setUp(self):
-        answer = models.MultipleChoiceAnswer.objects.create(
-            card=models.Card.objects.create(),
-            order=1,
-            correct=True,
-        )
-
         self.data = {
-            'multiple_choice_answer': answer.id,
             'order': 1,
             'media_type': 't',
             'text': 'This is a multiple choice answer',
@@ -281,7 +273,7 @@ class MultipleChoiceAnswerPartSerializerTest(TestCase):
 
         self.assertCountEqual(
             serializer.validated_data.keys(),
-            ['multiple_choice_answer', 'order', 'media_type', 'text', 'media', ]
+            ['order', 'media_type', 'text', 'media', ]
         )
 
     def test_text_max_length(self):
@@ -382,15 +374,7 @@ class MultipleChoiceAnswerSerializerTest(TestCase):
 
 class MatchingAnswerPartSerializerTest(TestCase):
     def setUp(self):
-        answer = models.MatchingAnswer.objects.create(
-            card=models.Card.objects.create(),
-            side='l',
-            order=1,
-            pair=None,
-        )
-
         self.data = {
-            'matching_answer': answer.id,
             'order': 1,
             'media_type': 't',
             'text': 'This is a matching answer',
@@ -413,7 +397,7 @@ class MatchingAnswerPartSerializerTest(TestCase):
 
         self.assertCountEqual(
             serializer.validated_data.keys(),
-            ['matching_answer', 'order', 'media_type', 'text', 'media', ]
+            ['order', 'media_type', 'text', 'media', ]
         )
 
     def test_text_max_length(self):
@@ -649,7 +633,6 @@ class DeckForCardSerializer(TestCase):
         self.data = {
             'id': deck.id,
         }
-        self.user = create_user()
 
     def test_accepts_valid_data(self):
         serializer = serializers.DeckForCardSerializer(data=self.data)
@@ -674,170 +657,3 @@ class DeckForCardSerializer(TestCase):
             serializer.errors['id'],
             ['Provided deck does not exist: {}'.format(uuid)]
         )
-
-class CardSerializerTest(TestCase):
-    def setUp(self):
-        # Populate initial database details
-        deck = models.Deck.objects.create(
-            deck_name='Cardiology Study Deck',
-        )
-        tag = models.Tag.objects.create(
-            tag_name='cardiology',
-        )
-        models.Synonym.objects.create(
-            tag=tag,
-            synonym_name='cardio',
-        )
-
-        self.data = {
-            'question_parts': [
-                {
-                    'order': 1,
-                    'media_type': 't',
-                    'text': 'This is question text',
-                    'media': None,
-                },
-            ],
-            'freeform_answer_parts': [
-                {
-                    'order': 1,
-                    'media_type': 't',
-                    'text': 'This is freeform answer text',
-                    'media': None,
-                },
-            ],
-            'rationale_parts': [
-                {
-                    'order': 1,
-                    'media_type': 't',
-                    'text': 'This is rationale text',
-                    'media': None,
-                },
-            ],
-            'reviewed': False,
-            'active': True,
-            'date_modified': '2018-01-01T12:00:00.000000Z',
-            'date_reviewed': '2018-01-02T12:00:00.000000Z',
-            'references': [
-                {'reference': 'This is reference text'},
-            ],
-            'tags': [
-                {'tag_name': 'cardio'},
-            ],
-            'decks': [
-                {'id': deck.id},
-            ]
-        }
-
-    def test_accepts_valid_data(self):
-        serializer = serializers.CardSerializer(data=self.data)
-
-        self.assertTrue(serializer.is_valid())
-
-    def test_expected_fields(self):
-        serializer = serializers.CardSerializer(data=self.data)
-
-        self.assertTrue(serializer.is_valid())
-
-        self.assertCountEqual(
-            serializer.validated_data.keys(),
-            [
-                'question_parts', 'freeform_answer_parts', 'rationale_parts',
-                'reviewed', 'active', 'date_modified', 'date_reviewed',
-                'references', 'tags', 'decks',
-            ]
-        )
-
-    def test_old_tags_retrieved(self):
-        # Get current counts
-        tag_total = models.Tag.objects.all().count()
-        synonym_total = models.Synonym.objects.all().count()
-
-        # Save models
-        serializer = serializers.CardSerializer(data=self.data)
-
-        self.assertTrue(serializer.is_valid())
-
-        serializer.save()
-
-        # Compared model counts
-        self.assertEqual(
-            models.Tag.objects.all().count(),
-            tag_total
-        )
-
-        self.assertEqual(
-            models.Synonym.objects.all().count(),
-            synonym_total
-        )
-
-    def test_new_tags_created(self):
-        # Get current counts
-        tag_total = models.Tag.objects.all().count()
-        synonym_total = models.Synonym.objects.all().count()
-
-        # Specify new tag
-        data = self.data
-        data['tags'][0]['tag_name'] = 'neurology'
-
-        # Save models
-        serializer = serializers.CardSerializer(data=data)
-
-        self.assertTrue(serializer.is_valid())
-
-        serializer.save()
-
-        # Compared model counts
-        self.assertEqual(
-            models.Tag.objects.all().count(),
-            tag_total + 1
-        )
-
-        self.assertEqual(
-            models.Synonym.objects.all().count(),
-            synonym_total + 1
-        )
-
-    def test_relationships_created(self):
-        # Get current counts
-        question_total = models.QuestionPart.objects.all().count()
-        freeform_total = models.FreeformAnswerPart.objects.all().count()
-        rationale_total = models.RationalePart.objects.all().count()
-        card_tag_total = models.CardTag.objects.all().count()
-        deck_tag_total = models.CardDeck.objects.all().count()
-
-        # Save models
-        serializer = serializers.CardSerializer(data=self.data)
-
-        self.assertTrue(serializer.is_valid())
-
-        serializer.save()
-
-        # Compared model counts
-        self.assertEqual(
-            models.QuestionPart.objects.all().count(),
-            question_total + 1
-        )
-
-        self.assertEqual(
-            models.FreeformAnswerPart.objects.all().count(),
-            freeform_total + 1
-        )
-
-        self.assertEqual(
-            models.RationalePart.objects.all().count(),
-            rationale_total + 1
-        )
-
-        self.assertEqual(
-            models.CardTag.objects.all().count(),
-            card_tag_total + 1
-        )
-
-        self.assertEqual(
-            models.CardDeck.objects.all().count(),
-            deck_tag_total + 1
-        )
-
-    # TODO: Build tests for other answer types
-    # TODO: Build tests for more varied parts
