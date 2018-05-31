@@ -91,6 +91,8 @@ class TagSerializerTest(TestCase):
             ['Ensure this field has no more than 100 characters.']
         )
 
+    # TODO: Add validation for create and update functions
+
 class DeckSerializerTest(TestCase):
     def setUp(self):
         self.data = {
