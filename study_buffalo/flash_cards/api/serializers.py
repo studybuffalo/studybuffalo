@@ -44,7 +44,7 @@ class MultipleChoiceAnswerPartSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.MultipleChoiceAnswerPart
         fields = (
-            'multiple_choice_answer', 'order', 'media_type', 'text', 'media',
+            'order', 'media_type', 'text', 'media',
         )
 
 class MultipleChoiceAnswerSerializer(serializers.ModelSerializer):
@@ -61,7 +61,7 @@ class MatchingAnswerPartSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.MatchingAnswerPart
         fields = (
-            'matching_answer', 'order', 'media_type', 'text', 'media'
+            'order', 'media_type', 'text', 'media'
         )
 
 class MatchingAnswerSerializer(serializers.ModelSerializer):
