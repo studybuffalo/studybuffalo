@@ -159,7 +159,7 @@ class Card(BaseAbstractModel):
         if self.multiple_choice_answers.exists():
             question_type = 'multiple choice'
             max_length = 20
-        elif self.multiple_choice_answers.exists():
+        elif self.matching_answers.exists():
             question_type = 'matching'
             max_length = 29
         else:
