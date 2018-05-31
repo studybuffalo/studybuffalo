@@ -212,7 +212,8 @@ class CardSerializer(serializers.ModelSerializer):
         for answer in matching_data:
             matching_answer = models.MatchingAnswer.objects.create(
                 card=card,
-                **answer,
+                side=answer['side'],
+                order=answer['order'],
             )
 
             for part in answer['matching_answer_parts']:

@@ -156,7 +156,13 @@ class CardSerializerTest(TestCase):
                 'media_type': 't',
                 'text': 'This is freeform answer text',
                 'media': None,
-            }
+            },
+            {
+                'order': 2,
+                'media_type': 't',
+                'text': 'This is some more text',
+                'media': None,
+            },
         ]
 
         self.multiple_choice_data = multiple_choice_data
@@ -267,10 +273,57 @@ class CardSerializerTest(TestCase):
             deck_tag_total + 1
         )
 
+    def test_matching_relationships_created(self):
+        # Get current counts
+        question_total = models.QuestionPart.objects.all().count()
+        answer_total = models.MatchingAnswer.objects.all().count()
+        answer_part_total = models.MatchingAnswerPart.objects.all().count()
+        rationale_total = models.RationalePart.objects.all().count()
+        card_tag_total = models.CardTag.objects.all().count()
+        deck_tag_total = models.CardDeck.objects.all().count()
+
+        # Save models
+        serializer = serializers.CardSerializer(data=self.matching_data)
+
+        self.assertTrue(serializer.is_valid())
+
+        serializer.save()
+
+        # Compared model counts
+        self.assertEqual(
+            models.QuestionPart.objects.all().count(),
+            question_total + 1
+        )
+
+        self.assertEqual(
+            models.MatchingAnswer.objects.all().count(),
+            answer_total + 4
+        )
+
+        self.assertEqual(
+            models.MatchingAnswerPart.objects.all().count(),
+            answer_part_total + 4
+        )
+
+        self.assertEqual(
+            models.RationalePart.objects.all().count(),
+            rationale_total + 1
+        )
+
+        self.assertEqual(
+            models.CardTag.objects.all().count(),
+            card_tag_total + 1
+        )
+
+        self.assertEqual(
+            models.CardDeck.objects.all().count(),
+            deck_tag_total + 1
+        )
+
     def test_freeform_relationships_created(self):
         # Get current counts
         question_total = models.QuestionPart.objects.all().count()
-        freeform_total = models.FreeformAnswerPart.objects.all().count()
+        answer_total = models.FreeformAnswerPart.objects.all().count()
         rationale_total = models.RationalePart.objects.all().count()
         card_tag_total = models.CardTag.objects.all().count()
         deck_tag_total = models.CardDeck.objects.all().count()
@@ -290,7 +343,7 @@ class CardSerializerTest(TestCase):
 
         self.assertEqual(
             models.FreeformAnswerPart.objects.all().count(),
-            freeform_total + 1
+            answer_total + 2
         )
 
         self.assertEqual(
@@ -357,6 +410,3 @@ class CardSerializerTest(TestCase):
             models.Synonym.objects.all().count(),
             synonym_total + 1
         )
-
-    # TODO: Build tests for other answer types
-    # TODO: Build tests for more varied parts
