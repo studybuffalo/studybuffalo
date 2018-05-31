@@ -11,10 +11,7 @@ class SynonymSerializer(serializers.ModelSerializer):
         model = models.Synonym
         fields = ('synonym_name', )
 
-class TagSerializer(serializers.Serializer):
-    tag_name = serializers.CharField(
-        max_length=100,
-    )
+class TagSerializer(serializers.ModelSerializer):
     synonyms = SynonymSerializer(
         many=True,
         required=False,
@@ -25,7 +22,45 @@ class TagSerializer(serializers.Serializer):
         fields = ('tag_name', 'synonyms', )
 
     def create(self, validated_data):
-        print("Test")
+        # Extract any synonyms
+        try:
+            synonyms = validated_data.pop('synonyms')
+        except KeyError:
+            synonyms = []
+
+        # Get the tag_name
+        tag_name = validated_data.get('tag_name', '')
+
+        # Add the tag to synonym set
+        synonym_set = set([tag_name])
+
+
+        # Add the synonyms to the set
+        for synonym in synonyms:
+            synonym_set.add(synonym['synonym_name'])
+
+        # Create the tag
+        tag = models.Tag.objects.create(
+            tag_name=tag_name,
+        )
+
+        # Create the synonyms for this tag
+        for synonym in synonym_set:
+            models.Synonym.objects.create(
+                tag=tag,
+                synonym_name=synonym,
+            )
+
+        # Retrieve all synonyms to return with the successful response
+        validated_data['synonyms'] = tag.synonyms.values('synonym_name')
+
+        return validated_data
+
+    def update(self, instance, validated_data):
+        instance.tag_name = validated_data.get('tag_name', instance.tag_name)
+        instance.save()
+
+        return validated_data
 
 class DeckSerializer(serializers.ModelSerializer):
     class Meta:
