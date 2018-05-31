@@ -34,7 +34,6 @@ class TagSerializer(serializers.ModelSerializer):
         # Add the tag to synonym set
         synonym_set = set([tag_name])
 
-
         # Add the synonyms to the set
         for synonym in synonyms:
             synonym_set.add(synonym['synonym_name'])
@@ -57,8 +56,33 @@ class TagSerializer(serializers.ModelSerializer):
         return validated_data
 
     def update(self, instance, validated_data):
-        instance.tag_name = validated_data.get('tag_name', instance.tag_name)
+        # Update the tag name
+        tag_name = validated_data.get('tag_name', instance.tag_name)
+        instance.tag_name = tag_name
         instance.save()
+
+        # Add any new synonyms
+        try:
+            synonyms = validated_data.pop('synonyms')
+        except KeyError:
+            synonyms = []
+
+        # Add the tag to synonym set
+        synonym_set = set([tag_name])
+
+        # Add the synonyms to the set
+        for synonym in synonyms:
+            synonym_set.add(synonym['synonym_name'])
+
+        # Create any new synonyms
+        for synonym in synonym_set:
+            models.Synonym.objects.get_or_create(
+                tag=instance,
+                synonym_name=synonym,
+            )
+
+        # Retrieve all synonyms to return with the successful response
+        validated_data['synonyms'] = instance.synonyms.values('synonym_name')
 
         return validated_data
 
