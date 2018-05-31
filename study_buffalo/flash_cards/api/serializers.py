@@ -87,7 +87,7 @@ class RationalePartSerializer(serializers.ModelSerializer):
 class ReferenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Reference
-        fields = ('card', 'reference', )
+        fields = ('reference', )
 
 class DeckForCardSerializer(serializers.Serializer):
     id = serializers.UUIDField()

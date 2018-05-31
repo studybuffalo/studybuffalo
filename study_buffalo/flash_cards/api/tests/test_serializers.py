@@ -602,9 +602,7 @@ class RationalePartSerializerTest(TestCase):
 
 class ReferenceSerializerTest(TestCase):
     def setUp(self):
-        card = models.Card.objects.create()
         self.data = {
-            'card': card.id,
             'reference': 'This is reference text',
         }
 
@@ -620,7 +618,7 @@ class ReferenceSerializerTest(TestCase):
 
         self.assertCountEqual(
             serializer.validated_data.keys(),
-            ['card', 'reference', ]
+            ['reference', ]
         )
 
     def test_reference_max_length(self):
@@ -677,306 +675,75 @@ class DeckForCardSerializer(TestCase):
             ['Provided deck does not exist: {}'.format(uuid)]
         )
 
-# class NewCardSerializerTest(TestCase):
-#     def setUp(self):
-#         deck = Deck.objects.create(deck_name='cardiology')
+class CardSerializerTest(TestCase):
+    def setUp(self):
+        # Populate initial database details
+        deck = models.Deck.objects.create(
+            deck_name='Cardiology Study Deck',
+        )
+        tag = models.Tag.objects.create(
+            tag_name='cardiology',
+        )
+        models.Synonym.objects.create(
+            tag=tag,
+            synonym_name='cardio',
+        )
 
-#         self.data = {
-#             'uuid': '',
-#             'question': [
-#                 {
-#                     'text': 'This is question text part 1',
-#                     'order': 1,
-#                 },
-#                 {
-#                     'text': 'This is question text part 2',
-#                     'order': 2,
-#                 },
-#             ],
-#             'answer': {
-#                 'freeform': [
-#                     {
-#                         'text': 'This is answer text',
-#                         'order': 1,
-#                     },
-#                 ]
-#             },
-#             'rationale': [
-#                 {
-#                     'text': 'This is rationale text',
-#                     'order': 1,
-#                 },
-#             ],
-#             'reviewed': False,
-#             'active': True,
-#             'date_modified': '2018-01-01T12:01:00.000000Z',
-#             'date_reviewed': '2018-02-01T12:01:00.000000Z',
-#             'decks': [deck.deck_uuid],
-#             'references': ['This is reference text'],
-#             'tags': ['cardiology']
-#         }
+        self.data = {
+            'question_parts': [
+                {
+                    'order': 1,
+                    'media_type': 't',
+                    'text': 'This is question text',
+                    'media': None,
+                },
+            ],
+            'freeform_answer_parts': [
+                {
+                    'order': 1,
+                    'media_type': 't',
+                    'text': 'This is freeform answer text',
+                    'media': None,
+                },
+            ],
+            'rationale_parts': [
+                {
+                    'order': 1,
+                    'media_type': 't',
+                    'text': 'This is rationale text',
+                    'media': None,
+                },
+            ],
+            'reviewed': False,
+            'active': True,
+            'date_modified': '2018-01-01T12:00:00.000000Z',
+            'date_reviewed': '2018-01-02T12:00:00.000000Z',
+            'references': [
+                {'reference': 'This is reference text'},
+            ],
+            'tags': [
+                {'tag_name': 'cardio'},
+            ],
+            'decks': [
+                {'id': deck.id},
+            ]
+        }
 
-#     def test_accepts_valid_data(self):
-#         serializer = NewCardSerializer(data=self.data)
+    def test_accepts_valid_data(self):
+        serializer = serializers.CardSerializer(data=self.data)
 
-#         self.assertTrue(serializer.is_valid())
+        self.assertTrue(serializer.is_valid())
 
-#     def test_expected_fields(self):
-#         serializer = NewCardSerializer(self.data)
+    def test_expected_fields(self):
+        serializer = serializers.CardSerializer(data=self.data)
 
-#         self.assertCountEqual(
-#             serializer.data.keys(),
-#             [
-#                 'uuid', 'question', 'answer', 'rationale', 'reviewed', 'active',
-#                 'date_modified', 'date_reviewed', 'decks', 'references', 'tags'
-#             ]
-#         )
+        self.assertTrue(serializer.is_valid())
 
-#     def test_card_uuid_cannot_be_set(self):
-#         invalid_data = self.data
-#         invalid_data['uuid'] = '1a'
-
-#         serializer = NewCardSerializer(data=invalid_data)
-
-#         # Check that serializer is valid
-#         self.assertTrue(serializer.is_valid())
-
-#     def test_invalid_date_handling(self):
-#         invalid_data = self.data
-#         invalid_data['date_reviewed'] = '2017-01-01'
-
-#         serializer = NewCardSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the date_reviewed error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['date_reviewed']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['date_reviewed'],
-#             [
-#                 'Datetime has wrong format. Use one of these formats instead: '
-#                 'YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z].'
-#             ]
-#         )
-
-#     def test_references_max_length(self):
-#         invalid_data = self.data
-#         invalid_data['references'] = ['a' * 501]
-
-#         serializer = NewCardSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the references error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['references']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['references'],
-#             ['Ensure this field has no more than 500 characters.']
-#         )
-
-#     def test_references_list_min_length(self):
-#         invalid_data = self.data
-#         invalid_data['references'] = []
-
-#         serializer = NewCardSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the references error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['references']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['references'],
-#             ['Ensure this field has at least 1 elements.']
-#         )
-
-#     def test_tags_max_length(self):
-#         invalid_data = self.data
-#         invalid_data['tags'] = ['a' * 101]
-
-#         serializer = NewCardSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the tags error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['tags']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['tags'],
-#             ['Ensure this field has no more than 100 characters.']
-#         )
-
-#     def test_deck_uuid_validation(self):
-#         invalid_data = self.data
-#         invalid_data['decks'] = ['a']
-
-#         serializer = NewCardSerializer(data=self.data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the question error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['decks']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['decks'],
-#             ['"a" is not a valid UUID.']
-#         )
-
-#     def test_custom_question_validation(self):
-#         invalid_data = self.data
-#         invalid_data['question'] = []
-
-#         serializer = NewCardSerializer(data=self.data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the question error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['question']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['question'],
-#             ['A question is required.']
-#         )
-
-#     def test_custom_deck_validation(self):
-#         invalid_data = self.data
-#         invalid_data['decks'] = ['1e59d275-704f-479e-a911-ba2119f13d0d']
-
-#         serializer = NewCardSerializer(data=self.data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the question error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['decks']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['decks'],
-#             ['Specified deck does not exist.']
-#         )
-#     def test_models_are_created(self):
-#         # Get initial counts
-#         card_count = Card.objects.count()
-#         card_deck_count = CardDeck.objects.count()
-#         reference_count = Reference.objects.count()
-
-#         # Create serializer and save data
-#         serializer = NewCardSerializer(data=self.data)
-#         serializer.is_valid()
-#         serializer.save()
-
-#         # Check for new card
-#         self.assertEqual(
-#             Card.objects.count(),
-#             card_count + 1
-#         )
-
-#         self.assertEqual(
-#             str(Card.objects.last()),
-#             'This is question text part 1 This is ... (freeform)'
-#         )
-
-#         # Check for new card-deck match
-#         self.assertEqual(
-#             CardDeck.objects.count(),
-#             card_deck_count + 1
-#         )
-
-#         # Check for new reference match
-#         self.assertEqual(
-#             Reference.objects.count(),
-#             reference_count + 1
-#         )
-
-#         self.assertEqual(
-#             str(Reference.objects.last()),
-#             'This is reference text'
-#         )
-
-#     def test_tag_and_synonym_matching(self):
-#         # Create an existing tag and synonym
-#         tag = Tag.objects.create(
-#             tag_name='cardiology',
-#         )
-#         Synonym.objects.create(
-#             synonym_name='cardiology',
-#             tag=tag,
-#         )
-
-#         data = self.data
-#         data['tags'] = [tag.tag_name]
-
-#         # Get initial counts
-#         tag_count = Tag.objects.count()
-#         synonym_count = Synonym.objects.count()
-#         card_tag_count = CardTag.objects.count()
-
-#         # Create serializer and save data
-#         serializer = NewCardSerializer(data=self.data)
-#         serializer.is_valid()
-#         serializer.save()
-
-#         # Check that no new tags or synonyms were made
-#         self.assertEqual(Tag.objects.count(), tag_count)
-#         self.assertEqual(Synonym.objects.count(), synonym_count)
-
-#         # Check that a new card-tag match was made
-#         self.assertEqual(CardTag.objects.count(), card_tag_count + 1)
-
-#     def test_tag_and_synonym_creation(self):
-#         # Get initial counts
-#         tag_count = Tag.objects.count()
-#         synonym_count = Synonym.objects.count()
-#         card_tag_count = CardTag.objects.count()
-
-#         # Create serializer and save data
-#         serializer = NewCardSerializer(data=self.data)
-#         serializer.is_valid()
-#         serializer.save()
-
-#         # Check that a new tag was made
-#         self.assertEqual(Tag.objects.count(), tag_count + 1)
-#         self.assertEqual(str(Tag.objects.last()), 'cardiology')
-
-#         # Check that a new synonym was made
-#         self.assertEqual(Synonym.objects.count(), synonym_count + 1)
-#         self.assertEqual(str(Synonym.objects.last()), 'cardiology (synonym for cardiology)')
-
-#         # Check that a new card-tag match was made
-#         self.assertEqual(CardTag.objects.count(), card_tag_count + 1)
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            [
+                'question_parts', 'freeform_answer_parts', 'rationale_parts',
+                'reviewed', 'active', 'date_modified', 'date_reviewed',
+                'references', 'tags', 'decks',
+            ]
+        )
