@@ -1,7 +1,10 @@
+from uuid import uuid4
+
 from django.test import TestCase
 
 from flash_cards import models
 from flash_cards.api import serializers
+from flash_cards.tests.utils import create_user
 
 
 class SynonymSerializerTest(TestCase):
@@ -639,6 +642,39 @@ class ReferenceSerializerTest(TestCase):
         self.assertEqual(
             serializer.errors['reference'],
             ['Ensure this field has no more than 500 characters.']
+        )
+
+class DeckForCardSerializer(TestCase):
+    def setUp(self):
+        deck = models.Deck.objects.create(deck_name='Cardiology')
+
+        self.data = {
+            'id': deck.id,
+        }
+        self.user = create_user()
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.DeckForCardSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_id_validation(self):
+        uuid = uuid4()
+
+        serializer = serializers.DeckForCardSerializer(data={'id': uuid})
+
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['id']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['id'],
+            ['Provided deck does not exist: {}'.format(uuid)]
         )
 
 # class NewCardSerializerTest(TestCase):
