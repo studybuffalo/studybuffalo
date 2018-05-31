@@ -2,6 +2,8 @@ from django.test import TestCase
 
 from flash_cards.tests import utils
 
+# TODO: Build tests for the abstrac models to reduce test code
+
 class TagModelTest(TestCase):
     def setUp(self):
         self.tag = utils.create_tag()
@@ -83,12 +85,6 @@ class DeckModelTest(TestCase):
         self.assertEqual(
             self.deck._meta.get_field('date_reviewed').verbose_name,
             'date reviewed',
-        )
-
-        # Test tags label
-        self.assertEqual(
-            self.deck._meta.get_field('tags').verbose_name,
-            'tags',
         )
 
     def test_string_representation(self):
@@ -547,26 +543,6 @@ class CardTagModelTest(TestCase):
         # Test tag label
         self.assertEqual(
             self.card_tag._meta.get_field('tag').verbose_name,
-            'tag',
-        )
-
-class DeckTagModelTest(TestCase):
-    def setUp(self):
-        deck = utils.create_deck('Cardiology')
-        tag = utils.create_tag()
-
-        self.deck_tag = utils.create_deck_tag_match(deck, tag)
-
-    def test_labels(self):
-        # Test deck label
-        self.assertEqual(
-            self.deck_tag._meta.get_field('deck').verbose_name,
-            'deck',
-        )
-
-        # Test tag label
-        self.assertEqual(
-            self.deck_tag._meta.get_field('tag').verbose_name,
             'tag',
         )
 
