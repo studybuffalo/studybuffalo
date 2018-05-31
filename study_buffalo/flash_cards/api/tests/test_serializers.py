@@ -4,6 +4,48 @@ from flash_cards import models
 from flash_cards.api import serializers
 
 
+class SynonymSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'synonym_name': 'cardio',
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.SynonymSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = serializers.SynonymSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            ['synonym_name', ]
+        )
+
+    def test_tag_name_max_length(self):
+        invalid_text_data = self.data
+        invalid_text_data['synonym_name'] = 'a' * 101
+
+        serializer = serializers.SynonymSerializer(data=invalid_text_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['synonym_name']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['synonym_name'],
+            ['Ensure this field has no more than 100 characters.']
+        )
+
 class TagSerializerTest(TestCase):
     def setUp(self):
         self.data = {
