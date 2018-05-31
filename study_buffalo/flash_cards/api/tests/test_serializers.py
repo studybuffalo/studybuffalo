@@ -159,6 +159,70 @@ class DeckSerializerTest(TestCase):
             ]
         )
 
+class QuestionPartSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'order': 1,
+            'media_type': 't',
+            'text': 'This is test text',
+            'media': None,
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.QuestionPartSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = serializers.QuestionPartSerializer(self.data)
+
+        self.assertCountEqual(
+            serializer.data.keys(),
+            ['order', 'media_type', 'text', 'media', ]
+        )
+
+    def test_media_type_choice_restriction(self):
+        invalid_data = self.data
+        invalid_data['media_type'] = 'aa'
+
+        serializer = serializers.QuestionPartSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['media_type']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['media_type'],
+            ['"aa" is not a valid choice.']
+        )
+
+    def test_text_max_length(self):
+        invalid_data = self.data
+        invalid_data['text'] = 'a' * 2001
+
+        serializer = serializers.QuestionPartSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['text']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['text'],
+            ['Ensure this field has no more than 2000 characters.']
+        )
+
 # class MultipleChoiceSerializerTest(TestCase):
 #     def setUp(self):
 #         self.data = {
