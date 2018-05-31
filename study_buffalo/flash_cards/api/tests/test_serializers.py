@@ -838,3 +838,6 @@ class CardSerializerTest(TestCase):
             models.CardDeck.objects.all().count(),
             deck_tag_total + 1
         )
+
+    # TODO: Build tests for other answer types
+    # TODO: Build tests for more varied parts
