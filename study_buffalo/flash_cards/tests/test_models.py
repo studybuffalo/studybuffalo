@@ -659,9 +659,9 @@ class DeckFeedbackModelTest(TestCase):
             'Cardiology feedback: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...'
         )
 
-class CardModelFreeformTest(TestCase):
+class CardModelMultipleChoiceTest(TestCase):
     def setUp(self):
-        self.card = utils.create_freeform_card()
+        self.card = utils.create_multiple_choice_card()
 
     def test_labels(self):
         # Test id label
@@ -710,8 +710,43 @@ class CardModelFreeformTest(TestCase):
         '''Tests that the model string representaton returns as expected'''
         self.assertEqual(
             str(self.card),
-            'This is a question (freeform)'
+            'This is a question (multiple choice)'
         )
+
+    def test_long_string_representation(self):
+        question = self.card.question_parts.all().first()
+        question.text = 'a' * 50
+        question.save()
+
+        self.assertEqual(
+            str(self.card),
+            'aaaaaaaaaaaaaaaaa... (multiple choice)'
+        )
+
+class CardModelMatchingTest(TestCase):
+    def setUp(self):
+        self.card = utils.create_matching_card()
+
+    def test_short_string_representation(self):
+        '''Tests that the model string representaton returns as expected'''
+        self.assertEqual(
+            str(self.card),
+            'This is a question (matching)'
+        )
+
+    def test_long_string_representation(self):
+        question = self.card.question_parts.all().first()
+        question.text = 'a' * 50
+        question.save()
+
+        self.assertEqual(
+            str(self.card),
+            'aaaaaaaaaaaaaaaaaaaaaaaaaa... (matching)'
+        )
+
+class CardModelFreeformTest(TestCase):
+    def setUp(self):
+        self.card = utils.create_freeform_card()
 
     def test_long_string_representation(self):
         question = self.card.question_parts.all().first()
@@ -722,5 +757,3 @@ class CardModelFreeformTest(TestCase):
             str(self.card),
             'aaaaaaaaaaaaaaaaaaaaaaaaaa... (freeform)'
         )
-
-# TODO: Add other string tests for MC and matching questions

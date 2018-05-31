@@ -132,12 +132,6 @@ def create_card_tag_match(card, tag):
         tag=tag,
     )
 
-def create_deck_tag_match(deck, tag):
-    return models.DeckTag.objects.create(
-        deck=deck,
-        tag=tag,
-    )
-
 def create_deck_stats():
     return models.DeckStats.objects.create(
         user=create_user(),
@@ -157,6 +151,118 @@ def create_user_stats():
         number_partially_correct=20,
         number_incorrect=10,
     )
+
+def create_multiple_choice_card():
+    # Create a card
+    card = create_card()
+
+    # Adding a question to the card
+    models.QuestionPart.objects.create(
+        card=card,
+        media_type='t',
+        text='This is a question',
+        order=1,
+    )
+
+    # Add answers to the card
+    answer_1 = models.MultipleChoiceAnswer.objects.create(
+        card=card,
+        order=1,
+        correct=False,
+    )
+    models.MultipleChoiceAnswerPart.objects.create(
+        multiple_choice_answer=answer_1,
+        order=1,
+        media_type='t',
+        text='This is multiple choice answer 1',
+        media=None,
+    )
+
+    answer_2 = models.MultipleChoiceAnswer.objects.create(
+        card=card,
+        order=2,
+        correct=True,
+    )
+    models.MultipleChoiceAnswerPart.objects.create(
+        multiple_choice_answer=answer_2,
+        order=1,
+        media_type='t',
+        text='This is multiple choice answer 2',
+        media=None,
+    )
+
+    return card
+
+def create_matching_card():
+    # Create a card
+    card = create_card()
+
+    # Adding a question to the card
+    models.QuestionPart.objects.create(
+        card=card,
+        media_type='t',
+        text='This is a question',
+        order=1,
+    )
+
+    # Add answers to the card
+    answer_1l = models.MatchingAnswer.objects.create(
+        card=card,
+        side='l',
+        order=1,
+        pair=None,
+    )
+    models.MatchingAnswerPart.objects.create(
+        matching_answer=answer_1l,
+        order=1,
+        media_type='t',
+        text='This is matching answer 1L',
+        media=None,
+    )
+
+    answer_2l = models.MatchingAnswer.objects.create(
+        card=card,
+        side='l',
+        order=2,
+        pair=None,
+    )
+    models.MatchingAnswerPart.objects.create(
+        matching_answer=answer_2l,
+        order=1,
+        media_type='t',
+        text='This is matching answer 2L',
+        media=None,
+    )
+
+    answer_1r = models.MatchingAnswer.objects.create(
+        card=card,
+        side='r',
+        order=1,
+        pair=None,
+    )
+    models.MatchingAnswerPart.objects.create(
+        matching_answer=answer_1r,
+        order=1,
+        media_type='t',
+        text='This is matching answer 1R',
+        media=None,
+    )
+
+    answer_2r = models.MatchingAnswer.objects.create(
+        card=card,
+        side='r',
+        order=2,
+        pair=None,
+    )
+    models.MatchingAnswerPart.objects.create(
+        matching_answer=answer_2r,
+        order=1,
+        media_type='t',
+        text='This is matching answer 2R',
+        media=None,
+    )
+
+    return card
 
 def create_freeform_card():
     # Create a card
