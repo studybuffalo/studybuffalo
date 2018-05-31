@@ -31,8 +31,6 @@ class TagSerializer(serializers.Serializer):
         print("Test")
 
 class DeckSerializer(serializers.ModelSerializer):
-    id = serializers.ModelField(model_field=models.Deck()._meta.get_field('id'))
-
     class Meta:
         model = models.Deck
         fields = (
