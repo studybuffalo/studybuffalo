@@ -1,76 +1,51 @@
-# from django.test import TestCase
+from django.test import TestCase
 
-# from flash_cards.models import Card, Deck, CardDeck, Tag, Synonym, CardTag, Reference
-# from flash_cards.api.serializers import (
-#     PartSerializer, MultipleChoiceSerializer, MatchingSerializer, AnswerSerializer,
-#     TagSerializer, DeckSerializer, NewCardSerializer
-# )
+from flash_cards import models
+from flash_cards.api import serializers
 
 
-# class PartSerializerTest(TestCase):
-#     def setUp(self):
-#         # TODO: Add tests for audio, image, and videos
-#         self.text_data = {
-#             'text': 'This is test text',
-#             'order': 1,
-#         }
+class TagSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'tag_name': 'cardiology',
+            'synonyms': [],
+        }
 
-#     def test_accepts_valid_text_data(self):
-#         serializer = PartSerializer(data=self.text_data)
+    def test_accepts_valid_data(self):
+        serializer = serializers.TagSerializer(data=self.data)
 
-#         self.assertTrue(serializer.is_valid())
+        self.assertTrue(serializer.is_valid())
 
-#     def test_expected_fields(self):
-#         serializer = PartSerializer(self.text_data)
+    def test_expected_fields(self):
+        serializer = serializers.TagSerializer(data=self.data)
 
-#         self.assertCountEqual(
-#             serializer.data.keys(),
-#             ['audio', 'image', 'text', 'video', 'order']
-#         )
+        self.assertTrue(serializer.is_valid())
 
-#     def test_text_max_length(self):
-#         invalid_text_data = self.text_data
-#         invalid_text_data['text'] = 'a' * 2001
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            ['tag_name', 'synonyms', ]
+        )
 
-#         serializer = PartSerializer(data=invalid_text_data)
+    def test_tag_name_max_length(self):
+        invalid_text_data = self.data
+        invalid_text_data['tag_name'] = 'a' * 101
 
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
+        serializer = serializers.TagSerializer(data=invalid_text_data)
 
-#         # Check that only the text error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['text']
-#         )
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
 
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['text'],
-#             ['Ensure this field has no more than 2000 characters.']
-#         )
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['tag_name']
+        )
 
-#     def test_order_min_value(self):
-#         invalid_data = self.text_data
-#         invalid_data['order'] = 0
-
-#         serializer = PartSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the text error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['order']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['order'],
-#             ['Ensure this value is greater than or equal to 1.']
-#         )
-
-#     # TODO: Add tests to handle custom validation for only 1 type of data
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['tag_name'],
+            ['Ensure this field has no more than 100 characters.']
+        )
 
 # class MultipleChoiceSerializerTest(TestCase):
 #     def setUp(self):
@@ -315,48 +290,6 @@
 #         self.assertEqual(
 #             serializer.errors['non_field_errors'],
 #             ['Must submit only one answer type.']
-#         )
-
-# class TagSerializerTest(TestCase):
-#     def setUp(self):
-#         self.data = {
-#             'tag_name': 'cardiology',
-#         }
-
-#     def test_accepts_valid_data(self):
-#         serializer = TagSerializer(data=self.data)
-
-#         self.assertTrue(serializer.is_valid())
-
-#     def test_expected_fields(self):
-#         serializer = TagSerializer(data=self.data)
-
-#         self.assertTrue(serializer.is_valid())
-
-#         self.assertCountEqual(
-#             serializer.validated_data.keys(),
-#             ['tag_name', ]
-#         )
-
-#     def test_tag_name_max_length(self):
-#         invalid_text_data = self.data
-#         invalid_text_data['tag_name'] = 'a' * 101
-
-#         serializer = TagSerializer(data=invalid_text_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the text error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['tag_name']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['tag_name'],
-#             ['Ensure this field has no more than 100 characters.']
 #         )
 
 # class DeckSerializerTest(TestCase):
