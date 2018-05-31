@@ -89,6 +89,76 @@ class TagSerializerTest(TestCase):
             ['Ensure this field has no more than 100 characters.']
         )
 
+class DeckSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'deck_name': 'Cardiology',
+            'reviewed': False,
+            'active': True,
+            'date_modified': '2018-01-01T12:01:00.000000Z',
+            'date_reviewed': '2018-02-01T12:01:00.000000Z',
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.DeckSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = serializers.DeckSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            ['deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed']
+        )
+
+    def test_deck_name_max_length(self):
+        invalid_data = self.data
+        invalid_data['deck_name'] = 'a' * 256
+
+        serializer = serializers.DeckSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['deck_name']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['deck_name'],
+            ['Ensure this field has no more than 255 characters.']
+        )
+
+    def test_invalid_date_handling(self):
+        invalid_data = self.data
+        invalid_data['date_reviewed'] = '2017-01-01'
+
+        serializer = serializers.DeckSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the date_reviewed error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['date_reviewed']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['date_reviewed'],
+            [
+                'Datetime has wrong format. Use one of these formats instead: '
+                'YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z].'
+            ]
+        )
+
 # class MultipleChoiceSerializerTest(TestCase):
 #     def setUp(self):
 #         self.data = {
@@ -332,84 +402,6 @@ class TagSerializerTest(TestCase):
 #         self.assertEqual(
 #             serializer.errors['non_field_errors'],
 #             ['Must submit only one answer type.']
-#         )
-
-# class DeckSerializerTest(TestCase):
-#     def setUp(self):
-#         self.data = {
-#             'deck_uuid': '1e59d275-704f-479e-a911-ba2119f13d0d',
-#             'deck_name': 'Cardiology',
-#             'reviewed': False,
-#             'active': True,
-#             'date_modified': '2018-01-01T12:01:00.000000Z',
-#             'date_reviewed': '2018-02-01T12:01:00.000000Z',
-#         }
-
-#     def test_accepts_valid_data(self):
-#         serializer = DeckSerializer(data=self.data)
-
-#         self.assertTrue(serializer.is_valid())
-
-#     def test_expected_fields(self):
-#         serializer = DeckSerializer(self.data)
-
-#         self.assertCountEqual(
-#             serializer.data.keys(),
-#             ['deck_uuid', 'deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed']
-#         )
-
-#     def test_deck_uuid_cannot_be_set(self):
-#         invalid_data = self.data
-#         invalid_data['deck_uuid'] = '1a'
-
-#         serializer = DeckSerializer(data=invalid_data)
-
-#         # Check that serializer is valid
-#         self.assertTrue(serializer.is_valid())
-
-#     def test_deck_name_max_length(self):
-#         invalid_data = self.data
-#         invalid_data['deck_name'] = 'a' * 256
-
-#         serializer = DeckSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the deck_name error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['deck_name']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['deck_name'],
-#             ['Ensure this field has no more than 255 characters.']
-#         )
-
-#     def test_invalid_date_handling(self):
-#         invalid_data = self.data
-#         invalid_data['date_reviewed'] = '2017-01-01'
-
-#         serializer = DeckSerializer(data=invalid_data)
-
-#         # Check that serializer is invalid
-#         self.assertFalse(serializer.is_valid())
-
-#         # Check that only the date_reviewed error is present
-#         self.assertCountEqual(
-#             serializer.errors,
-#             ['date_reviewed']
-#         )
-
-#         # Check that proper error message generated
-#         self.assertEqual(
-#             serializer.errors['date_reviewed'],
-#             [
-#                 'Datetime has wrong format. Use one of these formats instead: '
-#                 'YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z].'
-#             ]
 #         )
 
 # class NewCardSerializerTest(TestCase):
