@@ -133,8 +133,6 @@ class CardSerializer(serializers.ModelSerializer):
     def get_or_create_tag(self, validated_data):
         tag_data = validated_data.pop('tags')
 
-        print(tag_data)
-
         tags = []
 
         # Check if this exists in the synonym list
@@ -165,8 +163,29 @@ class CardSerializer(serializers.ModelSerializer):
 
         # Extract the related models
         question_data = validated_data.pop('question_parts')
+        reference_data = validated_data.pop('references')
         tags = validated_data.pop('tags')
         decks = validated_data.pop('decks')
+
+        try:
+            multiple_choice_data = validated_data.pop('multiple_choice_answers')
+        except KeyError:
+            multiple_choice_data = None
+
+        try:
+            matching_data = validated_data.pop('matching_answers')
+        except KeyError:
+            matching_data = None
+
+        try:
+            freeform_data = validated_data.pop('freeform_answer_parts')
+        except KeyError:
+            freeform_data = None
+
+        try:
+            rationale_data = validated_data.pop('rationale_parts')
+        except KeyError:
+            rationale_data = None
 
         # Create the card
         card = models.Card.objects.create(**validated_data)
@@ -174,6 +193,53 @@ class CardSerializer(serializers.ModelSerializer):
         # Create the question
         for part in question_data:
             models.QuestionPart.objects.create(card=card, **part)
+
+        # If applicable, create the multiple choice answers
+        if multiple_choice_data:
+            multiple_choice_answer = models.MultipleChoiceAnswer.objects.create(
+                card=card,
+                **multiple_choice_data,
+            )
+
+            for part in multiple_choice_data['multiple_choice_answer_parts']:
+                models.MultipleChoiceAnswerPart.objects.create(
+                    multiple_choice_answer=multiple_choice_answer,
+                    **part,
+                )
+
+        # If applicable, create the matching answers
+        if matching_data:
+            matching_answer = models.MatchingAnswer.objects.create(
+                card=card,
+                **matching_data,
+            )
+
+            for part in matching_data['matching_answer_parts']:
+                models.MatchingAnswerPart.objects.create(
+                    matching_answer=matching_answer,
+                    **part,
+                )
+
+        # If applicable, create the freeform answers
+        for part in freeform_data:
+            models.FreeformAnswerPart.objects.create(
+                card=card,
+                **part,
+            )
+
+        # If applicable, create the rationale
+        for part in rationale_data:
+            models.RationalePart.objects.create(
+                card=card,
+                **part,
+            )
+
+        # Create the references
+        for reference in reference_data:
+            models.Reference.objects.create(
+                card=card,
+                **reference
+            )
 
         # Assign the tags to the card
         for tag in tags:
@@ -184,10 +250,11 @@ class CardSerializer(serializers.ModelSerializer):
 
         # Assign card to the decks
         for deck in decks:
-            print(deck)
             models.CardDeck.objects.create(
                 card=card,
                 deck=models.Deck.objects.get(id=deck['id']),
             )
 
         return card
+
+    # TODO: Add validation to only allow 1 type of answer

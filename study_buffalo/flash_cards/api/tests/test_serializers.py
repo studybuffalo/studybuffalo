@@ -747,3 +747,94 @@ class CardSerializerTest(TestCase):
                 'references', 'tags', 'decks',
             ]
         )
+
+    def test_old_tags_retrieved(self):
+        # Get current counts
+        tag_total = models.Tag.objects.all().count()
+        synonym_total = models.Synonym.objects.all().count()
+
+        # Save models
+        serializer = serializers.CardSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+        serializer.save()
+
+        # Compared model counts
+        self.assertEqual(
+            models.Tag.objects.all().count(),
+            tag_total
+        )
+
+        self.assertEqual(
+            models.Synonym.objects.all().count(),
+            synonym_total
+        )
+
+    def test_new_tags_created(self):
+        # Get current counts
+        tag_total = models.Tag.objects.all().count()
+        synonym_total = models.Synonym.objects.all().count()
+
+        # Specify new tag
+        data = self.data
+        data['tags'][0]['tag_name'] = 'neurology'
+
+        # Save models
+        serializer = serializers.CardSerializer(data=data)
+
+        self.assertTrue(serializer.is_valid())
+
+        serializer.save()
+
+        # Compared model counts
+        self.assertEqual(
+            models.Tag.objects.all().count(),
+            tag_total + 1
+        )
+
+        self.assertEqual(
+            models.Synonym.objects.all().count(),
+            synonym_total + 1
+        )
+
+    def test_relationships_created(self):
+        # Get current counts
+        question_total = models.QuestionPart.objects.all().count()
+        freeform_total = models.FreeformAnswerPart.objects.all().count()
+        rationale_total = models.RationalePart.objects.all().count()
+        card_tag_total = models.CardTag.objects.all().count()
+        deck_tag_total = models.CardDeck.objects.all().count()
+
+        # Save models
+        serializer = serializers.CardSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+        serializer.save()
+
+        # Compared model counts
+        self.assertEqual(
+            models.QuestionPart.objects.all().count(),
+            question_total + 1
+        )
+
+        self.assertEqual(
+            models.FreeformAnswerPart.objects.all().count(),
+            freeform_total + 1
+        )
+
+        self.assertEqual(
+            models.RationalePart.objects.all().count(),
+            rationale_total + 1
+        )
+
+        self.assertEqual(
+            models.CardTag.objects.all().count(),
+            card_tag_total + 1
+        )
+
+        self.assertEqual(
+            models.CardDeck.objects.all().count(),
+            deck_tag_total + 1
+        )
