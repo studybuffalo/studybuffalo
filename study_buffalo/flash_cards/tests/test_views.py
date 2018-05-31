@@ -3,8 +3,6 @@ from django.test import TestCase
 
 from .utils import create_user
 
-# TODO: Test get_url of ReferenceSerializer
-
 class APIRootTest(TestCase):
     def setUp(self):
         self.user = create_user()
