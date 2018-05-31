@@ -510,6 +510,136 @@ class MatchingAnswerSerializerTest(TestCase):
             ['Ensure this value is greater than or equal to 1.']
         )
 
+class RationalePartSerializerTest(TestCase):
+    def setUp(self):
+        self.data = {
+            'order': 1,
+            'media_type': 't',
+            'text': 'This is rationale text',
+            'media': None,
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.RationalePartSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = serializers.RationalePartSerializer(self.data)
+
+        self.assertCountEqual(
+            serializer.data.keys(),
+            ['order', 'media_type', 'text', 'media', ]
+        )
+
+    def test_media_type_choice_restriction(self):
+        invalid_data = self.data
+        invalid_data['media_type'] = 'aa'
+
+        serializer = serializers.RationalePartSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['media_type']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['media_type'],
+            ['"aa" is not a valid choice.']
+        )
+
+    def test_text_max_length(self):
+        invalid_data = self.data
+        invalid_data['text'] = 'a' * 2001
+
+        serializer = serializers.RationalePartSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['text']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['text'],
+            ['Ensure this field has no more than 2000 characters.']
+        )
+
+    def test_order_min_value(self):
+        invalid_data = self.data
+        invalid_data['order'] = 0
+
+        serializer = serializers.RationalePartSerializer(
+            data=invalid_data,
+        )
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['order']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['order'],
+            ['Ensure this value is greater than or equal to 1.']
+        )
+
+class ReferenceSerializerTest(TestCase):
+    def setUp(self):
+        card = models.Card.objects.create()
+        self.data = {
+            'card': card.id,
+            'reference': 'This is reference text',
+        }
+
+    def test_accepts_valid_data(self):
+        serializer = serializers.ReferenceSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+    def test_expected_fields(self):
+        serializer = serializers.ReferenceSerializer(data=self.data)
+
+        self.assertTrue(serializer.is_valid())
+
+        self.assertCountEqual(
+            serializer.validated_data.keys(),
+            ['card', 'reference', ]
+        )
+
+    def test_reference_max_length(self):
+        invalid_text_data = self.data
+        invalid_text_data['reference'] = 'a' * 501
+
+        serializer = serializers.ReferenceSerializer(data=invalid_text_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the text error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['reference']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['reference'],
+            ['Ensure this field has no more than 500 characters.']
+        )
 
 # class NewCardSerializerTest(TestCase):
 #     def setUp(self):
