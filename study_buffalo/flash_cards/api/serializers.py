@@ -170,22 +170,22 @@ class CardSerializer(serializers.ModelSerializer):
         try:
             multiple_choice_data = validated_data.pop('multiple_choice_answers')
         except KeyError:
-            multiple_choice_data = None
+            multiple_choice_data = []
 
         try:
             matching_data = validated_data.pop('matching_answers')
         except KeyError:
-            matching_data = None
+            matching_data = []
 
         try:
             freeform_data = validated_data.pop('freeform_answer_parts')
         except KeyError:
-            freeform_data = None
+            freeform_data = []
 
         try:
             rationale_data = validated_data.pop('rationale_parts')
         except KeyError:
-            rationale_data = None
+            rationale_data = []
 
         # Create the card
         card = models.Card.objects.create(**validated_data)
@@ -195,26 +195,27 @@ class CardSerializer(serializers.ModelSerializer):
             models.QuestionPart.objects.create(card=card, **part)
 
         # If applicable, create the multiple choice answers
-        if multiple_choice_data:
+        for answer in multiple_choice_data:
             multiple_choice_answer = models.MultipleChoiceAnswer.objects.create(
                 card=card,
-                **multiple_choice_data,
+                order=answer['order'],
+                correct=answer['correct'],
             )
 
-            for part in multiple_choice_data['multiple_choice_answer_parts']:
+            for part in answer['multiple_choice_answer_parts']:
                 models.MultipleChoiceAnswerPart.objects.create(
                     multiple_choice_answer=multiple_choice_answer,
                     **part,
                 )
 
         # If applicable, create the matching answers
-        if matching_data:
+        for answer in matching_data:
             matching_answer = models.MatchingAnswer.objects.create(
                 card=card,
-                **matching_data,
+                **answer,
             )
 
-            for part in matching_data['matching_answer_parts']:
+            for part in answer['matching_answer_parts']:
                 models.MatchingAnswerPart.objects.create(
                     matching_answer=matching_answer,
                     **part,
