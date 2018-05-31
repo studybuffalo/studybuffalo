@@ -7,6 +7,8 @@ from django.urls import reverse
 from flash_cards import models
 
 
+# TODO: Add Reference Serializer
+
 class SynonymSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Synonym
@@ -27,17 +29,6 @@ class TagSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         print("Test")
-
-class ReferenceSerializer(serializers.ModelSerializer):
-    card = serializers.HyperlinkedRelatedField(
-        read_only=True,
-        view_name='flash_cards:api_v1:card_detail',
-        lookup_field='id',
-    )
-
-    class Meta:
-        model = models.Reference
-        fields = ('reference', 'card')
 
 class DeckSerializer(serializers.ModelSerializer):
     id = serializers.ModelField(model_field=models.Deck()._meta.get_field('id'))

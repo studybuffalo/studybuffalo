@@ -12,7 +12,6 @@ from django.shortcuts import get_object_or_404
 from .models import Card, Deck, Tag, Synonym, Reference
 from .api.serializers import (
     CardSerializer, DeckSerializer, TagSerializer, SynonymSerializer,
-    ReferenceSerializer,
     #NewCardSerializer, PartContainerSerializer, TextPartSerializer, MultipleChoiceContainerSerializer
 )
 
@@ -108,11 +107,11 @@ class SynonymDetail(generics.RetrieveUpdateDestroyAPIView):
 #     serializer_class = MultipleChoiceContainerSerializer
 #     lookup_field = 'container_uuid'
 
-class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Reference.objects.all()
-    permission_classes = (IsAuthenticated, )
-    serializer_class = ReferenceSerializer
-    lookup_field = 'id'
+# class ReferenceDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Reference.objects.all()
+#     permission_classes = (IsAuthenticated, )
+#     serializer_class = ReferenceSerializer
+#     lookup_field = 'id'
 
 # # Study Buffalo Flash Cards
 # ## Overview
