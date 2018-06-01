@@ -2,7 +2,6 @@
 from rest_framework import serializers
 
 from django.core.exceptions import ObjectDoesNotExist
-from django.urls import reverse
 from flash_cards import models
 
 
@@ -147,14 +146,6 @@ class ReferenceSerializer(serializers.ModelSerializer):
 
 class DeckForCardSerializer(serializers.Serializer):
     id = serializers.UUIDField()
-    url = serializers.SerializerMethodField(
-        source='get_url'
-    )
-
-    def get_url(self, data):
-        return self.context.get('request').build_absolute_uri(
-            reverse('flash_cards:api_v1:deck_detail', kwargs={'id': data.id})
-        )
 
     def validate_id(self, data):
         # Check that deck exists
@@ -186,134 +177,6 @@ class CardSerializer(serializers.ModelSerializer):
         )
         depth = 2
 
-    def get_or_create_tag(self, validated_data):
-        tag_data = validated_data.pop('tags')
-
-        tags = []
-
-        # Check if this exists in the synonym list
-        for tag in tag_data:
-            synonym_list = models.Synonym.objects.filter(synonym_name=tag['tag_name'])
-
-            # Synonym exists, retrieve parent tag
-            if synonym_list.exists():
-
-                tags.append(synonym_list[0].tag)
-
-            # No synonym; create synonym and tag
-            else:
-                created_tag = models.Tag.objects.create(
-                    tag_name=tag['tag_name'],
-                )
-                models.Synonym.objects.create(
-                    tag=created_tag,
-                    synonym_name=tag['tag_name'],
-                )
-
-                tags.append(created_tag)
-
-        validated_data['tags'] = tags
-
-    def create(self, validated_data):
-        self.get_or_create_tag(validated_data)
-
-        # Extract the related models
-        question_data = validated_data.pop('question_parts')
-        reference_data = validated_data.pop('references')
-        tags = validated_data.pop('tags')
-        decks = validated_data.pop('decks')
-
-        try:
-            multiple_choice_data = validated_data.pop('multiple_choice_answers')
-        except KeyError:
-            multiple_choice_data = []
-
-        try:
-            matching_data = validated_data.pop('matching_answers')
-        except KeyError:
-            matching_data = []
-
-        try:
-            freeform_data = validated_data.pop('freeform_answer_parts')
-        except KeyError:
-            freeform_data = []
-
-        try:
-            rationale_data = validated_data.pop('rationale_parts')
-        except KeyError:
-            rationale_data = []
-
-        # Create the card
-        card = models.Card.objects.create(**validated_data)
-
-        # Create the question
-        for part in question_data:
-            models.QuestionPart.objects.create(card=card, **part)
-
-        # If applicable, create the multiple choice answers
-        for answer in multiple_choice_data:
-            multiple_choice_answer = models.MultipleChoiceAnswer.objects.create(
-                card=card,
-                order=answer['order'],
-                correct=answer['correct'],
-            )
-
-            for part in answer['multiple_choice_answer_parts']:
-                models.MultipleChoiceAnswerPart.objects.create(
-                    multiple_choice_answer=multiple_choice_answer,
-                    **part,
-                )
-
-        # If applicable, create the matching answers
-        for answer in matching_data:
-            matching_answer = models.MatchingAnswer.objects.create(
-                card=card,
-                side=answer['side'],
-                order=answer['order'],
-            )
-
-            for part in answer['matching_answer_parts']:
-                models.MatchingAnswerPart.objects.create(
-                    matching_answer=matching_answer,
-                    **part,
-                )
-
-        # If applicable, create the freeform answers
-        for part in freeform_data:
-            models.FreeformAnswerPart.objects.create(
-                card=card,
-                **part,
-            )
-
-        # If applicable, create the rationale
-        for part in rationale_data:
-            models.RationalePart.objects.create(
-                card=card,
-                **part,
-            )
-
-        # Create the references
-        for reference in reference_data:
-            models.Reference.objects.create(
-                card=card,
-                **reference
-            )
-
-        # Assign the tags to the card
-        for tag in tags:
-            models.CardTag.objects.create(
-                card=card,
-                tag=tag,
-            )
-
-        # Assign card to the decks
-        for deck in decks:
-            models.CardDeck.objects.create(
-                card=card,
-                deck=models.Deck.objects.get(id=deck['id']),
-            )
-
-        return card
 
     def validate(self, data):
         # VALIDATION: ensure exactly 1 answer type provided
@@ -348,3 +211,198 @@ class CardSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Must provide only one answer type.')
 
         return data
+
+    def get_or_create_tag(self, validated_data):
+        tag_data = validated_data.pop('tags')
+
+        tags = []
+
+        # Check if this exists in the synonym list
+        for tag in tag_data:
+            synonym_list = models.Synonym.objects.filter(synonym_name=tag['tag_name'])
+
+            # Synonym exists, retrieve parent tag
+            if synonym_list.exists():
+
+                tags.append(synonym_list[0].tag)
+
+            # No synonym; create synonym and tag
+            else:
+                created_tag = models.Tag.objects.create(
+                    tag_name=tag['tag_name'],
+                )
+                models.Synonym.objects.create(
+                    tag=created_tag,
+                    synonym_name=tag['tag_name'],
+                )
+
+                tags.append(created_tag)
+
+        validated_data['tags'] = tags
+
+    def extract_related_models(self, validated_data):
+        question_data = validated_data.pop('question_parts')
+        reference_data = validated_data.pop('references')
+        tags = validated_data.pop('tags')
+        decks = validated_data.pop('decks')
+
+        try:
+            multiple_choice_data = validated_data.pop('multiple_choice_answers')
+        except KeyError:
+            multiple_choice_data = []
+
+        try:
+            matching_data = validated_data.pop('matching_answers')
+        except KeyError:
+            matching_data = []
+
+        try:
+            freeform_data = validated_data.pop('freeform_answer_parts')
+        except KeyError:
+            freeform_data = []
+
+        try:
+            rationale_data = validated_data.pop('rationale_parts')
+        except KeyError:
+            rationale_data = []
+
+        related_models = {
+            'question': question_data,
+            'reference': reference_data,
+            'tags': tags,
+            'decks': decks,
+            'multiple_choice': multiple_choice_data,
+            'matching': matching_data,
+            'freeform': freeform_data,
+            'rationale': rationale_data,
+        }
+
+        return related_models, validated_data
+
+    def create_related_fields(self, card, related_data):
+        # Create the question
+        for part in related_data['question']:
+            models.QuestionPart.objects.create(card=card, **part)
+
+        # If applicable, create the multiple choice answers
+        for answer in related_data['multiple_choice']:
+            multiple_choice_answer = models.MultipleChoiceAnswer.objects.create(
+                card=card,
+                order=answer['order'],
+                correct=answer['correct'],
+            )
+
+            for part in answer['multiple_choice_answer_parts']:
+                models.MultipleChoiceAnswerPart.objects.create(
+                    multiple_choice_answer=multiple_choice_answer,
+                    **part,
+                )
+
+        # If applicable, create the matching answers
+        for answer in related_data['matching']:
+            matching_answer = models.MatchingAnswer.objects.create(
+                card=card,
+                side=answer['side'],
+                order=answer['order'],
+            )
+
+            for part in answer['matching_answer_parts']:
+                models.MatchingAnswerPart.objects.create(
+                    matching_answer=matching_answer,
+                    **part,
+                )
+
+        # If applicable, create the freeform answers
+        for part in related_data['freeform']:
+            models.FreeformAnswerPart.objects.create(
+                card=card,
+                **part,
+            )
+
+        # If applicable, create the rationale
+        for part in related_data['rationale']:
+            models.RationalePart.objects.create(
+                card=card,
+                **part,
+            )
+
+        # Create the references
+        for reference in related_data['reference']:
+            models.Reference.objects.create(
+                card=card,
+                **reference
+            )
+
+        # Assign the tags to the card
+        for tag in related_data['tags']:
+            models.CardTag.objects.create(
+                card=card,
+                tag=tag,
+            )
+
+        # Assign card to the decks
+        for deck in related_data['decks']:
+            models.CardDeck.objects.create(
+                card=card,
+                deck=models.Deck.objects.get(id=deck['id']),
+            )
+
+    def delete_related_models(self, card):
+        # Delete question
+        card.question_parts.all().delete()
+
+        # Delete multiple choice answers
+        card.multiple_choice_answers.all().delete()
+
+        # Delete matching answers
+        card.matching_answers.all().delete()
+
+        # Delete freeform answer
+        card.freeform_answer_parts.all().delete()
+
+        # Delete rationale
+        card.rationale_parts.all().delete()
+
+        # Delete references
+        card.references.all().delete()
+
+        # Remove references to decks
+        card.carddeck_set.all().delete()
+
+        # Remove references to tags
+        card.cardtag_set.all().delete()
+
+    def create(self, validated_data):
+        self.get_or_create_tag(validated_data)
+
+        # Extract the related models
+        related_data, validated_data = self.extract_related_models(validated_data)
+
+        # Create the card
+        card = models.Card.objects.create(**validated_data)
+
+        # Create the related models
+        self.create_related_fields(card, related_data)
+
+        return card
+
+    def update(self, card, validated_data):
+        self.get_or_create_tag(validated_data)
+
+        # Extract the related models
+        related_data, validated_data = self.extract_related_models(validated_data)
+
+        # Update the card model
+        card.reviewed = validated_data['reviewed']
+        card.active = validated_data['active']
+        card.date_modified = validated_data['date_modified']
+        card.date_reviewed = validated_data['date_reviewed']
+        card.save()
+
+        # Delete all the related fields and then repopulate them
+        self.delete_related_models(card)
+
+        # Recreate the related models
+        self.create_related_fields(card, related_data)
+
+        return card
