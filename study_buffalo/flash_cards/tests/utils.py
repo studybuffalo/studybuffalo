@@ -350,3 +350,8 @@ def create_card_post_data():
             {'tag_name': tag.tag_name},
         ],
     }
+
+def create_deck_post_data():
+    return {
+        'deck_name': 'Cardiology Study Deck',
+    }
