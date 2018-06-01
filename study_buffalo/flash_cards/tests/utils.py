@@ -299,3 +299,54 @@ def create_deck_feedback():
         comment='This is a feedback comment',
         deck=create_deck('Cardiology'),
     )
+
+def create_card_post_data():
+    deck = models.Deck.objects.create(deck_name='Cardiology Study Deck')
+    tag = models.Tag.objects.create(tag_name='cardiology')
+    models.Synonym.objects.create(tag=tag, synonym_name='cardiology')
+
+    return {
+        'question_parts': [
+            {
+                'order': 1,
+                'media_type': 't',
+                'text': 'This is question text',
+                'media': None,
+            },
+        ],
+        'freeform_answer_parts': [
+            {
+                'order': 1,
+                'media_type': 't',
+                'text': 'This is freeform answer text',
+                'media': None,
+            },
+            {
+                'order': 2,
+                'media_type': 't',
+                'text': 'This is some more text',
+                'media': None,
+            },
+        ],
+        'rationale_parts': [
+            {
+                'order': 1,
+                'media_type': 't',
+                'text': 'This is rationale text',
+                'media': None,
+            },
+        ],
+        'reviewed': False,
+        'active': True,
+        'date_modified': '2018-01-01T12:00:00.000000Z',
+        'date_reviewed': '2018-01-02T12:00:00.000000Z',
+        'references': [
+            {'reference': 'This is reference text'},
+        ],
+        'decks': [
+            {'id': deck.id},
+        ],
+        'tags': [
+            {'tag_name': tag.tag_name},
+        ],
+    }
