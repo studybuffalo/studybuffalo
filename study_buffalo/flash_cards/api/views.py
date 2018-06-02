@@ -7,10 +7,9 @@ from rest_framework.reverse import reverse
 from rest_framework import generics
 
 
-from .models import Card, Deck, Tag, Synonym
-from .api.serializers import (
+from flash_cards.models import Card, Deck, Tag, Synonym
+from flash_cards.api.serializers import (
     CardSerializer, DeckSerializer, TagSerializer, SynonymSerializer,
-    #NewCardSerializer, PartContainerSerializer, TextPartSerializer, MultipleChoiceContainerSerializer
 )
 
 
