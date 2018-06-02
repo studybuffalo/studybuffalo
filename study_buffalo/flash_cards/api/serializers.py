@@ -60,8 +60,14 @@ class TagSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         # Update the tag name
         tag_name = validated_data.get('tag_name', instance.tag_name)
-        instance.tag_name = tag_name
-        instance.save()
+
+        try:
+            instance.tag_name = tag_name
+            instance.save()
+        except IntegrityError:
+            raise serializers.ValidationError(
+                {'tag_name': ['Tag name "{}" already exists.'.format(tag_name)]}
+            )
 
         # Add any new synonyms
         try:
