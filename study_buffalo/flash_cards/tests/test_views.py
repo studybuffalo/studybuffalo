@@ -706,74 +706,223 @@ class TagListTest(TestCase):
             ['Tag name "cardiology" already exists.']
         )
 
-# class TagDetailTest(TestCase):
-#     def setUp(self):
-#         self.client = APIClient()
-#         self.user = utils.create_user()
+class TagDetailTest(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.user = utils.create_user()
+        self.tag = models.Tag.objects.create(tag_name='cardiology')
+        self.post_data = {
+            'tag_name': 'neurology',
+        }
 
-#     def test_403_on_anonymous_user(self):
-#         response = self.client.get(reverse('flash_cards:api_v1:tag_detail'))
+    def test_403_on_anonymous_user(self):
+        response = self.client.get(reverse(
+            'flash_cards:api_v1:tag_detail',
+            kwargs={'tag_name': self.tag.tag_name}
+        ))
 
-#         # Check that proper error code returned
-#         self.assertEqual(response.status_code, 403)
+        # Check that proper error code returned
+        self.assertEqual(response.status_code, 403)
 
-#     def test_accessible_by_name(self):
-#         """Checks that the dashboard URL name works properly"""
-#         self.client.login(username=self.user.username, password="abcd123456")
-#         response = self.client.get(reverse("flash_cards:api_v1:tag_detail"))
+    def test_accessible_by_name(self):
+        """Checks that the dashboard URL name works properly"""
+        self.client.login(username=self.user.username, password="abcd123456")
+        response = self.client.get(reverse(
+            'flash_cards:api_v1:tag_detail',
+            kwargs={'tag_name': self.tag.tag_name}
+        ))
 
-#         # Check that page is accessible
-#         self.assertEqual(response.status_code, 200)
+        # Check that page is accessible
+        self.assertEqual(response.status_code, 200)
 
-#     def test_accessible_by_url(self):
-#         """Checks that the dashboard uses the correct URL"""
-#         self.client.login(username=self.user.username, password="abcd123456")
-#         response = self.client.get("/flash-cards/api/v1/tags/")
+    def test_accessible_by_url(self):
+        """Checks that the dashboard uses the correct URL"""
+        self.client.login(username=self.user.username, password="abcd123456")
+        response = self.client.get(
+            "/flash-cards/api/v1/tags/{}/".format(self.tag.tag_name)
+        )
 
-#         # Check that page is accessible
-#         self.assertEqual(response.status_code, 200)
+        # Check that page is accessible
+        self.assertEqual(response.status_code, 200)
 
-#     def test_put_response(self):
-#         pass
+    def test_put_response(self):
+        # Use POST data to create a tag entry
+        self.client.login(username=self.user.username, password="abcd123456")
+        post_response = self.client.post(
+            reverse("flash_cards:api_v1:tag_list"),
+            self.post_data,
+            format='json'
+        )
+        tag_name = json.loads(post_response.content)['tag_name']
 
-#     def test_put_error(self):
-#         pass
+        # Get current counts
+        tag_count = models.Tag.objects.all().count()
+        synonym_count = models.Synonym.objects.all().count()
 
-#     def test_delete(self):
-#         pass
+        # Modify data to test PUT requets
+        put_data = self.post_data
+        put_data['tag_name'] = 'urology'
 
-# class SynonymDetailTest(TestCase):
-#     def setUp(self):
-#         self.client = APIClient()
-#         self.user = utils.create_user()
+        # Make the PUT request
+        response = self.client.put(
+            reverse(
+                'flash_cards:api_v1:tag_detail',
+                kwargs={'tag_name': tag_name}
+            ),
+            put_data,
+            format='json'
+        )
 
-#     def test_403_on_anonymous_user(self):
-#         response = self.client.get(reverse('flash_cards:api_v1:synonym_detail'))
+        # Confirm modified response code
+        self.assertEqual(response.status_code, 200)
 
-#         # Check that proper error code returned
-#         self.assertEqual(response.status_code, 403)
+        # Confirm model counts remained the same
+        self.assertEqual(models.Tag.objects.all().count(), tag_count)
+        self.assertEqual(models.Synonym.objects.all().count(), synonym_count + 1)
 
-#     def test_accessible_by_name(self):
-#         """Checks that the dashboard URL name works properly"""
-#         self.client.login(username=self.user.username, password="abcd123456")
-#         response = self.client.get(reverse("flash_cards:api_v1:synonym_detail"))
+    def test_put_error(self):
+        # Use POST data to create a tag entry
+        self.client.login(username=self.user.username, password="abcd123456")
+        post_response = self.client.post(
+            reverse("flash_cards:api_v1:tag_list"),
+            self.post_data,
+            format='json'
+        )
+        tag_name = json.loads(post_response.content)['tag_name']
 
-#         # Check that page is accessible
-#         self.assertEqual(response.status_code, 200)
+        # Make the PUT request
+        response = self.client.put(
+            reverse(
+                'flash_cards:api_v1:tag_detail',
+                kwargs={'tag_name': tag_name}
+            ),
+            {'tag_name': 'cardiology'},
+            format='json'
+        )
+        json_response = json.loads(response.content)
 
-#     def test_accessible_by_url(self):
-#         """Checks that the dashboard uses the correct URL"""
-#         self.client.login(username=self.user.username, password="abcd123456")
-#         response = self.client.get("/flash-cards/api/v1/synonyms/")
+        # Confirm modified response code
+        self.assertEqual(response.status_code, 400)
 
-#         # Check that page is accessible
-#         self.assertEqual(response.status_code, 200)
+        # Confirm this was expected error
+        self.assertCountEqual(json_response, ['tag_name'])
+        self.assertEqual(
+            json_response['tag_name'],
+            ['Tag name "cardiology" already exists.']
+        )
 
-#     def test_put_response(self):
-#         pass
+    def test_delete(self):
+        # Use POST data to create a card entry
+        self.client.login(username=self.user.username, password="abcd123456")
+        post_response = self.client.post(
+            reverse("flash_cards:api_v1:tag_list"),
+            self.post_data,
+            format='json'
+        )
+        tag_name = json.loads(post_response.content)['tag_name']
 
-#     def test_put_error(self):
-#         pass
+        # Get current model counts
+        tag_count = models.Tag.objects.all().count()
+        synonym_count = models.Synonym.objects.all().count()
 
-#     def test_delete(self):
-#         pass
+        delete_response = self.client.delete(
+            reverse(
+                'flash_cards:api_v1:tag_detail',
+                kwargs={'tag_name': tag_name}
+            ),
+            format='json'
+        )
+
+        # Confirm status code
+        self.assertEqual(delete_response.status_code, 204)
+
+        # Confirm deletions
+        self.assertEqual(models.Tag.objects.all().count(), tag_count - 1)
+        self.assertEqual(models.Synonym.objects.all().count(), synonym_count - 1)
+
+class SynonymDetailTest(TestCase):
+    def setUp(self):
+        # Create initial DB data
+        tag = models.Tag.objects.create(tag_name='cardiology')
+
+        self.client = APIClient()
+        self.user = utils.create_user()
+        self.synonym = models.Synonym.objects.create(
+            tag=tag,
+            synonym_name='cardiology',
+        )
+        self.put_data = {
+            'tag': tag.id,
+            'synonym_name': 'cardio',
+        }
+
+    def test_403_on_anonymous_user(self):
+        response = self.client.get(reverse(
+            'flash_cards:api_v1:synonym_detail',
+            kwargs={'synonym_name': self.synonym.synonym_name}
+        ))
+
+        # Check that proper error code returned
+        self.assertEqual(response.status_code, 403)
+
+    def test_accessible_by_name(self):
+        """Checks that the dashboard URL name works properly"""
+        self.client.login(username=self.user.username, password="abcd123456")
+        response = self.client.get(reverse(
+            'flash_cards:api_v1:synonym_detail',
+            kwargs={'synonym_name': self.synonym.synonym_name}
+        ))
+
+        # Check that page is accessible
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_url(self):
+        """Checks that the dashboard uses the correct URL"""
+        self.client.login(username=self.user.username, password="abcd123456")
+        response = self.client.get(
+            '/flash-cards/api/v1/synonyms/{}/'.format(self.synonym.synonym_name)
+        )
+
+        # Check that page is accessible
+        self.assertEqual(response.status_code, 200)
+
+    def test_put_response(self):
+        # Get current counts
+        synonym_count = models.Synonym.objects.all().count()
+
+        # Make the PUT request
+        self.client.login(username=self.user.username, password="abcd123456")
+        response = self.client.put(
+            reverse(
+                'flash_cards:api_v1:synonym_detail',
+                kwargs={'synonym_name': self.synonym.synonym_name}
+            ),
+            self.put_data,
+            format='json'
+        )
+
+        # Confirm modified response code
+        self.assertEqual(response.status_code, 200)
+
+        # Confirm model counts remained the same
+        self.assertEqual(models.Synonym.objects.all().count(), synonym_count)
+
+    def test_delete(self):
+        # Get current model counts
+        synonym_count = models.Synonym.objects.all().count()
+
+        # Make the delete request
+        self.client.login(username=self.user.username, password="abcd123456")
+        delete_response = self.client.delete(
+            reverse(
+                'flash_cards:api_v1:synonym_detail',
+                kwargs={'synonym_name': self.synonym.synonym_name}
+            ),
+            format='json'
+        )
+
+        # Confirm status code
+        self.assertEqual(delete_response.status_code, 204)
+
+        # Confirm deletions
+        self.assertEqual(models.Synonym.objects.all().count(), synonym_count - 1)
