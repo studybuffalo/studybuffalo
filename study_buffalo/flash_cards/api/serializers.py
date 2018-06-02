@@ -2,6 +2,7 @@
 from rest_framework import serializers
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.utils import IntegrityError
 from flash_cards import models
 
 
@@ -34,14 +35,19 @@ class TagSerializer(serializers.Serializer):
         for synonym in synonyms:
             synonym_set.add(synonym['synonym_name'])
 
-        # Create the tag
-        tag = models.Tag.objects.create(
-            tag_name=tag_name,
-        )
+        # Get or create the tag
+        try:
+            tag = models.Tag.objects.create(
+                tag_name=tag_name,
+            )
+        except IntegrityError:
+            raise serializers.ValidationError(
+                {'tag_name': ['Tag name "{}" already exists.'.format(tag_name)]}
+            )
 
-        # Create the synonyms for this tag
+        # Create the synonyms for this tag (if needed)
         for synonym in synonym_set:
-            models.Synonym.objects.create(
+            models.Synonym.objects.get_or_create(
                 tag=tag,
                 synonym_name=synonym,
             )
