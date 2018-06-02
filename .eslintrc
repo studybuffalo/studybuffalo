@@ -6,5 +6,15 @@
     ],
     "plugins": [
         "react"
-    ]
+    ],
+    "env": {
+        "browser": true,
+        "node": false
+    },
+    "rules": {
+        "react/jsx-filename-extension": [
+            1,
+            {"extensions": [".js", ".jsx"]}
+        ]
+    }
 }
