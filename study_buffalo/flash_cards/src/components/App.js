@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
+// TODO: Remove eslint rule for Link component when next ESLint edition released
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class Menu extends React.Component {
   handleMenuClick(e) {
     if (e.target.id==="menu-icon") {
       this.setState({isVisible: true});
-    } else if (e.target.id==="menu-close-button" || e.target.id==="menu-overlay") {
+    } else {
       this.setState({isVisible: false});
     }
   }
@@ -26,11 +28,11 @@ class Menu extends React.Component {
             <button id="menu-close-button" onClick={this.handleMenuClick}>x</button>
           </div>
           <ul id="menu-items">
-            <li>Dashboard</li>
-            <li>Create &amp; Manage Cards</li>
-            <li>Create &amp; Manage Decks</li>
-            <li>Study Buffalo Home</li>
-            <li>Logout</li>
+            <li><Link to="/flash-cards/" onClick={this.handleMenuClick}>Dashboard</Link></li>
+            <li><Link to="/flash-cards/decks/" onClick={this.handleMenuClick}>Create &amp; Manage Decks</Link></li>
+            <li><Link to="/flash-cards/cards/" onClick={this.handleMenuClick}>Create &amp; Manage Cards</Link></li>
+            <li><a href="/">Study Buffalo Home</a></li>
+            <li><a href="/accounts/logout/?next=/">Logout</a></li>
           </ul>
         </div>
         <div id="menu-overlay" className={this.state.isVisible ? "visible" : ""} onClick={this.handleMenuClick} aria-hidden="true" >&nbsp;</div>
@@ -39,28 +41,76 @@ class Menu extends React.Component {
   }
 }
 
-function ListDisplay(prop) {
-  const items = prop.items
-  const listItems = items.map((item, index) =>
-    <li key={item} data-id={index}>{item}</li>
-  )
-
+function Dashboard(prop) {
   return (
-    <ul>{listItems}</ul>
+    <h1>Study Buffalo Flashcards</h1>
   )
 }
 
+function Decks(prop) {
+  return (
+    <Switch>
+      <Route exact path="/flash-cards/decks/" component={DecksDashboard} />
+      <Route exact path="/flash-cards/decks/create/" component={DecksCreate} />
+    </Switch>
+  )
+}
+
+function DecksDashboard(prop) {
+  return (
+    <h1>Flash Card Decks</h1>
+  )
+}
+
+function DecksCreate(prop) {
+  return (
+    <h1>Create new deck</h1>
+  )
+}
+
+function Cards(prop) {
+  return (
+    <h1>Flash Card Management</h1>
+  )
+}
+function Main(prop) {
+  return (
+    <Switch>
+      <Route exact path="/flash-cards/" component={Dashboard} />
+      <Route path="/flash-cards/decks/" component={Decks} />
+      <Route path="/flash-cards/cards/" component={Cards} />
+    </Switch>
+  )
+}
+
+// class Main extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() {
+//     return (
+//       <Switch>
+//         <Route exact path="/" component={Dashboard} />
+//         <Route exact path="/decks" component={Decks} />
+//       </Switch>
+//     )
+//   }
+// }
 function App(prop) {
   return (
     <div>
       <Menu />
-      <h1>Welcome {prop.name}!</h1>
-      <ListDisplay items={[1,2,3]} />
+      <Main />
     </div>
   )
 }
 
 ReactDOM.render(
-  <App name="Josh" />,
+  (
+    <BrowserRouter>
+      <App name="Josh" />
+    </BrowserRouter>
+  ),
   document.getElementById('root')
 );
