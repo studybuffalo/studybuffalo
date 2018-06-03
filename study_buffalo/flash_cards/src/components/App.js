@@ -61,14 +61,34 @@ function Dashboard() {
   return (
     <React.Fragment>
       <h1>Study Buffalo Flashcards</h1>
+      <UnfinishedDecks />
       <DashboardNews />
+      <div>
+        Create and manage study decks
+      </div>
+      <div>
+        Create and manage flash cards
+      </div>
+      <UserStats />
     </React.Fragment>
+  )
+}
+
+function UnfinishedDecks() {
+  return (
+    <div>Unfinished decks</div>
   )
 }
 
 function DashboardNews() {
   return (
     <div>News &amp; Announcements</div>
+  )
+}
+
+function UserStats() {
+  return (
+    <div>User stats</div>
   )
 }
 
