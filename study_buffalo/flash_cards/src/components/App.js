@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom'
 
 // TODO: Remove eslint rule for Link component when next ESLint edition released
 
@@ -22,7 +22,7 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="header">
         <button id="menu-icon" onClick={this.handleMenuClick}>
           <span className="icon">&#8801;</span>
           <span>Menu</span>
@@ -60,7 +60,7 @@ class Menu extends React.Component {
 function Dashboard() {
   return (
     <React.Fragment>
-      <h1>Study Buffalo Flashcards</h1>
+      <h1>Study Buffalo Flash Cards</h1>
       <UnfinishedDecks />
       <DashboardNews />
       <div>
@@ -103,7 +103,46 @@ function Decks() {
 
 function DecksDashboard() {
   return (
-    <h1>Flash Card Decks</h1>
+    <React.Fragment>
+      <h1>Flash Card Decks</h1>
+
+      <Link to="/flash-cards/decks/create/" id="app-card">
+        <span className="icon">+</span>
+        <span>Create new deck</span>
+      </Link>
+
+      <h2>Modify an existing deck</h2>
+      <div>
+        <label htmlFor="owner-1">
+          <input type="radio" name="owner" id="owner-1" defaultChecked />
+          Decks I created
+        </label>
+        <label htmlFor="owner-2">
+          <input type="radio" name="owner" id="owner-2" />
+          Decks I have modified
+        </label>
+        <label htmlFor="owner-3">
+          <input type="radio" name="owner" id="owner-3" />
+          All decks
+        </label>
+      </div>
+
+      <div>
+        <label htmlFor="tag-search">
+          Tags:
+          <input type="text" id="tag-search" />
+        </label>
+      </div>
+
+      <div>
+        <label htmlFor="deck-search">
+          Deck Name or Description:
+          <input type="text" id="deck-search" />
+        </label>
+      </div>
+
+      <div id="existing-decks" />
+    </React.Fragment>
   )
 }
 
@@ -120,11 +159,13 @@ function Cards() {
 }
 function Main() {
   return (
-    <Switch>
-      <Route exact path="/flash-cards/" component={Dashboard} />
-      <Route path="/flash-cards/decks/" component={Decks} />
-      <Route path="/flash-cards/cards/" component={Cards} />
-    </Switch>
+    <div id="main">
+      <Switch>
+        <Route exact path="/flash-cards/" component={Dashboard} />
+        <Route path="/flash-cards/decks/" component={Decks} />
+        <Route path="/flash-cards/cards/" component={Cards} />
+      </Switch>
+    </div>
   )
 }
 

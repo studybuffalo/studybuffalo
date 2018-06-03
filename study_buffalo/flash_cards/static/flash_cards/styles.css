@@ -97,5 +97,27 @@
     color: rgb(25, 25, 25);
   }
 
+#app #main {
+  padding: 1rem;
+}
 
+#app #app-card {
+  border: 1px solid black;
+  display: block;
+  text-decoration: none;
+  color: rgb(25, 25, 25);
+  font-size: 2rem;
+  padding: 1rem;
+}
 
+  #app #app-card span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  #app #app-card .icon {
+    font-size: 10rem;
+    color: rgb(100, 100, 100);
+    vertical-align: top;
+    padding-bottom: 1rem;
+  }
