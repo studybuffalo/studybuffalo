@@ -1,6 +1,8 @@
+/* eslint react/no-multi-comp: 0 */
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom'
+import DeckForm from './containers/DeckForm';
 
 // TODO: Remove eslint rule for Link component when next ESLint edition released
 
@@ -148,7 +150,11 @@ function DecksDashboard() {
 
 function DecksCreate() {
   return (
-    <h1>Create new deck</h1>
+    <React.Fragment>
+      <h1>Create new deck</h1>
+      <DeckForm new />
+    </React.Fragment>
+
   )
 }
 
