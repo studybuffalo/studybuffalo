@@ -98,8 +98,8 @@ class DeckSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Deck
         fields = (
-            'id', 'deck_name', 'reviewed', 'active', 'date_modified',
-            'date_reviewed',
+            'id', 'deck_name', 'description', 'reviewed', 'active',
+            'date_modified', 'date_reviewed',
         )
 
 class QuestionPartSerializer(serializers.ModelSerializer):
