@@ -109,6 +109,9 @@ class Deck(BaseAbstractModel):
     deck_name = models.CharField(
         max_length=255,
     )
+    description = models.TextField(
+        max_length=500,
+    )
     reviewed = models.BooleanField(
         default=False,
     )
