@@ -1,46 +1,101 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+
 import TextInput from './Inputs';
+
 
 class DeckForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      deck_name: "",
-      deck_description: "",
       errors: false,
     };
 
+    this.formErrorCheck = this.formErrorCheck.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // Disable submit until data in each field (onKeyUp)
-  // onBlur validate the entered text
+  // Disable submit until no errors - will need to pass in
+  // functions to children to retrieve error status
+  formErrorCheck() {
+    const formChildren = document.getElementById("Deck-Form").childNodes;
+    let isValid = true;
 
+    for (let child of formChildren){
+      if (
+        (child.dataset.required && !child.dataset.changed) ||
+        (child.dataset.required && child.dataset.changed && child.classList.contains("errors")) ||
+        (child.classList.contains("errors"))
+      ) {
+        isValid = false
+      }
+    }
 
-  handleSubmit() {
-    this.setState({
-      deck_name: "",
-      deck_description: ""
-    });
+    this.setState({errors: !isValid});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.formErrorCheck();
+    // Collect data for form submissions
+    const csrfToken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+    const data = {
+      deck_name: document.getElementById("deck-name").value
+    }
+
+    if (this.state.errors) {
+      // handle errors
+    } else {
+      // Submit form
+
+      axios.post("/flash-cards/api/v1/decks/", data, {headers: {"X-CSRFToken": csrfToken}})
+        .then((response) => {
+          console.log(response);
+          console.log(response.data);
+
+          // Change URL to the new view
+          this.props.history.push(`/flash-cards/decks/${response.data.id}/`);
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.warn(error.response.data);
+            console.warn(error.response.status);
+            console.warn(error.response.headers);
+          } else if (error.request) {
+            console.warn(error.request);
+          } else {
+            console.warn(error.message);
+          }
+
+        });
+    }
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className={this.state.errors ? "errors": ""}>
+      <form
+        id="Deck-Form"
+        onSubmit={this.handleSubmit}
+        className={this.state.errors ? "errors": ""}
+      >
         <TextInput
           id="deck-name"
           type="text"
-          label_text="Deck name:"
-          max_length={255}
+          labelText="Deck name*"
+          maxLength={255}
+          formErrorCheck={this.formErrorCheck}
           required
         />
         <TextInput
           id="deck-description"
           type="text"
-          label_text="Description:"
-          max_length={255}
+          labelText="Description"
+          maxLength={255}
+          formErrorCheck={this.formErrorCheck}
         />
 
         {!this.props.new &&
@@ -58,7 +113,7 @@ class DeckForm extends React.Component {
           </div>
         }
         <div>
-          <button>Add deck</button>
+          <button onClick={this.handleSubmit}>Add deck</button>
         </div>
       </form>
     );
@@ -73,4 +128,4 @@ DeckForm.propTypes = {
   new: PropTypes.bool
 }
 
-export default DeckForm;
+export default withRouter(DeckForm);

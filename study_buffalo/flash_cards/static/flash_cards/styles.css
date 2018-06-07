@@ -121,3 +121,18 @@
     vertical-align: top;
     padding-bottom: 1rem;
   }
+
+#app form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+  #app form > div span {
+    display: block;
+  }
+
+  #app form > div .errors {
+    color: rgb(200, 0, 0);
+  }

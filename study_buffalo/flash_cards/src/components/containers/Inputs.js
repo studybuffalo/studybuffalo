@@ -7,10 +7,18 @@ class TextInput extends React.Component {
 
     this.state = {
       valid: true,
+      changed: false,
       error_messages: []
     }
 
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleInitialChange = this.handleInitialChange.bind(this);
+  }
+
+  handleInitialChange() {
+    if (!this.state.changed) {
+      this.setState({changed: true})
+    }
   }
 
   handleTextChange(e) {
@@ -19,11 +27,11 @@ class TextInput extends React.Component {
 
     if (this.props.required && input.value.length === 0) {
       errorMessages.push("This field is required.");
-    } else if (this.props.max_length && input.value.length > this.props.max_length) {
+    } else if (this.props.maxLength && input.value.length > this.props.maxLength) {
       errorMessages.push(
         "This field must be "
-        + this.props.max_length
-        + this.props.max_length === 1 ? (
+        + this.props.maxLength
+        + this.props.maxLength === 1 ? (
           "character long."
         ) : (
           "characters long or less."
@@ -44,23 +52,37 @@ class TextInput extends React.Component {
     }
   }
 
-
-  // Disable submit until data in each field (onKeyUp)
-  // onBlur validate the entered text
-
   render() {
     return (
-      <div className={this.state.valid ? "" : "errors"}>
-        <label htmlFor={this.props.id}>
-          {this.props.label_text}
-          {
-            this.props.type.toLowerCase() === "text" ? (
-              <input type="text" id={this.props.id} onChange={this.handleTextChange} />
-            ) : (
-              <textarea id={this.props.id} onChange={this.handleTextChange} />
-            )
-          }
-        </label>
+      <div
+        className={!this.state.valid ? "errors" : ""}
+        data-changed={this.state.changed}
+        data-required={this.props.required}
+      >
+        {
+          this.props.type.toLowerCase() === "text" ? (
+            <label htmlFor={this.props.id}>
+              <span>{this.props.labelText}</span>
+              <input
+                type="text"
+                id={this.props.id}
+                onKeyUp={(e) => {
+                  this.handleTextChange(e); this.props.formErrorCheck(e)
+                }}
+                onBlur={this.handleInitialChange}
+              />
+            </label>
+          ) : (
+            <label htmlFor={this.props.id}>
+              {this.props.labelText}
+              <textarea
+                id={this.props.id}
+                onKeyUp={this.handleTextChange}
+                onBlur={this.props.formErrorCheck}
+              />
+            </label>
+          )
+        }
         <span className="errors">{this.state.error_messages.join(" ")}</span>
       </div>
     )
@@ -69,17 +91,19 @@ class TextInput extends React.Component {
 
 TextInput.defaultProps = {
   type: "text",
-  label_text: "",
+  labelText: "",
   required: false,
-  max_length: 0
+  maxLength: 0,
+  formErrorCheck: null
 }
 
 TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   type: PropTypes.string,
-  label_text: PropTypes.string,
+  labelText: PropTypes.string,
   required: PropTypes.bool,
-  max_length: PropTypes.number
+  maxLength: PropTypes.number,
+  formErrorCheck: PropTypes.func
 }
 
 export default TextInput;

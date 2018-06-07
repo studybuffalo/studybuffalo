@@ -99,6 +99,7 @@ function Decks() {
     <Switch>
       <Route exact path="/flash-cards/decks/" component={DecksDashboard} />
       <Route exact path="/flash-cards/decks/create/" component={DecksCreate} />
+      <Route exact path="/flash-cards/decks/:id/" component={DecksEdit} />
     </Switch>
   )
 }
@@ -155,6 +156,15 @@ function DecksCreate() {
       <DeckForm new />
     </React.Fragment>
 
+  )
+}
+
+function DecksEdit() {
+  return(
+    <React.Fragment>
+      <h1>Modify deck</h1>
+      <DeckForm />
+    </React.Fragment>
   )
 }
 
