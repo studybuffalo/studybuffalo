@@ -197,6 +197,7 @@ class DeckSerializerTest(TestCase):
     def setUp(self):
         self.data = {
             'deck_name': 'Cardiology',
+            'description': 'A cardiology study deck',
             'reviewed': False,
             'active': True,
             'date_modified': '2018-01-01T12:01:00.000000Z',
@@ -215,7 +216,7 @@ class DeckSerializerTest(TestCase):
 
         self.assertCountEqual(
             serializer.validated_data.keys(),
-            ['deck_name', 'reviewed', 'active', 'date_modified', 'date_reviewed']
+            ['deck_name', 'description', 'reviewed', 'active', 'date_modified', 'date_reviewed']
         )
 
     def test_deck_name_max_length(self):
@@ -237,6 +238,27 @@ class DeckSerializerTest(TestCase):
         self.assertEqual(
             serializer.errors['deck_name'],
             ['Ensure this field has no more than 255 characters.']
+        )
+
+    def test_description_name_max_length(self):
+        invalid_data = self.data
+        invalid_data['description'] = 'a' * 501
+
+        serializer = serializers.DeckSerializer(data=invalid_data)
+
+        # Check that serializer is invalid
+        self.assertFalse(serializer.is_valid())
+
+        # Check that only the deck_name error is present
+        self.assertCountEqual(
+            serializer.errors,
+            ['description']
+        )
+
+        # Check that proper error message generated
+        self.assertEqual(
+            serializer.errors['description'],
+            ['Ensure this field has no more than 500 characters.']
         )
 
     def test_invalid_date_handling(self):

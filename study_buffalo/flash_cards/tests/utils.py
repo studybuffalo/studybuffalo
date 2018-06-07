@@ -30,9 +30,10 @@ def create_synonym():
 
     return synonym
 
-def create_deck(deck_name):
+def create_deck(deck_name, description):
     return models.Deck.objects.create(
         deck_name=deck_name,
+        description=description,
     )
 
 def create_card():
@@ -135,7 +136,7 @@ def create_card_tag_match(card, tag):
 def create_deck_stats():
     return models.DeckStats.objects.create(
         user=create_user(),
-        deck=create_deck('Cardiology'),
+        deck=create_deck('Cardiology', 'A cardiology deck'),
         number_questions=3,
         number_correct=1,
         number_partially_correct=1,
@@ -297,11 +298,14 @@ def create_deck_feedback():
     return models.DeckFeedback.objects.create(
         user=create_user(),
         comment='This is a feedback comment',
-        deck=create_deck('Cardiology'),
+        deck=create_deck('Cardiology', 'A cardiology deck'),
     )
 
 def create_card_post_data():
-    deck = models.Deck.objects.create(deck_name='Cardiology Study Deck')
+    deck = models.Deck.objects.create(
+        deck_name='Cardiology Study Deck',
+        description='A cardiology deck'
+    )
     tag = models.Tag.objects.create(tag_name='cardiology')
     models.Synonym.objects.create(tag=tag, synonym_name='cardiology')
 

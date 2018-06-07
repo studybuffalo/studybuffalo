@@ -334,12 +334,16 @@ class CardDetailTest(TestCase):
 class DeckListTest(TestCase):
     def setUp(self):
         # Populate database with values
-        models.Deck.objects.create(deck_name='Urology Deck')
+        models.Deck.objects.create(
+            deck_name='Urology Deck',
+            description='A urology deck',
+        )
 
         self.client = APIClient()
         self.user = utils.create_user()
         self.post_data = {
             'deck_name': 'Neurology Deck',
+            'description': 'A neurology deck',
         }
 
     def test_403_on_anonymous_user(self):
@@ -441,6 +445,7 @@ class DeckDetailTest(TestCase):
         self.deck = models.Deck.objects.create(deck_name='Urology Deck')
         self.post_data = {
             'deck_name': 'Neurology Deck',
+            'description': 'A neurology deck',
         }
 
     def test_403_on_anonymous_user(self):

@@ -148,7 +148,7 @@ class SynonymModelTest(TestCase):
 
 class DeckModelTest(TestCase):
     def setUp(self):
-        self.deck = utils.create_deck('Cardiology Questions')
+        self.deck = utils.create_deck('Cardiology Questions', 'A cardiology dec')
 
     def test_labels(self):
         # Test deck_uuid label
@@ -161,6 +161,12 @@ class DeckModelTest(TestCase):
         self.assertEqual(
             self.deck._meta.get_field('deck_name').verbose_name,
             'deck name',
+        )
+
+        # Test description label
+        self.assertEqual(
+            self.deck._meta.get_field('description').verbose_name,
+            'description',
         )
 
         # Test reviewed label
@@ -407,7 +413,7 @@ class ReferenceModelTest(TestCase):
 class CardDeckModelTest(TestCase):
     def setUp(self):
         card = utils.create_card()
-        deck = utils.create_deck('Cardiology')
+        deck = utils.create_deck('Cardiology', 'A cardiology deck')
 
         self.card_deck = utils.create_card_deck_match(card, deck)
 
