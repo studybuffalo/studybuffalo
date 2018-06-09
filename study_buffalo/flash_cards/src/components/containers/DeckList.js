@@ -16,12 +16,23 @@ class DeckList extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.retrieveDecks();
+  componentDidMount() {
+    this.retrieveDecks(this.props);
   }
 
-  retrieveDecks() {
-    axios.get("/flash-cards/api/v1/decks/")
+  componentWillReceiveProps(nextProps) {
+    this.retrieveDecks(nextProps);
+  }
+
+  retrieveDecks(props) {
+    console.log("test");
+    axios.get("/flash-cards/api/v1/decks/", {
+      params: {
+        owner: props.owner,
+        tags: props.tags.join(","),
+        text_filter: props.text
+      }
+    })
       .then((response) => {
         this.setState({data: response.data});
       })

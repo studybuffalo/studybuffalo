@@ -117,21 +117,35 @@ class DecksDashboard extends React.Component {
       text: ""
     };
 
-    this.updateFilter = this.updateFilter.bind(this);
+    this.updateOwner = this.updateOwner.bind(this);
+    this.updateTags = this.updateTags.bind(this);
+    this.updateText = this.updateText.bind(this);
   }
 
-  updateFilter() {
+  componentDidMount() {
+    // Update the state to pass proper properties to list component
+    this.updateOwner();
+    this.updateTags();
+    this.updateText();
+  }
+
+  updateOwner() {
     // Update the owner filter
     if (document.getElementById("owner-1").checked) {
-      this.setState({owner: "created"});
+      this.setState({owner: "owner"});
     } else if (document.getElementById("owner-2").checked) {
       this.setState({owner: "modified"});
-    } else if (document.getElementById("owner-3").checked) {
+    } else {
       this.setState({owner: ""});
     }
+  }
 
+  updateTags() {
     // Update the tag filter
+    this.setState({tags: [document.getElementById("tag-search").value]});
+  }
 
+  updateText() {
     // Update the text filter
     this.setState({text: document.getElementById("deck-search").value});
   }
@@ -149,15 +163,15 @@ class DecksDashboard extends React.Component {
         <h2>Modify an existing deck</h2>
         <div>
           <label htmlFor="owner-1">
-            <input type="radio" name="owner" id="owner-1" onChange={this.updateFilter} defaultChecked />
+            <input type="radio" name="owner" id="owner-1" value="owner" onChange={this.updateOwner} defaultChecked />
             Decks I created
           </label>
           <label htmlFor="owner-2">
-            <input type="radio" name="owner" id="owner-2" onChange={this.updateFilter} />
+            <input type="radio" name="owner" id="owner-2" value="modified" onChange={this.updateOwner} />
             Decks I have modified
           </label>
           <label htmlFor="owner-3">
-            <input type="radio" name="owner" id="owner-3" onChange={this.updateFilter} />
+            <input type="radio" name="owner" id="owner-3" value="" onChange={this.updateOwner} />
             All decks
           </label>
         </div>
@@ -165,14 +179,14 @@ class DecksDashboard extends React.Component {
         <div>
           <label htmlFor="tag-search">
             Tags:
-            <input type="text" id="tag-search" onChange={this.updateFilter} />
+            <input type="text" id="tag-search" onChange={this.updateTags} />
           </label>
         </div>
 
         <div>
           <label htmlFor="deck-search">
             Deck Name or Description:
-            <input type="text" id="deck-search" onChange={this.updateFilter} />
+            <input type="text" id="deck-search" onChange={this.updateText} />
           </label>
         </div>
 
