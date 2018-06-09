@@ -1,8 +1,11 @@
 /* eslint react/no-multi-comp: 0 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
+
 import DeckForm from './containers/DeckForm';
+import DeckList from './containers/DeckList';
+
 
 // TODO: Remove eslint rule for Link component when next ESLint edition released
 
@@ -104,49 +107,79 @@ function Decks() {
   )
 }
 
-function DecksDashboard() {
-  return (
-    <React.Fragment>
-      <h1>Flash Card Decks</h1>
+class DecksDashboard extends React.Component {
+  constructor(props) {
+    super(props);
 
-      <Link to="/flash-cards/decks/create/" id="app-card">
-        <span className="icon">+</span>
-        <span>Create new deck</span>
-      </Link>
+    this.state = {
+      owner: "",
+      tags: [],
+      text: ""
+    };
 
-      <h2>Modify an existing deck</h2>
-      <div>
-        <label htmlFor="owner-1">
-          <input type="radio" name="owner" id="owner-1" defaultChecked />
-          Decks I created
-        </label>
-        <label htmlFor="owner-2">
-          <input type="radio" name="owner" id="owner-2" />
-          Decks I have modified
-        </label>
-        <label htmlFor="owner-3">
-          <input type="radio" name="owner" id="owner-3" />
-          All decks
-        </label>
-      </div>
+    this.updateFilter = this.updateFilter.bind(this);
+  }
 
-      <div>
-        <label htmlFor="tag-search">
-          Tags:
-          <input type="text" id="tag-search" />
-        </label>
-      </div>
+  updateFilter() {
+    // Update the owner filter
+    if (document.getElementById("owner-1").checked) {
+      this.setState({owner: "created"});
+    } else if (document.getElementById("owner-2").checked) {
+      this.setState({owner: "modified"});
+    } else if (document.getElementById("owner-3").checked) {
+      this.setState({owner: ""});
+    }
 
-      <div>
-        <label htmlFor="deck-search">
-          Deck Name or Description:
-          <input type="text" id="deck-search" />
-        </label>
-      </div>
+    // Update the tag filter
 
-      <div id="existing-decks" />
-    </React.Fragment>
-  )
+    // Update the text filter
+    this.setState({text: document.getElementById("deck-search").value});
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <h1>Flash Card Decks</h1>
+
+        <Link to="/flash-cards/decks/create/" id="app-card">
+          <span className="icon">+</span>
+          <span>Create new deck</span>
+        </Link>
+
+        <h2>Modify an existing deck</h2>
+        <div>
+          <label htmlFor="owner-1">
+            <input type="radio" name="owner" id="owner-1" onChange={this.updateFilter} defaultChecked />
+            Decks I created
+          </label>
+          <label htmlFor="owner-2">
+            <input type="radio" name="owner" id="owner-2" onChange={this.updateFilter} />
+            Decks I have modified
+          </label>
+          <label htmlFor="owner-3">
+            <input type="radio" name="owner" id="owner-3" onChange={this.updateFilter} />
+            All decks
+          </label>
+        </div>
+
+        <div>
+          <label htmlFor="tag-search">
+            Tags:
+            <input type="text" id="tag-search" onChange={this.updateFilter} />
+          </label>
+        </div>
+
+        <div>
+          <label htmlFor="deck-search">
+            Deck Name or Description:
+            <input type="text" id="deck-search" onChange={this.updateFilter} />
+          </label>
+        </div>
+
+        <DeckList owner={this.state.owner} tags={this.state.tags} text={this.state.text} />
+      </React.Fragment>
+    )
+  }
 }
 
 function DecksCreate() {
