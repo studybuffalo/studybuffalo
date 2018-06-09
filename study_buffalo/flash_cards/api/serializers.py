@@ -95,11 +95,24 @@ class TagSerializer(serializers.Serializer):
         return validated_data
 
 class DeckSerializer(serializers.ModelSerializer):
+    deck_owner = serializers.CharField(
+        max_length=8,
+        required=False,
+    )
+    tags = TagSerializer(
+        many=True,
+        required=False,
+    )
+    text_filter = serializers.CharField(
+        max_length=255,
+        required=False,
+    )
+
     class Meta:
         model = models.Deck
         fields = (
             'id', 'deck_name', 'description', 'reviewed', 'active',
-            'date_modified', 'date_reviewed',
+            'date_modified', 'date_reviewed', 'deck_owner', 'tags', 'text_filter',
         )
 
 class QuestionPartSerializer(serializers.ModelSerializer):
