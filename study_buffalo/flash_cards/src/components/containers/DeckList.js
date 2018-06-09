@@ -25,11 +25,9 @@ class DeckList extends React.Component {
   }
 
   retrieveDecks(props) {
-    console.log("test");
     axios.get("/flash-cards/api/v1/decks/", {
       params: {
         owner: props.owner,
-        tags: props.tags.join(","),
         text_filter: props.text
       }
     })
@@ -81,13 +79,11 @@ class DeckList extends React.Component {
 
 DeckList.defaultProps = {
   owner: "",
-  tags: [],
   text: ""
 }
 
 DeckList.propTypes = {
   owner: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string),
   text: PropTypes.string
 }
 

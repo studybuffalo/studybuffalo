@@ -113,19 +113,16 @@ class DecksDashboard extends React.Component {
 
     this.state = {
       owner: "",
-      tags: [],
       text: ""
     };
 
     this.updateOwner = this.updateOwner.bind(this);
-    this.updateTags = this.updateTags.bind(this);
     this.updateText = this.updateText.bind(this);
   }
 
   componentDidMount() {
     // Update the state to pass proper properties to list component
     this.updateOwner();
-    this.updateTags();
     this.updateText();
   }
 
@@ -138,11 +135,6 @@ class DecksDashboard extends React.Component {
     } else {
       this.setState({owner: ""});
     }
-  }
-
-  updateTags() {
-    // Update the tag filter
-    this.setState({tags: [document.getElementById("tag-search").value]});
   }
 
   updateText() {
@@ -177,20 +169,13 @@ class DecksDashboard extends React.Component {
         </div>
 
         <div>
-          <label htmlFor="tag-search">
-            Tags:
-            <input type="text" id="tag-search" onChange={this.updateTags} />
-          </label>
-        </div>
-
-        <div>
           <label htmlFor="deck-search">
             Deck Name or Description:
             <input type="text" id="deck-search" onChange={this.updateText} />
           </label>
         </div>
 
-        <DeckList owner={this.state.owner} tags={this.state.tags} text={this.state.text} />
+        <DeckList owner={this.state.owner} text={this.state.text} />
       </React.Fragment>
     )
   }
