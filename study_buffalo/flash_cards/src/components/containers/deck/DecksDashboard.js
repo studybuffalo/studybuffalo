@@ -48,7 +48,7 @@ class DecksDashboard extends React.Component {
   }
 
   retrieveDecks() {
-    axios.get("/flash-cards/api/v1/decks/", {
+    axios.get("/flash-cards/api/v1/deck/", {
       params: {
         owner: this.state.owner,
         text_filter: this.state.text
@@ -58,14 +58,22 @@ class DecksDashboard extends React.Component {
         this.setState({data: response.data});
       })
       .catch((error) => {
+        // Set state to no data
+        this.setState({data: []});
+
         if (error.response) {
-          console.warn(error.response.data);
-          console.warn(error.response.status);
-          console.warn(error.response.headers);
+          // Request made, but server returned error
+          // TODO: Log error to Sentry
+          // TODO: Generate a user friendly error message
+
         } else if (error.request) {
-          console.warn(error.request);
+          // Request made, but no response received
+          // TODO: Log error to Sentry
+          // TODO: Generate a user friendly error message
         } else {
-          console.warn(error.message);
+          // Request not sent
+          // TODO: Log error to Sentry
+          // TODO: Generate a user friendly error message
         }
       });
   }

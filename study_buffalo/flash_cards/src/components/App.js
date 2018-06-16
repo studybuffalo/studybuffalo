@@ -1,4 +1,5 @@
 /* eslint react/no-multi-comp: 0 */
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
@@ -6,6 +7,9 @@ import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 import DeckForm from './containers/deck/DeckForm';
 import DecksDashboard from './containers/deck/DecksDashboard';
 
+
+// Setup Raven
+Raven.config('https://7db3dda0b6184c6a9a279b6697cafd96@sentry.studybuffalo.com/4').install()
 
 // TODO: Remove eslint rule for Link component when next ESLint edition released
 
