@@ -3,8 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route, NavLink, Link } from 'react-router-dom';
 
-import DeckForm from './containers/DeckForm';
-import DeckList from './containers/DeckList';
+import DeckForm from './containers/deck/DeckForm';
+import DecksDashboard from './containers/deck/DecksDashboard';
 
 
 // TODO: Remove eslint rule for Link component when next ESLint edition released
@@ -107,80 +107,6 @@ function Decks() {
   )
 }
 
-class DecksDashboard extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      owner: "",
-      text: ""
-    };
-
-    this.updateOwner = this.updateOwner.bind(this);
-    this.updateText = this.updateText.bind(this);
-  }
-
-  componentDidMount() {
-    // Update the state to pass proper properties to list component
-    this.updateOwner();
-    this.updateText();
-  }
-
-  updateOwner() {
-    // Update the owner filter
-    if (document.getElementById("owner-1").checked) {
-      this.setState({owner: "owner"});
-    } else if (document.getElementById("owner-2").checked) {
-      this.setState({owner: "modified"});
-    } else {
-      this.setState({owner: ""});
-    }
-  }
-
-  updateText() {
-    // Update the text filter
-    this.setState({text: document.getElementById("deck-search").value});
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <h1>Flash Card Decks</h1>
-
-        <Link to="/flash-cards/decks/create/" id="app-card">
-          <span className="icon">+</span>
-          <span>Create new deck</span>
-        </Link>
-
-        <h2>Modify an existing deck</h2>
-        <div>
-          <label htmlFor="owner-1">
-            <input type="radio" name="owner" id="owner-1" value="owner" onChange={this.updateOwner} defaultChecked />
-            Decks I created
-          </label>
-          <label htmlFor="owner-2">
-            <input type="radio" name="owner" id="owner-2" value="modified" onChange={this.updateOwner} />
-            Decks I have modified
-          </label>
-          <label htmlFor="owner-3">
-            <input type="radio" name="owner" id="owner-3" value="" onChange={this.updateOwner} />
-            All decks
-          </label>
-        </div>
-
-        <div>
-          <label htmlFor="deck-search">
-            Deck Name or Description:
-            <input type="text" id="deck-search" onChange={this.updateText} />
-          </label>
-        </div>
-
-        <DeckList owner={this.state.owner} text={this.state.text} />
-      </React.Fragment>
-    )
-  }
-}
-
 function DecksCreate() {
   return (
     <React.Fragment>
@@ -195,6 +121,7 @@ function DecksEdit() {
   return(
     <React.Fragment>
       <h1>Modify deck</h1>
+      <Link to="/flash-cards/decks/">Back to deck list</Link>
       <DeckForm />
     </React.Fragment>
   )
@@ -205,6 +132,7 @@ function Cards() {
     <h1>Flash Card Management</h1>
   )
 }
+
 function Main() {
   return (
     <div id="main">

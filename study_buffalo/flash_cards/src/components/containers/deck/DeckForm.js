@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
-import TextInput from './Inputs';
+import TextInput from '../Inputs';
 
 
 class DeckForm extends React.Component {

@@ -41,17 +41,17 @@ class DeckList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         # Get the search parameters
-        owner = self.request.query_params.get('owner', '')
-        owner = 1
-        text_filter = self.request.query_params.get('text_filter', 'neuro')
-        text_filter = 'neuro'
+        owner = self.request.query_params.get('owner', False)
+        text_filter = self.request.query_params.get('text_filter', '')
 
         if owner:
+            user = self.request.user.id
+
             # Get the initial queryset
             deck_history = Deck.history.select_related().all()
 
             # Get all the appropriate deck IDs
-            deck_ids = deck_history.filter(history_user=owner).values_list('id', flat=True)
+            deck_ids = deck_history.filter(history_user=user).values_list('id', flat=True)
 
             # Remove duplicates
             deck_ids = list(set(deck_ids))
