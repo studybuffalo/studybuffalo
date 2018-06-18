@@ -136,3 +136,7 @@
   #app form > div .errors {
     color: rgb(200, 0, 0);
   }
+
+.ReactModal__Overlay {
+  z-index: 1000;
+}

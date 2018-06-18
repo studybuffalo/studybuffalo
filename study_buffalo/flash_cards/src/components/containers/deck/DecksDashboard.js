@@ -2,8 +2,10 @@ import axios from 'axios';
 
 import React from "react";
 import { Link } from 'react-router-dom';
+import ReactModal from 'react-modal';
 
 import DeckList from './DeckList';
+
 
 class DecksDashboard extends React.Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class DecksDashboard extends React.Component {
     this.state = {
       owner: "",
       text: "",
-      data: []
+      data: [],
+      errors: ""
     };
 
     this.updateOwner = this.updateOwner.bind(this);
@@ -48,7 +51,7 @@ class DecksDashboard extends React.Component {
   }
 
   retrieveDecks() {
-    axios.get("/flash-cards/api/v1/deck/", {
+    axios.get("/flash-cards/api/v1/decks/", {
       params: {
         owner: this.state.owner,
         text_filter: this.state.text
@@ -63,23 +66,31 @@ class DecksDashboard extends React.Component {
 
         if (error.response) {
           // Request made, but server returned error
+          if (error.response.status === 404) {
+            this.setState({errors: "Requested API endpoint not found"});
+          } else {
+            this.setState({errors: "Unable to retrieve requested data"});
+          }
+
           // TODO: Log error to Sentry
-          // TODO: Generate a user friendly error message
 
         } else if (error.request) {
           // Request made, but no response received
+          this.setState({errors: error.request});
+
           // TODO: Log error to Sentry
-          // TODO: Generate a user friendly error message
         } else {
           // Request not sent
+          this.setState({errors: error.message});
           // TODO: Log error to Sentry
-          // TODO: Generate a user friendly error message
         }
       });
   }
 
 
   render() {
+    const isError = this.state.errors ? true : false;
+
     return (
       <React.Fragment>
         <h1>Flash Card Decks</h1>
@@ -109,6 +120,10 @@ class DecksDashboard extends React.Component {
         </div>
 
         <DeckList data={this.state.data} />
+
+        <ReactModal isOpen={isError} contentLabel="Error retrieving data">
+          {this.state.errors}
+        </ReactModal>
       </React.Fragment>
     )
   }
