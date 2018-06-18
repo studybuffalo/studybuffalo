@@ -7,6 +7,8 @@ import ReactModal from 'react-modal';
 import DeckList from './DeckList';
 
 
+ReactModal.setAppElement("#app");
+
 class DecksDashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -15,11 +17,13 @@ class DecksDashboard extends React.Component {
       owner: "",
       text: "",
       data: [],
-      errors: ""
+      errors: "",
+      showModal: false
     };
 
     this.updateOwner = this.updateOwner.bind(this);
     this.updateText = this.updateText.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
     this.retrieveDecks = this.retrieveDecks.bind(this);
   }
 
@@ -50,8 +54,12 @@ class DecksDashboard extends React.Component {
     this.retrieveDecks();
   }
 
+  handleCloseModal () {
+    this.setState({showModal: false});
+  }
+
   retrieveDecks() {
-    axios.get("/flash-cards/api/v1/decks/", {
+    axios.get("/flash-cards/api/v1/deck/", {
       params: {
         owner: this.state.owner,
         text_filter: this.state.text
@@ -63,6 +71,7 @@ class DecksDashboard extends React.Component {
       .catch((error) => {
         // Set state to no data
         this.setState({data: []});
+        this.setState({showModal: true});
 
         if (error.response) {
           // Request made, but server returned error
@@ -90,9 +99,6 @@ class DecksDashboard extends React.Component {
 
 
   render() {
-    // TODO: Add all required functionality of modal error display
-    const isError = this.state.errors ? true : false;
-
     return (
       <React.Fragment>
         <h1>Flash Card Decks</h1>
@@ -123,8 +129,13 @@ class DecksDashboard extends React.Component {
 
         <DeckList data={this.state.data} />
 
-        <ReactModal isOpen={isError} contentLabel="Error retrieving data">
+        <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="Error retrieving data"
+          onRequestClose={this.handleCloseModal}
+        >
           {this.state.errors}
+          <button onClick={this.handleCloseModal}>Close Modal</button>
         </ReactModal>
       </React.Fragment>
     )
