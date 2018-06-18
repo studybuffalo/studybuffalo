@@ -22,5 +22,8 @@
                 "aspects": ["noHref", "invalidHref", "preferButton"]
             }
         ]
+    },
+    "globals": {
+        "Raven": true
     }
 }
