@@ -89,6 +89,7 @@ class DecksDashboard extends React.Component {
 
 
   render() {
+    // TODO: Add all required functionality of modal error display
     const isError = this.state.errors ? true : false;
 
     return (
