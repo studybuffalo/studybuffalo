@@ -6,7 +6,7 @@ import ReactModal from 'react-modal';
 
 import DeckList from './DeckList';
 
-
+// TODO: Pull ReactModal into own app to make recycling easier
 ReactModal.setAppElement("#app");
 
 class DecksDashboard extends React.Component {
