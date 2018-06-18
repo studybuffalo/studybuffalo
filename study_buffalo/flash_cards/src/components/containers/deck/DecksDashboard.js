@@ -72,17 +72,18 @@ class DecksDashboard extends React.Component {
             this.setState({errors: "Unable to retrieve requested data"});
           }
 
-          // TODO: Log error to Sentry
+          Raven.captureException(error.Resresponseponse);
 
         } else if (error.request) {
           // Request made, but no response received
           this.setState({errors: error.request});
 
-          // TODO: Log error to Sentry
+          Raven.captureException(error.request);
         } else {
           // Request not sent
           this.setState({errors: error.message});
-          // TODO: Log error to Sentry
+
+          Raven.captureException(error.message);
         }
       });
   }
