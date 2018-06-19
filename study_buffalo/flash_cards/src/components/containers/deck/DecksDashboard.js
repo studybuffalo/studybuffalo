@@ -2,12 +2,9 @@ import axios from 'axios';
 
 import React from "react";
 import { Link } from 'react-router-dom';
-import ReactModal from 'react-modal';
 
 import DeckList from './DeckList';
-
-// TODO: Pull ReactModal into own app to make recycling easier
-ReactModal.setAppElement("#app");
+import ErrorModal from '../ErrorModal';
 
 class DecksDashboard extends React.Component {
   constructor(props) {
@@ -17,13 +14,11 @@ class DecksDashboard extends React.Component {
       owner: "",
       text: "",
       data: [],
-      errors: "",
-      showModal: false
+      errors: ""
     };
 
     this.updateOwner = this.updateOwner.bind(this);
     this.updateText = this.updateText.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
     this.retrieveDecks = this.retrieveDecks.bind(this);
   }
 
@@ -54,24 +49,22 @@ class DecksDashboard extends React.Component {
     this.retrieveDecks();
   }
 
-  handleCloseModal () {
-    this.setState({showModal: false});
-  }
-
   retrieveDecks() {
-    axios.get("/flash-cards/api/v1/deck/", {
+    axios.get("/flash-cards/api/v1/decks/", {
       params: {
         owner: this.state.owner,
         text_filter: this.state.text
       }
     })
       .then((response) => {
-        this.setState({data: response.data});
+        this.setState({
+          data: response.data,
+          errors: ""
+        });
       })
       .catch((error) => {
         // Set state to no data
         this.setState({data: []});
-        this.setState({showModal: true});
 
         if (error.response) {
           // Request made, but server returned error
@@ -129,14 +122,7 @@ class DecksDashboard extends React.Component {
 
         <DeckList data={this.state.data} />
 
-        <ReactModal
-          isOpen={this.state.showModal}
-          contentLabel="Error retrieving data"
-          onRequestClose={this.handleCloseModal}
-        >
-          {this.state.errors}
-          <button onClick={this.handleCloseModal}>Close Modal</button>
-        </ReactModal>
+        {this.state.errors && <ErrorModal errors={this.state.errors} />}
       </React.Fragment>
     )
   }
