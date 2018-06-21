@@ -12,6 +12,18 @@ class DeckForm extends React.Component {
 
     this.state = {
       errors: false,
+      question_parts: [],
+      multiple_choice_answers: [],
+      matching_answers: [],
+      freeform_answer_parts: [],
+      rationale_parts: [],
+      reviewed: false,
+      active: true,
+      date_modified: "",
+      date_reviewed: "",
+      references: [],
+      tags: [],
+      decks: []
     };
 
     this.formErrorCheck = this.formErrorCheck.bind(this);
@@ -24,7 +36,7 @@ class DeckForm extends React.Component {
     if (!this.props.new) {
       // Get the new API path
       const path = this.props.location.pathname;
-      const apiPath = path.replace('/flash-cards/decks/', '/flash-cards/api/v1/decks/');
+      const apiPath = path.replace('/flash-cards/cards/', '/flash-cards/api/v1/cards/');
 
       axios.get(apiPath)
         .then((response) => {
@@ -78,21 +90,31 @@ class DeckForm extends React.Component {
     // Collect data for form submissions
     const csrfToken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
     const data = {
-      deck_name: document.getElementById("deck-name").value,
-      description: document.getElementById("description").value
+      question_parts: this.state.question_parts,
+      multiple_choice_answers: this.state.multiple_choice_answers,
+      matching_answers: this.state.matching_answers,
+      freeform_answer_parts: this.state.freeform_answer_parts,
+      rationale_parts: this.state.rationale_parts,
+      reviewed: this.state.reviewed,
+      active: this.state.active,
+      date_modified: this.state.date_modified,
+      date_reviewed: this.state.date_reviewed,
+      references: this.state.references,
+      tags: this.state.tags,
+      decks: this.state.decks
     }
 
     if (this.state.errors) {
       // handle errors
     } else {
       // Submit form
-      axios.post("/flash-cards/api/v1/decks/", data, {headers: {"X-CSRFToken": csrfToken}})
+      axios.post("/flash-cards/api/v1/cards/", data, {headers: {"X-CSRFToken": csrfToken}})
         .then((response) => {
           console.log(response);
           console.log(response.data);
 
           // Change URL to the new view
-          this.props.history.push(`/flash-cards/decks/${response.data.id}/`);
+          this.props.history.push(`/flash-cards/cards/${response.data.id}/`);
         })
         .catch((error) => {
           if (error.response) {
@@ -117,14 +139,23 @@ class DeckForm extends React.Component {
 
     // Get the API path
     const path = this.props.location.pathname;
-    const apiPath = path.replace('/flash-cards/decks/', '/flash-cards/api/v1/decks/');
+    const apiPath = path.replace('/flash-cards/cards/', '/flash-cards/api/v1/decks/');
 
     // Collect data for form submissions
     const csrfToken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
     const data = {
-      deck_name: document.getElementById("deck-name").value,
-      description: document.getElementById("description").value,
-      active: document.getElementsByClassName("active")[0].checked ? true: false
+      question_parts: this.state.question_parts,
+      multiple_choice_answers: this.state.multiple_choice_answers,
+      matching_answers: this.state.matching_answers,
+      freeform_answer_parts: this.state.freeform_answer_parts,
+      rationale_parts: this.state.rationale_parts,
+      reviewed: this.state.reviewed,
+      active: this.state.active,
+      date_modified: this.state.date_modified,
+      date_reviewed: this.state.date_reviewed,
+      references: this.state.references,
+      tags: this.state.tags,
+      decks: this.state.decks
     }
 
     if (this.state.errors) {
@@ -137,7 +168,7 @@ class DeckForm extends React.Component {
           console.log(response.data);
 
           // Change URL to the new view
-          this.props.history.push(`/flash-cards/decks/${response.data.id}/`);
+          this.props.history.push(`/flash-cards/cards/${response.data.id}/`);
         })
         .catch((error) => {
           if (error.response) {
@@ -158,7 +189,7 @@ class DeckForm extends React.Component {
     !this.props.new
     return (
       <form
-        id="Deck-Form"
+        id="Card-Form"
         onSubmit={this.handleSubmit}
         className={this.state.errors ? "errors": ""}
       >
