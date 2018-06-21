@@ -11,7 +11,7 @@ class DeckForm extends React.Component {
     super(props);
 
     this.state = {
-      errors: false,
+      errors: [],
     };
 
     this.formErrorCheck = this.formErrorCheck.bind(this);
@@ -39,13 +39,25 @@ class DeckForm extends React.Component {
         })
         .catch((error) => {
           if (error.response) {
-            console.warn(error.response.data);
-            console.warn(error.response.status);
-            console.warn(error.response.headers);
+            // Request made, but server returned error
+            if (error.response.status === 404) {
+              this.setState({errors: "Requested API endpoint not found"});
+            } else {
+              this.setState({errors: "Unable to retrieve requested data"});
+            }
+
+            Raven.captureException(error.Resresponseponse);
+
           } else if (error.request) {
-            console.warn(error.request);
+            // Request made, but no response received
+            this.setState({errors: error.request});
+
+            Raven.captureException(error.request);
           } else {
-            console.warn(error.message);
+            // Request not sent
+            this.setState({errors: error.message});
+
+            Raven.captureException(error.message);
           }
         })
     }
@@ -88,21 +100,30 @@ class DeckForm extends React.Component {
       // Submit form
       axios.post("/flash-cards/api/v1/decks/", data, {headers: {"X-CSRFToken": csrfToken}})
         .then((response) => {
-          console.log(response);
-          console.log(response.data);
-
           // Change URL to the new view
           this.props.history.push(`/flash-cards/decks/${response.data.id}/`);
         })
         .catch((error) => {
           if (error.response) {
-            console.warn(error.response.data);
-            console.warn(error.response.status);
-            console.warn(error.response.headers);
+            // Request made, but server returned error
+            if (error.response.status === 404) {
+              this.setState({errors: "Requested API endpoint not found"});
+            } else {
+              this.setState({errors: "Unable to create deck"});
+            }
+
+            Raven.captureException(error.Resresponseponse);
+
           } else if (error.request) {
-            console.warn(error.request);
+            // Request made, but no response received
+            this.setState({errors: error.request});
+
+            Raven.captureException(error.request);
           } else {
-            console.warn(error.message);
+            // Request not sent
+            this.setState({errors: error.message});
+
+            Raven.captureException(error.message);
           }
         });
     }
@@ -133,23 +154,31 @@ class DeckForm extends React.Component {
       // Submit form
       axios.put(apiPath, data, {headers: {"X-CSRFToken": csrfToken}})
         .then((response) => {
-          console.log(response);
-          console.log(response.data);
-
           // Change URL to the new view
           this.props.history.push(`/flash-cards/decks/${response.data.id}/`);
         })
         .catch((error) => {
           if (error.response) {
-            console.warn(error.response.data);
-            console.warn(error.response.status);
-            console.warn(error.response.headers);
-          } else if (error.request) {
-            console.warn(error.request);
-          } else {
-            console.warn(error.message);
-          }
+            // Request made, but server returned error
+            if (error.response.status === 404) {
+              this.setState({errors: "Requested API endpoint not found"});
+            } else {
+              this.setState({errors: "Unable to update deck"});
+            }
 
+            Raven.captureException(error.Resresponseponse);
+
+          } else if (error.request) {
+            // Request made, but no response received
+            this.setState({errors: error.request});
+
+            Raven.captureException(error.request);
+          } else {
+            // Request not sent
+            this.setState({errors: error.message});
+
+            Raven.captureException(error.message);
+          }
         });
     }
   }
