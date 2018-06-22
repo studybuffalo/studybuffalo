@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import DeckList from './CardsList';
+import CardList from './CardsList';
 import ErrorModal from '../ErrorModal';
 
 class CardsDashboard extends React.Component {
@@ -94,33 +94,33 @@ class CardsDashboard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Flash Card Decks</h1>
+        <h1>Flash Cards</h1>
 
-        <Link to="/flash-cards/decks/create/" id="app-card">
+        <Link to="/flash-cards/cards/create/" id="app-card">
           <span className="icon">+</span>
-          <span>Create new deck</span>
+          <span>Create new card</span>
         </Link>
 
-        <h2>Modify an existing deck</h2>
+        <h2>Modify an existing card</h2>
         <div>
           <label htmlFor="owner-1">
             <input type="radio" name="owner" id="owner-1" value="owner" onChange={this.updateOwner} defaultChecked />
-            Decks I have created/modified
+            Cards I have created/modified
           </label>
           <label htmlFor="owner-2">
             <input type="radio" name="owner" id="owner-2" value="" onChange={this.updateOwner} />
-            All decks
+            All cards
           </label>
         </div>
 
         <div>
           <label htmlFor="deck-search">
-            Deck Name or Description:
+            Card text
             <input type="text" id="deck-search" onChange={this.updateText} />
           </label>
         </div>
 
-        <DeckList data={this.state.data} />
+        <CardList data={this.state.data} />
 
         {this.state.errors && <ErrorModal errors={this.state.errors} />}
       </React.Fragment>

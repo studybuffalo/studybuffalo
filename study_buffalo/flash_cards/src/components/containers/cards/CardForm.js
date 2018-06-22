@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
-import TextInput from '../Inputs';
+import CardQuestion from "./CardQuestion";
+// import TextInput from '../Inputs';
 
 
-class DeckForm extends React.Component {
+class CardForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -219,21 +220,25 @@ class DeckForm extends React.Component {
         onSubmit={this.handleSubmit}
         className={this.state.errors ? "errors": ""}
       >
-        <TextInput
-          id="deck-name"
-          type="text"
-          labelText="Deck name*"
-          maxLength={255}
-          formErrorCheck={this.formErrorCheck}
-          required
-        />
-        <TextInput
-          id="description"
-          type="text"
-          labelText="Description"
-          maxLength={500}
-          formErrorCheck={this.formErrorCheck}
-        />
+
+        <CardQuestion />
+
+        <label htmlFor="answer-type">
+          Answer type:
+          <select id="answer-type">
+            <option>Freeform</option>
+            <option>Multiple choice</option>
+            <option>Matching</option>
+          </select>
+        </label>
+
+        <div>MC answer</div>
+        <div>Matching answer</div>
+        <div>Freeform answer</div>
+        <div>Rationale</div>
+        <div>References</div>
+        <div>Tags</div>
+        <div>Decks</div>
 
         {!this.props.new &&
           <div>
@@ -276,16 +281,18 @@ class DeckForm extends React.Component {
   }
 }
 
-DeckForm.defaultProps = {
+CardForm.defaultProps = {
   new: false
 }
 
-DeckForm.propTypes = {
+CardForm.propTypes = {
   new: PropTypes.bool,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
-  history: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired
 }
 
-export default withRouter(DeckForm);
+export default withRouter(CardForm);

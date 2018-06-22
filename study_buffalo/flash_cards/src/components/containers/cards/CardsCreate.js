@@ -7,8 +7,8 @@ import CardForm from "./CardForm";
 function CardsCreate() {
   return (
     <React.Fragment>
-      <h1>Create new deck</h1>
-      <Link to="/flash-cards/cards/">Back to deck list</Link>
+      <h1>Create new card</h1>
+      <Link to="/flash-cards/cards/">Back to card list</Link>
       <CardForm new />
     </React.Fragment>
 

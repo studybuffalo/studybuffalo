@@ -7,8 +7,8 @@ import CardForm from "./CardForm";
 function CardsEdit() {
   return(
     <React.Fragment>
-      <h1>Modify deck</h1>
-      <Link to="/flash-cards/cards/">Back to deck list</Link>
+      <h1>Modify card</h1>
+      <Link to="/flash-cards/cards/">Back to card list</Link>
       <CardForm />
     </React.Fragment>
   )
