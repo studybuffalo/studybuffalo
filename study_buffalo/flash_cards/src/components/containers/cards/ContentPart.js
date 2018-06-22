@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 
 class ContentPart extends React.Component {
@@ -12,12 +13,26 @@ class ContentPart extends React.Component {
   render() {
     return (
       <div>
-        <div className="text-area" />
-        or
-        <div className="media-area" />
+        {
+          this.props.type === "text" ?
+          (
+            <div className="text-area" />
+          ) : (
+            <div className="media-area" />
+          )
+        }
+        <button>Remove</button>
       </div>
     );
   }
+}
+
+ContentPart.defaultProps = {
+  type: "text"
+}
+
+ContentPart.propTypes = {
+  type: PropTypes.oneOf(["text", "media"])
 }
 
 export default ContentPart;
