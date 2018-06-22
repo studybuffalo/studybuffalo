@@ -137,6 +137,13 @@
     color: rgb(200, 0, 0);
   }
 
+#app .text-area {
+  display: block;
+  border: 1px solid black;
+  height: 100px;
+  width: 300px;
+}
+
 .ReactModal__Overlay {
   z-index: 1000;
 }
