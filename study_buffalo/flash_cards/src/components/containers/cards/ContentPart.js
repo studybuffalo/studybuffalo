@@ -16,7 +16,7 @@ class ContentPart extends React.Component {
         {
           this.props.type === "text" ?
           (
-            <div className="text-area" contentEditable />
+            <div className="text-area" contentEditable draggable />
           ) : (
             <div className="media-area" />
           )
