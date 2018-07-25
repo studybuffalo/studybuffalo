@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.urls import include, path, URLPattern
+from django.urls import include, path
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import RedirectView, TemplateView
+from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from django.contrib.sitemaps.views import sitemap
 
@@ -10,11 +10,11 @@ from . import views
 from .sitemaps import *
 
 sitemaps = {
-   'play': PlaySitemap('play'),
-   'study': StudySitemap('study'),
-   'tools': ToolSitemap('tools'),
-   'read': ReadSitemap('read'),
-   'static': StaticViewSitemap('other'),
+    'play': PlaySitemap('play'),
+    'study': StudySitemap('study'),
+    'tools': ToolSitemap('tools'),
+    'read': ReadSitemap('read'),
+    'static': StaticViewSitemap('other'),
 }
 
 urlpatterns = [
@@ -29,12 +29,17 @@ urlpatterns = [
     path('tools/drug-price-calculator/', include('drug_price_calculator.urls')),
     path('tools/substitutions/', include('substitutions.urls')),
     path('tools/vancomycin-calculator/', include('vancomycin_calculator.urls')),
-    path('users', include('users.urls', namespace='users')),
+    path('users/', include('users.urls', namespace='users')),
     path('design/', views.design_index, name='design_index'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('robot-policy/', views.robot_policy, name='robot_policy'),
     path('contact/', views.contact, name='contact'),
-    path('sitemap/', views.custom_sitemap, {'sitemaps': sitemaps, 'template_name': 'sitemap_template.html', 'content_type': None}, name='sitemap'),
+    path(
+        'sitemap/',
+        views.custom_sitemap,
+        {'sitemaps': sitemaps, 'template_name': 'sitemap_template.html', 'content_type': None},
+        name='sitemap'
+    ),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('logs/', include('log_manager.urls')),
     path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
