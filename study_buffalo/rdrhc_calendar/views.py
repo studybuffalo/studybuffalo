@@ -328,7 +328,7 @@ def missing_code_add(request, id):
                 new_code = ShiftCode(
                     code=shift_code,
                     role=role,
-                    monday_start= monday_start,
+                    monday_start=monday_start,
                     monday_duration=monday_duration,
                     tuesday_start=tuesday_start,
                     tuesday_duration=tuesday_duration,
