@@ -74,7 +74,7 @@ class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
     def get_queryset(self):
         return ShiftCode.objects.filter(sb_user=self.request.user)
 
-@permission_required("rdrhc_calendar.can_view")
+@permission_required("rdrhc_calendar.can_view", raise_exception=True)
 def calendar_code_edit(request, code):
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
@@ -185,7 +185,7 @@ def calendar_code_edit(request, code):
         {'form': form}
     )
 
-@permission_required("rdrhc_calendar.can_view")
+@permission_required("rdrhc_calendar.can_view", raise_exception=True)
 def calendar_code_add(request):
     if request.method == 'POST':
         shift_code_instance = ShiftCode()
@@ -259,7 +259,7 @@ def calendar_code_add(request):
         {'form': form}
     )
 
-@permission_required("rdrhc_calendar.can_view")
+@permission_required("rdrhc_calendar.can_view", raise_exception=True)
 def calendar_code_delete(request, code):
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
@@ -286,8 +286,8 @@ class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
     def get_queryset(self):
         return MissingShiftCode.objects.all()
 
-@permission_required("rdrhc_calendar.can_add_default_codes")
-def missing_code_add(request, id):
+@permission_required("rdrhc_calendar.can_add_default_codes", raise_exception=True)
+def missing_code_add(request, code_id):
     # Get the Shift Code instance for this user
     missing_code_instance = get_object_or_404(MissingShiftCode, id=id)
 
@@ -370,8 +370,8 @@ def missing_code_add(request, id):
         }
     )
 
-@permission_required("rdrhc_calendar.can_add_default_codes")
-def missing_code_delete(request, id):
+@permission_required("rdrhc_calendar.can_add_default_codes", raise_exception=True)
+def missing_code_delete(request, codeid):
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(MissingShiftCode, id=id)
 
