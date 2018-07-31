@@ -19,7 +19,7 @@ def calendar_index(request):
         context={},
     )
 
-@permission_required("rdrhc_calendar.can_view", login_url="/accounts/login/")
+@permission_required("rdrhc_calendar.can_view")
 def calendar_settings(request):
     user_settings = get_object_or_404(CalendarUser, sb_user=request.user.id)
 
@@ -61,8 +61,8 @@ def calendar_settings(request):
         })
 
     return render(
-        request, 
-        "rdrhc_calendar/calendar_settings.html", 
+        request,
+        "rdrhc_calendar/calendar_settings.html",
         {'form': form}
     )
 
@@ -74,7 +74,7 @@ class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
     def get_queryset(self):
         return ShiftCode.objects.filter(sb_user=self.request.user)
 
-@permission_required("rdrhc_calendar.can_view", login_url="/accounts/login/")
+@permission_required("rdrhc_calendar.can_view")
 def calendar_code_edit(request, code):
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
@@ -158,7 +158,7 @@ def calendar_code_edit(request, code):
         sunday_duration = shift_code_instance.sunday_duration
         stat_start = shift_code_instance.stat_start
         stat_duration = shift_code_instance.stat_duration
-        
+
         form = CalendarShiftCodeForm(initial={
             "code": shift_code,
             "monday_start": monday_start,
@@ -180,12 +180,12 @@ def calendar_code_edit(request, code):
         })
 
     return render(
-        request, 
-        "rdrhc_calendar/shiftcode_edit.html", 
+        request,
+        "rdrhc_calendar/shiftcode_edit.html",
         {'form': form}
     )
 
-@permission_required("rdrhc_calendar.can_view", login_url="/accounts/login/")
+@permission_required("rdrhc_calendar.can_view")
 def calendar_code_add(request):
     if request.method == 'POST':
         shift_code_instance = ShiftCode()
@@ -218,7 +218,7 @@ def calendar_code_add(request):
             sunday_duration = form.cleaned_data["sunday_duration"]
             stat_start = form.cleaned_data["stat_start"]
             stat_duration = form.cleaned_data["stat_duration"]
-            
+
             # Check if this is a unique entry
             if ShiftCode.objects.filter(sb_user=sb_user, role=role, code=shift_code):
                 messages.error(request, "This shift code already exists")
@@ -254,12 +254,12 @@ def calendar_code_add(request):
         form = CalendarShiftCodeForm()
 
     return render(
-        request, 
-        "rdrhc_calendar/shiftcode_add.html", 
+        request,
+        "rdrhc_calendar/shiftcode_add.html",
         {'form': form}
     )
 
-@permission_required("rdrhc_calendar.can_view", login_url="/accounts/login/")
+@permission_required("rdrhc_calendar.can_view")
 def calendar_code_delete(request, code):
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
@@ -267,14 +267,14 @@ def calendar_code_delete(request, code):
     # If this is a POST request then process the Form data
     if request.method == "POST":
         shift_code_instance.delete()
-       
+
         # Redirect back to main list
         messages.warning(request, "Shift code deleted")
         return HttpResponseRedirect(reverse('calendar_code_list'))
-  
+
     return render(
-        request, 
-        "rdrhc_calendar/shiftcode_delete.html", 
+        request,
+        "rdrhc_calendar/shiftcode_delete.html",
         {"shift_code": code}
     )
 
@@ -286,7 +286,7 @@ class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
     def get_queryset(self):
         return MissingShiftCode.objects.all()
 
-@permission_required("rdrhc_calendar.can_add_default_codes", login_url="/accounts/login/")
+@permission_required("rdrhc_calendar.can_add_default_codes")
 def missing_code_add(request, id):
     # Get the Shift Code instance for this user
     missing_code_instance = get_object_or_404(MissingShiftCode, id=id)
@@ -350,7 +350,7 @@ def missing_code_add(request, id):
 
                 # If save succeed, delete this MissingShiftCode
                 missing_code_instance.delete()
-                
+
                 # redirect to a new URL
                 messages.success(request, "Shift code added")
                 return HttpResponseRedirect(reverse('calendar_missing_code_list'))
@@ -361,8 +361,8 @@ def missing_code_add(request, id):
         form = MissingCodeForm(initial={})
 
     return render(
-        request, 
-        "rdrhc_calendar/missingshiftcode_add.html", 
+        request,
+        "rdrhc_calendar/missingshiftcode_add.html",
         {
             "form": form,
             "shift_code": missing_code_instance.code,
@@ -370,7 +370,7 @@ def missing_code_add(request, id):
         }
     )
 
-@permission_required("rdrhc_calendar.can_add_default_codes", login_url="/accounts/login/")
+@permission_required("rdrhc_calendar.can_add_default_codes")
 def missing_code_delete(request, id):
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(MissingShiftCode, id=id)
@@ -378,13 +378,13 @@ def missing_code_delete(request, id):
     # If this is a POST request then process the Form data
     if request.method == "POST":
         shift_code_instance.delete()
-       
+
         # Redirect back to main list
         messages.warning(request, "Shift code deleted")
         return HttpResponseRedirect(reverse('calendar_missing_code_list'))
-  
+
     return render(
-        request, 
-        "rdrhc_calendar/missingshiftcode_delete.html", 
+        request,
+        "rdrhc_calendar/missingshiftcode_delete.html",
         {"shift_code": shift_code_instance.code}
     )
