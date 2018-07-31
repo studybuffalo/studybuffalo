@@ -19,7 +19,7 @@ def calendar_index(request):
         context={},
     )
 
-@permission_required("rdrhc_calendar.can_view")
+@permission_required("rdrhc_calendar.can_view", raise_exception=True)
 def calendar_settings(request):
     user_settings = get_object_or_404(CalendarUser, sb_user=request.user.id)
 
