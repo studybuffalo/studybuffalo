@@ -15,31 +15,156 @@
   </p>
 
   <ul>
-    <li data-qt-risk="3" data-pro-qtc="1">One QTc-prolonging medication</li>
-    <li data-qt-risk="6" data-pro-qtc="1">Two or more QTc-prolonging medication</li>
-    <li data-qt-risk="2" data-pro-qtc="1">Serum K<sup>+</sup> &le; 3.6 mmol/L <!-- qt-risk used 3.5 --></li>
-    <li data-qt-risk="0" data-pro-qtc="1">Serum Ca<sup>2+</sup> &le; 1.16 mmol/L <!-- qt-risk used 3.5 --></li>
-    <li data-qt-risk="0" data-pro-qtc="1">Serum Mg<sup>2+</sup> &le; 0.7 mmol/L <!-- qt-risk used 3.5 --></li>
-    <li data-qt-risk="1" data-pro-qtc="0">Age &ge; 68</li>
-    <li data-qt-risk="1" data-pro-qtc="1">Female sex</li>
-    <li data-qt-risk="1" data-pro-qtc="0">Loop diuretic</li>
-    <li data-qt-risk="2" data-pro-qtc="0">Admission QTc &ge; 450 ms</li>
-    <li data-qt-risk="2" data-pro-qtc="1">Recent MI (in past 7 days) <!-- QT-risk did not specify what recent was --></li>
-    <li data-qt-risk="3" data-pro-qtc="0">Sepsis</li>
-    <li data-qt-risk="3" data-pro-qtc="1">Heart failure <!-- pro-QT only includes EF < 40% --></li>
-    <li data-qt-risk="0" data-pro-qtc="1">Anorexia nervosa or starvation</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Bradycardia (heart rate &lt; 45 beats/min)</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Diabetes mellitus</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Hypertrophic cardiomyopathy</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Hypoglycemia (documented and in the absence of diabetes)</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Intoxication with QT-prolonging drug (<= 24 h)</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Long QT syndrome</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Pheochromocytoma</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Renal dialysis</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Status after AF conversion (7 days after cardioversion, radio-frequency ablation, or the Maze procedure)</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Status after cardiac arrest (past 24 h)</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Status after syncope or seizure (past 24 h)</li>
-    <li data-qt-risk="0" data-pro-qtc="1">Stroke, SAH, head trauma (past 7 days)</li>
+    <li>
+      <label for="rf-">
+        <input type="checkbox" id="rf-1" class="risk-factor" data-qt-risk="3" data-pro-qtc="1">
+        One QTc-prolonging medication
+      </label>
+    </li>
+    <li>
+      <label for="rf-2">
+        <input type="checkbox" id="rf-2" class="risk-factor" data-qt-risk="6" data-pro-qtc="1">
+        Two or more QTc-prolonging medication
+      </label>
+    </li>
+    <li>
+      <label for="rf-3">
+        <input type="checkbox" id="rf-3" class="risk-factor"  data-qt-risk="2" data-pro-qtc="1">
+        Serum K<sup>+</sup> &le; 3.6 mmol/L <!-- qt-risk used 3.5 -->
+      </label>
+    </li>
+    <li>
+      <label for="rf-4">
+        <input type="checkbox" id="rf-4" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Serum Ca<sup>2+</sup> &le; 1.16 mmol/L <!-- qt-risk used 3.5 -->
+      </label>
+    </li>
+    <li>
+      <label for="rf-5">
+        <input type="checkbox" id="rf-5" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Serum Mg<sup>2+</sup> &le; 0.7 mmol/L <!-- qt-risk used 3.5 -->
+      </label>
+    </li>
+    <li>
+      <label for="rf-6">
+        <input type="checkbox" id="rf-6" class="risk-factor" data-qt-risk="1" data-pro-qtc="0">
+        Age &ge; 68
+      </label>
+    </li>
+    <li>
+      <label for="rf-7">
+        <input type="checkbox" id="rf-7" class="risk-factor" data-qt-risk="1" data-pro-qtc="1">
+        Female sex
+      </label>
+    </li>
+    <li>
+      <label for="rf-8">
+        <input type="checkbox" id="rf-8" class="risk-factor" data-qt-risk="1" data-pro-qtc="0">
+        Loop diuretic
+      </label>
+    </li>
+    <li>
+      <label for="rf-9">
+        <input type="checkbox" id="rf-9" class="risk-factor" data-qt-risk="2" data-pro-qtc="0">
+        Admission QTc &ge; 450 ms
+      </label>
+    </li>
+    <li>
+      <label for="rf-10">
+        <input type="checkbox" id="rf-10" class="risk-factor" data-qt-risk="2" data-pro-qtc="1">
+        Recent MI (in past 7 days) <!-- QT-risk did not specify what recent was -->
+      </label>
+    </li>
+    <li>
+      <label for="rf-11">
+        <input type="checkbox" id="rf-11" class="risk-factor" data-qt-risk="3" data-pro-qtc="0">
+        Sepsis
+      </label>
+    </li>
+    <li>
+      <label for="rf-12">
+        <input type="checkbox" id="rf-12" class="risk-factor" data-qt-risk="3" data-pro-qtc="1">
+        Heart failure <!-- pro-QT only includes EF < 40% -->
+      </label>
+    </li>
+    <li>
+      <label for="rf-13">
+        <input type="checkbox" id="rf-13" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Anorexia nervosa or starvation
+      </label>
+    </li>
+    <li>
+      <label for="rf-14">
+        <input type="checkbox" id="rf-14" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Bradycardia (heart rate &lt; 45 beats/min)
+      </label>
+    </li>
+    <li>
+      <label for="rf-15">
+        <input type="checkbox" id="rf-15" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Diabetes mellitus
+      </label>
+    </li>
+    <li>
+      <label for="rf-16">
+        <input type="checkbox" id="rf-16" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Hypertrophic cardiomyopathy
+      </label>
+    </li>
+    <li>
+      <label for="rf-17">
+        <input type="checkbox" id="rf-17" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Hypoglycemia (documented and in the absence of diabetes)
+      </label>
+    </li>
+    <li>
+      <label for="rf-18">
+        <input type="checkbox" id="rf-18" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Intoxication with QT-prolonging drug (in past 24 hours)
+      </label>
+    </li>
+    <li>
+      <label for="rf-19">
+        <input type="checkbox" id="rf-19" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Long QT syndrome
+      </label>
+    </li>
+    <li>
+      <label for="rf-20">
+        <input type="checkbox" id="rf-20" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Pheochromocytoma
+      </label>
+    </li>
+    <li>
+      <label for="rf-21">
+        <input type="checkbox" id="rf-21" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Renal dialysis
+      </label>
+    </li>
+    <li>
+      <label for="rf-22">
+        <input type="checkbox" id="rf-22" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Status after AF conversion (7 days after cardioversion, radio-frequency ablation, or the Maze procedure)
+      </label>
+    </li>
+    <li>
+      <label for="rf-23">
+        <input type="checkbox" id="rf-23" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Status after cardiac arrest (past 24 h)
+      </label>
+    </li>
+    <li>
+      <label for="rf-24">
+        <input type="checkbox" id="rf-24" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Status after syncope or seizure (past 24 h)
+      </label>
+    </li>
+    <li>
+      <label for="rf-25">
+        <input type="checkbox" id="rf-25" class="risk-factor" data-qt-risk="0" data-pro-qtc="1">
+        Stroke, SAH, head trauma (past 7 days)
+      </label>
+    </li>
   </ul>
 
   <!-- References -->
