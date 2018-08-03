@@ -27,6 +27,7 @@ urlpatterns = [
     path('tools/dictionary/', include('dictionary.urls')),
     path('tools/dpd/', include('hc_dpd.urls')),
     path('tools/drug-price-calculator/', include('drug_price_calculator.urls')),
+    path('tools/qtc/', include('qtc.urls', namespace='qtc')),
     path('tools/substitutions/', include('substitutions.urls')),
     path('tools/vancomycin-calculator/', include('vancomycin_calculator.urls')),
     path('users/', include('users.urls', namespace='users')),
