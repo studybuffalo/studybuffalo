@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block styles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/vancomycin_calculator.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'qtc/css/qtc_style.css'%}">
 {% endblock %}
 
 {% block content %}
@@ -14,9 +14,9 @@
     QTc-prolongation and Torsades de Pointes
   </p>
 
-  <ul>
+  <ul id="risk-factors">
     <li>
-      <label for="rf-">
+      <label for="rf-1">
         <input type="checkbox" id="rf-1" class="risk-factor" data-qt-risk="3" data-pro-qtc="1">
         One QTc-prolonging medication
       </label>
@@ -167,6 +167,29 @@
     </li>
   </ul>
 
+  <div>
+    <h2>QTc-Prolongation Risk</h2>
+    <div>
+      <strong>QTc-Prolongation Risk Score:</strong>
+      <span id="qt-risk-score">0</span>
+    </div>
+    <div>
+      <strong>QTc-Prolongation Risk:</strong>
+      <span id="qt-risk-percentage">0</span>
+    </div>
+  </div>
+
+  <div>
+    <h2>Pro-QTc Risk</h2>
+    <div>
+      <strong>Pro-QTc Score:</strong>
+      <span id="pro-qtc-score">0</span>
+    </div>
+    <div>
+      <strong>Risk of Torsades de Pointes:</strong>
+      <span id="pro-qtc-percentage">0</span>
+    </div>
+  </div>
   <!-- References -->
   <div class="PT1em">
     <h2>References</h2>
@@ -177,5 +200,5 @@
 {% block js %}
   <!-- JS Functions and External Libraries -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script type="text/javascript" src="{% static 'js/vancomycin_calculator.js'%}"></script>
+  <script type="text/javascript" src="{% static 'qtc/js/qtc_functions.js'%}"></script>
 {% endblock %}
