@@ -1,0 +1,29 @@
+{
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "env": {
+        "browser": true,
+        "node": false
+    },
+    "rules": {
+        "react/jsx-filename-extension": [
+            1,
+            {"extensions": [".js", ".jsx"]}
+        ],
+        "jsx-a11y/anchor-is-valid": [
+            "error", {
+                "specialLink": ["hrefLeft", "hrefRight"],
+                "aspects": ["noHref", "invalidHref", "preferButton"]
+            }
+        ]
+    },
+    "globals": {
+        "Raven": true
+    }
+}

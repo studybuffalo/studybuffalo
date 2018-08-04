@@ -1,0 +1,54 @@
+{
+  "name": "study_buffalo",
+  "version": "1.0.0",
+  "description": "The web site for Study Buffalo",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "css-loader": "^0.28.11",
+    "eslint-config-airbnb": "^16.1.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-hot-loader": "^4.2.0",
+    "react-modal": "^3.4.5",
+    "react-router-dom": "^4.2.2",
+    "style-loader": "^0.21.0",
+    "throttle-debounce": "^2.0.0",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "shortid": "^2.2.8",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development ./study_buffalo/flash_cards/src/index.js --output ./study_buffalo/flash_cards/static/flash_cards/main.js",
+    "build": "webpack --mode production ./study_buffalo/flash_cards/src/index.js --output ./study_buffalo/flash_cards/static/flash_cards/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studybuffalo/studybuffalo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/studybuffalo/studybuffalo/issues"
+  },
+  "homepage": "https://github.com/studybuffalo/studybuffalo#readme"
+}
