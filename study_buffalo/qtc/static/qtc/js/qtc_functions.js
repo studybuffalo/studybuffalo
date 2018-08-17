@@ -1,4 +1,31 @@
-function calculateQTRisk($riskFactors) {
+/* TODO:
+ *  If QTc not > 500 ms, increase warning size in the pro-qtc section
+ */
+function updateAssessmentType() {
+    const assessmentType = $('.assessment-type:checked').val();
+
+    // Hide all risk factor items flagged as extra
+    $('#risk-factors > li').each(function(index, element) {
+        const $element = $(element);
+
+        if (assessmentType === 'quick') {
+
+            if ($element.hasClass('extra')) {
+                $element.addClass('hide');
+            }
+        } else {
+            $element.removeClass('hide');
+        }
+    });
+
+    // Update risk scores
+    calculateQTRisk();
+    calculateProQTc();
+}
+
+function calculateQTRisk() {
+    const $riskFactors = $('#risk-factors :checkbox:checked');
+
     let score = 0;
 
     $riskFactors.each(function(index, element) {
@@ -22,7 +49,9 @@ function calculateQTRisk($riskFactors) {
     $('#qt-risk-percentage').text(percentage);
 }
 
-function calculateProQTc($riskFactors) {
+function calculateProQTc() {
+    const $riskFactors = $('#risk-factors :checkbox:checked');
+
     let score = 0;
 
     $riskFactors.each(function(index, element) {
@@ -30,25 +59,55 @@ function calculateProQTc($riskFactors) {
     });
 
     // Determine the percentages
-    let percentageLow = '';
-    let percentageHigh = '';
+    const assessmentType = $('.assessment-type:checked').val();
+    const interpretation = {
+        ariLow: '',
+        ariHigh: '',
+        rriLow: '',
+        rriHigh: '',
+    }
 
     if (score === 0 || score === 1) {
-        percentageLow = '11.6%';
-        percentageHigh = '11.6%'
+        interpretation.ariLow = '6.6%';
+        interpretation.ariHigh = '6.6%';
+        interpretation.rriLow = '1.32';
+        interpretation.rriHigh = '1.32';
     } else if (score === 2) {
-        percentageLow = '13.9%';
-        percentageHigh = '16.6%';
+        interpretation.ariLow = '8.9%';
+        interpretation.ariHigh = '11.6%';
+        interpretation.rriLow = '1.78';
+        interpretation.rriHigh = '2.32';
     } else if (score === 3) {
-        percentageLow = '14.2%';
-        percentageHigh = '23.8%';
+        interpretation.ariLow = '9.2%';
+        interpretation.ariHigh = '18.8%';
+        interpretation.rriLow = '1.84';
+        interpretation.rriHigh = '3.76';
     } else {
-        percentageLow = '27.5%';
-        percentageHigh = '39.5%';
+        interpretation.ariLow = '22.5%';
+        interpretation.ariHigh = '34.5%';
+        interpretation.rriLow =  '4.50';
+        interpretation.rriHigh = '6.90';
+    }
+
+    let ariText = '';
+    let rriText = '';
+
+    if (assessmentType === 'quick') {
+        ariText = interpretation.ariHigh;
+        rriText = interpretation.rriHigh;
+    } else {
+        if (score === 0 || score === 1) {
+            ariText = interpretation.ariHigh;
+            rriText = interpretation.rriHigh;
+        } else {
+            ariText = `${interpretation.ariLow} to ${interpretation.ariHigh}`;
+            rriText = `${interpretation.rriLow} to ${interpretation.rriHigh}`;
+        }
     }
 
     $('#pro-qtc-score').text(score);
-    $('#pro-qtc-percentage').text(`${percentageLow} to ${percentageHigh}`);
+    $('#pro-qtc-ari').text(ariText);
+    $('#pro-qtc-rri').text(rriText);
 }
 
 function limitToOneSelection(elements, clickedElement) {
@@ -65,10 +124,13 @@ function limitToOneSelection(elements, clickedElement) {
 }
 
 $(document).ready(function () {
+    $(".assessment-type").on('change', function() {
+        updateAssessmentType();
+    });
+
     $('#risk-factors').on('change', function() {
-        const $riskFactors = $('#risk-factors :checkbox:checked');
-        calculateQTRisk($riskFactors);
-        calculateProQTc($riskFactors);
+        calculateQTRisk();
+        calculateProQTc();
     });
 
     $('#rf-1, #rf-2').on('change', function() {
@@ -77,4 +139,7 @@ $(document).ready(function () {
             this
         );
     });
+
+    // Run initial updates and calculations
+    updateAssessmentType();
 });

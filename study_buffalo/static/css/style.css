@@ -95,6 +95,10 @@ input, select, textarea, button {
     max-width: 100%;
 }
 
+#sb .hide {
+  display: none;
+}
+
 /* Main containers to size & space content */
 #sb {
     align-items: center;
@@ -382,9 +386,9 @@ input, select, textarea, button {
     }
 
 /* Media Queries for page sizing */
-/* 
-    Note: 20px is removed from the container width to account for variations 
-    on scroll bar inclusion in viewport calculations 
+/*
+    Note: 20px is removed from the container width to account for variations
+    on scroll bar inclusion in viewport calculations
 */
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
