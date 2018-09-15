@@ -51,8 +51,12 @@ urlpatterns = [
 
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
-    # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# TEMPORARY URLS & REDIRECTS
+urlpatterns += [
+    path('cabs2018/', TemplateView.as_view(template_name='pages/cabs2018.html'), name='cabs2018'),
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
