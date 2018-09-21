@@ -1,7 +1,39 @@
 {% extends "base_generic.html" %}
+{% load static %}
 
 {% block content %}
   <h1>CABS 2018</h1>
 
-  <strong>Resources coming soon!</strong>
+  <p>
+    Below are the resources and tutorials presented at CABS 2018. We
+    will be releasing additional tutorials and demos throughout 2019 to
+    highlight more ways to utilize technology in your day-to-day practice.
+    Check back at studybuffalo.com for more details.
+  </p>
+
+  <p><a href="{% static 'documents/cabs_2018_presentation.pptx' %}" rel="noopener">Click here to download the presentation slides</a></p>
+
+  <p><a href="{% static 'documents/cabs_2018_handout.pptx' %}" rel="noopener">Click here to download the presentation handout</a></p>
+
+  <h2>Keyboard Shortcuts</h2>
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/exo0TjoU6DI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <hr>
+
+  <h2>Email Rules</h2>
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cfieNQHGhA0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <hr>
+
+  <h2>Citation Managers</h2>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/qK02Ok8vNX0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <hr>
+
+  <h2>Password Managers</h2>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/3sYZpRFYWRo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 {% endblock %}
