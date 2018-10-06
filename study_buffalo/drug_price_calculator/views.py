@@ -22,62 +22,73 @@ class ATCList(generic.ListView):
     model = ATC
 
     context_object_name = "atc_list"
+    ordering = ['url']
 
 class CoverageList(generic.ListView):
     model = Coverage
 
     context_object_name = "coverage_list"
+    ordering = ['url']
 
 class ExtraInformationList(generic.ListView):
     model = ExtraInformation
 
     context_object_name = "extra_information_list"
+    ordering = ['url']
 
 class PriceList(generic.ListView):
     model = Price
 
     context_object_name = "price_list"
-    order = ['url']
+    ordering = ['url']
 
 class PTCList(generic.ListView):
     model = PTC
 
     context_object_name = "ptc_list"
+    ordering = ['url']
 
 class SpecialAuthorizationList(generic.ListView):
     model = SpecialAuthorization
 
     context_object_name = "special_authorization_list"
+    ordering = ['url']
 
 class SubsATCList(generic.ListView):
     model = ATCDescriptions
 
     context_object_name = "subs_atc_list"
+    ordering = ['url']
 
 class SubsBSRFList(generic.ListView):
     model = SubsBSRF
 
     context_object_name = "subs_bsrf_list"
+    ordering = ['url']
 
 class SubsGenericList(generic.ListView):
     model = SubsGeneric
 
     context_object_name = "subs_generic_list"
+    ordering = ['url']
 
 class SubsManufacturerList(generic.ListView):
     model = SubsManufacturer
 
     context_object_name = "subs_manufacturer_list"
+    ordering = ['url']
 
 class SubsPTCList(generic.ListView):
     model = SubsPTC
 
     context_object_name = "subs_ptc_list"
+    ordering = ['url']
 
 class SubsUnitList(generic.ListView):
     model = SubsUnit
 
     context_object_name = "subs_unit_list"
+    ordering = ['url']
 
 
 
