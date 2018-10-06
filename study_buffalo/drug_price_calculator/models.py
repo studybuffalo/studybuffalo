@@ -3,7 +3,7 @@ from django.db import models
 class ATC(models.Model):
     """Defines the ATC for each extracted URL"""
     url = models.PositiveIntegerField()
-    
+
     atc_1 = models.CharField(
         max_length=7,
         null=True,
@@ -13,7 +13,7 @@ class ATC(models.Model):
         max_length=200,
         null=True,
     )
-    
+
     atc_2 = models.CharField(
         max_length=7,
         null=True,
@@ -23,7 +23,7 @@ class ATC(models.Model):
         max_length=200,
         null=True,
     )
-    
+
     atc_3 = models.CharField(
         max_length=7,
         null=True,
@@ -33,7 +33,7 @@ class ATC(models.Model):
         max_length=200,
         null=True,
     )
-    
+
     atc_4 = models.CharField(
         max_length=7,
         null=True,
@@ -80,13 +80,13 @@ class Coverage(models.Model):
     url = models.PositiveIntegerField()
 
     coverage = models.CharField(
-        max_length=50,
+        max_length=60,
     )
 
     criteria = models.BooleanField(
 
     )
-    
+
     criteria_sa = models.CharField(
         max_length=100,
         null=True,
@@ -100,43 +100,43 @@ class Coverage(models.Model):
     group_1 = models.BooleanField(
         default=False,
     )
-    
+
     group_66 = models.BooleanField(
         default=False,
     )
-    
+
     group_66a = models.BooleanField(
         default=False,
     )
-    
+
     group_19823 = models.BooleanField(
         default=False,
     )
-    
+
     group_19823a = models.BooleanField(
         default=False,
     )
-    
+
     group_19824 = models.BooleanField(
         default=False,
     )
-    
+
     group_20400 = models.BooleanField(
         default=False,
     )
-    
+
     group_20403 = models.BooleanField(
         default=False,
     )
-    
+
     group_20514 = models.BooleanField(
         default=False,
     )
-    
+
     group_22128 = models.BooleanField(
         default=False,
     )
-    
+
     group_23609 = models.BooleanField(
         default=False,
     )
@@ -216,11 +216,11 @@ class Price(models.Model):
         max_length=25,
         null=True,
     )
-    
+
 class PTC(models.Model):
     """Defines the PTC for the specified URL"""
     url = models.PositiveIntegerField()
-    
+
     ptc_1 = models.PositiveIntegerField(
         null=True,
     )
@@ -229,7 +229,7 @@ class PTC(models.Model):
         max_length=75,
         null=True,
     )
-    
+
     ptc_2 = models.PositiveIntegerField(
         null=True,
     )
@@ -238,7 +238,7 @@ class PTC(models.Model):
         max_length=75,
         null=True,
     )
-    
+
     ptc_3 = models.PositiveIntegerField(
         null=True,
     )
@@ -247,7 +247,7 @@ class PTC(models.Model):
         max_length=75,
         null=True,
     )
-    
+
     ptc_4 = models.PositiveIntegerField(
         null=True,
     )
@@ -260,7 +260,7 @@ class PTC(models.Model):
 class SpecialAuthorization(models.Model):
     """Defines the Special Authorization criteria for specified URLs"""
     url = models.PositiveIntegerField()
-    
+
     title = models.CharField(
         max_length=200,
         null=True,
@@ -318,7 +318,7 @@ class SubsManufacturer(models.Model):
     correction = models.CharField(
         max_length=120,
     )
-    
+
 class SubsPTC(models.Model):
     """Substitutions for PTC"""
     original = models.CharField(
@@ -402,7 +402,7 @@ class PendPTC(models.Model):
 
 """
     Planning for expanding the drug price calculator
-    
+
     List of medications
     Trade name
     Brand Name
@@ -422,7 +422,7 @@ class PendPTC(models.Model):
             NIHB
 
     PTC List
-        
+
     ATC List
 
     Coverage
