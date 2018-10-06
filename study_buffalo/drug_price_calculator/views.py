@@ -5,8 +5,8 @@ from django.db.models import Q
 from django.core import serializers
 import json
 from django.core.serializers.json import DjangoJSONEncoder
-from .models import (ATC, Coverage, ExtraInformation, Price, PTC, 
-                     SpecialAuthorization, ATCDescriptions, SubsBSRF, 
+from .models import (ATC, Coverage, ExtraInformation, Price, PTC,
+                     SpecialAuthorization, ATCDescriptions, SubsBSRF,
                      SubsGeneric, SubsManufacturer, SubsPTC, SubsUnit)
 
 def index(request):
@@ -35,8 +35,9 @@ class ExtraInformationList(generic.ListView):
 
 class PriceList(generic.ListView):
     model = Price
-    
+
     context_object_name = "price_list"
+    order = ['url']
 
 class PTCList(generic.ListView):
     model = PTC
@@ -70,7 +71,7 @@ class SubsManufacturerList(generic.ListView):
 
 class SubsPTCList(generic.ListView):
     model = SubsPTC
-    
+
     context_object_name = "subs_ptc_list"
 
 class SubsUnitList(generic.ListView):
@@ -91,7 +92,7 @@ def live_search(request):
 
         if search_value:
             search_results = Price.objects.filter(
-                Q(generic_name__icontains=search_value) | 
+                Q(generic_name__icontains=search_value) |
                 Q(brand_name__icontains=search_value)).exclude(
                     unit_price__isnull=True).order_by("generic_name")
 
@@ -112,7 +113,7 @@ def live_search(request):
                             item.generic_name,
                             " ".join(description)
                         )
-                    else:                    
+                    else:
                         title = item.generic_name
 
                     if first_entry:
@@ -121,7 +122,7 @@ def live_search(request):
                             "url": item.url,
                             "brand_name": item.brand_name,
                         }
-                        
+
                         result_list.append(temp_dict)
 
                         first_entry = False
@@ -133,9 +134,9 @@ def live_search(request):
                             if list_item["title"] == title:
                                 result_list[list_index]["url"] = "%s,%s" % (result_list[list_index]["url"], item.url)
                                 result_list[list_index]["brand_name"] = "%s,%s" % (result_list[list_index]["brand_name"], item.brand_name)
-                                
+
                                 title_match = True
-                                
+
                                 break
 
                         if not title_match:
@@ -146,7 +147,7 @@ def live_search(request):
                             }
 
                             result_list.append(temp_dict)
-                
+
                 li_elements = []
 
                 for index, item in enumerate(result_list):
@@ -156,7 +157,7 @@ def live_search(request):
                         "<em>also known as %s</em></a></li>") % (
                             index, item["url"], item["title"], item["brand_name"]
                         )
-                    
+
                     li_elements.append(element)
 
                 response = "<ul>%s</ul>" % ("".join(li_elements))
@@ -218,9 +219,9 @@ def add_item(request):
     return HttpResponse(json.dumps(response, cls=DjangoJSONEncoder), content_type="application/json")
 
 def comparison_search(request):
-    """Returns a list of medications with matching generic name, 
+    """Returns a list of medications with matching generic name,
     brand name, ATC, or PTC"""
-    # TOFIX: If a name match occurs and the ATC/PTC is not a 4th 
+    # TOFIX: If a name match occurs and the ATC/PTC is not a 4th
     # level code, it will pull all children codes for that 1-3rd level code
     def bool_convert(txt):
         if txt == "true":
@@ -323,7 +324,7 @@ def comparison_search(request):
             Q(brand_name__icontains=search_string) |
             Q(generic_name__icontains=search_string)
         )
-        
+
         description_list = set()
         urls = set()
 
@@ -342,20 +343,20 @@ def comparison_search(request):
             for item in names:
                 ptc = PTC.objects.get(url=item.url)
                 description_list.add(find_last_description(ptc, "ptc"))
-            
+
             # Use the collected PTC codes to find any matching URLs
             for desc in description_list:
                 ptc_urls = get_ptc_url(desc)
 
                 urls = urls.union(ptc_urls)
-      
+
         return urls
 
     def process_atc(search_string):
         """Searches and returns data matching search string (ATC & names)"""
         # Collects any matching ATC urls
         atc_urls = get_atc_url(search_string)
-        
+
         # Collects any matching mediction name URLs
         name_urls = get_name_url(search_string, "atc")
 
@@ -391,7 +392,7 @@ def comparison_search(request):
     search_string = request.GET["search"]
     method_atc = bool_convert(request.GET["methodATC"])
     method_ptc = bool_convert(request.GET["methodPTC"])
-    
+
     # Only process request if there is a search string
     if search_string:
         result_list = []
@@ -414,7 +415,7 @@ def comparison_search(request):
     for item in result_list:
         # Assemble a common title
         title = "%s (%s)" % (item["description"], item["type"].upper())
-        
+
         if first_item:
             grouped_items.append({
                 "title": title,
@@ -424,29 +425,29 @@ def comparison_search(request):
             first_item = False
         else:
             match = False
-            
+
             for index, group in enumerate(grouped_items):
                 if group["title"] == title:
                     # Append new URL
                     grouped_items[index]["url"] += ",%s" % item["url"]
-                    
+
                     # Append generic name (if unique)
-                    # TODO: Fix bug where a partial name match (e.g. 
+                    # TODO: Fix bug where a partial name match (e.g.
                     # "lidocaine" in "lidocaine HCl" is not added
                     if item["generic_name"] not in grouped_items[index]["drugs"]:
                         grouped_items[index]["drugs"] += ", %s" % item["generic_name"]
-                    
+
                     match = True
-                    
+
                     break
-                    
+
             if match == False:
                 grouped_items.append({
                     "title": title,
                     "url": item["url"],
                     "drugs": item["generic_name"]
                 })
-            
+
     # Takes the grouped items and converts to an HTML list
     if len(grouped_items):
         list_items = []
@@ -613,9 +614,9 @@ def generate_comparison(request):
                             "group_23609": result["group_23609"],
                             "special_auth": result["special_auth"],
                         })
-                
+
                     break
-               
+
             # If not generic match found, create a new entry
             if generic_match == False:
                 combined_list.append({
@@ -645,7 +646,7 @@ def generate_comparison(request):
 
     # Sorts the combined_list so generic names appear in alphabetical order
     combined_list = sorted(combined_list, key=lambda x: x["generic_name"])
-    
+
     # Sorts the combined_list so strengths appear form lowest to highest
     import re
 
@@ -655,7 +656,7 @@ def generate_comparison(request):
             regex = r"([\d|\.]+\b)"
 
             strength_regex = re.search(regex, strength["strength"])
-            
+
             if strength_regex:
                 return float(strength_regex.group(1))
             else:
@@ -664,9 +665,9 @@ def generate_comparison(request):
         combined_list[index]["strength"] = sorted(
             combo["strength"], key=sort_by_strength
         )
-        
+
 
     return HttpResponse(
-        json.dumps(combined_list, cls=DjangoJSONEncoder), 
+        json.dumps(combined_list, cls=DjangoJSONEncoder),
         content_type="application/json"
     )
