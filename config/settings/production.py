@@ -1,3 +1,4 @@
+import logging
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -136,7 +137,8 @@ sentry_sdk.init(
     dsn=env('DJANGO_SENTRY_DSN'),
     integrations=[DjangoIntegration()],
 )
-LOGGING = {
+LOGGING_CONFIG = None
+logging.config.dictConfig({
     'version': 1,
     'disable_existing_loggers': True,
     'root': {
@@ -167,4 +169,4 @@ LOGGING = {
             'propagate': False,
         },
     },
-}
+})
