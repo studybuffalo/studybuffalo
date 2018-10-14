@@ -22,7 +22,7 @@ urlpatterns = [
     path('study/', include('study.urls')),
     path('read/', include('read.urls')),
     path('tools/', views.tools_index, name='tools_index'),
-    path('rdrhc-calendar/', include('rdrhc_calendar.urls')),
+    path('rdrhc-calendar/', include('rdrhc_calendar.urls', namespace='rdrhc_calendar')),
     path('tools/alberta-adaptations/', views.alberta_adaptations_index, name='alberta_adaptations_index'),
     path('tools/dictionary/', include('dictionary.urls')),
     path('tools/dpd/', include('hc_dpd.urls')),
