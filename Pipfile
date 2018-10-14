@@ -8,9 +8,10 @@ argon2-cffi = "*"  # https://github.com/hynek/argon2_cffi
 boto3 = "*"  # https://github.com/boto/boto3
 pillow = "*"  # https://github.com/python-pillow/Pillow
 psycopg2-binary = "*"  # https://github.com/psycopg/psycopg2
-raven = "*"  # https://github.com/jschneier/django-storages
 redis = "*"  # https://github.com/antirez/redis
+sentry-sdk = "*"  # https://docs.sentry.io/quickstart/?platform=python
 whitenoise = "*"  # https://github.com/evansd/whitenoise
+
 # Django
 # ------------------------------------------------------------------------------
 django = "*"  # https://www.djangoproject.com/
@@ -19,15 +20,18 @@ django-allauth = "*"  # https://github.com/pennersr/django-allauth
 django-redis = "*"  # https://github.com/niwinz/django-redis
 django-storages = "*"  # https://github.com/jschneier/django-storages
 django-simple-history = "*"
+
 # Django REST Framework
 djangorestframework = "*"  # https://github.com/encode/django-rest-framework
 coreapi = "*"  # https://github.com/core-api/python-client
+
 
 [dev-packages]
 # Code quality
 # ------------------------------------------------------------------------------
 pylint = "*"  # https://github.com/PyCQA/pylint/
 coverage = "*"  # https://github.com/nedbat/coveragepy
+
 # Django
 # ------------------------------------------------------------------------------
 django-coverage-plugin = "*"  # https://github.com/nedbat/django_coverage_plugin
