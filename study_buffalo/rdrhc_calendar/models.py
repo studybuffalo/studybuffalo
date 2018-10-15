@@ -273,7 +273,7 @@ class ShiftCode(models.Model):
 class Shift(models.Model):
     sb_user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        help_text="The user this shit applies to",
+        help_text="The user this shift applies to",
         on_delete=models.CASCADE,
     )
 
