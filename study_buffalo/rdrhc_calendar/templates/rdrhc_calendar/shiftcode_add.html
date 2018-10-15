@@ -26,7 +26,7 @@
 			text-align: right;
 			width: 6rem;
 		}
-		
+
 		#sb #quick_set {
 			font-size: 1.5rem;
 		}
@@ -45,7 +45,7 @@
 			#sb .input_table {
 				font-size: 2rem;
 			}
-			 
+
 			#sb .input_table td {
 				padding: 0.5rem 0.25rem;
 			}
@@ -61,11 +61,11 @@
 				text-align: right;
 				width: 10rem;
 			}
-			
+
 			#sb #quick_set {
 				font-size: 2rem;
 			}
-			
+
 			#sb #quick_set label {
 				display: inline-block;
 				min-width: 15rem;
@@ -78,15 +78,15 @@
 
 {% block content %}
 	<h1>
-		<a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; 
-		<a href="{% url 'calendar_code_list' %}">Custom Shift Codes</a> &gt; 
+		<a href="{% url 'rdrhc_calendar:calendar_index' %}">RDRHC Calendar</a> &gt;
+		<a href="{% url 'rdrhc_calendar:calendar_code_list' %}">Custom Shift Codes</a> &gt;
 		Add New Shift Code
 	</h1>
 
 	<h2>Quick Set All Values</h2>
 
 	<p>
-		You can set all the start time and durations quickly by 
+		You can set all the start time and durations quickly by
 		filling out this section and clicking the "Set for all values" button.
 	</p>
 
@@ -108,9 +108,9 @@
 	<h2>Set Start Times and Durations</h2>
 
 	<p>
-		Fill out the form below to create your custom shift times. Please note 
-		that if a section is missing a start time or duration, it will not appear 
-		on your calendar if the shift falls on that day. When you have finished 
+		Fill out the form below to create your custom shift times. Please note
+		that if a section is missing a start time or duration, it will not appear
+		on your calendar if the shift falls on that day. When you have finished
 		setting your start times and durations, click the "Add new shift code" button
 		to save your changes. You may edit or delete these changes at any time.
 	</p>
@@ -136,7 +136,7 @@
 					</tr>
 				</thead>
 			{% endif %}
-			
+
 			<tbody>
 				<tr>
 					<th>Shift Code</th>

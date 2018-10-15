@@ -6,10 +6,10 @@
 {% load static %}
 
 {% block content %}
-	<h1><a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; Settings</h1>
+	<h1><a href="{% url 'rdrhc_calendar:calendar_index' %}">RDRHC Calendar</a> &gt; Settings</h1>
 
 	<p>
-		You may modify the following details of your schedule. Please note that 
+		You may modify the following details of your schedule. Please note that
 		the changes may take up to 24 hours to take effect.
 	</p>
 
@@ -39,13 +39,13 @@
 		<p>
 			<strong>{{ form.calendar_name.help_text }}</strong><br>
 			<label for="{{ form.calendar_name.id_for_label}}">
-				Calendar Name: 
+				Calendar Name:
 			</label>
 			{{ form.calendar_name }}
 		</p>
 
 		<h2>Full Day Shifts</h2>
-		
+
 		<ul class="message_list">
 			{% for error in form.full_day.errors %}
 				<li class="level_40">{{ error|striptags }}</li>
@@ -55,13 +55,13 @@
 		<p>
 			<strong>{{ form.full_day.help_text }}</strong><br>
 			<label for="{{ form.full_day.id_for_label}}">
-				Full Day Shift: 
+				Full Day Shift:
 			</label>
 			{{ form.full_day }}
 		</p>
 
 		<h2>Shift Reminders</h2>
-		
+
 		<ul class="message_list">
 			{% for error in form.reminder.errors %}
 				<li class="level_40">{{ error|striptags }}</li>
@@ -71,10 +71,10 @@
 		<p>
 			<strong>{{ form.reminder.help_text }}</strong><br>
 			<label for="{{ form.reminder.id_for_label}}">
-				Reminder: 
+				Reminder:
 			</label>
 			{{ form.reminder }} minutes
-		</p>	
+		</p>
 
 		<button type="submit" name="action">Update Settings</button>
 	</form>

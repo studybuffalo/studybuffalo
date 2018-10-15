@@ -45,7 +45,7 @@
 			#sb .input_table {
 				font-size: 2rem;
 			}
-			 
+
 			#sb .input_table td {
 				padding: 0.5rem 0.25rem;
 			}
@@ -65,7 +65,7 @@
 			#sb #quick_set {
 				font-size: 2rem;
 			}
-			
+
 			#sb #quick_set label {
 				display: inline-block;
 				min-width: 15rem;
@@ -78,11 +78,11 @@
 
 {% block content %}
 	<h1>
-		<a href="{% url 'calendar_index' %}">RDRHC Calendar</a> &gt; 
-		<a href="{% url 'calendar_missing_code_list' %}">Missing Shift Codes</a> &gt; 
+		<a href="{% url 'rdrhc_calendar:calendar_index' %}">RDRHC Calendar</a> &gt;
+		<a href="{% url 'rdrhc_calendar:calendar_missing_code_list' %}">Missing Shift Codes</a> &gt;
 		Add New Shift Code
 	</h1>
-	
+
 	<div>
 		<strong>Shift Code: </strong>{{ shift_code }}<br>
 		<strong>Role: </strong>{{ role }}
@@ -128,7 +128,7 @@
 					</tr>
 				</thead>
 			{% endif %}
-			
+
 			<tbody>
 				<tr>
 					<th></th>
