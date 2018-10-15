@@ -70,12 +70,12 @@
 
 					<tr>
 						<td>
-							<a href="{% url 'rdrhc_calendar:calendar_code_edit' code.code %}">
+							<a href="{% url 'rdrhc_calendar:calendar_code_edit' code.id %}">
 								{{ code.code }}
 							</a>
 						</td>
 						<td>
-							<a href="{% url 'rdrhc_calendar:calendar_code_delete' code.code %}">
+							<a href="{% url 'rdrhc_calendar:calendar_code_delete' code.id %}">
 								Delete
 							</a>
 						</td>
