@@ -14,7 +14,7 @@ class ShiftCodesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ShiftCode
         fields = (
-            'code', 'sb_user', 'role',
+            'id', 'code', 'sb_user', 'role',
             'monday_start', 'monday_duration',
             'tuesday_start', 'tuesday_duration',
             'wednesday_start', 'wednesday_duration',
@@ -30,7 +30,7 @@ class StatHolidaySerializer(serializers.ModelSerializer):
         model = models.StatHoliday
         fields = ('date',)
 
-class UserScheduleSerializer(serializers.ModelSerializer):
+class ShiftSerializer(serializers.ModelSerializer):
     class Meta:
-        models = models.Shift
-        fields = ('date', 'shift_code', 'text_shift_code',)
+        model = models.Shift
+        fields = ('id', 'sb_user', 'date', 'shift_code', 'text_shift_code',)
