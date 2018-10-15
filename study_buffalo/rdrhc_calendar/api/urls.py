@@ -10,6 +10,7 @@ urlpatterns = [
     path('users/', views.UserList.as_view(), name='user_list'),
     path('users/<int:id>/', views.UserDetail.as_view(), name='user_detail'),
     path('shift-codes/<int:id>/', views.UserShiftCodesList.as_view(), name='user_shift_codes_list'),
+    path('stat-holidays/', views.StatHolidaysList.as_view(), name='stat_holidays_list'),
     path('', views.api_root, name='root'),
 ]
 

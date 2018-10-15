@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
-from rdrhc_calendar.models import CalendarUser, ShiftCode
+from rdrhc_calendar import models
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CalendarUser
+        model = models.CalendarUser
         fields = (
             'id', 'sb_user', 'name', 'schedule_name', 'calendar_name', 'role',
             'first_email_sent', 'full_day', 'reminder',
@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ShiftCodesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ShiftCode
+        model = models.ShiftCode
         fields = (
             'code', 'sb_user', 'role',
             'monday_start', 'monday_duration',
@@ -24,3 +24,8 @@ class ShiftCodesSerializer(serializers.ModelSerializer):
             'sunday_start', 'sunday_duration',
             'stat_start', 'stat_duration',
         )
+
+class StatHolidaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.StatHoliday
+        fields = ('date',)
