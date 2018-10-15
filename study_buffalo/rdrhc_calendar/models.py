@@ -7,6 +7,7 @@ class CalendarUser(models.Model):
     sb_user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
+        related_name='calendar_user',
     )
 
     name = models.CharField(
