@@ -84,3 +84,18 @@ class StatHolidaysList(generics.ListCreateAPIView):
         )
 
         return queryset
+
+
+class UserScheduleList(generics.ListCreateAPIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    serializer_class = serializers.UserScheduleSerializer
+
+    def get_queryset(self):
+        user_id = self.kwargs.get('id', None)
+
+        queryset = models.Shift.objects.all().filter(
+            sb_user=user_id
+        ).order_by('date')
+
+        return queryset

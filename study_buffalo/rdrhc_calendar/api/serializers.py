@@ -29,3 +29,8 @@ class StatHolidaySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.StatHoliday
         fields = ('date',)
+
+class UserScheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        models = models.Shift
+        fields = ('date', 'shift_code', 'text_shift_code',)
