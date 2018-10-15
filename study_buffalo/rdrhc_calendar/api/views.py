@@ -1,7 +1,9 @@
+from datetime import datetime
+
 from django.apps import apps
 from django.conf import settings
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -67,3 +69,18 @@ class UserShiftCodesList(generics.ListCreateAPIView):
                 codes.append(d_code)
 
         return codes
+
+class StatHolidaysList(generics.ListCreateAPIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    serializer_class = serializers.UserSerializer
+
+    def get_queryset(self):
+        date_start = self.request.GET.get('date_start', datetime(2001, 1, 1))
+        date_end = self.request.GET.get('date_end', datetime(2025, 12, 31))
+
+        queryset = models.StatHoliday.objects.all().filter(
+            Q(date__gte=date_start) & Q(date__lte=date_end)
+        )
+
+        return queryset
