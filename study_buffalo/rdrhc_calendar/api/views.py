@@ -1,4 +1,5 @@
 from datetime import datetime
+import json
 
 from django.apps import apps
 from django.conf import settings
@@ -10,7 +11,8 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
-from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework import generics, status
 
 from rdrhc_calendar import models
 from rdrhc_calendar.api import serializers
@@ -22,6 +24,7 @@ from rdrhc_calendar.api import serializers
 def api_root(request, format=None): # pylint: disable=redefined-builtin
     return Response({
         'users': reverse('rdrhc_calendar:api_v1:user_list', request=request, format=format),
+        'shifts': reverse('rdrhc_calendar:api_v1:shift_list', request=request, format=format),
     })
 
 class UserList(generics.ListCreateAPIView):
@@ -36,6 +39,12 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = serializers.UserSerializer
     lookup_field = 'id'
+
+class ShiftList(generics.ListAPIView):
+    queryset = models.Shift.objects.all()
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    serializer_class = serializers.ShiftSerializer
 
 class UserShiftCodesList(generics.ListCreateAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
@@ -85,11 +94,10 @@ class StatHolidaysList(generics.ListCreateAPIView):
 
         return queryset
 
-
 class UserScheduleList(generics.ListCreateAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
-    serializer_class = serializers.UserScheduleSerializer
+    serializer_class = serializers.ShiftSerializer
 
     def get_queryset(self):
         user_id = self.kwargs.get('id', None)
@@ -99,3 +107,43 @@ class UserScheduleList(generics.ListCreateAPIView):
         ).order_by('date')
 
         return queryset
+
+class UserScheduleDelete(APIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def delete(self, request, user_id):
+        shifts = models.Shift.objects.all().filter(sb_user=user_id)
+        shifts.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UserScheduleUpload(APIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, user_id):
+        schedule = serializers.ShiftSerializer(
+            data=json.loads(request.POST.get('schedule')),
+            many=True
+        )
+
+        if schedule.is_valid():
+            schedule.save()
+
+            response_message = (
+                'Schedule successfully uploaded for user id = {}'.format(
+                    user_id
+                )
+            )
+
+            return Response(
+                data={'message': response_message},
+                status=status.HTTP_200_OK
+            )
+
+        print(schedule.errors)
+        return Response(
+            data=schedule.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
