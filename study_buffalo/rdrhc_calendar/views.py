@@ -75,9 +75,9 @@ class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
         return ShiftCode.objects.filter(sb_user=self.request.user)
 
 @permission_required("rdrhc_calendar.can_view", raise_exception=True)
-def calendar_code_edit(request, code):
+def calendar_code_edit(request, code_id):
     # Get the Shift Code instance for this user
-    shift_code_instance = get_object_or_404(ShiftCode, code=code, sb_user=request.user.id)
+    shift_code_instance = get_object_or_404(ShiftCode, id=code_id, sb_user=request.user.id)
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':
@@ -136,7 +136,7 @@ def calendar_code_edit(request, code):
 
                 # redirect to a new URL:
                 messages.success(request, "Shift code updated")
-                return HttpResponseRedirect(reverse('calendar_code_list'))
+                return HttpResponseRedirect(reverse('rdrhc_calendar:calendar_code_list'))
 
     # If this is a GET (or any other method) create the default form
     else:
@@ -248,7 +248,7 @@ def calendar_code_add(request):
 
                 # redirect to a new URL:
                 messages.success(request, "Shift code added")
-                return HttpResponseRedirect(reverse("calendar_code_list"))
+                return HttpResponseRedirect(reverse("rdrhc_calendar:calendar_code_list"))
 
     else:
         form = CalendarShiftCodeForm()
@@ -270,7 +270,7 @@ def calendar_code_delete(request, code):
 
         # Redirect back to main list
         messages.warning(request, "Shift code deleted")
-        return HttpResponseRedirect(reverse('calendar_code_list'))
+        return HttpResponseRedirect(reverse('rdrhc_calendar:calendar_code_list'))
 
     return render(
         request,
