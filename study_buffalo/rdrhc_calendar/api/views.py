@@ -6,6 +6,7 @@ from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 
+from allauth.account.models import EmailAddress
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -27,7 +28,7 @@ def api_root(request, format=None): # pylint: disable=redefined-builtin
         'shifts': reverse('rdrhc_calendar:api_v1:shift_list', request=request, format=format),
     })
 
-class UserList(generics.ListCreateAPIView):
+class UserList(generics.ListAPIView):
     queryset = models.CalendarUser.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
@@ -39,6 +40,15 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = serializers.UserSerializer
     lookup_field = 'id'
+    lookup_url_kwarg = 'user_id'
+
+class UserEmailList(generics.ListAPIView):
+    queryset = EmailAddress.objects.all()
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    serializer_class = serializers.EmailSerializer
+    lookup_field = 'user'
+    lookup_url_kwarg = 'user_id'
 
 class ShiftList(generics.ListAPIView):
     queryset = models.Shift.objects.all()
@@ -46,7 +56,7 @@ class ShiftList(generics.ListAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = serializers.ShiftSerializer
 
-class UserShiftCodesList(generics.ListCreateAPIView):
+class UserShiftCodesList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
     serializer_class = serializers.ShiftCodesSerializer
@@ -55,7 +65,7 @@ class UserShiftCodesList(generics.ListCreateAPIView):
         # Get a reference to the main user model
         app_name, model_name = settings.AUTH_USER_MODEL.split('.')
         user_model = apps.get_model(app_label=app_name, model_name=model_name)
-        user_id = self.kwargs.get('id', None)
+        user_id = self.kwargs.get('user_id', None)
         user = get_object_or_404(user_model, id=user_id)
 
         # Collect the user-specific codes
@@ -79,7 +89,7 @@ class UserShiftCodesList(generics.ListCreateAPIView):
 
         return codes
 
-class StatHolidaysList(generics.ListCreateAPIView):
+class StatHolidaysList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
     serializer_class = serializers.UserSerializer
@@ -94,13 +104,13 @@ class StatHolidaysList(generics.ListCreateAPIView):
 
         return queryset
 
-class UserScheduleList(generics.ListCreateAPIView):
+class UserScheduleList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
     serializer_class = serializers.ShiftSerializer
 
     def get_queryset(self):
-        user_id = self.kwargs.get('id', None)
+        user_id = self.kwargs.get('user_id', None)
 
         queryset = models.Shift.objects.all().filter(
             sb_user=user_id
@@ -142,8 +152,18 @@ class UserScheduleUpload(APIView):
                 status=status.HTTP_200_OK
             )
 
-        print(schedule.errors)
         return Response(
             data=schedule.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+
+class UserEmailFirstSent(APIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, user_id):
+        calendar_user = get_object_or_404(models.CalendarUser, sb_user=user_id)
+        calendar_user.first_email_sent = True
+        calendar_user.save()
+
+        return Response(status=status.HTTP_200_OK)
