@@ -1,6 +1,8 @@
+from allauth.account.models import EmailAddress
 from rest_framework import serializers
 
 from rdrhc_calendar import models
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,6 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
             'id', 'sb_user', 'name', 'schedule_name', 'calendar_name', 'role',
             'first_email_sent', 'full_day', 'reminder',
         )
+
+class EmailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EmailAddress
+        fields = ('email',)
 
 class ShiftCodesSerializer(serializers.ModelSerializer):
     class Meta:
