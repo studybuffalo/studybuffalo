@@ -90,13 +90,13 @@
 			</div>
 			{% for code in shift_code_list %}
 				<div class="code_row">
-					<a href="{% url 'calendar_missing_code_add' code.id %}" class="role">
+					<a href="{% url 'rdrhc_calendar:missing_code_edit' code.id %}" class="role">
 						{{ code.role }}
 					</a>
-					<a href="{% url 'calendar_missing_code_add' code.id %}" class="shift">
+					<a href="{% url 'rdrhc_calendar:missing_code_edit' code.id %}" class="shift">
 						{{ code.code }}
 					</a>
-					<a href="{% url 'calendar_missing_code_delete' code.id %}" class="delete">
+					<a href="{% url 'rdrhc_calendar:missing_code_delete' code.id %}" class="delete">
 						Delete
 					</a>
 				</div>
