@@ -9,8 +9,8 @@ from django.views import generic
 from .forms import CalendarSettingsForm, CalendarShiftCodeForm, MissingCodeForm
 from .models import CalendarUser, ShiftCode, MissingShiftCode
 
-# from .models import CalendarUser
 
+@permission_required("rdrhc_calendar.can_view", raise_exception=True)
 def calendar_index(request):
     """View for the tool page"""
     return render(
@@ -136,7 +136,7 @@ def calendar_code_edit(request, code_id):
 
                 # redirect to a new URL:
                 messages.success(request, "Shift code updated")
-                return HttpResponseRedirect(reverse('rdrhc_calendar:calendar_code_list'))
+                return HttpResponseRedirect(reverse('rdrhc_calendar:code_list'))
 
     # If this is a GET (or any other method) create the default form
     else:
@@ -248,7 +248,7 @@ def calendar_code_add(request):
 
                 # redirect to a new URL:
                 messages.success(request, "Shift code added")
-                return HttpResponseRedirect(reverse("rdrhc_calendar:calendar_code_list"))
+                return HttpResponseRedirect(reverse("rdrhc_calendar:code_list"))
 
     else:
         form = CalendarShiftCodeForm()
@@ -270,7 +270,7 @@ def calendar_code_delete(request, code):
 
         # Redirect back to main list
         messages.warning(request, "Shift code deleted")
-        return HttpResponseRedirect(reverse('rdrhc_calendar:calendar_code_list'))
+        return HttpResponseRedirect(reverse('rdrhc_calendar:code_list'))
 
     return render(
         request,
