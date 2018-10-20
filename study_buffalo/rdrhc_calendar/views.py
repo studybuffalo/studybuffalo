@@ -25,40 +25,21 @@ def calendar_settings(request):
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':
-
-        # Create a form instance and populate it with data from the request (binding):
+        # Populate the form
         form = CalendarSettingsForm(request.POST, instance=user_settings)
 
-        # Check if the form is valid:
+        # Validate the form
         if form.is_valid():
-            # Collect the form fields
-            calendar_name = form.cleaned_data['calendar_name']
-            full_day = form.cleaned_data['full_day']
-            reminder = form.cleaned_data['reminder']
-
-            # Upate the user settings
-            user_settings.calendar_name = calendar_name
-            user_settings.full_day = full_day
-            user_settings.reminder = reminder
-
-            user_settings.save()
+            form.save()
 
             # redirect to a new URL:
             messages.success(request, "Settings updated")
-            return HttpResponseRedirect(reverse('calendar_settings'))
+            return HttpResponseRedirect(reverse('rdrhc_calendar:settings'))
 
     # If this is a GET (or any other method) create the default form.
     else:
         # Set the default form fields
-        calendar_name = user_settings.calendar_name
-        full_day = user_settings.full_day
-        reminder = user_settings.reminder
-
-        form = CalendarSettingsForm(initial={
-            "calendar_name": calendar_name,
-            "full_day": full_day,
-            "reminder": reminder,
-        })
+        form = CalendarSettingsForm(instance=user_settings)
 
     return render(
         request,
