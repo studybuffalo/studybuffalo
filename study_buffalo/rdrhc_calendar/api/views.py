@@ -92,7 +92,7 @@ class UserShiftCodesList(generics.ListAPIView):
 class StatHolidaysList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
-    serializer_class = serializers.UserSerializer
+    serializer_class = serializers.StatHolidaySerializer
 
     def get_queryset(self):
         date_start = self.request.GET.get('date_start', datetime(2001, 1, 1))
@@ -103,6 +103,9 @@ class StatHolidaysList(generics.ListAPIView):
         )
 
         return queryset
+
+    def list(self, request, *args, **kwargs):
+        return Response(self.get_queryset().values_list('date', flat=True))
 
 class UserScheduleList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
