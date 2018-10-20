@@ -170,7 +170,7 @@ class TestShiftCodeList(TestCase):
 
         self.assertTemplateUsed(response, 'rdrhc_calendar/shiftcode_list.html')
 
-class TestCalendarCodeEdit(TestCase):
+class TestShiftCodeEdit(TestCase):
     def setUp(self):
         self.user_without_permission = utils.create_user(
             'user_without_permission'
@@ -285,7 +285,7 @@ class TestCalendarCodeEdit(TestCase):
 
         self.assertRedirects(response, reverse('rdrhc_calendar:code_list'))
 
-class TestCalendarCodeAdd(TestCase):
+class TestShiftCodeAdd(TestCase):
     def setUp(self):
         self.user_without_permission = utils.create_user(
             'user_without_permission'
@@ -382,7 +382,7 @@ class TestCalendarCodeAdd(TestCase):
             models.ShiftCode.objects.all().count()
         )
 
-class TestCalendarCodeDelete(TestCase):
+class TestShiftCodeDelete(TestCase):
     def setUp(self):
         self.user_without_permission = utils.create_user(
             'user_without_permission'
@@ -490,4 +490,240 @@ class TestCalendarCodeDelete(TestCase):
         self.assertEqual(
             shift_code_count - 1,
             models.ShiftCode.objects.all().count()
+        )
+
+class TestMissingShiftCodeList(TestCase):
+    def setUp(self):
+        self.user_without_permission = utils.create_user(
+            'user_without_permission'
+        )
+        self.user = utils.create_user_with_missing_shift_permission(
+            'user'
+        )
+
+    def test_302_response_if_not_logged_in(self):
+        response = self.client.get(reverse('rdrhc_calendar:missing_code_list'))
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_403_response_if_not_authorized(self):
+        self.client.login(
+            username='user_without_permission',
+            password='abcd123456'
+        )
+        response = self.client.get(reverse('rdrhc_calendar:missing_code_list'))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_if_authorized(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(reverse('rdrhc_calendar:missing_code_list'))
+
+        # Check that user logged in
+        self.assertEqual(str(response.context['user']), 'user')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_settings_url_exists_at_desired_location(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get('/rdrhc-calendar/missing-codes/')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_settings_template(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(reverse('rdrhc_calendar:missing_code_list'))
+
+        self.assertTemplateUsed(response, 'rdrhc_calendar/missingshiftcode_list.html')
+
+class TestMissingShiftCodeEdit(TestCase):
+    def setUp(self):
+        self.user_without_permission = utils.create_user(
+            'user_without_permission'
+        )
+        self.user = utils.create_user_with_missing_shift_permission(
+            'user'
+        )
+        self.missing_shift_code = models.MissingShiftCode.objects.create(
+            code='A1',
+            role='p',
+        )
+        self.valid_data = {
+            'monday_start': '01:00:00',
+            'monday_duration': '1.1',
+            'tuesday_start': '02:00:00',
+            'tuesday_duration': '2.2',
+            'wednesday_start': '03:00:00',
+            'wednesday_duration': '3.3',
+            'thursday_start': '04:00:00',
+            'thursday_duration': '4.4',
+            'friday_start': '05:00:00',
+            'friday_duration': '5.5',
+            'saturday_start': '06:00:00',
+            'saturday_duration': '6.6',
+            'sunday_start': '07:00:00',
+            'sunday_duration': '7.7',
+            'stat_start': '08:00:00',
+            'stat_duration': '8.8',
+        }
+        self.valid_args = {'code_id': self.missing_shift_code.id}
+        self.valid_url = '/rdrhc-calendar/missing-codes/edit/{}/'.format(
+            self.missing_shift_code.id
+        )
+
+    def test_302_response_if_not_logged_in(self):
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_edit', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_403_response_if_not_authorized(self):
+        self.client.login(
+            username='user_without_permission',
+            password='abcd123456'
+        )
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_edit', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_if_authorized(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_edit', kwargs=self.valid_args)
+        )
+
+        # Check that user logged in
+        self.assertEqual(str(response.context['user']), 'user')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_code_list_url_exists_at_desired_location(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(self.valid_url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_code_list_template(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_edit', kwargs=self.valid_args)
+        )
+
+        self.assertTemplateUsed(response, 'rdrhc_calendar/missingshiftcode_edit.html')
+
+    def test_redirect_to_code_list_on_valid_post(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.post(
+            reverse('rdrhc_calendar:missing_code_edit', kwargs=self.valid_args),
+            self.valid_data,
+            follow=True
+        )
+
+        self.assertRedirects(response, reverse('rdrhc_calendar:missing_code_list'))
+
+    def test_model_chaanges_on_valid_post(self):
+        self.client.login(username='user', password='abcd123456')
+        shift_code_count = models.ShiftCode.objects.all().count()
+        missing_count = models.MissingShiftCode.objects.all().count()
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:missing_code_edit', kwargs=self.valid_args),
+            self.valid_data,
+            follow=True
+        )
+
+        self.assertEqual(
+            shift_code_count + 1,
+            models.ShiftCode.objects.all().count()
+        )
+        self.assertEqual(
+            missing_count - 1,
+            models.MissingShiftCode.objects.all().count()
+        )
+
+    # TODO: Add test for IntegrityError check
+
+class TestMissingShiftCodeDelete(TestCase):
+    def setUp(self):
+        self.user_without_permission = utils.create_user(
+            'user_without_permission'
+        )
+        self.user = utils.create_user_with_missing_shift_permission(
+            'user'
+        )
+        self.missing_shift_code = models.MissingShiftCode.objects.create(
+            code='A1',
+            role='p',
+        )
+        self.valid_args = {'code_id': self.missing_shift_code.id}
+        self.valid_url = '/rdrhc-calendar/missing-codes/delete/{}/'.format(
+            self.missing_shift_code.id
+        )
+
+    def test_302_response_if_not_logged_in(self):
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_403_response_if_not_authorized(self):
+        self.client.login(
+            username='user_without_permission',
+            password='abcd123456'
+        )
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_if_authorized(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_delete', kwargs=self.valid_args)
+        )
+
+        # Check that user logged in
+        self.assertEqual(str(response.context['user']), 'user')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_code_list_url_exists_at_desired_location(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(self.valid_url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_code_list_template(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(
+            reverse('rdrhc_calendar:missing_code_delete', kwargs=self.valid_args)
+        )
+
+        self.assertTemplateUsed(response, 'rdrhc_calendar/missingshiftcode_delete.html')
+
+    def test_redirect_to_code_list_on_valid_post(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.post(
+            reverse('rdrhc_calendar:missing_code_delete', kwargs=self.valid_args),
+            follow=True
+        )
+
+        self.assertRedirects(response, reverse('rdrhc_calendar:missing_code_list'))
+
+    def test_entry_is_deleted_on_valid_post(self):
+        self.client.login(username='user', password='abcd123456')
+        missing_count = models.MissingShiftCode.objects.all().count()
+        response = self.client.post(
+            reverse('rdrhc_calendar:missing_code_delete', kwargs=self.valid_args),
+            follow=True
+        )
+
+        self.assertEqual(
+            missing_count - 1,
+            models.MissingShiftCode.objects.all().count()
         )
