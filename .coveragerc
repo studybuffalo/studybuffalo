@@ -3,3 +3,9 @@ include = study_buffalo/*
 omit = *migrations*, *tests*
 plugins =
     django_coverage_plugin
+
+[html]
+directory = reports/htmlcov
+
+[xml]
+output = reports/coverage.xml
