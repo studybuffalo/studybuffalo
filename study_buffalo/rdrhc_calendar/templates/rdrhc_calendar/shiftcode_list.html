@@ -41,7 +41,7 @@
 {% load static %}
 
 {% block content %}
-	<h1><a href="{% url 'rdrhc_calendar:calendar_index' %}">RDRHC Calendar</a> &gt; Custom Shift Codes</h1>
+	<h1><a href="{% url 'rdrhc_calendar:index' %}">RDRHC Calendar</a> &gt; Custom Shift Codes</h1>
 
 	{% if messages %}
 		<ul class="message_list">
@@ -56,7 +56,7 @@
 	{% endif %}
 
 	<div class="center_content">
-		<a href="{% url 'rdrhc_calendar:calendar_code_add' %}">Click here to add a new shift code</a>
+		<a href="{% url 'rdrhc_calendar:code_add' %}">Click here to add a new shift code</a>
 	</div>
 
 	{% if shift_code_list %}
@@ -70,12 +70,12 @@
 
 					<tr>
 						<td>
-							<a href="{% url 'rdrhc_calendar:calendar_code_edit' code.id %}">
+							<a href="{% url 'rdrhc_calendar:code_edit' code.id %}">
 								{{ code.code }}
 							</a>
 						</td>
 						<td>
-							<a href="{% url 'rdrhc_calendar:calendar_code_delete' code.id %}">
+							<a href="{% url 'rdrhc_calendar:code_delete' code.id %}">
 								Delete
 							</a>
 						</td>
