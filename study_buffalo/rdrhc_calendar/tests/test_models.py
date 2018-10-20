@@ -1,24 +1,13 @@
 """Tests for the rdrhc_calendar models."""
-
-from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 from django.test import TestCase
 
 from rdrhc_calendar import models
 
+from .utils import create_user
 
-def create_user():
-    user = get_user_model().objects.create()
-    user.username = 'Regular User'
-    user.set_password('abcd123456')
-    user.is_superuser = False
-    user.is_staff = False
-    user.is_active = True
-    user.save()
 
-    return user
-
-class CalendarUserTest(TestCase):
+class TestCalendarUser(TestCase):
     def setUp(self):
         self.calendar_user = models.CalendarUser.objects.create(
             sb_user=create_user(),
@@ -100,7 +89,7 @@ class CalendarUserTest(TestCase):
             'p - Regular User'
         )
 
-class StatHolidayTest(TestCase):
+class TestStatHoliday(TestCase):
     def setUp(self):
         self.stat_holiday = models.StatHoliday.objects.create(
             date='2018-01-01',
@@ -118,7 +107,7 @@ class StatHolidayTest(TestCase):
             '2018-01-01'
         )
 
-class ShiftCodeTest(TestCase):
+class TestShiftCode(TestCase):
     def setUp(self):
         self.shift_code = models.ShiftCode.objects.create(
             code='A1',
@@ -348,7 +337,7 @@ class ShiftCodeTest(TestCase):
         )
 
 
-class ShiftTest(TestCase):
+class TestShift(TestCase):
     def setUp(self):
         user = create_user()
         self.shift_code = models.ShiftCode.objects.create(
@@ -409,7 +398,7 @@ class ShiftTest(TestCase):
             '2018-01-01 - Pharmacist - Regular User - A1'
         )
 
-class MissingShiftCodeTest(TestCase):
+class TestMissingShiftCode(TestCase):
     def setUp(self):
         self.missing = models.MissingShiftCode.objects.create(
             code='A2',
