@@ -96,69 +96,25 @@ def calendar_code_edit(request, code_id):
 @login_required
 @permission_required("rdrhc_calendar.can_view", raise_exception=True)
 def calendar_code_add(request):
-    if request.method == 'POST':
-        shift_code_instance = ShiftCode()
+    # Collect the user data
+    sb_user = request.user
+    calendar_user = get_object_or_404(CalendarUser, sb_user=sb_user)
 
-        # Create a form instance and populate it with data from the request (binding):
+    if request.method == 'POST':
+        # Populate form
         form = CalendarShiftCodeForm(request.POST)
 
         # Check if the form is valid:
         if form.is_valid():
-            # Collect the user data
-            sb_user = request.user
-            role = CalendarUser.objects.filter(
-                sb_user=sb_user).values_list("role", flat=True)[0]
+            # Save partial form and add required fields
+            shift_code = form.save(commit=False)
+            shift_code.sb_user = sb_user
+            shift_code.role = calendar_user.role
+            shift_code.save()
 
-            # Collect the form fields
-            shift_code = form.cleaned_data["code"]
-            monday_start = form.cleaned_data["monday_start"]
-            monday_duration = form.cleaned_data["monday_duration"]
-            tuesday_start = form.cleaned_data["tuesday_start"]
-            tuesday_duration = form.cleaned_data["tuesday_duration"]
-            wednesday_start = form.cleaned_data["wednesday_start"]
-            wednesday_duration = form.cleaned_data["wednesday_duration"]
-            thursday_start = form.cleaned_data["thursday_start"]
-            thursday_duration = form.cleaned_data["thursday_duration"]
-            friday_start = form.cleaned_data["friday_start"]
-            friday_duration = form.cleaned_data["friday_duration"]
-            saturday_start = form.cleaned_data["saturday_start"]
-            saturday_duration = form.cleaned_data["saturday_duration"]
-            sunday_start = form.cleaned_data["sunday_start"]
-            sunday_duration = form.cleaned_data["sunday_duration"]
-            stat_start = form.cleaned_data["stat_start"]
-            stat_duration = form.cleaned_data["stat_duration"]
-
-            # Check if this is a unique entry
-            if ShiftCode.objects.filter(sb_user=sb_user, role=role, code=shift_code):
-                messages.error(request, "This shift code already exists")
-            else:
-                # Upate the user settings
-                shift_code_instance.sb_user = sb_user
-                shift_code_instance.role = role
-                shift_code_instance.code = shift_code
-                shift_code_instance.monday_start = monday_start
-                shift_code_instance.monday_duration = monday_duration
-                shift_code_instance.tuesday_start = tuesday_start
-                shift_code_instance.tuesday_duration = tuesday_duration
-                shift_code_instance.wednesday_start = wednesday_start
-                shift_code_instance.wednesday_duration = wednesday_duration
-                shift_code_instance.thursday_start = thursday_start
-                shift_code_instance.thursday_duration = thursday_duration
-                shift_code_instance.friday_start = friday_start
-                shift_code_instance.friday_duration = friday_duration
-                shift_code_instance.saturday_start = saturday_start
-                shift_code_instance.saturday_duration = saturday_duration
-                shift_code_instance.sunday_start = sunday_start
-                shift_code_instance.sunday_duration = sunday_duration
-                shift_code_instance.stat_start = stat_start
-                shift_code_instance.stat_duration = stat_duration
-
-                shift_code_instance.save()
-
-                # redirect to a new URL:
-                messages.success(request, "Shift code added")
-                return HttpResponseRedirect(reverse("rdrhc_calendar:code_list"))
-
+            # redirect to a new URL:
+            messages.success(request, "Shift code added")
+            return HttpResponseRedirect(reverse("rdrhc_calendar:code_list"))
     else:
         form = CalendarShiftCodeForm()
 

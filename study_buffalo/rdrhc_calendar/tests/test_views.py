@@ -284,3 +284,100 @@ class TestCalendarCodeEdit(TestCase):
         )
 
         self.assertRedirects(response, reverse('rdrhc_calendar:code_list'))
+
+class TestCalendarCodeAdd(TestCase):
+    def setUp(self):
+        self.user_without_permission = utils.create_user(
+            'user_without_permission'
+        )
+        self.user_without_calendar = utils.create_user_with_permission(
+            'user_without_calendar'
+        )
+        self.user = utils.create_user_with_permission_calendar('user')
+        self.valid_data = {
+            'code': 'A1',
+            'monday_start': '01:00:00',
+            'monday_duration': '1.1',
+            'tuesday_start': '02:00:00',
+            'tuesday_duration': '2.2',
+            'wednesday_start': '03:00:00',
+            'wednesday_duration': '3.3',
+            'thursday_start': '04:00:00',
+            'thursday_duration': '4.4',
+            'friday_start': '05:00:00',
+            'friday_duration': '5.5',
+            'saturday_start': '06:00:00',
+            'saturday_duration': '6.6',
+            'sunday_start': '07:00:00',
+            'sunday_duration': '7.7',
+            'stat_start': '08:00:00',
+            'stat_duration': '8.8',
+        }
+
+    def test_302_response_if_not_logged_in(self):
+        response = self.client.get(reverse('rdrhc_calendar:code_add'))
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_403_response_if_not_authorized(self):
+        self.client.login(
+            username='user_without_permission',
+            password='abcd123456'
+        )
+        response = self.client.get(reverse('rdrhc_calendar:code_add'))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_404_response_if_authorized_but_no_calendar(self):
+        self.client.login(
+            username='user_without_calendar',
+            password='abcd123456'
+        )
+        response = self.client.get(reverse('rdrhc_calendar:code_add'))
+
+        self.assertEqual(response.status_code, 404)
+
+    def test_200_response_if_authorized(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(reverse('rdrhc_calendar:code_add'))
+
+        # Check that user logged in
+        self.assertEqual(str(response.context['user']), 'user')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_code_list_url_exists_at_desired_location(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get('/rdrhc-calendar/shifts/add/')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_code_list_template(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.get(reverse('rdrhc_calendar:code_add'))
+
+        self.assertTemplateUsed(response, 'rdrhc_calendar/shiftcode_add.html')
+
+    def test_redirect_to_code_list_on_valid_post(self):
+        self.client.login(username='user', password='abcd123456')
+        response = self.client.post(
+            reverse('rdrhc_calendar:code_add'),
+            self.valid_data,
+            follow=True
+        )
+
+        self.assertRedirects(response, reverse('rdrhc_calendar:code_list'))
+
+    def test_entry_is_added_on_valid_post(self):
+        self.client.login(username='user', password='abcd123456')
+        shift_code_count = models.ShiftCode.objects.all().count()
+        response = self.client.post(
+            reverse('rdrhc_calendar:code_add'),
+            self.valid_data,
+            follow=True
+        )
+
+        self.assertEqual(
+            shift_code_count + 1,
+            models.ShiftCode.objects.all().count()
+        )
