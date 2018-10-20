@@ -49,3 +49,17 @@ def create_user_with_permission_calendar(username):
     )
 
     return user
+
+def create_user_with_missing_shift_permission(username):
+    # Create user
+    user = create_user(username)
+
+    # Add permission
+    content_type = ContentType.objects.get_for_model(models.MissingShiftCode)
+    user.user_permissions.add(
+        Permission.objects.get(
+            content_type=content_type, codename='can_add_default_codes'
+        )
+    )
+
+    return user
