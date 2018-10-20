@@ -1,15 +1,22 @@
 Study Buffalo
 =============
 
-The website and applications of the Study Buffalo
+.. |BuildStatus| image:: https://img.shields.io/jenkins/s/https/ci.studybuffalo.com/job/studybuffalo/job/master.svg
+   :alt: Jenkins build status
 
-.. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
-     :target: https://github.com/pydanny/cookiecutter-django/
-     :alt: Built with Cookiecutter Django
+.. _BuildStatus: https://ci.studybuffalo.com/blue/organizations/jenkins/studybuffalo/
 
+.. |Coverage| image:: https://badges.ci.studybuffalo.com/coverage/studybuffalo/job/master
+   :alt: Code coverage
 
-:License: GPLv3
+.. _Coverage: https://ci.studybuffalo.com/job/studybuffalo/job/master/lastBuild/cobertura/
 
+.. |License| image:: https://img.shields.io/github/license/studybuffalo/studybuffalo.svg
+   :alt: License
+
+.. _License: https://github.com/studybuffalo/studybuffalo/blob/master/LICENSE
+
+The website and applications of the Study Buffalo.
 
 What You Will Find
 ------------------
