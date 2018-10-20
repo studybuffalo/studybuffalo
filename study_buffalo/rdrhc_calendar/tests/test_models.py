@@ -10,7 +10,7 @@ from .utils import create_user
 class TestCalendarUser(TestCase):
     def setUp(self):
         self.calendar_user = models.CalendarUser.objects.create(
-            sb_user=create_user(),
+            sb_user=create_user('user'),
             name='Regular User',
             schedule_name='User',
             calendar_name='SecretCalendar',
@@ -111,7 +111,7 @@ class TestShiftCode(TestCase):
     def setUp(self):
         self.shift_code = models.ShiftCode.objects.create(
             code='A1',
-            sb_user=create_user(),
+            sb_user=create_user('user'),
             role='p',
             monday_start='01:00',
             monday_duration='1.1',
@@ -323,7 +323,7 @@ class TestShiftCode(TestCase):
     def test_str_with_user(self):
         self.assertEqual(
             str(self.shift_code),
-            'Pharmacist - Regular User - A1'
+            'Pharmacist - user - A1'
         )
 
     def test_str_without_user(self):
@@ -336,10 +336,9 @@ class TestShiftCode(TestCase):
             'Pharmacist - A2'
         )
 
-
 class TestShift(TestCase):
     def setUp(self):
-        user = create_user()
+        user = create_user('user')
         self.shift_code = models.ShiftCode.objects.create(
             code='A1',
             sb_user=user,
@@ -395,7 +394,7 @@ class TestShift(TestCase):
     def test_str(self):
         self.assertEqual(
             str(self.shift),
-            '2018-01-01 - Pharmacist - Regular User - A1'
+            '2018-01-01 - Pharmacist - user - A1'
         )
 
 class TestMissingShiftCode(TestCase):
