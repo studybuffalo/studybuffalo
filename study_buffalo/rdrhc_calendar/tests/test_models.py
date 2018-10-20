@@ -67,3 +67,24 @@ class CalendarUserTest(TestCase):
             self.calendar_user._meta.get_field('reminder').verbose_name,
             'reminder',
         )
+
+    def test_max_lengths(self):
+        self.assertEqual(
+            self.calendar_user._meta.get_field('name').max_length,
+            25
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('schedule_name').max_length,
+            25
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('calendar_name').max_length,
+            50
+        )
+
+    def test_role_choices(self):
+        choices = self.calendar_user._meta.get_field('role').choices
+
+        self.assertTrue(('a', 'Pharmacy Assistant') in choices)
+        self.assertTrue(('p', 'Pharmacist') in choices)
+        self.assertTrue(('t', 'Pharmacy Technician') in choices)
