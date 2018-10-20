@@ -60,4 +60,6 @@ To run the tests:
 To generate a coverage report (HTML):
 
 .. code:: shell
+
     $ pipenv run coverage html
+
