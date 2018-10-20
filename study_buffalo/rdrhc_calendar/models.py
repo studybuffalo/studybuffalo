@@ -95,6 +95,7 @@ class ShiftCode(models.Model):
         ),
         null=True,
         on_delete=models.CASCADE,
+        verbose_name='SB user',
     )
 
     role = models.CharField(
@@ -277,6 +278,7 @@ class Shift(models.Model):
         settings.AUTH_USER_MODEL,
         help_text='The user this shift applies to',
         on_delete=models.CASCADE,
+        verbose_name='SB user',
     )
 
     date = models.DateField(
