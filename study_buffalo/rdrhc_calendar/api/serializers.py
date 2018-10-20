@@ -41,3 +41,8 @@ class ShiftSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Shift
         fields = ('id', 'sb_user', 'date', 'shift_code', 'text_shift_code',)
+
+class MissingShiftCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.MissingShiftCode
+        fields = ('id', 'code', 'role',)

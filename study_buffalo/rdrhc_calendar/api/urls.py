@@ -16,6 +16,7 @@ urlpatterns = [
     path('shifts/<int:user_id>/delete/', views.UserScheduleDelete.as_view(), name='user_schedule_delete'),
     path('shifts/<int:user_id>/upload/', views.UserScheduleUpload.as_view(), name='user_schedule_upload'),
     path('shift-codes/<int:user_id>/', views.UserShiftCodesList.as_view(), name='user_shift_codes_list'),
+    path('shift-codes/missing/upload/', views.MissingShiftCodesUpload.as_view(), name='missing_shift_codes_upload'),
     path('stat-holidays/', views.StatHolidaysList.as_view(), name='stat_holidays_list'),
     path('', views.api_root, name='root'),
 ]

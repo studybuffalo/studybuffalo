@@ -167,3 +167,31 @@ class UserEmailFirstSent(APIView):
         calendar_user.save()
 
         return Response(status=status.HTTP_200_OK)
+
+class MissingShiftCodesUpload(APIView):
+    authentication_classes = (SessionAuthentication, TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request):
+        codes = json.loads(request.POST.get('codes'))
+
+        new_codes = []
+
+        for code in codes:
+            try:
+                db_code, created = models.MissingShiftCode.objects.get_or_create(
+                    code=code['code'], role=code['role']
+                )
+
+                if created:
+                    new_codes.append(db_code.code)
+            except DataError:
+                return Response(
+                    data=schedule.errors,
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        return Response(
+            data=new_codes,
+            status=status.HTTP_200_OK,
+        )
