@@ -17,11 +17,12 @@ from rest_framework import generics, status
 
 from rdrhc_calendar import models
 from rdrhc_calendar.api import serializers
+from rdrhc_calendar.api.permissions import HasAPIAccess
 
 
 @api_view(['GET'])
 @authentication_classes((SessionAuthentication, TokenAuthentication, ))
-@permission_classes((IsAuthenticated, ))
+@permission_classes((IsAuthenticated, HasAPIAccess, ))
 def api_root(request, format=None): # pylint: disable=redefined-builtin
     return Response({
         'users': reverse('rdrhc_calendar:api_v1:user_list', request=request, format=format),
@@ -31,13 +32,13 @@ def api_root(request, format=None): # pylint: disable=redefined-builtin
 class UserList(generics.ListAPIView):
     queryset = models.CalendarUser.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.UserSerializer
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.CalendarUser.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.UserSerializer
     lookup_field = 'id'
     lookup_url_kwarg = 'user_id'
@@ -45,7 +46,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
 class UserEmailList(generics.ListAPIView):
     queryset = EmailAddress.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.EmailSerializer
     lookup_field = 'user'
     lookup_url_kwarg = 'user_id'
@@ -53,7 +54,7 @@ class UserEmailList(generics.ListAPIView):
 class ShiftList(generics.ListAPIView):
     queryset = models.Shift.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.ShiftSerializer
 
 class UserShiftCodesList(generics.ListAPIView):
@@ -91,7 +92,7 @@ class UserShiftCodesList(generics.ListAPIView):
 
 class StatHolidaysList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.StatHolidaySerializer
 
     def get_queryset(self):
@@ -109,7 +110,7 @@ class StatHolidaysList(generics.ListAPIView):
 
 class UserScheduleList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.ShiftSerializer
 
     def get_queryset(self):
@@ -123,7 +124,7 @@ class UserScheduleList(generics.ListAPIView):
 
 class UserScheduleDelete(APIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def delete(self, request, user_id):
         shifts = models.Shift.objects.all().filter(sb_user=user_id)
@@ -133,7 +134,7 @@ class UserScheduleDelete(APIView):
 
 class UserScheduleUpload(APIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request, user_id):
         schedule = serializers.ShiftSerializer(
@@ -162,7 +163,7 @@ class UserScheduleUpload(APIView):
 
 class UserEmailFirstSent(APIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request, user_id):
         calendar_user = get_object_or_404(models.CalendarUser, sb_user=user_id)
@@ -173,7 +174,7 @@ class UserEmailFirstSent(APIView):
 
 class MissingShiftCodesUpload(APIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request):
         codes = json.loads(request.POST.get('codes'))
