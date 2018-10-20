@@ -14,6 +14,12 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default="Ta0aYPxEuOeELKDZnO15LCjxe0FROfhv9
 # https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
+# APPS
+# ------------------------------------------------------------------------------
+INSTALLED_APPS += [
+    'django_jenkins',
+]
+
 # CACHES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#caches
