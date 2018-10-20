@@ -157,82 +157,36 @@ class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
 
 @login_required
 @permission_required('rdrhc_calendar.can_add_default_codes', raise_exception=True)
-def missing_code_add(request, code_id):
+def missing_code_edit(request, code_id):
     # Get the Shift Code instance for this user
-    missing_code_instance = get_object_or_404(MissingShiftCode, id=id)
+    missing_code_instance = get_object_or_404(MissingShiftCode, id=code_id)
 
-    # If this is a POST request then process the Form data
     if request.method == 'POST':
-
-        # Create a form instance and populate it with data from the request (binding):
         form = MissingCodeForm(request.POST)
 
-        # Check if the form is valid:
         if form.is_valid():
-            # Collect the form fields
-            monday_start = form.cleaned_data['monday_start']
-            monday_duration = form.cleaned_data['monday_duration']
-            tuesday_start = form.cleaned_data['tuesday_start']
-            tuesday_duration = form.cleaned_data['tuesday_duration']
-            wednesday_start = form.cleaned_data['wednesday_start']
-            wednesday_duration = form.cleaned_data['wednesday_duration']
-            thursday_start = form.cleaned_data['thursday_start']
-            thursday_duration = form.cleaned_data['thursday_duration']
-            friday_start = form.cleaned_data['friday_start']
-            friday_duration = form.cleaned_data['friday_duration']
-            saturday_start = form.cleaned_data['saturday_start']
-            saturday_duration = form.cleaned_data['saturday_duration']
-            sunday_start = form.cleaned_data['sunday_start']
-            sunday_duration = form.cleaned_data['sunday_duration']
-            stat_start = form.cleaned_data['stat_start']
-            stat_duration = form.cleaned_data['stat_duration']
+            shift_code = form.save(commit=False)
+            shift_code.code = missing_code_instance.code
+            shift_code.role = missing_code_instance.role
 
-            # Check if this is a unique entry
-            shift_code = missing_code_instance.code
-            role = missing_code_instance.role
+            try:
+                shift_code.save()
 
-            if ShiftCode.objects.filter(sb_user=None, role=role, code=shift_code):
-                messages.error(request, 'This shift code already exists')
-            else:
-                # Add the new default code
-                new_code = ShiftCode(
-                    code=shift_code,
-                    role=role,
-                    monday_start=monday_start,
-                    monday_duration=monday_duration,
-                    tuesday_start=tuesday_start,
-                    tuesday_duration=tuesday_duration,
-                    wednesday_start=wednesday_start,
-                    wednesday_duration=wednesday_duration,
-                    thursday_start=thursday_start,
-                    thursday_duration=thursday_duration,
-                    friday_start=friday_start,
-                    friday_duration=friday_duration,
-                    saturday_start=saturday_start,
-                    saturday_duration=saturday_duration,
-                    sunday_start=sunday_start,
-                    sunday_duration=sunday_duration,
-                    stat_start=stat_start,
-                    stat_duration=stat_duration
-                )
-
-                new_code.save()
-
-                # If save succeed, delete this MissingShiftCode
+                # If save successful, delete this MissingShiftCode
                 missing_code_instance.delete()
 
                 # redirect to a new URL
                 messages.success(request, 'Shift code added')
-                return HttpResponseRedirect(reverse('calendar_missing_code_list'))
+                return HttpResponseRedirect(reverse('rdrhc_calendar:missing_code_list'))
+            except IntegrityError:
+                messages.error(request, 'Shift code already exists for role.')
 
-    # If this is a GET (or any other method) create the default form
     else:
-        # Create form that populates with default values
-        form = MissingCodeForm(initial={})
+        form = MissingCodeForm()
 
     return render(
         request,
-        'rdrhc_calendar/missingshiftcode_add.html',
+        'rdrhc_calendar/missingshiftcode_edit.html',
         {
             'form': form,
             'shift_code': missing_code_instance.code,
@@ -242,9 +196,9 @@ def missing_code_add(request, code_id):
 
 @login_required
 @permission_required('rdrhc_calendar.can_add_default_codes', raise_exception=True)
-def missing_code_delete(request, codeid):
+def missing_code_delete(request, code_id):
     # Get the Shift Code instance for this user
-    shift_code_instance = get_object_or_404(MissingShiftCode, id=id)
+    shift_code_instance = get_object_or_404(MissingShiftCode, id=code_id)
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':
@@ -252,7 +206,7 @@ def missing_code_delete(request, codeid):
 
         # Redirect back to main list
         messages.warning(request, 'Shift code deleted')
-        return HttpResponseRedirect(reverse('calendar_missing_code_list'))
+        return HttpResponseRedirect(reverse('rdrhc_calendar:missing_code_list'))
 
     return render(
         request,
