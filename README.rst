@@ -43,7 +43,7 @@ into your browser. Now the user's email should be verified and ready to go.
 
 * To create an **superuser account**, use this the standard Django command:
 
-.. code:: python
+.. code:: shell
 
     $ python manage.py createsuperuser
 
@@ -51,44 +51,13 @@ into your browser. Now the user's email should be verified and ready to go.
 Test coverage
 ^^^^^^^^^^^^^
 
-To run the tests, check your test coverage, and generate an HTML coverage report::
+To run the tests:
 
-    $ coverage run manage.py test
-    $ coverage html
-    $ open htmlcov/index.html
+.. code:: shell
 
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $ pipenv run coverage run manage.py test
 
-::
+To generate a coverage report (HTML):
 
-  $ py.test
-
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-
-
-
-
-Sentry
-^^^^^^
-
-Sentry is an error logging aggregator service. You can sign up for a free account at  https://sentry.io/signup/?code=cookiecutter  or download and host it yourself.
-The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
-
-You must set the DSN url in production.
-
-
-Deployment
-----------
-
-The following details how to deploy this application.
-
-
-
-
+.. code:: shell
+    $ pipenv run coverage html
