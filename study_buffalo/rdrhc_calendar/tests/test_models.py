@@ -1,13 +1,13 @@
 """Tests for the rdrhc_calendar models."""
 from django.apps import AppConfig
-from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 from rdrhc_calendar import models
 
 
 def create_user():
-    user = AppConfig.get_model('users', settings.AUTH_USER_MODEL).objects.create()
+    user = get_user_model().objects.create()
     user.username = 'Regular User'
     user.set_password('abcd123456')
     user.is_superuser = False
@@ -32,6 +32,38 @@ class CalendarUserTest(TestCase):
 
     def test_labels(self):
         self.assertEqual(
-            self.base_abstract._meta.get_field('id').verbose_name,
-            'id',
+            self.calendar_user._meta.get_field('id').verbose_name,
+            'ID',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('sb_user').verbose_name,
+            'SB user',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('name').verbose_name,
+            'name',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('schedule_name').verbose_name,
+            'schedule name',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('calendar_name').verbose_name,
+            'calendar name',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('role').verbose_name,
+            'role',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('first_email_sent').verbose_name,
+            'first email sent',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('full_day').verbose_name,
+            'full day',
+        )
+        self.assertEqual(
+            self.calendar_user._meta.get_field('reminder').verbose_name,
+            'reminder',
         )

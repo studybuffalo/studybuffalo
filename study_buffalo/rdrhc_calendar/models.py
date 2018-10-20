@@ -8,6 +8,7 @@ class CalendarUser(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='calendar_user',
+        verbose_name='SB user'
     )
 
     name = models.CharField(
