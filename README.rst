@@ -13,29 +13,22 @@ The website and applications of the Study Buffalo
 
 What You Will Find
 ------------------
-Hello, we are the Study Buffalo! We are excited to see you taking an interest in our project.
-This area is specifically the web hosting side of our projects. This website is currently
-created with the Django framework. This framework is part of our other projects, such as
-the Drug Price Calculator and the Equivalent Pharmaceutical ID projects.
+Hello, we are the Study Buffalo! We are excited to see you taking an interest
+in our project. This area is specifically the web hosting side of our
+projects. This website is currently created with the Django framework.
 
 Licensing
 ---------
-We strive to keep our projects accessible to all. Everything here is open source under
-the GNU Public License. We are always open to discussing other licensing options, so
-please contact us if this is an issue for you.
+We strive to keep our projects accessible to all. Everything here is open
+source under the GNU Public License version 3. We are always open to
+discussing other licensing options, so please contact us if this is an
+issue for you.
 
 Contact Us
 ----------
-You can always get a hold of us at studybuffalo@gmail.com, info@studybuffalo.com, or through
-GitHub itself.
+You can always get a hold of us at studybuffalo@gmail.com,
+info@studybuffalo.com, or through GitHub itself.
 
-
-Settings
---------
-
-Moved to settings_.
-
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
 Basic Commands
 --------------
@@ -43,13 +36,17 @@ Basic Commands
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+* To create a **normal user account**, just go to Sign Up and fill out the
+form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go
+to your console to see a simulated email verification message. Copy the link
+into your browser. Now the user's email should be verified and ready to go.
 
-* To create an **superuser account**, use this command::
+* To create an **superuser account**, use this the standard Django command:
+
+.. code:: python
 
     $ python manage.py createsuperuser
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
 Test coverage
 ^^^^^^^^^^^^^
