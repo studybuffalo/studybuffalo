@@ -1,4 +1,6 @@
 """Tests for the RDRHC Calendar API views."""
+import json
+
 from django.urls import reverse
 from django.test import TestCase
 
@@ -529,7 +531,7 @@ class TestUserScheduleDelete(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_with_permissions(self):
+    def test_204_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.delete(
@@ -557,7 +559,7 @@ class TestUserScheduleDelete(TestCase):
 
         self.assertEqual(response.status_code, 204)
 
-    def test_api_delets_user_schedule(self):
+    def test_api_deletes_user_schedule(self):
         shift_count = Shift.objects.filter(sb_user=self.user).count()
 
         self.client.login(username='user', password="abcd123456")
@@ -570,3 +572,102 @@ class TestUserScheduleDelete(TestCase):
             shift_count - 2,
             Shift.objects.filter(sb_user=self.user).count()
         )
+
+class TestUserScheduleUpload(TestCase):
+    def setUp(self):
+        self.user_without_permissions = utils.create_user_without_permission(
+            'user_without_permissions'
+        )
+        self.user = utils.create_user_with_permission('user')
+        self.valid_args = {'user_id': self.user.calendar_user.id}
+        self.valid_url = '/rdrhc-calendar/api/v1/shifts/{}/upload/'.format(
+            self.user.calendar_user.id
+        )
+        self.post_data = {
+            'schedule': json.dumps([
+                {
+                    'sb_user': self.user.id,
+                    'date': '2018-02-01',
+                    'shift_code': '',
+                    'text_shift_code': 'A3'
+                },
+                {
+                    'sb_user': self.user.id,
+                    'date': '2018-02-02',
+                    'shift_code': '',
+                    'text_shift_code': 'A4'
+                },
+                {
+                    'sb_user': self.user.id,
+                    'date': '2018-02-03',
+                    'shift_code': '',
+                    'text_shift_code': 'A5'
+                }
+            ])
+        }
+
+    def test_403_response_on_anonymous_user(self):
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_403_response_on_user_without_permissions(self):
+        self.client.login(username='user_without_permissions', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_on_user_with_permissions(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
+            self.post_data
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_url(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(self.valid_url, self.post_data)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_token_authentication(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token {}'.format(
+            self.user.auth_token.key
+        ))
+
+        response = client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
+            self.post_data
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_uploads_user_schedule(self):
+        self.client.login(username='user', password="abcd123456")
+
+        self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
+            self.post_data
+        )
+
+        self.assertEqual(Shift.objects.filter(sb_user=self.user).count(), 5)
+
+    def test_api_400_response_on_invalid_data(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
+            {'schedule': 'abc'}
+        )
+
+        self.assertEqual(response.status_code, 400)

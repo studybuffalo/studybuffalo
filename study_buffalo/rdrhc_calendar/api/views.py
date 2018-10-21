@@ -145,10 +145,16 @@ class UserScheduleUpload(APIView):
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request, user_id):
-        schedule = serializers.ShiftSerializer(
-            data=json.loads(request.POST.get('schedule')),
-            many=True
-        )
+        try:
+            schedule = serializers.ShiftSerializer(
+                data=json.loads(request.POST.get('schedule')),
+                many=True
+            )
+        except json.JSONDecodeError:
+            return Response(
+                data='Invalid JSON format received.',
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         if schedule.is_valid():
             schedule.save()
