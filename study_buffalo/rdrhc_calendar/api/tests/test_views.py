@@ -100,7 +100,7 @@ class TestUserList(TestCase):
 
         self.assertEqual(len(response.data), 2)
         self.assertEqual(
-            dict(response.data[1]),
+            dict(response.data[0]),
             {
                 'id': self.user.calendar_user.id,
                 'sb_user': self.user.id,

@@ -32,7 +32,7 @@ def api_root(request, format=None): # pylint: disable=redefined-builtin
     })
 
 class UserList(generics.ListAPIView):
-    queryset = models.CalendarUser.objects.all()
+    queryset = models.CalendarUser.objects.all().order_by('role', 'name',)
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.UserSerializer
