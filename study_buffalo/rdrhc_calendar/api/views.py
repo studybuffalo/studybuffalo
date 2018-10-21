@@ -129,12 +129,13 @@ class UserScheduleList(generics.ListAPIView):
 
         return queryset
 
+# TODO: See if this can be combined into the UserScheduleList
 class UserScheduleDelete(APIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def delete(self, request, user_id):
-        shifts = models.Shift.objects.all().filter(sb_user=user_id)
+        shifts = models.Shift.objects.filter(sb_user=user_id)
         shifts.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
