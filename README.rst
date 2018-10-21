@@ -1,6 +1,8 @@
 Study Buffalo
 =============
 
+|BuildStatus|_ |Coverage|_ |License|_
+
 .. |BuildStatus| image:: https://img.shields.io/jenkins/s/https/ci.studybuffalo.com/job/studybuffalo/job/master.svg
    :alt: Jenkins build status
 
