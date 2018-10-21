@@ -8,7 +8,9 @@ from django.contrib.contenttypes.models import ContentType
 
 from rest_framework.authtoken.models import Token
 
-from rdrhc_calendar.models import CalendarUser, Shift, ShiftCode
+from rdrhc_calendar.models import (
+    CalendarUser, Shift, ShiftCode, StatHoliday
+)
 
 
 def create_user_without_permission(username):
@@ -80,3 +82,15 @@ def create_user_with_permission(username):
     Token.objects.get_or_create(user=user)
 
     return user
+
+def create_stat_holidays():
+    StatHoliday.objects.create(date='2011-01-01')
+    StatHoliday.objects.create(date='2012-02-02')
+    StatHoliday.objects.create(date='2013-03-03')
+    StatHoliday.objects.create(date='2014-04-04')
+    StatHoliday.objects.create(date='2015-05-05')
+    StatHoliday.objects.create(date='2016-06-06')
+    StatHoliday.objects.create(date='2017-07-07')
+    StatHoliday.objects.create(date='2018-08-08')
+    StatHoliday.objects.create(date='2019-09-09')
+    StatHoliday.objects.create(date='2020-10-10')
