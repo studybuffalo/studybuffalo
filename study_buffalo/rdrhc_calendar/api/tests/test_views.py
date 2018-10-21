@@ -6,7 +6,7 @@ from rest_framework.test import APIClient, force_authenticate
 
 from rdrhc_calendar.api import views
 from rdrhc_calendar.api.tests import utils
-from rdrhc_calendar.models import CalendarUser, ShiftCode
+from rdrhc_calendar.models import CalendarUser, ShiftCode, Shift
 
 
 class TestAPIRoot(TestCase):
@@ -28,7 +28,7 @@ class TestAPIRoot(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(reverse('rdrhc_calendar:api_v1:root'))
@@ -69,7 +69,7 @@ class TestUserList(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(reverse('rdrhc_calendar:api_v1:user_list'))
@@ -137,7 +137,7 @@ class TestUserDetail(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(
@@ -213,7 +213,7 @@ class TestUserEmailList(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(
@@ -273,7 +273,7 @@ class TestShiftList(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(reverse('rdrhc_calendar:api_v1:shift_list'))
@@ -329,7 +329,7 @@ class TestUserShiftCodeList(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(
@@ -399,7 +399,7 @@ class TestStatHolidayList(TestCase):
 
         self.assertEqual(response.status_code, 403)
 
-    def test_200_response_on_user_without_permissions(self):
+    def test_200_response_on_user_with_permissions(self):
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
@@ -437,3 +437,136 @@ class TestStatHolidayList(TestCase):
         )
 
         self.assertEqual(len(response.data), 5)
+
+class TestUserShceduleList(TestCase):
+    def setUp(self):
+        self.user_without_permissions = utils.create_user_without_permission(
+            'user_without_permissions'
+        )
+        self.user = utils.create_user_with_permission('user')
+        self.valid_args = {'user_id': self.user.calendar_user.id}
+        self.valid_url = '/rdrhc-calendar/api/v1/shifts/{}/'.format(
+            self.user.calendar_user.id
+        )
+
+    def test_403_response_on_anonymous_user(self):
+        response = self.client.get(
+            reverse('rdrhc_calendar:api_v1:user_schedule_list', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_403_response_on_user_without_permissions(self):
+        self.client.login(username='user_without_permissions', password="abcd123456")
+
+        response = self.client.get(
+            reverse('rdrhc_calendar:api_v1:user_schedule_list', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_on_user_with_permissions(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get(
+            reverse('rdrhc_calendar:api_v1:user_schedule_list', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_url(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get(self.valid_url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_token_authentication(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token {}'.format(
+            self.user.auth_token.key
+        ))
+
+        response = client.get(
+            reverse('rdrhc_calendar:api_v1:user_schedule_list', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_returns_user_shift_code_list(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get(
+            reverse('rdrhc_calendar:api_v1:user_schedule_list', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(len(response.data), 2)
+
+class TestUserScheduleDelete(TestCase):
+    def setUp(self):
+        self.user_without_permissions = utils.create_user_without_permission(
+            'user_without_permissions'
+        )
+        self.user = utils.create_user_with_permission('user')
+        self.valid_args = {'user_id': self.user.calendar_user.id}
+        self.valid_url = '/rdrhc-calendar/api/v1/shifts/{}/delete/'.format(
+            self.user.calendar_user.id
+        )
+
+    def test_403_response_on_anonymous_user(self):
+        response = self.client.delete(
+            reverse('rdrhc_calendar:api_v1:user_schedule_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_403_response_on_user_without_permissions(self):
+        self.client.login(username='user_without_permissions', password="abcd123456")
+
+        response = self.client.delete(
+            reverse('rdrhc_calendar:api_v1:user_schedule_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_on_user_with_permissions(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.delete(
+            reverse('rdrhc_calendar:api_v1:user_schedule_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 204)
+
+    def test_accessible_by_url(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.delete(self.valid_url)
+
+        self.assertEqual(response.status_code, 204)
+
+    def test_accessible_by_token_authentication(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token {}'.format(
+            self.user.auth_token.key
+        ))
+
+        response = client.delete(
+            reverse('rdrhc_calendar:api_v1:user_schedule_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 204)
+
+    def test_api_delets_user_schedule(self):
+        shift_count = Shift.objects.filter(sb_user=self.user).count()
+
+        self.client.login(username='user', password="abcd123456")
+
+        self.client.delete(
+            reverse('rdrhc_calendar:api_v1:user_schedule_delete', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(
+            shift_count - 2,
+            Shift.objects.filter(sb_user=self.user).count()
+        )
