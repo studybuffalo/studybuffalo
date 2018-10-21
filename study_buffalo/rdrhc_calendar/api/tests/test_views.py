@@ -92,7 +92,6 @@ class TestUserList(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_api_returns_user_list(self):
-        # Create calendar user to test response
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(reverse('rdrhc_calendar:api_v1:user_list'))
@@ -243,7 +242,6 @@ class TestUserEmailList(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_api_returns_user_email_list(self):
-        # Create calendar user to test response
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(
@@ -298,7 +296,6 @@ class TestShiftList(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_api_returns_shift_list(self):
-        # Create calendar user to test response
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(reverse('rdrhc_calendar:api_v1:shift_list'))
@@ -374,7 +371,6 @@ class TestUserShiftCodeList(TestCase):
             stat_start='08:00:00', stat_duration='8.8',
         )
 
-        # Create calendar user to test response
         self.client.login(username='user', password="abcd123456")
 
         response = self.client.get(
@@ -382,3 +378,62 @@ class TestUserShiftCodeList(TestCase):
         )
 
         self.assertEqual(len(response.data), 2)
+
+class TestStatHolidayList(TestCase):
+    def setUp(self):
+        self.user_without_permissions = utils.create_user_without_permission(
+            'user_without_permissions'
+        )
+        self.user = utils.create_user_with_permission('user')
+        utils.create_stat_holidays()
+
+    def test_403_response_on_anonymous_user(self):
+        response = self.client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_403_response_on_user_without_permissions(self):
+        self.client.login(username='user_without_permissions', password="abcd123456")
+
+        response = self.client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_on_user_without_permissions(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_url(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get('/rdrhc-calendar/api/v1/stat-holidays/')
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_token_authentication(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token {}'.format(
+            self.user.auth_token.key
+        ))
+        response = client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_returns_stat_holiday_list_without_parameters(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+
+        self.assertEqual(len(response.data), 10)
+
+    def test_api_returns_stat_holiday_list_with_parameters(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.get(
+            reverse('rdrhc_calendar:api_v1:stat_holidays_list'),
+            {'date_start': '2014-01-01', 'date_end': '2018-12-31'}
+        )
+
+        self.assertEqual(len(response.data), 5)
