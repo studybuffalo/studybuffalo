@@ -667,6 +667,16 @@ class TestUserScheduleUpload(TestCase):
 
         response = self.client.post(
             reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
+            {'schedule': json.dumps([{'shift_code': 'abc'}])}
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_api_400_response_on_invalid_data_format(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
             {'schedule': 'abc'}
         )
 
