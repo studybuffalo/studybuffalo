@@ -172,7 +172,10 @@ class UserScheduleUpload(APIView):
             )
 
         return Response(
-            data=schedule.errors,
+            data={
+                'request_data': request.POST.get('schedule'),
+                'errors': schedule.errors,
+            },
             status=status.HTTP_400_BAD_REQUEST
         )
 
