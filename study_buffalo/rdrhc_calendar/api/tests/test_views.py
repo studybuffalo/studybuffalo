@@ -681,3 +681,66 @@ class TestUserScheduleUpload(TestCase):
         )
 
         self.assertEqual(response.status_code, 400)
+
+class TestUserEmailFirstSent(TestCase):
+    def setUp(self):
+        self.user_without_permissions = utils.create_user_without_permission(
+            'user_without_permissions'
+        )
+        self.user = utils.create_user_with_permission('user')
+        self.valid_args = {'user_id': self.user.calendar_user.id}
+        self.valid_url = '/rdrhc-calendar/api/v1/users/{}/emails/first-sent/'.format(
+            self.user.calendar_user.id
+        )
+
+    def test_403_response_on_anonymous_user(self):
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_email_first_sent', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_403_response_on_user_without_permissions(self):
+        self.client.login(username='user_without_permissions', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_email_first_sent', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_on_user_with_permissions(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_email_first_sent', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_url(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(self.valid_url)
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_token_authentication(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token {}'.format(
+            self.user.auth_token.key
+        ))
+        response = client.post(
+            reverse('rdrhc_calendar:api_v1:user_email_first_sent', kwargs=self.valid_args)
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_confirm_change(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:user_email_first_sent', kwargs=self.valid_args)
+        )
+
+        self.assertTrue(CalendarUser.objects.get(sb_user=self.user).first_email_sent)
