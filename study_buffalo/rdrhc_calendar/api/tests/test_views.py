@@ -8,7 +8,7 @@ from rest_framework.test import APIClient, force_authenticate
 
 from rdrhc_calendar.api import views
 from rdrhc_calendar.api.tests import utils
-from rdrhc_calendar.models import CalendarUser, ShiftCode, Shift
+from rdrhc_calendar.models import CalendarUser, ShiftCode, Shift, MissingShiftCode
 
 
 class TestAPIRoot(TestCase):
@@ -744,3 +744,96 @@ class TestUserEmailFirstSent(TestCase):
         )
 
         self.assertTrue(CalendarUser.objects.get(sb_user=self.user).first_email_sent)
+
+class TestMissingShiftCodesUpload(TestCase):
+    def setUp(self):
+        self.user_without_permissions = utils.create_user_without_permission(
+            'user_without_permissions'
+        )
+        self.user = utils.create_user_with_permission('user')
+        self.post_data = {
+            'codes': json.dumps([
+                {'code': 'B1', 'role': 'p'},
+                {'code': 'B2', 'role': 'p'},
+            ])
+        }
+
+    def test_403_response_on_anonymous_user(self):
+        response = self.client.post(reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_403_response_on_user_without_permissions(self):
+        self.client.login(username='user_without_permissions', password="abcd123456")
+
+        response = self.client.post(reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_200_response_on_user_with_permissions(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+            self.post_data
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_url(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            '/rdrhc-calendar/api/v1/shift-codes/missing/upload/',
+            self.post_data
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_accessible_by_token_authentication(self):
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION='Token {}'.format(
+            self.user.auth_token.key
+        ))
+
+        response = client.post(
+            reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+            self.post_data
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_api_uploads_missing_codes(self):
+        missing_count = MissingShiftCode.objects.all().count()
+
+        self.client.login(username='user', password="abcd123456")
+
+        self.client.post(
+            reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+            self.post_data
+        )
+
+        self.assertEqual(
+            missing_count + 2,
+            MissingShiftCode.objects.all().count()
+        )
+
+    def test_api_400_response_on_invalid_data(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+            {'codes': json.dumps([{'shift_code': 'abc'}])}
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_api_400_response_on_invalid_data_format(self):
+        self.client.login(username='user', password="abcd123456")
+
+        response = self.client.post(
+            reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+            {'codes': 'abc'}
+        )
+
+        self.assertEqual(response.status_code, 400)

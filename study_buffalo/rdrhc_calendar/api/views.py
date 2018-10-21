@@ -4,6 +4,7 @@ import json
 from django.apps import apps
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.db import DataError
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 
@@ -191,7 +192,13 @@ class MissingShiftCodesUpload(APIView):
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request):
-        codes = json.loads(request.POST.get('codes'))
+        try:
+            codes = json.loads(request.POST.get('codes'))
+        except json.JSONDecodeError:
+            return Response(
+                data='Invalid JSON format received.',
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         new_codes = []
 
@@ -203,9 +210,9 @@ class MissingShiftCodesUpload(APIView):
 
                 if created:
                     new_codes.append(db_code.code)
-            except DataError:
+            except (DataError, KeyError) as e:
                 return Response(
-                    data=schedule.errors,
+                    data=str(e),
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
