@@ -73,7 +73,6 @@ LOCAL_APPS = [
     'study_buffalo.dictionary.apps.DictionaryConfig',
     'study_buffalo.drug_price_calculator.apps.DrugPriceCalculatorConfig',
     'study_buffalo.hc_dpd.apps.HcDpdConfig',
-    'study_buffalo.log_manager.apps.LogManagerConfig',
     'study_buffalo.play.apps.PlayConfig',
     'study_buffalo.rdrhc_calendar.apps.RdrhcCalendarConfig',
     'study_buffalo.read.apps.ReadConfig',

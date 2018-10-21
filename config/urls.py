@@ -41,7 +41,6 @@ urlpatterns = [
         name='sitemap'
     ),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('logs/', include('log_manager.urls')),
     path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
     path('unsubscribe/complete/', views.unsubscribe_complete, name='unsubscribe_complete'),
     path('accounts/profile/', views.account_profile, name='account_profile'),
