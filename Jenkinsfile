@@ -17,7 +17,7 @@ pipeline {
           sh 'pipenv run python manage.py migrate --noinput'
         }
         echo 'Collect static'
-        script {
+        configFileProvider([configFile(fileId: 'study_buffalo_env', targetLocation: '/var/jenkins_home/workspace/config/study_buffalo.env')]) {
           sh 'pipenv run python manage.py collectstatic --noinput'
         }
       }
@@ -25,7 +25,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Running Django tests'
-        script {
+        configFileProvider([configFile(fileId: 'study_buffalo_env', targetLocation: '/var/jenkins_home/workspace/config/study_buffalo.env')]) {
           sh 'pipenv run python manage.py jenkins --enable-coverage --settings=config.settings.test --noinput'
         }
       }
