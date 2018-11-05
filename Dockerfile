@@ -15,7 +15,7 @@ RUN apt-get install -y python3.6 python3-pip
 RUN pip3 install pipenv
 
 # Create a postgres DB for django
-RUN apt-get install postgresql
+RUN apt-get install -y postgresql
 USER postgres
 RUN psql --command "CREATE USER django WITH SUPERUSER PASSWORD 'django';"
 RUN createdb -O django django
