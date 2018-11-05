@@ -1,17 +1,13 @@
 pipeline {
-  agent any
+  agent { dockerfile true }
   options {
     disableConcurrentBuilds()
-    buildDiscarder(logRotator(numToKeepStr: '10'))
-    timeout(time: 1, unit: 'HOURS')
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+    timeout(time: 60, unit: 'MINUTES')
   }
   stages {
     stage('Build') {
       steps {
-        echo 'Upgrade pip (if necessary)'
-        script {
-          sh 'pipenv run pip install --upgrade pip'
-        }
         echo 'Setup virtual environment'
         script {
           sh 'pipenv install --dev  --ignore-pipfile'
