@@ -13,7 +13,7 @@ pipeline {
           sh 'pipenv install --dev  --ignore-pipfile'
         }
         echo 'Migrate database'
-        script {
+        configFileProvider([configFile(fileId: 'study_buffalo_env', targetLocation: '/var/jenkins_home/workspace/config/study_buffalo.env')]) {
           sh 'pipenv run python manage.py migrate --noinput'
         }
         echo 'Collect static'
