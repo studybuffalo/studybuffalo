@@ -16,8 +16,9 @@ RUN pip3 install pipenv
 
 # Create a postgres DB for django
 RUN apt-get install -y postgresql-9.5 postgresql-contrib
+RUN pg_createcluster 9.5 main --start
 RUN /etc/init.d/postgresql start
-RUN sleep 20
+RUN sleep 10
 RUN pg_lsclusters
 USER postgres
 RUN psql --command "CREATE USER django WITH SUPERUSER PASSWORD 'django';"
