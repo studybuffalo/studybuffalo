@@ -16,7 +16,8 @@ RUN pip3 install pipenv
 
 # Create a postgres DB for django
 RUN apt-get install -y postgresql
-RUN psql -U postgres -h localhost
+RUN /etc/init.d/postgresql
+RUN sleep 10
 USER postgres
 RUN psql --command "CREATE USER django WITH SUPERUSER PASSWORD 'django';"
 RUN createdb -O django django
