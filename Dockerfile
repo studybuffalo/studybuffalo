@@ -15,8 +15,8 @@ RUN apt-get install -y python3.6 python3-pip
 RUN pip3 install pipenv
 
 # Create a postgres DB for django
-RUN apt-get install -y postgresql-9.5
-RUN pg_ctlcluster 9.5 main start
+RUN apt-get remove -y --purge postgresql
+RUN apt-get install -y postgresql-9.5 postgresql-contrib
 RUN sleep 10
 RUN pg_lsclusters
 USER postgres
