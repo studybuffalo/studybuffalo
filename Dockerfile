@@ -20,8 +20,8 @@ RUN service postgresql start
 RUN sleep 10
 RUN pg_lsclusters
 RUN cat /var/log/postgresql/postgresql-9.5-main.log
-RUN ls /var/lib/postgresql/
-RUN ls /var/lib/postgresql/data
+RUN ls /var/lib/postgresql/9.5/
+RUN ls /var/lib/postgresql/9.5/data
 USER postgres
 RUN psql --command "CREATE USER django WITH SUPERUSER PASSWORD 'django';"
 RUN createdb -O django django
