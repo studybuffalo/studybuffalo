@@ -13,3 +13,14 @@ RUN apt-get install -y software-properties-common && \
     apt-get update && \
     apt-get install -y python3.6 python3-pip && \
     pip3 install pipenv
+
+# Install postgresql
+RUN apt-get install -y postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5
+USER postgres
+RUN /etc/init.d/postgresql start &&\
+    psql --command "CREATE USER django WITH SUPERUSER PASSWORD 'django';" &&\
+    createdb -O django django
+RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.5/main/pg_hba.conf
+RUN echo "listen_addresses='*'" >> /etc/postgresql/9.5/main/postgresql.conf
+EXPOSE 5432
+CMD ["/usr/lib/postgresql/9.3/bin/postgres", "-D", "/var/lib/postgresql/9.3/main", "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf"]
