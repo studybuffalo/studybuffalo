@@ -16,7 +16,7 @@ RUN pip3 install pipenv
 
 # Create a postgres DB for django
 RUN apt-get install -y postgresql-9.5 postgresql-contrib
-RUN systemctl start postgresql
+RUN service postgresql start
 RUN sleep 10
 RUN pg_lsclusters
 USER postgres
