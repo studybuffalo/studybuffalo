@@ -19,6 +19,7 @@ RUN apt-get install -y postgresql-9.5 postgresql-contrib
 RUN service postgresql start
 RUN sleep 10
 RUN pg_lsclusters
+RUN cat /var/log/postgresql/postgresql-9.5-main.log
 USER postgres
 RUN psql --command "CREATE USER django WITH SUPERUSER PASSWORD 'django';"
 RUN createdb -O django django
