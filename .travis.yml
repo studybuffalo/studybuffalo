@@ -8,6 +8,7 @@ install:
   - pip install --user codecov
   # Temporary: some python versions & pip 18.1 have issues with pipenv
   - pipenv run python -m pip install -U pip
+  - pipenv install --dev --ignore-pipfile
 script:
   - pipenv run coverage run manage.py test
 after_success:
