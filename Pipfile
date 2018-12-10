@@ -29,8 +29,9 @@ coreapi = "*"  # https://github.com/core-api/python-client
 [dev-packages]
 # Code quality
 # ------------------------------------------------------------------------------
-pylint = "*"  # https://github.com/PyCQA/pylint/
+codecov = "*"  # https://github.com/codecov/codecov-python
 coverage = "*"  # https://github.com/nedbat/coveragepy
+pylint = "*"  # https://github.com/PyCQA/pylint/
 
 # Django
 # ------------------------------------------------------------------------------
