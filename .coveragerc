@@ -1,4 +1,5 @@
 [run]
+data_file = reports/.coverage
 include = study_buffalo/*
 omit = *migrations*, *tests*
 plugins =
