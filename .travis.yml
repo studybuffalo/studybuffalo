@@ -4,8 +4,7 @@ dist: xenial
 python:
   - 3.7
 install:
-  - pip install pipenv
-  - pip install --user codecov
+  - pip install pipenv codecov
   # Temporary: some python versions & pip 18.1 have issues with pipenv
   - pipenv run python -m pip install -U pip
   - pipenv install --dev --ignore-pipfile
