@@ -9,7 +9,8 @@ install:
   - pipenv run python -m pip install -U pip
   - pipenv install --dev --ignore-pipfile
 before_script:
-  - mkdir /home/travis/build/studybuffalo/config
+  - mkdir ../config
+  - cp config.env ../config/study_buffalo.env
 script:
   - pipenv run coverage run manage.py test
 after_success:
