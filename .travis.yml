@@ -1,0 +1,12 @@
+language: python
+sudo: required
+dist: xenial
+python:
+  - 3.7
+install:
+  - pip install pipenv
+  # Temporary: some python versions & pip 18.1 have issues with pipenv
+  - pipenv run python -m pip install -U pip
+script:
+  - pipenv run coverage run manage.py test
+  - pipenv run codecov
