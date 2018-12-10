@@ -13,7 +13,7 @@ sentry-sdk = "*"  # https://docs.sentry.io/quickstart/?platform=python
 whitenoise = "*"  # https://github.com/evansd/whitenoise
 
 # Django
-# ------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 django = "*"  # https://www.djangoproject.com/
 django-environ = "*"  # https://github.com/joke2k/django-environ
 django-allauth = "*"  # https://github.com/pennersr/django-allauth
@@ -28,13 +28,12 @@ coreapi = "*"  # https://github.com/core-api/python-client
 
 [dev-packages]
 # Code quality
-# ------------------------------------------------------------------------------
-codecov = "*"  # https://github.com/codecov/codecov-python
+# -----------------------------------------------------------------------------
 coverage = "*"  # https://github.com/nedbat/coveragepy
 pylint = "*"  # https://github.com/PyCQA/pylint/
 
 # Django
-# ------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 django-coverage-plugin = "*"  # https://github.com/nedbat/django_coverage_plugin
 django-debug-toolbar = "*"  # https://github.com/jazzband/django-debug-toolbar
 django-jenkins = "*" # https://github.com/kmmbvnr/django-jenkins
@@ -42,5 +41,8 @@ django-test-plus = "*" # https://github.com/revsys/django-test-plus/
 pylint-common = "*" # https://github.com/landscapeio/pylint-common
 pylint-django = "*" #https://github.com/PyCQA/pylint-django
 
+# Testing
+# -----------------------------------------------------------------------------
+
 [requires]
-python_version = "3.6"
+python_version = "3.7"
