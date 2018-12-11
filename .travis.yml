@@ -21,6 +21,6 @@ before_script:
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE studybuffalo TO studybuffalo;" -U postgres
   - psql -c "ALTER USER studybuffalo CREATEDB;" -U postgres
 script:
-  - pipenv run coverage run manage.py test
+  - pipenv run coverage run manage.py test --settings=config.settings.test
 after_success:
   - codecov
