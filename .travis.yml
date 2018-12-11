@@ -19,6 +19,7 @@ before_script:
   - psql -c "ALTER ROLE studybuffalo SET default_transaction_isolation TO 'read committed';" -U postgres
   - psql -c "ALTER ROLE studybuffalo SET timezone TO 'UTC';" -U postgres
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE studybuffalo TO studybuffalo;" -U postgres
+  - psql -c "ALTER USE studybuffalo CREATEDB;" -U postgres
 script:
   - pipenv run coverage run manage.py test
 after_success:
