@@ -6,7 +6,7 @@ Study Buffalo
 .. |BuildStatus| image:: https://travis-ci.org/studybuffalo/studybuffalo.svg?branch=master
    :alt: Travis-CI build status
 
-.. _BuildStatus: https://travis-ci.org/studybuffalo/studybuffalo.svg?branch=master
+.. _BuildStatus: https://travis-ci.org/studybuffalo/studybuffalo
 
 .. |Coverage| image:: https://codecov.io/gh/studybuffalo/studybuffalo/branch/master/graph/badge.svg
    :alt: Codecov code coverage
