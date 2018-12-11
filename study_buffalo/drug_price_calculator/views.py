@@ -3,6 +3,7 @@ from django.views import generic
 from django.http import HttpResponse
 from django.db.models import Q
 from django.core import serializers
+from django.core.exceptions import ObjectDoesNotExist
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from .models import (ATC, Coverage, ExtraInformation, Price, PTC,
@@ -115,11 +116,16 @@ def live_search(request):
                     # Assemble the title
                     description = []
 
-                    if item.strength: description.append(item.strength)
-                    if item.route: description.append(item.route)
-                    if item.dosage_form: description.append(item.dosage_form)
+                    if item.strength:
+                        description.append(item.strength)
 
-                    if len(description):
+                    if item.route:
+                        description.append(item.route)
+
+                    if item.dosage_form:
+                        description.append(item.dosage_form)
+
+                    if description:
                         title = "%s (%s)" % (
                             item.generic_name,
                             " ".join(description)
@@ -144,7 +150,9 @@ def live_search(request):
                         for list_index, list_item in enumerate(result_list):
                             if list_item["title"] == title:
                                 result_list[list_index]["url"] = "%s,%s" % (result_list[list_index]["url"], item.url)
-                                result_list[list_index]["brand_name"] = "%s,%s" % (result_list[list_index]["brand_name"], item.brand_name)
+                                result_list[list_index]["brand_name"] = "%s,%s" % (
+                                    result_list[list_index]["brand_name"], item.brand_name
+                                )
 
                                 title_match = True
 
@@ -161,12 +169,12 @@ def live_search(request):
 
                 li_elements = []
 
-                for index, item in enumerate(result_list):
+                for key, item in enumerate(result_list):
                     element = (
                         "<li><a id='Search-Result-%s' data-url='%s' "
                         "onclick='chooseResult(this)'><strong>%s</strong><br>"
                         "<em>also known as %s</em></a></li>") % (
-                            index, item["url"], item["title"], item["brand_name"]
+                            key, item["url"], item["title"], item["brand_name"]
                         )
 
                     li_elements.append(element)
@@ -204,11 +212,11 @@ def add_item(request):
                 "coverage": coverage.coverage,
                 "criteria_sa": coverage.criteria_sa,
                 "criteria_p": coverage.criteria_p,
-		        "group_1": coverage.group_1,
+                "group_1": coverage.group_1,
                 "group_66": coverage.group_66,
                 "group_66a": coverage.group_66a,
                 "group_19823": coverage.group_19823,
-		        "group_19823a": coverage.group_19823a,
+                "group_19823a": coverage.group_19823a,
                 "group_19824": coverage.group_19824,
                 "group_20400": coverage.group_20400,
                 "group_20403": coverage.group_20403,
@@ -232,7 +240,7 @@ def add_item(request):
 def comparison_search(request):
     """Returns a list of medications with matching generic name,
     brand name, ATC, or PTC"""
-    # TOFIX: If a name match occurs and the ATC/PTC is not a 4th
+    # TODO: If a name match occurs and the ATC/PTC is not a 4th
     # level code, it will pull all children codes for that 1-3rd level code
     def bool_convert(txt):
         if txt == "true":
@@ -268,31 +276,40 @@ def comparison_search(request):
         for url in urls:
             # Assemble dictionary from appropriate models
             if category_type == "atc":
-                price = Price.objects.get(url=url)
-                atc = ATC.objects.get(url=url)
+                try:
+                    price = Price.objects.get(url=url)
+                    atc = ATC.objects.get(url=url)
 
-                # Only include entries with a price
-                if price.unit_price:
-                    output.append({
-                        "url": str(url),
-                        "type": "atc",
-                        "route": price.route,
-                        "generic_name": price.generic_name,
-                        "description": find_last_description(atc, "atc")
-                    })
+                    # Only include entries with a price
+                    if price.unit_price:
+                        output.append({
+                            "url": str(url),
+                            "type": "atc",
+                            "route": price.route,
+                            "generic_name": price.generic_name,
+                            "description": find_last_description(atc, "atc")
+                        })
+                except ObjectDoesNotExist:
+                    # For some reason there are ATC entries with no matching price
+                    pass
+
             elif category_type == "ptc":
-                price = Price.objects.get(url=url)
-                ptc = PTC.objects.get(url=url)
+                try:
+                    price = Price.objects.get(url=url)
+                    ptc = PTC.objects.get(url=url)
 
-                # Only include entries with a price
-                if price.unit_price:
-                    output.append({
-                        "url": str(url),
-                        "type": "ptc",
-                        "route": price.route,
-                        "generic_name": price.generic_name,
-                        "description": find_last_description(ptc, "ptc")
-                    })
+                    # Only include entries with a price
+                    if price.unit_price:
+                        output.append({
+                            "url": str(url),
+                            "type": "ptc",
+                            "route": price.route,
+                            "generic_name": price.generic_name,
+                            "description": find_last_description(ptc, "ptc")
+                        })
+                except ObjectDoesNotExist:
+                    # For some reason there are PTC entries with no matching price
+                    pass
 
         return output
 
@@ -508,11 +525,11 @@ def generate_comparison(request):
                 "coverage": coverage.coverage,
                 "criteria_sa": coverage.criteria_sa,
                 "criteria_p": coverage.criteria_p,
-		        "group_1": coverage.group_1,
+                "group_1": coverage.group_1,
                 "group_66": coverage.group_66,
                 "group_66a": coverage.group_66a,
                 "group_19823": coverage.group_19823,
-		        "group_19823a": coverage.group_19823a,
+                "group_19823a": coverage.group_19823a,
                 "group_19824": coverage.group_19824,
                 "group_20400": coverage.group_20400,
                 "group_20403": coverage.group_20403,
@@ -549,11 +566,11 @@ def generate_comparison(request):
                     "coverage": result["coverage"],
                     "criteria_sa": result["criteria_sa"],
                     "criteria_p": result["criteria_p"],
-		            "group_1": result["group_1"],
+                    "group_1": result["group_1"],
                     "group_66": result["group_66"],
                     "group_66a": result["group_66a"],
                     "group_19823": result["group_19823"],
-		            "group_19823a": result["group_19823a"],
+                    "group_19823a": result["group_19823a"],
                     "group_19824": result["group_19824"],
                     "group_20400": result["group_20400"],
                     "group_20403": result["group_20403"],
@@ -612,11 +629,11 @@ def generate_comparison(request):
                             "coverage": result["coverage"],
                             "criteria_sa": result["criteria_sa"],
                             "criteria_p": result["criteria_p"],
-		                    "group_1": result["group_1"],
+                            "group_1": result["group_1"],
                             "group_66": result["group_66"],
                             "group_66a": result["group_66a"],
                             "group_19823": result["group_19823"],
-		                    "group_19823a": result["group_19823a"],
+                            "group_19823a": result["group_19823a"],
                             "group_19824": result["group_19824"],
                             "group_20400": result["group_20400"],
                             "group_20403": result["group_20403"],
@@ -640,11 +657,11 @@ def generate_comparison(request):
                         "coverage": result["coverage"],
                         "criteria_sa": result["criteria_sa"],
                         "criteria_p": result["criteria_p"],
-		                "group_1": result["group_1"],
+                        "group_1": result["group_1"],
                         "group_66": result["group_66"],
                         "group_66a": result["group_66a"],
                         "group_19823": result["group_19823"],
-		                "group_19823a": result["group_19823a"],
+                        "group_19823a": result["group_19823a"],
                         "group_19824": result["group_19824"],
                         "group_20400": result["group_20400"],
                         "group_20403": result["group_20403"],
