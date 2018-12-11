@@ -64,30 +64,30 @@ class PlaySitemap(CustomSitemap):
     section = "play"
 
     def items(self):
-       return PlayPage.objects.all()
+        return PlayPage.objects.all()
 
     def lastmod(self, item):
-       return item.release_date
+        return item.release_date
 
 class StudySitemap(CustomSitemap):
     changefreq = "weekly"
     priority = 0.7
 
     def items(self):
-       return Guide.objects.all()
+        return Guide.objects.all()
 
     def lastmod(self, item):
-       return item.last_update
+        return item.last_update
 
 class ReadSitemap(CustomSitemap):
     changefreq = "weekly"
     priority = 0.7
 
     def items(self):
-       return Publication.objects.all()
+        return Publication.objects.all()
 
     def lastmod(self, item):
-       return item.date_published
+        return item.date_published
 
 class ToolSitemap(CustomSitemap):
     changefreq = "weekly"
@@ -115,7 +115,7 @@ class StaticViewSitemap(CustomSitemap):
         # and a title for display
         return [
             {"name": "design_index", "title": "Design Index"},
-            {"name": "contact",  "title": "Contact"},
+            {"name": "contact", "title": "Contact"},
             {"name": "privacy_policy", "title": "Privacy Policy"},
             {"name": "robot_policy", "title": "Robot Policy"},
         ]

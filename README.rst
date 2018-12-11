@@ -3,15 +3,15 @@ Study Buffalo
 
 |BuildStatus|_ |Coverage|_ |License|_
 
-.. |BuildStatus| image:: https://img.shields.io/jenkins/s/https/ci.studybuffalo.com/job/studybuffalo/job/master.svg
-   :alt: Jenkins build status
+.. |BuildStatus| image:: https://travis-ci.org/studybuffalo/studybuffalo.svg?branch=master
+   :alt: Travis-CI build status
 
-.. _BuildStatus: https://ci.studybuffalo.com/blue/organizations/jenkins/studybuffalo/
+.. _BuildStatus: https://travis-ci.org/studybuffalo/studybuffalo.svg?branch=master
 
-.. |Coverage| image:: https://badges.ci.studybuffalo.com/coverage/studybuffalo/job/master
-   :alt: Code coverage
+.. |Coverage| image:: https://codecov.io/gh/studybuffalo/studybuffalo/branch/master/graph/badge.svg
+   :alt: Codecov code coverage
 
-.. _Coverage: https://ci.studybuffalo.com/job/studybuffalo/job/master/lastBuild/cobertura/
+.. _Coverage: https://codecov.io/gh/studybuffalo/studybuffalo
 
 .. |License| image:: https://img.shields.io/github/license/studybuffalo/studybuffalo.svg
    :alt: License
