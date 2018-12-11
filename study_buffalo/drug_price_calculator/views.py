@@ -290,6 +290,7 @@ def comparison_search(request):
                             "description": find_last_description(atc, "atc")
                         })
                 except ObjectDoesNotExist:
+                    # TODO: will need to find better way to handle this when moving over to API
                     # For some reason there are ATC entries with no matching price
                     pass
 
