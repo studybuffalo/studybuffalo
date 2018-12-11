@@ -22,5 +22,6 @@ before_script:
   - psql -c "ALTER USER studybuffalo CREATEDB;" -U postgres
 script:
   - pipenv run coverage run manage.py test --settings=config.settings.test
+  - pipenv run coverage xml -o coverage.xml
 after_success:
   - codecov
