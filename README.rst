@@ -3,15 +3,15 @@ Study Buffalo
 
 |BuildStatus|_ |Coverage|_ |License|_
 
-.. |BuildStatus| image:: https://img.shields.io/jenkins/s/https/ci.studybuffalo.com/job/studybuffalo/job/master.svg
-   :alt: Jenkins build status
+.. |BuildStatus| image:: https://travis-ci.org/studybuffalo/studybuffalo.svg?branch=master
+   :alt: Travis-CI build status
 
-.. _BuildStatus: https://ci.studybuffalo.com/blue/organizations/jenkins/studybuffalo/
+.. _BuildStatus: https://travis-ci.org/studybuffalo/studybuffalo
 
-.. |Coverage| image:: https://badges.ci.studybuffalo.com/coverage/studybuffalo/job/master
-   :alt: Code coverage
+.. |Coverage| image:: https://codecov.io/gh/studybuffalo/studybuffalo/branch/master/graph/badge.svg
+   :alt: Codecov code coverage
 
-.. _Coverage: https://ci.studybuffalo.com/job/studybuffalo/job/master/lastBuild/cobertura/
+.. _Coverage: https://codecov.io/gh/studybuffalo/studybuffalo
 
 .. |License| image:: https://img.shields.io/github/license/studybuffalo/studybuffalo.svg
    :alt: License
@@ -37,35 +37,3 @@ Contact Us
 ----------
 You can always get a hold of us at studybuffalo@gmail.com,
 info@studybuffalo.com, or through GitHub itself.
-
-
-Basic Commands
---------------
-
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
-
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
-
-* To create an **superuser account**, use this the standard Django command:
-
-.. code:: shell
-
-    $ python manage.py createsuperuser
-
-
-Test coverage
-^^^^^^^^^^^^^
-
-To run the tests:
-
-.. code:: shell
-
-    $ pipenv run coverage run manage.py test
-
-To generate a coverage report (HTML):
-
-.. code:: shell
-
-    $ pipenv run coverage html
-
