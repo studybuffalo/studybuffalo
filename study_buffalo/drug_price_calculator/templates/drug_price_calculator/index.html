@@ -8,38 +8,49 @@
 
 {% block content %}
 	<h1><a href="{% url 'tools_index' %}">Tools</a> &gt; Drug Price Calculator</h1>
-	
+
 	<div class="line">
-		<p>Welcome to the Alberta Drug Price Calculator. To start, enter your drug in 
+		<p>Welcome to the Alberta Drug Price Calculator. To start, enter your drug in
 		the search bar below and click on the entry you want to calculate the price for.
 		You may add multiple items at a time and print off a complete list in the end.</p>
-			
-		<p class="MT1em">Please see notices on the bottom of the page for the assumptions 
+
+		<p class="MT1em">Please see notices on the bottom of the page for the assumptions
 		made by the calculator.</p>
 	</div>
-		
+
 	<!-- Medication Price -->
 	<div class="line MT1em">
 		<h2>Medication Prices</h2>
-			
+
+		<div class="MT1em">
+			<strong style="color: red;">
+				There has been a significant update to the Alberta Blue Cross iDBL.
+				This unfortunately has broken some functionality with this tool. You will
+				be unable to access Special Authorization forms or criteria from our
+				website. There will also be a delay of several months in updating the
+				medication prices prices. We apologize for the inconvenience.
+			</strong>
+		</div>
+
 		<div class="MT1em">
 			<strong>Search for a drug name (generic or brand name):</strong>
 		</div>
-			
+
+
 		<div class="searchContainer">
 			<input type="search" id="Search-Bar" class="searchBar" incremental="incremental">
-				
+
 			<div class="line">
 				<div id="Search-Results" class="searchResults">
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="MT1em">
 			<strong>Third Party Coverage:</strong>
 		</div>
 
-		<div class="thirdPartyContainer">		
+		<div class="thirdPartyContainer">
 			<select id="price-table-third-party" class="thirdPartySelect">
 				<option value="">None</option>
 				<option value="1">Non-Group Coverage (Group 1)</option>
@@ -55,7 +66,7 @@
 				<option value="23609">Alberta Adult Health Benefit (AAHB) (Group 23609)</option>
 			</select>
 		</div>
-		
+
 		<div id="price-table">
 			<div class="header">
 				<div class="item-medication">Medication</div>
@@ -88,8 +99,8 @@
 			<table class="legend">
 				<tr>
 					<th>Tip:</th>
-					<td>You can enter fractions into the "Doses per Day" 
-						field using a "#/#" format. For example, 1 dose 
+					<td>You can enter fractions into the "Doses per Day"
+						field using a "#/#" format. For example, 1 dose
 						every 7 days can be entered as "1/7".</td>
 				</tr>
 				<tr>
@@ -114,35 +125,35 @@
 				</tr>
 			</table>
 		</p>
-	
+
 		<h3 class="MT05em">Print Medication Prices</h3>
-				
+
 		<p>
 			<b>Patient Name (Optional):</b>
 			<input type="text" id="Patient-Name">
 		</p>
-				
+
 		<p class="MT05em"><input type="button" id="Print-Medication-Prices" value="Print Medication Prices"></p>
 	</div>
-	
+
 	<!-- Comparing Prices -->
-	
+
 	<div class="line MT1em">
 		<hr>
-			
+
 		<h2>Drug Price Comparison</h2>
-			
+
 		<p>
-			Compare drugs across pharmacological classes. Medications 
-			classes are based on either the Anatomical Therapeutic 
-			Chemical (ATC) Classification or Pharmacologic-Therapeutic 
+			Compare drugs across pharmacological classes. Medications
+			classes are based on either the Anatomical Therapeutic
+			Chemical (ATC) Classification or Pharmacologic-Therapeutic
 			Classification (PTC).
 		</p>
-			
+
 		<div class="MT1em">
 			<strong>Classification System to Search:</strong>
 		</div>
-		
+
 		<div class="comparisonSearchMethod">
 			<ul>
 				<li>
@@ -169,7 +180,7 @@
 			<strong>
 				Search by category or medication name (generic or brand):
 			</strong>
-		</div>	
+		</div>
 
 		<div class="searchContainer">
 			<input type="search" id="Comparison-Search" class="searchBar" incremental="incremental">
@@ -177,11 +188,11 @@
 				<div id="Comparison-Results" class="searchResults"></div>
 			</div>
 		</div>
-		
+
 		<div class="MT1em">
 			<strong>Third Party Coverage:</strong>
-		</div>	
-		
+		</div>
+
 		<div class="thirdPartyContainer">
 			<select id="comparison-table-third-party" class="thirdPartySelect">
 				<option value="">None</option>
@@ -269,8 +280,8 @@
 			<table class="legend">
 				<tr>
 					<th>Tip:</th>
-					<td>You can enter fractions into the "Doses per Day" 
-						field using a "#/#" format. For example, 1 dose 
+					<td>You can enter fractions into the "Doses per Day"
+						field using a "#/#" format. For example, 1 dose
 						every 7 days can be entered as "1/7".</td>
 				</tr>
 				<tr>
@@ -296,58 +307,58 @@
 			</table>
 		</p>
 	</div>
-	
+
 
 	<!-- Disclaimers & Notices -->
 	<div class="line MT1em">
 		<hr>
-			
+
 		<h2>Disclaimers & Notices</h2>
-			
+
 		<p>
-			This calculator is based off the prices listed off the 
-			<a href="https://idbl.ab.bluecross.ca/idbl/load.do">Alberta 
-			Blue Cross Interactive Drug Benefit List (iDBL)</a>. While we 
-			strive to keep our information updated and accurate, there may 
-			be issues outside of our control. The data found on the iDBL 
-			will supersede anything reported here. We are not responsible 
-			for how this information is used - the following are 
+			This calculator is based off the prices listed off the
+			<a href="https://idbl.ab.bluecross.ca/idbl/load.do">Alberta
+			Blue Cross Interactive Drug Benefit List (iDBL)</a>. While we
+			strive to keep our information updated and accurate, there may
+			be issues outside of our control. The data found on the iDBL
+			will supersede anything reported here. We are not responsible
+			for how this information is used - the following are
 			considerations to make when using this website:
 		</p>
-			
+
 		<ul>
-			<li class="MT05em">To reduce the burden on the Alberta Blue 
-				Cross servers, we update this information weekly (last 
+			<li class="MT05em">To reduce the burden on the Alberta Blue
+				Cross servers, we update this information weekly (last
 				updated on <?php echo $update ?>).</li>
-			<li class="MT05em">Much of this information is automatically 
-				generated - this could result in inaccuracies in the data 
+			<li class="MT05em">Much of this information is automatically
+				generated - this could result in inaccuracies in the data
 				that we have not caught.</li>
-			<li class="MT05em">Prices are calculated assuming that the 
-				pharmacy is charging the maximum amount allowed in the 
-				<em>Alberta Blue Cross Pharmacy Services Agreement</em>. 
+			<li class="MT05em">Prices are calculated assuming that the
+				pharmacy is charging the maximum amount allowed in the
+				<em>Alberta Blue Cross Pharmacy Services Agreement</em>.
 				Pharmacies may choose to charge less than these amounts
 				when billing a third-party coverage. Pharmacies may choose
-				to charge more than these amounts for patients paying 
+				to charge more than these amounts for patients paying
 				out-of-pocket.</li>
-			<li class="MT05em">The benefit information listed is only 
-				accurate for publicly-funded Alberta Blue Cross insurance 
-				plans. While it may be applicable to other insurance plans, 
-				we cannot guarantee this. Other insurance plans may choose 
+			<li class="MT05em">The benefit information listed is only
+				accurate for publicly-funded Alberta Blue Cross insurance
+				plans. While it may be applicable to other insurance plans,
+				we cannot guarantee this. Other insurance plans may choose
 				to cover different products at different prices.</li>
-			<li class="MT05em">The prices generated when applying third 
-				party coverage cannot be guaranteed. We calculate these 
-				prices based on the information provided publically by 
-				Alberta Blue Cross, but this information may have changed 
-				since we last updated and there may be additional client 
-				costs/fees that we are unaware of (e.g. deductibles, plan 
+			<li class="MT05em">The prices generated when applying third
+				party coverage cannot be guaranteed. We calculate these
+				prices based on the information provided publically by
+				Alberta Blue Cross, but this information may have changed
+				since we last updated and there may be additional client
+				costs/fees that we are unaware of (e.g. deductibles, plan
 				maximums).</li>
 		</ul>
-			
+
 		<p>
 			If you have any questions, concerns, or wish to report an error,
 			please <a href="{% url 'contact' %}">contact us</a>.
 		</p>
-			
+
 		<p class="center-content MT1em">
 			<strong>Prices last updated:</strong> <span id="Last-Update"><?php echo $update ?></span>
 		</p>
@@ -357,16 +368,16 @@
 	<!--
 	<div class="line MT1em">
 		<hr>
-			
+
 		<h2>Price Calculations</h2>
-			
+
 		<p>
-			Below is an example of how prices are calculated, with the example of 100 
+			Below is an example of how prices are calculated, with the example of 100
 			tablets of a medication (Unit Price = $0.10/tablet):
 		</p>
-			
+
 		<h3 class="MT05em">Medication Cost</h3>
-		
+
 		<p>
 			The cost per unit multiplied by the number of units.
 		</p>
@@ -378,13 +389,13 @@
 				& = $10.00
 			\end{align}
 		</div>
-			
+
 		<h3>Allowable Upcharge #1</h3>
-		
+
 		<p>
 			3% of the medication cost.
 		</p>
-		
+
 		<div class="equation">
 			\begin{align}
 				Allowable\ Upcharge\ \#1 & = Medication\ Cost * 0.03 &\\
@@ -392,14 +403,14 @@
 				& = $0.30
 			\end{align}
 		</div>
-			
+
 		<h3>Allowable Upcharge #2</h3>
 
 		<p>
 			6% of the total of medication cost &#38; allowable upcharge #1.
 		</p>
 
-		<div class="equation">	
+		<div class="equation">
 			\begin{align}
 				Allowable\ Upcharge\ \#2 & = \left(Medication\ Cost + Allowable\ Upcharge\ \#1\right) * 0.06 &\\
 				& = \left($10.00 + $0.30\right) * 0.06 &\\
@@ -407,13 +418,13 @@
 				& = $0.62
 			\end{align}
 		</div>
-			
+
 		<h3>Dispensing Fee</h3>
 
 		<p>A flat fee of $12.30.</p>
-			
+
 		<h3 class="MT05em">Final Price</h3>
-		
+
 		<p>
 			All the above fees are added to the medication cost to generate the final total.
 		</p>
@@ -431,9 +442,9 @@
 	<!-- Third Party Coverage Calculations -->
 	<div class="line MT1em">
 		<hr>
-			
+
 		<h2>Third Party Coverage Calculations</h2>
-		
+
 		<table id="third-party-coverages">
 			<thead>
 				<tr>
@@ -447,17 +458,17 @@
 					<td rowspan="4">
 						<ul>
 							<li>Patient pays 30% of the final drug cost.</li>
-							<li>The patient will only pay a maximum of 
+							<li>The patient will only pay a maximum of
 								$25.00 per prescription refill.</li>
-							<li>Plans may be subject to annual 
-								deductibles and annual maximums (e.g. 
+							<li>Plans may be subject to annual
+								deductibles and annual maximums (e.g.
 								$600 maximum on diabetes supplies).</li>
 							<li>If patient chooses a brand of medication
-								with a unit price exceeding the maximum 
-								allowable cost (MAC), the third party 
-								provider will only pay for drug costs 
-								and fees at that MAC. The patient will be 
-								required  to pay the remaining 
+								with a unit price exceeding the maximum
+								allowable cost (MAC), the third party
+								provider will only pay for drug costs
+								and fees at that MAC. The patient will be
+								required  to pay the remaining
 								difference.</li>
 						</ul>
 					</td>
@@ -475,10 +486,10 @@
 					<th class="shade">Income Support (Group 19823)</th>
 					<td class="shade" rowspan="7">
 						<ul>
-							<li>Patient has no copay on benefit 
+							<li>Patient has no copay on benefit
 								medications.</li>
-							<li>Plans may be subject to annual maximums 
-								(e.g. $600 maximum on diabetes 
+							<li>Plans may be subject to annual maximums
+								(e.g. $600 maximum on diabetes
 								supplies).</li>
 							<li>If patient chooses a brand of medication
 								with a unit price exceeding the maximum
