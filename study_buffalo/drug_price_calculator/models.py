@@ -295,21 +295,17 @@ class SubsBSRF(models.Model):
         max_length=250,
         unique=True,
     )
-
     brand_name = models.CharField(
         max_length=80,
     )
-
     strength = models.CharField(
         max_length=200,
         null=True
     )
-
     route = models.CharField(
         max_length=20,
         null=True
     )
-
     dosage_form = models.CharField(
         max_length=40,
         null=True
@@ -321,7 +317,6 @@ class SubsGeneric(models.Model):
         max_length=450,
         unique=True,
     )
-
     correction = models.CharField(
         max_length=450,
     )
@@ -332,7 +327,6 @@ class SubsManufacturer(models.Model):
         max_length=120,
         unique=True,
     )
-
     correction = models.CharField(
         max_length=120,
     )
@@ -343,7 +337,6 @@ class SubsUnit(models.Model):
         max_length=120,
         unique=True,
     )
-
     correction = models.CharField(
         max_length=120,
     )
@@ -354,21 +347,17 @@ class PendBSRF(models.Model):
         max_length=250,
         unique=True,
     )
-
     brand_name = models.CharField(
         max_length=80,
     )
-
     strength = models.CharField(
         max_length=200,
         null=True,
     )
-
     route = models.CharField(
         max_length=20,
         null=True,
     )
-
     dosage_form = models.CharField(
         max_length=40,
         null=True,
@@ -380,7 +369,6 @@ class PendGeneric(models.Model):
         max_length=450,
         unique=True,
     )
-
     correction = models.CharField(
         max_length=450,
     )
@@ -391,7 +379,6 @@ class PendManufacturer(models.Model):
         max_length=150,
         unique=True,
     )
-
     correction = models.CharField(
         max_length=150,
     )
