@@ -6,9 +6,9 @@ from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 import json
 from django.core.serializers.json import DjangoJSONEncoder
-from .models import (ATC, Coverage, ExtraInformation, Price, PTC,
-                     SpecialAuthorization, ATCDescriptions, SubsBSRF,
-                     SubsGeneric, SubsManufacturer, SubsPTC, SubsUnit)
+# from .models import (ATC, Coverage, ExtraInformation, Price, PTC,
+#                      SpecialAuthorization, ATCDescriptions, SubsBSRF,
+#                      SubsGeneric, SubsManufacturer, SubsPTC, SubsUnit)
 
 def index(request):
     """View for the main drug price calculator page"""
@@ -19,77 +19,77 @@ def index(request):
     )
 
 
-class ATCList(generic.ListView):
-    model = ATC
+# class ATCList(generic.ListView):
+#     model = ATC
 
-    context_object_name = "atc_list"
-    ordering = ['url']
+#     context_object_name = "atc_list"
+#     ordering = ['url']
 
-class CoverageList(generic.ListView):
-    model = Coverage
+# class CoverageList(generic.ListView):
+#     model = Coverage
 
-    context_object_name = "coverage_list"
-    ordering = ['url']
+#     context_object_name = "coverage_list"
+#     ordering = ['url']
 
-class ExtraInformationList(generic.ListView):
-    model = ExtraInformation
+# class ExtraInformationList(generic.ListView):
+#     model = ExtraInformation
 
-    context_object_name = "extra_information_list"
-    ordering = ['url']
+#     context_object_name = "extra_information_list"
+#     ordering = ['url']
 
-class PriceList(generic.ListView):
-    model = Price
+# class PriceList(generic.ListView):
+#     model = Price
 
-    context_object_name = "price_list"
-    ordering = ['url']
+#     context_object_name = "price_list"
+#     ordering = ['url']
 
-class PTCList(generic.ListView):
-    model = PTC
+# class PTCList(generic.ListView):
+#     model = PTC
 
-    context_object_name = "ptc_list"
-    ordering = ['url']
+#     context_object_name = "ptc_list"
+#     ordering = ['url']
 
-class SpecialAuthorizationList(generic.ListView):
-    model = SpecialAuthorization
+# class SpecialAuthorizationList(generic.ListView):
+#     model = SpecialAuthorization
 
-    context_object_name = "special_authorization_list"
-    ordering = ['url']
+#     context_object_name = "special_authorization_list"
+#     ordering = ['url']
 
-class SubsATCList(generic.ListView):
-    model = ATCDescriptions
+# class SubsATCList(generic.ListView):
+#     model = ATCDescriptions
 
-    context_object_name = "subs_atc_list"
-    ordering = ['url']
+#     context_object_name = "subs_atc_list"
+#     ordering = ['url']
 
-class SubsBSRFList(generic.ListView):
-    model = SubsBSRF
+# class SubsBSRFList(generic.ListView):
+#     model = SubsBSRF
 
-    context_object_name = "subs_bsrf_list"
-    ordering = ['url']
+#     context_object_name = "subs_bsrf_list"
+#     ordering = ['url']
 
-class SubsGenericList(generic.ListView):
-    model = SubsGeneric
+# class SubsGenericList(generic.ListView):
+#     model = SubsGeneric
 
-    context_object_name = "subs_generic_list"
-    ordering = ['url']
+#     context_object_name = "subs_generic_list"
+#     ordering = ['url']
 
-class SubsManufacturerList(generic.ListView):
-    model = SubsManufacturer
+# class SubsManufacturerList(generic.ListView):
+#     model = SubsManufacturer
 
-    context_object_name = "subs_manufacturer_list"
-    ordering = ['url']
+#     context_object_name = "subs_manufacturer_list"
+#     ordering = ['url']
 
-class SubsPTCList(generic.ListView):
-    model = SubsPTC
+# class SubsPTCList(generic.ListView):
+#     model = SubsPTC
 
-    context_object_name = "subs_ptc_list"
-    ordering = ['url']
+#     context_object_name = "subs_ptc_list"
+#     ordering = ['url']
 
-class SubsUnitList(generic.ListView):
-    model = SubsUnit
+# class SubsUnitList(generic.ListView):
+#     model = SubsUnit
 
-    context_object_name = "subs_unit_list"
-    ordering = ['url']
+#     context_object_name = "subs_unit_list"
+#     ordering = ['url']
 
 
 
