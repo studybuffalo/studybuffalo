@@ -121,6 +121,12 @@ class Price(models.Model):
         default=False,
         help_text='Whether are interchangeable products or not',
     )
+    coverage_status = models.CharField(
+        blank=True,
+        help_text='The coverage status of the drug',
+        max_length=100,
+        null=True,
+    )
     clients = models.OneToOneField(
         blank=True,
         help_text='The details of which clients cover applies to',
@@ -132,6 +138,10 @@ class Price(models.Model):
         help_text='Special Authorization forms that apply to this drug',
         related_name='drugs',
         to='drug_price_calculator.SpecialAuthorization',
+    )
+    date_added = models.DateTimeField(
+        auto_now=True,
+        help_text='The date and time this price was added',
     )
 
 class Clients(models.Model):
@@ -280,7 +290,7 @@ class CoverageCriteria(models.Model):
     header = models.CharField(
         blank=True,
         help_text='Any header for this criteria',
-        max_length=100,
+        max_length=200,
         null=True,
     )
     criteria = models.TextField(
