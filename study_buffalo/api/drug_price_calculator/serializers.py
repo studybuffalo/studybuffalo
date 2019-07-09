@@ -5,6 +5,8 @@ from rest_framework import serializers
 
 from drug_price_calculator import models
 
+from api.drug_price_calculator import parse
+
 
 class iDBLClientsSerializer(serializers.Serializer):
     group_1 = serializers.BooleanField(
@@ -135,7 +137,7 @@ class iDBLDataSerializer(serializers.Serializer):
         max_length=150,
         required=False,
     )
-    unit_of_issue = serializers.CharField(
+    unit_issue = serializers.CharField(
         help_text='The unit of issue for pricing',
         max_length=25,
         required=False,
@@ -190,12 +192,12 @@ class iDBLDataSerializer(serializers.Serializer):
         generic_name = parse.parse_generic(validated_data['generic_name'])
 
         # Parse the manufacturer data
-        manufacturer = parse.manufacturer(validated_data['manufacturer'])
+        manufacturer = parse.parse_manufacturer(validated_data['manufacturer'])
 
         # Get ATC instance
         atc = self._get_atc_instance()
 
-        # get PTC instance
+        # Get PTC instance
         ptc = self._get_ptc_instance()
 
         # Update the instance
@@ -211,11 +213,28 @@ class iDBLDataSerializer(serializers.Serializer):
         instance.save()
 
         # Create or retrieve the Price model instance
-        price, _ = models.Price.objects.get_or_create(drug=instance)
+        price, _ = models.Price.objects.get_or_create(
+            drug=instance, abc_id=validated_data['abc_id'],
+        )
+
+        # Parse the unit of issue
+        unit_issue = parse.parse_unit_of_issue(validated_data['unit_issue'])
 
         # Update the price model
-        price.abc_id = validated_data['abc_id']
         price.date_listed = validated_data['date_listed']
+        price.unit_price = validated_data['unit_price']
+        price.lca_price = validated_data['lca_price']
+        price.mac_price = validated_data['mac_price']
+        price.mac_text = validated_data['mac_text']
+        price.unit_issue = unit_issue
+        price.interchangeable = validated_data['interchangeable']
+        price.coverage_status = validated_data['coverage_status']
+
+        # Update Clients
+
+        # Update Special Authorization
+
+        # Update Coverage Criteria
 
 
     def _get_atc_instance(self):
