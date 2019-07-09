@@ -3,14 +3,11 @@ from django.db import models
 
 
 class Drug(models.Model):
-    """Details for an iDBL drug entry."""
-    abc_id = models.PositiveIntegerField(
-        help_text='The Alberta Blue Cross iDBL ID number',
-        unique=True,
-    )
-    din = models.PositiveIntegerField(
+    """Details of a single drug."""
+    din = models.CharField(
         help_text="The drug's DIN/NPN/PIN",
         max_length=8,
+        unique=True,
     )
     brand_name = models.CharField(
         blank=True,
@@ -41,6 +38,46 @@ class Drug(models.Model):
         help_text='The generic name',
         max_length=450,
         null=True,
+    )
+    manufacturer = models.CharField(
+        blank=True,
+        help_text='The drug manufacturer',
+        max_length=75,
+        null=True,
+    )
+    schedule = models.CharField(
+        blank=True,
+        help_text='The provincial drug schedule',
+        max_length=10,
+        null=True,
+    )
+    atc = models.ForeignKey(
+        blank=True,
+        help_text='The ATC code for this drug',
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='drugs',
+        to='drug_price_calculator.ATC',
+    )
+    ptc = models.ForeignKey(
+        blank=True,
+        help_text='The PTC code for this drug',
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='drugs',
+        to='drug_price_calculator.PTC',
+    )
+
+class Price(models.Model):
+    """Pricing details for a single drug."""
+    drug = models.ForeignKey(
+        help_text='The drug this price applies to',
+        on_delete=models.CASCADE,
+        related_name='prices',
+        to=Drug,
+    )
+    abc_id = models.PositiveIntegerField(
+        help_text='The Alberta Blue Cross iDBL ID number',
     )
     date_listed = models.DateField(
         blank=True,
@@ -80,18 +117,6 @@ class Drug(models.Model):
         max_length=25,
         null=True,
     )
-    manufacturer = models.CharField(
-        blank=True,
-        help_text='The drug manufacturer',
-        max_length=75,
-        null=True,
-    )
-    schedule = models.CharField(
-        blank=True,
-        help_text='The provincial drug schedule',
-        max_length=10,
-        null=True,
-    )
     interchangeable = models.BooleanField(
         default=False,
         help_text='Whether are interchangeable products or not',
@@ -101,28 +126,12 @@ class Drug(models.Model):
         help_text='The details of which clients cover applies to',
         null=True,
         on_delete=models.SET_NULL,
-        to=Client,
+        to='drug_price_calculator.Clients',
     )
     special_authorizations = models.ManyToManyField(
         help_text='Special Authorization forms that apply to this drug',
         related_name='drugs',
-        to=SpecialAuthorization,
-    )
-    atc = models.ForeignKey(
-        blank=True,
-        help_text='The ATC code for this drug',
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='drugs',
-        to=ATC,
-    )
-    ptc = models.ForeignKey(
-        blank=True,
-        help_text='The PTC code for this drug',
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name='drugs',
-        to=PTC,
+        to='drug_price_calculator.SpecialAuthorization',
     )
 
 class Clients(models.Model):
