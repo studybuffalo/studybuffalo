@@ -184,9 +184,7 @@ class iDBLDataSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         """Overriding update method."""
         # Parse the BSRF data
-        brand_name, strength, route, dosage_form = parse.parse_bsrf(
-            validated_data['bsrf']
-        )
+        bsrf = parse.parse_bsrf(validated_data['bsrf'])
 
         # Parse the generic data
         generic_name = parse.parse_generic(validated_data['generic_name'])
@@ -201,10 +199,10 @@ class iDBLDataSerializer(serializers.Serializer):
         ptc = self._get_ptc_instance()
 
         # Update the instance
-        instance.brand_name = brand_name
-        instance.strength = strength
-        instance.route = route
-        instance.dosage_form = dosage_form
+        instance.brand_name = bsrf['brand_name']
+        instance.strength = bsrf['strength']
+        instance.route = bsrf['route']
+        instance.dosage_form = bsrf['dosage_form']
         instance.generic_name = generic_name
         instance.manufacturer = manufacturer
         instance.schedule = validated_data['schedule']
@@ -229,13 +227,20 @@ class iDBLDataSerializer(serializers.Serializer):
         price.unit_issue = unit_issue
         price.interchangeable = validated_data['interchangeable']
         price.coverage_status = validated_data['coverage_status']
+        price.save()
+
+        # Remove any old price models
+        old_prices = models.Price.objects.filter(drug=instance).exclude(price)
+        old_prices.delete()
 
         # Update Clients
+        validated_data['clients'].update(price=price)
 
         # Update Special Authorization
+        validated_data['special_authorization'].update(price=price)
 
         # Update Coverage Criteria
-
+        validated_data['coverage_criteria'].update(price=price)
 
     def _get_atc_instance(self):
         """Retrieves ATC model for validated ATC value."""

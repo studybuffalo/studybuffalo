@@ -1,6 +1,11 @@
 """Functions to parse iDBL data for insertion into database."""
 def parse_bsrf(bsrf):
-    return ('', '', '', '')
+    return {
+        'brand_name': '',
+        'strength': '',
+        'route': '',
+        'dosage_form': '',
+    }
 
 def parse_generic(generic):
     return ''
