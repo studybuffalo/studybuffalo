@@ -1,29 +1,13 @@
-### Python template
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
 # Unit test / coverage reports
 reports/*
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-coverage.xml
 
-# Django stuff:
+# Django files
 staticfiles/
+study_buffalo/media/
 
 # Dependency directories
 node_modules/
 jspm_packages/
 
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-### Project template
-study_buffalo/media/
+# Code editor files
+.vscode
