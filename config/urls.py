@@ -18,7 +18,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('api/v1/', include('study_buffalo.api.urls', namespace='api_v1')),
+    path('api/', include('study_buffalo.api.urls')),
     path('play/', include('play.urls')),
     path('study/', include('study.urls')),
     path('read/', include('read.urls')),

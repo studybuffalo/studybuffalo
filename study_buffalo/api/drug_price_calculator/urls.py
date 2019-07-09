@@ -4,7 +4,7 @@ from django.urls import path
 from api.drug_price_calculator import views
 
 
-app_name = 'api_v1'
+app_name = 'drug_price_calculator_v1'
 
 urlpatterns = [
     # Endpoints to modify database
