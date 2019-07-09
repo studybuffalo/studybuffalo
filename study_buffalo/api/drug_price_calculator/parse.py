@@ -1,6 +1,8 @@
 """Functions to parse iDBL data for insertion into database."""
 import re
 
+from drug_price_calculator import models
+
 
 def parse_bsrf(bsrf):
     """
