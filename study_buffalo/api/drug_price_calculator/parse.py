@@ -8,6 +8,8 @@ def parse_generic(generic):
 def parse_manufacturer(manufacturer):
     return ''
 
+def parse_unit_of_issue(unit_issue):
+    return ''
 
 # def parse_brand_name(text):
 #     """Properly formats the brand name"""
