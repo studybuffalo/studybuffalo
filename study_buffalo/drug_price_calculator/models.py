@@ -281,11 +281,11 @@ class PTC(models.Model):
 
 class CoverageCriteria(models.Model):
     """Details on any coverage criteria."""
-    drug = models.ForeignKey(
-        help_text='The drug this criteria applies to',
+    price = models.ForeignKey(
+        help_text='The drug price this criteria applies to',
         on_delete=models.CASCADE,
         related_name='coverage_criteria',
-        to=Drug,
+        to=Price,
     )
     header = models.CharField(
         blank=True,
