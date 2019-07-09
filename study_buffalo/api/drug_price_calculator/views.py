@@ -1,4 +1,29 @@
+"""Views for the Drug Price Calculator API."""
+from rest_framework.generics import GenericAPIView, DestroyAPIView
+from rest_framework.response import Response
 
+from drug_price_calculator import models
+
+from api.drug_price_calculator.serializers import iDBLDataSerializer
+
+
+class UploadiDBLData(GenericAPIView):
+    serializer = iDBLDataSerializer
+    def get_object(self, din): # pylint: disable=arguments-differ
+        """Overriding the get_object to get proper drug file."""
+        return models.Drug.objects.get_or_create(din=din)
+
+    def post(self, request, din):
+        drug, new_drug = self.get_object(din)
+
+        if new_drug:
+            pass
+
+        return Response()
+
+
+class RemoveiDBLData(DestroyAPIView):
+    pass
 # def parse_brand_name(text):
 #     """Properly formats the brand name"""
 #     # Convert to title text
