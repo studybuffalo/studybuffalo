@@ -10,6 +10,7 @@ APPS_DIR = ROOT_DIR.path('study_buffalo')
 env = environ.Env()
 environ.Env.read_env(env_file=ROOT_DIR.path('config', 'settings').file('study_buffalo.env'))
 
+
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
