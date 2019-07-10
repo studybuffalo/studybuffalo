@@ -90,6 +90,7 @@ class iDBLCoverageCriteriaSerializer(serializers.Serializer):
 
 class iDBLDataSerializer(serializers.Serializer):
     """Serializer for extracted iDBL data."""
+    # TODO: check how to handle absent fields (can a default be applied?)
     abc_id = serializers.IntegerField(
         help_text='The Alberta Blue Cross iDBL ID number',
     )
@@ -289,9 +290,9 @@ class iDBLDataSerializer(serializers.Serializer):
         """Retrieves ATC model for validated ATC value."""
         try:
             atc = models.ATC.objects.get(id=self.validated_data['atc'])
-        except models.ATC.objects.DoesNotExist:
+        except models.ATC.DoesNotExist:
             atc = None
-            message = 'Matching ATC model not found for FK {} (DIN: {})'.format(
+            message = 'No matching ATC model for FK {} (DIN: {})'.format(
                 self.validated_data['atc'], self.validated_data['din']
             )
             capture_message(message=message, level=30)
@@ -302,9 +303,9 @@ class iDBLDataSerializer(serializers.Serializer):
         """Retrieves PTC model for validated PTC value."""
         try:
             ptc = models.PTC.objects.get(id=self.validated_data['ptc'])
-        except models.PTC.objects.DoesNotExist:
+        except models.PTC.DoesNotExist:
             ptc = None
-            message = 'Matching PTC model not found for FK {} (DIN: {})'.format(
+            message = 'No Matching PTC model for FK {} (DIN: {})'.format(
                 self.validated_data['ptc'], self.validated_data['din']
             )
             capture_message(message=message, level=30)
