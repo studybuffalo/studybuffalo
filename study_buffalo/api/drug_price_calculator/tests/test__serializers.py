@@ -85,8 +85,7 @@ def test__idbl_data_serializer__valid():
 
     # Confirm data to models was properly added
     drug = models.Drug.objects.get(din=idbl_data['din'])
-    assert drug.brand_name == 'A B C D'
-    assert drug.generic_name == 'e'
-    assert drug.manufacturer == 'H'
+
+    assert drug == instance
 
 # Confirm handling of missing values (should switch to default)
