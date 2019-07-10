@@ -164,9 +164,19 @@ def parse_generic(raw_generic):
     return generic
 
 def parse_manufacturer(manufacturer):
-    return ''
+    # Convert to title text
+    text = manufacturer.title()
+
+    # Removes extra space characters
+    text = re.sub(r'\s{2,}', ' ', text)
+
+    # Correct errors with apostrophes and 's'
+    text = re.sub(r"'S\b'", "'s", text)
+
+    return text
 
 def parse_unit_of_issue(unit_issue):
+    # TODO: add this
     return ''
 
 def _parse_brand_name(text):
