@@ -152,9 +152,6 @@ class Clients(models.Model):
     group_66 = models.BooleanField(
         default=False,
     )
-    group_66a = models.BooleanField(
-        default=False,
-    )
     group_19823 = models.BooleanField(
         default=False,
     )
@@ -303,7 +300,7 @@ class SpecialAuthorization(models.Model):
         help_text='The name of the PDF file',
         max_length=15,
     )
-    title = models.CharField(
+    pdf_title = models.CharField(
         help_text='The tile of the PDF',
         max_length=100,
     )
