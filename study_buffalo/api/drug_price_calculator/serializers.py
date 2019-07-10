@@ -234,13 +234,56 @@ class iDBLDataSerializer(serializers.Serializer):
         old_prices.delete()
 
         # Update Clients
-        validated_data['clients'].update(price=price)
+        clients_instance = models.Clients.objects.get_or_create(price=price)
 
-        # Update Special Authorization
-        validated_data['special_authorization'].update(price=price)
+        clients_instance.group_1 = validated_data['group_1']
+        clients_instance.group_66 = validated_data['group_66']
+        clients_instance.group_19823 = validated_data['group_19823']
+        clients_instance.group_19823a = validated_data['group_19823a']
+        clients_instance.group_19824 = validated_data['group_19824']
+        clients_instance.group_20400 = validated_data['group_20400']
+        clients_instance.group_20403 = validated_data['group_20403']
+        clients_instance.group_20514 = validated_data['group_20514']
+        clients_instance.group_22128 = validated_data['group_22128']
+        clients_instance.group_23609 = validated_data['group_23609']
+        clients_instance.save()
+
+        # Remove old Clients models
+        old_clients = models.Clients.filter(price=price).exclude(clients_instance)
+        old_clients.delete()
+
+        # Collect model instances of Special Authorizations
+        special_authorizations = []
+
+        for special in validated_data['special_authorization']:
+            special_authorizations.append(
+                models.SpecialAuthorization.objects.get_or_create(
+                    file_name=special['file_name'],
+                    pdf_title=special['pdf_title'],
+                )
+            )
+
+        # Remove old SpecialAuthorization references
+        price.special_authorizations.clear()
+
+        # Add new SpecialAuthorization references
+        price.special_authorizations.add(special_authorizations)
+
+        # Remove old CoverageCriteria models
+        old_criteria = price.coverage_criteria.all()
+        old_criteria.delete()
 
         # Update Coverage Criteria
-        validated_data['coverage_criteria'].update(price=price)
+        coverage_criteria = []
+
+        for criteria in validated_data['coverage_criteria']:
+            coverage_criteria.append(
+                models.CoverageCriteria.objects.get_or_create(
+                    price=price,
+                    header=criteria['header'],
+                    criteria=criteria['criteria'],
+                )
+            )
 
     def _get_atc_instance(self):
         """Retrieves ATC model for validated ATC value."""
