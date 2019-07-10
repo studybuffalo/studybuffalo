@@ -23,10 +23,8 @@ def parse_bsrf(bsrf):
             'dosage_form': sub.dosage_form,
         }
 
-    # Splits text multiple strings depending on the format
-    # used
-    # Formats vary with number of white space between
-    # sections
+    # Splits text multiple strings depending on the format used
+    # Formats vary with number of white space between sections
     match3 = r'\S\s{3}\S'
     match4 = r'\S\s{4}\S'
 
