@@ -43,6 +43,12 @@ pylint-django = "*" #https://github.com/PyCQA/pylint-django
 
 # Testing
 # -----------------------------------------------------------------------------
+factory_boy = "*"  # https://github.com/FactoryBoy/factory_boy
+pytest = "*"  # https://github.com/pytest-dev/pytest
+pytest-cov = "*"  # https://github.com/pytest-dev/pytest-cov
+pytest-django = "*"  # https://github.com/pytest-dev/pytest-django
+pytest-pythonpath = "*"  # https://github.com/bigsassy/pytest-pythonpath
+
 
 [requires]
 python_version = "3.7"
