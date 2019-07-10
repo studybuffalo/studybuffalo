@@ -90,7 +90,6 @@ class iDBLCoverageCriteriaSerializer(serializers.Serializer):
 
 class iDBLDataSerializer(serializers.Serializer):
     """Serializer for extracted iDBL data."""
-    # TODO: check how to handle absent fields (can a default be applied?)
     abc_id = serializers.IntegerField(
         help_text='The Alberta Blue Cross iDBL ID number',
     )
@@ -99,71 +98,71 @@ class iDBLDataSerializer(serializers.Serializer):
         max_length=8,
     )
     bsrf = serializers.CharField(
+        default=None,
         help_text='The combined brand name, strength, route, and dosage form',
-        required=False,
     )
     generic_name = serializers.CharField(
+        default=None,
         help_text='The generic name of the drug',
-        required=False,
     )
     ptc = serializers.CharField(
+        default=None,
         help_text='The PTC for the drug',
         max_length=11,
-        required=False,
     )
     date_listed = serializers.DateField(
+        default=None,
         help_text='The date listed or date updated',
-        required=False,
     )
     unit_price = serializers.DecimalField(
         decimal_places=4,
+        default=None,
         help_text='The unit price (in CAD)',
         max_digits=10,
-        required=False,
     )
     lca_price = serializers.DecimalField(
         decimal_places=4,
+        default=None,
         help_text='The Least Cost Alternative price (in CAD)',
         max_digits=10,
-        required=False,
     )
     mac_price = serializers.DecimalField(
         decimal_places=4,
+        default=None,
         help_text='The Maximum Allowable Cost price (in CAD)',
         max_digits=10,
-        required=False,
     )
     mac_text = serializers.CharField(
+        default=None,
         help_text='Descriptions for the MAC pricing',
         max_length=150,
-        required=False,
     )
     unit_issue = serializers.CharField(
+        default=None,
         help_text='The unit of issue for pricing',
         max_length=25,
-        required=False,
     )
     manufacturer = serializers.CharField(
+        default=None,
         help_text='The drug manufacturer',
         max_length=75,
-        required=False,
     )
     atc = serializers.CharField(
+        default=None,
         help_text='The ATC for the drug',
         max_length=7,
     )
     schedule = serializers.CharField(
+        default=None,
         help_text='The provincial drug schedule',
         max_length=10,
-        required=False,
     )
     interchangeable = serializers.BooleanField(
         default=False,
         help_text='Whether are interchangeable products or not',
-        required=False,
     )
     coverage_status = serializers.CharField(
-        required=False,
+        default=None,
         help_text='The coverage status of the drug',
         max_length=100,
     )
@@ -231,60 +230,63 @@ class iDBLDataSerializer(serializers.Serializer):
         price.save()
 
         # Remove any old price models
-        old_prices = models.Price.objects.filter(drug=instance).exclude(price)
+        old_prices = models.Price.objects.filter(
+            drug=instance
+        ).exclude(
+            id=price.id
+        )
         old_prices.delete()
 
         # Update Clients
-        clients_instance = models.Clients.objects.get_or_create(price=price)
+        clients_instance, _ = models.Clients.objects.get_or_create(price=price)
+        clients_data = validated_data['clients']
 
-        clients_instance.group_1 = validated_data['group_1']
-        clients_instance.group_66 = validated_data['group_66']
-        clients_instance.group_19823 = validated_data['group_19823']
-        clients_instance.group_19823a = validated_data['group_19823a']
-        clients_instance.group_19824 = validated_data['group_19824']
-        clients_instance.group_20400 = validated_data['group_20400']
-        clients_instance.group_20403 = validated_data['group_20403']
-        clients_instance.group_20514 = validated_data['group_20514']
-        clients_instance.group_22128 = validated_data['group_22128']
-        clients_instance.group_23609 = validated_data['group_23609']
+        clients_instance.group_1 = clients_data['group_1']
+        clients_instance.group_66 = clients_data['group_66']
+        clients_instance.group_19823 = clients_data['group_19823']
+        clients_instance.group_19823a = clients_data['group_19823a']
+        clients_instance.group_19824 = clients_data['group_19824']
+        clients_instance.group_20400 = clients_data['group_20400']
+        clients_instance.group_20403 = clients_data['group_20403']
+        clients_instance.group_20514 = clients_data['group_20514']
+        clients_instance.group_22128 = clients_data['group_22128']
+        clients_instance.group_23609 = clients_data['group_23609']
         clients_instance.save()
 
         # Remove old Clients models
-        old_clients = models.Clients.filter(price=price).exclude(clients_instance)
+        old_clients = models.Clients.objects.filter(
+            price=price
+        ).exclude(
+            id=clients_instance.id
+        )
         old_clients.delete()
 
         # Collect model instances of Special Authorizations
         special_authorizations = []
 
         for special in validated_data['special_authorization']:
-            special_authorizations.append(
-                models.SpecialAuthorization.objects.get_or_create(
-                    file_name=special['file_name'],
-                    pdf_title=special['pdf_title'],
-                )
+            special_instance, _ = models.SpecialAuthorization.objects.get_or_create(
+                file_name=special['file_name'],
+                pdf_title=special['pdf_title'],
             )
+            special_authorizations.append(special_instance)
 
-        # Remove old SpecialAuthorization references
-        price.special_authorizations.clear()
-
-        # Add new SpecialAuthorization references
-        price.special_authorizations.add(special_authorizations)
+        # Replace the new SpecialAuthorization references
+        price.special_authorizations.set(special_authorizations)
 
         # Remove old CoverageCriteria models
         old_criteria = price.coverage_criteria.all()
         old_criteria.delete()
 
         # Update Coverage Criteria
-        coverage_criteria = []
-
         for criteria in validated_data['coverage_criteria']:
-            coverage_criteria.append(
-                models.CoverageCriteria.objects.get_or_create(
-                    price=price,
-                    header=criteria['header'],
-                    criteria=criteria['criteria'],
-                )
+            models.CoverageCriteria.objects.get_or_create(
+                price=price,
+                header=criteria['header'],
+                criteria=criteria['criteria'],
             )
+
+        return instance
 
     def _get_atc_instance(self):
         """Retrieves ATC model for validated ATC value."""

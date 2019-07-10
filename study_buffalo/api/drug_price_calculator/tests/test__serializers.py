@@ -20,7 +20,7 @@ def create_idbl_data(**kwargs):
         'group_22128': True,
         'group_23609': True,
     })
-    special_authorizations = kwargs.get('special_authorization', [{
+    special_authorization = kwargs.get('special_authorization', [{
         'file_name': 'l',
         'pdf_title': 'm',
     }])
@@ -47,8 +47,8 @@ def create_idbl_data(**kwargs):
         'interchangeable': kwargs.get('interchangeable', True),
         'coverage_status': kwargs.get('coverage_status', 'k'),
         'clients': clients,
-        'special_authorizations': special_authorizations,
-        'coverage_critera': coverage_criteria,
+        'special_authorization': special_authorization,
+        'coverage_criteria': coverage_criteria,
     }
 
 def test__idbl_data_serializer__valid():
