@@ -1,13 +1,17 @@
-# Unit test / coverage reports
-reports/*
 
 # Django files
 staticfiles/
 study_buffalo/media/
 
+# Environment Files
+*.env
+!.study_buffalo.env
 # Dependency directories
 node_modules/
 jspm_packages/
+
+# Unit test / coverage reports
+reports/*
 
 # Code editor files
 .vscode

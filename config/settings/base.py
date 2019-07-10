@@ -4,11 +4,11 @@ Base settings to build other settings files upon.
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (study_buffalo/config/settings/base.py - 3 = study_buffalo/)
+ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('study_buffalo')
 
 env = environ.Env()
-environ.Env.read_env(env_file=ROOT_DIR.path('..', 'config').file('study_buffalo.env'))
+environ.Env.read_env(env_file=ROOT_DIR.path('config', 'settings').file('study_buffalo.env'))
 
 # GENERAL
 # ------------------------------------------------------------------------------
