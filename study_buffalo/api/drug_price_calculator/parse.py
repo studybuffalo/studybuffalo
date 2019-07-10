@@ -186,7 +186,6 @@ def _parse_brand_name(text):
 
 def _parse_strength(text):
     """Manually corrects errors not fixed by .lower()."""
-
     # Converts the strength to lower case
     text = text.lower()
 
@@ -199,8 +198,13 @@ def _parse_strength(text):
     # Remove any spaces between numbers and %
     text = re.sub(r'\s%', '%', text)
 
-    # Applies any remaining corrections
-    unit_subs = [] # TODO: fix this
+    # Get substitution model for units
+    try:
+        unit_subs = models.SubsUnit.objects.all()
+    except models.SubsUnit.DoesNotExist:
+        unit_subs = []
+
+    # Apply any substitutions
     for sub in unit_subs:
         text = re.sub(r'\b%s\b' % sub.original, sub.correction, text)
 
@@ -208,7 +212,6 @@ def _parse_strength(text):
 
 def _parse_route(text):
     """Properly formats the route"""
-
     # Convert route to lower case
     text = text.lower()
 
@@ -216,7 +219,6 @@ def _parse_route(text):
 
 def _parse_dosage_form(text):
     """Properly formats the dosage form"""
-
     # Convert route to lower case
     text = text.lower()
 
