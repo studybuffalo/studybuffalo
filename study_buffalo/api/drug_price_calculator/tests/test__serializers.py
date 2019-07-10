@@ -2,7 +2,7 @@
 import pytest
 
 from api.drug_price_calculator import serializers
-from drug_price_calculator.models import Drug
+from drug_price_calculator import models
 
 pytestmark = pytest.mark.django_db
 
@@ -53,11 +53,18 @@ def create_idbl_data(**kwargs):
 
 def test__idbl_data_serializer__valid():
     """Tests that model is properly created via iDBL serializer."""
+    # Get initial model counts
+    drug_count = models.Drug.objects.count()
+    price_count = models.Price.objects.count()
+    clients_count = models.Clients.objects.count()
+    coverage_count = models.CoverageCriteria.objects.count()
+    special_count = models.SpecialAuthorization.objects.count()
+
     # Create serializer data
     idbl_data = create_idbl_data()
 
     # Create initial instance to work from
-    instance = Drug.objects.create(din=idbl_data['din'])
+    instance = models.Drug.objects.create(din=idbl_data['din'])
 
     serializer = serializers.iDBLDataSerializer(
         instance=instance, data=idbl_data
@@ -69,6 +76,17 @@ def test__idbl_data_serializer__valid():
     # Save the data
     serializer.save()
 
-    # Confirm data was properly added
+    # Confirm data was properly added (by model counts)
+    assert drug_count + 1 == models.Drug.objects.count()
+    assert price_count + 1 == models.Price.objects.count()
+    assert clients_count + 1 == models.Clients.objects.count()
+    assert coverage_count + 1 == models.CoverageCriteria.objects.count()
+    assert special_count + 1 == models.SpecialAuthorization.objects.count()
+
+    # Confirm data to models was properly added
+    drug = models.Drug.objects.get(din=idbl_data['din'])
+    assert drug.brand_name == 'A B C D'
+    assert drug.generic_name == 'e'
+    assert drug.manufacturer == 'H'
 
 # Confirm handling of missing values (should switch to default)
