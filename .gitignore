@@ -18,3 +18,4 @@ reports/*
 # Python Files
 __pycache__
 *.pyc
+.pytest_cache
