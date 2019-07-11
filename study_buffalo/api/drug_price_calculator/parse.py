@@ -5,8 +5,20 @@ from sentry_sdk import capture_message
 from drug_price_calculator import models
 
 
-def parse_bsrf(bsrf):
+def parse_bsrf(raw_bsrf):
     """Parses the raw Brand Name, Strength, Routh, Dosage Form data."""
+    # Check if there is a value to parse
+    if not raw_bsrf:
+        return {
+            'brand_name': None,
+            'strength': None,
+            'route': None,
+            'dosage_form': None,
+        }
+
+    # Remove white space
+    bsrf = raw_bsrf.strip()
+
     # Get substitution or create pending model
     try:
         sub = models.SubsBSRF.objects.get(bsrf=bsrf)
@@ -131,6 +143,11 @@ def parse_bsrf(bsrf):
     }
 
 def parse_generic(raw_generic):
+    """Parses generic names."""
+    # Check if there is a value to parse
+    if not raw_generic:
+        return None
+
     # Remove any extra white space
     original = raw_generic.strip()
 
@@ -163,7 +180,15 @@ def parse_generic(raw_generic):
 
     return generic
 
-def parse_manufacturer(manufacturer):
+def parse_manufacturer(raw_manufacturer):
+    """Parses drug manufacturers."""
+    # Check if there is a value to parse
+    if not raw_manufacturer:
+        return None
+
+    # Strip white space
+    manufacturer = raw_manufacturer.strip()
+
     # Convert to title text
     text = manufacturer.title()
 
@@ -175,9 +200,19 @@ def parse_manufacturer(manufacturer):
 
     return text
 
-def parse_unit_of_issue(unit_issue):
-    # TODO: add this
-    return ''
+def parse_unit_of_issue(raw_unit_issue):
+    """Parses the unit of issue."""
+    # Check if there is a value to parse
+    if not raw_unit_issue:
+        return None
+
+    # Strip white space
+    unit_issue = raw_unit_issue.strip()
+
+    # Change to lower case
+    text = unit_issue.lower()
+
+    return text
 
 def _parse_brand_name(text):
     """Properly formats the brand name"""
