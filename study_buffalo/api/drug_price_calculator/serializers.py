@@ -310,6 +310,10 @@ class iDBLDataSerializer(serializers.Serializer):
         clients.group_23609 = data['group_23609']
         clients.save()
 
+        # Add new client to price
+        price.clients = clients
+        price.save()
+
         # Remove old Clients models
         old_clients = models.Clients.objects.filter(
             price=price

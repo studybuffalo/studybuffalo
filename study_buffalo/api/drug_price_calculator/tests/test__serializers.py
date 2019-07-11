@@ -158,7 +158,7 @@ def test__idbl_data_serializer__valid__generic_name():
     assert drug.generic_name == 'a'
 
 def test__idbl_data_serializer__valid__ptc():
-    """Tests handling of just a valid generic_name."""
+    """Tests handling of just a valid ptc."""
     # Create a PTC instance
     ptc = models.PTC.objects.create(id='1234')
 
@@ -181,6 +181,75 @@ def test__idbl_data_serializer__valid__ptc():
     drug = serializer.save()
 
     assert drug.ptc == ptc
+
+def test__idbl_data_serializer__valid__manufacturer():
+    """Tests handling of just a valid manufacturer."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'manufacturer': 'a',
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save the data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    assert drug.manufacturer == 'A'
+
+def test__idbl_data_serializer__valid__atc():
+    """Tests handling of just a valid atc."""
+    # Create a PTC instance
+    atc = models.ATC.objects.create(id='1234')
+
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'atc': atc.id,
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Confirm data is valid and save serializer
+    serializer.is_valid()
+    drug = serializer.save()
+
+    assert drug.atc == atc
+
+def test__idbl_data_serializer__valid__schedule():
+    """Tests handling of just a valid schedule."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'schedule': 'a',
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save the data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    assert drug.schedule == 'a'
 
 def test__idbl_data_serializer__valid__date_listed():
     """Tests handling of just a valid date_listed."""
@@ -307,6 +376,149 @@ def test__idbl_data_serializer__valid__mac_text():
 
     assert price.mac_text == 'a'
 
-# Add tests to confirm data addition through each key individually
+def test__idbl_data_serializer__valid__interchangeable():
+    """Tests handling of just a valid interchangeable."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'interchangeable': True,
+    }
 
-# Confirm handling of missing values (should switch to default)
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    # Get the price model for this drug
+    price = drug.prices.last()
+
+    assert price.interchangeable is True
+
+def test__idbl_data_serializer__valid__coverage_status():
+    """Tests handling of just a valid coverage_status."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'coverage_status': 'a',
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    # Get the price model for this drug
+    price = drug.prices.last()
+
+    assert price.coverage_status == 'a'
+
+def test__idbl_data_serializer__valid__clients():
+    """Tests handling of just a valid coverage_status."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'clients': {
+            'group_1': True,
+            'group_66': False,
+            'group_19823': False,
+            'group_19823a': False,
+            'group_19824': False,
+            'group_20400': False,
+            'group_20403': False,
+            'group_20514': False,
+            'group_22128': False,
+            'group_23609': False,
+        },
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    # Get the price model for this drug
+    price = drug.prices.last()
+
+    assert price.clients.group_1 == True
+    assert price.clients.group_66 == False
+
+def test__idbl_data_serializer__valid__special_authorization():
+    """Tests handling of just a valid special_authorization."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'special_authorization': [{
+            'file_name': 'a',
+            'pdf_title': 'b',
+        }]
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    # Get the price model for this drug
+    price = drug.prices.last()
+
+    assert price.special_authorizations.count() == 1
+    assert price.special_authorizations.last().file_name == 'a'
+    assert price.special_authorizations.last().pdf_title == 'b'
+
+def test__idbl_data_serializer__valid__coverage_criteria():
+    """Tests handling of just a valid coverage_criteria."""
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'coverage_criteria': [{
+            'header': 'a',
+            'criteria': 'b'
+        }]
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Save data
+    serializer.is_valid()
+    drug = serializer.save()
+
+    # Get the price model for this drug
+    price = drug.prices.last()
+
+    assert price.coverage_criteria.count() == 1
+    assert price.coverage_criteria.last().header == 'a'
+    assert price.coverage_criteria.last().criteria == 'b'
