@@ -9,7 +9,7 @@ from api.drug_price_calculator.serializers import iDBLDataSerializer
 
 
 class UploadiDBLData(GenericAPIView):
-    serializer = iDBLDataSerializer
+    serializer_class = iDBLDataSerializer
 
     def post(self, request, din):
         # Confirm DIN is in valid format
@@ -24,7 +24,7 @@ class UploadiDBLData(GenericAPIView):
         drug, _ = models.Drug.objects.get_or_create(din=din)
 
         # Serializer and validate data
-        serializer = self.get_serializer(data=request, instance=drug)
+        serializer = self.get_serializer(data=request.data, instance=drug)
 
         if serializer.is_valid() is False:
             return Response(
