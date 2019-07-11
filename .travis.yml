@@ -20,6 +20,6 @@ before_script:
   - psql -c "ALTER USER study_buffalo CREATEDB;" -U postgres
   - pipenv run python manage.py collectstatic --no-input
 script:
-  - pipenv run pytest --cov qlinicalrx_app --cov-report xml
+  - pipenv run pytest --cov study_buffalo --cov-report xml
 after_success:
   - codecov
