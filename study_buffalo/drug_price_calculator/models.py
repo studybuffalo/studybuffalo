@@ -312,17 +312,22 @@ class SubsBSRF(models.Model):
         unique=True,
     )
     brand_name = models.CharField(
+        blank=True,
         max_length=80,
+        null=True
     )
     strength = models.CharField(
+        blank=True,
         max_length=200,
         null=True
     )
     route = models.CharField(
+        blank=True,
         max_length=20,
         null=True
     )
     dosage_form = models.CharField(
+        blank=True,
         max_length=40,
         null=True
     )
@@ -334,7 +339,9 @@ class SubsGeneric(models.Model):
         unique=True,
     )
     correction = models.CharField(
+        blank=True,
         max_length=450,
+        null=True,
     )
 
 class SubsManufacturer(models.Model):
@@ -344,7 +351,9 @@ class SubsManufacturer(models.Model):
         unique=True,
     )
     correction = models.CharField(
+        blank=True,
         max_length=120,
+        null=True,
     )
 
 class SubsUnit(models.Model):
@@ -354,7 +363,9 @@ class SubsUnit(models.Model):
         unique=True,
     )
     correction = models.CharField(
+        blank=True,
         max_length=120,
+        null=True,
     )
 
 class PendBSRF(models.Model):
@@ -364,17 +375,22 @@ class PendBSRF(models.Model):
         unique=True,
     )
     brand_name = models.CharField(
+        blank=True,
         max_length=80,
+        null=True,
     )
     strength = models.CharField(
+        blank=True,
         max_length=200,
         null=True,
     )
     route = models.CharField(
+        blank=True,
         max_length=20,
         null=True,
     )
     dosage_form = models.CharField(
+        blank=True,
         max_length=40,
         null=True,
     )
@@ -386,7 +402,9 @@ class PendGeneric(models.Model):
         unique=True,
     )
     correction = models.CharField(
+        blank=True,
         max_length=450,
+        null=True,
     )
 
 class PendManufacturer(models.Model):
@@ -396,5 +414,7 @@ class PendManufacturer(models.Model):
         unique=True,
     )
     correction = models.CharField(
+        blank=True,
         max_length=150,
+        null=True,
     )
