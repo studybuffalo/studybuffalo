@@ -183,108 +183,20 @@ class iDBLDataSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         """Overriding update method."""
-        # Parse the BSRF data
-        bsrf = parse.parse_bsrf(validated_data['bsrf'])
+        # Update the Drug instance
+        drug = self._update_drug(instance)
 
-        # Parse the generic data
-        generic_name = parse.parse_generic(validated_data['generic_name'])
+        # Update the Price instance
+        price = self._update_price(drug)
 
-        # Parse the manufacturer data
-        manufacturer = parse.parse_manufacturer(validated_data['manufacturer'])
+        # Update the Clients instance
+        self._update_clients(price)
 
-        # Get ATC instance
-        atc = self._get_atc_instance()
+        # Update the SpecialAuthoriztions instances
+        self._update_special_authorization(price)
 
-        # Get PTC instance
-        ptc = self._get_ptc_instance()
-
-        # Update the instance
-        instance.brand_name = bsrf['brand_name']
-        instance.strength = bsrf['strength']
-        instance.route = bsrf['route']
-        instance.dosage_form = bsrf['dosage_form']
-        instance.generic_name = generic_name
-        instance.manufacturer = manufacturer
-        instance.schedule = validated_data['schedule']
-        instance.atc = atc
-        instance.ptc = ptc
-        instance.save()
-
-        # Create or retrieve the Price model instance
-        price, _ = models.Price.objects.get_or_create(
-            drug=instance, abc_id=validated_data['abc_id'],
-        )
-
-        # Parse the unit of issue
-        unit_issue = parse.parse_unit_of_issue(validated_data['unit_issue'])
-
-        # Update the price model
-        price.date_listed = validated_data['date_listed']
-        price.unit_price = validated_data['unit_price']
-        price.lca_price = validated_data['lca_price']
-        price.mac_price = validated_data['mac_price']
-        price.mac_text = validated_data['mac_text']
-        price.unit_issue = unit_issue
-        price.interchangeable = validated_data['interchangeable']
-        price.coverage_status = validated_data['coverage_status']
-        price.save()
-
-        # Remove any old price models
-        old_prices = models.Price.objects.filter(
-            drug=instance
-        ).exclude(
-            id=price.id
-        )
-        old_prices.delete()
-
-        # Update Clients
-        clients_instance, _ = models.Clients.objects.get_or_create(price=price)
-        clients_data = validated_data['clients']
-
-        clients_instance.group_1 = clients_data['group_1']
-        clients_instance.group_66 = clients_data['group_66']
-        clients_instance.group_19823 = clients_data['group_19823']
-        clients_instance.group_19823a = clients_data['group_19823a']
-        clients_instance.group_19824 = clients_data['group_19824']
-        clients_instance.group_20400 = clients_data['group_20400']
-        clients_instance.group_20403 = clients_data['group_20403']
-        clients_instance.group_20514 = clients_data['group_20514']
-        clients_instance.group_22128 = clients_data['group_22128']
-        clients_instance.group_23609 = clients_data['group_23609']
-        clients_instance.save()
-
-        # Remove old Clients models
-        old_clients = models.Clients.objects.filter(
-            price=price
-        ).exclude(
-            id=clients_instance.id
-        )
-        old_clients.delete()
-
-        # Collect model instances of Special Authorizations
-        special_authorizations = []
-
-        for special in validated_data['special_authorization']:
-            special_instance, _ = models.SpecialAuthorization.objects.get_or_create(
-                file_name=special['file_name'],
-                pdf_title=special['pdf_title'],
-            )
-            special_authorizations.append(special_instance)
-
-        # Replace the new SpecialAuthorization references
-        price.special_authorizations.set(special_authorizations)
-
-        # Remove old CoverageCriteria models
-        old_criteria = price.coverage_criteria.all()
-        old_criteria.delete()
-
-        # Update Coverage Criteria
-        for criteria in validated_data['coverage_criteria']:
-            models.CoverageCriteria.objects.get_or_create(
-                price=price,
-                header=criteria['header'],
-                criteria=criteria['criteria'],
-            )
+        # Update the CoverageCriteria instances
+        self._update_coverage_criteria(price)
 
         return instance
 
@@ -313,3 +225,141 @@ class iDBLDataSerializer(serializers.Serializer):
             capture_message(message=message, level=30)
 
         return ptc
+
+    def _update_drug(self, drug):
+        """Updates the Drug instance."""
+        data = self.validated_data
+
+        # Parse the BSRF data
+        bsrf = parse.parse_bsrf(data['bsrf'])
+
+        # Parse the generic data
+        generic_name = parse.parse_generic(data['generic_name'])
+
+        # Parse the manufacturer data
+        manufacturer = parse.parse_manufacturer(data['manufacturer'])
+
+        # Get ATC instance
+        atc = self._get_atc_instance()
+
+        # Get PTC instance
+        ptc = self._get_ptc_instance()
+
+        # Update the Drug instance
+        drug.brand_name = bsrf['brand_name']
+        drug.strength = bsrf['strength']
+        drug.route = bsrf['route']
+        drug.dosage_form = bsrf['dosage_form']
+        drug.generic_name = generic_name
+        drug.manufacturer = manufacturer
+        drug.schedule = data['schedule']
+        drug.atc = atc
+        drug.ptc = ptc
+        drug.save()
+
+        return drug
+
+    def _update_price(self, drug):
+        """Updates the Price instance for this drug."""
+        data = self.validated_data
+
+        # Create or retrieve the Price model instance
+        price, _ = models.Price.objects.get_or_create(
+            drug=drug, abc_id=data['abc_id'],
+        )
+
+        # Parse the unit of issue
+        unit_issue = parse.parse_unit_of_issue(data['unit_issue'])
+
+        # Update the price model
+        price.date_listed = data['date_listed']
+        price.unit_price = data['unit_price']
+        price.lca_price = data['lca_price']
+        price.mac_price = data['mac_price']
+        price.mac_text = data['mac_text']
+        price.unit_issue = unit_issue
+        price.interchangeable = data['interchangeable']
+        price.coverage_status = data['coverage_status']
+        price.save()
+
+        # Remove any old price models
+        old_prices = models.Price.objects.filter(drug=drug).exclude(id=price.id)
+        old_prices.delete()
+
+        return price
+
+    def _update_clients(self, price):
+        """Updates the Clients instance for provided price."""
+        try:
+            data = self.validated_data['clients']
+        except KeyError:
+            return None
+
+        # Update Clients
+        clients, _ = models.Clients.objects.get_or_create(price=price)
+
+        clients.group_1 = data['group_1']
+        clients.group_66 = data['group_66']
+        clients.group_19823 = data['group_19823']
+        clients.group_19823a = data['group_19823a']
+        clients.group_19824 = data['group_19824']
+        clients.group_20400 = data['group_20400']
+        clients.group_20403 = data['group_20403']
+        clients.group_20514 = data['group_20514']
+        clients.group_22128 = data['group_22128']
+        clients.group_23609 = data['group_23609']
+        clients.save()
+
+        # Remove old Clients models
+        old_clients = models.Clients.objects.filter(
+            price=price
+        ).exclude(
+            id=clients.id
+        )
+        old_clients.delete()
+
+        return clients
+
+    def _update_special_authorization(self, price):
+        """Update SpecialAuthorization instances for provided price."""
+        try:
+            data = self.validated_data['special_authorization']
+        except KeyError:
+            return None
+
+        # Collect model instances of Special Authorizations
+        special_authorizations = []
+
+        for special in data:
+            special_instance, _ = models.SpecialAuthorization.objects.get_or_create(
+                file_name=special['file_name'],
+                pdf_title=special['pdf_title'],
+            )
+            special_authorizations.append(special_instance)
+
+        # Replace the new SpecialAuthorization references
+        price.special_authorizations.set(special_authorizations)
+
+        return special_authorizations
+
+    def _update_coverage_criteria(self, price):
+        """Update CoverageCriteria instances for provided price."""
+        try:
+            data = self.validated_data['coverage_criteria']
+        except KeyError:
+            return None
+
+        # Remove old CoverageCriteria models
+        old_criteria = price.coverage_criteria.all()
+        old_criteria.delete()
+
+        # Update Coverage Criteria
+        for criteria in data:
+            models.CoverageCriteria.objects.get_or_create(
+                price=price,
+                header=criteria['header'],
+                criteria=criteria['criteria'],
+            )
+
+        # No return value, so returns True
+        return True
