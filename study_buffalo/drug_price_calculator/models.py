@@ -8,6 +8,7 @@ class Drug(models.Model):
         help_text="The drug's DIN/NPN/PIN",
         max_length=8,
         unique=True,
+        verbose_name='DIN',
     )
     brand_name = models.CharField(
         blank=True,
@@ -58,6 +59,7 @@ class Drug(models.Model):
         on_delete=models.SET_NULL,
         related_name='drugs',
         to='drug_price_calculator.ATC',
+        verbose_name='ATC',
     )
     ptc = models.ForeignKey(
         blank=True,
@@ -66,7 +68,117 @@ class Drug(models.Model):
         on_delete=models.SET_NULL,
         related_name='drugs',
         to='drug_price_calculator.PTC',
+        verbose_name='PTC',
     )
+
+    def __str__(self):
+        '{} ({})'.format(self.brand_name, self.din)
+
+class ATC(models.Model):
+    """Defines the ATC for each extracted URL"""
+    id = models.CharField(
+        max_length=7,
+        primary_key=True,
+        unique=True,
+    )
+    atc_1 = models.CharField(
+        max_length=7,
+        null=True,
+        verbose_name='ATC level 1 code',
+    )
+    atc_1_text = models.CharField(
+        max_length=200,
+        null=True,
+        verbose_name='ATC level 1 description',
+    )
+    atc_2 = models.CharField(
+        max_length=7,
+        null=True,
+        verbose_name='ATC level 2 code',
+    )
+    atc_2_text = models.CharField(
+        max_length=200,
+        null=True,
+        verbose_name='ATC level 2 description',
+    )
+    atc_3 = models.CharField(
+        max_length=7,
+        null=True,
+        verbose_name='ATC level 3 code',
+    )
+    atc_3_text = models.CharField(
+        max_length=200,
+        null=True,
+        verbose_name='ATC level 3 description',
+    )
+    atc_4 = models.CharField(
+        max_length=7,
+        null=True,
+        verbose_name='ATC level 4 code',
+    )
+    atc_4_text = models.CharField(
+        max_length=200,
+        null=True,
+        verbose_name='ATC level 4 description',
+    )
+
+    class Meta:
+        verbose_name = "Anatomical Therapeutic Category"
+        verbose_name_plural = "Anatomical Therapeutic Categories"
+
+    def __str__(self):
+        return str(self.id)
+
+class PTC(models.Model):
+    """Defines the PTC for the specified URL"""
+    id = models.CharField(
+        max_length=11,
+        primary_key=True,
+        unique=True,
+    )
+    ptc_1 = models.CharField(
+        max_length=11,
+        null=True,
+        verbose_name='PTC level 1 code',
+    )
+    ptc_1_text = models.CharField(
+        max_length=75,
+        null=True,
+        verbose_name='PTC level 1 description',
+    )
+    ptc_2 = models.CharField(
+        max_length=11,
+        null=True,
+        verbose_name='PTC level 2 code',
+    )
+    ptc_2_text = models.CharField(
+        max_length=75,
+        null=True,
+        verbose_name='PTC level 2 description',
+    )
+    ptc_3 = models.CharField(
+        max_length=11,
+        null=True,
+        verbose_name='PTC level 3 code',
+    )
+    ptc_3_text = models.CharField(
+        max_length=75,
+        null=True,
+        verbose_name='PTC level 3 description',
+    )
+    ptc_4 = models.CharField(
+        max_length=11,
+        null=True,
+        verbose_name='PTC level 4 code',
+    )
+    ptc_4_text = models.CharField(
+        max_length=75,
+        null=True,
+        verbose_name='PTC level 4 description',
+    )
+
+    def __str__(self):
+        return str(self.id)
 
 class Price(models.Model):
     """Pricing details for a single drug."""
@@ -78,6 +190,7 @@ class Price(models.Model):
     )
     abc_id = models.PositiveIntegerField(
         help_text='The Alberta Blue Cross iDBL ID number',
+        verbose_name='ABC ID',
     )
     date_listed = models.DateField(
         blank=True,
@@ -97,6 +210,7 @@ class Price(models.Model):
         help_text='The Least Cost Alternative price (in CAD)',
         max_digits=10,
         null=True,
+        verbose_name='LCA price',
     )
     mac_price = models.DecimalField(
         blank=True,
@@ -104,18 +218,21 @@ class Price(models.Model):
         help_text='The Maximum Allowable Cost price (in CAD)',
         max_digits=10,
         null=True,
+        verbose_name='MAC price',
     )
     mac_text = models.CharField(
         blank=True,
         help_text='Descriptions for the MAC pricing',
         max_length=150,
         null=True,
+        verbose_name='MAC text',
     )
     unit_issue = models.CharField(
         blank=True,
         help_text='The unit of issue for pricing',
         max_length=25,
         null=True,
+        verbose_name='unit of issue',
     )
     interchangeable = models.BooleanField(
         default=False,
@@ -127,13 +244,6 @@ class Price(models.Model):
         max_length=100,
         null=True,
     )
-    clients = models.OneToOneField(
-        blank=True,
-        help_text='The details of which clients cover applies to',
-        null=True,
-        on_delete=models.SET_NULL,
-        to='drug_price_calculator.Clients',
-    )
     special_authorizations = models.ManyToManyField(
         help_text='Special Authorization forms that apply to this drug',
         related_name='drugs',
@@ -144,8 +254,18 @@ class Price(models.Model):
         help_text='The date and time this price was added',
     )
 
+    def __str__(self):
+        '{} price ({})'.format(self.drug.brand_name, self.abc_id)
+
 class Clients(models.Model):
     """Holds details regarding which clients are covered."""
+    price = models.OneToOneField(
+        blank=True,
+        help_text='The price details these clients apply to',
+        null=True,
+        on_delete=models.SET_NULL,
+        to='drug_price_calculator.Price',
+    )
     group_1 = models.BooleanField(
         default=False,
     )
@@ -177,105 +297,6 @@ class Clients(models.Model):
         default=False,
     )
 
-class ATC(models.Model):
-    """Defines the ATC for each extracted URL"""
-    id = models.CharField(
-        max_length=7,
-        primary_key=True,
-        unique=True,
-    )
-    atc_1 = models.CharField(
-        max_length=7,
-        null=True,
-    )
-    atc_1_text = models.CharField(
-        max_length=200,
-        null=True,
-    )
-    atc_2 = models.CharField(
-        max_length=7,
-        null=True,
-    )
-    atc_2_text = models.CharField(
-        max_length=200,
-        null=True,
-    )
-    atc_3 = models.CharField(
-        max_length=7,
-        null=True,
-    )
-    atc_3_text = models.CharField(
-        max_length=200,
-        null=True,
-    )
-    atc_4 = models.CharField(
-        max_length=7,
-        null=True,
-    )
-    atc_4_text = models.CharField(
-        max_length=200,
-        null=True,
-    )
-
-    class Meta:
-        verbose_name = "Anatomical Therapeutic Category"
-        verbose_name_plural = "Anatomical Therapeutic Categories"
-
-    def __str__(self):
-        if self.atc_4:
-            return "{0} - {1}".format(self.atc_4, self.atc_4_text)
-
-        if self.atc_3:
-            return "{0} - {1}".format(self.atc_3, self.atc_3_text)
-
-        if self.atc_2:
-            return "{0} - {1}".format(self.atc_2, self.atc_2_text)
-
-        if self.atc_1:
-            return "{0} - {1}".format(self.atc_1, self.atc_1_text)
-
-        return str(self.id)
-
-class PTC(models.Model):
-    """Defines the PTC for the specified URL"""
-    id = models.CharField(
-        max_length=11,
-        primary_key=True,
-        unique=True,
-    )
-    ptc_1 = models.CharField(
-        max_length=11,
-        null=True,
-    )
-    ptc_1_text = models.CharField(
-        max_length=75,
-        null=True,
-    )
-    ptc_2 = models.CharField(
-        max_length=11,
-        null=True,
-    )
-    ptc_2_text = models.CharField(
-        max_length=75,
-        null=True,
-    )
-    ptc_3 = models.CharField(
-        max_length=11,
-        null=True,
-    )
-    ptc_3_text = models.CharField(
-        max_length=75,
-        null=True,
-    )
-    ptc_4 = models.CharField(
-        max_length=11,
-        null=True,
-    )
-    ptc_4_text = models.CharField(
-        max_length=75,
-        null=True,
-    )
-
 class CoverageCriteria(models.Model):
     """Details on any coverage criteria."""
     price = models.ForeignKey(
@@ -294,6 +315,9 @@ class CoverageCriteria(models.Model):
         help_text='The coverage criteria',
     )
 
+    def __str__(self):
+        'Coverage criteria for {}'.format(str(self.price))
+
 class SpecialAuthorization(models.Model):
     """Details on special authorization forms."""
     file_name = models.CharField(
@@ -304,6 +328,9 @@ class SpecialAuthorization(models.Model):
         help_text='The tile of the PDF',
         max_length=100,
     )
+
+    def __str__(self):
+        return self.pdf_title
 
 class SubsBSRF(models.Model):
     """Formatting substitutions for Brand/Strength/Route/Formulation"""
