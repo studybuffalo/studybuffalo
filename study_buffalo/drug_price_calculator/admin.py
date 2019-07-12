@@ -28,5 +28,5 @@ class PriceAdmin(admin.ModelAdmin):
     fields = (
         'drug', 'abc_id', 'date_listed', 'unit_price', 'lca_price', 'mac_price',
         'mac_text', 'unit_issue', 'interchangeable', 'coverage_status',
-        'clients'
     )
+    inlines = (ClientsInlineAdmin,)
