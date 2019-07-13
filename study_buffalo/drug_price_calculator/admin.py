@@ -3,9 +3,6 @@ from django.contrib import admin
 from . import models
 
 
-
-
-
 class ClientsInlineAdmin(admin.TabularInline):
     model = models.Clients
 
