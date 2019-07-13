@@ -155,20 +155,6 @@
   },
   {
     "model": "drug_price_calculator.ptc",
-    "pk": "2",
-    "fields": {
-      "ptc_1": "0",
-      "ptc_1_text": "Non-Classified Drugs",
-      "ptc_2": "2",
-      "ptc_2_text": "Diabetes Supplies",
-      "ptc_3": null,
-      "ptc_3_text": null,
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
     "pk": "20000",
     "fields": {
       "ptc_1": "20000",
