@@ -10,42 +10,52 @@ from api.drug_price_calculator import parse
 
 class iDBLClientsSerializer(serializers.Serializer):
     group_1 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_66 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_19823 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_19823a = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_19824 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_20400 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_20403 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_20514 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_22128 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
     group_23609 = serializers.BooleanField(
+        allow_null=True,
         default=False,
         required=False,
     )
@@ -74,6 +84,7 @@ class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
 
 class iDBLCoverageCriteriaSerializer(serializers.Serializer):
     header = serializers.CharField(
+        allow_null=True,
         help_text='Any header for this criteria',
         max_length=200,
         required=False,
@@ -98,82 +109,99 @@ class iDBLDataSerializer(serializers.Serializer):
         max_length=8,
     )
     bsrf = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The combined brand name, strength, route, and dosage form',
     )
     generic_name = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The generic name of the drug',
     )
     ptc = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The PTC for the drug',
         max_length=11,
     )
     date_listed = serializers.DateField(
+        allow_null=True,
         default=None,
         help_text='The date listed or date updated',
     )
     unit_price = serializers.DecimalField(
+        allow_null=True,
         decimal_places=4,
         default=None,
         help_text='The unit price (in CAD)',
         max_digits=10,
     )
     lca_price = serializers.DecimalField(
+        allow_null=True,
         decimal_places=4,
         default=None,
         help_text='The Least Cost Alternative price (in CAD)',
         max_digits=10,
     )
     mac_price = serializers.DecimalField(
+        allow_null=True,
         decimal_places=4,
         default=None,
         help_text='The Maximum Allowable Cost price (in CAD)',
         max_digits=10,
     )
     mac_text = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='Descriptions for the MAC pricing',
         max_length=150,
     )
     unit_issue = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The unit of issue for pricing',
         max_length=25,
     )
     manufacturer = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The drug manufacturer',
         max_length=75,
     )
     atc = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The ATC for the drug',
         max_length=7,
     )
     schedule = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The provincial drug schedule',
         max_length=10,
     )
     interchangeable = serializers.BooleanField(
+        allow_null=True,
         default=False,
         help_text='Whether are interchangeable products or not',
     )
     coverage_status = serializers.CharField(
+        allow_null=True,
         default=None,
         help_text='The coverage status of the drug',
         max_length=100,
     )
     clients = iDBLClientsSerializer(
+        allow_null=True,
         required=False,
     )
     special_authorization = iDBLSpecialAuthorizationSerializer(
+        allow_null=True,
         many=True,
         required=False,
     )
     coverage_criteria = iDBLCoverageCriteriaSerializer(
+        allow_null=True,
         many=True,
         required=False,
     )
@@ -482,10 +510,6 @@ class iDBLDataSerializer(serializers.Serializer):
         clients.group_22128 = data['group_22128']
         clients.group_23609 = data['group_23609']
         clients.save()
-
-        # Add new client to price
-        price.clients = clients
-        price.save()
 
         # Remove old Clients models
         old_clients = models.Clients.objects.filter(
