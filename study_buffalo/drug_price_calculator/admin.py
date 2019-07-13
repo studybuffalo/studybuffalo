@@ -6,14 +6,6 @@ from . import models
 
 
 
-@admin.register(models.Drug)
-class DrugAdmin(admin.ModelAdmin):
-    """Admin for the Drug (and related) models."""
-    model = models.Drug
-
-    list_display = ('din', 'brand_name', 'generic_name', 'strength', 'dosage_form')
-    ordering = ('generic_name', 'strength', 'dosage_form')
-
 class ClientsInlineAdmin(admin.TabularInline):
     model = models.Clients
 
@@ -24,6 +16,14 @@ class CoverageCriteriaInlineAdmin(admin.TabularInline):
 class SpecialInlineAdmin(admin.TabularInline):
     model = models.Price.special_authorizations.through
     extra = 1
+
+@admin.register(models.Drug)
+class DrugAdmin(admin.ModelAdmin):
+    """Admin for the Drug (and related) models."""
+    model = models.Drug
+
+    list_display = ('din', 'brand_name', 'generic_name', 'strength', 'dosage_form')
+    ordering = ('generic_name', 'strength', 'dosage_form')
 
 @admin.register(models.Price)
 class PriceAdmin(admin.ModelAdmin):
