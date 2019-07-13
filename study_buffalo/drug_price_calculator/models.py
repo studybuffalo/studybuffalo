@@ -297,6 +297,9 @@ class Clients(models.Model):
         default=False,
     )
 
+    class Meta:
+        verbose_name_plural = 'clients'
+
 class CoverageCriteria(models.Model):
     """Details on any coverage criteria."""
     price = models.ForeignKey(
@@ -314,6 +317,9 @@ class CoverageCriteria(models.Model):
     criteria = models.TextField(
         help_text='The coverage criteria',
     )
+
+    class Meta:
+        verbose_name_plural = 'coverage criteria'
 
     def __str__(self):
         return 'Coverage criteria for {}'.format(str(self.price))
