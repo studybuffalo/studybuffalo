@@ -1,0 +1,450 @@
+[
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 1,
+    "fields": {
+      "original": "AA PHARMA INC.",
+      "correction": "AA Pharma Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 2,
+    "fields": {
+      "original": "ABBVIE CORPORATION",
+      "correction": "AbbVie Corporation"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 3,
+    "fields": {
+      "original": "ACCORD HEALTHCARE INC",
+      "correction": "Accord Healthcare Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 4,
+    "fields": {
+      "original": "AEGERION PHARMACEUTICALS CANADA LTD",
+      "correction": "Aegerion Pharmaceuticals Canada Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 5,
+    "fields": {
+      "original": "ALEXION PHARMA GMBH",
+      "correction": "Alexion Pharma GmbH"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 6,
+    "fields": {
+      "original": "AMDIPHARM LIMITED",
+      "correction": "Amdipharm Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 7,
+    "fields": {
+      "original": "ASPEN PHARMA TRADING LIMITED",
+      "correction": "Aspen Pharma Trading Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 8,
+    "fields": {
+      "original": "ASTRAZENECA CANADA INC.",
+      "correction": "AstraZeneca Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 9,
+    "fields": {
+      "original": "ATNAHS PHARMA UK LIMITED",
+      "correction": "Atnahs Pharma UK Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 10,
+    "fields": {
+      "original": "BGP PHARMA ULC",
+      "correction": "BGP Pharma ULC"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 11,
+    "fields": {
+      "original": "BIOGEN IDEC CANADA INC",
+      "correction": "Biogen Idec Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 12,
+    "fields": {
+      "original": "BIOMARIN PHARMACEUTICAL (CANADA) INC",
+      "correction": "BioMarin Pharmaceutical (Canada) Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 13,
+    "fields": {
+      "original": "CELGENE INC",
+      "correction": "Celgene Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 14,
+    "fields": {
+      "original": "CIPHER PHARMACEUTICALS INC",
+      "correction": "Cipher Pharmaceuticals Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 15,
+    "fields": {
+      "original": "DONMAR FOODS INCORPORATED",
+      "correction": "Donmar Foods Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 16,
+    "fields": {
+      "original": "DR REDDYS LABORATORIES INC",
+      "correction": "Dr Reddys Laboratories Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 17,
+    "fields": {
+      "original": "ECL PHARMA GROUP LTD",
+      "correction": "ECL Pharma Group Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 18,
+    "fields": {
+      "original": "EISAI LIMITED",
+      "correction": "Eisai Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 19,
+    "fields": {
+      "original": "EMD SERONO CANADA INC",
+      "correction": "EMD Serono Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 20,
+    "fields": {
+      "original": "ERFA CANADA 2012 INC.",
+      "correction": "ERFA Canada 2012 Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 21,
+    "fields": {
+      "original": "FOREST LABORATORIES CANADA INC",
+      "correction": "Forest Laboratories Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 22,
+    "fields": {
+      "original": "G POHL BOSKAMP GMBH & CO KG/PEDIAPHARM",
+      "correction": "G Pohl Boskamp GmbH & Co. KG/Pediapharm"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 23,
+    "fields": {
+      "original": "GENERIC MEDICAL PARTNERS INC",
+      "correction": "Generic Medical Partners Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 24,
+    "fields": {
+      "original": "GENMED, A DIVISION OF PFIZER CANADA INC.",
+      "correction": "GenMed, a Division of Pfizer Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 25,
+    "fields": {
+      "original": "GLAXOSMITHKLINE",
+      "correction": "GlaxoSmithKline"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 26,
+    "fields": {
+      "original": "GLAXOSMITHKLINE CONSUMER HEALTHCARE",
+      "correction": "GlaxoSmithKline Consumer Healthcare"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 27,
+    "fields": {
+      "original": "GLAXOSMITHKLINE/ACTELION PHARMACEUTICALS",
+      "correction": "GlaxoSmithKline/Actelion Pharmaceuticals"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 28,
+    "fields": {
+      "original": "HOFFMANN-LA ROCHE LIMITED",
+      "correction": "Hoffmann-La Roche Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 29,
+    "fields": {
+      "original": "INDIVIOR UK LIMITED",
+      "correction": "Indivior UK Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 30,
+    "fields": {
+      "original": "IPSEN BIOPHARM LIMITED",
+      "correction": "Ipsen Biopharm Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 31,
+    "fields": {
+      "original": "LEO PHARMA INC.",
+      "correction": "LEO Pharma Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 32,
+    "fields": {
+      "original": "LUPIN PHARMA CANADA LIMITED",
+      "correction": "Lupin Pharma Canada Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 33,
+    "fields": {
+      "original": "MALLINCKRODT CANADA ULC.",
+      "correction": "Mallinckrodt Canada ULC"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 34,
+    "fields": {
+      "original": "MARCAN PHARMACEUTICALS INC",
+      "correction": "Marcan Pharmaceuticals Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 35,
+    "fields": {
+      "original": "MCNEIL CONSUMER HEALTHCARE",
+      "correction": "McNeil Consumer Healthcare"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 36,
+    "fields": {
+      "original": "MEDA AB",
+      "correction": "Meda AB"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 37,
+    "fields": {
+      "original": "MEDA PHARMACEUTICALS LTD",
+      "correction": "Meda Pharmaceuticals Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 38,
+    "fields": {
+      "original": "MYLAN PHARMACEUTICALS ULC",
+      "correction": "Mylan Pharmaceuticals ULC"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 39,
+    "fields": {
+      "original": "OMEGA LABORATORIES LIMITED",
+      "correction": "Omega Laboratories Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 40,
+    "fields": {
+      "original": "RANBAXY PHARMACEUTICALS CANADA INC",
+      "correction": "Ranbaxy Pharmaceuticals Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 41,
+    "fields": {
+      "original": "RESPIRONICS NJ INC-AUTO CONTROL MED INC",
+      "correction": "Respironics NJ Inc.-Auto Control Medical Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 42,
+    "fields": {
+      "original": "SHIRE ORPHAN THERAPIES INC",
+      "correction": "Shire Orphan Therapies Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 43,
+    "fields": {
+      "original": "SHIRE PHARMA CANADA ULC",
+      "correction": "Shire Pharma Canada ULC"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 44,
+    "fields": {
+      "original": "SIVEM PHARMACEUTICALS ULC",
+      "correction": "Sivem Pharmaceuticals ULC"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 45,
+    "fields": {
+      "original": "STERIMAX INC.",
+      "correction": "SteriMax Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 46,
+    "fields": {
+      "original": "SUN PHARMA GLOBAL FZE",
+      "correction": "Sun Pharma Global FZE"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 47,
+    "fields": {
+      "original": "TAROPHARMA, A DIV. OF TARO PHARMAC. INC.",
+      "correction": "TaroPharma, a Division of Taro Pharmaceuticals Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 48,
+    "fields": {
+      "original": "TEVA CAN LTD/TEVA CAN INNOV.G.P.-S.E.N.C",
+      "correction": "Teva Cananada Ltd./Teva Canada Innovation G.P.-S.E.N.C"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 49,
+    "fields": {
+      "original": "TEVA CANADA LIMITED",
+      "correction": "Teva Canada Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 50,
+    "fields": {
+      "original": "THERATECHNOLOGIES INC",
+      "correction": "Theratechnologies Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 51,
+    "fields": {
+      "original": "TRIBUTE PHARMACEUTICALS CANADA LTD",
+      "correction": "Tribute Pharmaceuticals Canada Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 52,
+    "fields": {
+      "original": "UCB CANADA INC.",
+      "correction": "UCB Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 53,
+    "fields": {
+      "original": "VALEANT CANADA LP",
+      "correction": "Valeant Canada LP"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 54,
+    "fields": {
+      "original": "VALEANT CANADA LTD/TEVA CANADA LTD",
+      "correction": "Valeant Canada Ltd./Teva Canada Ltd."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 55,
+    "fields": {
+      "original": "VANC PHARMACEUTICALS INC",
+      "correction": "Vanc Pharmaceuticals Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsmanufacturer",
+    "pk": 56,
+    "fields": {
+      "original": "VERTEX PHARMACEUTICALS (CANADA) INC",
+      "correction": "Vertex Pharmaceuticals (Canada) Inc."
+    }
+  }
+]
