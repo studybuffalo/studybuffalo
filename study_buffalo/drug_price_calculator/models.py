@@ -369,6 +369,10 @@ class SubsBSRF(models.Model):
         null=True
     )
 
+    class Meta:
+        verbose_name = 'Substitution - BSRF'
+        verbose_name_plural = 'Substitutions - BSRF'
+
 class SubsGeneric(models.Model):
     """Formatting substitutions for generic names"""
     original = models.CharField(
@@ -380,6 +384,10 @@ class SubsGeneric(models.Model):
         max_length=450,
         null=True,
     )
+
+    class Meta:
+        verbose_name = 'Substitution - Generic'
+        verbose_name_plural = 'Substitutions - Generic'
 
 class SubsManufacturer(models.Model):
     """Formatting substitutions for manufacturers"""
@@ -393,6 +401,10 @@ class SubsManufacturer(models.Model):
         null=True,
     )
 
+    class Meta:
+        verbose_name = 'Substitution - Manufacturer'
+        verbose_name_plural = 'Substitutions - Manufacturer'
+
 class SubsUnit(models.Model):
     """Substitutions for units"""
     original = models.CharField(
@@ -404,6 +416,10 @@ class SubsUnit(models.Model):
         max_length=120,
         null=True,
     )
+
+    class Meta:
+        verbose_name = 'Substitution - Unit'
+        verbose_name_plural = 'Substitutions - Unit'
 
 class PendBSRF(models.Model):
     """Pending substitutions for BSRF"""
@@ -432,6 +448,10 @@ class PendBSRF(models.Model):
         null=True,
     )
 
+    class Meta:
+        verbose_name = 'Substitution - BSRF (Pending)'
+        verbose_name_plural = 'Substitutions - BSRF (Pending)'
+
 class PendGeneric(models.Model):
     """Pending substitutions for Generic Names"""
     original = models.CharField(
@@ -444,6 +464,10 @@ class PendGeneric(models.Model):
         null=True,
     )
 
+    class Meta:
+        verbose_name = 'Substitution - Generic (Pending)'
+        verbose_name_plural = 'Substitutions - Generic (Pending)'
+
 class PendManufacturer(models.Model):
     """Pending substitutions for Manufacturers"""
     original = models.CharField(
@@ -455,3 +479,7 @@ class PendManufacturer(models.Model):
         max_length=150,
         null=True,
     )
+
+    class Meta:
+        verbose_name = 'Substitution - Manufactuer (Pending)'
+        verbose_name_plural = 'Substitutions - Manufactuer (Pending)'
