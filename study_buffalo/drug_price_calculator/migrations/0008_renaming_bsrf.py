@@ -2,7 +2,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('drug_price_calculator', '0007_adding_meta_options'),
     ]
