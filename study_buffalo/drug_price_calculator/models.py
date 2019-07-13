@@ -344,7 +344,7 @@ class SpecialAuthorization(models.Model):
 
 class SubsBSRF(models.Model):
     """Formatting substitutions for Brand/Strength/Route/Formulation"""
-    bsrf = models.CharField(
+    original = models.CharField(
         max_length=250,
         unique=True,
     )

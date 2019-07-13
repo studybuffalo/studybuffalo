@@ -77,10 +77,10 @@ class SubsBSRFAdmin(admin.ModelAdmin):
     """Admin for the BSRF substitution model."""
     model = models.SubsBSRF
 
-    list_display = ('bsrf', 'brand_name', 'strength', 'route', 'dosage_form')
+    list_display = ('original', 'brand_name', 'strength', 'route', 'dosage_form')
     ordering = ('brand_name', 'route', 'dosage_form', 'strength')
 
-    fields = ('bsrf', 'brand_name', 'strength', 'route', 'dosage_form')
+    fields = ('original', 'brand_name', 'strength', 'route', 'dosage_form')
 
 @admin.register(models.SubsGeneric)
 class SubsGenericAdmin(admin.ModelAdmin):
