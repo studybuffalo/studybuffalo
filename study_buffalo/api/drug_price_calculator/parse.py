@@ -21,7 +21,7 @@ def parse_bsrf(raw_bsrf):
 
     # Get substitution or create pending model
     try:
-        sub = models.SubsBSRF.objects.get(bsrf=bsrf)
+        sub = models.SubsBSRF.objects.get(original=bsrf)
         pend = None
     except models.SubsBSRF.DoesNotExist:
         sub = None
