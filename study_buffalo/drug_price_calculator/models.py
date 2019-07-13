@@ -82,44 +82,64 @@ class ATC(models.Model):
         unique=True,
     )
     atc_1 = models.CharField(
+        blank=True,
         max_length=7,
         null=True,
         verbose_name='ATC level 1 code',
     )
     atc_1_text = models.CharField(
+        blank=True,
         max_length=200,
         null=True,
         verbose_name='ATC level 1 description',
     )
     atc_2 = models.CharField(
+        blank=True,
         max_length=7,
         null=True,
         verbose_name='ATC level 2 code',
     )
     atc_2_text = models.CharField(
+        blank=True,
         max_length=200,
         null=True,
         verbose_name='ATC level 2 description',
     )
     atc_3 = models.CharField(
+        blank=True,
         max_length=7,
         null=True,
         verbose_name='ATC level 3 code',
     )
     atc_3_text = models.CharField(
+        blank=True,
         max_length=200,
         null=True,
         verbose_name='ATC level 3 description',
     )
     atc_4 = models.CharField(
+        blank=True,
         max_length=7,
         null=True,
         verbose_name='ATC level 4 code',
     )
     atc_4_text = models.CharField(
+        blank=True,
         max_length=200,
         null=True,
         verbose_name='ATC level 4 description',
+    )
+    atc_5 = models.CharField(
+        blank=True,
+        max_length=7,
+        null=True,
+        verbose_name='ATC level 5 code',
+    )
+    atc_5_text = models.CharField(
+        blank=True,
+        max_length=200,
+        null=True,
+        verbose_name='ATC level 5 description',
     )
 
     class Meta:
@@ -127,6 +147,21 @@ class ATC(models.Model):
         verbose_name_plural = 'Anatomical Therapeutic Categories'
 
     def __str__(self):
+        if self.atc_5:
+            return '{} ({})'.format(self.atc_5, self.atc_5_text)
+
+        if self.atc_4:
+            return '{} ({})'.format(self.atc_4, self.atc_4_text)
+
+        if self.atc_3:
+            return '{} ({})'.format(self.atc_3, self.atc_3_text)
+
+        if self.atc_2:
+            return '{} ({})'.format(self.atc_2, self.atc_2_text)
+
+        if self.atc_1:
+            return '{} ({})'.format(self.atc_1, self.atc_1_text)
+
         return str(self.id)
 
 class PTC(models.Model):
@@ -137,41 +172,49 @@ class PTC(models.Model):
         unique=True,
     )
     ptc_1 = models.CharField(
+        blank=True,
         max_length=11,
         null=True,
         verbose_name='PTC level 1 code',
     )
     ptc_1_text = models.CharField(
+        blank=True,
         max_length=75,
         null=True,
         verbose_name='PTC level 1 description',
     )
     ptc_2 = models.CharField(
+        blank=True,
         max_length=11,
         null=True,
         verbose_name='PTC level 2 code',
     )
     ptc_2_text = models.CharField(
+        blank=True,
         max_length=75,
         null=True,
         verbose_name='PTC level 2 description',
     )
     ptc_3 = models.CharField(
+        blank=True,
         max_length=11,
         null=True,
         verbose_name='PTC level 3 code',
     )
     ptc_3_text = models.CharField(
+        blank=True,
         max_length=75,
         null=True,
         verbose_name='PTC level 3 description',
     )
     ptc_4 = models.CharField(
+        blank=True,
         max_length=11,
         null=True,
         verbose_name='PTC level 4 code',
     )
     ptc_4_text = models.CharField(
+        blank=True,
         max_length=75,
         null=True,
         verbose_name='PTC level 4 description',
@@ -182,6 +225,18 @@ class PTC(models.Model):
         verbose_name_plural = 'Pharmacologic-Therapeutic Classifications'
 
     def __str__(self):
+        if self.ptc_4:
+            return '{} ({})'.format(self.ptc_4, self.ptc_4_text)
+
+        if self.ptc_3:
+            return '{} ({})'.format(self.ptc_3, self.ptc_3_text)
+
+        if self.ptc_2:
+            return '{} ({})'.format(self.ptc_2, self.ptc_2_text)
+
+        if self.ptc_1:
+            return '{} ({})'.format(self.ptc_1, self.ptc_1_text)
+
         return str(self.id)
 
 class Price(models.Model):
@@ -304,6 +359,9 @@ class Clients(models.Model):
     class Meta:
         verbose_name_plural = 'clients'
 
+    def __str__(self):
+        return '{} clients'.format(str(self.price))
+
 class CoverageCriteria(models.Model):
     """Details on any coverage criteria."""
     price = models.ForeignKey(
@@ -326,7 +384,7 @@ class CoverageCriteria(models.Model):
         verbose_name_plural = 'coverage criteria'
 
     def __str__(self):
-        return 'Coverage criteria for {}'.format(str(self.price))
+        return '{} coverage criteria '.format(str(self.price))
 
 class SpecialAuthorization(models.Model):
     """Details on special authorization forms."""
