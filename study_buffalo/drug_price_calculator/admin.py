@@ -41,12 +41,13 @@ class ATCAdmin(admin.ModelAdmin):
     """Admin for the ATC model."""
     model = models.ATC
 
-    list_display = ('id', 'atc_1', 'atc_2', 'atc_3', 'atc_4')
+    list_display = ('id', 'atc_1', 'atc_2', 'atc_3', 'atc_4', 'atc_5')
     ordering = ('id',)
 
     fields = (
-        'id', 'atc_1', 'atc_1_text', 'atc_2', 'atc_2_text',
-        'atc_3', 'atc_3_text', 'atc_4', 'atc_4_text',
+        'id', 'atc_1', 'atc_1_text',
+        'atc_2', 'atc_2_text', 'atc_3', 'atc_3_text',
+        'atc_4', 'atc_4_text', 'atc_5', 'atc_5_text'
     )
 
 @admin.register(models.PTC)
