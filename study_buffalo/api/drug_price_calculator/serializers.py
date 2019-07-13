@@ -236,13 +236,16 @@ class iDBLDataSerializer(serializers.Serializer):
         except models.ATC.DoesNotExist:
             pass
 
-        # See if the code exists at level 4
+        # No matches found - create a temporary record if possible
         try:
-            atc = models.ATC.objects.get(atc_4=self.validated_data['atc'])
+            # Drop last two characters to get the level 4 code
+            atc = models.ATC.objects.filter(
+                atc_4=self.validated_data['atc'][:-2]
+            ).first()
 
             # Add this as a new ATC record
-            models.ATC.objects.create(
-                id=atc.atc_4,
+            new_atc = models.ATC.objects.create(
+                id=self.validated_data['atc'],
                 atc_1=atc.atc_1,
                 atc_1_text=atc.atc_1_text,
                 atc_2=atc.atc_2,
@@ -251,76 +254,15 @@ class iDBLDataSerializer(serializers.Serializer):
                 atc_3_text=atc.atc_3_text,
                 atc_4=atc.atc_4,
                 atc_4_text=atc.atc_4_text,
+                atc_5=self.validated_data['atc'],
+                atc_5_text=None,
             )
 
-            return atc
+            return new_atc
         except models.ATC.DoesNotExist:
             pass
 
-        # See if the code exists at level 3
-        try:
-            atc = models.ATC.objects.get(atc_3=self.validated_data['atc'])
-
-            # Add this as a new ATC record
-            models.ATC.objects.create(
-                id=atc.atc_3,
-                atc_1=atc.atc_1,
-                atc_1_text=atc.atc_1_text,
-                atc_2=atc.atc_2,
-                atc_2_text=atc.atc_2_text,
-                atc_3=atc.atc_3,
-                atc_3_text=atc.atc_3_text,
-                atc_4=None,
-                atc_4_text=None
-            )
-
-            return atc
-        except models.ATC.DoesNotExist:
-            pass
-
-        # See if the code exists at level 2
-        try:
-            atc = models.ATC.objects.get(atc_2=self.validated_data['atc'])
-
-            # Add this as a new ATC record
-            models.ATC.objects.create(
-                id=atc.atc_3,
-                atc_1=atc.atc_1,
-                atc_1_text=atc.atc_1_text,
-                atc_2=atc.atc_2,
-                atc_2_text=atc.atc_2_text,
-                atc_3=None,
-                atc_3_text=None,
-                atc_4=None,
-                atc_4_text=None
-            )
-
-            return atc
-        except models.ATC.DoesNotExist:
-            pass
-
-        # See if the code exists at level 1
-        try:
-            atc = models.ATC.objects.get(atc_2=self.validated_data['atc'])
-
-            # Add this as a new ATC record
-            models.ATC.objects.create(
-                id=atc.atc_3,
-                atc_1=atc.atc_1,
-                atc_1_text=atc.atc_1_text,
-                atc_2=None,
-                atc_2_text=None,
-                atc_3=None,
-                atc_3_text=None,
-                atc_4=None,
-                atc_4_text=None
-            )
-
-            return atc
-        except models.ATC.DoesNotExist:
-            pass
-
-        # No matches found - log message and return None
+        # No Temporary Record possible - log message and return None
         message = 'No matching ATC model for FK {} (DIN: {})'.format(
             self.validated_data['atc'], self.validated_data['din']
         )
