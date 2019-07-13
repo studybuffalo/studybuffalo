@@ -123,8 +123,8 @@ class ATC(models.Model):
     )
 
     class Meta:
-        verbose_name = "Anatomical Therapeutic Category"
-        verbose_name_plural = "Anatomical Therapeutic Categories"
+        verbose_name = 'Anatomical Therapeutic Category'
+        verbose_name_plural = 'Anatomical Therapeutic Categories'
 
     def __str__(self):
         return str(self.id)
@@ -176,6 +176,10 @@ class PTC(models.Model):
         null=True,
         verbose_name='PTC level 4 description',
     )
+
+    class Meta:
+        verbose_name = 'Pharmacologic-Therapeutic Classification'
+        verbose_name_plural = 'Pharmacologic-Therapeutic Classifications'
 
     def __str__(self):
         return str(self.id)
