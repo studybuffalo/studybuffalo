@@ -65,6 +65,16 @@ class PTCAdmin(admin.ModelAdmin):
         'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
     )
 
+@admin.register(models.SpecialAuthorization)
+class SpecialAuthorizationAdmin(admin.ModelAdmin):
+    """Admin for the PTC model."""
+    model = models.SpecialAuthorization
+
+    list_display = ('file_name', 'pdf_title')
+    ordering = ('pdf_title',)
+
+    fields = ('file_name', 'pdf_title')
+
 @admin.register(models.SubsBSRF)
 class SubsBSRFAdmin(admin.ModelAdmin):
     """Admin for the BSRF substitution model."""
