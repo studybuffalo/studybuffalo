@@ -202,29 +202,202 @@ class iDBLDataSerializer(serializers.Serializer):
 
     def _get_atc_instance(self):
         """Retrieves ATC model for validated ATC value."""
+        # See if this exact reference exists
         try:
-            atc = models.ATC.objects.get(id=self.validated_data['atc'])
+            return models.ATC.objects.get(id=self.validated_data['atc'])
         except models.ATC.DoesNotExist:
-            atc = None
-            message = 'No matching ATC model for FK {} (DIN: {})'.format(
-                self.validated_data['atc'], self.validated_data['din']
-            )
-            capture_message(message=message, level=30)
+            pass
 
-        return atc
+        # See if the code exists at level 4
+        try:
+            atc = models.ATC.objects.get(atc_4=self.validated_data['atc'])
+
+            # Add this as a new ATC record
+            models.ATC.objects.create(
+                id=atc.atc_4,
+                atc_1=atc.atc_1,
+                atc_1_text=atc.atc_1_text,
+                atc_2=atc.atc_2,
+                atc_2_text=atc.atc_2_text,
+                atc_3=atc.atc_3,
+                atc_3_text=atc.atc_3_text,
+                atc_4=atc.atc_4,
+                atc_4_text=atc.atc_4_text,
+            )
+
+            return atc
+        except models.ATC.DoesNotExist:
+            pass
+
+        # See if the code exists at level 3
+        try:
+            atc = models.ATC.objects.get(atc_3=self.validated_data['atc'])
+
+            # Add this as a new ATC record
+            models.ATC.objects.create(
+                id=atc.atc_3,
+                atc_1=atc.atc_1,
+                atc_1_text=atc.atc_1_text,
+                atc_2=atc.atc_2,
+                atc_2_text=atc.atc_2_text,
+                atc_3=atc.atc_3,
+                atc_3_text=atc.atc_3_text,
+                atc_4=None,
+                atc_4_text=None
+            )
+
+            return atc
+        except models.ATC.DoesNotExist:
+            pass
+
+        # See if the code exists at level 2
+        try:
+            atc = models.ATC.objects.get(atc_2=self.validated_data['atc'])
+
+            # Add this as a new ATC record
+            models.ATC.objects.create(
+                id=atc.atc_3,
+                atc_1=atc.atc_1,
+                atc_1_text=atc.atc_1_text,
+                atc_2=atc.atc_2,
+                atc_2_text=atc.atc_2_text,
+                atc_3=None,
+                atc_3_text=None,
+                atc_4=None,
+                atc_4_text=None
+            )
+
+            return atc
+        except models.ATC.DoesNotExist:
+            pass
+
+        # See if the code exists at level 1
+        try:
+            atc = models.ATC.objects.get(atc_2=self.validated_data['atc'])
+
+            # Add this as a new ATC record
+            models.ATC.objects.create(
+                id=atc.atc_3,
+                atc_1=atc.atc_1,
+                atc_1_text=atc.atc_1_text,
+                atc_2=None,
+                atc_2_text=None,
+                atc_3=None,
+                atc_3_text=None,
+                atc_4=None,
+                atc_4_text=None
+            )
+
+            return atc
+        except models.ATC.DoesNotExist:
+            pass
+
+        # No matches found - log message and return None
+        message = 'No matching ATC model for FK {} (DIN: {})'.format(
+            self.validated_data['atc'], self.validated_data['din']
+        )
+        capture_message(message=message, level=30)
+
+        return None
 
     def _get_ptc_instance(self):
         """Retrieves PTC model for validated PTC value."""
         try:
-            ptc = models.PTC.objects.get(id=self.validated_data['ptc'])
+            return models.PTC.objects.get(id=self.validated_data['ptc'])
         except models.PTC.DoesNotExist:
-            ptc = None
-            message = 'No Matching PTC model for FK {} (DIN: {})'.format(
-                self.validated_data['ptc'], self.validated_data['din']
-            )
-            capture_message(message=message, level=30)
+            pass
 
-        return ptc
+        # See if the code exists at level 4
+        try:
+            ptc = models.PTC.objects.get(ptc_4=self.validated_data['ptc'])
+
+            # Add this as a new PTC record
+            models.PTC.objects.create(
+                id=ptc.ptc_4,
+                ptc_1=ptc.ptc_1,
+                ptc_1_text=ptc.ptc_1_text,
+                ptc_2=ptc.ptc_2,
+                ptc_2_text=ptc.ptc_2_text,
+                ptc_3=ptc.ptc_3,
+                ptc_3_text=ptc.ptc_3_text,
+                ptc_4=ptc.ptc_4,
+                ptc_4_text=ptc.ptc_4_text,
+            )
+
+            return ptc
+        except models.PTC.DoesNotExist:
+            pass
+
+        # See if the code exists at level 3
+        try:
+            ptc = models.PTC.objects.get(ptc_3=self.validated_data['ptc'])
+
+            # Add this as a new PTC record
+            models.PTC.objects.create(
+                id=ptc.ptc_3,
+                ptc_1=ptc.ptc_1,
+                ptc_1_text=ptc.ptc_1_text,
+                ptc_2=ptc.ptc_2,
+                ptc_2_text=ptc.ptc_2_text,
+                ptc_3=ptc.ptc_3,
+                ptc_3_text=ptc.ptc_3_text,
+                ptc_4=None,
+                ptc_4_text=None
+            )
+
+            return ptc
+        except models.PTC.DoesNotExist:
+            pass
+
+        # See if the code exists at level 2
+        try:
+            ptc = models.PTC.objects.get(ptc_2=self.validated_data['ptc'])
+
+            # Add this as a new PTC record
+            models.PTC.objects.create(
+                id=ptc.ptc_3,
+                ptc_1=ptc.ptc_1,
+                ptc_1_text=ptc.ptc_1_text,
+                ptc_2=ptc.ptc_2,
+                ptc_2_text=ptc.ptc_2_text,
+                ptc_3=None,
+                ptc_3_text=None,
+                ptc_4=None,
+                ptc_4_text=None
+            )
+
+            return ptc
+        except models.PTC.DoesNotExist:
+            pass
+
+        # See if the code exists at level 1
+        try:
+            ptc = models.PTC.objects.get(ptc_2=self.validated_data['ptc'])
+
+            # Add this as a new PTC record
+            models.PTC.objects.create(
+                id=ptc.ptc_3,
+                ptc_1=ptc.ptc_1,
+                ptc_1_text=ptc.ptc_1_text,
+                ptc_2=None,
+                ptc_2_text=None,
+                ptc_3=None,
+                ptc_3_text=None,
+                ptc_4=None,
+                ptc_4_text=None
+            )
+
+            return ptc
+        except models.PTC.DoesNotExist:
+            pass
+
+        # No matches found - log message and return None
+        message = 'No Matching PTC model for FK {} (DIN: {})'.format(
+            self.validated_data['ptc'], self.validated_data['din']
+        )
+        capture_message(message=message, level=30)
+
+        return None
 
     def _update_drug(self, drug):
         """Updates the Drug instance."""
