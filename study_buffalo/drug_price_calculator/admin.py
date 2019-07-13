@@ -45,7 +45,7 @@ class ATCAdmin(admin.ModelAdmin):
     model = models.ATC
 
     list_display = ('id', 'atc_1', 'atc_2', 'atc_3', 'atc_4')
-    orders = ('id',)
+    ordering = ('id',)
 
     fields = (
         'id', 'atc_1', 'atc_1_text', 'atc_2', 'atc_2_text',
@@ -58,9 +58,79 @@ class PTCAdmin(admin.ModelAdmin):
     model = models.PTC
 
     list_display = ('id', 'ptc_1', 'ptc_2', 'ptc_3', 'ptc_4')
-    orders = ('id',)
+    ordering = ('id',)
 
     fields = (
         'id', 'ptc_1', 'ptc_1_text', 'ptc_2', 'ptc_2_text',
         'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
     )
+
+@admin.register(models.SubsBSRF)
+class SubsBSRFAdmin(admin.ModelAdmin):
+    """Admin for the BSRF substitution model."""
+    model = models.SubsBSRF
+
+    list_display = ('bsrf', 'brand_name', 'strength', 'route', 'dosage_form')
+    ordering = ('brand_name', 'route', 'dosage_form', 'strength')
+
+    fields = ('bsrf', 'brand_name', 'strength', 'route', 'dosage_form')
+
+@admin.register(models.SubsGeneric)
+class SubsGenericAdmin(admin.ModelAdmin):
+    """Admin for the generic substitution model."""
+    model = models.SubsGeneric
+
+    list_display = ('original', 'correction')
+    ordering = ('original', 'correction')
+
+    fields = ('original', 'correction')
+
+@admin.register(models.SubsManufacturer)
+class SubsManufacturerAdmin(admin.ModelAdmin):
+    """Admin for the manufacturer substitution model."""
+    model = models.SubsManufacturer
+
+    list_display = ('original', 'correction')
+    ordering = ('original', 'correction')
+
+    fields = ('original', 'correction')
+
+@admin.register(models.SubsUnit)
+class SubsUnitAdmin(admin.ModelAdmin):
+    """Admin for the unit substitution model."""
+    model = models.SubsUnit
+
+    list_display = ('original', 'correction')
+    ordering = ('original', 'correction')
+
+    fields = ('original', 'correction')
+
+@admin.register(models.PendBSRF)
+class PendBSRFAdmin(admin.ModelAdmin):
+    """Admin for the pending BSRF substitution model."""
+    model = models.PendBSRF
+
+    list_display = ('original', 'brand_name', 'strength', 'route', 'dosage_form')
+    ordering = ('brand_name', 'route', 'dosage_form', 'strength')
+
+    fields = ('original', 'brand_name', 'strength', 'route', 'dosage_form')
+
+@admin.register(models.PendGeneric)
+class PendGenericAdmin(admin.ModelAdmin):
+    """Admin for the pending generic substitution model."""
+    model = models.PendGeneric
+
+    list_display = ('original', 'correction')
+    ordering = ('original', 'correction')
+
+    fields = ('original', 'correction')
+
+@admin.register(models.PendManufacturer)
+class PendManufacturerAdmin(admin.ModelAdmin):
+    """Admin for the pending manufacturer substitution model."""
+    model = models.PendManufacturer
+
+    list_display = ('original', 'correction')
+    ordering = ('original', 'correction')
+
+    fields = ('original', 'correction')
