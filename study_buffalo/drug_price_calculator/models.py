@@ -70,6 +70,12 @@ class Drug(models.Model):
         to='drug_price_calculator.PTC',
         verbose_name='PTC',
     )
+    generic_product = models.CharField(
+        blank=True,
+        help_text='A calculated name to identify similar drugs',
+        max_length=750,
+        null=True,
+    )
 
     def __str__(self):
         return '{} ({})'.format(self.brand_name, self.din)
