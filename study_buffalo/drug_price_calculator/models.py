@@ -400,7 +400,7 @@ class SpecialAuthorization(models.Model):
     )
     pdf_title = models.CharField(
         help_text='The tile of the PDF',
-        max_length=100,
+        max_length=200,
     )
 
     def __str__(self):
