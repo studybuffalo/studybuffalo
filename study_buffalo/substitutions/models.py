@@ -26,7 +26,6 @@ class Apps(models.Model):
     def __str__(self):
         return self.app_name
 
-
 class ModelFields(models.Model):
     """List of the model fields to include"""
     app = models.ForeignKey(
@@ -54,7 +53,7 @@ class ModelFields(models.Model):
         ),
     )
 
-    class meta:
+    class Meta:
         verbose_name = "Model Field"
         verbose_name_plural = "Model Fields"
 
