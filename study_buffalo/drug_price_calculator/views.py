@@ -11,6 +11,7 @@ from django.views import generic
 
 from . import models
 
+
 def index(request):
     """View for the main drug price calculator page"""
     return render(
@@ -18,31 +19,6 @@ def index(request):
         "drug_price_calculator/index.html",
         context={},
     )
-
-
-class SubsBSRFList(generic.ListView):
-    model = models.SubsBSRF
-
-    context_object_name = "subs_bsrf_list"
-    ordering = ['url']
-
-class SubsGenericList(generic.ListView):
-    model = models.SubsGeneric
-
-    context_object_name = "subs_generic_list"
-    ordering = ['url']
-
-class SubsManufacturerList(generic.ListView):
-    model = models.SubsManufacturer
-
-    context_object_name = "subs_manufacturer_list"
-    ordering = ['url']
-
-class SubsUnitList(generic.ListView):
-    model = models.SubsUnit
-
-    context_object_name = "subs_unit_list"
-    ordering = ['url']
 
 def live_search(request):
     """Handles AJAX request to display drug name search results"""
@@ -54,7 +30,7 @@ def live_search(request):
         search_value = request.GET["q"]
 
         if search_value:
-            search_results = Price.objects.filter(
+            search_results = models.Price.objects.filter(
                 Q(generic_name__icontains=search_value) |
                 Q(brand_name__icontains=search_value)).exclude(
                     unit_price__isnull=True).order_by("generic_name")
