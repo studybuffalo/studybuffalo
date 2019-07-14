@@ -18,7 +18,7 @@ known_first_party=study_buffalo
 multi_line_output=3
 default_section=THIRDPARTY
 
-[*.{html,css,scss,json,yml}]
+[*.{html,js,css,scss,json,yml}]
 indent_style = space
 indent_size = 2
 
