@@ -70,7 +70,7 @@ class DrugPriceList(ListAPIView):
     def get_queryset(self):
         """Overriding to apply filters."""
         try:
-            drug_ids = self.request.GET['ids']
+            drug_ids = self.request.GET['ids'].split(',')
         except KeyError:
             raise NotFound('No IDs provided in query')
 
