@@ -1,15 +1,18 @@
 """Views for the Drug Price Calculator API."""
-from rest_framework.generics import GenericAPIView
+from django.db.models import Q
+
+from rest_framework.generics import GenericAPIView, ListAPIView
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework import status
 
 from drug_price_calculator import models
 
-from api.drug_price_calculator.serializers import iDBLDataSerializer
+from api.drug_price_calculator import serializers
 
 
 class UploadiDBLData(GenericAPIView):
-    serializer_class = iDBLDataSerializer
+    serializer_class = serializers.iDBLDataSerializer
 
     def post(self, request, din):
         # Confirm DIN is in valid format
@@ -41,3 +44,38 @@ class UploadiDBLData(GenericAPIView):
         }
 
         return Response(data=message, status=status.HTTP_201_CREATED)
+
+class DrugList(ListAPIView):
+    """List of Drugs based on query filters."""
+    serializer_class = serializers.DrugListSerializer
+
+    def get_queryset(self):
+        """Override to apply search filters."""
+        q_string = self.request.GET.get('q', '')
+
+        queryset = models.Drug.objects.filter(
+            Q(generic_name__icontains=q_string) | Q(brand_name__icontains=q_string)
+        ).exclude(
+            prices__unit_price__isnull=True
+        ).order_by(
+            'generic_product'
+        )
+
+        return queryset
+
+class DrugPriceList(ListAPIView):
+    """List of drugs and prices based on requested products."""
+    serializer_class = serializers.DrugPriceListSerializer
+
+    def get_queryset(self):
+        """Overriding to apply filters."""
+        try:
+            drug_ids = self.request.GET['ids']
+        except KeyError:
+            raise NotFound('No IDs provided in query')
+
+        queryset = models.Price.objects.filter(
+            drug__id__in=drug_ids
+        )
+
+        return queryset
