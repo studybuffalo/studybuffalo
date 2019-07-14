@@ -1,6 +1,5 @@
-/**
- * GENERAL FUNCTIONS FOR PAGE
- */
+// Global variables
+let ajaxTimer;
 
 /**
  * Takes an event name and tests if it is valid in the users browser.
@@ -247,10 +246,6 @@ function loadingBar() {
 }
 
 /**
- * FUNCTIONS GENERAL TO TABLES
- */
-
-/**
  * Converts doses per day fraction inputs to a number
  *
  * @param {float} value: dosesPerDay input value to be converted.
@@ -417,8 +412,9 @@ function comparisonStrength(strengthSelect) {
 
 
 /**
- *    changeThirdParty()    Updates the prices in all columns based on new
- *                        third party coverage
+ * Updates the prices in all columns based on new third party coverage.
+ *
+ * @param {object} table DOM reference to the table to be updated.
  */
 function changeThirdParty(table) {
   // Get all the item divs
@@ -679,10 +675,9 @@ function closeInfoPopup() {
 }
 
 /**
- *    showInfo()        Generates popup showing additional info on the
- *                    selected row
+ * Generates popup showing additional info on the selected row.
  *
- *    infoButton:        the button that was clicked
+ * @param {object} infoButton DOM reference to the button that was clicked.
  */
 function showInfo(infoButton) {
   const $infoButton = $(infoButton);
@@ -692,8 +687,6 @@ function showInfo(infoButton) {
   const pageHt = $(document).height();
   const pageWid = $(document).width();
   const screenWid = $(window).width();
-  const scrollHt = document.body.scrollTop ||
-          document.documentElement.scrollTop;
   const buttonTop = $infoButton.offset().top;
   const buttonLeft = $infoButton.offset().left;
 
@@ -701,7 +694,7 @@ function showInfo(infoButton) {
   const popupWid = screenWid < 600 ? screenWid - 20 : 580;
 
   // Calculate where to place the popup (center it if it can't fit by button)
-  const divRight = 0;
+  let divRight = 0;
 
   if (buttonLeft < popupWid + 10) {
     divRight = (screenWid - popupWid) / 2;
@@ -714,9 +707,9 @@ function showInfo(infoButton) {
   $infoDiv
     .attr('id', 'Info-Popup')
     .css({
-      'right': divRight + 'px',
-      'top': (buttonTop) + 'px',
-      'width': popupWid + 'px'
+      right: `${divRight}px`,
+      top: `${buttonTop}px`,
+      width: `${popupWid}px`,
     });
 
   // The Pop-Up Div Title
@@ -728,8 +721,8 @@ function showInfo(infoButton) {
   // Benefit Type
   const $option = $item.find('select').children('option:selected');
 
-  const coverageText = $option.attr('data-coverage');
-  coverageText = coverageText ? coverageText : 'Not a benefit';
+  let coverageText = $option.attr('data-coverage');
+  coverageText = coverageText || 'Not a benefit';
 
   const $coverage = $('<p></p>');
   $coverage
@@ -740,8 +733,8 @@ function showInfo(infoButton) {
   // Whether this is a drug benefit or not
   const $price = $item.find('.item-price div');
 
-  const benefitText = $price.attr('data-benefit');
-  benefitText = benefitText ? benefitText : 'N/A';
+  let benefitText = $price.attr('data-benefit');
+  benefitText = benefitText || 'N/A';
 
   const $benefit = $('<p></p>');
   $benefit
@@ -750,8 +743,8 @@ function showInfo(infoButton) {
     .appendTo($infoDiv);
 
   // Check if any third party coverage is applied
-  const tableName = $item.parent('.content').parent('div').attr('id')
-  const $thirdPartySelect = $('#' + tableName + '-third-party')
+  const tableName = $item.parent('.content').parent('div').attr('id');
+  const $thirdPartySelect = $(`#${tableName}-third-party`);
   const thirdParty = $thirdPartySelect.val();
 
   // Add drug cost & MAC if the drug plan was selected
@@ -759,23 +752,23 @@ function showInfo(infoButton) {
     // Collect the relevant data
     const cost = $option.attr('data-cost');
     const mac = $option.attr('data-mac');
-    const unit = $option.attr('data-unit');
+    let unit = $option.attr('data-unit');
 
     // Replaces unit with 'unit' if blank
-    unit = unit === '' ? unit : 'unit';
+    unit = unit || 'unit';
 
     // Cost
     const $cost = $('<p></p>');
     $cost
       .append($('<strong></strong>').text('Cost: '))
-      .append($('<span></span>').text('$' + cost + ' per ' + unit))
+      .append($('<span></span>').text(`$${cost} per ${unit}`))
       .appendTo($infoDiv);
 
     // MAC
     const $mac = $('<p></p>');
     $mac
       .append($('<strong></strong>').text('MAC: '))
-      .append($('<span></span>').text('$' + mac + ' per ' + unit))
+      .append($('<span></span>').text(`$${mac} per ${unit}`))
       .appendTo($infoDiv);
   }
 
@@ -789,7 +782,7 @@ function showInfo(infoButton) {
       .attr('target', '_blank')
       .attr('rel', 'noopener');
 
-    const $criteriaSAP = $('<p></p>')
+    const $criteriaSAP = $('<p></p>');
     $criteriaSAP
       .append($criteriaSA)
       .appendTo($infoDiv)
@@ -807,7 +800,7 @@ function showInfo(infoButton) {
       .attr('target', '_blank')
       .attr('rel', 'noopener');
 
-    const $criteriaPP = $('<p></p>')
+    const $criteriaPP = $('<p></p>');
     $criteriaPP
       .append($criteriaP)
       .appendTo($infoDiv)
@@ -826,8 +819,8 @@ function showInfo(infoButton) {
   $feeTable.appendTo($infoDiv);
 
   // Drug Costs
-  const drugCost = Number($price.attr('data-drug-cost'));
-  drugCost = Number.isNaN(drugCost) ? '$0.00' : '$' + drugCost.toFixed(2);
+  let drugCost = Number($price.attr('data-drug-cost'));
+  drugCost = Number.isNaN(drugCost) ? '$0.00' : `${drugCost.toFixed(2)}`;
 
   const $feeDrug = $('<tr></tr>');
   $feeDrug
@@ -837,8 +830,8 @@ function showInfo(infoButton) {
     .appendTo($feeTable);
 
   // Upcharge #1
-  const upcharge1 = Number($price.attr('data-upcharge-1'));
-  upcharge1 = Number.isNaN(upcharge1) ? '$0.00' : '$' + upcharge1.toFixed(2);
+  let upcharge1 = Number($price.attr('data-upcharge-1'));
+  upcharge1 = Number.isNaN(upcharge1) ? '$0.00' : `$${upcharge1.toFixed(2)}`;
 
   const $feeUpcharge1 = $('<tr></tr>');
   $feeUpcharge1
@@ -848,8 +841,8 @@ function showInfo(infoButton) {
     .appendTo($feeTable);
 
   // Upcharge #2
-  const upcharge2 = Number($price.attr('data-upcharge-2'));
-  upcharge2 = Number.isNaN(upcharge2) ? '$0.00' : '$' + upcharge2.toFixed(2);
+  let upcharge2 = Number($price.attr('data-upcharge-2'));
+  upcharge2 = Number.isNaN(upcharge2) ? '$0.00' : `$${upcharge2.toFixed(2)}`;
 
   const $feeUpcharge2 = $('<tr></tr>');
   $feeUpcharge2
@@ -859,8 +852,8 @@ function showInfo(infoButton) {
     .appendTo($feeTable);
 
   // Dispensing Fee
-  const dispensingFee = Number($price.attr('data-dispensing-fee'));
-  dispensingFee = Number.isNaN(dispensingFee) ? '$0.00' : '$' + dispensingFee.toFixed(2);
+  let dispensingFee = Number($price.attr('data-dispensing-fee'));
+  dispensingFee = Number.isNaN(dispensingFee) ? '$0.00' : `$${dispensingFee.toFixed(2)}`;
 
   const $feeDispensing = $('<tr></tr>');
   $feeDispensing
@@ -871,7 +864,7 @@ function showInfo(infoButton) {
 
   // Gross Price
   let gross = Number($price.attr('data-gross-price'));
-  gross = Number.isNaN(gross) ? '$0.00' : '$' + gross.toFixed(2);
+  gross = Number.isNaN(gross) ? '$0.00' : `$${gross.toFixed(2)}`;
 
   const $feeGross = $('<tr></tr>');
   $feeGross
@@ -883,7 +876,7 @@ function showInfo(infoButton) {
 
   // Third Party Portion
   let tp = Number($price.attr('data-third-party'));
-  tp = Number.isNaN(tp) ? '$0.00' : '$' + tp.toFixed(2);
+  tp = Number.isNaN(tp) ? '$0.00' : `$${tp.toFixed(2)}`;
 
   const $feeTP = $('<tr></tr>');
   $feeTP
@@ -894,7 +887,7 @@ function showInfo(infoButton) {
 
   // Net Total
   let net = Number($price.attr('data-net-price'));
-  net = Number.isNaN(net) ? '$0.00' : '$' + net.toFixed(2);
+  net = Number.isNaN(net) ? '$0.00' : `$${net.toFixed(2)}`;
 
   const $feeNet = $('<tr></tr>');
   $feeNet
@@ -908,21 +901,21 @@ function showInfo(infoButton) {
   const $saFormTitle = $('<p></p>');
   const $saForm = $('<ul></ul>');
 
-  const saFormTest = true;
-  const saCounter = 1;
+  let saFormTest = true;
+  let saCounter = 1;
 
   while (saFormTest === true) {
-    const saFormAttrL = 'data-special-auth-link-' + saCounter;
-    const saFormAttrT = 'data-special-auth-title-' + saCounter;
+    const saFormAttrL = `data-special-auth-link-${saCounter}`;
+    const saFormAttrT = `data-special-auth-title-${saCounter}`;
 
     if ($option.attr(saFormAttrL)) {
       if (saCounter === 1) {
-          $saFormTitle
-              .append($('<strong></strong>').text('Special Authorization Forms'))
-              .addClass('MT1em')
-              .appendTo($infoDiv);
+        $saFormTitle
+          .append($('<strong></strong>').text('Special Authorization Forms'))
+          .addClass('MT1em')
+          .appendTo($infoDiv);
 
-          $saForm.appendTo($infoDiv);
+        $saForm.appendTo($infoDiv);
       }
 
       const $saFormA = $('<a></a>');
@@ -930,14 +923,14 @@ function showInfo(infoButton) {
       const saFormName = $option.attr(saFormAttrT);
 
       $saFormA
-          .text(saFormName)
-          .attr('href', saFormLink)
-          .attr('target', '_blank')
-          .attr('rel', 'noopner');
+        .text(saFormName)
+        .attr('href', saFormLink)
+        .attr('target', '_blank')
+        .attr('rel', 'noopner');
 
       $('<li></li>').append($saFormA).appendTo($saForm);
 
-      saCounter++
+      saCounter += 1;
     } else {
       saFormTest = false;
     }
@@ -949,10 +942,10 @@ function showInfo(infoButton) {
     .attr('class', 'close')
     .appendTo($infoDiv);
 
-  const $closeButton = $('<input type="button">')
+  const $closeButton = $('<input type="button">');
   $closeButton
     .val('Close')
-    .on('click', function () { closeInfoPopup(); })
+    .on('click', () => { closeInfoPopup(); })
     .appendTo($close);
 
 
@@ -962,21 +955,31 @@ function showInfo(infoButton) {
     .attr('id', 'Popup-Veil')
     .height(pageHt)
     .width(pageWid)
-    .on('click', function (e) { closeQuantityPopup(e); })
-    .on('keydown', function (e) {
-      changeQuantityKeypress(
-          inputText, colIndex, type, e);
+    .on('click', (e) => { closeQuantityPopup(e); })
+    .on('keydown', (e) => {
+      changeQuantityKeypress(null, null, null, e);
     })
     .prependTo('body')
     .append($infoDiv);
 }
 
 /**
- *    FUNCTIONS SPECIFIC TO PRICE-TABLE
+ * Removes the row containing the clicked button
+ *
+ * @param {object} deleteButton DOM reference of the button that was clicked.
  */
+function removeRow(deleteButton) {
+  // Removes row
+  const $item = $(deleteButton).closest('.item');
+  $item.remove();
+
+  // Updates total prices
+  const $table = $item.closest('.content').parent('div');
+  totalUpdate($table);
+}
+
 /**
- *    addFreeformEntry()    Adds input elements to allow user to enter freeform *
- *                        medication prices.
+ * Adds input elements to allow user to enter freeform medication prices.
  */
 function addFreeformEntry() {
   // Generate a unique ID for element IDs
@@ -990,7 +993,7 @@ function addFreeformEntry() {
   $item.addClass('item');
 
   // Medication Name
-  const medicationID = 'medication-' + id;
+  const medicationID = `medication-${id}`;
 
   const $medicationLabel = $('<label></label>');
   $medicationLabel
@@ -1004,10 +1007,10 @@ function addFreeformEntry() {
   $medication
     .addClass('item-medication')
     .append($medicationLabel, $medicationInput)
-    .appendTo($item)
+    .appendTo($item);
 
   // Brand Name
-  const brandID = 'brand-' + id;
+  const brandID = `brand-${id}`;
 
   const $brandLabel = $('<label></label>');
   $brandLabel
@@ -1026,7 +1029,7 @@ function addFreeformEntry() {
     .appendTo($item);
 
   // Cost Per Unit
-  const costID = 'cost-' + id;
+  const costID = `cost-${id}`;
 
   const $costLabel = $('<label></label>');
   $costLabel
@@ -1043,7 +1046,7 @@ function addFreeformEntry() {
     .appendTo($item);
 
   // Does Per Day
-  const doseID = 'doses-' + id;
+  const doseID = `doses-${id}`;
 
   const $doseLabel = $('<label></label>');
   $doseLabel
@@ -1053,7 +1056,7 @@ function addFreeformEntry() {
   const $doseInput = $('<input type="text">');
   $doseInput
     .attr('id', doseID)
-    .on('keyup', function () { updateQuantity(this); })
+    .on('keyup', () => { updateQuantity(this); })
     .val(1);
 
   const $dose = $('<div></div>');
@@ -1063,7 +1066,7 @@ function addFreeformEntry() {
     .appendTo($item);
 
   // Day Supply
-  const supplyID = 'supply-' + id;
+  const supplyID = `supply-${id}`;
 
   const $supplyLabel = $('<label></label>');
   $supplyLabel
@@ -1073,7 +1076,7 @@ function addFreeformEntry() {
   const $supplyInput = $('<input type="text">');
   $supplyInput
     .attr('id', supplyID)
-    .on('keyup', function () { updateQuantity(this); })
+    .on('keyup', () => { updateQuantity(this); })
     .val(100);
 
   const $supply = $('<div></div>');
@@ -1083,7 +1086,7 @@ function addFreeformEntry() {
     .appendTo($item);
 
   // Quantity
-  const quantityID = 'quantity-' + id;
+  const quantityID = `quantity-${id}`;
 
   const $quantityLabel = $('<label></label>');
   $quantityLabel
@@ -1093,7 +1096,7 @@ function addFreeformEntry() {
   const $quantityInput = $('<input type="text">');
   $quantityInput
     .attr('id', quantityID)
-    .on('keyup', function () { updateSupply(this); })
+    .on('keyup', () => { updateSupply(this); })
     .val(100);
 
   const $quantity = $('<div></div>');
@@ -1103,7 +1106,7 @@ function addFreeformEntry() {
     .appendTo($item);
 
   // Price
-  const priceID = 'price-' + id;
+  const priceID = `price-${id}`;
 
   const $priceLabel = $('<label></label>');
   $priceLabel
@@ -1123,61 +1126,30 @@ function addFreeformEntry() {
   const $infoButton = $('<input type="button">');
   $infoButton
     .addClass('info')
-    .on('click', function () { showInfo(this); })
+    .on('click', () => { showInfo(this); })
     .val('Information');
 
   const $deleteButton = $('<input type="button">');
   $deleteButton
     .addClass('delete')
-    .on('click', function () { removeRow(this); })
+    .on('click', () => { removeRow(this); })
     .val('Delete');
 
-  const $buttons = $('<div></div>')
+  const $buttons = $('<div></div>');
   $buttons
     .addClass('item-buttons')
     .append($infoButton, $deleteButton)
     .appendTo($item);
 
   // Add the completed $item to the $content container
-  $content.append($item)
+  $content.append($item);
 }
 
 /**
- *    costUpdate()    Updates the price when the Cost per Unit is changed
+ * Function handling API call to retieve search results.
  *
- *    costInput:        The input object that was changed.
- */
-function costUpdate(costInput) {
-  const $item = $(costInput).closest('.item');
-
-  priceUpdate($item);
-}
-
-/**
- *    removeRow()        Removes the row containing the clicked button
+ * @param {object} searchString Search string to query against.
  *
- *    deleteButton:    the button that was clicked
- */
-function removeRow(deleteButton) {
-  // Removes row
-  const $item = $(deleteButton).closest('.item');
-  $item.remove();
-
-  // Updates total prices
-  $table = $item.closest('.content').parent('div');
-  totalUpdate($table);
-}
-
-/**
- *    FUNCTIONS SPECIFIC TO THE SEARCH BAR
- */
-/**
- *    showSearchResult()    Function handling the AJAX call to the database to
- *                        retieve the search results
- *
- *    searchString:    Text entered into the search bar
- *
- *    Returns MySQL query results, formatted for use in the search result div *
  */
 function showSearchResults(searchString) {
   const $searchResults = $('#Search-Results');
@@ -1186,32 +1158,30 @@ function showSearchResults(searchString) {
     // 200 ms Timeout applied to prevent firing during typing
     clearTimeout(ajaxTimer);
 
-    ajaxTimer = setTimeout(function() {
+    ajaxTimer = setTimeout(() => {
       $.ajax({
-          url: 'live-search/',
-          data: {q: searchString},
-          type: 'GET',
-          dataType: 'html',
-          beforeSend: function() {
-              $searchResults.html('<ul><li><a>' +
-                                  loadingBar() +
-                                  '</a></li></ul>');
-          },
-          success: function (results) {
-              if ($('#Search-Bar').val() == searchString) {
-                  $searchResults.html(results);
-              }
-          },
-          error: function () {
-              $searchResults.empty();
-              const error = 'Sorry we have experienced an error with our ' +
-                          'server. Please refresh your page and try ' +
-                          'again. If you continue to run into issues, ' +
-                          'please contact us at ' +
-                          'studybuffalo@studybuffalo.com';
-
-              alert(error);
+        url: 'live-search/',
+        data: { q: searchString },
+        type: 'GET',
+        dataType: 'html',
+        beforeSend: () => {
+          $searchResults.html(`<ul><li><a>${loadingBar}</a></li></ul>`);
+        },
+        success: (results) => {
+          if ($('#Search-Bar').val() === searchString) {
+            $searchResults.html(results);
           }
+        },
+        error: () => {
+          $searchResults.empty();
+          const error = (
+            'Sorry we have experienced an error with our server. Please refresh your page and '
+            + 'try again. If you continue to run into issues, please contact us at '
+            + 'studybuffalo@studybuffalo.com'
+          );
+
+          alert(error);
+        },
       });
     }, 0);
   } else {
@@ -1220,57 +1190,18 @@ function showSearchResults(searchString) {
 }
 
 /**
- *    chooseResult()    Function handling the AJAX call to the database to  *
- *                    retrieve the selected product information
+ * Adds an entry to the JSON array that identifies the LCA.
  *
- *    selection:    the search result that was clicked
+ * @param {object} result The passed JSON array.
  *
- *    Returns a JSON array with the selected database entries
-  */
-function chooseResult(selection) {
-  // Extract indices for MySQL query
-  const query = $(selection).attr('data-url');
-  showSearchResults('');
-
-  $.ajax({
-    url: 'add-item/',
-    data: {q: query},
-    type: 'GET',
-    dataType: 'json',
-    success: function (results) {
-      processResult(results);
-
-      // Reset search bar
-      $('#Search-Bar').val('');
-      $('#Search-Bar').focus();
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.error(textStatus + ': ' + errorThrown)
-      const error = 'Sorry we have experienced an error with our ' +
-                  'server. Please refresh your page and try ' +
-                  'again. If you continue to run into issues, ' +
-                  'please contact us at ' +
-                  'studybuffalo@studybuffalo.com';
-
-      alert(error);
-    }
-  });
-}
-
-/**
- *    addLCA()    Adds an entry to the JSON array that identifies the LCA
- *
- *    result:    the passed JSON array
- *
- *    Returns a JSON array with the LCA entry added to the front
+ * @returns {array} JSON array with the LCA entry added to the front.
  */
 function addLCA(result) {
   let lcaIndex = 0;
   let lcaCost = parseFloat(result[0].unit_price);
-  let lcaEntry;
 
   // Identifies the index of the LCA
-  for (let i = 0; i < result.length; i++) {
+  for (let i = 0; i < result.length; i += 1) {
     if (parseFloat(result[i].unit_price) < lcaCost) {
       lcaIndex = i;
       lcaCost = parseFloat(result[i].unit_price);
@@ -1278,31 +1209,33 @@ function addLCA(result) {
   }
 
   // letructs the LCA entry
-  lcaEntry = {url: result[lcaIndex].url,
-          generic_name: result[lcaIndex].generic_name,
-          strength: result[lcaIndex].strength,
-          route: result[lcaIndex].route,
-          dosage_form: result[lcaIndex].dosage_form,
-          brand_name: 'LCA',
-          unit_price: result[lcaIndex].unit_price,
-          lca: result[lcaIndex].lca,
-          unit_issue: result[lcaIndex].unit_issue,
-          coverage: result[lcaIndex].coverage,
-          criteria: result[lcaIndex].criteria,
-          criteria_p: result[lcaIndex].criteria_p,
-          criteria_sa: result[lcaIndex].criteria_sa,
-          group_1: result[lcaIndex].group_1,
-          group_66: result[lcaIndex].group_66,
-          group_66a: result[lcaIndex].group_66a,
-          group_19823: result[lcaIndex].group_19823,
-          group_19823a: result[lcaIndex].group_19823a,
-          group_19824: result[lcaIndex].group_19824,
-          group_20400: result[lcaIndex].group_20400,
-          group_20403: result[lcaIndex].group_20403,
-          group_20514: result[lcaIndex].group_20514,
-          group_22128: result[lcaIndex].group_22128,
-          group_23609: result[lcaIndex].group_23609,
-          special_auth: result[lcaIndex].special_auth};
+  const lcaEntry = {
+    url: result[lcaIndex].url,
+    generic_name: result[lcaIndex].generic_name,
+    strength: result[lcaIndex].strength,
+    route: result[lcaIndex].route,
+    dosage_form: result[lcaIndex].dosage_form,
+    brand_name: 'LCA',
+    unit_price: result[lcaIndex].unit_price,
+    lca: result[lcaIndex].lca,
+    unit_issue: result[lcaIndex].unit_issue,
+    coverage: result[lcaIndex].coverage,
+    criteria: result[lcaIndex].criteria,
+    criteria_p: result[lcaIndex].criteria_p,
+    criteria_sa: result[lcaIndex].criteria_sa,
+    group_1: result[lcaIndex].group_1,
+    group_66: result[lcaIndex].group_66,
+    group_66a: result[lcaIndex].group_66a,
+    group_19823: result[lcaIndex].group_19823,
+    group_19823a: result[lcaIndex].group_19823a,
+    group_19824: result[lcaIndex].group_19824,
+    group_20400: result[lcaIndex].group_20400,
+    group_20403: result[lcaIndex].group_20403,
+    group_20514: result[lcaIndex].group_20514,
+    group_22128: result[lcaIndex].group_22128,
+    group_23609: result[lcaIndex].group_23609,
+    special_auth: result[lcaIndex].special_auth,
+  };
 
   // Adds LCA entry to front of array
   result.unshift(lcaEntry);
@@ -1311,14 +1244,13 @@ function addLCA(result) {
 }
 
 /**
- *    processResult()    Takes the passed JSON array and formats all the data to
- *                    insert into Price-Table
+ * Takes passed JSON array and formats all the data to insert into Price-Table.
  *
- *    array:    the JSON array containing the data to insert
+ * @param {array} array JSON array containing the data to insert.
  */
-function processResult(results) {
+function processResult(originalResults) {
   // Add an entry to the result array for the LCA
-  results = addLCA(results);
+  const results = addLCA(originalResults);
 
   // Generate a unique ID for element IDs
   const id = (new Date()).getTime().toString(36)
@@ -1331,7 +1263,7 @@ function processResult(results) {
   $item.addClass('item');
 
   // Medication Name
-  const medicationID = 'medication-' + id;
+  const medicationID = `medication-${id}`;
 
   const $medicationLabel = $('<label></label>');
   $medicationLabel
@@ -1342,27 +1274,27 @@ function processResult(results) {
   $medicationStrong.text(results[0].generic_name);
 
   let medEmText = '';
-  medEmText += results[0].strength ? results[0].strength + ' ' : '';
-  medEmText += results[0].route ? results[0].route + ' ' : '';
-  medEmText += results[0].dosage_form ? results[0].dosage_form + ' ' : '';
+  medEmText += results[0].strength ? `${results[0].strength} ` : '';
+  medEmText += results[0].route ? `${results[0].route} ` : '';
+  medEmText += results[0].dosage_form ? `${results[0].dosage_form} ` : '';
   medEmText = medEmText.trim();
 
   const $medicationEm = $('<em></em>');
   $medicationEm.text(medEmText);
 
-  const $medicationDiv = $('<div></div>')
+  const $medicationDiv = $('<div></div>');
   $medicationDiv
     .attr('id', medicationID)
-    .append($medicationStrong, $medicationEm)
+    .append($medicationStrong, $medicationEm);
 
   const $medication = $('<div></div>');
   $medication
     .addClass('item-medication')
     .append($medicationLabel, $medicationDiv)
-    .appendTo($item)
+    .appendTo($item);
 
   // Brand Name
-  const brandID = 'brand-' + id;
+  const brandID = `brand-${id}`;
 
   const $brandLabel = $('<label></label>');
   $brandLabel
@@ -1372,9 +1304,9 @@ function processResult(results) {
   const $brandSelect = $('<select></select>');
   $brandSelect
     .attr('id', brandID)
-    .on('change', function () { brandUpdate(this); });
+    .on('change', () => { brandUpdate(this); });
 
-  $.each(results, function (index, value) {
+  $.each(results, (index, value) => {
     const $tempOption = $('<option></option>');
 
     $tempOption
@@ -1399,12 +1331,12 @@ function processResult(results) {
       .appendTo($brandSelect);
 
     // Generates format for special auth data objects
-    $.each(value.special_auth, function (index, temp) {
-      const attributeName = 'data-special-auth-title-' + (index + 1);
-      const attributeValue = temp.title;
+    $.each(value.special_auth, (specialIndex, temp) => {
+      let attributeName = `data-special-auth-title-${(specialIndex + 1)}`;
+      let attributeValue = temp.title;
       $tempOption.attr(attributeName, attributeValue);
 
-      attributeName = 'data-special-auth-link-' + (index + 1);
+      attributeName = `data-special-auth-link-${(specialIndex + 1)}`;
       attributeValue = temp.link;
       $tempOption.attr(attributeName, attributeValue);
     });
@@ -1417,7 +1349,7 @@ function processResult(results) {
     .appendTo($item);
 
   // Cost Per Unit
-  const costID = 'cost-' + id;
+  const costID = `cost-${id}`;
 
   const $costLabel = $('<label></label>');
   $costLabel
@@ -1426,7 +1358,7 @@ function processResult(results) {
 
   const $costSpan = $('<span></span>');
 
-  const $costEm = $('<em></em>');;
+  const $costEm = $('<em></em>');
 
   const $costDiv = $('<div></div>');
   $costDiv
@@ -1440,7 +1372,7 @@ function processResult(results) {
     .appendTo($item);
 
   // Does Per Day
-  const doseID = 'doses-' + id;
+  const doseID = `doses-${id}`;
 
   const $doseLabel = $('<label></label>');
   $doseLabel
@@ -1450,7 +1382,7 @@ function processResult(results) {
   const $doseInput = $('<input type="text">');
   $doseInput
     .attr('id', doseID)
-    .on('keyup', function () {updateQuantity(this);})
+    .on('keyup', () => { updateQuantity(this); })
     .val(1);
 
   const $dose = $('<div></div>');
@@ -1460,7 +1392,7 @@ function processResult(results) {
     .appendTo($item);
 
   // Day Supply
-  const supplyID = 'supply-' + id;
+  const supplyID = `supply-${id}`;
 
   const $supplyLabel = $('<label></label>');
   $supplyLabel
@@ -1470,7 +1402,7 @@ function processResult(results) {
   const $supplyInput = $('<input type="text">');
   $supplyInput
     .attr('id', supplyID)
-    .on('keyup', function () {updateQuantity(this);})
+    .on('keyup', () => { updateQuantity(this); })
     .val(100);
 
   const $supply = $('<div></div>');
@@ -1480,7 +1412,7 @@ function processResult(results) {
     .appendTo($item);
 
   // Quantity
-  const quantityID = 'quantity-' + id;
+  const quantityID = `quantity-${id}`;
 
   const $quantityLabel = $('<label></label>');
   $quantityLabel
@@ -1490,7 +1422,7 @@ function processResult(results) {
   const $quantityInput = $('<input type="text">');
   $quantityInput
     .attr('id', quantityID)
-    .on('keyup', function () {updateSupply(this);})
+    .on('keyup', () => { updateSupply(this); })
     .val(100);
 
   const $quantity = $('<div></div>');
@@ -1500,7 +1432,7 @@ function processResult(results) {
     .appendTo($item);
 
   // Price
-  const priceID = 'price-' + id;
+  const priceID = `price-${id}`;
 
   const $priceLabel = $('<label></label>');
   $priceLabel
@@ -1520,75 +1452,99 @@ function processResult(results) {
   const $infoButton = $('<input type="button">');
   $infoButton
     .addClass('info')
-    .on('click', function () { showInfo(this); })
+    .on('click', () => { showInfo(this); })
     .val('Information');
 
   const $deleteButton = $('<input type="button">');
   $deleteButton
     .addClass('delete')
-    .on('click', function () { removeRow(this); })
+    .on('click', () => { removeRow(this); })
     .val('Delete');
 
-  const $buttons = $('<div></div>')
+  const $buttons = $('<div></div>');
   $buttons
     .addClass('item-buttons')
     .append($infoButton, $deleteButton)
     .appendTo($item);
 
   // Add the completed $item to the $content container
-  $content.append($item)
+  $content.append($item);
 
   // Calculate the default price values for table
   brandUpdate($brandSelect);
 }
 
+/**
+ * Function handling the API call retrieve the selected product information.
+ *
+ * @param {object} selection DOM reference to the search result clicked.
+  */
+function chooseResult(selection) { // eslint-disable-line no-unused-vars
+  // Extract indices for MySQL query
+  const query = $(selection).attr('data-url');
+  showSearchResults('');
 
+  $.ajax({
+    url: 'add-item/',
+    data: { q: query },
+    type: 'GET',
+    dataType: 'json',
+    success: (results) => {
+      processResult(results);
 
+      // Reset search bar
+      $('#Search-Bar').val('');
+      $('#Search-Bar').focus();
+    },
+    error: (jqXHR, textStatus, errorThrown) => {
+      console.error(`${textStatus}: ${errorThrown}`);
+      const error = (
+        'Sorry we have experienced an error with our server. Please refresh your page and try '
+        + 'again. If you continue to run into issues, please contact us at '
+        + 'studybuffalo@studybuffalo.com'
+      );
+
+      alert(error);
+    },
+  });
+}
 
 /**
- *    FUNCTIONS SPECIFIC TO THE DRUG PRICE COMPARISON SEARCH BAR
- */
-/**
- *    showComparisonResults()    Function handling the AJAX call to the database *
- *                            to retieve the search results
+ * Function handling the API call to the database to retieve the search results.
  *
- *    searchString:    Text entered into the search bar
- *
- *    Returns MySQL query results, formatted for use in the search result div *
+ * @param {str} searchString Text entered into the search bar.
  */
 function showComparisonResults(searchString) {
   const $searchResults = $('#Comparison-Results');
-  const $searchMethod1 = $('#Comparison-Search-Method-1')[0].checked ?
-                  true : false;
-  const $searchMethod2 = $('#Comparison-Search-Method-2')[0].checked ?
-                  true : false;
+  const searchMethod1 = !!$('#Comparison-Search-Method-1')[0].checked;
+  const searchMethod2 = !!$('#Comparison-Search-Method-2')[0].checked;
 
   if (searchString.length > 0) {
     // 300 ms Timeout applied to prevent firing during typing
     clearTimeout(ajaxTimer);
 
-    ajaxTimer = setTimeout(function() {
+    ajaxTimer = setTimeout(() => {
       $.ajax({
-          url: 'comparison-search/',
-          data: {search: searchString,
-              methodATC: $searchMethod1,
-              methodPTC: $searchMethod2},
-          type: 'GET',
-          dataType: 'html',
-          beforeSend: function() {
-              $searchResults.html('<ul><li><a>' +
-                                  loadingBar() +
-                                  '</a></li></ul>');
-          },
-          success: function (results) {
-              // Only updates if search string hasn't changed
-              if ($('#Comparison-Search').val() == searchString) {
-                  $searchResults.html(results);
-              }
-          },
-          error: function () {
-              $searchResults.empty();
+        url: 'comparison-search/',
+        data: {
+          search: searchString,
+          methodATC: searchMethod1,
+          methodPTC: searchMethod2,
+        },
+        type: 'GET',
+        dataType: 'html',
+        beforeSend: () => {
+          $searchResults.html(`<ul><li><a>${loadingBar()}</a></li></ul>`);
+        },
+        success: (results) => {
+          // Only updates if search string hasn't changed
+          if ($('#Comparison-Search').val() === searchString) {
+            $searchResults.html(results);
           }
+        },
+        error: () => {
+          $searchResults.empty();
+        },
       });
     }, 300);
   } else {
@@ -1596,47 +1552,11 @@ function showComparisonResults(searchString) {
   }
 }
 
-/**
- *    chooseComparison()    Function handling the AJAX call to the database    to
- *                        retrieve the selected product information
- *
- *    selection:    the search result that was clicked
- *
- *    Returns a JSON array with the selected database entries
- */
-function chooseComparison(selection) {
-  // Extract indices for MySQL query
-  const query = $(selection).attr('data-url');
-  showComparisonResults('');
-
-  $.ajax({
-    url: 'generate-comparison/',
-    data: {q: query},
-    type: 'GET',
-    dataType: 'json',
-    success: function (results) {
-      processComparison(results);
-      // Reset search bar
-      $('#Comparison-Search').val('');
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.error(textStatus + ': ' + errorThrown)
-      const error = 'Sorry we have experienced an error with our ' +
-                  'server. Please refresh your page and try ' +
-                  'again. If you continue to run into issues, ' +
-                  'please contact us at ' +
-                  'studybuffalo@studybuffalo.com';
-
-      alert(error);
-    }
-  });
-}
 
 /**
- *    processComparison()        Takes the passed JSON array and formats all the
- *                            data to    insert into Comparison-Table
+ * Takes passed JSON array and formats all the data to insert into Comparison-Table.
  *
- *    results:    the JSON array containing the data to insert
+ * @param {array} results JSON array containing the data to insert.
  */
 function processComparison(results) {
   // Reset the contents
@@ -1645,7 +1565,7 @@ function processComparison(results) {
 
 
   // Cycles through the results to generate the HTML content
-  $.each(results, function (index, value) {
+  $.each(results, (index, value) => {
     // Generate a unique ID for element IDs
     const id = (new Date()).getTime().toString(36)
       + Math.random().toString(36);
@@ -1657,7 +1577,7 @@ function processComparison(results) {
       .appendTo($content);
 
     // Medication Name
-    const medicationID = 'medication-' + id;
+    const medicationID = `medication-${id}`;
 
     const $medicationLabel = $('<label></label>');
     $medicationLabel
@@ -1669,79 +1589,78 @@ function processComparison(results) {
       .attr('id', medicationID)
       .text(value.generic_name);
 
-    const $medication = $('<div></div>')
+    const $medication = $('<div></div>');
     $medication
       .addClass('item-medication')
       .append($medicationLabel, $medicationDiv)
       .appendTo($item);
 
     // Strength
-    const strengthID = 'strength-' + id;
+    const strengthID = `strength-${id}`;
 
     const $strengthLabel = $('<label></label>');
     $strengthLabel
       .attr('for', strengthID)
       .text('Strength');
 
-    const $strengthSelect = $('<select></select>')
+    const $strengthSelect = $('<select></select>');
     $strengthSelect
       .attr('id', strengthID)
-      .on('change', function () { comparisonStrength(this); });
+      .on('change', () => { comparisonStrength(this); });
 
-    const $strength = $('<div></div>')
+    const $strength = $('<div></div>');
     $strength
       .addClass('item-strength')
       .append($strengthLabel, $strengthSelect)
       .appendTo($item);
 
-    // Add the constious strengths to the select
-
-    $.each(value.strength, function (index, temp) {
+    // Add the various strengths to the select
+    $.each(value.strength, (strengthIndex, temp) => {
       const $strengthOption = $('<option></option>');
       $strengthOption
-          .text(temp.strength)
-          .attr('data-cost', temp.unit_price)
-          .attr('data-mac', temp.lca ? temp.lca : temp.unit_price)
-          .attr('data-coverage', temp.coverage)
-          .attr('data-criteria', temp.criteria)
-          .attr('data-criteria-p', temp.criteria_p)
-          .attr('data-criteria-sa', temp.criteria_sa)
-          .attr('data-group-1', temp.group_1)
-          .attr('data-group-66', temp.group_66)
-          .attr('data-group-66a', temp.group_66a)
-          .attr('data-group-19823', temp.group_19823)
-          .attr('data-group-19823a', temp.group_19823a)
-          .attr('data-group-19824', temp.group_19824)
-          .attr('data-group-20400', temp.group_20400)
-          .attr('data-group-20403', temp.group_20403)
-          .attr('data-group-20514', temp.group_20514)
-          .attr('data-group-22128', temp.group_22128)
-          .attr('data-group-23609', temp.group_23609)
-          .appendTo($strengthSelect);
+        .text(temp.strength)
+        .attr('data-cost', temp.unit_price)
+        .attr('data-mac', temp.lca ? temp.lca : temp.unit_price)
+        .attr('data-coverage', temp.coverage)
+        .attr('data-criteria', temp.criteria)
+        .attr('data-criteria-p', temp.criteria_p)
+        .attr('data-criteria-sa', temp.criteria_sa)
+        .attr('data-group-1', temp.group_1)
+        .attr('data-group-66', temp.group_66)
+        .attr('data-group-66a', temp.group_66a)
+        .attr('data-group-19823', temp.group_19823)
+        .attr('data-group-19823a', temp.group_19823a)
+        .attr('data-group-19824', temp.group_19824)
+        .attr('data-group-20400', temp.group_20400)
+        .attr('data-group-20403', temp.group_20403)
+        .attr('data-group-20514', temp.group_20514)
+        .attr('data-group-22128', temp.group_22128)
+        .attr('data-group-23609', temp.group_23609)
+        .appendTo($strengthSelect);
 
       // Generates format for special auth data objects
-      $.each(temp.special_auth, function (index2, temp2) {
-          // Add the title
-          const attributeName = 'data-special-auth-title-' + (index2 + 1);
-          const attributeValue = temp2.title;
-          $strengthOption.attr(attributeName, attributeValue);
+      $.each(temp.special_auth, (specialIndex, temp2) => {
+        // Add the title
+        let attributeName = `data-special-auth-title-${(specialIndex + 1)}`;
+        let attributeValue = temp2.title;
+        $strengthOption.attr(attributeName, attributeValue);
 
-          // Add the link
-          attributeName = 'data-special-auth-link-' + (index2 + 1);
-          attributeValue = temp2.link;
-          $strengthOption.attr(attributeName, attributeValue);
+        // Add the link
+        attributeName = `data-special-auth-link-${(specialIndex + 1)}`;
+        attributeValue = temp2.link;
+        $strengthOption.attr(attributeName, attributeValue);
       });
     });
 
     // LCA Cost
-    const lcaID = 'lca-' + id;
+    const lcaID = `lca-${id}`;
 
     const $lcaLabel = $('<label></label>');
     $lcaLabel
       .attr('for', lcaID)
       .text('LCA');
 
-    const $lcaDiv = $('<div></div>')
+    const $lcaDiv = $('<div></div>');
     $lcaDiv.attr('id', lcaID);
 
     const $lca = $('<div></div>');
@@ -1751,17 +1670,17 @@ function processComparison(results) {
       .appendTo($item);
 
     // Doses per Day
-    const doseID = 'dose-' + id;
+    const doseID = `dose-${id}`;
 
     const $doseLabel = $('<label></label>');
     $doseLabel
       .attr('for', doseID)
       .text('Doses Per Day');
 
-    const $doseInput = $('<input type="text">')
+    const $doseInput = $('<input type="text">');
     $doseInput
       .attr('id', doseID)
-      .on('keyup', function () { updateQuantity(this); })
+      .on('keyup', () => { updateQuantity(this); })
       .val(1);
 
     const $dose = $('<div></div>');
@@ -1771,17 +1690,17 @@ function processComparison(results) {
       .appendTo($item);
 
     // Day Supply
-    const supplyID = 'supply-' + id;
+    const supplyID = `supply-${id}`;
 
     const $supplyLabel = $('<label></label>');
     $supplyLabel
       .attr('for', supplyID)
       .text('Day Supply');
 
-    const $supplyInput = $('<input type="text">')
+    const $supplyInput = $('<input type="text">');
     $supplyInput
       .attr('id', supplyID)
-      .on('keyup', function () { updateQuantity(this); })
+      .on('keyup', () => { updateQuantity(this); })
       .val(100);
 
     const $supply = $('<div></div>');
@@ -1791,17 +1710,17 @@ function processComparison(results) {
       .appendTo($item);
 
     // Quantity
-    const quantityID = 'quantity-' + id;
+    const quantityID = `quantity-${id}`;
 
     const $quantityLabel = $('<label></label>');
     $quantityLabel
       .attr('for', quantityID)
       .text('Quantity');
 
-    const $quantityInput = $('<input type="text">')
+    const $quantityInput = $('<input type="text">');
     $quantityInput
       .attr('id', quantityID)
-      .on('keyup', function () { updateSupply(this); })
+      .on('keyup', () => { updateSupply(this); })
       .val(100);
 
     const $quantity = $('<div></div>');
@@ -1811,7 +1730,7 @@ function processComparison(results) {
       .appendTo($item);
 
     // Price
-    const priceID = 'price-' + id;
+    const priceID = `price-${id}`;
 
     const $priceLabel = $('<label></label>');
     $priceLabel
@@ -1831,7 +1750,7 @@ function processComparison(results) {
     const $infoButton = $('<input type="button">');
     $infoButton
       .addClass('info')
-      .on('click', function () { showInfo(this); })
+      .on('click', () => { showInfo(this); })
       .val('Information');
 
     const $buttons = $('<div></div>');
@@ -1845,6 +1764,40 @@ function processComparison(results) {
   });
 }
 
+/**
+ * Function handling API call to retrieve the selected product information.
+ *
+ * @param {object} selection DOM reference to search result that was clicked.
+ *
+ * @returns {array} JSON array with the selected database entries.
+ */
+function chooseComparison(selection) { // eslint-disable-line no-unused-vars
+  // Extract indices for MySQL query
+  const query = $(selection).attr('data-url');
+  showComparisonResults('');
+
+  $.ajax({
+    url: 'generate-comparison/',
+    data: { q: query },
+    type: 'GET',
+    dataType: 'json',
+    success: (results) => {
+      processComparison(results);
+      // Reset search bar
+      $('#Comparison-Search').val('');
+    },
+    error: (jqXHR, textStatus, errorThrown) => {
+      console.error(`${textStatus}: ${errorThrown}`);
+      const error = (
+        'Sorry we have experienced an error with our server. Please refresh your page and try '
+        + 'again. If you continue to run into issues, please contact us at '
+        + 'studybuffalo@studybuffalo.com'
+      );
+
+      alert(error);
+    },
+  });
+}
 
 /**
    FUNCTIONS SPECIFIC TO PRINTING
@@ -1863,66 +1816,64 @@ function printPrices() {
 
   const patientName = $('#Patient-Name').val();
 
-  html = '<head>' +
-          '<link rel="stylesheet" type="text/css", href="/static/drug_price_calculator/css/print.css"></link>' +
-          '<title>Medications Prices</title>' +
-    '</head>';
+  html = (
+    '<head>'
+    + '<link rel="stylesheet" type="text/css", href="/static/drug_price_calculator/css/print.css"></link>'
+    + '<title>Medications Prices</title>'
+    + '</head>'
+  );
 
   html += '<body>';
 
   // Header
   html += '<h1>';
 
-  html += patientName === '' ?
-    'Medication Price List' :
-    'Medication Price List for ' + patientName;
+  html += patientName ? 'Medication Price List' : `Medication Price List for ${patientName}`;
 
   html += '</h1>';
 
   // Table Header
-  html += '<table>' +
-    '<thead>' +
-    '<tr>' +
-    '<th>Medication</th>' +
-    '<th>Day Supply</th>' +
-    '<th>Quantity</th>' +
-    '<th>Price</th>' +
-    '</tr>' +
-    '</thead>';
+  html += (
+    '<table>'
+    + '<thead>'
+    + '<tr>'
+    + '<th>Medication</th>'
+    + '<th>Day Supply</th>'
+    + '<th>Quantity</th>'
+    + '<th>Price</th>'
+    + '</tr>'
+    + '</thead>'
+  );
 
   // Cycle through the table rows and enter them into the print table
   html += '<tbody>';
 
-  $items.each(function (index, item) {
+  $items.each((index, item) => {
     const $item = $(item);
 
     html += '<tr>';
 
     // Medication Name
-    const $medication = $item.find('.item-medication')
+    const $medication = $item.find('.item-medication');
 
-    const medicationName = $medication.find('strong').text() ||
-                      $medication.find('input').val();
+    const medicationName = $medication.find('strong').text() || $medication.find('input').val();
 
     const medicationInfo = $medication.find('em').text();
 
-    html += '<td>' +
-          '<strong>' + medicationName + '</strong>' +
-          '<br>' +
-          '<em>' + medicationInfo + '</em>' +
-          '</td>';
+    html += `<td><strong>${medicationName}</strong><br><em>${medicationInfo}</em></td>`;
+
 
     // Day supply
     const supply = $item.find('.item-supply input').val();
-    html += '<td>' + supply + '</td>';
+    html += `<td>${supply}</td>`;
 
     // Quantity
-    quantity = $item.find('.item-quantity input').val();
-    html += '<td>' + quantity + '</td>';
+    const quantity = $item.find('.item-quantity input').val();
+    html += `<td>${quantity}</td>`;
 
     // Price
     const price = $item.find('.item-price div').text();
-    html += '<td>' + price + '</td>';
+    html += `<td>${price}</td>`;
 
     html += '</tr>';
   });
@@ -1932,22 +1883,18 @@ function printPrices() {
   // Footer
   const total = $('#price-table-total').text();
 
-  html += '<tfoot>' +
-          '<tr>' +
-              '<th colspan="4">' + total + '</th>' +
-          '</tr>' +
-      '</tfoot>';
+  html += `<tfoot><tr><th colspan="4">${total}</th></tr></tfoot>`;
 
   html += '</table>';
 
   // Disclaimer text
   const today = getTodaysDate();
 
-  html += 'These medications costs are estimates based ' +
-      'on the best available information. Actual ' +
-      'costs may vary depending on your pharmacy ' +
-      'and third-party drug coverage.<br><br>' +
-      '<i>Printed on: ' + today + '</i>';
+  html += (
+    'These medications costs are estimates based on the best available information. Actual '
+    + 'costs may vary depending on your pharmacy and third-party drug coverage.<br><br>'
+    + `<i>Printed on: ${today}</i>`
+  );
 
   html += '</body>';
 
@@ -1958,45 +1905,47 @@ function printPrices() {
   printPage.close();
 }
 
-
-
-
-/******
+/**
  * ADDS EVENT LISTENERS TO HTML DOM ELEMENTS
- **** */
-$(document).ready(function() {
-  let searchSupport = eventSupported('onsearch');
-  let trigger = searchSupport === true ? 'search' : 'keyup';
+ */
+$(document).ready(() => {
+  const searchSupport = eventSupported('onsearch');
+  const trigger = searchSupport === true ? 'search' : 'keyup';
 
   $('#Search-Bar').on(
     trigger,
-    function(){showSearchResults(this.value);});
+    () => { showSearchResults(this.value); },
+  );
 
   $('#price-table-third-party').on(
     'change',
-    function(){changeThirdParty('price-table');});
+    () => { changeThirdParty('price-table'); },
+  );
 
   $('input.changeQuantity').on(
     'click',
-    function(){changeQuantityPopup(this);});
+    () => { changeQuantityPopup(this); },
+  );
 
   $('#Add-Freeform').on(
     'click',
-    function(){addFreeformEntry();});
+    () => { addFreeformEntry(); },
+  );
 
   $('#Comparison-Search').on(
     trigger,
-    function(){showComparisonResults(this.value);});
+    () => { showComparisonResults(this.value); },
+  );
 
   $('#comparison-table-third-party').on(
     'change',
-    function(){changeThirdParty('comparison-table');});
+    () => { changeThirdParty('comparison-table'); },
+  );
 
   $('#Print-Medication-Prices').on(
     'click',
-    function(){printPrices();});
+    () => { printPrices(); },
+  );
 
   $('#Search-Bar').focus();
 });
-
-let ajaxTimer;
