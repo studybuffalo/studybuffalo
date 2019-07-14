@@ -509,7 +509,7 @@ class iDBLDataSerializer(serializers.Serializer):
 
 class DrugListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = model.Drug
+        model = models.Drug
         fields = (
             'id', 'brand_name', 'generic_name', 'strength', 'route',
             'dosage_form', 'generic_product',
@@ -517,7 +517,7 @@ class DrugListSerializer(serializers.ModelSerializer):
 
 class DrugPriceListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = model.Price
+        model = models.Price
         fields = (
             'id', 'unit_price', 'lca_price', 'mac_price', 'max_text',
             'unit_issue', 'coverage_status', 'special_authorizations',
