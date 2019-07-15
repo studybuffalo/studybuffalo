@@ -1,3 +1,4 @@
+/* globals Sentry */
 // Global variables
 let ajaxTimer;
 
@@ -1146,50 +1147,6 @@ function addFreeformEntry() {
 }
 
 /**
- * Function handling API call to retieve search results.
- *
- * @param {object} searchString Search string to query against.
- *
- */
-function showSearchResults(searchString) {
-  const $searchResults = $('#Search-Results');
-
-  if (searchString.length > 0) {
-    // 200 ms Timeout applied to prevent firing during typing
-    clearTimeout(ajaxTimer);
-
-    ajaxTimer = setTimeout(() => {
-      $.ajax({
-        url: 'live-search/',
-        data: { q: searchString },
-        type: 'GET',
-        dataType: 'html',
-        beforeSend: () => {
-          $searchResults.html(`<ul><li><a>${loadingBar}</a></li></ul>`);
-        },
-        success: (results) => {
-          if ($('#Search-Bar').val() === searchString) {
-            $searchResults.html(results);
-          }
-        },
-        error: () => {
-          $searchResults.empty();
-          const error = (
-            'Sorry we have experienced an error with our server. Please refresh your page and '
-            + 'try again. If you continue to run into issues, please contact us at '
-            + 'studybuffalo@studybuffalo.com'
-          );
-
-          alert(error);
-        },
-      });
-    }, 0);
-  } else {
-    $searchResults.empty();
-  }
-}
-
-/**
  * Adds an entry to the JSON array that identifies the LCA.
  *
  * @param {object} result The passed JSON array.
@@ -1249,6 +1206,7 @@ function addLCA(result) {
  * @param {array} array JSON array containing the data to insert.
  */
 function processResult(originalResults) {
+  console.log(originalResults);
   // Add an entry to the result array for the LCA
   const results = addLCA(originalResults);
 
@@ -1481,12 +1439,12 @@ function processResult(originalResults) {
   */
 function chooseResult(selection) { // eslint-disable-line no-unused-vars
   // Extract indices for MySQL query
-  const query = $(selection).attr('data-url');
-  showSearchResults('');
+  const queryIDs = $(selection).attr('data-ids');
+  showSearchResults(''); // eslint-disable-line no-use-before-define
 
   $.ajax({
-    url: 'add-item/',
-    data: { q: query },
+    url: '/api/drug-price-calculator/v1/drugs/prices/',
+    data: { ids: queryIDs },
     type: 'GET',
     dataType: 'json',
     success: (results) => {
@@ -1497,7 +1455,7 @@ function chooseResult(selection) { // eslint-disable-line no-unused-vars
       $('#Search-Bar').focus();
     },
     error: (jqXHR, textStatus, errorThrown) => {
-      console.error(`${textStatus}: ${errorThrown}`);
+      Sentry.captureException(errorThrown);
       const error = (
         'Sorry we have experienced an error with our server. Please refresh your page and try '
         + 'again. If you continue to run into issues, please contact us at '
@@ -1507,6 +1465,104 @@ function chooseResult(selection) { // eslint-disable-line no-unused-vars
       alert(error);
     },
   });
+}
+
+/**
+ * Formats the array of search results for search result list.
+ *
+ * @param {array} results Array of search results.
+ *
+ * @results {string} The HTML search results
+ */
+function formatSearchResults(results) {
+  // Group together the common drug names
+  const compiledResults = {};
+
+  results.forEach((drug) => {
+    // If key not in object, add it
+    if (!(drug.generic_product in compiledResults)) {
+      compiledResults[drug.generic_product] = {
+        ids: [],
+        generic_product: drug.generic_product,
+        brand_names: new Set(),
+      };
+    }
+
+    // Add the IDs and brand name to array
+    compiledResults[drug.generic_product].ids.push(drug.id);
+    compiledResults[drug.generic_product].brand_names.add(drug.brand_name);
+  });
+
+  // Generate the HTML search list
+  const $list = $('<ul></ul>');
+
+  Object.keys(compiledResults).forEach((key, index) => {
+    const $item = $('<li></li>')
+      .appendTo($list);
+
+    const $link = $('<a></a>')
+      .appendTo($item)
+      .attr('id', `Search-Result-${index}`)
+      .attr('data-ids', compiledResults[key].ids.join(','))
+      .on('click', (e) => { chooseResult(e.currentTarget); });
+
+    $('<strong></strong>')
+      .appendTo($link)
+      .text(compiledResults[key].generic_product);
+
+    $('<br>').appendTo($link);
+
+    $('<em></em>')
+      .appendTo($link)
+      .text(`also known as ${Array.from(compiledResults[key].brand_names).join(', ')}`);
+  });
+
+  return $list;
+}
+
+/**
+ * Function handling API call to retieve search results.
+ *
+ * @param {object} searchString Search string to query against.
+ *
+ */
+function showSearchResults(searchString) {
+  const $searchResults = $('#Search-Results');
+
+  if (searchString) {
+    // 200 ms Timeout applied to prevent firing during typing
+    clearTimeout(ajaxTimer);
+
+    ajaxTimer = setTimeout(() => {
+      $.ajax({
+        url: '/api/drug-price-calculator/v1/drugs/',
+        data: { q: searchString },
+        type: 'GET',
+        dataType: 'json',
+        beforeSend: () => {
+          $searchResults.html(`<ul><li><a>${loadingBar}</a></li></ul>`);
+        },
+        success: (results) => {
+          const searchList = formatSearchResults(results);
+          if ($('#Search-Bar').val() === searchString) {
+            $searchResults.html(searchList);
+          }
+        },
+        error: () => {
+          $searchResults.empty();
+          const error = (
+            'Sorry we have experienced an error with our server. Please refresh your page and '
+            + 'try again. If you continue to run into issues, please contact us at '
+            + 'studybuffalo@studybuffalo.com'
+          );
+
+          alert(error);
+        },
+      });
+    }, 0);
+  } else {
+    $searchResults.empty();
+  }
 }
 
 /**
@@ -1787,7 +1843,8 @@ function chooseComparison(selection) { // eslint-disable-line no-unused-vars
       $('#Comparison-Search').val('');
     },
     error: (jqXHR, textStatus, errorThrown) => {
-      console.error(`${textStatus}: ${errorThrown}`);
+      Sentry.captureException(errorThrown);
+
       const error = (
         'Sorry we have experienced an error with our server. Please refresh your page and try '
         + 'again. If you continue to run into issues, please contact us at '
@@ -1800,13 +1857,9 @@ function chooseComparison(selection) { // eslint-disable-line no-unused-vars
 }
 
 /**
-   FUNCTIONS SPECIFIC TO PRINTING
- */
-/**
-   printPrices()    Takes the data from Price-Table and formats it into a
- *                    new print page
+ * Takes the data from Price-Table and formats it into a new print page.
  *
- *    Returns a new window.document formatted for printing
+ * @returns {object} A new window.document formatted for printing.
  */
 function printPrices() {
   const printPage = window.open().document;
@@ -1914,7 +1967,7 @@ $(document).ready(() => {
 
   $('#Search-Bar').on(
     trigger,
-    () => { showSearchResults(this.value); },
+    (e) => { showSearchResults(e.target.value); },
   );
 
   $('#price-table-third-party').on(
@@ -1924,7 +1977,7 @@ $(document).ready(() => {
 
   $('input.changeQuantity').on(
     'click',
-    () => { changeQuantityPopup(this); },
+    (e) => { changeQuantityPopup(e.target); },
   );
 
   $('#Add-Freeform').on(
@@ -1934,7 +1987,7 @@ $(document).ready(() => {
 
   $('#Comparison-Search').on(
     trigger,
-    () => { showComparisonResults(this.value); },
+    (e) => { showComparisonResults(e.target.value); },
   );
 
   $('#comparison-table-third-party').on(
