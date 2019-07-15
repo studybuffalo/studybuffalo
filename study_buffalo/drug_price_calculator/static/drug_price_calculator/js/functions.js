@@ -26,12 +26,12 @@ function eventSupported(eventName) {
 }
 
 /**
- *    calculateFees()    Calculates the how much ABC will pay for a medication
+ * Calculates the how much ABC will pay for a medication.
  *
- *    mac:        The maximum allowable cost that will be paid by ABC
- *    thirdParty:    A string representing the ABC coverage to apply
+ * @param {float} mac         Maximum allowable cost that will be paid by ABC.
+ * @param {string} thirdParty String representing the ABC coverage to apply.
  *
- *    Returns a float value for the amount paid by the third party coverage
+ * @returns {float} Amount paid by the third party coverage.
  */
 function calculateThirdParty(mac, thirdParty) {
   let patientPays;
@@ -97,7 +97,7 @@ function calculateThirdParty(mac, thirdParty) {
  * @param {float} costPerUnit The cost per unit for the medication.
  * @param {float} quantity    The number of units to be dispensed.
  *
- * @return {Object} Object of the various fees and prices as float numbers.
+ * @return {object} Object of the various fees and prices as float numbers.
  */
 function calculateFees(costPerUnit, quantity) {
   const upcharge1 = 0.03;
@@ -293,7 +293,11 @@ function totalUpdate($table) {
   $table.find('.item-total span').text(`TOTAL $${finalTotal.toFixed(2)}`);
 }
 
-// TODO: add docstring
+/**
+ * Updates the displayed price of a medication.
+ *
+ * @param {object} $item JQuery reference to the table row to upate.
+ */
 function priceUpdate($item) {
   // Get the appropriate brand/strength select
   const $select = $item.find('select').eq(0);
@@ -411,7 +415,6 @@ function comparisonStrength(strengthSelect) {
   priceUpdate($item);
 }
 
-
 /**
  * Updates the prices in all columns based on new third party coverage.
  *
@@ -452,7 +455,11 @@ function closeQuantityPopup(e) {
   }
 }
 
-// TODO: add doc string
+/**
+ * Updates the provided quantity field
+ *
+ * @param {object} input DOM reference to the input to update.
+ */
 function updateQuantity(input) {
   // Get the containing item div
   const $item = $(input).closest('.item');
@@ -479,6 +486,11 @@ function updateQuantity(input) {
   priceUpdate($item);
 }
 
+/**
+ * Updates all the day supply inputs.
+ *
+ * @param {object} table DOM reference to the table to update.
+ */
 function changeSupply(table) {
   const amount = $('#change-amount').val();
 
@@ -497,7 +509,11 @@ function changeSupply(table) {
   $('#Popup-Veil').remove();
 }
 
-// TODO: add docstring
+/**
+ * Updates the day supply input.
+ *
+ * @param {object} input DOM reference to the day supply to update.
+ */
 function updateSupply(input) {
   // Get the containing item div
   const $item = $(input).closest('.item');
@@ -1120,7 +1136,7 @@ function addLCA(results) {
     drug: results[0].drug,
     id: results[0].id,
     lca_price: results[0].lca_price,
-    mac_price: results[0].lca_price,
+    mac_price: results[0].mac_price,
     mac_text: results[0].mac_text,
     special_authorizations: results[0].special_authorizations,
     unit_issue: results[0].unit_issue,
@@ -1879,9 +1895,6 @@ function printPrices() {
   printPage.close();
 }
 
-/**
- * ADDS EVENT LISTENERS TO HTML DOM ELEMENTS
- */
 $(document).ready(() => {
   const searchSupport = eventSupported('onsearch');
   const trigger = searchSupport === true ? 'search' : 'keyup';
