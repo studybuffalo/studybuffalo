@@ -48,6 +48,7 @@ class UploadiDBLData(GenericAPIView):
 class DrugList(ListAPIView):
     """List of Drugs based on query filters."""
     serializer_class = serializers.DrugListSerializer
+    permission_classes = []
 
     def get_queryset(self):
         """Override to apply search filters."""
@@ -66,6 +67,7 @@ class DrugList(ListAPIView):
 class DrugPriceList(ListAPIView):
     """List of drugs and prices based on requested products."""
     serializer_class = serializers.DrugPriceListSerializer
+    permission_classes = []
 
     def get_queryset(self):
         """Overriding to apply filters."""
