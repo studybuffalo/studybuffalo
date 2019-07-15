@@ -9,4 +9,3 @@ urlpatterns = [
     path('authentication/', include('rest_framework.urls')),
     path('drug-price-calculator/v1/', include('api.drug_price_calculator.urls')),
 ]
-
