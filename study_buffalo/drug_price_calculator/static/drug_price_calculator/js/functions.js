@@ -138,13 +138,14 @@ function calculateFees(costPerUnit, quantity) {
  *
  * @param {float} costPerUnit unit price of the medication.
  * @param {float} quantity    amount of medication.
+ * @param {float} lca         least cost alternative of the medication.
  * @param {float} mac         maximum allowable cost of the medication.
  * @param {str}   thirdParty  third party coverage to apply.
  * @param {array} benefits    Array of strings of the benefits applicable to this drug.
  *
  * @returns {object} object of the various fees and prices as float numbers.
  */
-function calculatePrice(costPerUnit, quantity, mac, thirdParty, benefits) {
+function calculatePrice(costPerUnit, quantity, lca, mac, thirdParty, benefits) {
   let coverageMatch = false;
   let fees;
   let thirdPartyPays;
@@ -319,21 +320,22 @@ function priceUpdate($item) {
 
   // Calculate the price of this medication
   const cost = (
-    Number($item.find('.item-cost span').attr('data-cost'))
+    Number($item.find('.item-cost span').attr('data-unit-price'))
     || Number($item.find('.item-cost input').val())
-    || Number($item.find('.item-cost div').attr('data-cost'))
+    || Number($item.find('.item-cost div').attr('data-unit-price'))
   );
 
   const quantity = Number($item.find('.item-quantity input').val());
 
-  const mac = $option.attr('data-mac');
+  const lca = $option.attr('data-lca-price');
+  const mac = $option.attr('data-mac-price');
 
   const $table = $item.parent('.content').parent('div');
   const tableName = $table.attr('id');
   const $thirdParty = $(`#${tableName}-third-party`);
   const thirdParty = $thirdParty.children('option:selected').val();
 
-  const price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
+  const price = calculatePrice(cost, quantity, lca, mac, thirdParty, benefits);
 
   // Update the Price Div
   const $priceDiv = $item.find('.item-price div');
@@ -357,9 +359,8 @@ function priceUpdate($item) {
   if (price.benefit === 'No') {
     $infoButton.attr('class', 'info warning');
   } else if (
-    $option.attr('data-criteria-sa')
-    || $option.attr('data-criteria-p')
-    || $option.attr('data-special-auth-title-1')
+    $option.attr('data-coverage-criteria')
+    || $option.attr('data-special-authorizations')
   ) {
     $infoButton.attr('class', 'info notice');
   } else {
@@ -375,7 +376,7 @@ function priceUpdate($item) {
 function brandUpdate(brandSelect) {
   // Collect the relevant data values
   const $brandOption = $(brandSelect).children('option:selected');
-  const cost = $brandOption.attr('data-cost');
+  const unitPrice = $brandOption.attr('data-unit-price');
   const unit = $brandOption.attr('data-unit') || 'unit';
 
   // Updates the cost/unit span
@@ -383,8 +384,8 @@ function brandUpdate(brandSelect) {
 
   const $costSpan = $item.find('.item-cost span');
   $costSpan
-    .attr('data-cost', cost)
-    .text(`$${cost}`);
+    .attr('data-unit-price', unitPrice)
+    .text(`$${unitPrice}`);
 
   const $costEm = $item.find('.item-cost em');
   $costEm.text(`per ${unit}`);
@@ -1217,9 +1218,11 @@ function processResult(originalResults) {
 
     $tempOption
       .text(value.drug.brand_name)
-      .attr('data-cost', value.unit_price)
-      .attr('data-unit', value.unit_issue)
-      .attr('data-mac', value.mac_price)
+      .attr('data-unit-price', value.unit_price)
+      .attr('data-unit-issue', value.unit_issue)
+      .attr('data-lca-price', value.lca_price)
+      .attr('data-mac-price', value.mac_price)
+      .attr('data-mac-text', value.mac_text)
       .attr('data-group-1', value.clients.group_1)
       .attr('data-group-66', value.clients.group_66)
       .attr('data-group-66a', value.clients.group_66a)
@@ -1544,7 +1547,6 @@ function showComparisonResults(searchString) {
     $searchResults.empty();
   }
 }
-
 
 /**
  * Takes passed JSON array and formats all the data to insert into Comparison-Table.
