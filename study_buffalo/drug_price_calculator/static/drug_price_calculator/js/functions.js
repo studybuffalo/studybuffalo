@@ -372,7 +372,7 @@ function brandUpdate(brandSelect) {
   // Collect the relevant data values
   const $brandOption = $(brandSelect).children('option:selected');
   const cost = $brandOption.attr('data-cost');
-  const unit = $brandOption.attr('data-unit');
+  const unit = $brandOption.attr('data-unit') || 'unit';
 
   // Updates the cost/unit span
   const $item = $(brandSelect).closest('.item');
@@ -722,25 +722,13 @@ function showInfo(infoButton) {
   // Benefit Type
   const $option = $item.find('select').children('option:selected');
 
-  let coverageText = $option.attr('data-coverage');
+  let coverageText = $option.attr('data-coverage-status');
   coverageText = coverageText || 'Not a benefit';
 
   const $coverage = $('<p></p>');
   $coverage
     .append($('<strong></strong>').text('Benefit Type: '))
     .append($('<span></span>').text(coverageText))
-    .appendTo($infoDiv);
-
-  // Whether this is a drug benefit or not
-  const $price = $item.find('.item-price div');
-
-  let benefitText = $price.attr('data-benefit');
-  benefitText = benefitText || 'N/A';
-
-  const $benefit = $('<p></p>');
-  $benefit
-    .append($('<strong></strong>').text('Benefit: '))
-    .append($('<span></span>').text(benefitText))
     .appendTo($infoDiv);
 
   // Check if any third party coverage is applied
@@ -774,36 +762,17 @@ function showInfo(infoButton) {
   }
 
   // Add any coverage criteria
-  const criteriaSA = $option.attr('data-criteria-sa');
-  if (criteriaSA) {
-    const $criteriaSA = $('<a></a>');
-    $criteriaSA
+  // TODO: create a pop-up window to display criteria
+  const criteria = $option.attr('data-coverage-criteria');
+  if (criteria) {
+    const $criteria = $('<a></a>');
+    $criteria
       .text('Click here for coverage criteria')
-      .attr('href', criteriaSA)
-      .attr('target', '_blank')
-      .attr('rel', 'noopener');
+      .attr('criteria', criteria);
 
-    const $criteriaSAP = $('<p></p>');
-    $criteriaSAP
-      .append($criteriaSA)
-      .appendTo($infoDiv)
-      .css('margin-top: 0.5em;');
-  }
-
-  // Add any palliative care details
-  const criteriaP = $option.attr('data-criteria-p');
-
-  if (criteriaP) {
-    const $criteriaP = $('<a></a>');
+    const $criteriaP = $('<p></p>');
     $criteriaP
-      .text('Click here for Palliative program information')
-      .attr('href', criteriaP)
-      .attr('target', '_blank')
-      .attr('rel', 'noopener');
-
-    const $criteriaPP = $('<p></p>');
-    $criteriaPP
-      .append($criteriaP)
+      .append($criteria)
       .appendTo($infoDiv)
       .css('margin-top: 0.5em;');
   }
@@ -820,6 +789,7 @@ function showInfo(infoButton) {
   $feeTable.appendTo($infoDiv);
 
   // Drug Costs
+  const $price = $item.find('.item-price');
   let drugCost = Number($price.attr('data-drug-cost'));
   drugCost = Number.isNaN(drugCost) ? '$0.00' : `${drugCost.toFixed(2)}`;
 
@@ -902,40 +872,29 @@ function showInfo(infoButton) {
   const $saFormTitle = $('<p></p>');
   const $saForm = $('<ul></ul>');
 
-  let saFormTest = true;
-  let saCounter = 1;
+  const specialAuthorizations = JSON.parse($option.attr('data-special-authorizations'));
 
-  while (saFormTest === true) {
-    const saFormAttrL = `data-special-auth-link-${saCounter}`;
-    const saFormAttrT = `data-special-auth-title-${saCounter}`;
-
-    if ($option.attr(saFormAttrL)) {
-      if (saCounter === 1) {
-        $saFormTitle
-          .append($('<strong></strong>').text('Special Authorization Forms'))
-          .addClass('MT1em')
-          .appendTo($infoDiv);
-
-        $saForm.appendTo($infoDiv);
-      }
-
-      const $saFormA = $('<a></a>');
-      const saFormLink = $option.attr(saFormAttrL);
-      const saFormName = $option.attr(saFormAttrT);
-
-      $saFormA
-        .text(saFormName)
-        .attr('href', saFormLink)
-        .attr('target', '_blank')
-        .attr('rel', 'noopner');
-
-      $('<li></li>').append($saFormA).appendTo($saForm);
-
-      saCounter += 1;
-    } else {
-      saFormTest = false;
-    }
+  // If special authorizations present, add title
+  if (specialAuthorizations) {
+    $saFormTitle
+      .append($('<strong></strong>').text('Special Authorization Forms'))
+      .addClass('MT1em')
+      .appendTo($infoDiv);
+    $saForm.appendTo($infoDiv);
   }
+
+  // Add any forms
+  specialAuthorizations.forEach((special) => {
+    const $saFormA = $('<a></a>');
+
+    $saFormA
+      .text(special.pdf_title)
+      .attr('href', `https://idbl.ab.bluecross.ca/idbl/DBL/${special.file_name}`)
+      .attr('target', '_blank')
+      .attr('rel', 'noopner');
+
+    $('<li></li>').append($saFormA).appendTo($saForm);
+  });
 
   // Close Button
   const $close = $('<div></div>');
@@ -1153,51 +1112,25 @@ function addFreeformEntry() {
  *
  * @returns {array} JSON array with the LCA entry added to the front.
  */
-function addLCA(result) {
-  let lcaIndex = 0;
-  let lcaCost = parseFloat(result[0].unit_price);
-
-  // Identifies the index of the LCA
-  for (let i = 0; i < result.length; i += 1) {
-    if (parseFloat(result[i].unit_price) < lcaCost) {
-      lcaIndex = i;
-      lcaCost = parseFloat(result[i].unit_price);
-    }
-  }
-
-  // letructs the LCA entry
+function addLCA(results) {
   const lcaEntry = {
-    url: result[lcaIndex].url,
-    generic_name: result[lcaIndex].generic_name,
-    strength: result[lcaIndex].strength,
-    route: result[lcaIndex].route,
-    dosage_form: result[lcaIndex].dosage_form,
-    brand_name: 'LCA',
-    unit_price: result[lcaIndex].unit_price,
-    lca: result[lcaIndex].lca,
-    unit_issue: result[lcaIndex].unit_issue,
-    coverage: result[lcaIndex].coverage,
-    criteria: result[lcaIndex].criteria,
-    criteria_p: result[lcaIndex].criteria_p,
-    criteria_sa: result[lcaIndex].criteria_sa,
-    group_1: result[lcaIndex].group_1,
-    group_66: result[lcaIndex].group_66,
-    group_66a: result[lcaIndex].group_66a,
-    group_19823: result[lcaIndex].group_19823,
-    group_19823a: result[lcaIndex].group_19823a,
-    group_19824: result[lcaIndex].group_19824,
-    group_20400: result[lcaIndex].group_20400,
-    group_20403: result[lcaIndex].group_20403,
-    group_20514: result[lcaIndex].group_20514,
-    group_22128: result[lcaIndex].group_22128,
-    group_23609: result[lcaIndex].group_23609,
-    special_auth: result[lcaIndex].special_auth,
+    clients: results[0].clients,
+    coverage_criteria: results[0].coverage_criteria,
+    coverage_status: results[0].coverage_status,
+    drug: results[0].drug,
+    id: results[0].id,
+    lca_price: results[0].lca_price,
+    mac_price: results[0].lca_price,
+    mac_text: results[0].mac_text,
+    special_authorizations: results[0].special_authorizations,
+    unit_issue: results[0].unit_issue,
+    unit_price: results[0].lca_price,
   };
 
   // Adds LCA entry to front of array
-  result.unshift(lcaEntry);
+  results.unshift(lcaEntry);
 
-  return result;
+  return results;
 }
 
 /**
@@ -1206,7 +1139,6 @@ function addLCA(result) {
  * @param {array} array JSON array containing the data to insert.
  */
 function processResult(originalResults) {
-  console.log(originalResults);
   // Add an entry to the result array for the LCA
   const results = addLCA(originalResults);
 
@@ -1229,12 +1161,12 @@ function processResult(originalResults) {
     .text('Medication');
 
   const $medicationStrong = $('<strong></strong>');
-  $medicationStrong.text(results[0].generic_name);
+  $medicationStrong.text(results[0].drug.generic_name);
 
   let medEmText = '';
-  medEmText += results[0].strength ? `${results[0].strength} ` : '';
-  medEmText += results[0].route ? `${results[0].route} ` : '';
-  medEmText += results[0].dosage_form ? `${results[0].dosage_form} ` : '';
+  medEmText += results[0].strength ? `${results[0].drug.strength} ` : '';
+  medEmText += results[0].route ? `${results[0].drug.route} ` : '';
+  medEmText += results[0].dosage_form ? `${results[0].drug.dosage_form} ` : '';
   medEmText = medEmText.trim();
 
   const $medicationEm = $('<em></em>');
@@ -1262,42 +1194,31 @@ function processResult(originalResults) {
   const $brandSelect = $('<select></select>');
   $brandSelect
     .attr('id', brandID)
-    .on('change', () => { brandUpdate(this); });
+    .on('change', (e) => { brandUpdate(e.currentTarget); });
 
   $.each(results, (index, value) => {
     const $tempOption = $('<option></option>');
 
     $tempOption
-      .text(value.brand_name)
+      .text(value.drug.brand_name)
       .attr('data-cost', value.unit_price)
       .attr('data-unit', value.unit_issue)
-      .attr('data-mac', value.lca ? value.lca : value.unit_price)
-      .attr('data-coverage', value.coverage)
-      .attr('data-criteria-p', value.criteria_p)
-      .attr('data-criteria-sa', value.criteria_sa)
-      .attr('data-group-1', value.group_1)
-      .attr('data-group-66', value.group_66)
-      .attr('data-group-66a', value.group_66a)
-      .attr('data-group-19823', value.group_19823)
-      .attr('data-group-19823a', value.group_19823a)
-      .attr('data-group-19824', value.group_19824)
-      .attr('data-group-20400', value.group_20400)
-      .attr('data-group-20403', value.group_20403)
-      .attr('data-group-20514', value.group_20514)
-      .attr('data-group-22128', value.group_22128)
-      .attr('data-group-23609', value.group_23609)
+      .attr('data-mac', value.mac_price)
+      .attr('data-group-1', value.clients.group_1)
+      .attr('data-group-66', value.clients.group_66)
+      .attr('data-group-66a', value.clients.group_66a)
+      .attr('data-group-19823', value.clients.group_19823)
+      .attr('data-group-19823a', value.clients.group_19823a)
+      .attr('data-group-19824', value.clients.group_19824)
+      .attr('data-group-20400', value.clients.group_20400)
+      .attr('data-group-20403', value.clients.group_20403)
+      .attr('data-group-20514', value.clients.group_20514)
+      .attr('data-group-22128', value.clients.group_22128)
+      .attr('data-group-23609', value.clients.group_23609)
+      .attr('data-coverage-status', value.coverage_status)
+      .attr('data-special-authorizations', JSON.stringify(value.special_authorizations))
+      .attr('data-coverage-criteria', JSON.stringify(value.coverage_criteria))
       .appendTo($brandSelect);
-
-    // Generates format for special auth data objects
-    $.each(value.special_auth, (specialIndex, temp) => {
-      let attributeName = `data-special-auth-title-${(specialIndex + 1)}`;
-      let attributeValue = temp.title;
-      $tempOption.attr(attributeName, attributeValue);
-
-      attributeName = `data-special-auth-link-${(specialIndex + 1)}`;
-      attributeValue = temp.link;
-      $tempOption.attr(attributeName, attributeValue);
-    });
   });
 
   const $brand = $('<div></div>');
@@ -1410,7 +1331,7 @@ function processResult(originalResults) {
   const $infoButton = $('<input type="button">');
   $infoButton
     .addClass('info')
-    .on('click', () => { showInfo(this); })
+    .on('click', (e) => { showInfo(e.currentTarget); })
     .val('Information');
 
   const $deleteButton = $('<input type="button">');
@@ -1436,7 +1357,7 @@ function processResult(originalResults) {
  * Function handling the API call retrieve the selected product information.
  *
  * @param {object} selection DOM reference to the search result clicked.
-  */
+ */
 function chooseResult(selection) { // eslint-disable-line no-unused-vars
   // Extract indices for MySQL query
   const queryIDs = $(selection).attr('data-ids');
