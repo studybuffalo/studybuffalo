@@ -515,11 +515,64 @@ class DrugListSerializer(serializers.ModelSerializer):
             'dosage_form', 'generic_product',
         )
 
+class ATCDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ATC
+        fields = (
+            'id', 'atc_1', 'atc_1_text', 'atc_2', 'atc_2_text',
+            'atc_3', 'atc_3_text', 'atc_4', 'atc_4_text',
+            'atc_5', 'atc_5_text',
+        )
+
+class PTCDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PTC
+        fields = (
+            'id', 'ptc_1', 'ptc_1_text', 'ptc_2', 'ptc_2_text',
+            'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
+        )
+
+class DrugDetailSerializer(serializers.ModelSerializer):
+    atc = ATCDetailSerializer()
+    ptc = PTCDetailSerializer()
+
+    class Meta:
+        model = models.Drug
+        fields = (
+            'id', 'din', 'brand_name', 'strength', 'route', 'dosage_form',
+            'generic_name', 'manufacturer', 'schedule', 'atc', 'ptc',
+            'generic_product'
+        )
+
+class ClientsDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Clients
+        fields = (
+            'id', 'group_1', 'group_66', 'group_19823', 'group_19823a',
+            'group_19824', 'group_20400', 'group_20403', 'group_20514',
+            'group_22128', 'group_23609',
+        )
+
+class SpecialAuthorizationDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.SpecialAuthorization
+        fields = ('file_name', 'pdf_title')
+
+class CoverageCriteriaDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CoverageCriteria
+        fields = ('header', 'criteria')
+
 class DrugPriceListSerializer(serializers.ModelSerializer):
+    drug = DrugDetailSerializer()
+    clients = ClientsDetailSerializer()
+    special_authorizations = SpecialAuthorizationDetailSerializer(many=True)
+    coverage_criteria = CoverageCriteriaDetailSerializer(many=True)
+
     class Meta:
         model = models.Price
         fields = (
-            'id', 'unit_price', 'lca_price', 'mac_price', 'mac_text',
+            'id', 'drug', 'unit_price', 'lca_price', 'mac_price', 'mac_text',
             'unit_issue', 'coverage_status', 'special_authorizations',
             'clients', 'coverage_criteria',
         )
