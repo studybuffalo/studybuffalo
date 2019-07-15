@@ -73,7 +73,7 @@ class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
     )
     pdf_title = serializers.CharField(
         help_text='The tile of the PDF',
-        max_length=100,
+        max_length=200,
     )
 
     def create(self, validated_data):
