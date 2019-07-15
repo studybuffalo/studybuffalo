@@ -519,7 +519,7 @@ class DrugPriceListSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Price
         fields = (
-            'id', 'unit_price', 'lca_price', 'mac_price', 'max_text',
+            'id', 'unit_price', 'lca_price', 'mac_price', 'mac_text',
             'unit_issue', 'coverage_status', 'special_authorizations',
             'clients', 'coverage_criteria',
         )
