@@ -26,12 +26,12 @@ function eventSupported(eventName) {
 }
 
 /**
- *    calculateFees()    Calculates the how much ABC will pay for a medication
+ * Calculates the how much ABC will pay for a medication.
  *
- *    mac:        The maximum allowable cost that will be paid by ABC
- *    thirdParty:    A string representing the ABC coverage to apply
+ * @param {float} mac         Maximum allowable cost that will be paid by ABC.
+ * @param {string} thirdParty String representing the ABC coverage to apply.
  *
- *    Returns a float value for the amount paid by the third party coverage
+ * @returns {float} Amount paid by the third party coverage.
  */
 function calculateThirdParty(mac, thirdParty) {
   let patientPays;
@@ -97,7 +97,7 @@ function calculateThirdParty(mac, thirdParty) {
  * @param {float} costPerUnit The cost per unit for the medication.
  * @param {float} quantity    The number of units to be dispensed.
  *
- * @return {Object} Object of the various fees and prices as float numbers.
+ * @return {object} Object of the various fees and prices as float numbers.
  */
 function calculateFees(costPerUnit, quantity) {
   const upcharge1 = 0.03;
@@ -138,13 +138,14 @@ function calculateFees(costPerUnit, quantity) {
  *
  * @param {float} costPerUnit unit price of the medication.
  * @param {float} quantity    amount of medication.
+ * @param {float} lca         least cost alternative of the medication.
  * @param {float} mac         maximum allowable cost of the medication.
  * @param {str}   thirdParty  third party coverage to apply.
  * @param {array} benefits    Array of strings of the benefits applicable to this drug.
  *
  * @returns {object} object of the various fees and prices as float numbers.
  */
-function calculatePrice(costPerUnit, quantity, mac, thirdParty, benefits) {
+function calculatePrice(costPerUnit, quantity, lca, mac, thirdParty, benefits) {
   let coverageMatch = false;
   let fees;
   let thirdPartyPays;
@@ -293,7 +294,11 @@ function totalUpdate($table) {
   $table.find('.item-total span').text(`TOTAL $${finalTotal.toFixed(2)}`);
 }
 
-// TODO: add docstring
+/**
+ * Updates the displayed price of a medication.
+ *
+ * @param {object} $item JQuery reference to the table row to upate.
+ */
 function priceUpdate($item) {
   // Get the appropriate brand/strength select
   const $select = $item.find('select').eq(0);
@@ -315,21 +320,22 @@ function priceUpdate($item) {
 
   // Calculate the price of this medication
   const cost = (
-    Number($item.find('.item-cost span').attr('data-cost'))
+    Number($item.find('.item-cost span').attr('data-unit-price'))
     || Number($item.find('.item-cost input').val())
-    || Number($item.find('.item-cost div').attr('data-cost'))
+    || Number($item.find('.item-cost div').attr('data-unit-price'))
   );
 
   const quantity = Number($item.find('.item-quantity input').val());
 
-  const mac = $option.attr('data-mac');
+  const lca = $option.attr('data-lca-price');
+  const mac = $option.attr('data-mac-price');
 
   const $table = $item.parent('.content').parent('div');
   const tableName = $table.attr('id');
   const $thirdParty = $(`#${tableName}-third-party`);
   const thirdParty = $thirdParty.children('option:selected').val();
 
-  const price = calculatePrice(cost, quantity, mac, thirdParty, benefits);
+  const price = calculatePrice(cost, quantity, lca, mac, thirdParty, benefits);
 
   // Update the Price Div
   const $priceDiv = $item.find('.item-price div');
@@ -353,9 +359,8 @@ function priceUpdate($item) {
   if (price.benefit === 'No') {
     $infoButton.attr('class', 'info warning');
   } else if (
-    $option.attr('data-criteria-sa')
-    || $option.attr('data-criteria-p')
-    || $option.attr('data-special-auth-title-1')
+    $option.attr('data-coverage-criteria')
+    || $option.attr('data-special-authorizations')
   ) {
     $infoButton.attr('class', 'info notice');
   } else {
@@ -371,7 +376,7 @@ function priceUpdate($item) {
 function brandUpdate(brandSelect) {
   // Collect the relevant data values
   const $brandOption = $(brandSelect).children('option:selected');
-  const cost = $brandOption.attr('data-cost');
+  const unitPrice = $brandOption.attr('data-unit-price');
   const unit = $brandOption.attr('data-unit') || 'unit';
 
   // Updates the cost/unit span
@@ -379,8 +384,8 @@ function brandUpdate(brandSelect) {
 
   const $costSpan = $item.find('.item-cost span');
   $costSpan
-    .attr('data-cost', cost)
-    .text(`$${cost}`);
+    .attr('data-unit-price', unitPrice)
+    .text(`$${unitPrice}`);
 
   const $costEm = $item.find('.item-cost em');
   $costEm.text(`per ${unit}`);
@@ -410,7 +415,6 @@ function comparisonStrength(strengthSelect) {
   // Update the total price
   priceUpdate($item);
 }
-
 
 /**
  * Updates the prices in all columns based on new third party coverage.
@@ -452,7 +456,11 @@ function closeQuantityPopup(e) {
   }
 }
 
-// TODO: add doc string
+/**
+ * Updates the provided quantity field
+ *
+ * @param {object} input DOM reference to the input to update.
+ */
 function updateQuantity(input) {
   // Get the containing item div
   const $item = $(input).closest('.item');
@@ -479,6 +487,11 @@ function updateQuantity(input) {
   priceUpdate($item);
 }
 
+/**
+ * Updates all the day supply inputs.
+ *
+ * @param {object} table DOM reference to the table to update.
+ */
 function changeSupply(table) {
   const amount = $('#change-amount').val();
 
@@ -497,7 +510,11 @@ function changeSupply(table) {
   $('#Popup-Veil').remove();
 }
 
-// TODO: add docstring
+/**
+ * Updates the day supply input.
+ *
+ * @param {object} input DOM reference to the day supply to update.
+ */
 function updateSupply(input) {
   // Get the containing item div
   const $item = $(input).closest('.item');
@@ -1120,7 +1137,7 @@ function addLCA(results) {
     drug: results[0].drug,
     id: results[0].id,
     lca_price: results[0].lca_price,
-    mac_price: results[0].lca_price,
+    mac_price: results[0].mac_price,
     mac_text: results[0].mac_text,
     special_authorizations: results[0].special_authorizations,
     unit_issue: results[0].unit_issue,
@@ -1201,9 +1218,11 @@ function processResult(originalResults) {
 
     $tempOption
       .text(value.drug.brand_name)
-      .attr('data-cost', value.unit_price)
-      .attr('data-unit', value.unit_issue)
-      .attr('data-mac', value.mac_price)
+      .attr('data-unit-price', value.unit_price)
+      .attr('data-unit-issue', value.unit_issue)
+      .attr('data-lca-price', value.lca_price)
+      .attr('data-mac-price', value.mac_price)
+      .attr('data-mac-text', value.mac_text)
       .attr('data-group-1', value.clients.group_1)
       .attr('data-group-66', value.clients.group_66)
       .attr('data-group-66a', value.clients.group_66a)
@@ -1528,7 +1547,6 @@ function showComparisonResults(searchString) {
     $searchResults.empty();
   }
 }
-
 
 /**
  * Takes passed JSON array and formats all the data to insert into Comparison-Table.
@@ -1879,9 +1897,6 @@ function printPrices() {
   printPage.close();
 }
 
-/**
- * ADDS EVENT LISTENERS TO HTML DOM ELEMENTS
- */
 $(document).ready(() => {
   const searchSupport = eventSupported('onsearch');
   const trigger = searchSupport === true ? 'search' : 'keyup';
