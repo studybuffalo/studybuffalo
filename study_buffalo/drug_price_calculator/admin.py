@@ -21,6 +21,13 @@ class DrugAdmin(admin.ModelAdmin):
 
     list_display = ('din', 'brand_name', 'generic_name', 'strength', 'dosage_form')
     ordering = ('generic_name', 'strength', 'dosage_form')
+    search_fields = ('din', 'brand_name', 'generic_name')
+
+    fields = (
+        'din', 'brand_name', 'strength', 'route', 'dosage_form',
+        'generic_name', 'manufacturer', 'schedule', 'atc', 'ptc',
+        'generic_product',
+    )
 
 @admin.register(models.Price)
 class PriceAdmin(admin.ModelAdmin):
@@ -29,6 +36,7 @@ class PriceAdmin(admin.ModelAdmin):
 
     list_display = ('drug', 'abc_id', 'unit_price', 'lca_price', 'mac_price')
     ordering = ('abc_id',)
+    search_fields = ('drug__brand_name', 'drug__generic_name', 'abc_id')
 
     fields = (
         'drug', 'abc_id', 'date_listed', 'unit_price', 'lca_price', 'mac_price',

@@ -412,7 +412,7 @@ class iDBLDataSerializer(serializers.Serializer):
         )
 
         # Parse the unit of issue
-        unit_issue = parse.parse_unit_of_issue(data['unit_issue'])
+        unit_issue = parse.parse_unit_issue(data['unit_issue'])
 
         # Update the price model
         price.date_listed = data['date_listed']

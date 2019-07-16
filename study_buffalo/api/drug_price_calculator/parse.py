@@ -200,7 +200,7 @@ def parse_manufacturer(raw_manufacturer):
 
     return text
 
-def parse_unit_of_issue(raw_unit_issue):
+def parse_unit_issue(raw_unit_issue):
     """Parses the unit of issue."""
     # Check if there is a value to parse
     if not raw_unit_issue:
