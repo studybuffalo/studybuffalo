@@ -259,7 +259,7 @@ class iDBLDataSerializer(serializers.Serializer):
             )
 
             return new_atc
-        except models.ATC.DoesNotExist:
+        except AttributeError:
             pass
 
         # No Temporary Record possible - log message and return None
@@ -295,7 +295,7 @@ class iDBLDataSerializer(serializers.Serializer):
             )
 
             return ptc
-        except models.PTC.DoesNotExist:
+        except AttributeError:
             pass
 
         # See if the code exists at level 3
@@ -379,6 +379,9 @@ class iDBLDataSerializer(serializers.Serializer):
         # Parse the generic data
         generic_name = parse.parse_generic(data['generic_name'])
 
+        # Assemble the generic_product name
+        generic_product = parse.assemble_generic_product(bsrf, generic_name)
+
         # Parse the manufacturer data
         manufacturer = parse.parse_manufacturer(data['manufacturer'])
 
@@ -398,6 +401,7 @@ class iDBLDataSerializer(serializers.Serializer):
         drug.schedule = data['schedule']
         drug.atc = atc
         drug.ptc = ptc
+        drug.generic_product = generic_product
         drug.save()
 
         return drug
