@@ -180,6 +180,24 @@ def parse_generic(raw_generic):
 
     return generic
 
+def assemble_generic_product(bsrf, generic_name):
+    """Assembles a generic product name."""
+    description = []
+
+    if bsrf['strength']:
+        description.append(bsrf['strength'])
+
+    if bsrf['route']:
+        description.append(bsrf['route'])
+
+    if bsrf['dosage_form']:
+        description.append(bsrf['dosage_form'])
+
+    if description:
+        return '{} ({})'.format(generic_name, ' '.join(description))
+
+    return generic_name
+
 def parse_manufacturer(raw_manufacturer):
     """Parses drug manufacturers."""
     # Check if there is a value to parse
