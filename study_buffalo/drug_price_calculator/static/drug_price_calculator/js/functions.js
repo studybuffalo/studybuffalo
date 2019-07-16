@@ -176,8 +176,19 @@ function calculatePrice(costPerUnit, quantity, lca, mac, thirdParty, benefits) {
       if (thirdParty === benefits[i]) { coverageMatch = true; }
     }
 
-    // Calculates the MAC
-    fees = calculateFees(mac, quantity);
+    // Determine maximum the third party will pay
+    let thirdPartyUnitPrice = 0;
+
+    if (mac && lca) {
+      thirdPartyUnitPrice = mac < lca ? mac : lca;
+    } else if (mac) {
+      thirdPartyUnitPrice = mac;
+    } else if (lca) {
+      thirdPartyUnitPrice = lca;
+    }
+
+    // Calculates the amount they will pay
+    fees = calculateFees(thirdPartyUnitPrice, quantity);
 
     // Calculates net price based on coverage information
     if (coverageMatch === false) {
@@ -308,7 +319,6 @@ function priceUpdate($item) {
   const benefits = [];
   if ($option.attr('data-group-1') === 'true') { benefits.push('1'); }
   if ($option.attr('data-group-66') === 'true') { benefits.push('66'); }
-  if ($option.attr('data-group-66a') === 'true') { benefits.push('66a'); }
   if ($option.attr('data-group-19823') === 'true') { benefits.push('19823'); }
   if ($option.attr('data-group-19823a') === 'true') { benefits.push('19823a'); }
   if ($option.attr('data-group-19824') === 'true') { benefits.push('19824'); }
@@ -756,8 +766,9 @@ function showInfo(infoButton) {
   // Add drug cost & MAC if the drug plan was selected
   if (thirdParty) {
     // Collect the relevant data
-    const cost = $option.attr('data-cost');
-    const mac = $option.attr('data-mac');
+    const cost = $option.attr('data-unit-price');
+    const lca = $option.attr('data-lca-price');
+    const mac = $option.attr('data-mac-price');
     let unit = $option.attr('data-unit');
 
     // Replaces unit with 'unit' if blank
@@ -770,22 +781,38 @@ function showInfo(infoButton) {
       .append($('<span></span>').text(`$${cost} per ${unit}`))
       .appendTo($infoDiv);
 
+    // LCA
+    if (lca) {
+      const $lca = $('<p></p>');
+      $lca
+        .append($('<strong></strong>').text('LCA: '))
+        .append($('<span></span>').text(`$${lca} per ${unit}`))
+        .appendTo($infoDiv);
+    }
+
     // MAC
-    const $mac = $('<p></p>');
-    $mac
-      .append($('<strong></strong>').text('MAC: '))
-      .append($('<span></span>').text(`$${mac} per ${unit}`))
-      .appendTo($infoDiv);
+    if (mac) {
+      const $mac = $('<p></p>');
+      $mac
+        .append($('<strong></strong>').text('MAC: '))
+        .append($('<span></span>').text(`$${mac} per ${unit}`))
+        .appendTo($infoDiv);
+    }
   }
 
   // Add any coverage criteria
   // TODO: create a pop-up window to display criteria
-  const criteria = $option.attr('data-coverage-criteria');
-  if (criteria) {
+  const criteria = JSON.parse($option.attr('data-coverage-criteria'));
+
+  if (criteria.length) {
+    const priceID = $option.attr('data-price-id');
+
     const $criteria = $('<a></a>');
     $criteria
       .text('Click here for coverage criteria')
-      .attr('criteria', criteria);
+      .attr('target', '_blank')
+      .attr('rel', 'noopener')
+      .attr('href', `/tools/drug-price-calculator/coverage-criteria/${priceID}/`);
 
     const $criteriaP = $('<p></p>');
     $criteriaP
@@ -806,7 +833,7 @@ function showInfo(infoButton) {
   $feeTable.appendTo($infoDiv);
 
   // Drug Costs
-  const $price = $item.find('.item-price');
+  const $price = $item.find('.item-price > div');
   let drugCost = Number($price.attr('data-drug-cost'));
   drugCost = Number.isNaN(drugCost) ? '$0.00' : `${drugCost.toFixed(2)}`;
 
@@ -892,7 +919,7 @@ function showInfo(infoButton) {
   const specialAuthorizations = JSON.parse($option.attr('data-special-authorizations'));
 
   // If special authorizations present, add title
-  if (specialAuthorizations) {
+  if (specialAuthorizations.length) {
     $saFormTitle
       .append($('<strong></strong>').text('Special Authorization Forms'))
       .addClass('MT1em')
@@ -1218,6 +1245,7 @@ function processResult(originalResults) {
 
     $tempOption
       .text(value.drug.brand_name)
+      .attr('data-price-id', value.id)
       .attr('data-unit-price', value.unit_price)
       .attr('data-unit-issue', value.unit_issue)
       .attr('data-lca-price', value.lca_price)
@@ -1476,14 +1504,14 @@ function showSearchResults(searchString) {
     ajaxTimer = setTimeout(() => {
       $.ajax({
         url: '/api/drug-price-calculator/v1/drugs/',
-        data: { q: searchString },
+        data: { q: searchString, page: 1 },
         type: 'GET',
         dataType: 'json',
         beforeSend: () => {
           $searchResults.html(`<ul><li><a>${loadingBar}</a></li></ul>`);
         },
         success: (results) => {
-          const searchList = formatSearchResults(results);
+          const searchList = formatSearchResults(results.results);
           if ($('#Search-Bar').val() === searchString) {
             $searchResults.html(searchList);
           }
