@@ -3,6 +3,7 @@ from django.db.models import Q
 
 from rest_framework.generics import GenericAPIView, ListAPIView
 from rest_framework.exceptions import NotFound
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -45,10 +46,16 @@ class UploadiDBLData(GenericAPIView):
 
         return Response(data=message, status=status.HTTP_201_CREATED)
 
+class DrugListPagination(PageNumberPagination):
+    page_size = 100
+    max_page_size = 1000
+    page_query_param = 'page'
+
 class DrugList(ListAPIView):
     """List of Drugs based on query filters."""
     serializer_class = serializers.DrugListSerializer
     permission_classes = []
+    pagination_class = DrugListPagination
 
     def get_queryset(self):
         """Override to apply search filters."""
