@@ -13,13 +13,13 @@ class Drug(models.Model):
     brand_name = models.CharField(
         blank=True,
         help_text='The brand name or trade name',
-        max_length=70,
+        max_length=80,
         null=True,
     )
     strength = models.CharField(
         blank=True,
         help_text='The strength(s) of the medications',
-        max_length=225,
+        max_length=250,
         null=True,
     )
     route = models.CharField(
@@ -31,7 +31,7 @@ class Drug(models.Model):
     dosage_form = models.CharField(
         blank=True,
         help_text='The dosage form',
-        max_length=35,
+        max_length=40,
         null=True,
     )
     generic_name = models.CharField(
@@ -43,7 +43,7 @@ class Drug(models.Model):
     manufacturer = models.CharField(
         blank=True,
         help_text='The drug manufacturer',
-        max_length=75,
+        max_length=150,
         null=True,
     )
     schedule = models.CharField(
@@ -409,7 +409,7 @@ class SpecialAuthorization(models.Model):
 class SubsBSRF(models.Model):
     """Formatting substitutions for Brand/Strength/Route/Formulation"""
     original = models.CharField(
-        max_length=250,
+        max_length=400,
         unique=True,
     )
     brand_name = models.CharField(
@@ -419,7 +419,7 @@ class SubsBSRF(models.Model):
     )
     strength = models.CharField(
         blank=True,
-        max_length=200,
+        max_length=250,
         null=True
     )
     route = models.CharField(
@@ -456,12 +456,12 @@ class SubsGeneric(models.Model):
 class SubsManufacturer(models.Model):
     """Formatting substitutions for manufacturers"""
     original = models.CharField(
-        max_length=120,
+        max_length=150,
         unique=True,
     )
     correction = models.CharField(
         blank=True,
-        max_length=120,
+        max_length=150,
         null=True,
     )
 
@@ -488,7 +488,7 @@ class SubsUnit(models.Model):
 class PendBSRF(models.Model):
     """Pending substitutions for BSRF"""
     original = models.CharField(
-        max_length=250,
+        max_length=400,
         unique=True,
     )
     brand_name = models.CharField(
@@ -498,7 +498,7 @@ class PendBSRF(models.Model):
     )
     strength = models.CharField(
         blank=True,
-        max_length=200,
+        max_length=250,
         null=True,
     )
     route = models.CharField(
