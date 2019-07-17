@@ -295,7 +295,7 @@ class iDBLDataSerializer(serializers.Serializer):
             )
 
             return ptc
-        except AttributeError:
+        except models.PTC.DoesNotExist:
             pass
 
         # See if the code exists at level 3
