@@ -282,7 +282,7 @@ class iDBLDataSerializer(serializers.Serializer):
             ptc = models.PTC.objects.filter(ptc_4=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
-            models.PTC.objects.create(
+            new_ptc = models.PTC.objects.create(
                 id=ptc.ptc_4,
                 ptc_1=ptc.ptc_1,
                 ptc_1_text=ptc.ptc_1_text,
@@ -294,8 +294,8 @@ class iDBLDataSerializer(serializers.Serializer):
                 ptc_4_text=ptc.ptc_4_text,
             )
 
-            return ptc
-        except models.PTC.DoesNotExist:
+            return new_ptc
+        except AttributeError:
             pass
 
         # See if the code exists at level 3
@@ -303,7 +303,7 @@ class iDBLDataSerializer(serializers.Serializer):
             ptc = models.PTC.objects.filter(ptc_3=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
-            models.PTC.objects.create(
+            new_ptc = models.PTC.objects.create(
                 id=ptc.ptc_3,
                 ptc_1=ptc.ptc_1,
                 ptc_1_text=ptc.ptc_1_text,
@@ -315,8 +315,8 @@ class iDBLDataSerializer(serializers.Serializer):
                 ptc_4_text=None
             )
 
-            return ptc
-        except models.PTC.DoesNotExist:
+            return new_ptc
+        except AttributeError:
             pass
 
         # See if the code exists at level 2
@@ -324,8 +324,8 @@ class iDBLDataSerializer(serializers.Serializer):
             ptc = models.PTC.objects.filter(ptc_2=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
-            models.PTC.objects.create(
-                id=ptc.ptc_3,
+            new_ptc = models.PTC.objects.create(
+                id=ptc.ptc_2,
                 ptc_1=ptc.ptc_1,
                 ptc_1_text=ptc.ptc_1_text,
                 ptc_2=ptc.ptc_2,
@@ -336,8 +336,8 @@ class iDBLDataSerializer(serializers.Serializer):
                 ptc_4_text=None
             )
 
-            return ptc
-        except models.PTC.DoesNotExist:
+            return new_ptc
+        except AttributeError:
             pass
 
         # See if the code exists at level 1
@@ -345,7 +345,7 @@ class iDBLDataSerializer(serializers.Serializer):
             ptc = models.PTC.objects.filter(ptc_2=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
-            models.PTC.objects.create(
+            new_ptc = models.PTC.objects.create(
                 id=ptc.ptc_3,
                 ptc_1=ptc.ptc_1,
                 ptc_1_text=ptc.ptc_1_text,
@@ -357,8 +357,8 @@ class iDBLDataSerializer(serializers.Serializer):
                 ptc_4_text=None
             )
 
-            return ptc
-        except models.PTC.DoesNotExist:
+            return new_ptc
+        except AttributeError:
             pass
 
         # No matches found - log message and return None
