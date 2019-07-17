@@ -279,7 +279,7 @@ class iDBLDataSerializer(serializers.Serializer):
 
         # See if the code exists at level 4
         try:
-            ptc = models.PTC.objects.get(ptc_4=self.validated_data['ptc'])
+            ptc = models.PTC.objects.filter(ptc_4=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
             models.PTC.objects.create(
@@ -300,7 +300,7 @@ class iDBLDataSerializer(serializers.Serializer):
 
         # See if the code exists at level 3
         try:
-            ptc = models.PTC.objects.get(ptc_3=self.validated_data['ptc'])
+            ptc = models.PTC.objects.filter(ptc_3=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
             models.PTC.objects.create(
@@ -321,7 +321,7 @@ class iDBLDataSerializer(serializers.Serializer):
 
         # See if the code exists at level 2
         try:
-            ptc = models.PTC.objects.get(ptc_2=self.validated_data['ptc'])
+            ptc = models.PTC.objects.filter(ptc_2=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
             models.PTC.objects.create(
@@ -342,7 +342,7 @@ class iDBLDataSerializer(serializers.Serializer):
 
         # See if the code exists at level 1
         try:
-            ptc = models.PTC.objects.get(ptc_2=self.validated_data['ptc'])
+            ptc = models.PTC.objects.filter(ptc_2=self.validated_data['ptc']).last()
 
             # Add this as a new PTC record
             models.PTC.objects.create(
