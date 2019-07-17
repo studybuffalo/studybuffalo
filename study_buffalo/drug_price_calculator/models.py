@@ -19,7 +19,7 @@ class Drug(models.Model):
     strength = models.CharField(
         blank=True,
         help_text='The strength(s) of the medications',
-        max_length=200,
+        max_length=225,
         null=True,
     )
     route = models.CharField(
