@@ -235,44 +235,36 @@ class iDBLDataSerializer(serializers.Serializer):
             return None
 
         # See if this exact reference exists
-        try:
-            return models.ATC.objects.get(id=self.validated_data['atc'])
-        except models.ATC.DoesNotExist:
-            pass
+        atc, created = models.ATC.objects.get_or_create(id=self.validated_data['atc'])
 
-        # No matches found - create a temporary record if possible
-        try:
-            # Drop last two characters to get the level 4 code
-            atc = models.ATC.objects.filter(
+        # If this was created, add the level 5 code
+        if created:
+            atc.atc_5 = self.validated_data['atc']
+            atc.save()
+
+            # Try to fill in other details from another code
+            atc_4 = models.ATC.objects.filter(
                 atc_4=self.validated_data['atc'][:-2]
             ).first()
 
-            # Add this as a new ATC record
-            new_atc = models.ATC.objects.create(
-                id=self.validated_data['atc'],
-                atc_1=atc.atc_1,
-                atc_1_text=atc.atc_1_text,
-                atc_2=atc.atc_2,
-                atc_2_text=atc.atc_2_text,
-                atc_3=atc.atc_3,
-                atc_3_text=atc.atc_3_text,
-                atc_4=atc.atc_4,
-                atc_4_text=atc.atc_4_text,
-                atc_5=self.validated_data['atc'],
-                atc_5_text=None,
-            )
+            if atc_4:
+                atc.atc_1 = atc_4.atc_1
+                atc.atc_1_text = atc_4.atc_1_text
+                atc.atc_2 = atc_4.atc_2
+                atc.atc_2_text = atc_4.atc_2_text
+                atc.atc_3 = atc_4.atc_3
+                atc.atc_3_text = atc_4.atc_3_text
+                atc.atc_4 = atc_4.atc_4
+                atc.atc_4_text = atc_4.atc_4_text
+                atc.save()
+            else:
+                # No matches for other ATC does send message
+                message = 'No Matching ATC model for FK {} (DIN: {})'.format(
+                    self.validated_data['ptc'], self.validated_data['din']
+                )
+                capture_message(message=message, level=20)
 
-            return new_atc
-        except AttributeError:
-            pass
-
-        # No Temporary Record possible - log message and return None
-        message = 'No matching ATC model for FK {} (DIN: {})'.format(
-            self.validated_data['atc'], self.validated_data['din']
-        )
-        capture_message(message=message, level=30)
-
-        return None
+        return atc
 
     def _get_ptc_instance(self):
         """Retrieves PTC model for validated PTC value."""
@@ -280,103 +272,17 @@ class iDBLDataSerializer(serializers.Serializer):
         if not self.validated_data['ptc']:
             return None
 
-        # See if this exact reference exists
-        try:
-            return models.PTC.objects.get(id=self.validated_data['ptc'])
-        except models.PTC.DoesNotExist:
-            pass
+        # Get reference
+        ptc, created = models.PTC.objects.get_or_create(id=self.validated_data['ptc'])
 
-        # See if the code exists at level 4
-        try:
-            ptc = models.PTC.objects.filter(ptc_4=self.validated_data['ptc']).last()
-
-            # Add this as a new PTC record
-            new_ptc = models.PTC.objects.create(
-                id=ptc.ptc_4,
-                ptc_1=ptc.ptc_1,
-                ptc_1_text=ptc.ptc_1_text,
-                ptc_2=ptc.ptc_2,
-                ptc_2_text=ptc.ptc_2_text,
-                ptc_3=ptc.ptc_3,
-                ptc_3_text=ptc.ptc_3_text,
-                ptc_4=ptc.ptc_4,
-                ptc_4_text=ptc.ptc_4_text,
+        if created:
+            # Send message to notify of missing PTC data
+            message = 'No Matching PTC model for FK {} (DIN: {})'.format(
+                self.validated_data['ptc'], self.validated_data['din']
             )
+            capture_message(message=message, level=20)
 
-            return new_ptc
-        except AttributeError:
-            pass
-
-        # See if the code exists at level 3
-        try:
-            ptc = models.PTC.objects.filter(ptc_3=self.validated_data['ptc']).last()
-
-            # Add this as a new PTC record
-            new_ptc = models.PTC.objects.create(
-                id=ptc.ptc_3,
-                ptc_1=ptc.ptc_1,
-                ptc_1_text=ptc.ptc_1_text,
-                ptc_2=ptc.ptc_2,
-                ptc_2_text=ptc.ptc_2_text,
-                ptc_3=ptc.ptc_3,
-                ptc_3_text=ptc.ptc_3_text,
-                ptc_4=None,
-                ptc_4_text=None
-            )
-
-            return new_ptc
-        except AttributeError:
-            pass
-
-        # See if the code exists at level 2
-        try:
-            ptc = models.PTC.objects.filter(ptc_2=self.validated_data['ptc']).last()
-
-            # Add this as a new PTC record
-            new_ptc = models.PTC.objects.create(
-                id=ptc.ptc_2,
-                ptc_1=ptc.ptc_1,
-                ptc_1_text=ptc.ptc_1_text,
-                ptc_2=ptc.ptc_2,
-                ptc_2_text=ptc.ptc_2_text,
-                ptc_3=None,
-                ptc_3_text=None,
-                ptc_4=None,
-                ptc_4_text=None
-            )
-
-            return new_ptc
-        except AttributeError:
-            pass
-
-        # See if the code exists at level 1
-        try:
-            ptc = models.PTC.objects.filter(ptc_2=self.validated_data['ptc']).last()
-
-            # Add this as a new PTC record
-            new_ptc = models.PTC.objects.create(
-                id=ptc.ptc_3,
-                ptc_1=ptc.ptc_1,
-                ptc_1_text=ptc.ptc_1_text,
-                ptc_2=None,
-                ptc_2_text=None,
-                ptc_3=None,
-                ptc_3_text=None,
-                ptc_4=None,
-                ptc_4_text=None
-            )
-
-            return new_ptc
-        except AttributeError:
-            pass
-
-        # No matches found - log message and return None
-        message = 'No Matching PTC model for FK {} (DIN: {})'.format(
-            self.validated_data['ptc'], self.validated_data['din']
-        )
-        capture_message(message=message, level=30)
-
-        return None
+        return ptc
 
     def _update_drug(self, drug):
         """Updates the Drug instance."""
