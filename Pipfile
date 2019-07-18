@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 argon2-cffi = "*"  # https://github.com/hynek/argon2_cffi
 boto3 = "*"  # https://github.com/boto/boto3
+bs4 = "*"  # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+lxml = "*"  # https://lxml.de/
 pillow = "*"  # https://github.com/python-pillow/Pillow
 psycopg2-binary = "*"  # https://github.com/psycopg/psycopg2
 redis = "*"  # https://github.com/antirez/redis
