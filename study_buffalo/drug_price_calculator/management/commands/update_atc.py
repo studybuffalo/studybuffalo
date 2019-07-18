@@ -46,7 +46,11 @@ class Command(BaseCommand):
                     atc.atc_5_text = atc_text
                     atc.save()
                 except AttributeError:
-                    pass
+                    self.stdout.write(
+                        'No code found for {} (reference DIN: {})'.format(
+                            atc.atc_5, atc.drugs.last().din
+                        )
+                    )
 
             # Sleep of 10 seconds to comply with robots.txt
             time.sleep(10)
