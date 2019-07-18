@@ -51,6 +51,11 @@ class ATCAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'atc_1', 'atc_2', 'atc_3', 'atc_4', 'atc_5')
     ordering = ('id',)
+    search_fields = (
+        'atc_1', 'atc_1_text', 'atc_2', 'atc_2_text',
+        'atc_3', 'atc_3_text', 'atc_4', 'atc_4_text',
+        'atc_5', 'atc_5_text'
+    )
 
     fields = (
         'id', 'atc_1', 'atc_1_text',
@@ -65,6 +70,10 @@ class PTCAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'ptc_1', 'ptc_2', 'ptc_3', 'ptc_4')
     ordering = ('id',)
+    search_fields = (
+        'ptc_1', 'ptc_1_text', 'ptc_2', 'ptc_2_text',
+        'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
+    )
 
     fields = (
         'id', 'ptc_1', 'ptc_1_text', 'ptc_2', 'ptc_2_text',
