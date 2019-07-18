@@ -12,6 +12,7 @@ pillow = "*"  # https://github.com/python-pillow/Pillow
 psycopg2-binary = "*"  # https://github.com/psycopg/psycopg2
 redis = "*"  # https://github.com/antirez/redis
 sentry-sdk = "*"  # https://docs.sentry.io/quickstart/?platform=python
+tqdm = "*"  # https://github.com/tqdm/tqdm
 whitenoise = "*"  # https://github.com/evansd/whitenoise
 
 # Django
