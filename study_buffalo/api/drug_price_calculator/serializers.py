@@ -230,6 +230,10 @@ class iDBLDataSerializer(serializers.Serializer):
 
     def _get_atc_instance(self):
         """Retrieves ATC model for validated ATC value."""
+        # If no values, can exit and return none
+        if not self.validated_data['atc']:
+            return None
+
         # See if this exact reference exists
         try:
             return models.ATC.objects.get(id=self.validated_data['atc'])
@@ -272,6 +276,11 @@ class iDBLDataSerializer(serializers.Serializer):
 
     def _get_ptc_instance(self):
         """Retrieves PTC model for validated PTC value."""
+        # If no values, can exit and return none
+        if not self.validated_data['ptc']:
+            return None
+
+        # See if this exact reference exists
         try:
             return models.PTC.objects.get(id=self.validated_data['ptc'])
         except models.PTC.DoesNotExist:
