@@ -1,10 +1,906 @@
 [
   {
     "model": "drug_price_calculator.ptc",
+    "pk": "000000",
+    "fields": {
+      "ptc_1": "000000",
+      "ptc_1_text": "non-classified drugs",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "000002",
+    "fields": {
+      "ptc_1": "000000",
+      "ptc_1_text": "non-classified drugs",
+      "ptc_2": "000002",
+      "ptc_2_text": "diabetes supplies",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "020000",
+    "fields": {
+      "ptc_1": "020000",
+      "ptc_1_text": "pediatric cough and cold preparations",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "040000",
+    "fields": {
+      "ptc_1": "040000",
+      "ptc_1_text": "antihistamine drugs",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "040200",
+    "fields": {
+      "ptc_1": "040000",
+      "ptc_1_text": "antihistamine drugs",
+      "ptc_2": "040200",
+      "ptc_2_text": "pediatric antihistamines",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "040400",
+    "fields": {
+      "ptc_1": "040000",
+      "ptc_1_text": "antihistamine drugs",
+      "ptc_2": "040400",
+      "ptc_2_text": "first generation antihistamines",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "040404",
+    "fields": {
+      "ptc_1": "040000",
+      "ptc_1_text": "antihistamine drugs",
+      "ptc_2": "040400",
+      "ptc_2_text": "first generation antihistamines",
+      "ptc_3": "040404",
+      "ptc_3_text": "ethanolamine derivatives",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "040412",
+    "fields": {
+      "ptc_1": "040000",
+      "ptc_1_text": "antihistamine drugs",
+      "ptc_2": "040400",
+      "ptc_2_text": "first generation antihistamines",
+      "ptc_3": "040412",
+      "ptc_3_text": "phenothiazine derivatives",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "049200",
+    "fields": {
+      "ptc_1": "040000",
+      "ptc_1_text": "antihistamine drugs",
+      "ptc_2": "049200",
+      "ptc_2_text": "other antihistamines",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "080000",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "080800",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "080800",
+      "ptc_2_text": "anthelmintics",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081200",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081202",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081202",
+      "ptc_3_text": "aminoglycosides",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081206",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081206",
+      "ptc_3_text": "cephalosporins",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08120604",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081206",
+      "ptc_3_text": "cephalosporins",
+      "ptc_4": "08120604",
+      "ptc_4_text": "first generation cephalosporins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08120608",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081206",
+      "ptc_3_text": "cephalosporins",
+      "ptc_4": "08120608",
+      "ptc_4_text": "second generation cephalosporins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08120612",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081206",
+      "ptc_3_text": "cephalosporins",
+      "ptc_4": "08120612",
+      "ptc_4_text": "third generation cephalosporins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081207",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081207",
+      "ptc_3_text": "miscellaneous b-lactams",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08120708",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081207",
+      "ptc_3_text": "miscellaneous b-lactams",
+      "ptc_4": "08120708",
+      "ptc_4_text": "carbapenems"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08120712",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081207",
+      "ptc_3_text": "miscellaneous b-lactams",
+      "ptc_4": "08120712",
+      "ptc_4_text": "cephamycins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08120716",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081207",
+      "ptc_3_text": "miscellaneous b-lactams",
+      "ptc_4": "08120716",
+      "ptc_4_text": "monobactams"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081208",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081208",
+      "ptc_3_text": "chloramphenicol",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081212",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081212",
+      "ptc_3_text": "macrolides",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08121204",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081212",
+      "ptc_3_text": "macrolides",
+      "ptc_4": "08121204",
+      "ptc_4_text": "erythromycins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08121292",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081212",
+      "ptc_3_text": "macrolides",
+      "ptc_4": "08121292",
+      "ptc_4_text": "other macrolides"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081216",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081216",
+      "ptc_3_text": "penicillins",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08121604",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081216",
+      "ptc_3_text": "penicillins",
+      "ptc_4": "08121604",
+      "ptc_4_text": "natural penicillins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08121608",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081216",
+      "ptc_3_text": "penicillins",
+      "ptc_4": "08121608",
+      "ptc_4_text": "aminopenicillins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08121612",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081216",
+      "ptc_3_text": "penicillins",
+      "ptc_4": "08121612",
+      "ptc_4_text": "penicillinase-resistant penicillins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08121616",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081216",
+      "ptc_3_text": "penicillins",
+      "ptc_4": "08121616",
+      "ptc_4_text": "extended-spectrum penicillins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081218",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081218",
+      "ptc_3_text": "quinolones",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081220",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081220",
+      "ptc_3_text": "sulfonamides",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081224",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081224",
+      "ptc_3_text": "tetracyclines",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081228",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08122812",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": "08122812",
+      "ptc_4_text": "cyclic lipopeptides"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08122816",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": "08122816",
+      "ptc_4_text": "glycopeptides"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08122820",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": "08122820",
+      "ptc_4_text": "lincomycins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08122824",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": "08122824",
+      "ptc_4_text": "oxazolidinones"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08122828",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": "08122828",
+      "ptc_4_text": "polymyxins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08122830",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081200",
+      "ptc_2_text": "antibacterials",
+      "ptc_3": "081228",
+      "ptc_3_text": "miscellaneous antibacterials",
+      "ptc_4": "08122830",
+      "ptc_4_text": "rifamycins"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081400",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081400",
+      "ptc_2_text": "antifungals",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081404",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081400",
+      "ptc_2_text": "antifungals",
+      "ptc_3": "081404",
+      "ptc_3_text": "allylamines",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081408",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081400",
+      "ptc_2_text": "antifungals",
+      "ptc_3": "081408",
+      "ptc_3_text": "azoles",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081416",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081400",
+      "ptc_2_text": "antifungals",
+      "ptc_3": "081416",
+      "ptc_3_text": "echinocandins",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081428",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081400",
+      "ptc_2_text": "antifungals",
+      "ptc_3": "081428",
+      "ptc_3_text": "polyenes",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081600",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081600",
+      "ptc_2_text": "antimycobacterials",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081692",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081600",
+      "ptc_2_text": "antimycobacterials",
+      "ptc_3": "081692",
+      "ptc_3_text": "miscellaneous antimycobacterials",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081800",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081808",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081808",
+      "ptc_3_text": "antiretrovirals",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08180804",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081808",
+      "ptc_3_text": "antiretrovirals",
+      "ptc_4": "08180804",
+      "ptc_4_text": "HIV fusion inhibitors"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08180820",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081808",
+      "ptc_3_text": "antiretrovirals",
+      "ptc_4": "08180820",
+      "ptc_4_text": "nucleoside and nucleotide reverse transcriptase inhibitors"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081820",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081820",
+      "ptc_3_text": "interferons",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081828",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081828",
+      "ptc_3_text": "neuraminidase inhibitors",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081832",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081832",
+      "ptc_3_text": "nucleosides and nucleotides",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081840",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081840",
+      "ptc_3_text": "protease inhibitors",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08184016",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081840",
+      "ptc_3_text": "protease inhibitors",
+      "ptc_4": "08184016",
+      "ptc_4_text": "HCV polymerase inhibitors"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08184020",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081840",
+      "ptc_3_text": "protease inhibitors",
+      "ptc_4": "08184020",
+      "ptc_4_text": "HCV protease inhibitors"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "08184024",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081840",
+      "ptc_3_text": "protease inhibitors",
+      "ptc_4": "08184024",
+      "ptc_4_text": "HCV replication complex inhibitors"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "081892",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "081800",
+      "ptc_2_text": "antivirals",
+      "ptc_3": "081892",
+      "ptc_3_text": "miscellaneous antivirals",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "083000",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "083000",
+      "ptc_2_text": "antiprotozoals",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "083008",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "083000",
+      "ptc_2_text": "antiprotozoals",
+      "ptc_3": "083008",
+      "ptc_3_text": "antimalarials",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "083092",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "083000",
+      "ptc_2_text": "antiprotozoals",
+      "ptc_3": "083092",
+      "ptc_3_text": "miscellaneous antiprotozoals",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "083600",
+    "fields": {
+      "ptc_1": "080000",
+      "ptc_1_text": "anti-infective agents",
+      "ptc_2": "083600",
+      "ptc_2_text": "urinary anti-infectives",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
     "pk": "100000",
     "fields": {
       "ptc_1": "100000",
-      "ptc_1_text": "Antineoplastic Agents",
+      "ptc_1_text": "antineoplastic agents",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "120000",
+    "fields": {
+      "ptc_1": "120000",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -18,9 +914,23 @@
     "pk": "120400",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "120400",
-      "ptc_2_text": "Parasympathomimetic (Cholinergic) Agents",
+      "ptc_2_text": "parasympathomimetic (cholinergic) agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "120800",
+    "fields": {
+      "ptc_1": "120000",
+      "ptc_1_text": "autonomic drugs",
+      "ptc_2": "120800",
+      "ptc_2_text": "anticholinergic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -32,11 +942,25 @@
     "pk": "120808",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "120800",
-      "ptc_2_text": "Anticholinergic Agents",
+      "ptc_2_text": "anticholinergic agents",
       "ptc_3": "120808",
-      "ptc_3_text": "Antimuscarinics / Antispasmodics",
+      "ptc_3_text": "antimuscarinics / antispasmodics",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "121200",
+    "fields": {
+      "ptc_1": "120000",
+      "ptc_1_text": "autonomic drugs",
+      "ptc_2": "121200",
+      "ptc_2_text": "sympathomimetic (adrenergic) agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -46,11 +970,25 @@
     "pk": "121204",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "121200",
-      "ptc_2_text": "Sympathomimetic (Adrenergic) Agents",
+      "ptc_2_text": "sympathomimetic (adrenergic) agents",
       "ptc_3": "121204",
-      "ptc_3_text": "Alpha-Adrenergic Agonists",
+      "ptc_3_text": "alpha-adrenergic agonists",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "121208",
+    "fields": {
+      "ptc_1": "120000",
+      "ptc_1_text": "autonomic drugs",
+      "ptc_2": "121200",
+      "ptc_2_text": "sympathomimetic (adrenergic) agents",
+      "ptc_3": "121208",
+      "ptc_3_text": "beta-adrenergic agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -60,13 +998,13 @@
     "pk": "12120812",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "121200",
-      "ptc_2_text": "Sympathomimetic (Adrenergic) Agents",
+      "ptc_2_text": "sympathomimetic (adrenergic) agents",
       "ptc_3": "121208",
-      "ptc_3_text": "Beta-Adrenergic Agonists",
+      "ptc_3_text": "beta-adrenergic agonists",
       "ptc_4": "12120812",
-      "ptc_4_text": "Selective Beta 2-Adrenergic Agonists"
+      "ptc_4_text": "selective beta 2-adrenergic agonists"
     }
   },
   {
@@ -74,11 +1012,11 @@
     "pk": "121212",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "121200",
-      "ptc_2_text": "Sympathomimetic (Adrenergic) Agents",
+      "ptc_2_text": "sympathomimetic (adrenergic) agents",
       "ptc_3": "121212",
-      "ptc_3_text": "Alpha- And Beta-Adrenergic Agonists",
+      "ptc_3_text": "alpha- and beta-adrenergic agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -88,9 +1026,23 @@
     "pk": "121600",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "121600",
-      "ptc_2_text": "Sympatholytic (Adrenergic Blocking) Agents",
+      "ptc_2_text": "sympatholytic (adrenergic blocking) agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "122000",
+    "fields": {
+      "ptc_1": "120000",
+      "ptc_1_text": "autonomic drugs",
+      "ptc_2": "122000",
+      "ptc_2_text": "skeletal muscle relaxants",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -102,11 +1054,11 @@
     "pk": "122004",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "122000",
-      "ptc_2_text": "Skeletal Muscle Relaxants",
+      "ptc_2_text": "skeletal muscle relaxants",
       "ptc_3": "122004",
-      "ptc_3_text": "Centrally Acting Skeletal Muscle Relaxants",
+      "ptc_3_text": "centrally acting skeletal muscle relaxants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -116,11 +1068,11 @@
     "pk": "122008",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "122000",
-      "ptc_2_text": "Skeletal Muscle Relaxants",
+      "ptc_2_text": "skeletal muscle relaxants",
       "ptc_3": "122008",
-      "ptc_3_text": "Direct-Acting Skeletal Muscle Relaxants",
+      "ptc_3_text": "direct-acting skeletal muscle relaxants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -130,11 +1082,11 @@
     "pk": "122012",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "122000",
-      "ptc_2_text": "Skeletal Muscle Relaxants",
+      "ptc_2_text": "skeletal muscle relaxants",
       "ptc_3": "122012",
-      "ptc_3_text": "Gaba-Derivative Skeletal Muscle Relaxants",
+      "ptc_3_text": "gaba-derivative skeletal muscle relaxants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -144,9 +1096,9 @@
     "pk": "129200",
     "fields": {
       "ptc_1": "120000",
-      "ptc_1_text": "Autonomic Drugs",
+      "ptc_1_text": "autonomic drugs",
       "ptc_2": "129200",
-      "ptc_2_text": "Miscellaneous Autonomic Drugs",
+      "ptc_2_text": "miscellaneous autonomic drugs",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -155,12 +1107,26 @@
   },
   {
     "model": "drug_price_calculator.ptc",
-    "pk": "20000",
+    "pk": "200000",
     "fields": {
-      "ptc_1": "20000",
-      "ptc_1_text": "Pediatric Cough And Cold Preparations",
+      "ptc_1": "200000",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": null,
       "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "200400",
+    "fields": {
+      "ptc_1": "200000",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
+      "ptc_2": "200400",
+      "ptc_2_text": "antianemia drugs",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -172,11 +1138,39 @@
     "pk": "200404",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "200400",
-      "ptc_2_text": "Antianemia Drugs",
+      "ptc_2_text": "antianemia drugs",
       "ptc_3": "200404",
-      "ptc_3_text": "Iron Preparations",
+      "ptc_3_text": "iron preparations",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "201200",
+    "fields": {
+      "ptc_1": "200000",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
+      "ptc_2": "201200",
+      "ptc_2_text": "antithrombotic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "201204",
+    "fields": {
+      "ptc_1": "200000",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
+      "ptc_2": "201200",
+      "ptc_2_text": "antithrombotic agents",
+      "ptc_3": "201204",
+      "ptc_3_text": "anticoagulants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -186,13 +1180,13 @@
     "pk": "20120408",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "201200",
-      "ptc_2_text": "Antithrombotic Agents",
+      "ptc_2_text": "antithrombotic agents",
       "ptc_3": "201204",
-      "ptc_3_text": "Anticoagulants",
+      "ptc_3_text": "anticoagulants",
       "ptc_4": "20120408",
-      "ptc_4_text": "Coumarin Derivatives"
+      "ptc_4_text": "coumarin derivatives"
     }
   },
   {
@@ -200,13 +1194,13 @@
     "pk": "20120412",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "201200",
-      "ptc_2_text": "Antithrombotic Agents",
+      "ptc_2_text": "antithrombotic agents",
       "ptc_3": "201204",
-      "ptc_3_text": "Anticoagulants",
+      "ptc_3_text": "anticoagulants",
       "ptc_4": "20120412",
-      "ptc_4_text": "Direct Thrombin Inhibitors"
+      "ptc_4_text": "direct thrombin inhibitors"
     }
   },
   {
@@ -214,13 +1208,13 @@
     "pk": "20120416",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "201200",
-      "ptc_2_text": "Antithrombotic Agents",
+      "ptc_2_text": "antithrombotic agents",
       "ptc_3": "201204",
-      "ptc_3_text": "Anticoagulants",
+      "ptc_3_text": "anticoagulants",
       "ptc_4": "20120416",
-      "ptc_4_text": "Heparins"
+      "ptc_4_text": "heparins"
     }
   },
   {
@@ -228,13 +1222,13 @@
     "pk": "20120492",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "201200",
-      "ptc_2_text": "Antithrombotic Agents",
+      "ptc_2_text": "antithrombotic agents",
       "ptc_3": "201204",
-      "ptc_3_text": "Anticoagulants",
+      "ptc_3_text": "anticoagulants",
       "ptc_4": "20120492",
-      "ptc_4_text": "Miscellaneous Anticoagulants"
+      "ptc_4_text": "miscellaneous anticoagulants"
     }
   },
   {
@@ -242,11 +1236,11 @@
     "pk": "201218",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "201200",
-      "ptc_2_text": "Antithrombotic Agents",
+      "ptc_2_text": "antithrombotic agents",
       "ptc_3": "201218",
-      "ptc_3_text": "Platelet Aggregation Inhibitors",
+      "ptc_3_text": "platelet aggregation inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -256,9 +1250,9 @@
     "pk": "201600",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "201600",
-      "ptc_2_text": "Hematopoietic Agents",
+      "ptc_2_text": "hematopoietic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -270,9 +1264,23 @@
     "pk": "202400",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "202400",
-      "ptc_2_text": "Hemorrheologic Agents",
+      "ptc_2_text": "hemorrheologic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "202800",
+    "fields": {
+      "ptc_1": "200000",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
+      "ptc_2": "202800",
+      "ptc_2_text": "antihemorrhagic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -284,11 +1292,53 @@
     "pk": "202816",
     "fields": {
       "ptc_1": "200000",
-      "ptc_1_text": "Blood Formulation, Coagulation And Thrombosis",
+      "ptc_1_text": "blood formulation, coagulation and thrombosis",
       "ptc_2": "202800",
-      "ptc_2_text": "Antihemorrhagic Agents",
+      "ptc_2_text": "antihemorrhagic agents",
       "ptc_3": "202816",
-      "ptc_3_text": "Hemostatics",
+      "ptc_3_text": "hemostatics",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240000",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240400",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "240400",
+      "ptc_2_text": "cardiac drugs",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240404",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "240400",
+      "ptc_2_text": "cardiac drugs",
+      "ptc_3": "240404",
+      "ptc_3_text": "antiarrhythmic agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -298,13 +1348,13 @@
     "pk": "24040404",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240400",
-      "ptc_2_text": "Cardiac Drugs",
+      "ptc_2_text": "cardiac drugs",
       "ptc_3": "240404",
-      "ptc_3_text": "Antiarrhythmic Agents",
+      "ptc_3_text": "antiarrhythmic agents",
       "ptc_4": "24040404",
-      "ptc_4_text": "Class Ia Antiarrythmics"
+      "ptc_4_text": "class Ia antiarrythmics"
     }
   },
   {
@@ -312,13 +1362,13 @@
     "pk": "24040408",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240400",
-      "ptc_2_text": "Cardiac Drugs",
+      "ptc_2_text": "cardiac drugs",
       "ptc_3": "240404",
-      "ptc_3_text": "Antiarrhythmic Agents",
+      "ptc_3_text": "antiarrhythmic agents",
       "ptc_4": "24040408",
-      "ptc_4_text": "Class Ib Antiarrythmics"
+      "ptc_4_text": "class Ib antiarrythmics"
     }
   },
   {
@@ -326,13 +1376,13 @@
     "pk": "24040412",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240400",
-      "ptc_2_text": "Cardiac Drugs",
+      "ptc_2_text": "cardiac drugs",
       "ptc_3": "240404",
-      "ptc_3_text": "Antiarrhythmic Agents",
+      "ptc_3_text": "antiarrhythmic agents",
       "ptc_4": "24040412",
-      "ptc_4_text": "Class Ic Antiarrythmics"
+      "ptc_4_text": "class Ic antiarrythmics"
     }
   },
   {
@@ -340,13 +1390,13 @@
     "pk": "24040420",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240400",
-      "ptc_2_text": "Cardiac Drugs",
+      "ptc_2_text": "cardiac drugs",
       "ptc_3": "240404",
-      "ptc_3_text": "Antiarrhythmic Agents",
+      "ptc_3_text": "antiarrhythmic agents",
       "ptc_4": "24040420",
-      "ptc_4_text": "Class III Antiarrythmics"
+      "ptc_4_text": "class III antiarrythmics"
     }
   },
   {
@@ -354,11 +1404,11 @@
     "pk": "240408",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240400",
-      "ptc_2_text": "Cardiac Drugs",
+      "ptc_2_text": "cardiac drugs",
       "ptc_3": "240408",
-      "ptc_3_text": "Cardiotonic Agents",
+      "ptc_3_text": "cardiotonic agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -368,11 +1418,25 @@
     "pk": "240492",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240400",
-      "ptc_2_text": "Cardiac Drugs",
+      "ptc_2_text": "cardiac drugs",
       "ptc_3": "240492",
-      "ptc_3_text": "Miscellaneous Cardiac Drugs",
+      "ptc_3_text": "miscellaneous cardiac drugs",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240600",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "240600",
+      "ptc_2_text": "antilipemic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -382,11 +1446,11 @@
     "pk": "240604",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240600",
-      "ptc_2_text": "Antilipemic Agents",
+      "ptc_2_text": "antilipemic agents",
       "ptc_3": "240604",
-      "ptc_3_text": "Bile Acid Sequestrants",
+      "ptc_3_text": "bile acid sequestrants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -396,11 +1460,11 @@
     "pk": "240605",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240600",
-      "ptc_2_text": "Antilipemic Agents",
+      "ptc_2_text": "antilipemic agents",
       "ptc_3": "240605",
-      "ptc_3_text": "Cholesterol Absorption Inhibitors",
+      "ptc_3_text": "cholesterol absorption inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -410,11 +1474,11 @@
     "pk": "240606",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240600",
-      "ptc_2_text": "Antilipemic Agents",
+      "ptc_2_text": "antilipemic agents",
       "ptc_3": "240606",
-      "ptc_3_text": "Fibric Acid Derivatives",
+      "ptc_3_text": "fibric acid derivatives",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -424,11 +1488,11 @@
     "pk": "240608",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240600",
-      "ptc_2_text": "Antilipemic Agents",
+      "ptc_2_text": "antilipemic agents",
       "ptc_3": "240608",
-      "ptc_3_text": "Hmg-Coa Reductase Inhibitors",
+      "ptc_3_text": "HMG-CoA reductase inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -438,11 +1502,11 @@
     "pk": "240624",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240600",
-      "ptc_2_text": "Antilipemic Agents",
+      "ptc_2_text": "antilipemic agents",
       "ptc_3": "240624",
-      "ptc_3_text": "Proprotein Convertase Subtilisin Kexin Type",
+      "ptc_3_text": "proprotein convertase subtilisin kexin type",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -452,11 +1516,25 @@
     "pk": "240692",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240600",
-      "ptc_2_text": "Antilipemic Agents",
+      "ptc_2_text": "antilipemic agents",
       "ptc_3": "240692",
-      "ptc_3_text": "Miscellaneous Antilipemic Agents",
+      "ptc_3_text": "miscellaneous antilipemic agents",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240800",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "240800",
+      "ptc_2_text": "hypotensive agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -466,11 +1544,11 @@
     "pk": "240816",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240800",
-      "ptc_2_text": "Hypotensive Agents",
+      "ptc_2_text": "hypotensive agents",
       "ptc_3": "240816",
-      "ptc_3_text": "Central Alpha-Agonists",
+      "ptc_3_text": "central alpha-agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -480,11 +1558,25 @@
     "pk": "240820",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240800",
-      "ptc_2_text": "Hypotensive Agents",
+      "ptc_2_text": "hypotensive agents",
       "ptc_3": "240820",
-      "ptc_3_text": "Direct Vasodilators",
+      "ptc_3_text": "direct vasodilators",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240824",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "240800",
+      "ptc_2_text": "hypotensive agents",
+      "ptc_3": "240824",
+      "ptc_3_text": "diuretics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -494,13 +1586,27 @@
     "pk": "24082408",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240800",
-      "ptc_2_text": "Hypotensive Agents",
+      "ptc_2_text": "hypotensive agents",
       "ptc_3": "240824",
-      "ptc_3_text": "Diuretics",
+      "ptc_3_text": "diuretics",
       "ptc_4": "24082408",
-      "ptc_4_text": "Loop Diuretics"
+      "ptc_4_text": "loop diuretics"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "240844",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "240800",
+      "ptc_2_text": "hypotensive agents",
+      "ptc_3": "240844",
+      "ptc_3_text": "renin-angiotensin-aldosterone system inhibitors",
+      "ptc_4": null,
+      "ptc_4_text": null
     }
   },
   {
@@ -508,13 +1614,27 @@
     "pk": "24084408",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "240800",
-      "ptc_2_text": "Hypotensive Agents",
+      "ptc_2_text": "hypotensive agents",
       "ptc_3": "240844",
-      "ptc_3_text": "Renin-Angiotensin-Aldosterone System Inhibitors",
+      "ptc_3_text": "renin-angiotensin-aldosterone system inhibitors",
       "ptc_4": "24084408",
-      "ptc_4_text": "Angiotensin II Receptor Antagonists"
+      "ptc_4_text": "angiotensin II receptor antagonists"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "241200",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "241200",
+      "ptc_2_text": "vasodilating agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
     }
   },
   {
@@ -522,11 +1642,11 @@
     "pk": "241208",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "241200",
-      "ptc_2_text": "Vasodilating Agents",
+      "ptc_2_text": "vasodilating agents",
       "ptc_3": "241208",
-      "ptc_3_text": "Nitrates And Nitrites",
+      "ptc_3_text": "nitrates and nitrites",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -536,11 +1656,11 @@
     "pk": "241212",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "241200",
-      "ptc_2_text": "Vasodilating Agents",
+      "ptc_2_text": "vasodilating agents",
       "ptc_3": "241212",
-      "ptc_3_text": "Phosphodiesterase Inhibitors",
+      "ptc_3_text": "phosphodiesterase inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -550,11 +1670,11 @@
     "pk": "241292",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "241200",
-      "ptc_2_text": "Vasodilating Agents",
+      "ptc_2_text": "vasodilating agents",
       "ptc_3": "241292",
-      "ptc_3_text": "Miscellaneous Vasodilating Agents",
+      "ptc_3_text": "miscellaneous vasodilating agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -564,9 +1684,9 @@
     "pk": "242000",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "242000",
-      "ptc_2_text": "Alpha-Adrenergic Blocking Agents",
+      "ptc_2_text": "alpha-adrenergic blocking agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -578,9 +1698,23 @@
     "pk": "242400",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "242400",
-      "ptc_2_text": "Beta-Adrenergic Blocking Agents",
+      "ptc_2_text": "beta-adrenergic blocking agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "242800",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "242800",
+      "ptc_2_text": "calcium-channel blocking agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -592,11 +1726,11 @@
     "pk": "242808",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "242800",
-      "ptc_2_text": "Calcium-Channel Blocking Agents",
+      "ptc_2_text": "calcium-channel blocking agents",
       "ptc_3": "242808",
-      "ptc_3_text": "Dihydropyridines",
+      "ptc_3_text": "dihydropyridines",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -606,11 +1740,25 @@
     "pk": "242892",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "242800",
-      "ptc_2_text": "Calcium-Channel Blocking Agents",
+      "ptc_2_text": "calcium-channel blocking agents",
       "ptc_3": "242892",
-      "ptc_3_text": "Miscellaneous Calcium-Channel Blocking Agents",
+      "ptc_3_text": "miscellaneous calcium-channel blocking agents",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "243200",
+    "fields": {
+      "ptc_1": "240000",
+      "ptc_1_text": "cardiovascular drugs",
+      "ptc_2": "243200",
+      "ptc_2_text": "renin-angiotensin-aldosterone system inhibitors",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -620,11 +1768,11 @@
     "pk": "243204",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "243200",
-      "ptc_2_text": "Renin-Angiotensin-Aldosterone System Inhibitors",
+      "ptc_2_text": "renin-angiotensin-aldosterone system inhibitors",
       "ptc_3": "243204",
-      "ptc_3_text": "Angiotensin-Converting Enzyme Inhibitors",
+      "ptc_3_text": "angiotensin-converting enzyme inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -634,11 +1782,11 @@
     "pk": "243208",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "243200",
-      "ptc_2_text": "Renin-Angiotensin-Aldosterone System Inhibitors",
+      "ptc_2_text": "renin-angiotensin-aldosterone system inhibitors",
       "ptc_3": "243208",
-      "ptc_3_text": "Angiotensin II Receptor Antagonists",
+      "ptc_3_text": "angiotensin II receptor antagonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -648,11 +1796,11 @@
     "pk": "243220",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "243200",
-      "ptc_2_text": "Renin-Angiotensin-Aldosterone System Inhibitors",
+      "ptc_2_text": "renin-angiotensin-aldosterone system inhibitors",
       "ptc_3": "243220",
-      "ptc_3_text": "Mineralocorticoid (Aldosterone) Receptor Antagonists",
+      "ptc_3_text": "mineralocorticoid (aldosterone) receptor antagonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -662,11 +1810,11 @@
     "pk": "243240",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "243200",
-      "ptc_2_text": "Renin-Angiotensin-Aldosterone System Inhibitors",
+      "ptc_2_text": "renin-angiotensin-aldosterone system inhibitors",
       "ptc_3": "243240",
-      "ptc_3_text": "Renin Inhibitors",
+      "ptc_3_text": "renin inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -676,11 +1824,25 @@
     "pk": "243292",
     "fields": {
       "ptc_1": "240000",
-      "ptc_1_text": "Cardiovascular Drugs",
+      "ptc_1_text": "cardiovascular drugs",
       "ptc_2": "243200",
-      "ptc_2_text": "Renin-Angiotensin-Aldosterone System Inhibitors",
+      "ptc_2_text": "renin-angiotensin-aldosterone system inhibitors",
       "ptc_3": "243292",
-      "ptc_3_text": "Renin-Angiotensine-Aldosterone System Inhibitors Misc.",
+      "ptc_3_text": "renin-angiotensine-aldosterone system inhibitors misc.",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "280000",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -690,9 +1852,9 @@
     "pk": "280800",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -704,11 +1866,11 @@
     "pk": "280804",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280804",
-      "ptc_3_text": "Nonsteroidal Anti-Inflammatory Agents",
+      "ptc_3_text": "nonsteroidal anti-inflammatory agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -718,13 +1880,13 @@
     "pk": "28080408",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280804",
-      "ptc_3_text": "Nonsteroidal Anti-Inflammatory Agents",
+      "ptc_3_text": "nonsteroidal anti-inflammatory agents",
       "ptc_4": "28080408",
-      "ptc_4_text": "Cyclooxygenase-2 (COX-2) Inhibitors"
+      "ptc_4_text": "cyclooxygenase-2 (COX-2) inhibitors"
     }
   },
   {
@@ -732,13 +1894,13 @@
     "pk": "28080424",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280804",
-      "ptc_3_text": "Nonsteroidal Anti-Inflammatory Agents",
+      "ptc_3_text": "nonsteroidal anti-inflammatory agents",
       "ptc_4": "28080424",
-      "ptc_4_text": "Salicylates"
+      "ptc_4_text": "salicylates"
     }
   },
   {
@@ -746,13 +1908,13 @@
     "pk": "28080492",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280804",
-      "ptc_3_text": "Nonsteroidal Anti-Inflammatory Agents",
+      "ptc_3_text": "nonsteroidal anti-inflammatory agents",
       "ptc_4": "28080492",
-      "ptc_4_text": "Other Nonsteroidal Anti-Inflammatory Agents"
+      "ptc_4_text": "other nonsteroidal anti-inflammatory agents"
     }
   },
   {
@@ -760,11 +1922,11 @@
     "pk": "280808",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280808",
-      "ptc_3_text": "Opiate Agonists",
+      "ptc_3_text": "opiate agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -774,11 +1936,11 @@
     "pk": "280812",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280812",
-      "ptc_3_text": "Opiate Partial Agonists",
+      "ptc_3_text": "opiate partial agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -788,11 +1950,11 @@
     "pk": "280892",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "280800",
-      "ptc_2_text": "Analgesics And Antipyretics",
+      "ptc_2_text": "analgesics and antipyretics",
       "ptc_3": "280892",
-      "ptc_3_text": "Miscellaneous Analgesics And Antipyretics",
+      "ptc_3_text": "miscellaneous analgesics and antipyretics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -802,9 +1964,23 @@
     "pk": "281000",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281000",
-      "ptc_2_text": "Opiate Antagonists",
+      "ptc_2_text": "opiate antagonists",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "281200",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "281200",
+      "ptc_2_text": "anticonvulsants",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -816,11 +1992,11 @@
     "pk": "281204",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281200",
-      "ptc_2_text": "Anticonvulsants",
+      "ptc_2_text": "anticonvulsants",
       "ptc_3": "281204",
-      "ptc_3_text": "Barbiturates",
+      "ptc_3_text": "barbiturates",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -830,11 +2006,11 @@
     "pk": "281208",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281200",
-      "ptc_2_text": "Anticonvulsants",
+      "ptc_2_text": "anticonvulsants",
       "ptc_3": "281208",
-      "ptc_3_text": "Benzodiazepines",
+      "ptc_3_text": "benzodiazepines",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -844,11 +2020,11 @@
     "pk": "281212",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281200",
-      "ptc_2_text": "Anticonvulsants",
+      "ptc_2_text": "anticonvulsants",
       "ptc_3": "281212",
-      "ptc_3_text": "Hydantoins",
+      "ptc_3_text": "hydantoins",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -858,11 +2034,11 @@
     "pk": "281220",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281200",
-      "ptc_2_text": "Anticonvulsants",
+      "ptc_2_text": "anticonvulsants",
       "ptc_3": "281220",
-      "ptc_3_text": "Succinimides",
+      "ptc_3_text": "succinimides",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -872,11 +2048,39 @@
     "pk": "281292",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281200",
-      "ptc_2_text": "Anticonvulsants",
+      "ptc_2_text": "anticonvulsants",
       "ptc_3": "281292",
-      "ptc_3_text": "Miscellaneous Anticonvulsants",
+      "ptc_3_text": "miscellaneous anticonvulsants",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "281600",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "281600",
+      "ptc_2_text": "psychotherapeutic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "281604",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "281600",
+      "ptc_2_text": "psychotherapeutic agents",
+      "ptc_3": "281604",
+      "ptc_3_text": "antidepressants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -886,13 +2090,13 @@
     "pk": "28160412",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281604",
-      "ptc_3_text": "Antidepressants",
+      "ptc_3_text": "antidepressants",
       "ptc_4": "28160412",
-      "ptc_4_text": "Monoamine Oxidase Inhibitors"
+      "ptc_4_text": "monoamine oxidase inhibitors"
     }
   },
   {
@@ -900,13 +2104,13 @@
     "pk": "28160416",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281604",
-      "ptc_3_text": "Antidepressants",
+      "ptc_3_text": "antidepressants",
       "ptc_4": "28160416",
-      "ptc_4_text": "Selective Serotonin- And Norepinephrine-Reuptake Inhibitors"
+      "ptc_4_text": "selective serotonin- and norepinephrine-reuptake inhibitors"
     }
   },
   {
@@ -914,13 +2118,13 @@
     "pk": "28160420",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281604",
-      "ptc_3_text": "Antidepressants",
+      "ptc_3_text": "antidepressants",
       "ptc_4": "28160420",
-      "ptc_4_text": "Selective-Serotonin Reuptake Inhibitors"
+      "ptc_4_text": "selective-serotonin reuptake inhibitors"
     }
   },
   {
@@ -928,13 +2132,13 @@
     "pk": "28160424",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281604",
-      "ptc_3_text": "Antidepressants",
+      "ptc_3_text": "antidepressants",
       "ptc_4": "28160424",
-      "ptc_4_text": "Serotonin Modulators"
+      "ptc_4_text": "serotonin modulators"
     }
   },
   {
@@ -942,13 +2146,13 @@
     "pk": "28160428",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281604",
-      "ptc_3_text": "Antidepressants",
+      "ptc_3_text": "antidepressants",
       "ptc_4": "28160428",
-      "ptc_4_text": "Tricyclics And Other Norepinephrine-Reuptake Inhibitors"
+      "ptc_4_text": "tricyclics and other norepinephrine-reuptake inhibitors"
     }
   },
   {
@@ -956,13 +2160,27 @@
     "pk": "28160492",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281604",
-      "ptc_3_text": "Antidepressants",
+      "ptc_3_text": "antidepressants",
       "ptc_4": "28160492",
-      "ptc_4_text": "Miscellaneous Antidepressants"
+      "ptc_4_text": "miscellaneous antidepressants"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "281608",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "281600",
+      "ptc_2_text": "psychotherapeutic agents",
+      "ptc_3": "281608",
+      "ptc_3_text": "antipsychotics",
+      "ptc_4": null,
+      "ptc_4_text": null
     }
   },
   {
@@ -970,13 +2188,13 @@
     "pk": "28160804",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281608",
-      "ptc_3_text": "Antipsychotics",
+      "ptc_3_text": "antipsychotics",
       "ptc_4": "28160804",
-      "ptc_4_text": "Atypical Antipsychotics"
+      "ptc_4_text": "atypical antipsychotics"
     }
   },
   {
@@ -984,13 +2202,13 @@
     "pk": "28160808",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281608",
-      "ptc_3_text": "Antipsychotics",
+      "ptc_3_text": "antipsychotics",
       "ptc_4": "28160808",
-      "ptc_4_text": "Butyrophenones"
+      "ptc_4_text": "butyrophenones"
     }
   },
   {
@@ -998,13 +2216,13 @@
     "pk": "28160824",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281608",
-      "ptc_3_text": "Antipsychotics",
+      "ptc_3_text": "antipsychotics",
       "ptc_4": "28160824",
-      "ptc_4_text": "Phenothiazines"
+      "ptc_4_text": "phenothiazines"
     }
   },
   {
@@ -1012,13 +2230,13 @@
     "pk": "28160832",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281608",
-      "ptc_3_text": "Antipsychotics",
+      "ptc_3_text": "antipsychotics",
       "ptc_4": "28160832",
-      "ptc_4_text": "Thioxanthenes"
+      "ptc_4_text": "thioxanthenes"
     }
   },
   {
@@ -1026,13 +2244,27 @@
     "pk": "28160892",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "281600",
-      "ptc_2_text": "Psychotherapeutic Agents",
+      "ptc_2_text": "psychotherapeutic agents",
       "ptc_3": "281608",
-      "ptc_3_text": "Antipsychotics",
+      "ptc_3_text": "antipsychotics",
       "ptc_4": "28160892",
-      "ptc_4_text": "Miscellaneous Antipsychotics"
+      "ptc_4_text": "miscellaneous antipsychotics"
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "282000",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "282000",
+      "ptc_2_text": "anorexigenic agents & respiratory and cerebral stimulants",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
     }
   },
   {
@@ -1040,11 +2272,11 @@
     "pk": "282004",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "282000",
-      "ptc_2_text": "Anorexigenic Agents & Respiratory And Cerebral Stimulants",
+      "ptc_2_text": "anorexigenic agents & respiratory and cerebral stimulants",
       "ptc_3": "282004",
-      "ptc_3_text": "Amphetamines",
+      "ptc_3_text": "amphetamines",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1054,11 +2286,25 @@
     "pk": "282092",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "282000",
-      "ptc_2_text": "Anorexigenic Agents & Respiratory And Cerebral Stimulants",
+      "ptc_2_text": "anorexigenic agents & respiratory and cerebral stimulants",
       "ptc_3": "282092",
-      "ptc_3_text": "Miscellaneous Anorexigenic Agents & Respiratory And Cerebral Stimulants",
+      "ptc_3_text": "miscellaneous anorexigenic agents & respiratory and cerebral stimulants",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "282400",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "282400",
+      "ptc_2_text": "anxiolytics, sedatives, and hypnotics",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1068,11 +2314,11 @@
     "pk": "282404",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "282400",
-      "ptc_2_text": "Anxiolytics, Sedatives, And Hypnotics",
+      "ptc_2_text": "anxiolytics, sedatives, and hypnotics",
       "ptc_3": "282404",
-      "ptc_3_text": "Barbiturates",
+      "ptc_3_text": "barbiturates",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1082,11 +2328,11 @@
     "pk": "282408",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "282400",
-      "ptc_2_text": "Anxiolytics, Sedatives, And Hypnotics",
+      "ptc_2_text": "anxiolytics, sedatives, and hypnotics",
       "ptc_3": "282408",
-      "ptc_3_text": "Benzodiazepines",
+      "ptc_3_text": "benzodiazepines",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1096,11 +2342,11 @@
     "pk": "282492",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "282400",
-      "ptc_2_text": "Anxiolytics, Sedatives, And Hypnotics",
+      "ptc_2_text": "anxiolytics, sedatives, and hypnotics",
       "ptc_3": "282492",
-      "ptc_3_text": "Miscellaneous Anxiolytics, Sedatives, And Hypnotics",
+      "ptc_3_text": "miscellaneous anxiolytics, sedatives, and hypnotics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1110,9 +2356,23 @@
     "pk": "282800",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "282800",
-      "ptc_2_text": "Antimanic Agents",
+      "ptc_2_text": "antimanic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "283200",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "283200",
+      "ptc_2_text": "antimigraine agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1124,11 +2384,11 @@
     "pk": "283228",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283200",
-      "ptc_2_text": "Antimigraine Agents",
+      "ptc_2_text": "antimigraine agents",
       "ptc_3": "283228",
-      "ptc_3_text": "Selective Serotonin Agonists",
+      "ptc_3_text": "selective serotonin agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1138,11 +2398,25 @@
     "pk": "283292",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283200",
-      "ptc_2_text": "Antimigraine Agents",
+      "ptc_2_text": "antimigraine agents",
       "ptc_3": "283292",
-      "ptc_3_text": "Miscellaneous Antimigraine Agents",
+      "ptc_3_text": "miscellaneous antimigraine agents",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "283600",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "283600",
+      "ptc_2_text": "antiparkinsonian agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1152,11 +2426,11 @@
     "pk": "283604",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283604",
-      "ptc_3_text": "Adamantanes",
+      "ptc_3_text": "adamantanes",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1166,11 +2440,11 @@
     "pk": "283608",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283608",
-      "ptc_3_text": "Anticholinergic Agents",
+      "ptc_3_text": "anticholinergic agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1180,11 +2454,11 @@
     "pk": "283612",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283612",
-      "ptc_3_text": "Catechol-O-Methyltransferase (COMT) Inhibitors",
+      "ptc_3_text": "catechol-O-methyltransferase (COMT) inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1194,11 +2468,25 @@
     "pk": "283616",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283616",
-      "ptc_3_text": "Dopamine Precursors",
+      "ptc_3_text": "dopamine precursors",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "283620",
+    "fields": {
+      "ptc_1": "280000",
+      "ptc_1_text": "central nervous system agents",
+      "ptc_2": "283600",
+      "ptc_2_text": "antiparkinsonian agents",
+      "ptc_3": "283620",
+      "ptc_3_text": "dopamine receptor agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1208,13 +2496,13 @@
     "pk": "28362004",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283620",
-      "ptc_3_text": "Dopamine Receptor Agonists",
+      "ptc_3_text": "dopamine receptor agonists",
       "ptc_4": "28362004",
-      "ptc_4_text": "Ergot-Derivative-Dopamine Receptor Agonists"
+      "ptc_4_text": "ergot-derivative-dopamine receptor agonists"
     }
   },
   {
@@ -1222,13 +2510,13 @@
     "pk": "28362008",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283620",
-      "ptc_3_text": "Dopamine Receptor Agonists",
+      "ptc_3_text": "dopamine receptor agonists",
       "ptc_4": "28362008",
-      "ptc_4_text": "Nonergot-Derivative Dopamine Receptor Agonists"
+      "ptc_4_text": "nonergot-derivative dopamine receptor agonists"
     }
   },
   {
@@ -1236,11 +2524,11 @@
     "pk": "283632",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "283600",
-      "ptc_2_text": "Antiparkinsonian Agents",
+      "ptc_2_text": "antiparkinsonian agents",
       "ptc_3": "283632",
-      "ptc_3_text": "Monoamine Oxidase B Inhibitors",
+      "ptc_3_text": "monoamine oxidase B inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1250,9 +2538,37 @@
     "pk": "289200",
     "fields": {
       "ptc_1": "280000",
-      "ptc_1_text": "Central Nervous System Agents",
+      "ptc_1_text": "central nervous system agents",
       "ptc_2": "289200",
-      "ptc_2_text": "Miscellaneous Central Nervous System Agents",
+      "ptc_2_text": "miscellaneous central nervous system agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "340000",
+    "fields": {
+      "ptc_1": "340000",
+      "ptc_1_text": "dental agents",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "360000",
+    "fields": {
+      "ptc_1": "360000",
+      "ptc_1_text": "diagnostic agents",
+      "ptc_2": null,
+      "ptc_2_text": null,
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1264,9 +2580,23 @@
     "pk": "366000",
     "fields": {
       "ptc_1": "360000",
-      "ptc_1_text": "Diagnostic Agents",
+      "ptc_1_text": "diagnostic agents",
       "ptc_2": "366000",
-      "ptc_2_text": "Thyroid Function",
+      "ptc_2_text": "thyroid function",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "400000",
+    "fields": {
+      "ptc_1": "400000",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
+      "ptc_2": null,
+      "ptc_2_text": null,
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1278,9 +2608,9 @@
     "pk": "401000",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "401000",
-      "ptc_2_text": "Ammonia Detoxicants",
+      "ptc_2_text": "ammonia detoxicants",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1292,9 +2622,23 @@
     "pk": "401200",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "401200",
-      "ptc_2_text": "Replacement Preparations",
+      "ptc_2_text": "replacement preparations",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "401800",
+    "fields": {
+      "ptc_1": "400000",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
+      "ptc_2": "401800",
+      "ptc_2_text": "ion-removing agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1306,11 +2650,11 @@
     "pk": "401818",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "401800",
-      "ptc_2_text": "Ion-Removing Agents",
+      "ptc_2_text": "ion-removing agents",
       "ptc_3": "401818",
-      "ptc_3_text": "Potassium-Removing Agents",
+      "ptc_3_text": "potassium-removing agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1320,25 +2664,11 @@
     "pk": "401819",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "401800",
-      "ptc_2_text": "Ion-Removing Agents",
+      "ptc_2_text": "ion-removing agents",
       "ptc_3": "401819",
-      "ptc_3_text": "Phosphate-Removing Agents",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "40200",
-    "fields": {
-      "ptc_1": "40000",
-      "ptc_1_text": "Antihistamine Drugs",
-      "ptc_2": "40200",
-      "ptc_2_text": "Pediatric Antihistamines",
-      "ptc_3": null,
-      "ptc_3_text": null,
+      "ptc_3_text": "phosphate-removing agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1348,9 +2678,23 @@
     "pk": "402000",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "402000",
-      "ptc_2_text": "Caloric Agents",
+      "ptc_2_text": "caloric agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "402800",
+    "fields": {
+      "ptc_1": "400000",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
+      "ptc_2": "402800",
+      "ptc_2_text": "diuretics",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1362,11 +2706,11 @@
     "pk": "402816",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "402800",
-      "ptc_2_text": "Diuretics",
+      "ptc_2_text": "diuretics",
       "ptc_3": "402816",
-      "ptc_3_text": "Potassium-Sparing Diuretics",
+      "ptc_3_text": "potassium-sparing diuretics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1376,11 +2720,11 @@
     "pk": "402820",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "402800",
-      "ptc_2_text": "Diuretics",
+      "ptc_2_text": "diuretics",
       "ptc_3": "402820",
-      "ptc_3_text": "Thiazide Diuretics",
+      "ptc_3_text": "thiazide diuretics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1390,11 +2734,11 @@
     "pk": "402824",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "402800",
-      "ptc_2_text": "Diuretics",
+      "ptc_2_text": "diuretics",
       "ptc_3": "402824",
-      "ptc_3_text": "Thiazide-Like Diuretics",
+      "ptc_3_text": "thiazide-like diuretics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1404,11 +2748,25 @@
     "pk": "402828",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "402800",
-      "ptc_2_text": "Diuretics",
+      "ptc_2_text": "diuretics",
       "ptc_3": "402828",
-      "ptc_3_text": "Vasopressin Antagonists",
+      "ptc_3_text": "vasopressin antagonists",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "402892",
+    "fields": {
+      "ptc_1": "400000",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
+      "ptc_2": "402800",
+      "ptc_2_text": "diuretics",
+      "ptc_3": "402892",
+      "ptc_3_text": "miscellaneous diuretics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1418,39 +2776,11 @@
     "pk": "404000",
     "fields": {
       "ptc_1": "400000",
-      "ptc_1_text": "Electrolytic, Caloric, And Water Balance",
+      "ptc_1_text": "electrolytic, caloric, and water balance",
       "ptc_2": "404000",
-      "ptc_2_text": "Uricosuric Agents",
+      "ptc_2_text": "uricosuric agents",
       "ptc_3": null,
       "ptc_3_text": null,
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "40404",
-    "fields": {
-      "ptc_1": "40000",
-      "ptc_1_text": "Antihistamine Drugs",
-      "ptc_2": "40400",
-      "ptc_2_text": "First Generation Antihistamines",
-      "ptc_3": "40404",
-      "ptc_3_text": "Ethanolamine Derivatives",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "40412",
-    "fields": {
-      "ptc_1": "40000",
-      "ptc_1_text": "Antihistamine Drugs",
-      "ptc_2": "40400",
-      "ptc_2_text": "First Generation Antihistamines",
-      "ptc_3": "40412",
-      "ptc_3_text": "Phenothiazine Derivatives",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1460,7 +2790,21 @@
     "pk": "440000",
     "fields": {
       "ptc_1": "440000",
-      "ptc_1_text": "Enzymes",
+      "ptc_1_text": "enzymes",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "480000",
+    "fields": {
+      "ptc_1": "480000",
+      "ptc_1_text": "respiratory tract agents",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -1474,9 +2818,23 @@
     "pk": "480200",
     "fields": {
       "ptc_1": "480000",
-      "ptc_1_text": "Respiratory Tract Agents",
+      "ptc_1_text": "respiratory tract agents",
       "ptc_2": "480200",
-      "ptc_2_text": "Antifibrotic Agents",
+      "ptc_2_text": "antifibrotic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "481000",
+    "fields": {
+      "ptc_1": "480000",
+      "ptc_1_text": "respiratory tract agents",
+      "ptc_2": "481000",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1488,11 +2846,11 @@
     "pk": "481024",
     "fields": {
       "ptc_1": "480000",
-      "ptc_1_text": "Respiratory Tract Agents",
+      "ptc_1_text": "respiratory tract agents",
       "ptc_2": "481000",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "481024",
-      "ptc_3_text": "Leukotriene Modifiers",
+      "ptc_3_text": "leukotriene modifiers",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1502,11 +2860,67 @@
     "pk": "481032",
     "fields": {
       "ptc_1": "480000",
-      "ptc_1_text": "Respiratory Tract Agents",
+      "ptc_1_text": "respiratory tract agents",
       "ptc_2": "481000",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "481032",
-      "ptc_3_text": "Mast-Cell Stabilizers",
+      "ptc_3_text": "mast-cell stabilizers",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "481200",
+    "fields": {
+      "ptc_1": "480000",
+      "ptc_1_text": "respiratory tract agents",
+      "ptc_2": "481200",
+      "ptc_2_text": "bronchodilators",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "481208",
+    "fields": {
+      "ptc_1": "480000",
+      "ptc_1_text": "respiratory tract agents",
+      "ptc_2": "481200",
+      "ptc_2_text": "bronchodilators",
+      "ptc_3": "481208",
+      "ptc_3_text": "anticholinergic agents",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "481400",
+    "fields": {
+      "ptc_1": "480000",
+      "ptc_1_text": "respiratory tract agents",
+      "ptc_2": "481400",
+      "ptc_2_text": "cystic fibrosis transmembrane conductance regulator modulators (cftcr modulators)",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "481404",
+    "fields": {
+      "ptc_1": "480000",
+      "ptc_1_text": "respiratory tract agents",
+      "ptc_2": "481400",
+      "ptc_2_text": "cystic fibrosis transmembrane conductance regulator modulators (cftcr modulators)",
+      "ptc_3": "481404",
+      "ptc_3_text": "cystic fibrosis transmembrane conductance regulator correctors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1516,9 +2930,9 @@
     "pk": "482400",
     "fields": {
       "ptc_1": "480000",
-      "ptc_1_text": "Respiratory Tract Agents",
+      "ptc_1_text": "respiratory tract agents",
       "ptc_2": "482400",
-      "ptc_2_text": "Mucolytic Agents",
+      "ptc_2_text": "mucolytic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1530,9 +2944,9 @@
     "pk": "489200",
     "fields": {
       "ptc_1": "480000",
-      "ptc_1_text": "Respiratory Tract Agents",
+      "ptc_1_text": "respiratory tract agents",
       "ptc_2": "489200",
-      "ptc_2_text": "Miscellaneous Respiratory Agents",
+      "ptc_2_text": "miscellaneous respiratory agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1541,12 +2955,12 @@
   },
   {
     "model": "drug_price_calculator.ptc",
-    "pk": "49200",
+    "pk": "520000",
     "fields": {
-      "ptc_1": "40000",
-      "ptc_1_text": "Antihistamine Drugs",
-      "ptc_2": "49200",
-      "ptc_2_text": "Other Antihistamines",
+      "ptc_1": "520000",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
+      "ptc_2": null,
+      "ptc_2_text": null,
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1558,9 +2972,23 @@
     "pk": "520200",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520200",
-      "ptc_2_text": "Antiallergic Agents",
+      "ptc_2_text": "antiallergic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "520400",
+    "fields": {
+      "ptc_1": "520000",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
+      "ptc_2": "520400",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1572,11 +3000,11 @@
     "pk": "520404",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "520404",
-      "ptc_3_text": "Antibacterials",
+      "ptc_3_text": "antibacterials",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1586,11 +3014,11 @@
     "pk": "520420",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "520420",
-      "ptc_3_text": "Antivirals",
+      "ptc_3_text": "antivirals",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1600,11 +3028,25 @@
     "pk": "520492",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "520492",
-      "ptc_3_text": "Miscellaneous Anti-Infectives",
+      "ptc_3_text": "miscellaneous anti-infectives",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "520800",
+    "fields": {
+      "ptc_1": "520000",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
+      "ptc_2": "520800",
+      "ptc_2_text": "anti-inflammatory agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1614,11 +3056,11 @@
     "pk": "520808",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520800",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "520808",
-      "ptc_3_text": "Corticosteroids",
+      "ptc_3_text": "corticosteroids",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1628,13 +3070,13 @@
     "pk": "52080802",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520800",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "520808",
-      "ptc_3_text": "Corticosteroids",
+      "ptc_3_text": "corticosteroids",
       "ptc_4": "52080802",
-      "ptc_4_text": "Combination Anti-Infective/Corticosteroid Agents"
+      "ptc_4_text": "combination anti-infective/corticosteroid agents"
     }
   },
   {
@@ -1642,11 +3084,11 @@
     "pk": "520820",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520800",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "520820",
-      "ptc_3_text": "Nonsteroidal Anti-Inflammatory Agents",
+      "ptc_3_text": "nonsteroidal anti-inflammatory agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1656,11 +3098,11 @@
     "pk": "520892",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "520800",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "520892",
-      "ptc_3_text": "Miscellaneous Anti-Inflammatory Agents",
+      "ptc_3_text": "miscellaneous anti-inflammatory agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1670,9 +3112,9 @@
     "pk": "521600",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "521600",
-      "ptc_2_text": "Local Anesthetics",
+      "ptc_2_text": "local anesthetics",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1684,9 +3126,9 @@
     "pk": "522400",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "522400",
-      "ptc_2_text": "Mydriatics",
+      "ptc_2_text": "mydriatics",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1698,9 +3140,9 @@
     "pk": "522800",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "522800",
-      "ptc_2_text": "Mouthwashes And Gargles",
+      "ptc_2_text": "mouthwashes and gargles",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1712,9 +3154,23 @@
     "pk": "523200",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "523200",
-      "ptc_2_text": "Vasoconstrictors",
+      "ptc_2_text": "vasoconstrictors",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "524000",
+    "fields": {
+      "ptc_1": "520000",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
+      "ptc_2": "524000",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1726,11 +3182,11 @@
     "pk": "524004",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "524000",
-      "ptc_2_text": "Antiglaucoma Agents",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": "524004",
-      "ptc_3_text": "Alpha-Adrenergic Agonists",
+      "ptc_3_text": "alpha-adrenergic agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1740,11 +3196,11 @@
     "pk": "524008",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "524000",
-      "ptc_2_text": "Antiglaucoma Agents",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": "524008",
-      "ptc_3_text": "Beta-Adrenergic Agents",
+      "ptc_3_text": "beta-adrenergic agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1754,11 +3210,11 @@
     "pk": "524012",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "524000",
-      "ptc_2_text": "Antiglaucoma Agents",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": "524012",
-      "ptc_3_text": "Carbonic Anhydrase Inhibitors",
+      "ptc_3_text": "carbonic anhydrase inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1768,11 +3224,11 @@
     "pk": "524020",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "524000",
-      "ptc_2_text": "Antiglaucoma Agents",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": "524020",
-      "ptc_3_text": "Miotics",
+      "ptc_3_text": "miotics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1782,11 +3238,11 @@
     "pk": "524028",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "524000",
-      "ptc_2_text": "Antiglaucoma Agents",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": "524028",
-      "ptc_3_text": "Prostaglandin Analogs",
+      "ptc_3_text": "prostaglandin analogs",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1796,11 +3252,11 @@
     "pk": "524092",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "524000",
-      "ptc_2_text": "Antiglaucoma Agents",
+      "ptc_2_text": "antiglaucoma agents",
       "ptc_3": "524092",
-      "ptc_3_text": "Miscellaneous Antiglaucoma Agents",
+      "ptc_3_text": "miscellaneous antiglaucoma agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1810,9 +3266,23 @@
     "pk": "529200",
     "fields": {
       "ptc_1": "520000",
-      "ptc_1_text": "Eye, Ear, Nose, And Throat (EENT) Preparations",
+      "ptc_1_text": "eye, ear, nose, and throat (EENT) preparations",
       "ptc_2": "529200",
-      "ptc_2_text": "Miscellaneous Eent Drugs",
+      "ptc_2_text": "miscellaneous EENT drugs",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "560000",
+    "fields": {
+      "ptc_1": "560000",
+      "ptc_1_text": "gastrointestinal drugs",
+      "ptc_2": null,
+      "ptc_2_text": null,
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1824,9 +3294,9 @@
     "pk": "560800",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "560800",
-      "ptc_2_text": "Antidiarrhea Agents",
+      "ptc_2_text": "antidiarrhea agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1838,9 +3308,9 @@
     "pk": "561200",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "561200",
-      "ptc_2_text": "Cathartics And Laxatives",
+      "ptc_2_text": "cathartics and laxatives",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1852,9 +3322,9 @@
     "pk": "561400",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "561400",
-      "ptc_2_text": "Cholelitholytic Agents",
+      "ptc_2_text": "cholelitholytic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1866,9 +3336,23 @@
     "pk": "561600",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "561600",
-      "ptc_2_text": "Digestants",
+      "ptc_2_text": "digestants",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "562200",
+    "fields": {
+      "ptc_1": "560000",
+      "ptc_1_text": "gastrointestinal drugs",
+      "ptc_2": "562200",
+      "ptc_2_text": "antiemetics",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1880,11 +3364,11 @@
     "pk": "562208",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562200",
-      "ptc_2_text": "Antiemetics",
+      "ptc_2_text": "antiemetics",
       "ptc_3": "562208",
-      "ptc_3_text": "Antihistamines",
+      "ptc_3_text": "antihistamines",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1894,11 +3378,11 @@
     "pk": "562220",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562200",
-      "ptc_2_text": "Antiemetics",
+      "ptc_2_text": "antiemetics",
       "ptc_3": "562220",
-      "ptc_3_text": "5-HT3 Receptor Antagonists",
+      "ptc_3_text": "5-HT3 receptor antagonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1908,11 +3392,25 @@
     "pk": "562292",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562200",
-      "ptc_2_text": "Antiemetics",
+      "ptc_2_text": "antiemetics",
       "ptc_3": "562292",
-      "ptc_3_text": "Miscellaneous Antiemetics",
+      "ptc_3_text": "miscellaneous antiemetics",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "562800",
+    "fields": {
+      "ptc_1": "560000",
+      "ptc_1_text": "gastrointestinal drugs",
+      "ptc_2": "562800",
+      "ptc_2_text": "antiulcer agents and acid suppressants",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1922,11 +3420,11 @@
     "pk": "562812",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562800",
-      "ptc_2_text": "Antiulcer Agents And Acid Suppressants",
+      "ptc_2_text": "antiulcer agents and acid suppressants",
       "ptc_3": "562812",
-      "ptc_3_text": "Histamine H2-Antagonists",
+      "ptc_3_text": "histamine H2-antagonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1936,11 +3434,11 @@
     "pk": "562828",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562800",
-      "ptc_2_text": "Antiulcer Agents And Acid Suppressants",
+      "ptc_2_text": "antiulcer agents and acid suppressants",
       "ptc_3": "562828",
-      "ptc_3_text": "Prostaglandins",
+      "ptc_3_text": "prostaglandins",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1950,11 +3448,11 @@
     "pk": "562832",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562800",
-      "ptc_2_text": "Antiulcer Agents And Acid Suppressants",
+      "ptc_2_text": "antiulcer agents and acid suppressants",
       "ptc_3": "562832",
-      "ptc_3_text": "Protectants",
+      "ptc_3_text": "protectants",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1964,11 +3462,11 @@
     "pk": "562836",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "562800",
-      "ptc_2_text": "Antiulcer Agents And Acid Suppressants",
+      "ptc_2_text": "antiulcer agents and acid suppressants",
       "ptc_3": "562836",
-      "ptc_3_text": "Proton-Pump Inhibitors",
+      "ptc_3_text": "proton-pump inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -1978,9 +3476,9 @@
     "pk": "563200",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "563200",
-      "ptc_2_text": "Prokinetic Agents",
+      "ptc_2_text": "prokinetic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -1992,9 +3490,9 @@
     "pk": "563600",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "563600",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2006,9 +3504,9 @@
     "pk": "569200",
     "fields": {
       "ptc_1": "560000",
-      "ptc_1_text": "Gastrointestinal Drugs",
+      "ptc_1_text": "gastrointestinal drugs",
       "ptc_2": "569200",
-      "ptc_2_text": "Miscellaneous Gi Drugs",
+      "ptc_2_text": "miscellaneous gi drugs",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2020,7 +3518,7 @@
     "pk": "600000",
     "fields": {
       "ptc_1": "600000",
-      "ptc_1_text": "Gold Compounds",
+      "ptc_1_text": "gold compounds",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -2034,7 +3532,7 @@
     "pk": "640000",
     "fields": {
       "ptc_1": "640000",
-      "ptc_1_text": "Heavy Metal Antagonists",
+      "ptc_1_text": "heavy metal antagonists",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -2048,7 +3546,7 @@
     "pk": "680000",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -2062,9 +3560,9 @@
     "pk": "680400",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "680400",
-      "ptc_2_text": "Adrenals",
+      "ptc_2_text": "adrenals",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2076,9 +3574,9 @@
     "pk": "680800",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "680800",
-      "ptc_2_text": "Androgens",
+      "ptc_2_text": "androgens",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2090,9 +3588,23 @@
     "pk": "681200",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "681200",
-      "ptc_2_text": "Contraceptives",
+      "ptc_2_text": "contraceptives",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "681600",
+    "fields": {
+      "ptc_1": "680000",
+      "ptc_1_text": "hormones and synthetic substitutes",
+      "ptc_2": "681600",
+      "ptc_2_text": "estrogens and antiestrogens",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2104,11 +3616,11 @@
     "pk": "681604",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "681600",
-      "ptc_2_text": "Estrogens And Antiestrogens",
+      "ptc_2_text": "estrogens and antiestrogens",
       "ptc_3": "681604",
-      "ptc_3_text": "Estrogens",
+      "ptc_3_text": "estrogens",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2118,11 +3630,25 @@
     "pk": "681612",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "681600",
-      "ptc_2_text": "Estrogens And Antiestrogens",
+      "ptc_2_text": "estrogens and antiestrogens",
       "ptc_3": "681612",
-      "ptc_3_text": "Estrogen Agonists-Antagonists",
+      "ptc_3_text": "estrogen agonists-antagonists",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "682000",
+    "fields": {
+      "ptc_1": "680000",
+      "ptc_1_text": "hormones and synthetic substitutes",
+      "ptc_2": "682000",
+      "ptc_2_text": "antidiabetic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2132,11 +3658,11 @@
     "pk": "682002",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682002",
-      "ptc_3_text": "Alpha-Glucosidase Inhibitors",
+      "ptc_3_text": "alpha-glucosidase inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2146,11 +3672,11 @@
     "pk": "682004",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682004",
-      "ptc_3_text": "Biguanides",
+      "ptc_3_text": "biguanides",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2160,11 +3686,11 @@
     "pk": "682005",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682005",
-      "ptc_3_text": "Dipeptidyl Peptidase IV (DPP-4) Inhibitors",
+      "ptc_3_text": "dipeptidyl peptidase IV (DPP-4) inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2174,11 +3700,11 @@
     "pk": "682006",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682006",
-      "ptc_3_text": "Incretin Mimetics",
+      "ptc_3_text": "incretin mimetics",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2188,11 +3714,11 @@
     "pk": "682008",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682008",
-      "ptc_3_text": "Insulins",
+      "ptc_3_text": "insulins",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2202,11 +3728,11 @@
     "pk": "682016",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682016",
-      "ptc_3_text": "Meglitinides",
+      "ptc_3_text": "meglitinides",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2216,11 +3742,11 @@
     "pk": "682018",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682018",
-      "ptc_3_text": "Sodium-Glucose Cotransporter 2 (SGLT2) Inhibitors",
+      "ptc_3_text": "sodium-glucose cotransporter 2 (SGLT2) inhibitors",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2230,11 +3756,11 @@
     "pk": "682020",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682020",
-      "ptc_3_text": "Sulfonylureas",
+      "ptc_3_text": "sulfonylureas",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2244,11 +3770,25 @@
     "pk": "682028",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682000",
-      "ptc_2_text": "Antidiabetic Agents",
+      "ptc_2_text": "antidiabetic agents",
       "ptc_3": "682028",
-      "ptc_3_text": "Thiazolidinediones",
+      "ptc_3_text": "thiazolidinediones",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "682200",
+    "fields": {
+      "ptc_1": "680000",
+      "ptc_1_text": "hormones and synthetic substitutes",
+      "ptc_2": "682200",
+      "ptc_2_text": "antihypoglycemic agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2258,11 +3798,11 @@
     "pk": "682212",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682200",
-      "ptc_2_text": "Antihypoglycemic Agents",
+      "ptc_2_text": "antihypoglycemic agents",
       "ptc_3": "682212",
-      "ptc_3_text": "Glycogenolytic Agents",
+      "ptc_3_text": "glycogenolytic agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2272,9 +3812,9 @@
     "pk": "682400",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682400",
-      "ptc_2_text": "Parathyroid",
+      "ptc_2_text": "parathyroid",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2286,9 +3826,9 @@
     "pk": "682800",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "682800",
-      "ptc_2_text": "Pituitary",
+      "ptc_2_text": "pituitary",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2297,14 +3837,14 @@
   },
   {
     "model": "drug_price_calculator.ptc",
-    "pk": "682904",
+    "pk": "683000",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
-      "ptc_2": "682900",
-      "ptc_2_text": null,
-      "ptc_3": "682904",
-      "ptc_3_text": "Somatostatin Agonists",
+      "ptc_1_text": "hormones and synthetic substitutes",
+      "ptc_2": "683000",
+      "ptc_2_text": "somatotropin agonists and antagonists",
+      "ptc_3": null,
+      "ptc_3_text": null,
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2314,11 +3854,11 @@
     "pk": "683004",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "683000",
-      "ptc_2_text": "Somatotropin Agonists And Antagonists",
+      "ptc_2_text": "somatotropin agonists and antagonists",
       "ptc_3": "683004",
-      "ptc_3_text": "Somatotropin Agonists",
+      "ptc_3_text": "somatotropin agonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2328,11 +3868,11 @@
     "pk": "683008",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "683000",
-      "ptc_2_text": "Somatotropin Agonists And Antagonists",
+      "ptc_2_text": "somatotropin agonists and antagonists",
       "ptc_3": "683008",
-      "ptc_3_text": "Somatotropin Antagonists",
+      "ptc_3_text": "somatotropin antagonists",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2342,9 +3882,23 @@
     "pk": "683200",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "683200",
-      "ptc_2_text": "Progestins",
+      "ptc_2_text": "progestins",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "683600",
+    "fields": {
+      "ptc_1": "680000",
+      "ptc_1_text": "hormones and synthetic substitutes",
+      "ptc_2": "683600",
+      "ptc_2_text": "thyroid and antithyroid agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2356,11 +3910,11 @@
     "pk": "683604",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "683600",
-      "ptc_2_text": "Thyroid And Antithyroid Agents",
+      "ptc_2_text": "thyroid and antithyroid agents",
       "ptc_3": "683604",
-      "ptc_3_text": "Thyroid Agents",
+      "ptc_3_text": "thyroid agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2370,11 +3924,11 @@
     "pk": "683608",
     "fields": {
       "ptc_1": "680000",
-      "ptc_1_text": "Hormones And Synthetic Substitutes",
+      "ptc_1_text": "hormones and synthetic substitutes",
       "ptc_2": "683600",
-      "ptc_2_text": "Thyroid And Antithyroid Agents",
+      "ptc_2_text": "thyroid and antithyroid agents",
       "ptc_3": "683608",
-      "ptc_3_text": "Antithyroid Agents",
+      "ptc_3_text": "antithyroid agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -2384,7 +3938,21 @@
     "pk": "720000",
     "fields": {
       "ptc_1": "720000",
-      "ptc_1_text": "Local Anesthetics",
+      "ptc_1_text": "local anesthetics",
+      "ptc_2": null,
+      "ptc_2_text": null,
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "800000",
+    "fields": {
+      "ptc_1": "800000",
+      "ptc_1_text": "serums, toxoids, and vaccines",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -2398,9 +3966,9 @@
     "pk": "800400",
     "fields": {
       "ptc_1": "800000",
-      "ptc_1_text": "Serums, Toxoids, And Vaccines",
+      "ptc_1_text": "serums, toxoids, and vaccines",
       "ptc_2": "800400",
-      "ptc_2_text": "Serums",
+      "ptc_2_text": "serums",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -2412,611 +3980,9 @@
     "pk": "801200",
     "fields": {
       "ptc_1": "800000",
-      "ptc_1_text": "Serums, Toxoids, And Vaccines",
+      "ptc_1_text": "serums, toxoids, and vaccines",
       "ptc_2": "801200",
-      "ptc_2_text": "Vaccines",
-      "ptc_3": null,
-      "ptc_3_text": null,
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "80800",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "80800",
-      "ptc_2_text": "Anthelmintics",
-      "ptc_3": null,
-      "ptc_3_text": null,
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81202",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81202",
-      "ptc_3_text": "Aminoglycosides",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8120604",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81206",
-      "ptc_3_text": "Cephalosporins",
-      "ptc_4": "8120604",
-      "ptc_4_text": "First Generation Cephalosporins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8120608",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81206",
-      "ptc_3_text": "Cephalosporins",
-      "ptc_4": "8120608",
-      "ptc_4_text": "Second Generation Cephalosporins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8120612",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81206",
-      "ptc_3_text": "Cephalosporins",
-      "ptc_4": "8120612",
-      "ptc_4_text": "Third Generation Cephalosporins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8120708",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81207",
-      "ptc_3_text": "Miscellaneous B-Lactams",
-      "ptc_4": "8120708",
-      "ptc_4_text": "Carbapenems"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8120712",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81207",
-      "ptc_3_text": "Miscellaneous B-Lactams",
-      "ptc_4": "8120712",
-      "ptc_4_text": "Cephamycins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8120716",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81207",
-      "ptc_3_text": "Miscellaneous B-Lactams",
-      "ptc_4": "8120716",
-      "ptc_4_text": "Monobactams"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81208",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81208",
-      "ptc_3_text": "Chloramphenicol",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8121204",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81212",
-      "ptc_3_text": "Macrolides",
-      "ptc_4": "8121204",
-      "ptc_4_text": "Erythromycins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8121292",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81212",
-      "ptc_3_text": "Macrolides",
-      "ptc_4": "8121292",
-      "ptc_4_text": "Other Macrolides"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8121604",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81216",
-      "ptc_3_text": "Penicillins",
-      "ptc_4": "8121604",
-      "ptc_4_text": "Natural Penicillins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8121608",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81216",
-      "ptc_3_text": "Penicillins",
-      "ptc_4": "8121608",
-      "ptc_4_text": "Aminopenicillins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8121612",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81216",
-      "ptc_3_text": "Penicillins",
-      "ptc_4": "8121612",
-      "ptc_4_text": "Penicillinase-Resistant Penicillins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8121616",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81216",
-      "ptc_3_text": "Penicillins",
-      "ptc_4": "8121616",
-      "ptc_4_text": "Extended-Spectrum Penicillins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81218",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81218",
-      "ptc_3_text": "Quinolones",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81220",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81220",
-      "ptc_3_text": "Sulfonamides",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81224",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81224",
-      "ptc_3_text": "Tetracyclines",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81228",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8122812",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": "8122812",
-      "ptc_4_text": "Cyclic Lipopeptides"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8122816",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": "8122816",
-      "ptc_4_text": "Glycopeptides"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8122820",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": "8122820",
-      "ptc_4_text": "Lincomycins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8122824",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": "8122824",
-      "ptc_4_text": "Oxazolidinones"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8122828",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": "8122828",
-      "ptc_4_text": "Polymyxins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8122830",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81200",
-      "ptc_2_text": "Antibacterials",
-      "ptc_3": "81228",
-      "ptc_3_text": "Miscellaneous Antibacterials",
-      "ptc_4": "8122830",
-      "ptc_4_text": "Rifamycins"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81404",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81400",
-      "ptc_2_text": "Antifungals",
-      "ptc_3": "81404",
-      "ptc_3_text": "Allylamines",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81408",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81400",
-      "ptc_2_text": "Antifungals",
-      "ptc_3": "81408",
-      "ptc_3_text": "Azoles",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81416",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81400",
-      "ptc_2_text": "Antifungals",
-      "ptc_3": "81416",
-      "ptc_3_text": "Echinocandins",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81428",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81400",
-      "ptc_2_text": "Antifungals",
-      "ptc_3": "81428",
-      "ptc_3_text": "Polyenes",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81692",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81600",
-      "ptc_2_text": "Antimycobacterials",
-      "ptc_3": "81692",
-      "ptc_3_text": "Miscellaneous Antimycobacterials",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8180804",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81808",
-      "ptc_3_text": "Antiretrovirals",
-      "ptc_4": "8180804",
-      "ptc_4_text": "HIV Fusion Inhibitors"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8180820",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81808",
-      "ptc_3_text": "Antiretrovirals",
-      "ptc_4": "8180820",
-      "ptc_4_text": "Nucleoside And Nucleotide Reverse Transcriptase Inhibitors"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81820",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81820",
-      "ptc_3_text": "Interferons",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81828",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81828",
-      "ptc_3_text": "Neuraminidase Inhibitors",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81832",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81832",
-      "ptc_3_text": "Nucleosides And Nucleotides",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81840",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81840",
-      "ptc_3_text": "Protease Inhibitors",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8184016",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81840",
-      "ptc_3_text": "Protease Inhibitors",
-      "ptc_4": "8184016",
-      "ptc_4_text": "Hcv Polymerase Inhibitors"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8184020",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81840",
-      "ptc_3_text": "Protease Inhibitors",
-      "ptc_4": "8184020",
-      "ptc_4_text": "Hcv Protease Inhibitors"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "8184024",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81840",
-      "ptc_3_text": "Protease Inhibitors",
-      "ptc_4": "8184024",
-      "ptc_4_text": "Hcv Replication Complex Inhibitors"
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "81892",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "81800",
-      "ptc_2_text": "Antivirals",
-      "ptc_3": "81892",
-      "ptc_3_text": "Miscellaneous Antivirals",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "83008",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "83000",
-      "ptc_2_text": "Antiprotozoals",
-      "ptc_3": "83008",
-      "ptc_3_text": "Antimalarials",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "83092",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "83000",
-      "ptc_2_text": "Antiprotozoals",
-      "ptc_3": "83092",
-      "ptc_3_text": "Miscellaneous Antiprotozoals",
-      "ptc_4": null,
-      "ptc_4_text": null
-    }
-  },
-  {
-    "model": "drug_price_calculator.ptc",
-    "pk": "83600",
-    "fields": {
-      "ptc_1": "80000",
-      "ptc_1_text": "Anti-Infective Agents",
-      "ptc_2": "83600",
-      "ptc_2_text": "Urinary Anti-Infectives",
+      "ptc_2_text": "vaccines",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3028,7 +3994,7 @@
     "pk": "840000",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -3042,9 +4008,9 @@
     "pk": "840400",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3056,11 +4022,25 @@
     "pk": "840404",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840404",
-      "ptc_3_text": "Antibacterials",
+      "ptc_3_text": "antibacterials",
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "840408",
+    "fields": {
+      "ptc_1": "840000",
+      "ptc_1_text": "skin and mucous membrane agents",
+      "ptc_2": "840400",
+      "ptc_2_text": "anti-infectives",
+      "ptc_3": "840408",
+      "ptc_3_text": "antifungals",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -3070,13 +4050,13 @@
     "pk": "84040804",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840408",
-      "ptc_3_text": "Antifungals",
+      "ptc_3_text": "antifungals",
       "ptc_4": "84040804",
-      "ptc_4_text": "Allylamines"
+      "ptc_4_text": "allylamines"
     }
   },
   {
@@ -3084,13 +4064,13 @@
     "pk": "84040808",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840408",
-      "ptc_3_text": "Antifungals",
+      "ptc_3_text": "antifungals",
       "ptc_4": "84040808",
-      "ptc_4_text": "Azoles"
+      "ptc_4_text": "azoles"
     }
   },
   {
@@ -3098,13 +4078,13 @@
     "pk": "84040820",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840408",
-      "ptc_3_text": "Antifungals",
+      "ptc_3_text": "antifungals",
       "ptc_4": "84040820",
-      "ptc_4_text": "Hydroxypyridones"
+      "ptc_4_text": "hydroxypyridones"
     }
   },
   {
@@ -3112,13 +4092,13 @@
     "pk": "84040828",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840408",
-      "ptc_3_text": "Antifungals",
+      "ptc_3_text": "antifungals",
       "ptc_4": "84040828",
-      "ptc_4_text": "Polyenes"
+      "ptc_4_text": "polyenes"
     }
   },
   {
@@ -3126,11 +4106,11 @@
     "pk": "840412",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840412",
-      "ptc_3_text": "Scabicides And Pediculicides",
+      "ptc_3_text": "scabicides and pediculicides",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -3140,11 +4120,11 @@
     "pk": "840492",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840400",
-      "ptc_2_text": "Anti-Infectives",
+      "ptc_2_text": "anti-infectives",
       "ptc_3": "840492",
-      "ptc_3_text": "Miscellaneous Local Anti-Infectives",
+      "ptc_3_text": "miscellaneous local anti-infectives",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -3154,9 +4134,9 @@
     "pk": "840600",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840600",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3168,11 +4148,11 @@
     "pk": "840602",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840600",
-      "ptc_2_text": "Anti-Inflammatory Agents",
+      "ptc_2_text": "anti-inflammatory agents",
       "ptc_3": "840602",
-      "ptc_3_text": "Combination Anti-Infective/Anti-Inflammatory Agents",
+      "ptc_3_text": "combination anti-infective/anti-inflammatory agents",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -3182,9 +4162,9 @@
     "pk": "840800",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "840800",
-      "ptc_2_text": "Antipruritics And Local Anesthetics",
+      "ptc_2_text": "antipruritics and local anesthetics",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3196,9 +4176,9 @@
     "pk": "841600",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "841600",
-      "ptc_2_text": "Cell Stimulants And Proliferants",
+      "ptc_2_text": "cell stimulants and proliferants",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3210,9 +4190,9 @@
     "pk": "842800",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "842800",
-      "ptc_2_text": "Keratolytic Agents",
+      "ptc_2_text": "keratolytic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3224,9 +4204,23 @@
     "pk": "849200",
     "fields": {
       "ptc_1": "840000",
-      "ptc_1_text": "Skin And Mucous Membrane Agents",
+      "ptc_1_text": "skin and mucous membrane agents",
       "ptc_2": "849200",
-      "ptc_2_text": "Miscellaneous Skin And Mucous Membrane Agents",
+      "ptc_2_text": "miscellaneous skin and mucous membrane agents",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "860000",
+    "fields": {
+      "ptc_1": "860000",
+      "ptc_1_text": "smooth muscle relaxants",
+      "ptc_2": null,
+      "ptc_2_text": null,
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3238,9 +4232,9 @@
     "pk": "861200",
     "fields": {
       "ptc_1": "860000",
-      "ptc_1_text": "Smooth Muscle Relaxants",
+      "ptc_1_text": "smooth muscle relaxants",
       "ptc_2": "861200",
-      "ptc_2_text": "Genitourinary Smooth Muscle Relaxants",
+      "ptc_2_text": "genitourinary smooth muscle relaxants",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3252,9 +4246,23 @@
     "pk": "861600",
     "fields": {
       "ptc_1": "860000",
-      "ptc_1_text": "Smooth Muscle Relaxants",
+      "ptc_1_text": "smooth muscle relaxants",
       "ptc_2": "861600",
-      "ptc_2_text": "Respiratory Smooth Muscle Relaxants",
+      "ptc_2_text": "respiratory smooth muscle relaxants",
+      "ptc_3": null,
+      "ptc_3_text": null,
+      "ptc_4": null,
+      "ptc_4_text": null
+    }
+  },
+  {
+    "model": "drug_price_calculator.ptc",
+    "pk": "880000",
+    "fields": {
+      "ptc_1": "880000",
+      "ptc_1_text": "vitamins",
+      "ptc_2": null,
+      "ptc_2_text": null,
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3266,9 +4274,9 @@
     "pk": "880800",
     "fields": {
       "ptc_1": "880000",
-      "ptc_1_text": "Vitamins",
+      "ptc_1_text": "vitamins",
       "ptc_2": "880800",
-      "ptc_2_text": "Vitamin B Complex",
+      "ptc_2_text": "vitamin B complex",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3280,9 +4288,9 @@
     "pk": "881600",
     "fields": {
       "ptc_1": "880000",
-      "ptc_1_text": "Vitamins",
+      "ptc_1_text": "vitamins",
       "ptc_2": "881600",
-      "ptc_2_text": "Vitamin D",
+      "ptc_2_text": "vitamin D",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3294,9 +4302,9 @@
     "pk": "882400",
     "fields": {
       "ptc_1": "880000",
-      "ptc_1_text": "Vitamins",
+      "ptc_1_text": "vitamins",
       "ptc_2": "882400",
-      "ptc_2_text": "Vitamin K Activity",
+      "ptc_2_text": "vitamin K activity",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3308,9 +4316,9 @@
     "pk": "882800",
     "fields": {
       "ptc_1": "880000",
-      "ptc_1_text": "Vitamins",
+      "ptc_1_text": "vitamins",
       "ptc_2": "882800",
-      "ptc_2_text": "Multivitamin Preparations",
+      "ptc_2_text": "multivitamin preparations",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3322,11 +4330,11 @@
     "pk": "882801",
     "fields": {
       "ptc_1": "880000",
-      "ptc_1_text": "Vitamins",
+      "ptc_1_text": "vitamins",
       "ptc_2": "882800",
-      "ptc_2_text": "Multivitamin Preparations",
+      "ptc_2_text": "multivitamin preparations",
       "ptc_3": "882801",
-      "ptc_3_text": "Vitamins & Minerals",
+      "ptc_3_text": "vitamins & minerals",
       "ptc_4": null,
       "ptc_4_text": null
     }
@@ -3336,7 +4344,7 @@
     "pk": "920000",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
@@ -3350,9 +4358,9 @@
     "pk": "920500",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "920500",
-      "ptc_2_text": "Allergenic Extracts",
+      "ptc_2_text": "allergenic extracts",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3364,9 +4372,9 @@
     "pk": "920800",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "920800",
-      "ptc_2_text": "5 Alfa Reductase Inhibitors",
+      "ptc_2_text": "5 alfa reductase inhibitors",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3378,9 +4386,9 @@
     "pk": "922000",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "922000",
-      "ptc_2_text": "Immunomodulatory Agents",
+      "ptc_2_text": "immunomodulatory agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3392,9 +4400,9 @@
     "pk": "922400",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "922400",
-      "ptc_2_text": "Bone Resorption Inhibitors",
+      "ptc_2_text": "bone resorption inhibitors",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3406,9 +4414,9 @@
     "pk": "923200",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "923200",
-      "ptc_2_text": "Complement Inhibitors",
+      "ptc_2_text": "complement inhibitors",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3420,9 +4428,9 @@
     "pk": "923600",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "923600",
-      "ptc_2_text": "Disease-Modifying Antirheumatic Agents",
+      "ptc_2_text": "disease-modifying antirheumatic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3434,9 +4442,9 @@
     "pk": "924400",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "924400",
-      "ptc_2_text": "Immunosuppressive Agents",
+      "ptc_2_text": "immunosuppressive agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3448,9 +4456,9 @@
     "pk": "929200",
     "fields": {
       "ptc_1": "920000",
-      "ptc_1_text": "Miscellaneous Therapeutic Agents",
+      "ptc_1_text": "miscellaneous therapeutic agents",
       "ptc_2": "929200",
-      "ptc_2_text": "Other Miscellaneous Therapeutic Agents",
+      "ptc_2_text": "other miscellaneous therapeutic agents",
       "ptc_3": null,
       "ptc_3_text": null,
       "ptc_4": null,
@@ -3462,7 +4470,7 @@
     "pk": "940000",
     "fields": {
       "ptc_1": "940000",
-      "ptc_1_text": "Devices",
+      "ptc_1_text": "devices",
       "ptc_2": null,
       "ptc_2_text": null,
       "ptc_3": null,
