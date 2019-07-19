@@ -185,7 +185,7 @@ class PTC(models.Model):
     )
     ptc_1_text = models.CharField(
         blank=True,
-        max_length=75,
+        max_length=100,
         null=True,
         verbose_name='PTC level 1 description',
     )
@@ -197,7 +197,7 @@ class PTC(models.Model):
     )
     ptc_2_text = models.CharField(
         blank=True,
-        max_length=75,
+        max_length=100,
         null=True,
         verbose_name='PTC level 2 description',
     )
@@ -209,7 +209,7 @@ class PTC(models.Model):
     )
     ptc_3_text = models.CharField(
         blank=True,
-        max_length=75,
+        max_length=100,
         null=True,
         verbose_name='PTC level 3 description',
     )
@@ -221,7 +221,7 @@ class PTC(models.Model):
     )
     ptc_4_text = models.CharField(
         blank=True,
-        max_length=75,
+        max_length=100,
         null=True,
         verbose_name='PTC level 4 description',
     )
