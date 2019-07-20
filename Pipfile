@@ -32,15 +32,12 @@ coreapi = "*"  # https://github.com/core-api/python-client
 [dev-packages]
 # Code quality
 # -----------------------------------------------------------------------------
-coverage = "*"  # https://github.com/nedbat/coveragepy
 pylint = "*"  # https://github.com/PyCQA/pylint/
 
 # Django
 # -----------------------------------------------------------------------------
-django-coverage-plugin = "*"  # https://github.com/nedbat/django_coverage_plugin
 django-debug-toolbar = "*"  # https://github.com/jazzband/django-debug-toolbar
-django-jenkins = "*" # https://github.com/kmmbvnr/django-jenkins
-django-test-plus = "*" # https://github.com/revsys/django-test-plus/
+django-extensions = "*"  # https://github.com/django-extensions/django-extensions
 pylint-common = "*" # https://github.com/landscapeio/pylint-common
 pylint-django = "*" #https://github.com/PyCQA/pylint-django
 
