@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Coverage Criteria</h1>
+
+  {% if coverage_criteria %}
+    {% for criteria in coverage_criteria %}
+      {% if criteria.header %}
+        <h2>{{ criteria.header|safe }}</h2>
+      {% endif %}
+
+      <p>
+        {{ criteria.criteria|safe }}
+      </p>
+    {% endfor %}
+  {% else %}
+    No coverage criteria for this drug.
+  {% endif %}
+{% endblock %}

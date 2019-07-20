@@ -6,10 +6,13 @@ name = "pypi"
 [packages]
 argon2-cffi = "*"  # https://github.com/hynek/argon2_cffi
 boto3 = "*"  # https://github.com/boto/boto3
+bs4 = "*"  # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+lxml = "*"  # https://lxml.de/
 pillow = "*"  # https://github.com/python-pillow/Pillow
 psycopg2-binary = "*"  # https://github.com/psycopg/psycopg2
 redis = "*"  # https://github.com/antirez/redis
 sentry-sdk = "*"  # https://docs.sentry.io/quickstart/?platform=python
+tqdm = "*"  # https://github.com/tqdm/tqdm
 whitenoise = "*"  # https://github.com/evansd/whitenoise
 
 # Django
@@ -29,20 +32,23 @@ coreapi = "*"  # https://github.com/core-api/python-client
 [dev-packages]
 # Code quality
 # -----------------------------------------------------------------------------
-coverage = "*"  # https://github.com/nedbat/coveragepy
 pylint = "*"  # https://github.com/PyCQA/pylint/
 
 # Django
 # -----------------------------------------------------------------------------
-django-coverage-plugin = "*"  # https://github.com/nedbat/django_coverage_plugin
 django-debug-toolbar = "*"  # https://github.com/jazzband/django-debug-toolbar
-django-jenkins = "*" # https://github.com/kmmbvnr/django-jenkins
-django-test-plus = "*" # https://github.com/revsys/django-test-plus/
+django-extensions = "*"  # https://github.com/django-extensions/django-extensions
 pylint-common = "*" # https://github.com/landscapeio/pylint-common
 pylint-django = "*" #https://github.com/PyCQA/pylint-django
 
 # Testing
 # -----------------------------------------------------------------------------
+factory_boy = "*"  # https://github.com/FactoryBoy/factory_boy
+pytest = "*"  # https://github.com/pytest-dev/pytest
+pytest-cov = "*"  # https://github.com/pytest-dev/pytest-cov
+pytest-django = "*"  # https://github.com/pytest-dev/pytest-django
+pytest-pythonpath = "*"  # https://github.com/bigsassy/pytest-pythonpath
+
 
 [requires]
 python_version = "3.7"

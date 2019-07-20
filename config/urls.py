@@ -7,7 +7,7 @@ from django.views import defaults as default_views
 from django.contrib.sitemaps.views import sitemap
 
 from . import views
-from .sitemaps import *
+from .sitemaps import * # pylint: disable=wildcard-import, unused-wildcard-import
 
 sitemaps = {
     'play': PlaySitemap('play'),
@@ -18,6 +18,7 @@ sitemaps = {
 }
 
 urlpatterns = [
+    path('api/', include('study_buffalo.api.urls')),
     path('play/', include('play.urls')),
     path('study/', include('study.urls')),
     path('read/', include('read.urls')),

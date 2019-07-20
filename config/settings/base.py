@@ -4,21 +4,17 @@ Base settings to build other settings files upon.
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (study_buffalo/config/settings/base.py - 3 = study_buffalo/)
+ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('study_buffalo')
 
 env = environ.Env()
-environ.Env.read_env(env_file=ROOT_DIR.path('..', 'config').file('study_buffalo.env'))
+environ.Env.read_env(env_file=ROOT_DIR.path('config', 'settings').file('study_buffalo.env'))
+
 
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool('DJANGO_DEBUG', False)
-
-# Local time zone. Choices are
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# though not all of them may be available with every OS.
-# In Windows, this must be set to your system time zone.
 TIME_ZONE = 'UTC'
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
@@ -31,14 +27,15 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 
+
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
 DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///study_buffalo'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -46,6 +43,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 ROOT_URLCONF = 'config.urls'
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'config.wsgi.application'
+
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -85,12 +83,14 @@ LOCAL_APPS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
 MIGRATION_MODULES = {
     'sites': 'study_buffalo.contrib.sites.migrations'
 }
+
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -105,6 +105,7 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = 'account_profile'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = 'account_login'
+
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -133,6 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # MIDDLEWARE
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
@@ -145,6 +147,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 # STATIC
 # ------------------------------------------------------------------------------
@@ -162,12 +165,14 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
+
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 MEDIA_ROOT = str(APPS_DIR('media'))
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = '/media/'
+
 
 # TEMPLATES
 # ------------------------------------------------------------------------------
@@ -206,6 +211,7 @@ TEMPLATES = [
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+
 # FIXTURES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#fixture-dirs
@@ -213,10 +219,12 @@ FIXTURE_DIRS = (
     str(APPS_DIR.path('fixtures')),
 )
 
+
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+
 
 # ADMIN
 # ------------------------------------------------------------------------------
@@ -256,12 +264,13 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+
 # Django Rest Framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated'
+        'rest_framework.permissions.IsAuthenticated',
     ),
 }

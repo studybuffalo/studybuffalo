@@ -1,0 +1,50 @@
+[
+  {
+    "model": "drug_price_calculator.subsunit",
+    "pk": 1,
+    "fields": {
+      "original": "enm",
+      "correction": "enema"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsunit",
+    "pk": 2,
+    "fields": {
+      "original": "iu",
+      "correction": "IU"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsunit",
+    "pk": 3,
+    "fields": {
+      "original": "meq",
+      "correction": "mEq"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsunit",
+    "pk": 4,
+    "fields": {
+      "original": "ml",
+      "correction": "mL"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsunit",
+    "pk": 5,
+    "fields": {
+      "original": "pth",
+      "correction": "patch"
+    }
+  },
+  {
+    "model": "drug_price_calculator.subsunit",
+    "pk": 6,
+    "fields": {
+      "original": "syr",
+      "correction": "syringe"
+    }
+  }
+]
