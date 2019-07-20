@@ -4,6 +4,66 @@ import re
 from sentry_sdk import capture_message
 from drug_price_calculator import models
 
+def _remove_extra_white_space(text):
+    """Removes extra whitespace within text."""
+    return re.sub(r'\s{2,}', ' ', text)
+
+def _remove_slash_white_space(text):
+    """Removes white spaces from around slashes."""
+    return re.sub(r'(\s/\s|/\s|\s/)', '/', text)
+
+def _parse_brand_name(text):
+    """Properly formats the brand name"""
+    # Convert to title text
+    text = text.title()
+
+    # Removes extra space characters
+    text = re.sub(r'\s{2,}', ' ', text)
+
+    # Correct errors with apostrophes and 's'
+    text = re.sub(r"'S\b'", "'s", text)
+
+    return text
+
+def _parse_strength(text):
+    """Manually corrects errors not fixed by .lower()."""
+    # Converts the strength to lower case
+    text = text.lower()
+
+    # Removes any extra spaces
+    text = re.sub(r'\s{2,}', ' ', text)
+
+    # Remove any spaces around slashes
+    text = re.sub(r'\s/\s', '/', text)
+
+    # Remove any spaces between numbers and %
+    text = re.sub(r'\s%', '%', text)
+
+    # Get substitution model for units
+    try:
+        unit_subs = models.SubsUnit.objects.all()
+    except models.SubsUnit.DoesNotExist:
+        unit_subs = []
+
+    # Apply any substitutions
+    for sub in unit_subs:
+        text = re.sub(r'\b%s\b' % sub.original, sub.correction, text)
+
+    return text
+
+def _parse_route(text):
+    """Properly formats the route"""
+    # Convert route to lower case
+    text = text.lower()
+
+    return text
+
+def _parse_dosage_form(text):
+    """Properly formats the dosage form"""
+    # Convert route to lower case
+    text = text.lower()
+
+    return text
 
 def parse_bsrf(raw_bsrf):
     """Parses the raw Brand Name, Strength, Routh, Dosage Form data."""
@@ -142,10 +202,10 @@ def parse_generic(raw_generic):
     generic = original.lower()
 
     # Removes extra space characters
-    generic = re.sub(r'\s{2,}', ' ', generic)
+    generic = _remove_extra_white_space(generic)
 
     # Remove spaces around slashes
-    generic = re.sub(r'/\s', '/', generic)
+    generic = _remove_slash_white_space(generic)
 
     # Add data to pend if present
     if pend:
@@ -203,58 +263,5 @@ def parse_unit_issue(raw_unit_issue):
 
     # Change to lower case
     text = unit_issue.lower()
-
-    return text
-
-def _parse_brand_name(text):
-    """Properly formats the brand name"""
-    # Convert to title text
-    text = text.title()
-
-    # Removes extra space characters
-    text = re.sub(r'\s{2,}', ' ', text)
-
-    # Correct errors with apostrophes and 's'
-    text = re.sub(r"'S\b'", "'s", text)
-
-    return text
-
-def _parse_strength(text):
-    """Manually corrects errors not fixed by .lower()."""
-    # Converts the strength to lower case
-    text = text.lower()
-
-    # Removes any extra spaces
-    text = re.sub(r'\s{2,}', ' ', text)
-
-    # Remove any spaces around slashes
-    text = re.sub(r'\s/\s', '/', text)
-
-    # Remove any spaces between numbers and %
-    text = re.sub(r'\s%', '%', text)
-
-    # Get substitution model for units
-    try:
-        unit_subs = models.SubsUnit.objects.all()
-    except models.SubsUnit.DoesNotExist:
-        unit_subs = []
-
-    # Apply any substitutions
-    for sub in unit_subs:
-        text = re.sub(r'\b%s\b' % sub.original, sub.correction, text)
-
-    return text
-
-def _parse_route(text):
-    """Properly formats the route"""
-    # Convert route to lower case
-    text = text.lower()
-
-    return text
-
-def _parse_dosage_form(text):
-    """Properly formats the dosage form"""
-    # Convert route to lower case
-    text = text.lower()
 
     return text
