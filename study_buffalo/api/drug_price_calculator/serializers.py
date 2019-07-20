@@ -112,6 +112,7 @@ class iDBLDataSerializer(serializers.Serializer):
         allow_null=True,
         default=None,
         help_text='The combined brand name, strength, route, and dosage form',
+        max_length=390,
     )
     generic_name = serializers.CharField(
         allow_null=True,
@@ -166,7 +167,7 @@ class iDBLDataSerializer(serializers.Serializer):
         allow_null=True,
         default=None,
         help_text='The drug manufacturer',
-        max_length=75,
+        max_length=150,
     )
     atc = serializers.CharField(
         allow_null=True,
