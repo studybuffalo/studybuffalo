@@ -207,7 +207,7 @@ def test__idbl_data_serializer__valid__manufacturer():
 
 def test__idbl_data_serializer__valid__atc():
     """Tests handling of just a valid atc."""
-    # Create a PTC instance
+    # Create ATC instance
     atc = models.ATC.objects.create(id='1234')
 
     # Create serializer data
@@ -229,6 +229,46 @@ def test__idbl_data_serializer__valid__atc():
     drug = serializer.save()
 
     assert drug.atc == atc
+
+def test__idbl_data_serializer__get_atc_instance__missing():
+    """Tests handling of just a valid atc."""
+    # Create ATC instances
+    atc = models.ATC.objects.create(
+        id='A11BC22', atc_1='A', atc_1_text='description 1',
+        atc_2='A11', atc_2_text='description 2', atc_3='A11B', atc_3_text='description 3',
+        atc_4='A11BC', atc_4_text='description 4', atc_5='A11BC22', atc_5_text='description 5',
+    )
+
+    # Create serializer data
+    idbl_data = {
+        'abc_id': 1,
+        'din': '00000001',
+        'atc': 'A11BC33',
+    }
+
+    # Create initial instance to work from
+    instance = models.Drug.objects.create(din=idbl_data['din'])
+
+    serializer = serializers.iDBLDataSerializer(
+        instance=instance, data=idbl_data
+    )
+
+    # Confirm data is valid and save serializer
+    serializer.is_valid()
+    drug = serializer.save()
+
+    # Confirm new ATC was made with proper details
+    new_atc = models.ATC.objects.get(id='A11BC33')
+    assert new_atc.atc_1 == 'A'
+    assert new_atc.atc_1_text == 'description 1'
+    assert new_atc.atc_2 == 'A11'
+    assert new_atc.atc_2_text == 'description 2'
+    assert new_atc.atc_3 == 'A11B'
+    assert new_atc.atc_3_text == 'description 3'
+    assert new_atc.atc_4 == 'A11BC'
+    assert new_atc.atc_4_text == 'description 4'
+    assert new_atc.atc_5 == 'A11BC33'
+    assert new_atc.atc_5_text is None
 
 def test__idbl_data_serializer__valid__schedule():
     """Tests handling of just a valid schedule."""
@@ -523,6 +563,22 @@ def test__idbl_data_serializer__valid__coverage_criteria():
     assert price.coverage_criteria.count() == 1
     assert price.coverage_criteria.last().header == 'a'
     assert price.coverage_criteria.last().criteria == 'b'
+
+def test__idbl_data_serializer__create_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLDataSerializer(data={})
+
+    try:
+        serializer.is_valid()
+        serializer.create(serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
+
+def test__idbl_data_serializer__max_lengths_match():
+    """Tests that serializer and model max lengths match."""
+    serializer = serializers.iDBLDataSerializer(data={})
 
 def test__idbl_clients_serializer__create_exists():
     """Confirms create method exists."""
