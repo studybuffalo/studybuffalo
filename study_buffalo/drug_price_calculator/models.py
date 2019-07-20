@@ -78,7 +78,10 @@ class Drug(models.Model):
     )
 
     def __str__(self):
-        return '{} ({})'.format(self.brand_name, self.din)
+        if self.brand_name:
+            return '{} ({})'.format(self.brand_name, self.din)
+
+        return self.din
 
 class ATC(models.Model):
     """Defines the ATC for each extracted URL"""
@@ -320,7 +323,10 @@ class Price(models.Model):
     )
 
     def __str__(self):
-        return '{} price ({})'.format(self.drug.brand_name, self.abc_id)
+        if self.drug.brand_name:
+            return '{} price ({})'.format(self.drug.brand_name, self.abc_id)
+
+        return '{} price ({})'.format(self.drug.din, self.abc_id)
 
 class Clients(models.Model):
     """Holds details regarding which clients are covered."""
@@ -390,7 +396,7 @@ class CoverageCriteria(models.Model):
         verbose_name_plural = 'coverage criteria'
 
     def __str__(self):
-        return '{} coverage criteria '.format(str(self.price))
+        return '{} coverage criteria'.format(str(self.price))
 
 class SpecialAuthorization(models.Model):
     """Details on special authorization forms."""
