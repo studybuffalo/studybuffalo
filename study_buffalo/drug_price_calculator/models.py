@@ -553,3 +553,19 @@ class PendManufacturer(models.Model):
     class Meta:
         verbose_name = 'Substitution - Manufactuer (Pending)'
         verbose_name_plural = 'Substitutions - Manufactuer (Pending)'
+
+class PendUnit(models.Model):
+    """Pending substitutions for Units"""
+    original = models.CharField(
+        max_length=150,
+        unique=True,
+    )
+    correction = models.CharField(
+        blank=True,
+        max_length=150,
+        null=True,
+    )
+
+    class Meta:
+        verbose_name = 'Substitution - Unit (Pending)'
+        verbose_name_plural = 'Substitutions - Unit (Pending)'

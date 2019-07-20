@@ -716,4 +716,36 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'clients',
             },
         ),
+        migrations.CreateModel(
+            name='PendUnit',
+            fields=[
+                (
+                    'id', models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID'
+                    )
+                ),
+                (
+                    'original',
+                    models.CharField(
+                        max_length=150,
+                        unique=True
+                    )
+                ),
+                (
+                    'correction',
+                    models.CharField(
+                        blank=True,
+                        max_length=150,
+                        null=True
+                    )
+                ),
+            ],
+            options={
+                'verbose_name': 'Substitution - Unit (Pending)',
+                'verbose_name_plural': 'Substitutions - Unit (Pending)',
+            },
+        ),
     ]
