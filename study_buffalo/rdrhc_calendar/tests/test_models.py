@@ -1,4 +1,6 @@
-"""Tests for the rdrhc_calendar models."""
+"""Tests for the RDRHC Calendar models."""
+import pytest
+
 from django.db import IntegrityError
 from django.test import TestCase
 
@@ -7,432 +9,177 @@ from rdrhc_calendar import models
 from .utils import create_user
 
 
-class TestCalendarUser(TestCase):
-    def setUp(self):
-        self.calendar_user = models.CalendarUser.objects.create(
-            sb_user=create_user('user'),
-            name='Regular User',
-            schedule_name='User',
-            calendar_name='SecretCalendar',
-            role='p',
-            first_email_sent=False,
-            full_day=False,
-            reminder=0,
-        )
+pytestmark = pytest.mark.django_db
 
-    def test_labels(self):
-        self.assertEqual(
-            self.calendar_user._meta.get_field('id').verbose_name,
-            'ID',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('sb_user').verbose_name,
-            'SB user',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('name').verbose_name,
-            'name',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('schedule_name').verbose_name,
-            'schedule name',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('calendar_name').verbose_name,
-            'calendar name',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('role').verbose_name,
-            'role',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('first_email_sent').verbose_name,
-            'first email sent',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('full_day').verbose_name,
-            'full day',
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('reminder').verbose_name,
-            'reminder',
-        )
+def test__calendar_user__labels(calendar_user):
+    """Tests labels of Calendaruser."""
+    assert calendar_user._meta.get_field('id').verbose_name == 'ID'
+    assert calendar_user._meta.get_field('sb_user').verbose_name == 'SB user'
+    assert calendar_user._meta.get_field('name').verbose_name == 'name'
+    assert calendar_user._meta.get_field('schedule_name').verbose_name == 'schedule name'
+    assert calendar_user._meta.get_field('calendar_name').verbose_name == 'calendar name'
+    assert calendar_user._meta.get_field('role').verbose_name == 'role'
+    assert calendar_user._meta.get_field('first_email_sent').verbose_name == 'first email sent'
+    assert calendar_user._meta.get_field('full_day').verbose_name == 'full day'
+    assert calendar_user._meta.get_field('reminder').verbose_name == 'reminder'
 
-    def test_max_lengths(self):
-        self.assertEqual(
-            self.calendar_user._meta.get_field('name').max_length,
-            25
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('schedule_name').max_length,
-            25
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('calendar_name').max_length,
-            50
-        )
-        self.assertEqual(
-            self.calendar_user._meta.get_field('role').max_length,
-            1
-        )
+def test__calendar_user__max_lengths(calendar_user):
+    """Tests max lengths of CalendarUser."""
+    assert calendar_user._meta.get_field('name').max_length == 25
+    assert calendar_user._meta.get_field('schedule_name').max_length == 25
+    assert calendar_user._meta.get_field('calendar_name').max_length == 50
+    assert calendar_user._meta.get_field('role').max_length == 1
 
-    def test_role_choices(self):
-        choices = self.calendar_user._meta.get_field('role').choices
+def test__calendar_user__role_choices(calendar_user):
+    """Confirms the choices for CalendarUser roles."""
+    choices = calendar_user._meta.get_field('role').choices
 
-        self.assertTrue(('a', 'Pharmacy Assistant') in choices)
-        self.assertTrue(('p', 'Pharmacist') in choices)
-        self.assertTrue(('t', 'Pharmacy Technician') in choices)
+    assert ('a', 'Pharmacy Assistant') in choices
+    assert ('p', 'Pharmacist') in choices
+    assert ('t', 'Pharmacy Technician') in choices
 
-    def test_str(self):
-        self.assertEqual(
-            str(self.calendar_user),
-            'p - Regular User'
-        )
+def test__calendar_user__str(calendar_user):
+    """Tests CalendarUser __str__ method."""
+    assert str(calendar_user) == '{} - {}'.format(calendar_user.role, calendar_user.name)
 
-class TestStatHoliday(TestCase):
-    def setUp(self):
-        self.stat_holiday = models.StatHoliday.objects.create(
-            date='2018-01-01',
-        )
+def test__stat_holiday__labels():
+    """Tests the labels of StatHoliday."""
+    assert models.StatHoliday._meta.get_field('date').verbose_name == 'date'
 
-    def test_labels(self):
-        self.assertEqual(
-            self.stat_holiday._meta.get_field('date').verbose_name,
-            'date',
-        )
+def test__stat_holidays__str():
+    """Tests the StatHoliday __str__ method."""
+    # Create a stat holiday
+    stat_holiday = models.StatHoliday.objects.create(
+        date='2018-01-01',
+    )
 
-    def test_str(self):
-        self.assertEqual(
-            str(self.stat_holiday),
-            '2018-01-01'
-        )
+    assert str(stat_holiday) == '2018-01-01'
 
-class TestShiftCode(TestCase):
-    def setUp(self):
-        self.shift_code = models.ShiftCode.objects.create(
-            code='A1',
-            sb_user=create_user('user'),
-            role='p',
-            monday_start='01:00',
-            monday_duration='1.1',
-            tuesday_start='02:00',
-            tuesday_duration='2.2',
-            wednesday_start='03:00',
-            wednesday_duration='3.3',
-            thursday_start='04:00',
-            thursday_duration='4.4',
-            friday_start='05:00',
-            friday_duration='5.5',
-            saturday_start='06:00',
-            saturday_duration='6.6',
-            sunday_start='07:00',
-            sunday_duration='7.7',
-            stat_start='08:00',
-            stat_duration='8.8',
-        )
+def test__shift_code__labels(shift_code):
+    """Tests the ShiftCode labels."""
+    assert shift_code._meta.get_field('code').verbose_name == 'code'
+    assert shift_code._meta.get_field('sb_user').verbose_name == 'SB user'
+    assert shift_code._meta.get_field('role').verbose_name == 'role'
+    assert shift_code._meta.get_field('monday_start').verbose_name == 'monday start'
+    assert shift_code._meta.get_field('monday_duration').verbose_name == 'monday duration'
+    assert shift_code._meta.get_field('tuesday_start').verbose_name == 'tuesday start'
+    assert shift_code._meta.get_field('tuesday_duration').verbose_name == 'tuesday duration'
+    assert shift_code._meta.get_field('wednesday_start').verbose_name == 'wednesday start'
+    assert shift_code._meta.get_field('wednesday_duration').verbose_name == 'wednesday duration'
+    assert shift_code._meta.get_field('thursday_start').verbose_name == 'thursday start'
+    assert shift_code._meta.get_field('thursday_duration').verbose_name == 'thursday duration'
+    assert shift_code._meta.get_field('friday_start').verbose_name == 'friday start'
+    assert shift_code._meta.get_field('friday_duration').verbose_name == 'friday duration'
+    assert shift_code._meta.get_field('saturday_start').verbose_name == 'saturday start'
+    assert shift_code._meta.get_field('saturday_duration').verbose_name == 'saturday duration'
+    assert shift_code._meta.get_field('sunday_start').verbose_name == 'sunday start'
+    assert shift_code._meta.get_field('sunday_duration').verbose_name == 'sunday duration'
+    assert shift_code._meta.get_field('stat_start').verbose_name == 'stat start'
+    assert shift_code._meta.get_field('stat_duration').verbose_name == 'stat duration'
 
-    def test_labels(self):
-        self.assertEqual(
-            self.shift_code._meta.get_field('code').verbose_name,
-            'code',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('sb_user').verbose_name,
-            'SB user',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('role').verbose_name,
-            'role',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('monday_start').verbose_name,
-            'monday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('monday_duration').verbose_name,
-            'monday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('tuesday_start').verbose_name,
-            'tuesday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('tuesday_duration').verbose_name,
-            'tuesday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('wednesday_start').verbose_name,
-            'wednesday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('wednesday_duration').verbose_name,
-            'wednesday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('thursday_start').verbose_name,
-            'thursday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('thursday_duration').verbose_name,
-            'thursday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('friday_start').verbose_name,
-            'friday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('friday_duration').verbose_name,
-            'friday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('saturday_start').verbose_name,
-            'saturday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('saturday_duration').verbose_name,
-            'saturday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('sunday_start').verbose_name,
-            'sunday start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('sunday_duration').verbose_name,
-            'sunday duration',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('stat_start').verbose_name,
-            'stat start',
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('stat_duration').verbose_name,
-            'stat duration',
-        )
+def test__shift_code__max_lengths(shift_code):
+    """Tests the ShiftCode max_lengths."""
+    assert shift_code._meta.get_field('code').max_length == 20
+    assert shift_code._meta.get_field('role').max_length == 1
 
-    def test_max_lengths(self):
-        self.assertEqual(
-            self.shift_code._meta.get_field('code').max_length,
-            20
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('role').max_length,
-            1
-        )
+def test__shift_code__decimal_maxes(shift_code):
+    """Tests the ShiftCode max_decimal."""
+    assert shift_code._meta.get_field('monday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('monday_duration').max_digits == 4
+    assert shift_code._meta.get_field('tuesday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('tuesday_duration').max_digits == 4
+    assert shift_code._meta.get_field('wednesday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('wednesday_duration').max_digits == 4
+    assert shift_code._meta.get_field('thursday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('thursday_duration').max_digits == 4
+    assert shift_code._meta.get_field('friday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('friday_duration').max_digits == 4
+    assert shift_code._meta.get_field('saturday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('saturday_duration').max_digits == 4
+    assert shift_code._meta.get_field('sunday_duration').decimal_places == 2
+    assert shift_code._meta.get_field('sunday_duration').max_digits == 4
+    assert shift_code._meta.get_field('stat_duration').decimal_places == 2
+    assert shift_code._meta.get_field('stat_duration').max_digits == 4
 
-    def test_decimal_maxes(self):
-        self.assertEqual(
-            self.shift_code._meta.get_field('monday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('monday_duration').max_digits,
-            4
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('tuesday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('tuesday_duration').max_digits,
-            4
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('wednesday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('wednesday_duration').max_digits,
-            4
-        )
+def test__shift_code__role_choices(shift_code):
+    """Tests the ShiftCode role choices."""
+    choices = shift_code._meta.get_field('role').choices
 
-        self.assertEqual(
-            self.shift_code._meta.get_field('thursday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('thursday_duration').max_digits,
-            4
-        )
+    assert ('a', 'Pharmacy Assistant') in choices
+    assert ('p', 'Pharmacist') in choices
+    assert ('t', 'Pharmacy Technician') in choices
 
-        self.assertEqual(
-            self.shift_code._meta.get_field('friday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('friday_duration').max_digits,
-            4
-        )
+def test__shift_code__null_field_model_creation():
+    """Tests ShiftCode blank fields."""
+    try:
+        models.ShiftCode.objects.create(code='A1', role='p')
+    except IntegrityError:
+        assert False
+    else:
+        assert True
 
-        self.assertEqual(
-            self.shift_code._meta.get_field('saturday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('saturday_duration').max_digits,
-            4
-        )
+def test__shift_code__unique_together_validation(user):
+    """Tests unique validation of ShiftCode."""
+    try:
+        models.ShiftCode.objects.create(code='A1', sb_user=user, role='p')
+        models.ShiftCode.objects.create(code='A1', sb_user=user, role='p')
+    except IntegrityError:
+        assert True
+    else:
+        assert False
 
-        self.assertEqual(
-            self.shift_code._meta.get_field('sunday_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('sunday_duration').max_digits,
-            4
-        )
+def test__shift_code__str__with_user(shift_code):
+    """Tests ShiftCode __str__  method with a user."""
+    assert str(shift_code) == '{} - {} - {}'.format(
+        shift_code.get_role_display(), shift_code.sb_user, shift_code.code
+    )
 
-        self.assertEqual(
-            self.shift_code._meta.get_field('stat_duration').decimal_places,
-            2
-        )
-        self.assertEqual(
-            self.shift_code._meta.get_field('stat_duration').max_digits,
-            4
-        )
+def test__shift_code__str__without_user():
+    """Tests ShiftCode __str__  method without a user."""
+    shift_code = models.ShiftCode.objects.create(
+        code='A2',
+        role='p',
+    )
 
-    def test_role_choices(self):
-        choices = self.shift_code._meta.get_field('role').choices
+    assert str(shift_code) == '{} - {}'.format(
+        shift_code.get_role_display(), shift_code.code
+    )
 
-        self.assertTrue(('a', 'Pharmacy Assistant') in choices)
-        self.assertTrue(('p', 'Pharmacist') in choices)
-        self.assertTrue(('t', 'Pharmacy Technician') in choices)
+def test__shift__labels(shift):
+    """Tests Shift labels."""
+    assert shift._meta.get_field('sb_user').verbose_name == 'SB user'
+    assert shift._meta.get_field('date').verbose_name == 'date'
+    assert shift._meta.get_field('shift_code').verbose_name == 'shift code'
+    assert shift._meta.get_field('text_shift_code').verbose_name == 'text shift code'
 
-    def test_null_field_model_creation(self):
-        try:
-            shift_code = models.ShiftCode.objects.create(
-                code='A1',
-                role='p',
-            )
-        except IntegrityError:
-            self.assertTrue(False)
-        else:
-            self.assertTrue(True)
+def test__shift__max_lengths(shift):
+    """Tests Shift max_lengths."""
+    assert shift._meta.get_field('text_shift_code').max_length == 20
 
-    def test_unique_together_validation(self):
-        try:
-            models.ShiftCode.objects.create(
-                code='A1',
-                sb_user=self.shift_code.sb_user,
-                role='p',
-            )
-        except IntegrityError:
-            self.assertTrue(True)
-        else:
-            self.assertTrue(False)
+def test__shift__str(shift):
+    """Test Shift __str__ method."""
+    assert str(shift) == '{} - {}'.format(shift.date, shift.shift_code)
 
-    def test_str_with_user(self):
-        self.assertEqual(
-            str(self.shift_code),
-            'Pharmacist - user - A1'
-        )
+def test__missing_shift_code__labels(missing_shift_code):
+    """Test MissingShiftCode labels."""
+    assert missing_shift_code._meta.get_field('code').verbose_name == 'code'
+    assert missing_shift_code._meta.get_field('role').verbose_name == 'role'
 
-    def test_str_without_user(self):
-        shift_code = models.ShiftCode.objects.create(
-            code='A2',
-            role='p',
-        )
-        self.assertEqual(
-            str(shift_code),
-            'Pharmacist - A2'
-        )
+def test__missing_shift_code__max_lengths(missing_shift_code):
+    """Test MissingShiftCode max lengths."""
+    assert missing_shift_code._meta.get_field('code').max_length == 20
+    assert missing_shift_code._meta.get_field('role').max_length == 1
 
-class TestShift(TestCase):
-    def setUp(self):
-        user = create_user('user')
-        self.shift_code = models.ShiftCode.objects.create(
-            code='A1',
-            sb_user=user,
-            role='p',
-            monday_start='01:00',
-            monday_duration='1.1',
-            tuesday_start='02:00',
-            tuesday_duration='2.2',
-            wednesday_start='03:00',
-            wednesday_duration='3.3',
-            thursday_start='04:00',
-            thursday_duration='4.4',
-            friday_start='05:00',
-            friday_duration='5.5',
-            saturday_start='06:00',
-            saturday_duration='6.6',
-            sunday_start='07:00',
-            sunday_duration='7.7',
-            stat_start='08:00',
-            stat_duration='8.8',
-        )
-        self.shift = models.Shift.objects.create(
-            sb_user=user,
-            date='2018-01-01',
-            shift_code=self.shift_code,
-            text_shift_code='A1',
-        )
+def test__missing_shift_code__role_choices(missing_shift_code):
+    """Test MissingShiftCode role choices."""
+    choices = missing_shift_code._meta.get_field('role').choices
 
-    def test_labels(self):
-        self.assertEqual(
-            self.shift._meta.get_field('sb_user').verbose_name,
-            'SB user',
-        )
-        self.assertEqual(
-            self.shift._meta.get_field('date').verbose_name,
-            'date',
-        )
-        self.assertEqual(
-            self.shift._meta.get_field('shift_code').verbose_name,
-            'shift code',
-        )
-        self.assertEqual(
-            self.shift._meta.get_field('text_shift_code').verbose_name,
-            'text shift code',
-        )
+    assert ('a', 'Pharmacy Assistant') in choices
+    assert ('p', 'Pharmacist') in choices
+    assert ('t', 'Pharmacy Technician') in choices
 
-    def test_max_lengths(self):
-        self.assertEqual(
-            self.shift._meta.get_field('text_shift_code').max_length,
-            20
-        )
-
-    def test_str(self):
-        self.assertEqual(
-            str(self.shift),
-            '2018-01-01 - Pharmacist - user - A1'
-        )
-
-class TestMissingShiftCode(TestCase):
-    def setUp(self):
-        self.missing = models.MissingShiftCode.objects.create(
-            code='A2',
-            role='p',
-        )
-
-    def test_labels(self):
-        self.assertEqual(
-            self.missing._meta.get_field('code').verbose_name,
-            'code',
-        )
-        self.assertEqual(
-            self.missing._meta.get_field('role').verbose_name,
-            'role',
-        )
-
-    def test_max_lengths(self):
-        self.assertEqual(
-            self.missing._meta.get_field('code').max_length,
-            20
-        )
-        self.assertEqual(
-            self.missing._meta.get_field('role').max_length,
-            1
-        )
-
-    def test_role_choices(self):
-        choices = self.missing._meta.get_field('role').choices
-
-        self.assertTrue(('a', 'Pharmacy Assistant') in choices)
-        self.assertTrue(('p', 'Pharmacist') in choices)
-        self.assertTrue(('t', 'Pharmacy Technician') in choices)
-
-    def test_str(self):
-        self.assertEqual(
-            str(self.missing),
-            'A2 - p'
-        )
+def test__missing_shift_code__str(missing_shift_code):
+    """Test MissingShiftCode __str__ method."""
+    assert str(missing_shift_code) == '{} - {}'.format(
+        missing_shift_code.code, missing_shift_code.role
+    )
