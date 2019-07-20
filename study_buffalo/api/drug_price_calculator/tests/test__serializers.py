@@ -578,7 +578,34 @@ def test__idbl_data_serializer__create_exists():
 
 def test__idbl_data_serializer__max_lengths_match():
     """Tests that serializer and model max lengths match."""
-    serializer = serializers.iDBLDataSerializer(data={})
+    serializer = serializers.iDBLDataSerializer()
+    Drug = models.Drug
+    Price = models.Price
+    PTC = models.PTC
+    ATC = models.ATC
+
+    bsrf_max_length = (
+        Drug._meta.get_field('brand_name').max_length
+        + Drug._meta.get_field('strength').max_length
+        + Drug._meta.get_field('route').max_length
+        + Drug._meta.get_field('dosage_form').max_length
+    )
+
+    assert serializer['din'].max_length == Drug._meta.get_field('din').max_length
+    assert serializer['bsrf'].max_length == bsrf_max_length
+    assert serializer['ptc'].max_length == PTC._meta.get_field('id').max_length
+    assert serializer['atc'].max_length == ATC._meta.get_field('id').max_length
+    assert serializer['unit_price'].max_digits == Price._meta.get_field('unit_price').max_digits
+    assert serializer['unit_price'].decimal_places == Price._meta.get_field('unit_price').decimal_places
+    assert serializer['lca_price'].max_digits == Price._meta.get_field('lca_price').max_digits
+    assert serializer['lca_price'].decimal_places == Price._meta.get_field('lca_price').decimal_places
+    assert serializer['mac_price'].max_digits == Price._meta.get_field('mac_price').max_digits
+    assert serializer['mac_price'].decimal_places == Price._meta.get_field('mac_price').decimal_places
+    assert serializer['mac_text'].max_length == Price._meta.get_field('mac_text').max_length
+    assert serializer['unit_issue'].max_length == Price._meta.get_field('unit_issue').max_length
+    assert serializer['manufacturer'].max_length == Drug._meta.get_field('manufacturer').max_length
+    assert serializer['schedule'].max_length == Drug._meta.get_field('schedule').max_length
+    assert serializer['coverage_status'].max_length == Price._meta.get_field('coverage_status').max_length
 
 def test__idbl_clients_serializer__create_exists():
     """Confirms create method exists."""
@@ -638,6 +665,14 @@ def test__idbl_special_authorization_serializer__update_exists():
 
     assert True
 
+def test__idbl_special_authorization_serializer__max_lengths_match():
+    """Tests that serializer and model max lengths match."""
+    serializer = serializers.iDBLSpecialAuthorizationSerializer()
+    Special = models.SpecialAuthorization
+
+    assert serializer['file_name'].max_length == Special._meta.get_field('file_name').max_length
+    assert serializer['pdf_title'].max_length == Special._meta.get_field('pdf_title').max_length
+
 def test__idbl_coverage_criteria_serializer__create_exists():
     """Confirms create method exists."""
     serializer = serializers.iDBLCoverageCriteriaSerializer(
@@ -669,3 +704,10 @@ def test__idbl_coverage_criteria_serializer__update_exists():
         assert False
 
     assert True
+
+def test__idbl_coverage_criteria_serializer__max_lengths_match():
+    """Tests that serializer and model max lengths match."""
+    serializer = serializers.iDBLCoverageCriteriaSerializer()
+    Coverage = models.CoverageCriteria
+
+    assert serializer['header'].max_length == Coverage._meta.get_field('header').max_length

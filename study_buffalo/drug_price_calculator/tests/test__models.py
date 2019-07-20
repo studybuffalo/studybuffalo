@@ -217,6 +217,16 @@ def test__subs_bsrf__minimal_model_creation():
 
     assert models.SubsBSRF.objects.count() == sub_count + 1
 
+def test__subs_bsrf__max_lengths_match():
+    """Tests that max length is consistent between substitution and target model."""
+    Subs = models.SubsBSRF
+    Drug = models.Drug
+
+    assert Subs._meta.get_field('brand_name').max_length == Drug._meta.get_field('brand_name').max_length
+    assert Subs._meta.get_field('strength').max_length == Drug._meta.get_field('strength').max_length
+    assert Subs._meta.get_field('route').max_length == Drug._meta.get_field('route').max_length
+    assert Subs._meta.get_field('dosage_form').max_length == Drug._meta.get_field('dosage_form').max_length
+
 def test__subs_generic__minimal_model_creation():
     """Tests minimal SubsGeneric model creation."""
     sub_count = models.SubsGeneric.objects.count()
@@ -225,6 +235,13 @@ def test__subs_generic__minimal_model_creation():
 
     assert models.SubsGeneric.objects.count() == sub_count + 1
 
+def test__subs_generic__max_lengths_match():
+    """Tests that max length is consistent between substitution and target model."""
+    Subs = models.SubsGeneric
+    Drug = models.Drug
+
+    assert Subs._meta.get_field('correction').max_length == Drug._meta.get_field('generic_name').max_length
+
 def test__subs_manufacturer__minimal_model_creation():
     """Tests minimal SubsManufacturer model creation."""
     sub_count = models.SubsManufacturer.objects.count()
@@ -232,6 +249,13 @@ def test__subs_manufacturer__minimal_model_creation():
     models.SubsManufacturer.objects.create(original='a', correction='b')
 
     assert models.SubsManufacturer.objects.count() == sub_count + 1
+
+def test__subs_manufacturer__max_lengths_match():
+    """Tests that max length is consistent between substitution and target model."""
+    Subs = models.SubsManufacturer
+    Drug = models.Drug
+
+    assert Subs._meta.get_field('correction').max_length == Drug._meta.get_field('manufacturer').max_length
 
 def test__subs_unit__minimal_model_creation():
     """Tests minimal SubsUnit model creation."""
@@ -251,6 +275,17 @@ def test__pend_bsrf__minimal_model_creation():
 
     assert models.PendBSRF.objects.count() == pend_count + 1
 
+def test__pend_bsrf__max_lengths_match():
+    """Tests that max length is consistent between substitution and pending models."""
+    Subs = models.SubsBSRF
+    Pend = models.PendBSRF
+
+    assert Subs._meta.get_field('original').max_length == Pend._meta.get_field('original').max_length
+    assert Subs._meta.get_field('brand_name').max_length == Pend._meta.get_field('brand_name').max_length
+    assert Subs._meta.get_field('strength').max_length == Pend._meta.get_field('strength').max_length
+    assert Subs._meta.get_field('route').max_length == Pend._meta.get_field('route').max_length
+    assert Subs._meta.get_field('dosage_form').max_length == Pend._meta.get_field('dosage_form').max_length
+
 def test__pend_generic__minimal_model_creation():
     """Tests minimal PendGeneric model creation."""
     pend_count = models.PendGeneric.objects.count()
@@ -259,6 +294,14 @@ def test__pend_generic__minimal_model_creation():
 
     assert models.PendGeneric.objects.count() == pend_count + 1
 
+def test__pend_generic__max_lengths_match():
+    """Tests that max length is consistent between substitution and pending models."""
+    Subs = models.SubsGeneric
+    Pend = models.PendGeneric
+
+    assert Subs._meta.get_field('original').max_length == Pend._meta.get_field('original').max_length
+    assert Subs._meta.get_field('correction').max_length == Pend._meta.get_field('correction').max_length
+
 def test__pend_manufacturer__minimal_model_creation():
     """Tests minimal PendManufacturer model creation."""
     pend_count = models.PendManufacturer.objects.count()
@@ -266,3 +309,27 @@ def test__pend_manufacturer__minimal_model_creation():
     models.PendManufacturer.objects.create(original='a', correction='b')
 
     assert models.PendManufacturer.objects.count() == pend_count + 1
+
+def test__pend_manufacturer__max_lengths_match():
+    """Tests that max length is consistent between substitution and pending models."""
+    Subs = models.SubsManufacturer
+    Pend = models.PendManufacturer
+
+    assert Subs._meta.get_field('original').max_length == Pend._meta.get_field('original').max_length
+    assert Subs._meta.get_field('correction').max_length == Pend._meta.get_field('correction').max_length
+
+def test__pend_unit__minimal_model_creation():
+    """Tests minimal PendUnit model creation."""
+    pend_count = models.PendUnit.objects.count()
+
+    models.PendUnit.objects.create(original='a', correction='b')
+
+    assert models.PendUnit.objects.count() == pend_count + 1
+
+def test__pend_unit__max_lengths_match():
+    """Tests that max length is consistent between substitution and pending models."""
+    Subs = models.SubsUnit
+    Pend = models.PendUnit
+
+    assert Subs._meta.get_field('original').max_length == Pend._meta.get_field('original').max_length
+    assert Subs._meta.get_field('correction').max_length == Pend._meta.get_field('correction').max_length
