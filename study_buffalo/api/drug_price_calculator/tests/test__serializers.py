@@ -523,3 +523,93 @@ def test__idbl_data_serializer__valid__coverage_criteria():
     assert price.coverage_criteria.count() == 1
     assert price.coverage_criteria.last().header == 'a'
     assert price.coverage_criteria.last().criteria == 'b'
+
+def test__idbl_clients_serializer__create_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLClientsSerializer(data={})
+
+    try:
+        serializer.is_valid()
+        serializer.create(serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
+
+def test__idbl_clients_serializer__update_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLClientsSerializer(data={})
+
+    try:
+        drug = models.Drug.objects.create(din='12345678')
+        price = models.Price.objects.create(drug=drug, abc_id=1)
+        clients = models.Clients.objects.create(price=price)
+
+        serializer.is_valid()
+        serializer.update(clients, serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
+
+def test__idbl_special_authorization_serializer__create_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLSpecialAuthorizationSerializer(
+        data={'file_name': 'a', 'pdf_title': 'b'}
+    )
+
+    try:
+        serializer.is_valid()
+        serializer.create(serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
+
+def test__idbl_special_authorization_serializer__update_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLSpecialAuthorizationSerializer(
+        data={'file_name': 'a', 'pdf_title': 'b'}
+    )
+
+    try:
+        special = models.SpecialAuthorization.objects.create(file_name='a', pdf_title='b')
+
+        serializer.is_valid()
+        serializer.update(special, serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
+
+def test__idbl_coverage_criteria_serializer__create_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLCoverageCriteriaSerializer(
+        data={'header': 'a', 'criteria': 'b'}
+    )
+
+    try:
+        serializer.is_valid()
+        serializer.create(serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
+
+def test__idbl_coverage_criteria_serializer__update_exists():
+    """Confirms create method exists."""
+    serializer = serializers.iDBLCoverageCriteriaSerializer(
+        data={'header': 'a', 'criteria': 'b'}
+    )
+
+    try:
+        drug = models.Drug.objects.create(din='12345678')
+        price = models.Price.objects.create(drug=drug, abc_id=1)
+        criteria = models.CoverageCriteria.objects.create(price=price, criteria='a')
+
+        serializer.is_valid()
+        serializer.update(criteria, serializer.validated_data)
+    except AttributeError:
+        assert False
+
+    assert True
