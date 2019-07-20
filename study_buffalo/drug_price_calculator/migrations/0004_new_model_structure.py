@@ -730,7 +730,7 @@ class Migration(migrations.Migration):
                 (
                     'original',
                     models.CharField(
-                        max_length=150,
+                        max_length=120,
                         unique=True
                     )
                 ),
@@ -738,7 +738,7 @@ class Migration(migrations.Migration):
                     'correction',
                     models.CharField(
                         blank=True,
-                        max_length=150,
+                        max_length=120,
                         null=True
                     )
                 ),

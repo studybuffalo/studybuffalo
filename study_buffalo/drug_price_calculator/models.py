@@ -557,12 +557,12 @@ class PendManufacturer(models.Model):
 class PendUnit(models.Model):
     """Pending substitutions for Units"""
     original = models.CharField(
-        max_length=150,
+        max_length=120,
         unique=True,
     )
     correction = models.CharField(
         blank=True,
-        max_length=150,
+        max_length=120,
         null=True,
     )
 
