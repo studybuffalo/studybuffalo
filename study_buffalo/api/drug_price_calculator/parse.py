@@ -50,10 +50,7 @@ def _parse_strength(text):
     text = re.sub(r'\s%', '%', text)
 
     # Get substitution model for units
-    try:
-        unit_subs = models.SubsUnit.objects.all()
-    except models.SubsUnit.DoesNotExist:
-        unit_subs = []
+    unit_subs = models.SubsUnit.objects.all()
 
     # Apply any substitutions
     for sub in unit_subs:
