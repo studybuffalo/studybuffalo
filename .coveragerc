@@ -1,7 +1,12 @@
 [run]
 data_file = reports/.coverage
 include = study_buffalo/*
-omit = *migrations*, *tests*
+omit =
+    */__init__.py
+    */migrations/*
+    */tests/*
+    */templates/*
+    study_buffalo/conftest.py
 plugins =
     django_coverage_plugin
 
