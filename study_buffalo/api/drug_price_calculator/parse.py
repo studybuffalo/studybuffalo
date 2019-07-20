@@ -42,55 +42,29 @@ def parse_bsrf(raw_bsrf):
 
     # Format: B S    R   F
     if re.search(match4, bsrf) and re.search(match3, bsrf):
-        try:
-            text = bsrf.split('   ')
+        text = bsrf.split('   ')
 
-            brand_strength = text[0].strip()
-            route = text[1].strip()
-            dosage_form = text[2].strip()
-        except IndexError:
-            capture_message(
-                message='Error processing "{}"'.format(bsrf), level=30
-            )
-
-            brand_strength = bsrf
-            route = None
-            dosage_form = None
+        brand_strength = text[0].strip()
+        route = text[1].strip()
+        dosage_form = text[2].strip()
 
     # Format: B S    F
     elif re.search(match4, bsrf):
-        try:
-            text = bsrf.split('    ')
+        text = bsrf.split('    ')
 
-            brand_strength = text[0].strip()
-            route = None
-            dosage_form = text[1].strip()
-        except IndexError:
-            capture_message(
-                message='Error processing "{}"'.format(bsrf), level=30
-            )
-
-            brand_strength = bsrf
-            route = None
-            dosage_form = None
+        brand_strength = text[0].strip()
+        route = None
+        dosage_form = text[1].strip()
 
     # Format: B S   F   or   B R   F
-    # Note: cannot properly extract the B R   F cases
+    #   Note: cannot properly extract the "B R   F" cases and these
+    #         will be improperly formatted intentionally
     elif re.search(match3, bsrf):
-        try:
-            text = bsrf.split('   ')
+        text = bsrf.split('   ')
 
-            brand_strength = text[0].strip()
-            route = None
-            dosage_form = text[1].strip()
-        except IndexError:
-            capture_message(
-                message='Error processing "{}"'.format(bsrf), level=30
-            )
-
-            brand_strength = bsrf
-            route = None
-            dosage_form = None
+        brand_strength = text[0].strip()
+        route = None
+        dosage_form = text[1].strip()
 
     # Format: B S
     else:
