@@ -1,16 +1,13 @@
-# from test_plus.test import TestCase
+"""Tests for the User models."""
+import pytest
 
 
-# class TestUser(TestCase):
+pytestmark = pytest.mark.django_db
 
-#     def setUp(self):
-#         self.user = self.make_user()
+def test__user__str__(user):
+    """Tests that __str__ works as expected."""
+    assert str(user) == user.username
 
-#     def test__str__(self):
-#         self.assertEqual(
-#             self.user.__str__(),
-#             "testuser",  # This is the default username for self.make_user()
-#         )
-
-#     def test_get_absolute_url(self):
-#         self.assertEqual(self.user.get_absolute_url(), "/users/testuser/")
+def test__user__get_absolute_url(user):
+    """Tests that get_absolute_url works as expected."""
+    assert user.get_absolute_url() == '/users/{}/'.format(str(user))

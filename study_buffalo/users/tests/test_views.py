@@ -1,52 +1,40 @@
-# from django.test import RequestFactory
+"""Tests for the User Views."""
+import pytest
 
-# from test_plus.test import TestCase
+from django.test.client import RequestFactory
 
-# from users.views import UserRedirectView, UserUpdateView
-
-
-# class BaseUserTestCase(TestCase):
-
-#     def setUp(self):
-#         self.user = self.make_user()
-#         self.factory = RequestFactory()
+from users.views import UserRedirectView, UserUpdateView
 
 
-# class TestUserRedirectView(BaseUserTestCase):
-
-#     def test_get_redirect_url(self):
-#         # Instantiate the view directly. Never do this outside a test!
-#         view = UserRedirectView()
-#         # Generate a fake request
-#         request = self.factory.get("/fake-url")
-#         # Attach the user to the request
-#         request.user = self.user
-#         # Attach the request to the view
-#         view.request = request
-#         # Expect: '/users/testuser/', as that is the default username for
-#         #   self.make_user()
-#         self.assertEqual(view.get_redirect_url(), "/users/testuser/")
+pytestmark = pytest.mark.django_db
 
 
-# class TestUserUpdateView(BaseUserTestCase):
+def test__user_redirect_view__get_redirect_url(user):
+    """Tests the get_redirect_url method of UserRedirectView."""
+    # Create view and request for testing
+    request = RequestFactory()
+    request.user = user
+    view = UserRedirectView()
+    view.request = request
 
-#     def setUp(self):
-#         # call BaseUserTestCase.setUp()
-#         super(TestUserUpdateView, self).setUp()
-#         # Instantiate the view directly. Never do this outside a test!
-#         self.view = UserUpdateView()
-#         # Generate a fake request
-#         request = self.factory.get("/fake-url")
-#         # Attach the user to the request
-#         request.user = self.user
-#         # Attach the request to the view
-#         self.view.request = request
+    assert view.get_redirect_url() == '/users/{}/'.format(user.username)
 
-#     def test_get_success_url(self):
-#         # Expect: '/users/testuser/', as that is the default username for
-#         #   self.make_user()
-#         self.assertEqual(self.view.get_success_url(), "/users/testuser/")
+def test__user_update_view__get_success_url(user):
+    """Tests the get_success_url method of UserUpdateView."""
+    # Create view and request for testing
+    request = RequestFactory()
+    request.user = user
+    view = UserUpdateView()
+    view.request = request
 
-#     def test_get_object(self):
-#         # Expect: self.user, as that is the request's user object
-#         self.assertEqual(self.view.get_object(), self.user)
+    assert view.get_success_url() == '/users/{}/'.format(user.username)
+
+def test__user_update_view__get_object(user):
+    """Tests the get_object method of UserUpdateView."""
+    # Create view and request for testing
+    request = RequestFactory()
+    request.user = user
+    view = UserUpdateView()
+    view.request = request
+
+    assert view.get_object() == user
