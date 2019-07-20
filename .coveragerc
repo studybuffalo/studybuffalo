@@ -7,8 +7,6 @@ omit =
     */tests/*
     */templates/*
     study_buffalo/conftest.py
-plugins =
-    django_coverage_plugin
 
 [html]
 directory = reports/htmlcov
