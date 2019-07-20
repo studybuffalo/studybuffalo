@@ -3,6 +3,7 @@ import pytest
 
 from rest_framework.authtoken.models import Token
 
+from rdrhc_calendar.tests.factories import CalendarUserFactory
 from users.tests.factories import UserFactory
 
 
@@ -15,7 +16,11 @@ def user():
     return UserFactory()
 
 @pytest.fixture
-def token():
-    user = UserFactory()
+def calendar_user():
+    return CalendarUserFactory()
 
-    return Token.objects.create(user=user)
+@pytest.fixture
+def token():
+    fixture_user = UserFactory()
+
+    return Token.objects.create(user=fixture_user)
