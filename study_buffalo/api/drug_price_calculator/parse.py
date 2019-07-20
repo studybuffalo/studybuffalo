@@ -18,7 +18,7 @@ def _convert_to_title_case(text):
     text = text.title()
 
     # Correct errors with apostrophes and 's'
-    text = re.sub(r"'S\b'", "'s", text)
+    text = re.sub(r"'S\b", "'s", text)
 
     return text
 
@@ -265,13 +265,31 @@ def parse_unit_issue(raw_unit_issue):
     if not raw_unit_issue:
         return None
 
-    # Strip white space
-    unit_issue = raw_unit_issue.strip()
+    # Remove any extra white space
+    original = raw_unit_issue.strip()
 
+    # Get substitution or create pending model
+    try:
+        sub = models.SubsUnit.objects.get(original=original)
+        pend = None
+    except models.SubsUnit.DoesNotExist:
+        sub = None
+        pend, _ = models.PendUnit.objects.get_or_create(original=original)
+
+    # If subsitution present, return corrected value
+    if sub:
+        return sub.correction
+
+    # Otherwise apply regular processing
     # Change to lower case
-    text = unit_issue.lower()
+    unit = original.lower()
 
-    return text
+    # Add data to pend if present
+    if pend:
+        pend.correction = unit
+        pend.save()
+
+    return unit
 
 def assemble_generic_product(bsrf, generic_name):
     """Assembles a generic product name."""
