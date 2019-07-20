@@ -12,29 +12,39 @@ def _remove_slash_white_space(text):
     """Removes white spaces from around slashes."""
     return re.sub(r'(\s/\s|/\s|\s/)', '/', text)
 
-def _parse_brand_name(text):
-    """Properly formats the brand name"""
+def _convert_to_title_case(text):
+    """Handles conversion of string to title case."""
     # Convert to title text
     text = text.title()
-
-    # Removes extra space characters
-    text = re.sub(r'\s{2,}', ' ', text)
 
     # Correct errors with apostrophes and 's'
     text = re.sub(r"'S\b'", "'s", text)
 
     return text
 
+def _parse_brand_name(text):
+    """Properly formats the brand name"""
+    # Convert to title text
+    text = _convert_to_title_case(text)
+
+    # Removes extra space characters
+    text = _remove_extra_white_space(text)
+
+    # Remove extra spaces around slashes
+    text = _remove_slash_white_space(text)
+
+    return text
+
 def _parse_strength(text):
-    """Manually corrects errors not fixed by .lower()."""
+    """Properly formats strength."""
     # Converts the strength to lower case
     text = text.lower()
 
     # Removes any extra spaces
-    text = re.sub(r'\s{2,}', ' ', text)
+    text = _remove_extra_white_space(text)
 
     # Remove any spaces around slashes
-    text = re.sub(r'\s/\s', '/', text)
+    text = _remove_slash_white_space(text)
 
     # Remove any spaces between numbers and %
     text = re.sub(r'\s%', '%', text)
@@ -214,6 +224,55 @@ def parse_generic(raw_generic):
 
     return generic
 
+def parse_manufacturer(raw_manufacturer):
+    """Parses drug manufacturers."""
+    # Check if there is a value to parse
+    if not raw_manufacturer:
+        return None
+
+    # Remove any extra white space
+    original = raw_manufacturer.strip()
+
+    # Get substitution or create pending model
+    try:
+        sub = models.SubsManufacturer.objects.get(original=original)
+        pend = None
+    except models.SubsManufacturer.DoesNotExist:
+        sub = None
+        pend, _ = models.PendManufacturer.objects.get_or_create(original=original)
+
+    # If subsitution present, return corrected value
+    if sub:
+        return sub.correction
+
+    # Otherwise apply regular processing
+    # Convert to title text
+    manufacturer = _convert_to_title_case(original)
+
+    # Removes extra space characters
+    manufacturer = _remove_extra_white_space(manufacturer)
+
+    # Add data to pend if present
+    if pend:
+        pend.correction = manufacturer
+        pend.save()
+
+    return manufacturer
+
+def parse_unit_issue(raw_unit_issue):
+    """Parses the unit of issue."""
+    # Check if there is a value to parse
+    if not raw_unit_issue:
+        return None
+
+    # Strip white space
+    unit_issue = raw_unit_issue.strip()
+
+    # Change to lower case
+    text = unit_issue.lower()
+
+    return text
+
 def assemble_generic_product(bsrf, generic_name):
     """Assembles a generic product name."""
     description = []
@@ -231,37 +290,3 @@ def assemble_generic_product(bsrf, generic_name):
         return '{} ({})'.format(generic_name, ' '.join(description))
 
     return generic_name
-
-def parse_manufacturer(raw_manufacturer):
-    """Parses drug manufacturers."""
-    # Check if there is a value to parse
-    if not raw_manufacturer:
-        return None
-
-    # Strip white space
-    manufacturer = raw_manufacturer.strip()
-
-    # Convert to title text
-    text = manufacturer.title()
-
-    # Removes extra space characters
-    text = re.sub(r'\s{2,}', ' ', text)
-
-    # Correct errors with apostrophes and 's'
-    text = re.sub(r"'S\b'", "'s", text)
-
-    return text
-
-def parse_unit_issue(raw_unit_issue):
-    """Parses the unit of issue."""
-    # Check if there is a value to parse
-    if not raw_unit_issue:
-        return None
-
-    # Strip white space
-    unit_issue = raw_unit_issue.strip()
-
-    # Change to lower case
-    text = unit_issue.lower()
-
-    return text
