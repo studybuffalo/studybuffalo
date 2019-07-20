@@ -5,6 +5,7 @@ study_buffalo/media/
 # Environment Files
 *.env
 !.study_buffalo.env
+
 # Dependency directories
 node_modules/
 jspm_packages/
