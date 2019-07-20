@@ -78,13 +78,18 @@ class DrugPriceList(ListAPIView):
 
     def get_queryset(self):
         """Overriding to apply filters."""
-        try:
-            drug_ids = self.request.GET['ids'].split(',')
-        except KeyError:
-            raise NotFound('No IDs provided in query')
+        drug_ids_string = self.request.GET.get('ids', None)
 
-        queryset = models.Price.objects.filter(
-            drug__id__in=drug_ids
-        )
+        if not drug_ids_string:
+            raise NotFound('No IDs provided in query.')
+
+        drug_ids = drug_ids_string.split(',')
+
+        try:
+            queryset = models.Price.objects.filter(
+                drug__id__in=drug_ids
+            )
+        except ValueError:
+            raise NotFound('Invalid ID format provided.')
 
         return queryset
