@@ -10,6 +10,7 @@ from drug_price_calculator import models
 
 pytestmark = pytest.mark.django_db
 
+
 def create_idbl_data(**kwargs):
     """Creates a dictionary for iDBLDataSerializer."""
     clients = kwargs.get('clients', {
