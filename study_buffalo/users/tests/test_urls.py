@@ -1,44 +1,39 @@
-# from django.urls import reverse, resolve
+"""Tests for the User URLs."""
+import pytest
 
-# from test_plus.test import TestCase
+from django.urls import reverse, resolve
 
 
-# class TestUserURLs(TestCase):
-#     """Test URL patterns for users app."""
+pytestmark = pytest.mark.django_db
 
-#     def setUp(self):
-#         self.user = self.make_user()
+def test__user_list__reverse():
+    """Tests the users:list revers URL."""
+    assert reverse('users:list') == '/users/'
 
-#     def test_list_reverse(self):
-#         """users:list should reverse to /users/."""
-#         self.assertEqual(reverse("users:list"), "/users/")
+def test__user_list__resolve():
+    """Tests that /users/ resolves to users:list."""
+    assert resolve('/users/').view_name == 'users:list'
 
-#     def test_list_resolve(self):
-#         """/users/ should resolve to users:list."""
-#         self.assertEqual(resolve("/users/").view_name, "users:list")
+def test__user_redirect__reverse():
+    """Tests that users:redirect reverses to /users/~redirect/."""
+    assert reverse('users:redirect') == '/users/~redirect/'
 
-#     def test_redirect_reverse(self):
-#         """users:redirect should reverse to /users/~redirect/."""
-#         self.assertEqual(reverse("users:redirect"), "/users/~redirect/")
+def test__user_redirect_resolve():
+    """Tests that /users/~redirect/ resolves to users:redirect."""
+    assert resolve('/users/~redirect/').view_name == 'users:redirect'
 
-#     def test_redirect_resolve(self):
-#         """/users/~redirect/ should resolve to users:redirect."""
-#         self.assertEqual(resolve("/users/~redirect/").view_name, "users:redirect")
+def test__user_detail__reverse(user):
+    """Tests that users:detail reverses to /users/<username>/."""
+    assert reverse('users:detail', kwargs={'username': user.username}) == '/users/{}/'.format(user.username)
 
-#     def test_detail_reverse(self):
-#         """users:detail should reverse to /users/testuser/."""
-#         self.assertEqual(
-#             reverse("users:detail", kwargs={"username": "testuser"}), "/users/testuser/"
-#         )
+def test__user_detail__resolve(user):
+    """Tests that /users/<username>/ resolves to users:detail."""
+    assert resolve('/users/{}/'.format(user.username)).view_name == 'users:detail'
 
-#     def test_detail_resolve(self):
-#         """/users/testuser/ should resolve to users:detail."""
-#         self.assertEqual(resolve("/users/testuser/").view_name, "users:detail")
+def test__user_update__reverse():
+    """Tests that users:update reverses to /users/~update/."""
+    assert reverse('users:update') == '/users/~update/'
 
-#     def test_update_reverse(self):
-#         """users:update should reverse to /users/~update/."""
-#         self.assertEqual(reverse("users:update"), "/users/~update/")
-
-#     def test_update_resolve(self):
-#         """/users/~update/ should resolve to users:update."""
-#         self.assertEqual(resolve("/users/~update/").view_name, "users:update")
+def test__user_update__resolve():
+    """Tests thtat /users/~update/ resolves to users:update."""
+    assert resolve('/users/~update/').view_name == 'users:update'
