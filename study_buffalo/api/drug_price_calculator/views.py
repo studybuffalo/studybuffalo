@@ -40,7 +40,7 @@ class UploadiDBLData(GenericAPIView):
 
         # Format response message
         message = {
-            'message': 'Drug and price file successfully created',
+            'message': 'Drug and price file successfully created.',
             'drug_id': drug.id,
         }
 
