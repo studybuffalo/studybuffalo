@@ -194,8 +194,8 @@ def test__user_email_list__200_response_on_user_with_permissions(user):
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
-    response = client.get(
-        reverse('rdrhc_calendar:api_v1:user_email_list',
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_email_list',
         kwargs={'user_id': token.user.id}
     ))
 
@@ -296,8 +296,8 @@ def test__user_shift_code_list__200_response_on_user_with_permissions(calendar_u
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
-    response = client.get(
-        reverse('rdrhc_calendar:api_v1:user_shift_codes_list',
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_shift_codes_list',
         kwargs={'user_id': token.user.id}
     ))
 
@@ -398,8 +398,8 @@ def test__user_schedule_list__200_response_on_user_with_permissions(user):
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
-    response = client.get(
-        reverse('rdrhc_calendar:api_v1:user_schedule_list',
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_schedule_list',
         kwargs={'user_id': token.user.id}
     ))
 
