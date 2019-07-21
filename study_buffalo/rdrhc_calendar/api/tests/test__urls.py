@@ -83,9 +83,6 @@ def test__user_list__200_response_on_user_with_permissions(user):
     token = utils.create_token(user)
     utils.add_api_permission(user)
 
-    # Add permission to user
-    utils.add_api_permission(user)
-
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
