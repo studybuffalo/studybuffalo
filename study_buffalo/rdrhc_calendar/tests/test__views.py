@@ -3,6 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
+from django.contrib.messages import get_messages
 from django.db import IntegrityError
 from django.test import Client
 from django.urls import reverse
@@ -13,7 +14,7 @@ from rdrhc_calendar.tests import utils
 
 pytestmark = pytest.mark.django_db
 
-def mock_missing_code_form_save(self, commit=False):
+def mock_missing_code_edit_integrity_error(self):
     raise IntegrityError
 
 def test__calendar_index__template(user):
@@ -335,7 +336,7 @@ def test__missing_code_edit__redirect_on_valid_post(user, missing_shift_code):
 
     assert response.status_code == 302
 
-@patch('rdrhc_calendar.views.MissingCodeForm.save', mock_missing_code_form_save)
+@patch('rdrhc_calendar.views.MissingShiftCode.delete', mock_missing_code_edit_integrity_error)
 def test__mising_code_edit__unique_validation(user, missing_shift_code):
     """Tests that unique code is properly maintained."""
     valid_data = {
@@ -363,20 +364,20 @@ def test__mising_code_edit__unique_validation(user, missing_shift_code):
     # Set up client and response
     client = Client()
     client.force_login(user=user)
+    response = client.post(
+        reverse(
+            'rdrhc_calendar:missing_code_edit',
+            kwargs={'code_id': missing_shift_code.id}
+        ),
+        valid_data,
+    )
 
-    # Trigger IntegrityError
-    try:
-        response = client.post(
-            reverse(
-                'rdrhc_calendar:missing_code_edit',
-                kwargs={'code_id': missing_shift_code.id}
-            ),
-            valid_data,
-        )
-    except IntegrityError:
-        assert True
-    else:
-        assert False
+    # Get messages
+    messages = [message for message in get_messages(response.wsgi_request)]
+
+    # Confirm error repsponse message
+    assert messages[0].tags == 'error'
+    assert messages[0].message == 'Shift code already exists for role.'
 
 def test__missing_code_delete__template(user, missing_shift_code):
     """Test for proper template in missing_code_delete views."""
