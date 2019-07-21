@@ -3,9 +3,7 @@ import pytest
 
 from rest_framework.authtoken.models import Token
 
-from rdrhc_calendar.tests.factories import (
-    CalendarUserFactory, ShiftCodeFactory, ShiftFactory, MissingShiftCodeFactory
-)
+from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from users.tests.factories import UserFactory
 
 
@@ -19,19 +17,19 @@ def user():
 
 @pytest.fixture
 def calendar_user():
-    return CalendarUserFactory()
+    return rdrhc_calendar_factories.CalendarUserFactory()
 
 @pytest.fixture
 def shift_code():
-    return ShiftCodeFactory()
+    return rdrhc_calendar_factories.ShiftCodeFactory()
 
 @pytest.fixture
 def shift():
-    return ShiftFactory()
+    return rdrhc_calendar_factories.ShiftFactory()
 
 @pytest.fixture
 def missing_shift_code():
-    return MissingShiftCodeFactory()
+    return rdrhc_calendar_factories.MissingShiftCodeFactory()
 
 @pytest.fixture
 def token():
