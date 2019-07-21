@@ -14,6 +14,5 @@ urlpatterns = [
     path('missing-codes/', views.MissingShiftCodeList.as_view(), name='missing_code_list'),
     path('missing-codes/edit/<int:code_id>/', views.missing_code_edit, name='missing_code_edit'),
     path('missing-codes/delete/<int:code_id>/', views.missing_code_delete, name='missing_code_delete'),
-    path('api/v1/', include('rdrhc_calendar.api.urls', namespace='api_v1')),
     path('', views.calendar_index, name='index'),
 ]

@@ -2,7 +2,7 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from rdrhc_calendar.api import views
+from api.rdrhc_calendar import views
 
 app_name = 'api_v1'
 urlpatterns = [

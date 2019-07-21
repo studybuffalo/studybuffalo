@@ -7,5 +7,6 @@ app_name = 'api'
 
 urlpatterns = [
     path('authentication/', include('rest_framework.urls')),
+    path('rdrhc-calendar/v1/', include('api.rdrhc_calendar.urls', namespace='rdrhc_calendar_v1')),
     path('drug-price-calculator/v1/', include('api.drug_price_calculator.urls')),
 ]
