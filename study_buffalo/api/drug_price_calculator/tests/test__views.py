@@ -7,6 +7,7 @@ from rest_framework.test import APIClient
 
 from drug_price_calculator import models
 
+from .utils import create_token
 
 pytestmark = pytest.mark.django_db
 
@@ -29,8 +30,11 @@ def create_drug(**kwargs):
 
     return drug
 
-def test__upload_idbl_data__valid(token):
+def test__upload_idbl_data__valid(user):
     """Tests that iDBL data upload view functions properly with valid data."""
+    # Create a token for the user
+    token = create_token(user)
+
     # Get DIN for URL
     din = '12345678'
 
@@ -48,8 +52,11 @@ def test__upload_idbl_data__valid(token):
     assert 'drug_id' in content
     assert isinstance(content['drug_id'], int)
 
-def test__upload_idbl_data__invalid_din(token):
+def test__upload_idbl_data__invalid_din(user):
     """Tests iDBL data upload handles invalid DIN."""
+    # Create a token for the user
+    token = create_token(user)
+
     # Get DIN for URL
     din = '1234567'
 
@@ -68,8 +75,11 @@ def test__upload_idbl_data__invalid_din(token):
     assert 'error_description' in content
     assert content['error_description'] == 'DIN/NPN/PIN format is invalid.'
 
-def test__upload_idbl_data__invalid_data(token):
+def test__upload_idbl_data__invalid_data(user):
     """Tests iDBL data upload handles invalid serializer data."""
+    # Create a token for the user
+    token = create_token(user)
+
     # Get DIN for URL
     din = '12345678'
 
