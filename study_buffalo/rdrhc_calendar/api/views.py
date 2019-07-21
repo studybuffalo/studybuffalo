@@ -213,7 +213,7 @@ class MissingShiftCodesUpload(APIView):
 
                 if created:
                     new_codes.append(db_code.code)
-            except (DataError, KeyError) as e:
+            except (DataError, KeyError, TypeError) as e:
                 return Response(
                     data=str(e),
                     status=status.HTTP_400_BAD_REQUEST,
