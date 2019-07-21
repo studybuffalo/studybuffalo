@@ -3,11 +3,16 @@ import pytest
 
 from rest_framework.test import APIClient
 
+from .utils import create_token
+
 
 pytestmark = pytest.mark.django_db
 
-def test__upload__exists_at_desired_url(token):
+def test__upload__exists_at_desired_url(user):
     """Tests that iDBL data upload view exists at desired URL."""
+    # Create a token for the user
+    token = create_token(user)
+
     # Get DIN for URL
     din = '12345678'
 

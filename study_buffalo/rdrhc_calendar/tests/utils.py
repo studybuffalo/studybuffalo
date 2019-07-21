@@ -1,65 +1,45 @@
 """Utility functions for testing."""
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 
-from rdrhc_calendar import models
+from rest_framework.authtoken.models import Token
+
+from rdrhc_calendar.models import CalendarUser, MissingShiftCode, StatHoliday
 
 
-def create_user(username):
-    user = get_user_model().objects.create()
-    user.username = username
-    user.set_password('abcd123456')
-    user.is_superuser = False
-    user.is_staff = False
-    user.is_active = True
-    user.save()
-
-    return user
-
-def create_user_with_permission(username):
-    # Create user
-    user = create_user(username)
-
-    # Add permission
-    content_type = ContentType.objects.get_for_model(models.CalendarUser)
+def add_view_permission(user):
+    """Adds the 'can_view' permission to the provided user."""
+    content_type = ContentType.objects.get_for_model(CalendarUser)
     user.user_permissions.add(
         Permission.objects.get(content_type=content_type, codename='can_view')
     )
 
-    return user
-
-def create_user_with_permission_calendar(username):
-    # Create user
-    user = create_user(username)
-
-    # Add permission
-    content_type = ContentType.objects.get_for_model(models.CalendarUser)
+def add_add_default_codes_permissions(user):
+    """Adds the 'can_add_default_codes' permission to the provided user."""
+    content_type = ContentType.objects.get_for_model(MissingShiftCode)
     user.user_permissions.add(
-        Permission.objects.get(content_type=content_type, codename='can_view')
+        Permission.objects.get(content_type=content_type, codename='can_add_default_codes')
     )
 
-    # Add CalendarUser to user
-    models.CalendarUser.objects.create(
-        sb_user=user,
-        name='Regular User',
-        schedule_name='User',
-        calendar_name='SecretCalendar',
-        role='p',
-    )
-
-    return user
-
-def create_user_with_missing_shift_permission(username):
-    # Create user
-    user = create_user(username)
-
-    # Add permission
-    content_type = ContentType.objects.get_for_model(models.MissingShiftCode)
+def add_api_permission(user):
+    """Addss the 'access_api' permission to the provided user."""
+    content_type = ContentType.objects.get_for_model(CalendarUser)
     user.user_permissions.add(
-        Permission.objects.get(
-            content_type=content_type, codename='can_add_default_codes'
-        )
+        Permission.objects.get(content_type=content_type, codename='access_api')
     )
 
-    return user
+def create_token(user):
+    """Creates token for provided user."""
+    return Token.objects.create(user=user)
+
+def create_stat_holidays():
+    StatHoliday.objects.create(date='2011-01-01')
+    StatHoliday.objects.create(date='2012-02-02')
+    StatHoliday.objects.create(date='2013-03-03')
+    StatHoliday.objects.create(date='2014-04-04')
+    StatHoliday.objects.create(date='2015-05-05')
+    StatHoliday.objects.create(date='2016-06-06')
+    StatHoliday.objects.create(date='2017-07-07')
+    StatHoliday.objects.create(date='2018-08-08')
+    StatHoliday.objects.create(date='2019-09-09')
+    StatHoliday.objects.create(date='2020-10-10')

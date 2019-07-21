@@ -148,7 +148,7 @@ class UserScheduleUpload(APIView):
     def post(self, request, user_id):
         try:
             schedule = serializers.ShiftSerializer(
-                data=json.loads(request.POST.get('schedule')),
+                data=request.data.get('schedule', []),
                 many=True
             )
         except json.JSONDecodeError:
@@ -173,7 +173,7 @@ class UserScheduleUpload(APIView):
 
         return Response(
             data={
-                'request_data': request.POST.get('schedule'),
+                'request_data': request.data.get('schedule'),
                 'errors': schedule.errors,
             },
             status=status.HTTP_400_BAD_REQUEST
@@ -196,7 +196,7 @@ class MissingShiftCodesUpload(APIView):
 
     def post(self, request):
         try:
-            codes = json.loads(request.POST.get('codes'))
+            codes = request.data.get('codes', [])
         except json.JSONDecodeError:
             return Response(
                 data='Invalid JSON format received.',
@@ -213,7 +213,7 @@ class MissingShiftCodesUpload(APIView):
 
                 if created:
                     new_codes.append(db_code.code)
-            except (DataError, KeyError) as e:
+            except (DataError, KeyError, TypeError) as e:
                 return Response(
                     data=str(e),
                     status=status.HTTP_400_BAD_REQUEST,

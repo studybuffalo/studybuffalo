@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.db import IntegrityError
 from django.urls import reverse
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
@@ -8,6 +9,7 @@ from django.views import generic
 
 from .forms import CalendarSettingsForm, CalendarShiftCodeForm, MissingCodeForm
 from .models import CalendarUser, ShiftCode, MissingShiftCode
+
 
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
