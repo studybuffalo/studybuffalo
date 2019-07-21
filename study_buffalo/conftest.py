@@ -1,8 +1,6 @@
 """Setting up test configuration."""
 import pytest
 
-from rest_framework.authtoken.models import Token
-
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from users.tests.factories import UserFactory
 
@@ -30,9 +28,3 @@ def shift():
 @pytest.fixture
 def missing_shift_code():
     return rdrhc_calendar_factories.MissingShiftCodeFactory()
-
-@pytest.fixture
-def token():
-    fixture_user = UserFactory()
-
-    return Token.objects.create(user=fixture_user)
