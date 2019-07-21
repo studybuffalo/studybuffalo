@@ -1,343 +1,414 @@
 """Tests for the RDRHC Calendar API views."""
+import pytest
+
 import json
 
 from django.urls import reverse
-from django.test import TestCase
 
-from rest_framework.test import APIClient, force_authenticate
+from allauth.account.models import EmailAddress
+from rest_framework.test import APIClient
 
 from rdrhc_calendar.api import views
-from rdrhc_calendar.models import CalendarUser, ShiftCode, Shift, MissingShiftCode
+from rdrhc_calendar.models import CalendarUser, Shift, MissingShiftCode
 from rdrhc_calendar.tests import utils
 
 
-# class TestUserList(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
+pytestmark = pytest.mark.django_db
 
-#     def test_api_returns_user_list(self):
-#         self.client.login(username='user', password="abcd123456")
+def test__user_list__returns_user_list(calendar_user):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(calendar_user.sb_user)
+    utils.add_api_permission(calendar_user.sb_user)
 
-#         response = self.client.get(reverse('rdrhc_calendar:api_v1:user_list'))
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse('rdrhc_calendar:api_v1:user_list'))
+    content = json.loads(response.content)
 
-#         self.assertEqual(len(response.data), 2)
-#         self.assertEqual(
-#             dict(response.data[0]),
-#             {
-#                 'id': self.user.calendar_user.id,
-#                 'sb_user': self.user.id,
-#                 'name': self.user.calendar_user.name,
-#                 'schedule_name': self.user.calendar_user.schedule_name,
-#                 'calendar_name': self.user.calendar_user.calendar_name,
-#                 'role': 'p',
-#                 'first_email_sent': False,
-#                 'full_day': False,
-#                 'reminder': None,
-#             }
-#         )
+    # Confirm types returned
+    assert isinstance(content, list)
+    assert isinstance(content[0]['id'], int)
+    assert isinstance(content[0]['sb_user'], int)
+    assert isinstance(content[0]['name'], str)
+    assert isinstance(content[0]['schedule_name'], str)
+    assert isinstance(content[0]['calendar_name'], str)
+    assert isinstance(content[0]['role'], str)
+    assert isinstance(content[0]['first_email_sent'], bool)
+    assert isinstance(content[0]['full_day'], bool)
+    assert isinstance(content[0]['reminder'], int)
 
-# class TestUserDetail(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/users/{}/'.format(self.user.calendar_user.id)
+    # Confirm right model instance is pulled
+    assert content[0]['id'] == calendar_user.id
 
-#     def test_api_returns_user_detail(self):
-#         self.client.login(username='user', password="abcd123456")
+def test__user_detail__returns_user_detail(calendar_user):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(calendar_user.sb_user)
+    utils.add_api_permission(calendar_user.sb_user)
 
-#         response = self.client.get(
-#             reverse('rdrhc_calendar:api_v1:user_detail', kwargs=self.valid_args)
-#         )
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_detail',
+        kwargs={'user_id': calendar_user.id}
+    ))
+    content = json.loads(response.content)
 
-#         self.assertEqual(
-#             response.data,
-#             {
-#                 'id': self.user.calendar_user.id,
-#                 'sb_user': self.user.id,
-#                 'name': self.user.calendar_user.name,
-#                 'schedule_name': self.user.calendar_user.schedule_name,
-#                 'calendar_name': self.user.calendar_user.calendar_name,
-#                 'role': 'p',
-#                 'first_email_sent': False,
-#                 'full_day': False,
-#                 'reminder': None,
-#             }
-#         )
+    # Confirm types returned
+    assert isinstance(content['id'], int)
+    assert isinstance(content['sb_user'], int)
+    assert isinstance(content['name'], str)
+    assert isinstance(content['schedule_name'], str)
+    assert isinstance(content['calendar_name'], str)
+    assert isinstance(content['role'], str)
+    assert isinstance(content['first_email_sent'], bool)
+    assert isinstance(content['full_day'], bool)
+    assert isinstance(content['reminder'], int)
 
-# class TestUserEmailList(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/users/{}/emails/'.format(
-#             self.user.calendar_user.id
-#         )
+    # Confirm right model instance is pulled
+    assert content['id'] == calendar_user.id
 
-#     def test_api_returns_user_email_list(self):
-#         self.client.login(username='user', password="abcd123456")
+def test__user_email_list__returns_user_email_list(user):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#         response = self.client.get(
-#             reverse('rdrhc_calendar:api_v1:user_email_list', kwargs=self.valid_args)
-#         )
+    # Add email for user
+    EmailAddress.objects.create(user=user, email='email@email.com')
 
-#         self.assertEqual(len(response.data), 1)
-#         self.assertEqual(
-#             list(response.data),
-#             list(self.user.emailaddress_set.all().values_list('email', flat=True))
-#         )
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_email_list',
+        kwargs={'user_id': token.user.id}
+    ))
+    content = json.loads(response.content)
 
-# class TestShiftList(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
+    # Confirm types and value returned
+    assert isinstance(content, list)
+    assert content[0] == 'email@email.com'
 
-#     def test_api_returns_shift_list(self):
-#         self.client.login(username='user', password="abcd123456")
+def test__shift_list__returns_shift_list(shift):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(shift.sb_user)
+    utils.add_api_permission(shift.sb_user)
 
-#         response = self.client.get(reverse('rdrhc_calendar:api_v1:shift_list'))
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse('rdrhc_calendar:api_v1:shift_list'))
+    content = json.loads(response.content)
 
-#         self.assertEqual(len(response.data), 4)
+    # Confirm types and value returned
+    assert isinstance(content, list)
+    assert isinstance(content[0]['id'], int)
+    assert isinstance(content[0]['sb_user'], int)
+    assert isinstance(content[0]['date'], str)
+    assert isinstance(content[0]['shift_code'], int)
+    assert isinstance(content[0]['text_shift_code'], str)
+    assert content[0]['id'] == shift.id
 
-# class TestUserShiftCodeList(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/shift-codes/{}/'.format(
-#             self.user.calendar_user.id
-#         )
+def test_api_returns_user_shift_code_list(shift_code):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(shift_code.sb_user)
+    utils.add_api_permission(shift_code.sb_user)
 
-#     def test_api_returns_user_shift_code_list(self):
-#         # Add a default shift code
-#         shift_code = ShiftCode.objects.create(
-#             code='B1', sb_user=None, role='p',
-#             monday_start='01:00:00', monday_duration='1.1',
-#             tuesday_start='02:00:00', tuesday_duration='2.2',
-#             wednesday_start='03:00:00', wednesday_duration='3.3',
-#             thursday_start='04:00:00', thursday_duration='4.4',
-#             friday_start='05:00:00', friday_duration='5.5',
-#             saturday_start='06:00:00', saturday_duration='6.6',
-#             sunday_start='07:00:00', sunday_duration='7.7',
-#             stat_start='08:00:00', stat_duration='8.8',
-#         )
+    # Add a calendar to the user
+    CalendarUser.objects.create(
+        sb_user=shift_code.sb_user,
+    )
 
-#         self.client.login(username='user', password="abcd123456")
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_shift_codes_list',
+        kwargs={'user_id': token.user.id}
+    ))
+    content = json.loads(response.content)
 
-#         response = self.client.get(
-#             reverse('rdrhc_calendar:api_v1:user_shift_codes_list', kwargs=self.valid_args)
-#         )
+    # Confirm types and value returned
+    assert isinstance(content, list)
+    assert isinstance(content[0]['id'], int)
+    assert isinstance(content[0]['code'], str)
+    assert isinstance(content[0]['monday_start'], str)
+    assert isinstance(content[0]['monday_duration'], str)
+    assert isinstance(content[0]['tuesday_start'], str)
+    assert isinstance(content[0]['tuesday_duration'], str)
+    assert isinstance(content[0]['wednesday_start'], str)
+    assert isinstance(content[0]['wednesday_duration'], str)
+    assert isinstance(content[0]['thursday_start'], str)
+    assert isinstance(content[0]['thursday_duration'], str)
+    assert isinstance(content[0]['friday_start'], str)
+    assert isinstance(content[0]['friday_duration'], str)
+    assert isinstance(content[0]['saturday_start'], str)
+    assert isinstance(content[0]['saturday_duration'], str)
+    assert isinstance(content[0]['sunday_start'], str)
+    assert isinstance(content[0]['sunday_duration'], str)
+    assert isinstance(content[0]['stat_start'], str)
+    assert isinstance(content[0]['stat_duration'], str)
+    assert content[0]['id'] == shift_code.id
 
-#         self.assertEqual(len(response.data), 2)
+def test__stat_holiday_list__returns_list_without_parameters(user):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-# class TestStatHolidayList(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         utils.create_stat_holidays()
+    # Create stat holidsy
+    utils.create_stat_holidays()
 
-#     def test_api_returns_stat_holiday_list_without_parameters(self):
-#         self.client.login(username='user', password="abcd123456")
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+    content = json.loads(response.content)
 
-#         response = self.client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+    # Confirm types and value returned
+    assert isinstance(content, list)
+    assert len(content) == 10
+    assert isinstance(content[0], str)
 
-#         self.assertEqual(len(response.data), 10)
+def test__stat_holiday_list__returns_list_with_parameters(user):
+    """Tests that proper response is returned when parameters added."""
+    # Create token and add user permissions
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#     def test_api_returns_stat_holiday_list_with_parameters(self):
-#         self.client.login(username='user', password="abcd123456")
+    # Create stat holidsy
+    utils.create_stat_holidays()
 
-#         response = self.client.get(
-#             reverse('rdrhc_calendar:api_v1:stat_holidays_list'),
-#             {'date_start': '2014-01-01', 'date_end': '2018-12-31'}
-#         )
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(
+        reverse('rdrhc_calendar:api_v1:stat_holidays_list'),
+        {'date_start': '2014-01-01', 'date_end': '2018-12-31'}
+    )
+    content = json.loads(response.content)
 
-#         self.assertEqual(len(response.data), 5)
+    # Confirm proper amount of dates returned
+    assert len(content) == 5
 
-# class TestUserShceduleList(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/shifts/{}/'.format(
-#             self.user.calendar_user.id
-#         )
+def test__user_schedule_list__returns_list(shift):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    token = utils.create_token(shift.sb_user)
+    utils.add_api_permission(shift.sb_user)
 
-#     def test_api_returns_user_shift_code_list(self):
-#         self.client.login(username='user', password="abcd123456")
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.get(reverse(
+        'rdrhc_calendar:api_v1:user_schedule_list',
+        kwargs={'user_id': token.user.id}
+    ))
+    content = json.loads(response.content)
 
-#         response = self.client.get(
-#             reverse('rdrhc_calendar:api_v1:user_schedule_list', kwargs=self.valid_args)
-#         )
+    # Confirm proper response and types are returned
+    assert isinstance(content, list)
+    assert isinstance(content[0]['shift_code'], int)
+    assert isinstance(content[0]['date'], str)
+    assert isinstance(content[0]['text_shift_code'], str)
+    assert content[0]['id'] == shift.id
 
-#         self.assertEqual(len(response.data), 2)
+def test__user_schedule_delete__deletes_schedule(shift):
+    """Tests that proper response is returned."""
+    # Confirm shift exists
+    assert Shift.objects.filter(sb_user=shift.sb_user).count() == 1
 
-# class TestUserScheduleDelete(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/shifts/{}/delete/'.format(
-#             self.user.calendar_user.id
-#         )
+    # Create token and add user permissions
+    token = utils.create_token(shift.sb_user)
+    utils.add_api_permission(shift.sb_user)
 
-#     def test_api_deletes_user_schedule(self):
-#         shift_count = Shift.objects.filter(sb_user=self.user).count()
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.delete(reverse(
+        'rdrhc_calendar:api_v1:user_schedule_delete',
+        kwargs={'user_id': token.user.id}
+    ))
 
-#         self.client.login(username='user', password="abcd123456")
+    assert Shift.objects.filter(sb_user=shift.sb_user).count() == 0
 
-#         self.client.delete(
-#             reverse('rdrhc_calendar:api_v1:user_schedule_delete', kwargs=self.valid_args)
-#         )
+def test__user_schedule_upload__uploads_user_schedule(calendar_user):
+    """Tests that proper response is returned."""
+    # Create token and add user permissions
+    user = calendar_user.sb_user
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#         self.assertEqual(
-#             shift_count - 2,
-#             Shift.objects.filter(sb_user=self.user).count()
-#         )
+    # Confirm no shifts exist
+    assert Shift.objects.filter(sb_user=user).count() == 0
 
-# class TestUserScheduleUpload(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/shifts/{}/upload/'.format(
-#             self.user.calendar_user.id
-#         )
-#         self.post_data = {
-#             'schedule': json.dumps([
-#                 {
-#                     'sb_user': self.user.id,
-#                     'date': '2018-02-01',
-#                     'shift_code': '',
-#                     'text_shift_code': 'A3'
-#                 },
-#                 {
-#                     'sb_user': self.user.id,
-#                     'date': '2018-02-02',
-#                     'shift_code': '',
-#                     'text_shift_code': 'A4'
-#                 },
-#                 {
-#                     'sb_user': self.user.id,
-#                     'date': '2018-02-03',
-#                     'shift_code': '',
-#                     'text_shift_code': 'A5'
-#                 }
-#             ])
-#         }
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(
+        reverse(
+            'rdrhc_calendar:api_v1:user_schedule_upload',
+            kwargs={'user_id': token.user.id}
+        ),
+        {
+            'schedule': [
+                {
+                    'sb_user': user.id,
+                    'date': '2018-02-01',
+                    'shift_code': '',
+                    'text_shift_code': 'A3'
+                },
+                {
+                    'sb_user': user.id,
+                    'date': '2018-02-02',
+                    'shift_code': '',
+                    'text_shift_code': 'A4'
+                },
+                {
+                    'sb_user': user.id,
+                    'date': '2018-02-03',
+                    'shift_code': '',
+                    'text_shift_code': 'A5'
+                }
+            ]
+        },
+        format='json',
+    )
 
-#     def test_api_uploads_user_schedule(self):
-#         self.client.login(username='user', password="abcd123456")
+    # Confirm shift exists
+    assert Shift.objects.filter(sb_user=user).count() == 3
 
-#         self.client.post(
-#             reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
-#             self.post_data
-#         )
+def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
+    """Confirms error handling with invalid data."""
+    # Create token and add user permissions
+    user = calendar_user.sb_user
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#         self.assertEqual(Shift.objects.filter(sb_user=self.user).count(), 5)
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(
+        reverse(
+            'rdrhc_calendar:api_v1:user_schedule_upload',
+            kwargs={'user_id': token.user.id}
+        ),
+        {
+            'schedule': [
+                {
+                    'sb_user': user.id,
+                    'date': '2018-02-01',
+                    'shift_code': 'abc',
+                    'text_shift_code': 'A3'
+                },
+            ]
+        }
+    )
+    content = json.loads(response.content)
 
-#     def test_api_400_response_on_invalid_data(self):
-#         self.client.login(username='user', password="abcd123456")
+    assert response.status_code == 400
+    assert 'errors' in content
 
-#         response = self.client.post(
-#             reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
-#             {'schedule': json.dumps([{'shift_code': 'abc'}])}
-#         )
+def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_user):
+    """Confirms error handling when data in incorrect format."""
+    # Create token and add user permissions
+    user = calendar_user.sb_user
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#         self.assertEqual(response.status_code, 400)
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(
+        reverse(
+            'rdrhc_calendar:api_v1:user_schedule_upload',
+            kwargs={'user_id': token.user.id}
+        ),
+        {'schedule': 'abc'}
+    )
+    content = json.loads(response.content)
 
-#     def test_api_400_response_on_invalid_data_format(self):
-#         self.client.login(username='user', password="abcd123456")
+    assert response.status_code == 400
+    assert 'errors' in content
 
-#         response = self.client.post(
-#             reverse('rdrhc_calendar:api_v1:user_schedule_upload', kwargs=self.valid_args),
-#             {'schedule': 'abc'}
-#         )
+def test__user_email_first_sent__confirm_change(calendar_user):
+    """Tests that proper response is returned."""
+    # Confirm value start off false
+    assert calendar_user.first_email_sent is False
 
-#         self.assertEqual(response.status_code, 400)
+    # Create token and add user permissions
+    token = utils.create_token(calendar_user.sb_user)
+    utils.add_api_permission(calendar_user.sb_user)
 
-# class TestUserEmailFirstSent(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.valid_args = {'user_id': self.user.calendar_user.id}
-#         self.valid_url = '/rdrhc-calendar/api/v1/users/{}/emails/first-sent/'.format(
-#             self.user.calendar_user.id
-#         )
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(reverse(
+        'rdrhc_calendar:api_v1:user_email_first_sent',
+        kwargs={'user_id': token.user.id}
+    ))
 
-#     def test_api_confirm_change(self):
-#         self.client.login(username='user', password="abcd123456")
+    # Retrieve updated database entry and confirm its value
+    calendar_user.refresh_from_db()
+    assert calendar_user.first_email_sent is True
 
-#         response = self.client.post(
-#             reverse('rdrhc_calendar:api_v1:user_email_first_sent', kwargs=self.valid_args)
-#         )
+def test__missing_shift_code_upload__uploads_missing_codes(user):
+    """Tests that proper response is returned."""
+    # Confirm no values
+    assert MissingShiftCode.objects.all().count() == 0
 
-#         self.assertTrue(CalendarUser.objects.get(sb_user=self.user).first_email_sent)
+    # Create token and add user permissions
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-# class TestMissingShiftCodesUpload(TestCase):
-#     def setUp(self):
-#         self.user_without_permissions = utils.create_user_without_permission(
-#             'user_without_permissions'
-#         )
-#         self.user = utils.create_user_with_permission('user')
-#         self.post_data = {
-#             'codes': json.dumps([
-#                 {'code': 'B1', 'role': 'p'},
-#                 {'code': 'B2', 'role': 'p'},
-#             ])
-#         }
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(
+        reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+        {'codes': [{'code': 'A1', 'role': 'p'}]},
+        format='json',
+    )
 
-#     def test_api_uploads_missing_codes(self):
-#         missing_count = MissingShiftCode.objects.all().count()
+    # Confirm code added
+    assert MissingShiftCode.objects.all().count() == 1
 
-#         self.client.login(username='user', password="abcd123456")
+def test__missing_shift_code_upload__400_response_on_invalid_data(user):
+    # Create token and add user permissions
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#         self.client.post(
-#             reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
-#             self.post_data
-#         )
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(
+        reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+        {'codes': [{'shift_code': 'abc'}]},
+        format='json',
+    )
+    content = json.loads(response.content)
 
-#         self.assertEqual(
-#             missing_count + 2,
-#             MissingShiftCode.objects.all().count()
-#         )
+    assert response.status_code == 400
 
-#     def test_api_400_response_on_invalid_data(self):
-#         self.client.login(username='user', password="abcd123456")
+def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
+    # Create token and add user permissions
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
 
-#         response = self.client.post(
-#             reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
-#             {'codes': json.dumps([{'shift_code': 'abc'}])}
-#         )
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
+    response = client.post(
+        reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+        {'codes': 'abc'},
+        format='json',
+    )
+    content = json.loads(response.content)
 
-#         self.assertEqual(response.status_code, 400)
-
-#     def test_api_400_response_on_invalid_data_format(self):
-#         self.client.login(username='user', password="abcd123456")
-
-#         response = self.client.post(
-#             reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
-#             {'codes': 'abc'}
-#         )
-
-#         self.assertEqual(response.status_code, 400)
+    assert response.status_code == 400
