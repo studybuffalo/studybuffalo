@@ -10,6 +10,7 @@ class CalendarUserFactory(factory.django.DjangoModelFactory):
     schedule_name = factory.Sequence(lambda n: f'schedule name - {n}')
     calendar_name = factory.Sequence(lambda n: f'calendar name - {n}')
     role = 'p'
+    reminder = factory.Sequence(lambda n: int(n))
 
     class Meta:
         model = CalendarUser
