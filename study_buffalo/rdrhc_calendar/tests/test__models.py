@@ -2,11 +2,8 @@
 import pytest
 
 from django.db import IntegrityError
-from django.test import TestCase
 
 from rdrhc_calendar import models
-
-from .utils import create_user
 
 
 pytestmark = pytest.mark.django_db
