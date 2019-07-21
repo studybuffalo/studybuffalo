@@ -8,7 +8,7 @@ from django.urls import reverse
 from allauth.account.models import EmailAddress
 from rest_framework.test import APIClient
 
-from rdrhc_calendar.api import views
+from api.rdrhc_calendar import views
 from rdrhc_calendar.models import CalendarUser, Shift, MissingShiftCode
 from rdrhc_calendar.tests import utils
 
@@ -24,7 +24,7 @@ def test__user_list__returns_user_list(calendar_user):
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
-    response = client.get(reverse('rdrhc_calendar:api_v1:user_list'))
+    response = client.get(reverse('api:rdrhc_calendar_v1:user_list'))
     content = json.loads(response.content)
 
     # Confirm types returned
@@ -52,7 +52,7 @@ def test__user_detail__returns_user_detail(calendar_user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.get(reverse(
-        'rdrhc_calendar:api_v1:user_detail',
+        'api:rdrhc_calendar_v1:user_detail',
         kwargs={'user_id': calendar_user.id}
     ))
     content = json.loads(response.content)
@@ -84,7 +84,7 @@ def test__user_email_list__returns_user_email_list(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.get(reverse(
-        'rdrhc_calendar:api_v1:user_email_list',
+        'api:rdrhc_calendar_v1:user_email_list',
         kwargs={'user_id': token.user.id}
     ))
     content = json.loads(response.content)
@@ -102,7 +102,7 @@ def test__shift_list__returns_shift_list(shift):
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
-    response = client.get(reverse('rdrhc_calendar:api_v1:shift_list'))
+    response = client.get(reverse('api:rdrhc_calendar_v1:shift_list'))
     content = json.loads(response.content)
 
     # Confirm types and value returned
@@ -129,7 +129,7 @@ def test_api_returns_user_shift_code_list(shift_code):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.get(reverse(
-        'rdrhc_calendar:api_v1:user_shift_codes_list',
+        'api:rdrhc_calendar_v1:user_shift_codes_list',
         kwargs={'user_id': token.user.id}
     ))
     content = json.loads(response.content)
@@ -168,7 +168,7 @@ def test__stat_holiday_list__returns_list_without_parameters(user):
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
-    response = client.get(reverse('rdrhc_calendar:api_v1:stat_holidays_list'))
+    response = client.get(reverse('api:rdrhc_calendar_v1:stat_holidays_list'))
     content = json.loads(response.content)
 
     # Confirm types and value returned
@@ -189,7 +189,7 @@ def test__stat_holiday_list__returns_list_with_parameters(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.get(
-        reverse('rdrhc_calendar:api_v1:stat_holidays_list'),
+        reverse('api:rdrhc_calendar_v1:stat_holidays_list'),
         {'date_start': '2014-01-01', 'date_end': '2018-12-31'}
     )
     content = json.loads(response.content)
@@ -207,7 +207,7 @@ def test__user_schedule_list__returns_list(shift):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.get(reverse(
-        'rdrhc_calendar:api_v1:user_schedule_list',
+        'api:rdrhc_calendar_v1:user_schedule_list',
         kwargs={'user_id': token.user.id}
     ))
     content = json.loads(response.content)
@@ -232,7 +232,7 @@ def test__user_schedule_delete__deletes_schedule(shift):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.delete(reverse(
-        'rdrhc_calendar:api_v1:user_schedule_delete',
+        'api:rdrhc_calendar_v1:user_schedule_delete',
         kwargs={'user_id': token.user.id}
     ))
 
@@ -253,7 +253,7 @@ def test__user_schedule_upload__uploads_user_schedule(calendar_user):
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
         reverse(
-            'rdrhc_calendar:api_v1:user_schedule_upload',
+            'api:rdrhc_calendar_v1:user_schedule_upload',
             kwargs={'user_id': token.user.id}
         ),
         {
@@ -296,7 +296,7 @@ def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
         reverse(
-            'rdrhc_calendar:api_v1:user_schedule_upload',
+            'api:rdrhc_calendar_v1:user_schedule_upload',
             kwargs={'user_id': token.user.id}
         ),
         {
@@ -327,7 +327,7 @@ def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_use
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
         reverse(
-            'rdrhc_calendar:api_v1:user_schedule_upload',
+            'api:rdrhc_calendar_v1:user_schedule_upload',
             kwargs={'user_id': token.user.id}
         ),
         {'schedule': 'abc'}
@@ -350,7 +350,7 @@ def test__user_email_first_sent__confirm_change(calendar_user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(reverse(
-        'rdrhc_calendar:api_v1:user_email_first_sent',
+        'api:rdrhc_calendar_v1:user_email_first_sent',
         kwargs={'user_id': token.user.id}
     ))
 
@@ -371,7 +371,7 @@ def test__missing_shift_code_upload__uploads_missing_codes(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
-        reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+        reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
         {'codes': [{'code': 'A1', 'role': 'p'}]},
         format='json',
     )
@@ -388,7 +388,7 @@ def test__missing_shift_code_upload__400_response_on_invalid_data(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
-        reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+        reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
         {'codes': [{'shift_code': 'abc'}]},
         format='json',
     )
@@ -405,7 +405,7 @@ def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
-        reverse('rdrhc_calendar:api_v1:missing_shift_codes_upload'),
+        reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
         {'codes': 'abc'},
         format='json',
     )

@@ -18,8 +18,8 @@ from rest_framework.views import APIView
 from rest_framework import generics, status
 
 from rdrhc_calendar import models
-from rdrhc_calendar.api import serializers
-from rdrhc_calendar.api.permissions import HasAPIAccess
+from api.rdrhc_calendar import serializers
+from api.rdrhc_calendar.permissions import HasAPIAccess
 
 
 @api_view(['GET'])
@@ -27,8 +27,8 @@ from rdrhc_calendar.api.permissions import HasAPIAccess
 @permission_classes((IsAuthenticated, HasAPIAccess, ))
 def api_root(request, format=None): # pylint: disable=redefined-builtin
     return Response({
-        'users': reverse('rdrhc_calendar:api_v1:user_list', request=request, format=format),
-        'shifts': reverse('rdrhc_calendar:api_v1:shift_list', request=request, format=format),
+        'users': reverse('api:rdrhc_calendar_v1:user_list', request=request, format=format),
+        'shifts': reverse('api:rdrhc_calendar_v1:shift_list', request=request, format=format),
     })
 
 class UserList(generics.ListAPIView):
