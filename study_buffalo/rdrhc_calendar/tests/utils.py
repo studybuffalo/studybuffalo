@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from rest_framework.authtoken.models import Token
 
-from rdrhc_calendar.models import CalendarUser, MissingShiftCode
+from rdrhc_calendar.models import CalendarUser, MissingShiftCode, StatHoliday
 
 
 def add_view_permission(user):
