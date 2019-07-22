@@ -565,6 +565,7 @@ function changeQuantity(table) {
  * @param {object} e           Triggering event.
  */
 function changeQuantityKeypress(amount, colIndex, type, table, e) {
+  console.log('test');
   if (e.which === 13 || e.keycode === 13) {
     changeQuantity(amount, colIndex, type, table);
   } else if (e.which === 27 || e.keycode === 27) {
@@ -618,7 +619,7 @@ function changeQuantityPopup(buttonInput) {
     .appendTo($popupDiv);
 
   // Input Amount
-  const $input = $('<input type="text"');
+  const $input = $('<input type="text">');
   $input.attr('id', 'change-amount');
 
   const $inputDiv = $('<div></div>');
@@ -657,7 +658,7 @@ function changeQuantityPopup(buttonInput) {
     .append($buttonQuantity)
     .appendTo($popupDiv);
 
-  // Close BUtton
+  // Close Button
   const $buttonClose = $('<input type="button">');
   $buttonClose
     .attr('id', 'close-change-popup')
@@ -940,9 +941,6 @@ function showInfo(infoButton) {
     .height(pageHt)
     .width(pageWid)
     .on('click', (e) => { closeQuantityPopup(e); })
-    .on('keydown', (e) => {
-      changeQuantityKeypress(null, null, null, e);
-    })
     .prependTo('body')
     .append($infoDiv);
 }
