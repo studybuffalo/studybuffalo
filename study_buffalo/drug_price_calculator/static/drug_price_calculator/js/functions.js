@@ -367,7 +367,7 @@ function brandUpdate(brandSelect) {
   // Collect the relevant data values
   const $brandOption = $(brandSelect).children('option:selected');
   const unitPrice = $brandOption.attr('data-unit-price');
-  const unit = $brandOption.attr('data-unit') || 'unit';
+  const unit = $brandOption.attr('data-unit-issue') || 'unit';
 
   // Updates the cost/unit span
   const $item = $(brandSelect).closest('.item');
@@ -1137,19 +1137,20 @@ function addFreeformEntry() {
  * @returns {array} JSON array with the LCA entry added to the front.
  */
 function addLCA(results) {
-  const lcaEntry = {
-    clients: results[0].clients,
-    coverage_criteria: results[0].coverage_criteria,
-    coverage_status: results[0].coverage_status,
-    drug: results[0].drug,
-    id: results[0].id,
-    lca_price: results[0].lca_price,
-    mac_price: results[0].mac_price,
-    mac_text: results[0].mac_text,
-    special_authorizations: results[0].special_authorizations,
-    unit_issue: results[0].unit_issue,
-    unit_price: results[0].lca_price,
-  };
+  // Identify the lowest cost drug
+  let lowestPrice = results[0].unit_price;
+  let lowestIndex = 0;
+
+  results.forEach((result, index) => {
+    if (result.unit_price < lowestPrice) {
+      lowestPrice = result.unit_price;
+      lowestIndex = index;
+    }
+  });
+
+  // Return the LCA entry and update brand name
+  const lcaEntry = JSON.parse(JSON.stringify(results[lowestIndex]));
+  lcaEntry.drug.brand_name = 'LCA';
 
   // Adds LCA entry to front of array
   results.unshift(lcaEntry);
@@ -1188,9 +1189,9 @@ function processResult(originalResults) {
   $medicationStrong.text(results[0].drug.generic_name);
 
   let medEmText = '';
-  medEmText += results[0].strength ? `${results[0].drug.strength} ` : '';
-  medEmText += results[0].route ? `${results[0].drug.route} ` : '';
-  medEmText += results[0].dosage_form ? `${results[0].drug.dosage_form} ` : '';
+  medEmText += results[0].drug.strength ? `${results[0].drug.strength} ` : '';
+  medEmText += results[0].drug.route ? `${results[0].drug.route} ` : '';
+  medEmText += results[0].drug.dosage_form ? `${results[0].drug.dosage_form} ` : '';
   medEmText = medEmText.trim();
 
   const $medicationEm = $('<em></em>');
