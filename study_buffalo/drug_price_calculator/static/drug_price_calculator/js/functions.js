@@ -556,24 +556,6 @@ function changeQuantity(table) {
 }
 
 /**
- * Adds keyboard support for Enter/Esc keys to quantity popup.
- *
- * @param {object} amount:      DOM reference to text input with the quantity.
- * @param {object} buttonInput DOM reference to submit button.
- * @param {str}    name        HTML name of the column (days supply or quantity).
- * @param {str}    table       HTML ID of table containing the columns to update.
- * @param {object} e           Triggering event.
- */
-function changeQuantityKeypress(amount, colIndex, type, table, e) {
-  console.log('test');
-  if (e.which === 13 || e.keycode === 13) {
-    changeQuantity(amount, colIndex, type, table);
-  } else if (e.which === 27 || e.keycode === 27) {
-    closeQuantityPopup(undefined);
-  }
-}
-
-/**
  * Updates all of a columns quantities/day supplies.
  *
  * @param {object} buttonInput DOM reference to the button that triggers the change.
