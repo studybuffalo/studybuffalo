@@ -25,6 +25,7 @@
 #sb .searchResults {
     display: inline-block;
     margin: 0em;
+    min-width: 300px;
     max-width: 100%;
     padding: 0em;
 }
@@ -64,10 +65,18 @@
             cursor: pointer;
         }
 
-/* Third Party Coverage Styling */
-#sb .thirdPartyContainer {
-}
+  #sb .searchResults > span {
+    background: rgb(245, 245, 245);
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    display: block;
+    font-weight: 700;
+    max-width: 70rem;
+    padding: 1rem 0.5rem;
+    width: 100%;
+  }
 
+/* Third Party Coverage Styling */
 #sb .thirdPartySelect {
     max-width: 70rem;
     width: 100%;
@@ -274,7 +283,7 @@
     #sb .comparisonSearchMethod input[type="checkbox"]:checked + label {
         background-color: rgb(200, 238, 196);
     }
- 
+
 /* Loading Bar */
 #sb #warningGradientOuterBarG {
     height: 25px;
@@ -341,7 +350,7 @@
         font-weight: 700;
         justify-content: flex-start;
     }
-     
+
     #sb #price-table .content .item {
         align-items: flex-start;
         display: flex;
