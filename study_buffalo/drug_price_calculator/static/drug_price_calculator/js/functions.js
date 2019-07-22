@@ -239,26 +239,6 @@ function getTodaysDate() {
 }
 
 /**
- * Returns html code to generate the loading bar
- */
-function loadingBar() {
-  const output = (
-    '<div id="warningGradientOuterBarG">'
-    + '<div id="warningGradientFrontBarG"'
-    + 'class="warningGradientAnimationG">'
-    + '<div class="warningGradientBarLineG"></div>'
-    + '<div class="warningGradientBarLineG"></div>'
-    + '<div class="warningGradientBarLineG"></div>'
-    + '<div class="warningGradientBarLineG"></div>'
-    + '<div class="warningGradientBarLineG"></div>'
-    + '<div class="warningGradientBarLineG"></div>'
-    + '</div></div>'
-  );
-
-  return output;
-}
-
-/**
  * Converts doses per day fraction inputs to a number
  *
  * @param {float} value: dosesPerDay input value to be converted.
@@ -1430,7 +1410,8 @@ function chooseResult(selection) { // eslint-disable-line no-unused-vars
         + 'studybuffalo@studybuffalo.com'
       );
 
-      alert(error);
+      const $searchResults = $('#Search-Results');
+      $searchResults.html(`<span style="color: red">${error}</span>`);
     },
   });
 }
@@ -1443,6 +1424,9 @@ function chooseResult(selection) { // eslint-disable-line no-unused-vars
  * @results {string} The HTML search results
  */
 function formatSearchResults(results) {
+  if (results.length === 0) {
+    return '<span>No results found</span>';
+  }
   // Group together the common drug names
   const compiledResults = {};
 
@@ -1507,9 +1491,6 @@ function showSearchResults(searchString) {
         data: { q: searchString, page: 1 },
         type: 'GET',
         dataType: 'json',
-        beforeSend: () => {
-          $searchResults.html(`<ul><li><a>${loadingBar}</a></li></ul>`);
-        },
         success: (results) => {
           const searchList = formatSearchResults(results.results);
           if ($('#Search-Bar').val() === searchString) {
@@ -1517,14 +1498,12 @@ function showSearchResults(searchString) {
           }
         },
         error: () => {
-          $searchResults.empty();
           const error = (
             'Sorry we have experienced an error with our server. Please refresh your page and '
             + 'try again. If you continue to run into issues, please contact us at '
             + 'studybuffalo@studybuffalo.com'
           );
-
-          alert(error);
+          $searchResults.html(`<span style="color: red">${error}</span>`);
         },
       });
     }, 0);
@@ -1557,9 +1536,6 @@ function showComparisonResults(searchString) {
         },
         type: 'GET',
         dataType: 'html',
-        beforeSend: () => {
-          $searchResults.html(`<ul><li><a>${loadingBar()}</a></li></ul>`);
-        },
         success: (results) => {
           // Only updates if search string hasn't changed
           if ($('#Comparison-Search').val() === searchString) {
@@ -1817,8 +1793,8 @@ function chooseComparison(selection) { // eslint-disable-line no-unused-vars
         + 'again. If you continue to run into issues, please contact us at '
         + 'studybuffalo@studybuffalo.com'
       );
-
-      alert(error);
+      const $searchResults = $('#Comparison-Results');
+      $searchResults.html(`<span style="color: red">${error}</span>`);
     },
   });
 }
