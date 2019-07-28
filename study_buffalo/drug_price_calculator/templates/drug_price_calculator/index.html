@@ -138,18 +138,6 @@
 
     <h2>Drug Price Comparison</h2>
 
-    <div class="MT1em">
-      <strong style="color: red;">
-        There has been a significant update to the Alberta Blue Cross iDBL.
-        This unfortunately has broken some functionality with this tool. The
-        Drug Price Comparison tool no longer functions properly and has been
-        temporarily removed until the issues can be resolved. We apologize for
-        the inconvenience.
-      </strong>
-    </div>
-    <!--
-    THIS SECTION IS BEING REMOVED UNTIL ATC AND PTC DATA CAN BE PROPERLY
-    COLLECTED
     <p>
       Compare drugs across pharmacological classes. Medications
       classes are based on either the Anatomical Therapeutic
@@ -161,26 +149,11 @@
       <strong>Classification System to Search:</strong>
     </div>
 
-    <div class="comparisonSearchMethod">
-      <ul>
-        <li>
-          <input type="checkbox"
-              id="Comparison-Search-Method-1"
-              name="Comparison-Search-Method"
-              checked>
-          <label for="Comparison-Search-Method-1">
-            Anatomical Therapeutic Chemical (ATC) Classification
-          </label>
-        </li>
-        <li>
-          <input type="checkbox"
-              id="Comparison-Search-Method-2"
-              name="Comparison-Search-Method">
-          <label for="Comparison-Search-Method-2">
-            Pharmacologic-Therapeutic Classification (PTC)
-          </label>
-        </li>
-      </ul>
+    <div>
+      <select id="Comparison-Search-Classification">
+        <option selected="selected" value="atc">Anatomical Therapeutic Chemical (ATC) Classification</option>
+        <option value="ptc">Pharmacologic-Therapeutic Classification (PTC)</option>
+      </select>
     </div>
 
     <div class="MT1em">
@@ -253,7 +226,7 @@
         </tr>
         <tr>
           <th><span class="info"> </span></th>
-          <td>Click for additional medication information</th>
+          <td>Click for additional medication information</td>
         </tr>
         <tr>
           <th><span class="info notice"> </span></th>
@@ -265,7 +238,6 @@
         </tr>
       </table>
     </p>
-  -->
   </div>
 
   <!-- Disclaimers & Notices -->

@@ -385,10 +385,10 @@ function brandUpdate(brandSelect) {
 }
 
 /**
- * Updates comparison table prices based on selected strength
- *
- * @param {object} brandSelect DOM reference to the strength select to update.
- */
+* Updates comparison table prices based on selected strength
+*
+* @param {object} brandSelect DOM reference to the strength select to update.
+*/
 function comparisonStrength(strengthSelect) {
   // Collect the relevant data values
   const $strengthOption = $(strengthSelect).children('option:selected');
@@ -1463,7 +1463,7 @@ function showSearchResults(searchString) {
   const $searchResults = $('#Search-Results');
 
   if (searchString) {
-    // 200 ms Timeout applied to prevent firing during typing
+    // 300 ms Timeout applied to prevent firing during typing
     clearTimeout(ajaxTimer);
 
     ajaxTimer = setTimeout(() => {
@@ -1473,8 +1473,8 @@ function showSearchResults(searchString) {
         type: 'GET',
         dataType: 'json',
         success: (results) => {
-          const searchList = formatSearchResults(results.results);
           if ($('#Search-Bar').val() === searchString) {
+            const searchList = formatSearchResults(results.results);
             $searchResults.html(searchList);
           }
         },
@@ -1485,46 +1485,6 @@ function showSearchResults(searchString) {
             + 'studybuffalo@studybuffalo.com'
           );
           $searchResults.html(`<span style="color: red">${error}</span>`);
-        },
-      });
-    }, 0);
-  } else {
-    $searchResults.empty();
-  }
-}
-
-/**
- * Function handling the API call to the database to retieve the search results.
- *
- * @param {str} searchString Text entered into the search bar.
- */
-function showComparisonResults(searchString) {
-  const $searchResults = $('#Comparison-Results');
-  const searchMethod1 = !!$('#Comparison-Search-Method-1')[0].checked;
-  const searchMethod2 = !!$('#Comparison-Search-Method-2')[0].checked;
-
-  if (searchString.length > 0) {
-    // 300 ms Timeout applied to prevent firing during typing
-    clearTimeout(ajaxTimer);
-
-    ajaxTimer = setTimeout(() => {
-      $.ajax({
-        url: 'comparison-search/',
-        data: {
-          search: searchString,
-          methodATC: searchMethod1,
-          methodPTC: searchMethod2,
-        },
-        type: 'GET',
-        dataType: 'html',
-        success: (results) => {
-          // Only updates if search string hasn't changed
-          if ($('#Comparison-Search').val() === searchString) {
-            $searchResults.html(results);
-          }
-        },
-        error: () => {
-          $searchResults.empty();
         },
       });
     }, 300);
@@ -1754,7 +1714,7 @@ function processComparison(results) {
 function chooseComparison(selection) { // eslint-disable-line no-unused-vars
   // Extract indices for MySQL query
   const query = $(selection).attr('data-url');
-  showComparisonResults('');
+  showComparisonResults(''); // eslint-disable-line no-use-before-define
 
   $.ajax({
     url: 'generate-comparison/',
@@ -1778,6 +1738,108 @@ function chooseComparison(selection) { // eslint-disable-line no-unused-vars
       $searchResults.html(`<span style="color: red">${error}</span>`);
     },
   });
+}
+
+/**
+ * Formats the array of comparison results for comparison result list.
+ *
+ * @param {array} results Array of comparison results.
+ *
+ * @results {string} The HTML comparison results
+ */
+function formatComparisonResults(results) {
+  if (results.length === 0) {
+    return '<span>No results found</span>';
+  }
+
+  // Group together the common drug names
+  const compiledResults = {};
+
+  results.forEach((drug) => {
+    // If key not in object, add it
+    if (!(drug.generic_product in compiledResults)) {
+      compiledResults[drug.generic_product] = {
+        ids: [],
+        generic_product: drug.generic_product,
+        brand_names: new Set(),
+      };
+    }
+
+    // Add the IDs and brand name to array
+    compiledResults[drug.generic_product].ids.push(drug.id);
+    compiledResults[drug.generic_product].brand_names.add(drug.brand_name);
+  });
+
+  // Generate the HTML search list
+  const $list = $('<ul></ul>');
+
+  Object.keys(compiledResults).forEach((key, index) => {
+    const $item = $('<li></li>')
+      .appendTo($list);
+
+    const $link = $('<a></a>')
+      .appendTo($item)
+      .attr('id', `Search-Result-${index}`)
+      .attr('data-ids', compiledResults[key].ids.join(','))
+      .on('click', (e) => { chooseResult(e.currentTarget); });
+
+    $('<strong></strong>')
+      .appendTo($link)
+      .text(compiledResults[key].generic_product);
+
+    $('<br>').appendTo($link);
+
+    $('<em></em>')
+      .appendTo($link)
+      .text(`also known as ${Array.from(compiledResults[key].brand_names).join(', ')}`);
+  });
+
+  return $list;
+}
+
+/**
+ * Function handling the API call to the database to retieve the search results.
+ *
+ * @param {str} searchString Text entered into the search bar.
+ */
+function showComparisonResults(searchString) {
+  const $searchResults = $('#Comparison-Results');
+  const classification = !!$('#Comparison-Search-Classification').val();
+
+  if (searchString.length > 0) {
+    // 300 ms Timeout applied to prevent firing during typing
+    clearTimeout(ajaxTimer);
+
+    ajaxTimer = setTimeout(() => {
+      $.ajax({
+        url: '/api/drug-price-calculator/v1/comparison/',
+        data: {
+          q: searchString,
+          system: classification,
+          page: 1,
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: (results) => {
+          // Only updates if search string hasn't changed
+          if ($('#Comparison-Search').val() === searchString) {
+            const searchList = formatComparisonResults(results.results);
+            $searchResults.html(searchList);
+          }
+        },
+        error: () => {
+          const error = (
+            'Sorry we have experienced an error with our server. Please refresh your page and '
+            + 'try again. If you continue to run into issues, please contact us at '
+            + 'studybuffalo@studybuffalo.com'
+          );
+          $searchResults.html(`<span style="color: red">${error}</span>`);
+        },
+      });
+    }, 300);
+  } else {
+    $searchResults.empty();
+  }
 }
 
 /**
