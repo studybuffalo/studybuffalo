@@ -102,6 +102,14 @@ class ComparisonList(ListAPIView):
 
     def get_queryset(self):
         """Override to apply search filters."""
+        # Will need to develop system to:
+        #   1) Search against the text descriptions
+        #   2) Provide list of ATC/PTC records that match that description
+        #   3) When selected by user, use the specific ATC/PTC record
+        #      to retrieve drug price records
+        #
+        # Issues:
+        #   1) ATC is now matched to a single drug; need way to move one level down
         q_string = self.request.GET.get('q')
         system = self.request.GET.get('system', 'atc')
 
