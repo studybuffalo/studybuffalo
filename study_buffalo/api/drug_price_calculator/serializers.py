@@ -496,3 +496,6 @@ class DrugPriceListSerializer(serializers.ModelSerializer):
             'unit_issue', 'coverage_status', 'special_authorizations',
             'clients', 'coverage_criteria',
         )
+
+class ComparisonListSerializer(serializers.Serializer):
+    """Serializer to format comparison lists."""
