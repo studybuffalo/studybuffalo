@@ -248,6 +248,30 @@ def test__user_schedule_upload__uploads_user_schedule(calendar_user):
     # Confirm no shifts exist
     assert Shift.objects.filter(sb_user=user).count() == 0
 
+    # Setup POST data
+    data = {
+        'schedule': [
+            {
+                'sb_user': user.id,
+                'date': '2018-02-01',
+                'shift_code': '',
+                'text_shift_code': 'A3'
+            },
+            {
+                'sb_user': user.id,
+                'date': '2018-02-02',
+                'shift_code': '',
+                'text_shift_code': 'A4'
+            },
+            {
+                'sb_user': user.id,
+                'date': '2018-02-03',
+                'shift_code': '',
+                'text_shift_code': 'A5'
+            }
+        ]
+    }
+
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
@@ -256,29 +280,8 @@ def test__user_schedule_upload__uploads_user_schedule(calendar_user):
             'api:rdrhc_calendar_v1:user_schedule_upload',
             kwargs={'user_id': token.user.id}
         ),
-        {
-            'schedule': [
-                {
-                    'sb_user': user.id,
-                    'date': '2018-02-01',
-                    'shift_code': '',
-                    'text_shift_code': 'A3'
-                },
-                {
-                    'sb_user': user.id,
-                    'date': '2018-02-02',
-                    'shift_code': '',
-                    'text_shift_code': 'A4'
-                },
-                {
-                    'sb_user': user.id,
-                    'date': '2018-02-03',
-                    'shift_code': '',
-                    'text_shift_code': 'A5'
-                }
-            ]
-        },
-        format='json',
+        json.dumps(data),
+        content_type='application/json',
     )
 
     # Confirm shift exists
@@ -291,6 +294,18 @@ def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     token = utils.create_token(user)
     utils.add_api_permission(user)
 
+    # Setup POST data
+    data = {
+        'schedule': [
+            {
+                'sb_user': user.id,
+                'date': '2018-02-01',
+                'shift_code': 'abc',
+                'text_shift_code': 'A3'
+            },
+        ]
+    }
+
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
@@ -299,16 +314,8 @@ def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
             'api:rdrhc_calendar_v1:user_schedule_upload',
             kwargs={'user_id': token.user.id}
         ),
-        {
-            'schedule': [
-                {
-                    'sb_user': user.id,
-                    'date': '2018-02-01',
-                    'shift_code': 'abc',
-                    'text_shift_code': 'A3'
-                },
-            ]
-        }
+        json.dumps(data),
+        content_type='application/json',
     )
     content = json.loads(response.content)
 
@@ -322,6 +329,9 @@ def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_use
     token = utils.create_token(user)
     utils.add_api_permission(user)
 
+    # Setup POST data
+    data = {'schedule': 'abc'}
+
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
@@ -330,7 +340,8 @@ def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_use
             'api:rdrhc_calendar_v1:user_schedule_upload',
             kwargs={'user_id': token.user.id}
         ),
-        {'schedule': 'abc'}
+        json.dumps(data),
+        content_type='application/json',
     )
     content = json.loads(response.content)
 
@@ -372,10 +383,10 @@ def test__missing_shift_code_upload__uploads_missing_codes(user):
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
         reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
-        {'codes': [{'code': 'A1', 'role': 'p'}]},
-        format='json',
+        json.dumps({'codes': [{'code': 'A1', 'role': 'p'}]}),
+        content_type='application/json',
     )
-
+    print(response.content)
     # Confirm code added
     assert MissingShiftCode.objects.all().count() == 1
 
@@ -389,8 +400,8 @@ def test__missing_shift_code_upload__400_response_on_invalid_data(user):
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
         reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
-        {'codes': [{'shift_code': 'abc'}]},
-        format='json',
+        json.dumps({'codes': [{'shift_code': 'abc'}]}),
+        content_type='application/json',
     )
     content = json.loads(response.content)
 
@@ -406,8 +417,8 @@ def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
     client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token))
     response = client.post(
         reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
-        {'codes': 'abc'},
-        format='json',
+        json.dumps({'codes': 'abc'}),
+        content_type='application/json',
     )
     content = json.loads(response.content)
 
