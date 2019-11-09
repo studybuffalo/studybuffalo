@@ -1,5 +1,14 @@
+<!-- Polyfill to support Sentry -->
+<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CString.prototype.includes%2CNumber.isNaN%2CArray.from"></script>
+
 <!-- Load Sentry -->
-<script src="https://browser.sentry-cdn.com/5.5.0/bundle.min.js" crossorigin="anonymous"></script>
-<script>
+<script
+  src="https://browser.sentry-cdn.com/5.7.1/bundle.min.js"
+  integrity="sha384-KMv6bBTABABhv0NI+rVWly6PIRvdippFEgjpKyxUcpEmDWZTkDOiueL5xW+cztZZ"
+  crossorigin="anonymous"
+  type="text/javascript"
+  ></script>
+
+<script type="text/javascript">
   Sentry.init({ dsn: 'https://f9eea1f6f06c49c0a966c7cfbdde6003@sentry.io/1498404' });
 </script>
