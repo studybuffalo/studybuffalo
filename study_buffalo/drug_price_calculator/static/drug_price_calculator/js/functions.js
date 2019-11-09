@@ -765,7 +765,11 @@ function showInfo(infoButton) {
 
   // Add any coverage criteria
   // TODO: create a pop-up window to display criteria
-  const criteria = JSON.parse($option.attr('data-coverage-criteria'));
+  let criteria = [];
+
+  if ($option.length) {
+    criteria = JSON.parse($option.attr('data-coverage-criteria'));
+  }
 
   if (criteria.length) {
     const priceID = $option.attr('data-price-id');
@@ -879,7 +883,11 @@ function showInfo(infoButton) {
   const $saFormTitle = $('<p></p>');
   const $saForm = $('<ul></ul>');
 
-  const specialAuthorizations = JSON.parse($option.attr('data-special-authorizations'));
+  let specialAuthorizations = [];
+
+  if ($option.length) {
+    specialAuthorizations = JSON.parse($option.attr('data-special-authorizations'));
+  }
 
   // If special authorizations present, add title
   if (specialAuthorizations.length) {
@@ -1006,6 +1014,7 @@ function addFreeformEntry() {
   const $cost = $('<div></div>');
   $cost
     .addClass('item-cost')
+    .on('keyup', (e) => { updateQuantity(e.target); })
     .append($costLabel, $costInput)
     .appendTo($item);
 
@@ -1020,7 +1029,7 @@ function addFreeformEntry() {
   const $doseInput = $('<input type="text">');
   $doseInput
     .attr('id', doseID)
-    .on('keyup', () => { updateQuantity(this); })
+    .on('keyup', (e) => { updateQuantity(e.target); })
     .val(1);
 
   const $dose = $('<div></div>');
@@ -1040,7 +1049,7 @@ function addFreeformEntry() {
   const $supplyInput = $('<input type="text">');
   $supplyInput
     .attr('id', supplyID)
-    .on('keyup', () => { updateQuantity(this); })
+    .on('keyup', (e) => { updateQuantity(e.target); })
     .val(100);
 
   const $supply = $('<div></div>');
@@ -1060,7 +1069,7 @@ function addFreeformEntry() {
   const $quantityInput = $('<input type="text">');
   $quantityInput
     .attr('id', quantityID)
-    .on('keyup', () => { updateSupply(this); })
+    .on('keyup', (e) => { updateSupply(e.target); })
     .val(100);
 
   const $quantity = $('<div></div>');
@@ -1090,13 +1099,13 @@ function addFreeformEntry() {
   const $infoButton = $('<input type="button">');
   $infoButton
     .addClass('info')
-    .on('click', () => { showInfo(this); })
+    .on('click', (e) => { showInfo(e.target); })
     .val('Information');
 
   const $deleteButton = $('<input type="button">');
   $deleteButton
     .addClass('delete')
-    .on('click', () => { removeRow(this); })
+    .on('click', (e) => { removeRow(e.target); })
     .val('Delete');
 
   const $buttons = $('<div></div>');
@@ -1269,7 +1278,7 @@ function processResult(originalResults) {
   const $doseInput = $('<input type="text">');
   $doseInput
     .attr('id', doseID)
-    .on('keyup', () => { updateQuantity(this); })
+    .on('keyup', (e) => { updateQuantity(e.target); })
     .val(1);
 
   const $dose = $('<div></div>');
@@ -1289,7 +1298,7 @@ function processResult(originalResults) {
   const $supplyInput = $('<input type="text">');
   $supplyInput
     .attr('id', supplyID)
-    .on('keyup', () => { updateQuantity(this); })
+    .on('keyup', (e) => { updateQuantity(e.target); })
     .val(100);
 
   const $supply = $('<div></div>');
@@ -1309,7 +1318,7 @@ function processResult(originalResults) {
   const $quantityInput = $('<input type="text">');
   $quantityInput
     .attr('id', quantityID)
-    .on('keyup', () => { updateSupply(this); })
+    .on('keyup', (e) => { updateSupply(e.target); })
     .val(100);
 
   const $quantity = $('<div></div>');
@@ -1345,7 +1354,7 @@ function processResult(originalResults) {
   const $deleteButton = $('<input type="button">');
   $deleteButton
     .addClass('delete')
-    .on('click', () => { removeRow(this); })
+    .on('click', (e) => { removeRow(e.target); })
     .val('Delete');
 
   const $buttons = $('<div></div>');
