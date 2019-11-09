@@ -169,8 +169,8 @@
 	</div>
 
 	<!-- JS Files -->
-	<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-  <script src="{% static 'js/functions.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
   {% include "sentry.html" %}
   {% include "owa.html" %}
 	{% block js %}{% endblock %}

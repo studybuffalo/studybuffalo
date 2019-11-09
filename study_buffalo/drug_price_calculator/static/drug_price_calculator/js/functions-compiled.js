@@ -660,6 +660,7 @@ function showInfo(infoButton) {
   } // Add any coverage criteria
   // TODO: create a pop-up window to display criteria
 
+
   var criteria = [];
 
   if ($option.length) {
@@ -719,12 +720,12 @@ function showInfo(infoButton) {
 
   var $saFormTitle = $('<p></p>');
   var $saForm = $('<ul></ul>');
-
   var specialAuthorizations = [];
 
   if ($option.length) {
     specialAuthorizations = JSON.parse($option.attr('data-special-authorizations'));
   } // If special authorizations present, add title
+
 
   if (specialAuthorizations.length) {
     $saFormTitle.append($('<strong></strong>').text('Special Authorization Forms')).addClass('MT1em').appendTo($infoDiv);
@@ -800,7 +801,6 @@ function addFreeformEntry() {
   var $costInput = $('<input type="text">');
   $costInput.attr('id', costID);
   var $cost = $('<div></div>');
-
   $cost.addClass('item-cost').on('keyup', function (e) {
     updateQuantity(e.target);
   }).append($costLabel, $costInput).appendTo($item); // Does Per Day
@@ -809,10 +809,8 @@ function addFreeformEntry() {
   var $doseLabel = $('<label></label>');
   $doseLabel.attr('for', doseID).text('Doses Per Day');
   var $doseInput = $('<input type="text">');
-
   $doseInput.attr('id', doseID).on('keyup', function (e) {
     updateQuantity(e.target);
-
   }).val(1);
   var $dose = $('<div></div>');
   $dose.addClass('item-dose').append($doseLabel, $doseInput).appendTo($item); // Day Supply
@@ -821,10 +819,8 @@ function addFreeformEntry() {
   var $supplyLabel = $('<label></label>');
   $supplyLabel.attr('for', supplyID).text('Day Supply');
   var $supplyInput = $('<input type="text">');
-
   $supplyInput.attr('id', supplyID).on('keyup', function (e) {
     updateQuantity(e.target);
-
   }).val(100);
   var $supply = $('<div></div>');
   $supply.addClass('item-supply').append($supplyLabel, $supplyInput).appendTo($item); // Quantity
@@ -833,10 +829,8 @@ function addFreeformEntry() {
   var $quantityLabel = $('<label></label>');
   $quantityLabel.attr('for', quantityID).text('Quantity');
   var $quantityInput = $('<input type="text">');
-
   $quantityInput.attr('id', quantityID).on('keyup', function (e) {
     updateSupply(e.target);
-
   }).val(100);
   var $quantity = $('<div></div>');
   $quantity.addClass('item-quantity').append($quantityLabel, $quantityInput).appendTo($item); // Price
@@ -850,14 +844,12 @@ function addFreeformEntry() {
   $price.addClass('item-price').append($priceLabel, $priceDiv).appendTo($item); // Info and Delete Buttons
 
   var $infoButton = $('<input type="button">');
-
   $infoButton.addClass('info').on('click', function (e) {
     showInfo(e.target);
   }).val('Information');
   var $deleteButton = $('<input type="button">');
   $deleteButton.addClass('delete').on('click', function (e) {
     removeRow(e.target);
-
   }).val('Delete');
   var $buttons = $('<div></div>');
   $buttons.addClass('item-buttons').append($infoButton, $deleteButton).appendTo($item); // Add the completed $item to the $content container
@@ -952,10 +944,8 @@ function processResult(originalResults) {
   var $doseLabel = $('<label></label>');
   $doseLabel.attr('for', doseID).text('Doses Per Day');
   var $doseInput = $('<input type="text">');
-
   $doseInput.attr('id', doseID).on('keyup', function (e) {
     updateQuantity(e.target);
-
   }).val(1);
   var $dose = $('<div></div>');
   $dose.addClass('item-dose').append($doseLabel, $doseInput).appendTo($item); // Day Supply
@@ -964,10 +954,8 @@ function processResult(originalResults) {
   var $supplyLabel = $('<label></label>');
   $supplyLabel.attr('for', supplyID).text('Day Supply');
   var $supplyInput = $('<input type="text">');
-
   $supplyInput.attr('id', supplyID).on('keyup', function (e) {
     updateQuantity(e.target);
-
   }).val(100);
   var $supply = $('<div></div>');
   $supply.addClass('item-supply').append($supplyLabel, $supplyInput).appendTo($item); // Quantity
@@ -976,10 +964,8 @@ function processResult(originalResults) {
   var $quantityLabel = $('<label></label>');
   $quantityLabel.attr('for', quantityID).text('Quantity');
   var $quantityInput = $('<input type="text">');
-
   $quantityInput.attr('id', quantityID).on('keyup', function (e) {
     updateSupply(e.target);
-
   }).val(100);
   var $quantity = $('<div></div>');
   $quantity.addClass('item-quantity').append($quantityLabel, $quantityInput).appendTo($item); // Price
@@ -997,10 +983,8 @@ function processResult(originalResults) {
     showInfo(e.currentTarget);
   }).val('Information');
   var $deleteButton = $('<input type="button">');
-
   $deleteButton.addClass('delete').on('click', function (e) {
     removeRow(e.target);
-
   }).val('Delete');
   var $buttons = $('<div></div>');
   $buttons.addClass('item-buttons').append($infoButton, $deleteButton).appendTo($item); // Add the completed $item to the $content container
