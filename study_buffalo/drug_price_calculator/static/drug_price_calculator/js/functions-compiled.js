@@ -1,6 +1,7 @@
 "use strict";
 
 /* globals Sentry */
+// To compile via babel: // ./node_modules/.bin/babel <source file> -o <output file>
 // Global variables
 var ajaxTimer;
 /**
@@ -1304,14 +1305,13 @@ function chooseComparison(selection) {
 
 function printPrices() {
   var printPage = window.open().document;
-  var html = '';
   var $items = $('#price-table .item');
   var patientName = $('#Patient-Name').val();
-  html = '<head>' + '<link rel="stylesheet" type="text/css", href="/static/drug_price_calculator/css/print.css"></link>' + '<title>Medications Prices</title>' + '</head>';
+  var html = '<head>' + '<link rel="stylesheet" type="text/css", href="/static/drug_price_calculator/css/print.css"></link>' + '<title>Medications Prices</title>' + '</head>';
   html += '<body>'; // Header
 
   html += '<h1>';
-  html += patientName ? 'Medication Price List' : "Medication Price List for ".concat(patientName);
+  html += patientName ? "Medication Price List for ".concat(patientName) : 'Medication Price List';
   html += '</h1>'; // Table Header
 
   html += '<table>' + '<thead>' + '<tr>' + '<th>Medication</th>' + '<th>Day Supply</th>' + '<th>Quantity</th>' + '<th>Price</th>' + '</tr>' + '</thead>'; // Cycle through the table rows and enter them into the print table
