@@ -1,4 +1,7 @@
 /* globals Sentry */
+
+// To compile via babel: // ./node_modules/.bin/babel <source file> -o <output file>
+
 // Global variables
 let ajaxTimer;
 
@@ -1796,13 +1799,11 @@ function chooseComparison(selection) { // eslint-disable-line no-unused-vars
  */
 function printPrices() {
   const printPage = window.open().document;
-  let html = '';
 
   const $items = $('#price-table .item');
 
   const patientName = $('#Patient-Name').val();
-
-  html = (
+  let html = (
     '<head>'
     + '<link rel="stylesheet" type="text/css", href="/static/drug_price_calculator/css/print.css"></link>'
     + '<title>Medications Prices</title>'
@@ -1814,7 +1815,7 @@ function printPrices() {
   // Header
   html += '<h1>';
 
-  html += patientName ? 'Medication Price List' : `Medication Price List for ${patientName}`;
+  html += patientName ? `Medication Price List for ${patientName}` : 'Medication Price List';
 
   html += '</h1>';
 
