@@ -3,10 +3,10 @@ Study Buffalo
 
 |BuildStatus|_ |Coverage|_ |License|_
 
-.. |BuildStatus| image:: https://travis-ci.org/studybuffalo/studybuffalo.svg?branch=master
+.. |BuildStatus| image:: https://travis-ci.com/studybuffalo/studybuffalo.svg?branch=master
    :alt: Travis-CI build status
 
-.. _BuildStatus: https://travis-ci.org/studybuffalo/studybuffalo
+.. _BuildStatus: https://travis-ci.com/studybuffalo/studybuffalo
 
 .. |Coverage| image:: https://codecov.io/gh/studybuffalo/studybuffalo/branch/master/graph/badge.svg
    :alt: Codecov code coverage
