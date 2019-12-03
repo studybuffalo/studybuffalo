@@ -1,7 +1,9 @@
-from django.shortcuts import render, render_to_response
-from django.views import generic
-from .models import PlayPage
 from datetime import datetime
+
+from django.views import generic
+
+from .models import PlayPage
+
 
 class Index(generic.ListView):
     context_object_name = "play_page"
@@ -17,5 +19,5 @@ class Archive(generic.ListView):
 
 class PlayPageDetail(generic.DetailView):
     model = PlayPage
-    
+
     context_object_name = "play_page"
