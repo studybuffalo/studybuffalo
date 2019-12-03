@@ -46,7 +46,6 @@ pylint-django = "*" #https://github.com/PyCQA/pylint-django
 # -----------------------------------------------------------------------------
 factory_boy = "*"  # https://github.com/FactoryBoy/factory_boy
 pytest = "*"  # https://github.com/pytest-dev/pytest
-atomicwrites = "*"  # Added temporarily due to not being added with pytest
 pytest-cov = "*"  # https://github.com/pytest-dev/pytest-cov
 pytest-django = "*"  # https://github.com/pytest-dev/pytest-django
 pytest-pythonpath = "*"  # https://github.com/bigsassy/pytest-pythonpath
