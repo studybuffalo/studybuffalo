@@ -65,10 +65,10 @@
         },
         "botocore": {
             "hashes": [
-                "sha256:a45a65ba036bc980decfc3ce6c2688a2d5fffd76e4b02ea4d59e63ff0f6896d4",
-                "sha256:b12a5b642aa210a72d84204da18618276eeae052fbff58958f57d28ef3193034"
+                "sha256:036183d917429a7145b031c55e7c1b9ea24f0d034fc612669963e8a78e662d74",
+                "sha256:5540477cecdc6b86c5659b747ddc5e8bfde8b722fa3e3ddd909a2b4c57864d74"
             ],
-            "version": "==1.15.41"
+            "version": "==1.15.45"
         },
         "bs4": {
             "hashes": [
@@ -179,11 +179,11 @@
         },
         "django-simple-history": {
             "hashes": [
-                "sha256:3d56ca81de5a960b293dd8be31af991b976f319940e01c68ed10652dbd86aa58",
-                "sha256:831cfc3f1164627428be3cd38fb7268eb7a979f97f11018e55813a3ce23b1173"
+                "sha256:181c3eb6d13438acfecb4cf5351c367e850a90d34f6535b92b838ce9f56b6321",
+                "sha256:5e4a8acd26c2c28f895544be809899ce9b17870fafa6d69008693b2fbe46b6db"
             ],
             "index": "pypi",
-            "version": "==2.8.0"
+            "version": "==2.9.0"
         },
         "django-storages": {
             "hashes": [
@@ -218,9 +218,10 @@
         },
         "itypes": {
             "hashes": [
-                "sha256:c6e77bb9fd68a4bfeb9d958fea421802282451a25bac4913ec94db82a899c073"
+                "sha256:03da6872ca89d29aef62773672b2d408f490f80db48b23079a4b194c86dd04c6",
+                "sha256:af886f129dea4a2a1e3d36595a2d139589e4dd287f5cab0b40e799ee81570ff1"
             ],
-            "version": "==1.1.0"
+            "version": "==1.2.0"
         },
         "jinja2": {
             "hashes": [
