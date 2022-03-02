@@ -1,10 +1,7 @@
 Study Buffalo
 =============
 
-|BuildStatus|_ |Coverage|_ |License|_
-
-.. |BuildStatus| image:: https://travis-ci.com/studybuffalo/studybuffalo.svg?branch=master
-   :alt: Travis-CI build status
+|Coverage|_ |License|_
 
 .. _BuildStatus: https://travis-ci.com/studybuffalo/studybuffalo
 
