@@ -25,6 +25,7 @@ jobs:
     - name: Setup Database
       run: |
         cp config/settings/.study_buffalo.env config/settings/study_buffalo.env
+        service postgresql start
         psql -c "CREATE DATABASE study_buffalo;" -U postgres
         psql -c "CREATE USER study_buffalo WITH PASSWORD 'study_buffalo';" -U postgres
         psql -c "ALTER ROLE study_buffalo SET client_encoding TO 'utf8';" -U postgres
