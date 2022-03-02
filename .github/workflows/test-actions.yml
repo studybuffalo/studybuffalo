@@ -37,13 +37,14 @@ jobs:
       run: |
         cp config/settings/.study_buffalo.env config/settings/study_buffalo.env
         pipenv run python manage.py collectstatic --no-input
-    - uses: codecov/codecov-action@v2
+    - name: Run tests
+      run: |
+        pipenv run pytest --cov study_buffalo --cov-report xml
+    - name: Submit test coverage
+      uses: codecov/codecov-action@v2
       with:
         files: ./reports/coverage.xml
         flags: unittests
         name: studybuffalo-coverage
         fail_ci_if_error: true
         verbose: true
-    - name: Run tests
-      run: |
-        pipenv run pytest --cov study_buffalo --cov-report xml
