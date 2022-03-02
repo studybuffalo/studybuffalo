@@ -1,6 +1,6 @@
 name: Django Testing
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test:
@@ -40,3 +40,11 @@ jobs:
     - name: Run tests
       run: |
         pipenv run pytest --cov study_buffalo --cov-report xml
+    - name: Submit test coverage
+      uses: codecov/codecov-action@v2
+      with:
+        files: ./reports/coverage.xml
+        flags: unittests
+        name: studybuffalo-coverage
+        fail_ci_if_error: true
+        verbose: true
