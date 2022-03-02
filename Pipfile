@@ -33,6 +33,7 @@ coreapi = "*"  # https://github.com/core-api/python-client
 [dev-packages]
 # Code quality
 # -----------------------------------------------------------------------------
+pycodestyle = "*"  # https://github.com/pycqa/pycodestyle
 pylint = "*"  # https://github.com/PyCQA/pylint/
 
 # Django
