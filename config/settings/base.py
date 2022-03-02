@@ -35,7 +35,7 @@ DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///study_buffalo'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # URLS
 # ------------------------------------------------------------------------------
