@@ -1,4 +1,5 @@
 """Update primary key field type."""
+# pylint: disable=missing-class-docstring
 from django.db import migrations, models
 
 
