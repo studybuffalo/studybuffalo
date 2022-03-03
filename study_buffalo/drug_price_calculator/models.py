@@ -79,7 +79,7 @@ class Drug(models.Model):
 
     def __str__(self):
         if self.brand_name:
-            return '{} ({})'.format(self.brand_name, self.din)
+            return f'{self.brand_name} ({self.din})'
 
         return self.din
 
@@ -157,19 +157,19 @@ class ATC(models.Model):
 
     def __str__(self):
         if self.atc_5:
-            return '{} ({})'.format(self.atc_5, self.atc_5_text)
+            return f'{self.atc_5} ({self.atc_5_text})'
 
         if self.atc_4:
-            return '{} ({})'.format(self.atc_4, self.atc_4_text)
+            return f'{self.atc_4} ({self.atc_4_text})'
 
         if self.atc_3:
-            return '{} ({})'.format(self.atc_3, self.atc_3_text)
+            return f'{self.atc_3} ({self.atc_3_text})'
 
         if self.atc_2:
-            return '{} ({})'.format(self.atc_2, self.atc_2_text)
+            return f'{self.atc_2} ({self.atc_2_text})'
 
         if self.atc_1:
-            return '{} ({})'.format(self.atc_1, self.atc_1_text)
+            return f'{self.atc_1} ({self.atc_1_text})'
 
         return str(self.id)
 
@@ -235,16 +235,16 @@ class PTC(models.Model):
 
     def __str__(self):
         if self.ptc_4:
-            return '{} ({})'.format(self.ptc_4, self.ptc_4_text)
+            return f'{self.ptc_4} ({self.ptc_4_text})'
 
         if self.ptc_3:
-            return '{} ({})'.format(self.ptc_3, self.ptc_3_text)
+            return f'{self.ptc_3} ({self.ptc_3_text})'
 
         if self.ptc_2:
-            return '{} ({})'.format(self.ptc_2, self.ptc_2_text)
+            return f'{self.ptc_2} ({self.ptc_2_text})'
 
         if self.ptc_1:
-            return '{} ({})'.format(self.ptc_1, self.ptc_1_text)
+            return f'{self.ptc_1} ({self.ptc_1_text})'
 
         return str(self.id)
 
@@ -324,9 +324,9 @@ class Price(models.Model):
 
     def __str__(self):
         if self.drug.brand_name:
-            return '{} price ({})'.format(self.drug.brand_name, self.abc_id)
+            return f'{self.drug.brand_name} price ({self.abc_id})'
 
-        return '{} price ({})'.format(self.drug.din, self.abc_id)
+        return f'{self.drug.din} price ({self.abc_id})'
 
 class Clients(models.Model):
     """Holds details regarding which clients are covered."""
@@ -372,7 +372,7 @@ class Clients(models.Model):
         verbose_name_plural = 'clients'
 
     def __str__(self):
-        return '{} clients'.format(str(self.price))
+        return f'{str(self.price)} clients'
 
 class CoverageCriteria(models.Model):
     """Details on any coverage criteria."""
@@ -396,7 +396,7 @@ class CoverageCriteria(models.Model):
         verbose_name_plural = 'coverage criteria'
 
     def __str__(self):
-        return '{} coverage criteria'.format(str(self.price))
+        return f'{str(self.price)} coverage criteria'
 
 class SpecialAuthorization(models.Model):
     """Details on special authorization forms."""

@@ -1,16 +1,20 @@
+"""Admin configuration for the Drug Price Calculator application."""
 from django.contrib import admin
 
 from . import models
 
 
 class ClientsInlineAdmin(admin.TabularInline):
+    """Inline admin for Clients."""
     model = models.Clients
 
 class CoverageCriteriaInlineAdmin(admin.TabularInline):
+    """Inline admin for Coverage Criteria."""
     model = models.CoverageCriteria
     extra = 1
 
 class SpecialInlineAdmin(admin.TabularInline):
+    """Inline admin for Special Authorizations."""
     model = models.Price.special_authorizations.through
     extra = 1
 

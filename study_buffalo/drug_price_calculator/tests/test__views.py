@@ -28,7 +28,7 @@ def test__prices_coverage_criteria__template():
 
     client = Client()
     response = client.get(
-        '/tools/drug-price-calculator/coverage-criteria/{}/'.format(price.id)
+        f'/tools/drug-price-calculator/coverage-criteria/{price.id}/'
     )
 
     assert (
@@ -39,7 +39,7 @@ def test__prices_coverage_criteria__404_handling():
     """Tests price_coverage_criteria returns 404 if invalid price ID."""
     client = Client()
     response = client.get(
-        '/tools/drug-price-calculator/coverage-criteria/{}/'.format(0)
+        '/tools/drug-price-calculator/coverage-criteria/0/'
     )
 
     assert response.status_code == 404
@@ -53,7 +53,7 @@ def test__prices_coverage_criteria__context__criteria():
 
     client = Client()
     response = client.get(
-        '/tools/drug-price-calculator/coverage-criteria/{}/'.format(price.id)
+        f'/tools/drug-price-calculator/coverage-criteria/{price.id}/'
     )
 
     assert 'coverage_criteria' in response.context

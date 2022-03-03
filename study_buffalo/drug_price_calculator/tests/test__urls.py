@@ -32,7 +32,7 @@ def test__coverage_criteria__exists_at_desired_url():
 
     client = Client()
     response = client.get(
-        '/tools/drug-price-calculator/coverage-criteria/{}/'.format(price.id)
+        f'/tools/drug-price-calculator/coverage-criteria/{price.id}/'
     )
 
     assert response.status_code == 200
