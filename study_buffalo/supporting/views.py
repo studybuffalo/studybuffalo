@@ -16,7 +16,7 @@ from django.template.response import TemplateResponse
 from django.utils.http import http_date
 from django.views import generic
 
-from contact.forms import ContactForm, UnsubscribeForm
+from supporting.forms import ContactForm, UnsubscribeForm
 from updates.models import Update
 
 
