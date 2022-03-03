@@ -1,5 +1,6 @@
 from rest_framework.permissions import BasePermission
 
+
 class HasDrugPriceCalculatorAPIAccess(BasePermission):
     """Only permits users with explicit API access."""
     def has_permission(self, request, view):

@@ -4,6 +4,7 @@ import re
 from sentry_sdk import capture_message
 from drug_price_calculator import models
 
+
 def _remove_extra_white_space(text):
     """Removes extra whitespace within text."""
     return re.sub(r'\s{2,}', ' ', text)

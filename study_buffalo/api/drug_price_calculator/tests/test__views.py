@@ -9,6 +9,7 @@ from drug_price_calculator import models
 
 from .utils import create_token
 
+
 pytestmark = pytest.mark.django_db
 
 def create_drug(**kwargs):
