@@ -65,7 +65,6 @@ THIRD_PARTY_APPS = [
     'rest_framework.authtoken',
 ]
 LOCAL_APPS = [
-    'study_buffalo.aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
     'study_buffalo.dictionary.apps.DictionaryConfig',
     'study_buffalo.drug_price_calculator.apps.DrugPriceCalculatorConfig',
     'study_buffalo.hc_dpd.apps.HcDpdConfig',
