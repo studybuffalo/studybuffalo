@@ -248,14 +248,14 @@ ACCOUNT_ADAPTER = 'study_buffalo.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'study_buffalo.users.adapters.SocialAccountAdapter'
 ACCOUNT_UNIQUE_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
-    "facebook": {
-        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
-        "METHOD": "oauth2",
-        "SCOPE": ["email",],
+    'facebook': {
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'oauth2',
+        'SCOPE': ['email',],
     },
-    "google": {
-        "AUTH_PARAMS": {"access_type": "online"},
-        "SCOPE": ["email",],
+    'google': {
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'SCOPE': ['email',],
     }
 }
 
