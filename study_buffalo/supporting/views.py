@@ -1,4 +1,7 @@
-# TODO: Move this into a proper location
+"""Additional and (generally) static views to support the website."""
+from calendar import timegm
+import datetime
+from functools import wraps
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -6,22 +9,21 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.http import HttpResponseRedirect, Http404
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404
+from django.shortcuts import render, redirect
 from django.template.loader import get_template
 from django.template.response import TemplateResponse
 from django.utils.http import http_date
 from django.views import generic
 
-from .forms import ContactForm, UnsubscribeForm
-from functools import wraps
+from contact.forms import ContactForm, UnsubscribeForm
 from updates.models import Update
 
-import datetime
 
 class Index(generic.ListView):
-    context_object_name = "updates"
-    template_name = "index.html"
+    """View to create an index page for the updates section."""
+    context_object_name = 'updates'
+    template_name = 'index.html'
 
     def get_queryset(self):
         today = datetime.datetime.today()
@@ -35,7 +37,7 @@ def tools_index(request):
     """View for the tool page"""
     return render(
         request,
-        "tools_index.html",
+        'tools_index.html',
         context={},
     )
 
@@ -43,7 +45,7 @@ def alberta_adaptations_index(request):
     """View for the alberta adaptations page"""
     return render(
         request,
-        "alberta_adaptations_index.html",
+        'alberta_adaptations_index.html',
         context={},
     )
 
@@ -51,7 +53,7 @@ def design_index(request):
     """View for the design page"""
     return render(
         request,
-        "design_index.html",
+        'design_index.html',
         context={},
     )
 
@@ -59,7 +61,7 @@ def privacy_policy(request):
     """View for the privacy policy page"""
     return render(
         request,
-        "privacy_policy.html",
+        'privacy_policy.html',
         context={},
     )
 
@@ -67,7 +69,7 @@ def robot_policy(request):
     """View for the robot policy page"""
     return render(
         request,
-        "robot_policy.html",
+        'robot_policy.html',
         context={},
     )
 
@@ -81,25 +83,25 @@ def contact(request):
 
         # Check if the form is valid:
         if form.is_valid():
-            sender_name = form.cleaned_data["sender_name"]
-            sender_email = form.cleaned_data["sender_email"]
-            sender_subject = form.cleaned_data["sender_subject"]
-            message = form.cleaned_data["message"]
+            sender_name = form.cleaned_data['sender_name']
+            sender_email = form.cleaned_data['sender_email']
+            sender_subject = form.cleaned_data['sender_subject']
+            message = form.cleaned_data['message']
 
-            email_template = get_template("contact_email_template.txt")
+            email_template = get_template('contact_email_template.txt')
 
             email_content = email_template.render({
-                "sender_name": sender_name,
-                "sender_email": sender_email,
-                "message": message,
+                'sender_name': sender_name,
+                'sender_email': sender_email,
+                'message': message,
             })
 
             email = EmailMessage(
                 sender_subject,
                 email_content,
                 sender_email,
-                ["info@studybuffalo.com"],
-                headers = {"Reply-To": sender_email},
+                ['info@studybuffalo.com'],
+                headers = {'Reply-To': sender_email},
             )
 
             try:
@@ -110,21 +112,21 @@ def contact(request):
                 messages.success(
                     request,
                     (
-                        "Your message has been sent, we will get back "
-                        "to you as soon as we can."
+                        'Your message has been sent, we will get back '
+                        'to you as soon as we can.'
                     )
                 )
 
                 # redirect to a new URL:
-                return redirect("contact")
-            except Exception:
+                return redirect('contact')
+            except TypeError:
                 # Notify user of the error
                 messages.error(
                     request,
                     (
-                        "There was an error sending your message - "
-                        "please confirm your email has been entered "
-                        "properly"
+                        'There was an error sending your message - '
+                        'please confirm your email has been entered '
+                        'properly'
                     )
                 )
 
@@ -134,7 +136,7 @@ def contact(request):
 
     return render(
         request,
-        "contact.html",
+        'contact.html',
         context={'form': form},
     )
 
@@ -147,18 +149,18 @@ def unsubscribe(request):
 
         # Check if the form is valid:
         if form.is_valid():
-            sender_email = form.cleaned_data["email"]
+            sender_email = form.cleaned_data['email']
 
-            email_template = get_template("unsubscribe_email_template.txt")
+            email_template = get_template('unsubscribe_email_template.txt')
 
-            email_content = email_template.render({"email": sender_email})
+            email_content = email_template.render({'email': sender_email})
 
             email = EmailMessage(
-                "Email Unsubscribe Request",
+                'Email Unsubscribe Request',
                 email_content,
                 sender_email,
-                ["info@studybuffalo.com"],
-                headers = {"Reply-To": sender_email},
+                ['info@studybuffalo.com'],
+                headers = {'Reply-To': sender_email},
             )
 
             try:
@@ -166,15 +168,15 @@ def unsubscribe(request):
                 email.send()
 
                 # redirect to a new URL:
-                return redirect("unsubscribe_complete")
-            except Exception:
+                return redirect('unsubscribe_complete')
+            except TypeError:
                 # Notify user of the error
                 messages.error(
                     request,
                     (
-                        "There was an error processing your request - "
-                        "please confirm your email has been entered "
-                        "properly"
+                        'There was an error processing your request - '
+                        'please confirm your email has been entered '
+                        'properly'
                     )
                 )
 
@@ -184,14 +186,15 @@ def unsubscribe(request):
 
     return render(
         request,
-        "unsubscribe.html",
-        context={"form": form},
+        'unsubscribe.html',
+        context={'form': form},
     )
 
 def unsubscribe_complete(request):
+    """View to render confirmation of successful unsubscribe."""
     return render(
         request,
-        "unsubscribe_complete.html",
+        'unsubscribe_complete.html',
         context={},
     )
 
@@ -200,12 +203,12 @@ def account_profile(request):
     """The user profile page"""
     return render(
         request,
-        "account/profile.html",
+        'account/profile.html',
         context={},
     )
 
-
 def x_robots_tag(func):
+    """Adds tag no announce no indexing by robots"""
     @wraps(func)
     def inner(request, *args, **kwargs):
         response = func(request, *args, **kwargs)
@@ -225,12 +228,12 @@ def custom_sitemap(request,
 
     if section is not None:
         if section not in sitemaps:
-            raise Http404("No sitemap available for section: %r" % section)
+            raise Http404(f'No sitemap available for section: {section}')
         maps = [sitemaps[section]]
     else:
         maps = sitemaps.values()
 
-    page = request.GET.get("p", 1)
+    page = request.GET.get('p', 1)
 
     lastmod = None
     all_sites_lastmod = True
@@ -253,10 +256,10 @@ def custom_sitemap(request,
                     lastmod = site_lastmod if lastmod is None else max(lastmod, site_lastmod)
                 else:
                     all_sites_lastmod = False
-        except EmptyPage:
-            raise Http404("Page %s empty" % page)
-        except PageNotAnInteger:
-            raise Http404("No page '%s'" % page)
+        except EmptyPage as empty_page_error:
+            raise Http404(f'Page {page} empty') from empty_page_error
+        except PageNotAnInteger as not_an_integer:
+            raise Http404(f'No page {page}') from not_an_integer
 
     # Create filters for the various pages
     play_urls = []
@@ -266,19 +269,16 @@ def custom_sitemap(request,
     other_urls = []
 
     for url in urls:
-        try:
-            if url["section"] == "play":
-                play_urls.append(url)
-            elif url["section"] == "study":
-                study_urls.append(url)
-            elif url["section"] == "tools":
-                tools_urls.append(url)
-            elif url["section"] == "read":
-                read_urls.append(url)
-            else:
-                other_urls.append(url)
-        except Exception as e:
-            print(e)
+        if url['section'] == 'play':
+            play_urls.append(url)
+        elif url['section'] == 'study':
+            study_urls.append(url)
+        elif url['section'] == 'tools':
+            tools_urls.append(url)
+        elif url['section'] == 'read':
+            read_urls.append(url)
+        else:
+            other_urls.append(url)
 
     # Context modified to include various filtered URL sets
     response = TemplateResponse(request,

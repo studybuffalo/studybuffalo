@@ -1,16 +1,17 @@
-# TODO: Move this into a proper location
-
+"""Views and objects to support creation of a sitemap."""
 from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
+
 from play.models import PlayPage
 from study.models import Guide
 from read.models import Publication
 
-from django.urls import reverse
 
 class CustomSitemap(Sitemap):
     """Extends the Sitemap model to allow specifying a group section"""
     def __init__(self, section):
         self.section = section
+        self.latest_lastmod = None
 
     def __get(self, name, obj, default=None):
         try:
@@ -28,7 +29,7 @@ class CustomSitemap(Sitemap):
         all_items_lastmod = True  # track if all items have a lastmod
 
         for item in self.paginator.page(page).object_list:
-            loc = "%s://%s%s" % (protocol, domain, self.__get('location', item))
+            loc = f'{protocol}://{domain}{self.__get("location", item)}'
             priority = self.__get('priority', item)
             lastmod = self.__get('lastmod', item)
 
@@ -55,10 +56,8 @@ class CustomSitemap(Sitemap):
 
         return urls
 
-    def test(self):
-        return "test"
-
 class PlaySitemap(CustomSitemap):
+    """Sitemap class for the Play app."""
     changefreq = "weekly"
     priority = 0.7
     section = "play"
@@ -67,9 +66,11 @@ class PlaySitemap(CustomSitemap):
         return PlayPage.objects.all()
 
     def lastmod(self, item):
+        """Returns the last modified date for an item."""
         return item.release_date
 
 class StudySitemap(CustomSitemap):
+    """Sitemap class for the Study app."""
     changefreq = "weekly"
     priority = 0.7
 
@@ -77,9 +78,11 @@ class StudySitemap(CustomSitemap):
         return Guide.objects.all()
 
     def lastmod(self, item):
+        """Returns the last modified date for an item."""
         return item.last_update
 
 class ReadSitemap(CustomSitemap):
+    """Sitemap class for the Read app."""
     changefreq = "weekly"
     priority = 0.7
 
@@ -87,9 +90,11 @@ class ReadSitemap(CustomSitemap):
         return Publication.objects.all()
 
     def lastmod(self, item):
+        """Returns the last modified date for an item."""
         return item.date_published
 
 class ToolSitemap(CustomSitemap):
+    """Sitemap class for the Tools app."""
     changefreq = "weekly"
     priority = 0.7
 
@@ -107,6 +112,7 @@ class ToolSitemap(CustomSitemap):
 
 
 class StaticViewSitemap(CustomSitemap):
+    """Sitemap class for the static pages app."""
     changefreq = "weekly"
     priority = 0.7
 

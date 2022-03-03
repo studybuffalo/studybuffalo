@@ -1,9 +1,10 @@
-# TODO: Move this into a proper location
+"""Forms for the contact pages."""
 
 from django import forms
-from django.core.exceptions import ValidationError
+
 
 class ContactForm(forms.Form):
+    """Form for the contact page."""
     sender_name = forms.CharField(
         label="Your name",
     )
@@ -39,6 +40,7 @@ class ContactForm(forms.Form):
     )
 
 class UnsubscribeForm(forms.Form):
+    """Form to unsubscribe from any mailing lists."""
     email = forms.EmailField(
         error_messages={
             "required": "Please provide an email to unsubscribe",

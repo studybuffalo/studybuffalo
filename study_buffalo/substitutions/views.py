@@ -15,7 +15,7 @@ def binary_search(search_list, word):
 
     # Look for match
     i = bisect_left(search_list, word)
-    
+
     # If match found, return the corresponding object
     if i != len(search_list) and search_list[i] == word:
         return True
@@ -51,7 +51,7 @@ def dictionary_check(dictionary, words):
         # Search for the matched word in the dictionary
         regular_search = binary_search(dictionary, word.group())
         lower_case_search =  binary_search(
-            dictionary, 
+            dictionary,
             "{}{}".format(word.group()[:1].lower(), word.group()[1:])
         )
 
@@ -60,7 +60,7 @@ def dictionary_check(dictionary, words):
             # Word found, can add matched word normally
             return_text = "{}{}".format(
                 return_text, words[word_start:word_end]
-            ) 
+            )
         else:
             # Word not found, mark as missing
             return_text = "{}<span class='missing'>{}</span>".format(
@@ -82,16 +82,16 @@ def dashboard(request):
 
     # Get all the apps
     apps_list = Apps.objects.all()
-    
+
     # For each app, get the number of substitutions
     for app in apps_list:
         # Get a reference to the monitored pending sub model
         model_pending = apps.get_model(app.app_name, app.model_pending)
-        
+
 
         # Get the verbose name (if available) or default name
         try:
-            pending_name = model_pending._meta.verbose_name 
+            pending_name = model_pending._meta.verbose_name
         except AttributeError:
             pending_name = app.model_pending
 
@@ -116,7 +116,7 @@ def dashboard(request):
                 "app_name": app_name,
                 "data": [model_data]
             }
-        
+
     return render(
         request,
         "substitutions/dashboard.html",
@@ -227,7 +227,7 @@ def retrieve_entries(request):
             response = retrieve_pending_entries(app_id, last_id, request_num)
 
     return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder), 
+        json.dumps(response, cls=DjangoJSONEncoder),
         content_type="application/json",
     )
 
@@ -306,7 +306,7 @@ def verify(request):
         }
 
     return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder), 
+        json.dumps(response, cls=DjangoJSONEncoder),
         content_type="application/json",
     )
 
@@ -379,6 +379,6 @@ def delete_pend(request):
         }
 
     return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder), 
+        json.dumps(response, cls=DjangoJSONEncoder),
         content_type="application/json",
     )
