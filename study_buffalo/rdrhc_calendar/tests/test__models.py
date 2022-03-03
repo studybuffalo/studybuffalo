@@ -37,7 +37,7 @@ def test__calendar_user__role_choices(calendar_user):
 
 def test__calendar_user__str(calendar_user):
     """Tests CalendarUser __str__ method."""
-    assert str(calendar_user) == '{} - {}'.format(calendar_user.role, calendar_user.name)
+    assert str(calendar_user) == f'{calendar_user.role} - {calendar_user.name}'
 
 def test__stat_holiday__labels():
     """Tests the labels of StatHoliday."""
@@ -127,9 +127,7 @@ def test__shift_code__unique_together_validation(user):
 
 def test__shift_code__str__with_user(shift_code):
     """Tests ShiftCode __str__  method with a user."""
-    assert str(shift_code) == '{} - {} - {}'.format(
-        shift_code.get_role_display(), shift_code.sb_user, shift_code.code
-    )
+    assert str(shift_code) == f'{shift_code.get_role_display()} - {shift_code.sb_user} - {shift_code.code}'
 
 def test__shift_code__str__without_user():
     """Tests ShiftCode __str__  method without a user."""
@@ -138,9 +136,7 @@ def test__shift_code__str__without_user():
         role='p',
     )
 
-    assert str(shift_code) == '{} - {}'.format(
-        shift_code.get_role_display(), shift_code.code
-    )
+    assert str(shift_code) == f'{shift_code.get_role_display()} - {shift_code.code}'
 
 def test__shift__labels(shift):
     """Tests Shift labels."""
@@ -155,7 +151,7 @@ def test__shift__max_lengths(shift):
 
 def test__shift__str(shift):
     """Test Shift __str__ method."""
-    assert str(shift) == '{} - {}'.format(shift.date, shift.shift_code)
+    assert str(shift) == f'{shift.date} - {shift.shift_code}'
 
 def test__missing_shift_code__labels(missing_shift_code):
     """Test MissingShiftCode labels."""
@@ -177,6 +173,4 @@ def test__missing_shift_code__role_choices(missing_shift_code):
 
 def test__missing_shift_code__str(missing_shift_code):
     """Test MissingShiftCode __str__ method."""
-    assert str(missing_shift_code) == '{} - {}'.format(
-        missing_shift_code.code, missing_shift_code.role
-    )
+    assert str(missing_shift_code) == f'{missing_shift_code.code} - {missing_shift_code.role}'

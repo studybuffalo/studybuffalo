@@ -33,6 +33,7 @@ def create_token(user):
     return Token.objects.create(user=user)
 
 def create_stat_holidays():
+    """Utility to create example Statutory holidays."""
     StatHoliday.objects.create(date='2011-01-01')
     StatHoliday.objects.create(date='2012-02-02')
     StatHoliday.objects.create(date='2013-03-03')

@@ -1,3 +1,4 @@
+"""Views for the RDRHC Calendar app."""
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -24,6 +25,7 @@ def calendar_index(request):
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_settings(request):
+    """View for a user's calendar settings."""
     user_settings = get_object_or_404(CalendarUser, sb_user=request.user.id)
 
     # If this is a POST request then process the Form data
@@ -51,6 +53,7 @@ def calendar_settings(request):
     )
 
 class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
+    """List view for a user's Shift Codes."""
     permission_required = 'rdrhc_calendar.can_view'
     context_object_name = 'shift_code_list'
     template_name = 'rdrhd_calendar/shiftcode_list.html'
@@ -65,6 +68,7 @@ class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_code_edit(request, code_id):
+    """View to edit a user's shift code."""
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(
         ShiftCode,
@@ -98,6 +102,7 @@ def calendar_code_edit(request, code_id):
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_code_add(request):
+    """View to add a calendar shift code for a user."""
     # Collect the user data
     sb_user = request.user
     calendar_user = get_object_or_404(CalendarUser, sb_user=sb_user)
@@ -129,6 +134,7 @@ def calendar_code_add(request):
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_code_delete(request, code_id):
+    """View to delete a user's calendar code."""
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(
         ShiftCode,
@@ -150,6 +156,7 @@ def calendar_code_delete(request, code_id):
     )
 
 class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
+    """List view for missing shift codes."""
     permission_required = 'rdrhc_calendar.can_add_default_codes'
     context_object_name = 'shift_code_list'
     template_name = 'missingshiftcode_list.html'
@@ -160,6 +167,7 @@ class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
 @login_required
 @permission_required('rdrhc_calendar.can_add_default_codes', raise_exception=True)
 def missing_code_edit(request, code_id):
+    """View to edit a missing shift code for a user."""
     # Get the Shift Code instance for this user
     missing_code_instance = get_object_or_404(MissingShiftCode, id=code_id)
 
@@ -199,6 +207,7 @@ def missing_code_edit(request, code_id):
 @login_required
 @permission_required('rdrhc_calendar.can_add_default_codes', raise_exception=True)
 def missing_code_delete(request, code_id):
+    """View to delete a missing shift code for a user."""
     # Get the Shift Code instance for this user
     shift_code_instance = get_object_or_404(MissingShiftCode, id=code_id)
 

@@ -4,7 +4,6 @@ import pytest
 from django.test import Client
 from django.urls import reverse
 
-from rdrhc_calendar import models, views
 from rdrhc_calendar.tests import utils
 
 
@@ -44,6 +43,7 @@ def test__calendar_index__200_response_if_authorized(user):
     assert response.status_code == 200
 
 def test__calendar_index__url_exists_at_desired_location(user):
+    """Test for 200 response for the RDRHC Calendar index page."""
     # Add permission to user
     utils.add_view_permission(user)
 
@@ -63,6 +63,7 @@ def test__calendar_settings__302_response_if_not_logged_in():
     assert response.status_code == 302
 
 def test__calendar_settings__403_response_if_not_authorized(user):
+    """Tests for 403 response when user is not authorized to view settings page."""
     # Set up client and response
     client = Client()
     client.force_login(user=user)
@@ -223,7 +224,7 @@ def test__calendar_code_edit__url_exists_at_desired_location(shift_code):
     # Set up client and response
     client = Client()
     client.force_login(user=shift_code.sb_user)
-    response = client.get('/rdrhc-calendar/shifts/{}/'.format(shift_code.id))
+    response = client.get(f'/rdrhc-calendar/shifts/{shift_code.id}/')
 
     assert response.status_code == 200
 
@@ -311,7 +312,7 @@ def test__calendar_code_delete__404_response_if_authorized_but_no_calendar(shift
     # Set up client and response
     client = Client()
     client.force_login(user=shift_code.sb_user)
-    response = client.get(reverse(
+    client.get(reverse(
         'rdrhc_calendar:code_delete',
         kwargs={'code_id': shift_code.id},
     ))
@@ -342,7 +343,7 @@ def test__calendar_code_delete__url_exists_at_desired_location(shift_code):
     client = Client()
     client.force_login(user=shift_code.sb_user)
     response = client.get(
-        '/rdrhc-calendar/shifts/delete/{}/'.format(shift_code.id)
+        f'/rdrhc-calendar/shifts/delete/{shift_code.id}/'
     )
 
     assert response.status_code == 200
@@ -436,7 +437,7 @@ def test__missing_code_edit__url_exists_at_desired_location(calendar_user, missi
     client = Client()
     client.force_login(user=calendar_user.sb_user)
     response = client.get(
-        '/rdrhc-calendar/missing-codes/edit/{}/'.format(missing_shift_code.id)
+        f'/rdrhc-calendar/missing-codes/edit/{missing_shift_code.id}/'
     )
 
     assert response.status_code == 200
@@ -489,7 +490,7 @@ def test__missing_code_delete__url_exists_at_desired_location(calendar_user, mis
     client = Client()
     client.force_login(user=calendar_user.sb_user)
     response = client.get(
-        '/rdrhc-calendar/missing-codes/delete/{}/'.format(missing_shift_code.id)
+        f'/rdrhc-calendar/missing-codes/delete/{missing_shift_code.id}/'
     )
 
     assert response.status_code == 200

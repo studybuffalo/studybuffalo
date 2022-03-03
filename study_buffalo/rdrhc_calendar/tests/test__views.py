@@ -8,13 +8,14 @@ from django.db import IntegrityError
 from django.test import Client
 from django.urls import reverse
 
-from rdrhc_calendar import models, views
+from rdrhc_calendar import models
 from rdrhc_calendar.tests import utils
 
 
 pytestmark = pytest.mark.django_db
 
 def mock_missing_code_edit_integrity_error(self):
+    """Mocks an integrity error for a missing code edit."""
     raise IntegrityError
 
 def test__calendar_index__template(user):
@@ -213,7 +214,7 @@ def test_entry_is_added_on_valid_post(calendar_user):
     # Set up client and response
     client = Client()
     client.force_login(user=calendar_user.sb_user)
-    response = client.post(reverse('rdrhc_calendar:code_add'), valid_data)
+    client.post(reverse('rdrhc_calendar:code_add'), valid_data)
 
     assert models.ShiftCode.objects.count() == shift_code_count + 1
 
@@ -260,7 +261,7 @@ def test__shift_code_delete__instance_deleted_on_valid_post(shift_code):
     # Set up client and response
     client = Client()
     client.force_login(user=shift_code.sb_user)
-    response = client.post(reverse(
+    client.post(reverse(
         'rdrhc_calendar:code_delete', kwargs={'code_id': shift_code.id}
     ))
 
@@ -422,7 +423,7 @@ def test__missing_code_delete__instance_deleted_on_valid_post(user, missing_shif
     # Set up client and response
     client = Client()
     client.force_login(user=user)
-    response = client.post(reverse(
+    client.post(reverse(
         'rdrhc_calendar:missing_code_delete', kwargs={'code_id': missing_shift_code.id}
     ))
 

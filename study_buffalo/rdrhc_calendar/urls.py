@@ -1,7 +1,8 @@
-from django.conf.urls import include
+"""URLs for the RDRHC Calendar app."""
 from django.urls import path
 
 from . import views
+
 
 app_name = 'rdrhc_calendar'
 
