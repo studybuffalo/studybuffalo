@@ -1,3 +1,4 @@
+"""Serializers for the RDRHC Calendar API."""
 from allauth.account.models import EmailAddress
 from rest_framework import serializers
 
@@ -5,6 +6,7 @@ from rdrhc_calendar import models
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """Seralizer for RDRHC Calendar users."""
     class Meta:
         model = models.CalendarUser
         fields = (
@@ -13,11 +15,13 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
 class EmailSerializer(serializers.ModelSerializer):
+    """Serializer for RDRHC Calendar user email."""
     class Meta:
         model = EmailAddress
         fields = ('email',)
 
 class ShiftCodesSerializer(serializers.ModelSerializer):
+    """Serializer for RDRHC Calendar shift code."""
     class Meta:
         model = models.ShiftCode
         fields = (
@@ -33,16 +37,19 @@ class ShiftCodesSerializer(serializers.ModelSerializer):
         )
 
 class StatHolidaySerializer(serializers.ModelSerializer):
+    """Serializer for RDRHC Calendar statutory holidays."""
     class Meta:
         model = models.StatHoliday
         fields = ('date',)
 
 class ShiftSerializer(serializers.ModelSerializer):
+    """Serializer for RDRHC Calendar shift."""
     class Meta:
         model = models.Shift
         fields = ('id', 'sb_user', 'date', 'shift_code', 'text_shift_code',)
 
 class MissingShiftCodeSerializer(serializers.ModelSerializer):
+    """Serializer for RDRHC Calendar missing shift."""
     class Meta:
         model = models.MissingShiftCode
         fields = ('id', 'code', 'role',)
