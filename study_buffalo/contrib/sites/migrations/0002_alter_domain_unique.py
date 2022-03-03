@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring,missing-class-docstring,protected-access
 import django.contrib.sites.models
 from django.db import migrations, models
 
