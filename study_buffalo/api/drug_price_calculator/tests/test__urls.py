@@ -18,9 +18,9 @@ def test__upload__exists_at_desired_url(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 1}
     )
 

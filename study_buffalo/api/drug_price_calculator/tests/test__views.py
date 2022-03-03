@@ -13,6 +13,7 @@ from .utils import create_token
 pytestmark = pytest.mark.django_db
 
 def create_drug(**kwargs):
+    """Helper function to create a drug record."""
     din = kwargs.get('din', '12345678')
     generic_name = kwargs.get('generic_name', 'generic')
     brand_name = kwargs.get('brand_name', 'Brand')
@@ -41,9 +42,9 @@ def test__upload_idbl_data__valid(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 1}
     )
     content = json.loads(response.content)
@@ -63,9 +64,9 @@ def test__upload_idbl_data__invalid_din(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 1}
     )
     content = json.loads(response.content)
@@ -86,9 +87,9 @@ def test__upload_idbl_data__invalid_data(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        '/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 'a'}
     )
     content = json.loads(response.content)
@@ -113,7 +114,7 @@ def test__drug_list__valid():
 def test__drug_list__output_keys():
     """Tests DrugList view returns output with expected keys."""
     # Create a drug file
-    drug = create_drug()
+    create_drug()
 
     # Authenticate and make request
     client = APIClient()
@@ -185,9 +186,7 @@ def test__drug_price_list__valid():
     price_2 = drug_2.prices.last()
 
     # Authenticate and make request
-    url = '/api/drug-price-calculator/v1/drugs/prices/?ids={},{}'.format(
-        drug_1.id, drug_2.id
-    )
+    url = f'/api/drug-price-calculator/v1/drugs/prices/?ids={drug_1.id},{drug_2.id}'
 
     client = APIClient()
     response = client.get(url)
@@ -201,7 +200,7 @@ def test__drug_price_list__missing_ids():
     """Tests DrugPriceList view returns error if ids parameter missing."""
     # Create a drug file
     drug = create_drug()
-    price = drug.prices.last()
+    drug.prices.last()
 
     # Authenticate and make request
     url = '/api/drug-price-calculator/v1/drugs/prices/'
@@ -212,27 +211,11 @@ def test__drug_price_list__missing_ids():
 
     assert content['detail'] == 'No IDs provided in query.'
 
-def test__drug_price_list__missing_ids():
-    """Tests DrugPriceList view returns error if no ids provided."""
-    # Create a drug file
-    drug = create_drug()
-    price = drug.prices.last()
-
-    # Authenticate and make request
-    url = '/api/drug-price-calculator/v1/drugs/prices/?ids='
-
-    client = APIClient()
-    response = client.get(url)
-
-    content = json.loads(response.content)
-
-    assert content['detail'] == 'No IDs provided in query.'
-
 def test__drug_price_list__invalid_id_format():
     """Tests DrugPriceList view returns error if no ids provided."""
     # Create a drug file
     drug = create_drug()
-    price = drug.prices.last()
+    drug.prices.last()
 
     # Authenticate and make request
     url = '/api/drug-price-calculator/v1/drugs/prices/?ids=a'

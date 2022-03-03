@@ -1,3 +1,4 @@
+"""Custom permissions for the Drug Price Calculator API."""
 from rest_framework.permissions import BasePermission
 
 

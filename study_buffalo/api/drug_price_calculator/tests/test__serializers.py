@@ -233,7 +233,7 @@ def test__idbl_data_serializer__valid__atc():
 def test__idbl_data_serializer__get_atc_instance__missing():
     """Tests handling of just a valid atc."""
     # Create ATC instances
-    atc = models.ATC.objects.create(
+    models.ATC.objects.create(
         id='A11BC22', atc_1='A', atc_1_text='description 1',
         atc_2='A11', atc_2_text='description 2', atc_3='A11B', atc_3_text='description 3',
         atc_4='A11BC', atc_4_text='description 4', atc_5='A11BC22', atc_5_text='description 5',
@@ -255,7 +255,7 @@ def test__idbl_data_serializer__get_atc_instance__missing():
 
     # Confirm data is valid and save serializer
     serializer.is_valid()
-    drug = serializer.save()
+    serializer.save()
 
     # Confirm new ATC was made with proper details
     new_atc = models.ATC.objects.get(id='A11BC33')
@@ -501,8 +501,8 @@ def test__idbl_data_serializer__valid__clients():
     # Get the price model for this drug
     price = drug.prices.last()
 
-    assert price.clients.group_1 == True
-    assert price.clients.group_66 == False
+    assert price.clients.group_1 is True
+    assert price.clients.group_66 is False
 
 def test__idbl_data_serializer__valid__special_authorization():
     """Tests handling of just a valid special_authorization."""

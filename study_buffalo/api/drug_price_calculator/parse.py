@@ -1,7 +1,6 @@
 """Functions to parse iDBL data for insertion into database."""
 import re
 
-from sentry_sdk import capture_message
 from drug_price_calculator import models
 
 
@@ -19,7 +18,7 @@ def _convert_to_title_case(text):
     text = text.title()
 
     # Correct errors with apostrophes and 's'
-    text = re.sub(r"'S\b", "'s", text)
+    text = re.sub(r'\'S\b', '\'s', text)
 
     return text
 
@@ -55,7 +54,7 @@ def _parse_strength(text):
 
     # Apply any substitutions
     for sub in unit_subs:
-        text = re.sub(r'\b%s\b' % sub.original, sub.correction, text)
+        text = re.sub(fr'\b{sub.original}\b', sub.correction, text)
 
     return text
 
@@ -303,6 +302,6 @@ def assemble_generic_product(bsrf, generic_name):
         description.append(bsrf['dosage_form'])
 
     if description:
-        return '{} ({})'.format(generic_name, ' '.join(description))
+        return f'{generic_name} ({" ".join(description)})'
 
     return generic_name

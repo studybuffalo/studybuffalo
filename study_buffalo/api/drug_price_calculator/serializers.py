@@ -9,6 +9,7 @@ from api.drug_price_calculator import parse
 
 
 class iDBLClientsSerializer(serializers.Serializer):
+    """Serializer for the iDBL Clients."""
     group_1 = serializers.BooleanField(
         allow_null=True,
         default=False,
@@ -67,6 +68,7 @@ class iDBLClientsSerializer(serializers.Serializer):
         pass
 
 class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
+    """Serializer for Special Authorization details."""
     file_name = serializers.CharField(
         help_text='The name of the PDF file',
         max_length=15,
@@ -83,6 +85,7 @@ class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
         pass
 
 class iDBLCoverageCriteriaSerializer(serializers.Serializer):
+    """Serializer for Coverage Criteria."""
     header = serializers.CharField(
         allow_null=True,
         help_text='Any header for this criteria',
@@ -260,8 +263,8 @@ class iDBLDataSerializer(serializers.Serializer):
                 atc.save()
             else:
                 # No matches for other ATC does send message
-                message = 'No Matching ATC model for FK {} (DIN: {})'.format(
-                    self.validated_data['ptc'], self.validated_data['din']
+                message = (
+                    f'No Matching ATC model for FK {self.validated_data["ptc"]} (DIN: {self.validated_data["din"]})'
                 )
                 capture_message(message=message, level=20)
 
@@ -278,8 +281,8 @@ class iDBLDataSerializer(serializers.Serializer):
 
         if created:
             # Send message to notify of missing PTC data
-            message = 'No Matching PTC model for FK {} (DIN: {})'.format(
-                self.validated_data['ptc'], self.validated_data['din']
+            message = (
+                f'No Matching PTC model for FK {self.validated_data["ptc"]} (DIN: {self.validated_data["din"]})'
             )
             capture_message(message=message, level=20)
 
@@ -428,6 +431,7 @@ class iDBLDataSerializer(serializers.Serializer):
         return True
 
 class DrugListSerializer(serializers.ModelSerializer):
+    """Serializer to list drugs."""
     class Meta:
         model = models.Drug
         fields = (
@@ -436,6 +440,7 @@ class DrugListSerializer(serializers.ModelSerializer):
         )
 
 class ATCDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide ATC details."""
     class Meta:
         model = models.ATC
         fields = (
@@ -445,6 +450,7 @@ class ATCDetailSerializer(serializers.ModelSerializer):
         )
 
 class PTCDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide PTC details."""
     class Meta:
         model = models.PTC
         fields = (
@@ -453,6 +459,7 @@ class PTCDetailSerializer(serializers.ModelSerializer):
         )
 
 class DrugDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide drug details."""
     atc = ATCDetailSerializer()
     ptc = PTCDetailSerializer()
 
@@ -465,6 +472,7 @@ class DrugDetailSerializer(serializers.ModelSerializer):
         )
 
 class ClientsDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide details on clients."""
     class Meta:
         model = models.Clients
         fields = (
@@ -474,16 +482,19 @@ class ClientsDetailSerializer(serializers.ModelSerializer):
         )
 
 class SpecialAuthorizationDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide details on Special Authorization."""
     class Meta:
         model = models.SpecialAuthorization
         fields = ('file_name', 'pdf_title')
 
 class CoverageCriteriaDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide details on Coverage Criteria."""
     class Meta:
         model = models.CoverageCriteria
         fields = ('header', 'criteria')
 
 class DrugPriceListSerializer(serializers.ModelSerializer):
+    """Serializer to provide drug price list."""
     drug = DrugDetailSerializer()
     clients = ClientsDetailSerializer()
     special_authorizations = SpecialAuthorizationDetailSerializer(many=True)

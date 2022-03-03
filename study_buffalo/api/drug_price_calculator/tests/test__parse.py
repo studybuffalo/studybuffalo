@@ -44,8 +44,8 @@ def test__convert_to_title_case__normal():
 
 def test__convert_to_title_case__with_apostrophe():
     """Tests _convert_to_title_case handles words with "'s"."""
-    output = parse._convert_to_title_case("aaa's BBB's")
-    assert output == "Aaa's Bbb's"
+    output = parse._convert_to_title_case('aaa\'s BBB\'s')
+    assert output == 'Aaa\'s Bbb\'s'
 
 def test__parse_brand_name__normal():
     """Tests _parse_brand_name handling of normal string."""

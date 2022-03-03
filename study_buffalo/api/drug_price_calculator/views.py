@@ -13,9 +13,11 @@ from api.drug_price_calculator import serializers
 
 
 class UploadiDBLData(GenericAPIView):
+    """Serializer to upload iDBL Data."""
     serializer_class = serializers.iDBLDataSerializer
 
     def post(self, request, din):
+        """Perform POST call to upload iDBL data."""
         # Confirm DIN is in valid format
         if len(din) != 8:
             message = {
@@ -47,6 +49,7 @@ class UploadiDBLData(GenericAPIView):
         return Response(data=message, status=status.HTTP_201_CREATED)
 
 class DrugListPagination(PageNumberPagination):
+    """Paginated list of drugs."""
     page_size = 100
     max_page_size = 1000
     page_query_param = 'page'
@@ -89,7 +92,7 @@ class DrugPriceList(ListAPIView):
             queryset = models.Price.objects.filter(
                 drug__id__in=drug_ids
             )
-        except ValueError:
-            raise NotFound('Invalid ID format provided.')
+        except ValueError as id_format_error:
+            raise NotFound('Invalid ID format provided.') from id_format_error
 
         return queryset
