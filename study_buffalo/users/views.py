@@ -1,3 +1,4 @@
+"""Views for the Users model."""
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
@@ -6,6 +7,7 @@ from .models import User
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
+    """Detail view for a user."""
     model = User
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
@@ -13,6 +15,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
 
 class UserRedirectView(LoginRequiredMixin, RedirectView):
+    """Redirect view to redirect back to User Detail view."""
     permanent = False
 
     def get_redirect_url(self, *args, **kwargs):
@@ -20,6 +23,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
+    """View to update User details."""
     fields = ['name']
 
     # we already imported User in the view code above, remember?
@@ -35,6 +39,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class UserListView(LoginRequiredMixin, ListView):
+    """List view for User model."""
     model = User
 
     # These next two lines tell the view to index lookups by username
