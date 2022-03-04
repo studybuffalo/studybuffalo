@@ -1,9 +1,11 @@
+"""Views for the Vancomycin Calculator app."""
 from django.shortcuts import render
 
+
 def index(request):
-    """View for the main vancomycin calculator page"""
+    """View for the main vancomycin calculator page."""
     return render(
         request,
-        "vancomycin_calculator/index.html",
+        'vancomycin_calculator/index.html',
         context={},
     )
