@@ -58,9 +58,9 @@ class CustomSitemap(Sitemap):
 
 class PlaySitemap(CustomSitemap):
     """Sitemap class for the Play app."""
-    changefreq = "weekly"
+    changefreq = 'weekly'
     priority = 0.7
-    section = "play"
+    section = 'play'
 
     def items(self):
         return PlayPage.objects.all()
@@ -71,7 +71,7 @@ class PlaySitemap(CustomSitemap):
 
 class StudySitemap(CustomSitemap):
     """Sitemap class for the Study app."""
-    changefreq = "weekly"
+    changefreq = 'weekly'
     priority = 0.7
 
     def items(self):
@@ -83,7 +83,7 @@ class StudySitemap(CustomSitemap):
 
 class ReadSitemap(CustomSitemap):
     """Sitemap class for the Read app."""
-    changefreq = "weekly"
+    changefreq = 'weekly'
     priority = 0.7
 
     def items(self):
@@ -95,36 +95,36 @@ class ReadSitemap(CustomSitemap):
 
 class ToolSitemap(CustomSitemap):
     """Sitemap class for the Tools app."""
-    changefreq = "weekly"
+    changefreq = 'weekly'
     priority = 0.7
 
     def items(self):
         # Modified so that you can pass a page name to reverse location
         # and a title for display
         return [
-            {"name": "alberta_adaptations_index", "title": "Alberta Adaptations"},
-            {"name": "drug_price_calculator_index", "title": "Drug Price Calculator"},
-            {"name": "vancomycin_calculator_index", "title": "Vancomycin Calculator"},
+            {'name': 'alberta_adaptations_index', 'title': 'Alberta Adaptations'},
+            {'name': 'drug_price_calculator_index', 'title': 'Drug Price Calculator'},
+            {'name': 'vancomycin_calculator_index', 'title': 'Vancomycin Calculator'},
         ]
 
     def location(self, item):
-        return reverse(item["name"])
+        return reverse(item['name'])
 
 
 class StaticViewSitemap(CustomSitemap):
     """Sitemap class for the static pages app."""
-    changefreq = "weekly"
+    changefreq = 'weekly'
     priority = 0.7
 
     def items(self):
         # Modified so that you can pass a page name to reverse location
         # and a title for display
         return [
-            {"name": "design_index", "title": "Design Index"},
-            {"name": "contact", "title": "Contact"},
-            {"name": "privacy_policy", "title": "Privacy Policy"},
-            {"name": "robot_policy", "title": "Robot Policy"},
+            {'name': 'design_index', 'title': 'Design Index'},
+            {'name': 'contact', 'title': 'Contact'},
+            {'name': 'privacy_policy', 'title': 'Privacy Policy'},
+            {'name': 'robot_policy', 'title': 'Robot Policy'},
         ]
 
     def location(self, item):
-        return reverse(item["name"])
+        return reverse(item['name'])
