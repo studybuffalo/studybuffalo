@@ -273,8 +273,8 @@ class ShiftCode(models.Model):
     def __str__(self):
         if self.sb_user:
             return f'{self.get_role_display()} - {self.sb_user} - {self.code}'
-        else:
-            return f'{self.get_role_display()} - {self.code}'
+
+        return f'{self.get_role_display()} - {self.code}'
 
 class Shift(models.Model):
     """Model representing a user's Shift."""

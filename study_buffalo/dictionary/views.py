@@ -1,9 +1,8 @@
 """Views for the Dictionary app."""
-import json
-
 from django.contrib.auth.decorators import permission_required
 from django.core.serializers.json import DjangoJSONEncoder
-from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
+from django.shortcuts import render
 
 from .models import (
     WordPending, Word, ExcludedWord, Language, DictionaryType, DictionaryClass
@@ -23,10 +22,7 @@ def retrieve_select_data(request):
     """Returns data to generate the HTML select elements."""
     response = generate_select_data()
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)
 
 def generate_select_data():
     """Generates html select inputs for the review page."""
@@ -100,10 +96,7 @@ def retrieve_entries(request):
         if last_id and request_num:
             response = retrieve_pending_entries(last_id, request_num)
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)
 
 def retrieve_pending_entries(last_id, req_num):
     """Retrieves requested pending dicionary entries."""
@@ -179,10 +172,7 @@ def add_new_word(request):
             'message': 'No data received on POST request',
         }
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)
 
 def process_new_word(model_name, word, language, dictionary_type, dictionary_class):
     """View to process a new word for the dictionary."""
@@ -246,7 +236,4 @@ def delete_pending_word(request):
             'message': 'No data received on POST request'
         }
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)

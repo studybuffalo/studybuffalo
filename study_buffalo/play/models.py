@@ -64,7 +64,8 @@ class PlayPage(models.Model):
         """Returns the URL to this page"""
         return reverse('play_page', args=[str(self.id)])
 
-    def last_page(self):
+    @staticmethod
+    def last_page():
         """Returns the latest released page."""
         LATEST = PlayPage.objects.filter(release_date__date__lte=datetime.now()).latest('pk').pk
 
@@ -171,7 +172,7 @@ class PlayImage(models.Model):
         self.resized_image.save(self.original_image.name, resize_io, save=False)
 
         # Save the files
-        super(PlayImage, self).save()
+        super().save()
 
 
     def __str__(self):

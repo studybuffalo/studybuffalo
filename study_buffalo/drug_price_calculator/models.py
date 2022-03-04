@@ -5,7 +5,7 @@ from django.db import models
 class Drug(models.Model):
     """Details of a single drug."""
     din = models.CharField(
-        help_text="The drug's DIN/NPN/PIN",
+        help_text='The drug\'s DIN/NPN/PIN',
         max_length=8,
         unique=True,
         verbose_name='DIN',

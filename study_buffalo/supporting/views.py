@@ -217,11 +217,7 @@ def x_robots_tag(func):
     return inner
 
 @x_robots_tag
-def custom_sitemap(request,
-                   sitemaps,
-                   section=None,
-                   template_name='sitemap.xml',
-                   content_type='application/xml'):
+def custom_sitemap(request, sitemaps, section=None, template_name='sitemap.xml', content_type='application/xml'): # pylint: disable=too-many-locals, too-many-branches
     """A custom sitemap view to generate an HTML sitemap"""
     req_protocol = request.scheme
     req_site = get_current_site(request)
@@ -281,17 +277,19 @@ def custom_sitemap(request,
             other_urls.append(url)
 
     # Context modified to include various filtered URL sets
-    response = TemplateResponse(request,
-                                template_name,
-                                context={
-                                    'urlset': urls,
-                                    'play_urlset': play_urls,
-                                    'study_urlset': study_urls,
-                                    'tools_urlset': tools_urls,
-                                    'read_urlset': read_urls,
-                                    'other_urlset': other_urls,
-                                },
-                                content_type=content_type)
+    response = TemplateResponse(
+        request,
+        template_name,
+        context={
+            'urlset': urls,
+            'play_urlset': play_urls,
+            'study_urlset': study_urls,
+            'tools_urlset': tools_urls,
+            'read_urlset': read_urls,
+            'other_urlset': other_urls,
+        },
+        content_type=content_type,
+    )
 
     if all_sites_lastmod and lastmod is not None:
         # if lastmod is defined for all sites, set header so as

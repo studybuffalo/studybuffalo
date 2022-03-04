@@ -7,7 +7,8 @@ from django.apps import apps
 from django.contrib.auth.decorators import permission_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Q
-from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
+from django.shortcuts import render
 
 from dictionary.models import Word, ExcludedWord
 from .models import Apps, ModelFields
@@ -21,8 +22,8 @@ def binary_search(search_list, word):
     # If match found, return the corresponding object
     if i != len(search_list) and search_list[i] == word:
         return True
-    else:
-        return None
+
+    return None
 
 def setup_dictionary():
     """Retrieves all words from dictionary app & returns sorted list"""
@@ -225,10 +226,7 @@ def retrieve_entries(request):
         if app_id and last_id and request_num:
             response = retrieve_pending_entries(app_id, last_id, request_num)
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)
 
 def add_new_substitutions(app_id, pend_id, orig, subs):
     """Function to add new substitutions."""
@@ -306,10 +304,7 @@ def verify(request):
             'message': 'No data received on POST request',
         }
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)
 
 def delete_entry(app_id, pend_id):
     """Function to delete entries."""
@@ -378,7 +373,4 @@ def delete_pend(request):
             'message': 'No data received on POST request'
         }
 
-    return HttpResponse(
-        json.dumps(response, cls=DjangoJSONEncoder),
-        content_type='application/json',
-    )
+    return JsonResponse(response, DjangoJSONEncoder)

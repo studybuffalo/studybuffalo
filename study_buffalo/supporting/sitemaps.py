@@ -65,7 +65,8 @@ class PlaySitemap(CustomSitemap):
     def items(self):
         return PlayPage.objects.all()
 
-    def lastmod(self, item):
+    @staticmethod
+    def lastmod(item):
         """Returns the last modified date for an item."""
         return item.release_date
 
@@ -77,7 +78,8 @@ class StudySitemap(CustomSitemap):
     def items(self):
         return Guide.objects.all()
 
-    def lastmod(self, item):
+    @staticmethod
+    def lastmod(item):
         """Returns the last modified date for an item."""
         return item.last_update
 
@@ -89,7 +91,8 @@ class ReadSitemap(CustomSitemap):
     def items(self):
         return Publication.objects.all()
 
-    def lastmod(self, item):
+    @staticmethod
+    def lastmod(item):
         """Returns the last modified date for an item."""
         return item.date_published
 
