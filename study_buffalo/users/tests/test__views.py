@@ -17,7 +17,7 @@ def test__user_redirect_view__get_redirect_url(user):
     view = UserRedirectView()
     view.request = request
 
-    assert view.get_redirect_url() == '/users/{}/'.format(user.username)
+    assert view.get_redirect_url() == f'/users/{user.username}/'
 
 def test__user_update_view__get_success_url(user):
     """Tests the get_success_url method of UserUpdateView."""
@@ -27,7 +27,7 @@ def test__user_update_view__get_success_url(user):
     view = UserUpdateView()
     view.request = request
 
-    assert view.get_success_url() == '/users/{}/'.format(user.username)
+    assert view.get_success_url() == f'/users/{user.username}/'
 
 def test__user_update_view__get_object(user):
     """Tests the get_object method of UserUpdateView."""

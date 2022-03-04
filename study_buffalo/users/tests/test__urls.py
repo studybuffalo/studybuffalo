@@ -24,11 +24,11 @@ def test__user_redirect_resolve():
 
 def test__user_detail__reverse(user):
     """Tests that users:detail reverses to /users/<username>/."""
-    assert reverse('users:detail', kwargs={'username': user.username}) == '/users/{}/'.format(user.username)
+    assert reverse('users:detail', kwargs={'username': user.username}) == f'/users/{user.username}/'
 
 def test__user_detail__resolve(user):
     """Tests that /users/<username>/ resolves to users:detail."""
-    assert resolve('/users/{}/'.format(user.username)).view_name == 'users:detail'
+    assert resolve(f'/users/{user.username}/').view_name == 'users:detail'
 
 def test__user_update__reverse():
     """Tests that users:update reverses to /users/~update/."""
