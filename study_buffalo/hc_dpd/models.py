@@ -20,6 +20,7 @@ class DPD(models.Model):
     def __str__(self):
         return f'{self.drug_code} ({self.origin_file})'
 
+
 class ActiveIngredient(models.Model):
     """Model representing QRYM_ACTIVE_INGREDIENTS file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -89,6 +90,7 @@ class ActiveIngredient(models.Model):
         max_length=80,
         null=True,
     )
+
 
 class Company(models.Model):
     """Model representing QRYM_COMPANIES file"""
@@ -162,6 +164,7 @@ class Company(models.Model):
         null=True,
     )
 
+
 class DrugProduct(models.Model):
     """Model representing QRYM_DRUG_PRODUCT file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -226,6 +229,7 @@ class DrugProduct(models.Model):
         null=True,
     )
 
+
 class Form(models.Model):
     """Model representing QRYM_FORM file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -244,6 +248,7 @@ class Form(models.Model):
         null=True,
     )
 
+
 class InactiveProduct(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -261,6 +266,7 @@ class InactiveProduct(models.Model):
         blank=True,
         null=True,
     )
+
 
 class Packaging(models.Model):
     """Model representing QRYM_Packaging file"""
@@ -301,6 +307,7 @@ class Packaging(models.Model):
         null=True,
     )
 
+
 class PharmaceuticalStandard(models.Model):
     """Model representing QRYM_PHARMACEUTICAL_STD file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -309,6 +316,7 @@ class PharmaceuticalStandard(models.Model):
         max_length=40,
         null=True,
     )
+
 
 class Route(models.Model):
     """Model representing QRYM_ROUTE file"""
@@ -328,6 +336,7 @@ class Route(models.Model):
         null=True,
     )
 
+
 class Schedule(models.Model):
     """Model representing QRYM_SCHEDULE file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -341,6 +350,7 @@ class Schedule(models.Model):
         max_length=40,
         null=True,
     )
+
 
 class Status(models.Model):
     """Model representing QRYM_STATUS file"""
@@ -369,6 +379,7 @@ class Status(models.Model):
         blank=True,
         null=True,
     )
+
 
 class TherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file"""
@@ -404,6 +415,7 @@ class TherapeuticClass(models.Model):
         null=True,
     )
 
+
 class VeterinarySpecies(models.Model):
     """Model representing QRYM_VETERINARY_SPECIES file"""
     drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
@@ -423,6 +435,7 @@ class VeterinarySpecies(models.Model):
         null=True,
     )
 
+
 class SubAHFS(models.Model):
     """Model representing the substitutions for AHFS code."""
     original = models.CharField(
@@ -436,6 +449,7 @@ class SubAHFS(models.Model):
     class Meta:
         verbose_name = 'Substitution - AHFS'
         verbose_name_plural = 'Substitutions - AHFS'
+
 
 class SubAHFSPend(models.Model):
     """Model representing the pending substitutions for AHFS code."""
@@ -451,6 +465,7 @@ class SubAHFSPend(models.Model):
         verbose_name = 'Substitution - AHFS (Pending)'
         verbose_name_plural = 'Substitutions - AHFS (Pending)'
 
+
 class SubBrand(models.Model):
     """Model representing the substitutions for Brand."""
     original = models.CharField(
@@ -464,6 +479,7 @@ class SubBrand(models.Model):
     class Meta:
         verbose_name = 'Substitution - Brand Name'
         verbose_name_plural = 'Substitutions - Brand Name'
+
 
 class SubBrandPend(models.Model):
     """Model representing the pending substitutions for Brand."""
@@ -479,6 +495,7 @@ class SubBrandPend(models.Model):
         verbose_name = 'Substitution - Brand Name (Pending)'
         verbose_name_plural = 'Substitutions - Brand Name (Pending)'
 
+
 class SubCompanyName(models.Model):
     """Model representing the substitutions for Company Name."""
     original = models.CharField(
@@ -492,6 +509,7 @@ class SubCompanyName(models.Model):
     class Meta:
         verbose_name = 'Substitution - Company Name'
         verbose_name_plural = 'Substitutions - Company Name'
+
 
 class SubCompanyNamePend(models.Model):
     """Model representing pending substitutions for Company Name."""
@@ -507,6 +525,7 @@ class SubCompanyNamePend(models.Model):
         verbose_name = 'Substitution - Company Name (Pending)'
         verbose_name_plural = 'Substitutions - Company Name (Pending)'
 
+
 class SubDescriptor(models.Model):
     """Model representing substitutions for Descriptor."""
     original = models.CharField(
@@ -520,6 +539,7 @@ class SubDescriptor(models.Model):
     class Meta:
         verbose_name = 'Substitution - Descriptor'
         verbose_name_plural = 'Substitutions - Descriptor'
+
 
 class SubDescriptorPend(models.Model):
     """Model representing pending substitutions for Descriptor."""
@@ -535,6 +555,7 @@ class SubDescriptorPend(models.Model):
         verbose_name = 'Substitution - Descriptor (Pending)'
         verbose_name_plural = 'Substitutions - Descriptor (Pending)'
 
+
 class SubIngredient(models.Model):
     """Model representing substitutions for Ingredient."""
     original = models.CharField(
@@ -548,6 +569,7 @@ class SubIngredient(models.Model):
     class Meta:
         verbose_name = 'Substitution - Ingredient'
         verbose_name_plural = 'Substitutions - Ingredient'
+
 
 class SubIngredientPend(models.Model):
     """Model representing pending substitutions for Ingredient."""
@@ -563,6 +585,7 @@ class SubIngredientPend(models.Model):
         verbose_name = 'Substitution - Ingredient (Pending)'
         verbose_name_plural = 'Substitutions - Ingredient (Pending)'
 
+
 class SubProductCategorization(models.Model):
     """Model representing substitutions for Product Categorization."""
     original = models.CharField(
@@ -576,6 +599,7 @@ class SubProductCategorization(models.Model):
     class Meta:
         verbose_name = 'Substitution - Product Categorization'
         verbose_name_plural = 'Substitutions - Product Categorization'
+
 
 class SubProductCategorizationPend(models.Model):
     """Model representing pending substitutions for Product Categorization."""
@@ -591,6 +615,7 @@ class SubProductCategorizationPend(models.Model):
         verbose_name = 'Substitution - Product Categorization (Pending)'
         verbose_name_plural = 'Substitutions - Product Categorization (Pending)'
 
+
 class SubRouteOfAdministration(models.Model):
     """Model representing substitutions for Route."""
     original = models.CharField(
@@ -604,6 +629,7 @@ class SubRouteOfAdministration(models.Model):
     class Meta:
         verbose_name = 'Substitution - Route of Administration'
         verbose_name_plural = 'Substitutions - Route of Administration'
+
 
 class SubRouteOfAdministrationPend(models.Model):
     """Model representing pending substitutions for Route."""
@@ -619,6 +645,7 @@ class SubRouteOfAdministrationPend(models.Model):
         verbose_name = 'Substitution - Route of Administration (Pending)'
         verbose_name_plural = 'Substitutions - Route of Administration (Pending)'
 
+
 class SubPharmaceuticalStd(models.Model):
     """Model representing substitutions for Pharmaceutical Standard."""
     original = models.CharField(
@@ -632,6 +659,7 @@ class SubPharmaceuticalStd(models.Model):
     class Meta:
         verbose_name = 'Substitution - Pharmaceutical Standard'
         verbose_name_plural = 'Substitutions - Pharmaceutical Standard'
+
 
 class SubPharmaceuticalStdPend(models.Model):
     """Model representing pending substitutions for Pharmaceutical Standard."""
@@ -647,6 +675,7 @@ class SubPharmaceuticalStdPend(models.Model):
         verbose_name = 'Substitution - Pharmaceutical Standard (Pending)'
         verbose_name_plural = 'Substitutions - Pharmaceutical Standard (Pending)'
 
+
 class SubStreetName(models.Model):
     """Model representing substitutions for Street Name."""
     original = models.CharField(
@@ -660,6 +689,7 @@ class SubStreetName(models.Model):
     class Meta:
         verbose_name = 'Substitution - Street Name'
         verbose_name_plural = 'Substitutions - Street Name'
+
 
 class SubStreetNamePend(models.Model):
     """Model representing pending substitutions for Street Name."""
@@ -675,6 +705,7 @@ class SubStreetNamePend(models.Model):
         verbose_name = 'Substitution - Street Name (Pending)'
         verbose_name_plural = 'Substitutions - Street Name (Pending)'
 
+
 class SubSuiteNumber(models.Model):
     """Model representing substitutions for Suite Number."""
     original = models.CharField(
@@ -688,6 +719,7 @@ class SubSuiteNumber(models.Model):
     class Meta:
         verbose_name = 'Substitution - Suite Number'
         verbose_name_plural = 'Substitutions - Suite Number'
+
 
 class SubSuiteNumberPend(models.Model):
     """Model representing pending substitutions for Suite Number."""
@@ -703,6 +735,7 @@ class SubSuiteNumberPend(models.Model):
         verbose_name = 'Substitution - Suite Number (Pending)'
         verbose_name_plural = 'Substitutions - Suite Number (Pending)'
 
+
 class SubUnit(models.Model):
     """Model representing substitutions for Unit."""
     original = models.CharField(
@@ -716,6 +749,7 @@ class SubUnit(models.Model):
     class Meta:
         verbose_name = 'Substitution - Unit'
         verbose_name_plural = 'Substitutions - Unit'
+
 
 class SubUnitPend(models.Model):
     """Model representing pending substitutions for Unit."""

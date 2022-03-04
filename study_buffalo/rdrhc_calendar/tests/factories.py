@@ -4,6 +4,7 @@ import factory
 from rdrhc_calendar.models import CalendarUser, ShiftCode, Shift, MissingShiftCode
 from users.tests.factories import UserFactory
 
+
 class CalendarUserFactory(factory.django.DjangoModelFactory):
     """Factory to generate Calendar User."""
     sb_user = factory.SubFactory(UserFactory)
@@ -11,11 +12,12 @@ class CalendarUserFactory(factory.django.DjangoModelFactory):
     schedule_name = factory.Sequence(lambda n: f'schedule name - {n}')
     calendar_name = factory.Sequence(lambda n: f'calendar name - {n}')
     role = 'p'
-    reminder = factory.Sequence(lambda n: int(n)) # pylint: disable=unnecessary-lambda
+    reminder = factory.Sequence(lambda n: int(n))  # pylint: disable=unnecessary-lambda
 
     class Meta:
         model = CalendarUser
         django_get_or_create = ('name',)
+
 
 class ShiftCodeFactory(factory.django.DjangoModelFactory):
     """Factory to generate a Shift Code."""
@@ -43,6 +45,7 @@ class ShiftCodeFactory(factory.django.DjangoModelFactory):
         model = ShiftCode
         django_get_or_create = ('code', 'sb_user', 'role')
 
+
 class ShiftFactory(factory.django.DjangoModelFactory):
     """Factory to generate a Shift."""
     sb_user = factory.SubFactory(UserFactory)
@@ -52,6 +55,7 @@ class ShiftFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Shift
+
 
 class MissingShiftCodeFactory(factory.django.DjangoModelFactory):
     """Factory to generate a Missing Shift Code."""

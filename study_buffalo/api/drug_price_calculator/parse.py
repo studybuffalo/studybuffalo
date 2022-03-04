@@ -8,9 +8,11 @@ def _remove_extra_white_space(text):
     """Removes extra whitespace within text."""
     return re.sub(r'\s{2,}', ' ', text)
 
+
 def _remove_slash_white_space(text):
     """Removes white spaces from around slashes."""
     return re.sub(r'(\s/\s|/\s|\s/)', '/', text)
+
 
 def _convert_to_title_case(text):
     """Handles conversion of string to title case."""
@@ -21,6 +23,7 @@ def _convert_to_title_case(text):
     text = re.sub(r'\'S\b', '\'s', text)
 
     return text
+
 
 def _parse_brand_name(text):
     """Properly formats the brand name"""
@@ -34,6 +37,7 @@ def _parse_brand_name(text):
     text = _remove_slash_white_space(text)
 
     return text
+
 
 def _parse_strength(text):
     """Properly formats strength."""
@@ -58,6 +62,7 @@ def _parse_strength(text):
 
     return text
 
+
 def _parse_route(text):
     """Properly formats the route"""
     # Convert route to lower case
@@ -65,12 +70,14 @@ def _parse_route(text):
 
     return text
 
+
 def _parse_dosage_form(text):
     """Properly formats the dosage form"""
     # Convert route to lower case
     text = text.lower()
 
     return text
+
 
 def parse_bsrf(raw_bsrf):
     """Parses the raw Brand Name, Strength, Routh, Dosage Form data."""
@@ -183,6 +190,7 @@ def parse_bsrf(raw_bsrf):
         'dosage_form': dosage_form,
     }
 
+
 def parse_generic(raw_generic):
     """Parses generic names."""
     # Check if there is a value to parse
@@ -221,6 +229,7 @@ def parse_generic(raw_generic):
 
     return generic
 
+
 def parse_manufacturer(raw_manufacturer):
     """Parses drug manufacturers."""
     # Check if there is a value to parse
@@ -256,6 +265,7 @@ def parse_manufacturer(raw_manufacturer):
 
     return manufacturer
 
+
 def parse_unit_issue(raw_unit_issue):
     """Parses the unit of issue."""
     # Check if there is a value to parse
@@ -287,6 +297,7 @@ def parse_unit_issue(raw_unit_issue):
         pend.save()
 
     return unit
+
 
 def assemble_generic_product(bsrf, generic_name):
     """Assembles a generic product name."""

@@ -1,5 +1,5 @@
 """Additional settings for development environments"""
-from .base import * # pylint: disable=wildcard-import, unused-wildcard-import
+from .base import *  # pylint: disable=wildcard-import, unused-wildcard-import
 from .base import env
 
 
@@ -68,12 +68,12 @@ LOGGING = {
     'loggers': {
         'django.db.backends': {
             'level': 'ERROR',
-            'handlers': ['console',],
+            'handlers': ['console'],
             'propagate': False,
         },
         'django.security.DisallowedHost': {
             'level': 'ERROR',
-            'handlers': ['console',],
+            'handlers': ['console'],
             'propagate': False,
         },
     },
@@ -85,7 +85,7 @@ LOGGING = {
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
 INSTALLED_APPS += ['debug_toolbar']
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
-MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']  # noqa F405
+MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 # https://django-debug-toolbar.readthedocs.io/en/latest/configuration.html#debug-toolbar-config
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [

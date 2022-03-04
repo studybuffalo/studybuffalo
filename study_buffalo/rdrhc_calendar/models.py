@@ -73,6 +73,7 @@ class CalendarUser(models.Model):
     def __str__(self):
         return f'{self.role} - {self.name}'
 
+
 class StatHoliday(models.Model):
     """Model representing a Statutory Holiday."""
     date = models.DateField()
@@ -83,6 +84,7 @@ class StatHoliday(models.Model):
 
     def __str__(self):
         return f'{self.date}'
+
 
 class ShiftCode(models.Model):
     """Model representing a Shift Code."""
@@ -276,6 +278,7 @@ class ShiftCode(models.Model):
 
         return f'{self.get_role_display()} - {self.code}'
 
+
 class Shift(models.Model):
     """Model representing a user's Shift."""
     sb_user = models.ForeignKey(
@@ -304,6 +307,7 @@ class Shift(models.Model):
 
     def __str__(self):
         return f'{self.date} - {self.shift_code}'
+
 
 class MissingShiftCode(models.Model):
     """Model representing a missing shift code."""

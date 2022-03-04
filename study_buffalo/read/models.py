@@ -29,6 +29,7 @@ class Publication(models.Model):
         """Returns the URL to this page"""
         return reverse('pub_page', args=[str(self.id)])
 
+
 class HTMLPublication(models.Model):
     """Defines an HTML publication"""
     publication = models.ForeignKey(

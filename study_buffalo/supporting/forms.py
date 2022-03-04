@@ -39,6 +39,7 @@ class ContactForm(forms.Form):
         widget=forms.Textarea,
     )
 
+
 class UnsubscribeForm(forms.Form):
     """Form to unsubscribe from any mailing lists."""
     email = forms.EmailField(

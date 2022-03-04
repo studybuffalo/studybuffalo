@@ -56,6 +56,7 @@ def create_idbl_data(**kwargs):
         'coverage_criteria': coverage_criteria,
     }
 
+
 def test__idbl_data_serializer__valid():
     """Tests that model is properly created via iDBL serializer."""
     # Get initial model counts
@@ -93,6 +94,7 @@ def test__idbl_data_serializer__valid():
 
     assert drug == instance
 
+
 def test__idbl_data_serializer__valid__din():
     """Tests handling of just a valid DIN."""
     # Create serializer data
@@ -113,6 +115,7 @@ def test__idbl_data_serializer__valid__din():
     drug = serializer.save()
 
     assert drug.din == idbl_data['din']
+
 
 def test__idbl_data_serializer__valid__bsrf():
     """Tests handling of just a valid BSRF."""
@@ -136,6 +139,7 @@ def test__idbl_data_serializer__valid__bsrf():
 
     assert drug.brand_name == 'A B C D'
 
+
 def test__idbl_data_serializer__valid__generic_name():
     """Tests handling of just a valid generic_name."""
     # Create serializer data
@@ -157,6 +161,7 @@ def test__idbl_data_serializer__valid__generic_name():
     drug = serializer.save()
 
     assert drug.generic_name == 'a'
+
 
 def test__idbl_data_serializer__valid__ptc():
     """Tests handling of just a valid ptc."""
@@ -183,6 +188,7 @@ def test__idbl_data_serializer__valid__ptc():
 
     assert drug.ptc == ptc
 
+
 def test__idbl_data_serializer__valid__manufacturer():
     """Tests handling of just a valid manufacturer."""
     # Create serializer data
@@ -204,6 +210,7 @@ def test__idbl_data_serializer__valid__manufacturer():
     drug = serializer.save()
 
     assert drug.manufacturer == 'A'
+
 
 def test__idbl_data_serializer__valid__atc():
     """Tests handling of just a valid atc."""
@@ -229,6 +236,7 @@ def test__idbl_data_serializer__valid__atc():
     drug = serializer.save()
 
     assert drug.atc == atc
+
 
 def test__idbl_data_serializer__get_atc_instance__missing():
     """Tests handling of just a valid atc."""
@@ -270,6 +278,7 @@ def test__idbl_data_serializer__get_atc_instance__missing():
     assert new_atc.atc_5 == 'A11BC33'
     assert new_atc.atc_5_text is None
 
+
 def test__idbl_data_serializer__valid__schedule():
     """Tests handling of just a valid schedule."""
     # Create serializer data
@@ -291,6 +300,7 @@ def test__idbl_data_serializer__valid__schedule():
     drug = serializer.save()
 
     assert drug.schedule == 'a'
+
 
 def test__idbl_data_serializer__valid__date_listed():
     """Tests handling of just a valid date_listed."""
@@ -317,6 +327,7 @@ def test__idbl_data_serializer__valid__date_listed():
 
     assert price.date_listed == datetime(2019, 1, 1).date()
 
+
 def test__idbl_data_serializer__valid__unit_price():
     """Tests handling of just a valid unit_price."""
     # Create serializer data
@@ -341,6 +352,7 @@ def test__idbl_data_serializer__valid__unit_price():
     price = drug.prices.last()
 
     assert price.unit_price == Decimal('0.0001')
+
 
 def test__idbl_data_serializer__valid__lca_price():
     """Tests handling of just a valid lca_price."""
@@ -367,6 +379,7 @@ def test__idbl_data_serializer__valid__lca_price():
 
     assert price.lca_price == Decimal('0.0001')
 
+
 def test__idbl_data_serializer__valid__mac_price():
     """Tests handling of just a valid mac_price."""
     # Create serializer data
@@ -391,6 +404,7 @@ def test__idbl_data_serializer__valid__mac_price():
     price = drug.prices.last()
 
     assert price.mac_price == Decimal('0.0001')
+
 
 def test__idbl_data_serializer__valid__mac_text():
     """Tests handling of just a valid mac_text."""
@@ -417,6 +431,7 @@ def test__idbl_data_serializer__valid__mac_text():
 
     assert price.mac_text == 'a'
 
+
 def test__idbl_data_serializer__valid__interchangeable():
     """Tests handling of just a valid interchangeable."""
     # Create serializer data
@@ -442,6 +457,7 @@ def test__idbl_data_serializer__valid__interchangeable():
 
     assert price.interchangeable is True
 
+
 def test__idbl_data_serializer__valid__coverage_status():
     """Tests handling of just a valid coverage_status."""
     # Create serializer data
@@ -466,6 +482,7 @@ def test__idbl_data_serializer__valid__coverage_status():
     price = drug.prices.last()
 
     assert price.coverage_status == 'a'
+
 
 def test__idbl_data_serializer__valid__clients():
     """Tests handling of just a valid coverage_status."""
@@ -504,6 +521,7 @@ def test__idbl_data_serializer__valid__clients():
     assert price.clients.group_1 is True
     assert price.clients.group_66 is False
 
+
 def test__idbl_data_serializer__valid__special_authorization():
     """Tests handling of just a valid special_authorization."""
     # Create serializer data
@@ -533,6 +551,7 @@ def test__idbl_data_serializer__valid__special_authorization():
     assert price.special_authorizations.count() == 1
     assert price.special_authorizations.last().file_name == 'a'
     assert price.special_authorizations.last().pdf_title == 'b'
+
 
 def test__idbl_data_serializer__valid__coverage_criteria():
     """Tests handling of just a valid coverage_criteria."""
@@ -564,6 +583,7 @@ def test__idbl_data_serializer__valid__coverage_criteria():
     assert price.coverage_criteria.last().header == 'a'
     assert price.coverage_criteria.last().criteria == 'b'
 
+
 def test__idbl_data_serializer__create_exists():
     """Confirms create method exists."""
     serializer = serializers.iDBLDataSerializer(data={})
@@ -575,6 +595,7 @@ def test__idbl_data_serializer__create_exists():
         assert False
 
     assert True
+
 
 def test__idbl_data_serializer__max_lengths_match():
     """Tests that serializer and model max lengths match."""
@@ -607,6 +628,7 @@ def test__idbl_data_serializer__max_lengths_match():
     assert serializer['schedule'].max_length == Drug._meta.get_field('schedule').max_length
     assert serializer['coverage_status'].max_length == Price._meta.get_field('coverage_status').max_length
 
+
 def test__idbl_clients_serializer__create_exists():
     """Confirms create method exists."""
     serializer = serializers.iDBLClientsSerializer(data={})
@@ -618,6 +640,7 @@ def test__idbl_clients_serializer__create_exists():
         assert False
 
     assert True
+
 
 def test__idbl_clients_serializer__update_exists():
     """Confirms create method exists."""
@@ -635,6 +658,7 @@ def test__idbl_clients_serializer__update_exists():
 
     assert True
 
+
 def test__idbl_special_authorization_serializer__create_exists():
     """Confirms create method exists."""
     serializer = serializers.iDBLSpecialAuthorizationSerializer(
@@ -648,6 +672,7 @@ def test__idbl_special_authorization_serializer__create_exists():
         assert False
 
     assert True
+
 
 def test__idbl_special_authorization_serializer__update_exists():
     """Confirms create method exists."""
@@ -665,6 +690,7 @@ def test__idbl_special_authorization_serializer__update_exists():
 
     assert True
 
+
 def test__idbl_special_authorization_serializer__max_lengths_match():
     """Tests that serializer and model max lengths match."""
     serializer = serializers.iDBLSpecialAuthorizationSerializer()
@@ -672,6 +698,7 @@ def test__idbl_special_authorization_serializer__max_lengths_match():
 
     assert serializer['file_name'].max_length == Special._meta.get_field('file_name').max_length
     assert serializer['pdf_title'].max_length == Special._meta.get_field('pdf_title').max_length
+
 
 def test__idbl_coverage_criteria_serializer__create_exists():
     """Confirms create method exists."""
@@ -686,6 +713,7 @@ def test__idbl_coverage_criteria_serializer__create_exists():
         assert False
 
     assert True
+
 
 def test__idbl_coverage_criteria_serializer__update_exists():
     """Confirms create method exists."""
@@ -704,6 +732,7 @@ def test__idbl_coverage_criteria_serializer__update_exists():
         assert False
 
     assert True
+
 
 def test__idbl_coverage_criteria_serializer__max_lengths_match():
     """Tests that serializer and model max lengths match."""

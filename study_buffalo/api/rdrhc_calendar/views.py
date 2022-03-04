@@ -24,12 +24,13 @@ from api.rdrhc_calendar.permissions import HasAPIAccess
 @api_view(['GET'])
 @authentication_classes((SessionAuthentication, TokenAuthentication, ))
 @permission_classes((IsAuthenticated, HasAPIAccess, ))
-def api_root(request, format=None): # pylint: disable=redefined-builtin
+def api_root(request, format=None):  # pylint: disable=redefined-builtin
     """Top-level view for the RDRHC Calendar API."""
     return Response({
         'users': reverse('api:rdrhc_calendar_v1:user_list', request=request, format=format),
         'shifts': reverse('api:rdrhc_calendar_v1:shift_list', request=request, format=format),
     })
+
 
 class UserList(generics.ListAPIView):
     """List view of all RDRHC Calendar users."""
@@ -37,6 +38,7 @@ class UserList(generics.ListAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.UserSerializer
+
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     """Detail view of a RDRHC Calendar user."""
@@ -46,6 +48,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.UserSerializer
     lookup_field = 'id'
     lookup_url_kwarg = 'user_id'
+
 
 class UserEmailList(generics.ListAPIView):
     """List view of a RDRHC Calendar user's emails."""
@@ -64,12 +67,14 @@ class UserEmailList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         return Response(self.get_queryset().values_list('email', flat=True))
 
+
 class ShiftList(generics.ListAPIView):
     """List view of the RDRHC Calendar shifts."""
     queryset = models.Shift.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.ShiftSerializer
+
 
 class UserShiftCodesList(generics.ListAPIView):
     """List view of a user's RDRHC Calendar shifts."""
@@ -103,6 +108,7 @@ class UserShiftCodesList(generics.ListAPIView):
 
         return codes
 
+
 class StatHolidaysList(generics.ListAPIView):
     """List view of the RDRHC Calendar statutory holidays."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
@@ -122,6 +128,7 @@ class StatHolidaysList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         return Response(self.get_queryset().values_list('date', flat=True))
 
+
 class UserScheduleList(generics.ListAPIView):
     """List view of a RDRHC Calendar user's schedule."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
@@ -137,6 +144,7 @@ class UserScheduleList(generics.ListAPIView):
 
         return queryset
 
+
 class UserScheduleDelete(APIView):
     """Delete view for a RDRHC Calendar user's schedule."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
@@ -148,6 +156,7 @@ class UserScheduleDelete(APIView):
         shifts.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class UserScheduleUpload(APIView):
     """Create view for a RDRHC Calendar user's schedule."""
@@ -187,6 +196,7 @@ class UserScheduleUpload(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
+
 class UserEmailFirstSent(APIView):
     """Update view to note welcome email sent to a new RDRHC Calendar user."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
@@ -199,6 +209,7 @@ class UserEmailFirstSent(APIView):
         calendar_user.save()
 
         return Response(status=status.HTTP_200_OK)
+
 
 class MissingShiftCodesUpload(APIView):
     """Create view to upload missing shift codes."""

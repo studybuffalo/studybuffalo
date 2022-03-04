@@ -22,6 +22,7 @@ def calendar_index(request):
         context={},
     )
 
+
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_settings(request):
@@ -52,6 +53,7 @@ def calendar_settings(request):
         {'form': form}
     )
 
+
 class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
     """List view for a user's Shift Codes."""
     permission_required = 'rdrhc_calendar.can_view'
@@ -64,6 +66,7 @@ class ShiftCodeList(PermissionRequiredMixin, generic.ListView):
             return ShiftCode.objects.filter(sb_user=self.request.user)
 
         raise Http404
+
 
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
@@ -99,6 +102,7 @@ def calendar_code_edit(request, code_id):
         {'form': form}
     )
 
+
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_code_add(request):
@@ -131,6 +135,7 @@ def calendar_code_add(request):
         {'form': form}
     )
 
+
 @login_required
 @permission_required('rdrhc_calendar.can_view', raise_exception=True)
 def calendar_code_delete(request, code_id):
@@ -155,6 +160,7 @@ def calendar_code_delete(request, code_id):
         {'shift_code': shift_code_instance.code}
     )
 
+
 class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
     """List view for missing shift codes."""
     permission_required = 'rdrhc_calendar.can_add_default_codes'
@@ -163,6 +169,7 @@ class MissingShiftCodeList(PermissionRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return MissingShiftCode.objects.all()
+
 
 @login_required
 @permission_required('rdrhc_calendar.can_add_default_codes', raise_exception=True)
@@ -203,6 +210,7 @@ def missing_code_edit(request, code_id):
             'role': missing_code_instance.role,
         }
     )
+
 
 @login_required
 @permission_required('rdrhc_calendar.can_add_default_codes', raise_exception=True)

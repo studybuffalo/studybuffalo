@@ -15,17 +15,20 @@ def test__drug__minimal_model_creation():
 
     assert models.Drug.objects.count() == drug_count + 1
 
+
 def test__drug__str__no_brand_name():
     """Tests Drug model __str__ without brand name."""
     drug = models.Drug.objects.create(din='12345678')
 
     assert str(drug) == '12345678'
 
+
 def test__drug__str__with_brand_name():
     """Tests Drug model __str__ with brand name."""
     drug = models.Drug.objects.create(din='12345678', brand_name='a')
 
     assert str(drug) == 'a (12345678)'
+
 
 def test__atc__minimal_model_creation():
     """Tests minimal ATC model creation."""
@@ -35,11 +38,13 @@ def test__atc__minimal_model_creation():
 
     assert models.ATC.objects.count() == atc_count + 1
 
+
 def test__atc__str__id():
     """Tests ATC model __str__ with only ID."""
     atc = models.ATC.objects.create(id='1234567')
 
     assert str(atc) == '1234567'
+
 
 def test__atc__str__atc_1():
     """Tests ATC model __str__ with atc_1."""
@@ -49,6 +54,7 @@ def test__atc__str__atc_1():
 
     assert str(atc) == '1 (a)'
 
+
 def test__atc__str__atc_2():
     """Tests ATC model __str__ with atc_2."""
     atc = models.ATC.objects.create(
@@ -56,6 +62,7 @@ def test__atc__str__atc_2():
     )
 
     assert str(atc) == '2 (b)'
+
 
 def test__atc__str__atc_3():
     """Tests ATC model __str__ with atc_3."""
@@ -66,6 +73,7 @@ def test__atc__str__atc_3():
 
     assert str(atc) == '3 (c)'
 
+
 def test__atc__str__atc_4():
     """Tests ATC model __str__ with atc_4."""
     atc = models.ATC.objects.create(
@@ -74,6 +82,7 @@ def test__atc__str__atc_4():
     )
 
     assert str(atc) == '4 (d)'
+
 
 def test__atc__str__atc_5():
     """Tests ATC model __str__ with atc_5."""
@@ -84,6 +93,7 @@ def test__atc__str__atc_5():
 
     assert str(atc) == '5 (e)'
 
+
 def test__ptc__minimal_model_creation():
     """Tests minimal PTC model creation."""
     ptc_count = models.PTC.objects.count()
@@ -92,11 +102,13 @@ def test__ptc__minimal_model_creation():
 
     assert models.PTC.objects.count() == ptc_count + 1
 
+
 def test__ptc__str__id():
     """Tests PTC model __str__ with only ID."""
     ptc = models.PTC.objects.create(id='12345678901')
 
     assert str(ptc) == '12345678901'
+
 
 def test__ptc__str__ptc_1():
     """Tests PTC model __str__ with ptc_1."""
@@ -106,6 +118,7 @@ def test__ptc__str__ptc_1():
 
     assert str(ptc) == '1 (a)'
 
+
 def test__ptc__str__ptc_2():
     """Tests PTC model __str__ with ptc_2."""
     ptc = models.PTC.objects.create(
@@ -113,6 +126,7 @@ def test__ptc__str__ptc_2():
     )
 
     assert str(ptc) == '2 (b)'
+
 
 def test__ptc__str__ptc_3():
     """Tests PTC model __str__ with ptc_3."""
@@ -123,6 +137,7 @@ def test__ptc__str__ptc_3():
 
     assert str(ptc) == '3 (c)'
 
+
 def test__ptc__str__ptc_4():
     """Tests PTC model __str__ with ptc_4."""
     ptc = models.PTC.objects.create(
@@ -131,6 +146,7 @@ def test__ptc__str__ptc_4():
     )
 
     assert str(ptc) == '4 (d)'
+
 
 def test__price__minimal_model_creation():
     """Tests minimal Price model creation."""
@@ -141,6 +157,7 @@ def test__price__minimal_model_creation():
 
     assert models.Price.objects.count() == price_count + 1
 
+
 def test__price__str__without_brand_name():
     """Tests Price __str__ without drug brand name."""
     drug = models.Drug.objects.create(din='12345678')
@@ -148,12 +165,14 @@ def test__price__str__without_brand_name():
 
     assert str(price) == '12345678 price (1)'
 
+
 def test__price__str__with_brand_name():
     """Tests Price __str__ with drug brand name."""
     drug = models.Drug.objects.create(din='12345678', brand_name='a')
     price = models.Price.objects.create(drug=drug, abc_id=1)
 
     assert str(price) == 'a price (1)'
+
 
 def test__clients__minimal_model_creation():
     """Tests minimal Clients model creation."""
@@ -165,6 +184,7 @@ def test__clients__minimal_model_creation():
 
     assert models.Clients.objects.count() == clients_count + 1
 
+
 def test__clients__str():
     """Tests Clients __str__ output."""
     drug = models.Drug.objects.create(din='12345678')
@@ -172,6 +192,7 @@ def test__clients__str():
     clients = models.Clients.objects.create(price=price)
 
     assert str(clients) == '12345678 price (1) clients'
+
 
 def test__coverage_criteria__minimal_model_creation():
     """Tests minimal CoverageCriteria model creation."""
@@ -183,6 +204,7 @@ def test__coverage_criteria__minimal_model_creation():
 
     assert models.CoverageCriteria.objects.count() == coverage_criteria_count + 1
 
+
 def test__coverage_criteria__str():
     """Tests CoverageCriteria __str__ output."""
     drug = models.Drug.objects.create(din='12345678')
@@ -190,6 +212,7 @@ def test__coverage_criteria__str():
     criteria = models.CoverageCriteria.objects.create(price=price, criteria='a')
 
     assert str(criteria) == '12345678 price (1) coverage criteria'
+
 
 def test__special_authorization__minimal_model_creation():
     """Tests minimal SpecialAuthorization model creation."""
@@ -199,6 +222,7 @@ def test__special_authorization__minimal_model_creation():
 
     assert models.SpecialAuthorization.objects.count() == special_count + 1
 
+
 def test__special_authorization__str():
     """Tests SpecialAuthorization __str__ output."""
     special = models.SpecialAuthorization.objects.create(
@@ -206,6 +230,7 @@ def test__special_authorization__str():
     )
 
     assert str(special) == 'b'
+
 
 def test__subs_bsrf__minimal_model_creation():
     """Tests minimal SubsBSRF model creation."""
@@ -217,6 +242,7 @@ def test__subs_bsrf__minimal_model_creation():
 
     assert models.SubsBSRF.objects.count() == sub_count + 1
 
+
 def test__subs_bsrf__max_lengths_match():
     """Tests that max length is consistent between substitution and target model."""
     Subs = models.SubsBSRF
@@ -227,6 +253,7 @@ def test__subs_bsrf__max_lengths_match():
     assert Subs._meta.get_field('route').max_length == Drug._meta.get_field('route').max_length
     assert Subs._meta.get_field('dosage_form').max_length == Drug._meta.get_field('dosage_form').max_length
 
+
 def test__subs_generic__minimal_model_creation():
     """Tests minimal SubsGeneric model creation."""
     sub_count = models.SubsGeneric.objects.count()
@@ -235,12 +262,14 @@ def test__subs_generic__minimal_model_creation():
 
     assert models.SubsGeneric.objects.count() == sub_count + 1
 
+
 def test__subs_generic__max_lengths_match():
     """Tests that max length is consistent between substitution and target model."""
     Subs = models.SubsGeneric
     Drug = models.Drug
 
     assert Subs._meta.get_field('correction').max_length == Drug._meta.get_field('generic_name').max_length
+
 
 def test__subs_manufacturer__minimal_model_creation():
     """Tests minimal SubsManufacturer model creation."""
@@ -250,12 +279,14 @@ def test__subs_manufacturer__minimal_model_creation():
 
     assert models.SubsManufacturer.objects.count() == sub_count + 1
 
+
 def test__subs_manufacturer__max_lengths_match():
     """Tests that max length is consistent between substitution and target model."""
     Subs = models.SubsManufacturer
     Drug = models.Drug
 
     assert Subs._meta.get_field('correction').max_length == Drug._meta.get_field('manufacturer').max_length
+
 
 def test__subs_unit__minimal_model_creation():
     """Tests minimal SubsUnit model creation."""
@@ -264,6 +295,7 @@ def test__subs_unit__minimal_model_creation():
     models.SubsUnit.objects.create(original='a', correction='b')
 
     assert models.SubsUnit.objects.count() == sub_count + 1
+
 
 def test__pend_bsrf__minimal_model_creation():
     """Tests minimal PendBSRF model creation."""
@@ -274,6 +306,7 @@ def test__pend_bsrf__minimal_model_creation():
     )
 
     assert models.PendBSRF.objects.count() == pend_count + 1
+
 
 def test__pend_bsrf__max_lengths_match():
     """Tests that max length is consistent between substitution and pending models."""
@@ -286,6 +319,7 @@ def test__pend_bsrf__max_lengths_match():
     assert Subs._meta.get_field('route').max_length == Pend._meta.get_field('route').max_length
     assert Subs._meta.get_field('dosage_form').max_length == Pend._meta.get_field('dosage_form').max_length
 
+
 def test__pend_generic__minimal_model_creation():
     """Tests minimal PendGeneric model creation."""
     pend_count = models.PendGeneric.objects.count()
@@ -293,6 +327,7 @@ def test__pend_generic__minimal_model_creation():
     models.PendGeneric.objects.create(original='a', correction='b')
 
     assert models.PendGeneric.objects.count() == pend_count + 1
+
 
 def test__pend_generic__max_lengths_match():
     """Tests that max length is consistent between substitution and pending models."""
@@ -302,6 +337,7 @@ def test__pend_generic__max_lengths_match():
     assert Subs._meta.get_field('original').max_length == Pend._meta.get_field('original').max_length
     assert Subs._meta.get_field('correction').max_length == Pend._meta.get_field('correction').max_length
 
+
 def test__pend_manufacturer__minimal_model_creation():
     """Tests minimal PendManufacturer model creation."""
     pend_count = models.PendManufacturer.objects.count()
@@ -309,6 +345,7 @@ def test__pend_manufacturer__minimal_model_creation():
     models.PendManufacturer.objects.create(original='a', correction='b')
 
     assert models.PendManufacturer.objects.count() == pend_count + 1
+
 
 def test__pend_manufacturer__max_lengths_match():
     """Tests that max length is consistent between substitution and pending models."""
@@ -318,6 +355,7 @@ def test__pend_manufacturer__max_lengths_match():
     assert Subs._meta.get_field('original').max_length == Pend._meta.get_field('original').max_length
     assert Subs._meta.get_field('correction').max_length == Pend._meta.get_field('correction').max_length
 
+
 def test__pend_unit__minimal_model_creation():
     """Tests minimal PendUnit model creation."""
     pend_count = models.PendUnit.objects.count()
@@ -325,6 +363,7 @@ def test__pend_unit__minimal_model_creation():
     models.PendUnit.objects.create(original='a', correction='b')
 
     assert models.PendUnit.objects.count() == pend_count + 1
+
 
 def test__pend_unit__max_lengths_match():
     """Tests that max length is consistent between substitution and pending models."""

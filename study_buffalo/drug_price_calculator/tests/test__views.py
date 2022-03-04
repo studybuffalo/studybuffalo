@@ -19,6 +19,7 @@ def test__index__template():
         'drug_price_calculator/index.html' in [t.name for t in response.templates]
     )
 
+
 def test__prices_coverage_criteria__template():
     """Tests for proper price_coverage_criteria template."""
     # Create CoverageCriteria instance for test
@@ -35,6 +36,7 @@ def test__prices_coverage_criteria__template():
         'drug_price_calculator/prices_coverage_criteria.html' in [t.name for t in response.templates]
     )
 
+
 def test__prices_coverage_criteria__404_handling():
     """Tests price_coverage_criteria returns 404 if invalid price ID."""
     client = Client()
@@ -43,6 +45,7 @@ def test__prices_coverage_criteria__404_handling():
     )
 
     assert response.status_code == 404
+
 
 def test__prices_coverage_criteria__context__criteria():
     """Tests price_coverage_criteria criteria in context."""

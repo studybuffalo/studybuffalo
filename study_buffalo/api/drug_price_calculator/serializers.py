@@ -67,6 +67,7 @@ class iDBLClientsSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         pass
 
+
 class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
     """Serializer for Special Authorization details."""
     file_name = serializers.CharField(
@@ -83,6 +84,7 @@ class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         pass
+
 
 class iDBLCoverageCriteriaSerializer(serializers.Serializer):
     """Serializer for Coverage Criteria."""
@@ -101,6 +103,7 @@ class iDBLCoverageCriteriaSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         pass
+
 
 class iDBLDataSerializer(serializers.Serializer):
     """Serializer for extracted iDBL data."""
@@ -430,6 +433,7 @@ class iDBLDataSerializer(serializers.Serializer):
         # No return value, so returns True
         return True
 
+
 class DrugListSerializer(serializers.ModelSerializer):
     """Serializer to list drugs."""
     class Meta:
@@ -438,6 +442,7 @@ class DrugListSerializer(serializers.ModelSerializer):
             'id', 'brand_name', 'generic_name', 'strength', 'route',
             'dosage_form', 'generic_product',
         )
+
 
 class ATCDetailSerializer(serializers.ModelSerializer):
     """Serializer to provide ATC details."""
@@ -449,6 +454,7 @@ class ATCDetailSerializer(serializers.ModelSerializer):
             'atc_5', 'atc_5_text',
         )
 
+
 class PTCDetailSerializer(serializers.ModelSerializer):
     """Serializer to provide PTC details."""
     class Meta:
@@ -457,6 +463,7 @@ class PTCDetailSerializer(serializers.ModelSerializer):
             'id', 'ptc_1', 'ptc_1_text', 'ptc_2', 'ptc_2_text',
             'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
         )
+
 
 class DrugDetailSerializer(serializers.ModelSerializer):
     """Serializer to provide drug details."""
@@ -471,6 +478,7 @@ class DrugDetailSerializer(serializers.ModelSerializer):
             'generic_product'
         )
 
+
 class ClientsDetailSerializer(serializers.ModelSerializer):
     """Serializer to provide details on clients."""
     class Meta:
@@ -481,17 +489,20 @@ class ClientsDetailSerializer(serializers.ModelSerializer):
             'group_22128', 'group_23609',
         )
 
+
 class SpecialAuthorizationDetailSerializer(serializers.ModelSerializer):
     """Serializer to provide details on Special Authorization."""
     class Meta:
         model = models.SpecialAuthorization
         fields = ('file_name', 'pdf_title')
 
+
 class CoverageCriteriaDetailSerializer(serializers.ModelSerializer):
     """Serializer to provide details on Coverage Criteria."""
     class Meta:
         model = models.CoverageCriteria
         fields = ('header', 'criteria')
+
 
 class DrugPriceListSerializer(serializers.ModelSerializer):
     """Serializer to provide drug price list."""

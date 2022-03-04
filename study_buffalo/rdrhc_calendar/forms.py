@@ -35,6 +35,7 @@ class CalendarSettingsForm(forms.ModelForm):
             'reminder',
         ]
 
+
 class CalendarShiftCodeForm(forms.ModelForm):
     """Form to set details for a Shift Code."""
     code = forms.CharField(
@@ -63,6 +64,7 @@ class CalendarShiftCodeForm(forms.ModelForm):
             'stat_start',
             'stat_duration',
         ]
+
 
 class MissingCodeForm(forms.ModelForm):
     """Form to set details for a Missing Code."""

@@ -83,6 +83,7 @@ class Drug(models.Model):
 
         return self.din
 
+
 class ATC(models.Model):
     """Defines the ATC for each extracted URL"""
     id = models.CharField(
@@ -173,6 +174,7 @@ class ATC(models.Model):
 
         return str(self.id)
 
+
 class PTC(models.Model):
     """Defines the PTC for the specified URL"""
     id = models.CharField(
@@ -247,6 +249,7 @@ class PTC(models.Model):
             return f'{self.ptc_1} ({self.ptc_1_text})'
 
         return str(self.id)
+
 
 class Price(models.Model):
     """Pricing details for a single drug."""
@@ -328,6 +331,7 @@ class Price(models.Model):
 
         return f'{self.drug.din} price ({self.abc_id})'
 
+
 class Clients(models.Model):
     """Holds details regarding which clients are covered."""
     price = models.OneToOneField(
@@ -374,6 +378,7 @@ class Clients(models.Model):
     def __str__(self):
         return f'{str(self.price)} clients'
 
+
 class CoverageCriteria(models.Model):
     """Details on any coverage criteria."""
     price = models.ForeignKey(
@@ -398,6 +403,7 @@ class CoverageCriteria(models.Model):
     def __str__(self):
         return f'{str(self.price)} coverage criteria'
 
+
 class SpecialAuthorization(models.Model):
     """Details on special authorization forms."""
     file_name = models.CharField(
@@ -411,6 +417,7 @@ class SpecialAuthorization(models.Model):
 
     def __str__(self):
         return self.pdf_title
+
 
 class SubsBSRF(models.Model):
     """Formatting substitutions for Brand/Strength/Route/Formulation"""
@@ -443,6 +450,7 @@ class SubsBSRF(models.Model):
         verbose_name = 'Substitution - BSRF'
         verbose_name_plural = 'Substitutions - BSRF'
 
+
 class SubsGeneric(models.Model):
     """Formatting substitutions for generic names"""
     original = models.CharField(
@@ -458,6 +466,7 @@ class SubsGeneric(models.Model):
     class Meta:
         verbose_name = 'Substitution - Generic'
         verbose_name_plural = 'Substitutions - Generic'
+
 
 class SubsManufacturer(models.Model):
     """Formatting substitutions for manufacturers"""
@@ -475,6 +484,7 @@ class SubsManufacturer(models.Model):
         verbose_name = 'Substitution - Manufacturer'
         verbose_name_plural = 'Substitutions - Manufacturer'
 
+
 class SubsUnit(models.Model):
     """Substitutions for units"""
     original = models.CharField(
@@ -490,6 +500,7 @@ class SubsUnit(models.Model):
     class Meta:
         verbose_name = 'Substitution - Unit'
         verbose_name_plural = 'Substitutions - Unit'
+
 
 class PendBSRF(models.Model):
     """Pending substitutions for BSRF"""
@@ -522,6 +533,7 @@ class PendBSRF(models.Model):
         verbose_name = 'Substitution - BSRF (Pending)'
         verbose_name_plural = 'Substitutions - BSRF (Pending)'
 
+
 class PendGeneric(models.Model):
     """Pending substitutions for Generic Names"""
     original = models.CharField(
@@ -538,6 +550,7 @@ class PendGeneric(models.Model):
         verbose_name = 'Substitution - Generic (Pending)'
         verbose_name_plural = 'Substitutions - Generic (Pending)'
 
+
 class PendManufacturer(models.Model):
     """Pending substitutions for Manufacturers"""
     original = models.CharField(
@@ -553,6 +566,7 @@ class PendManufacturer(models.Model):
     class Meta:
         verbose_name = 'Substitution - Manufactuer (Pending)'
         verbose_name_plural = 'Substitutions - Manufactuer (Pending)'
+
 
 class PendUnit(models.Model):
     """Pending substitutions for Units"""

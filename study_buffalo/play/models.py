@@ -25,6 +25,7 @@ class Category(models.Model):
         """String representing the Category object"""
         return self.category
 
+
 class PlayPage(models.Model):
     """Defines a page to contain PlayItem(s)"""
     # Fields
@@ -88,6 +89,7 @@ class PlayPage(models.Model):
             return nextPK
 
         return None
+
 
 class PlayImage(models.Model):
     """Defines an individual image and its characteristics"""
@@ -174,10 +176,10 @@ class PlayImage(models.Model):
         # Save the files
         super().save()
 
-
     def __str__(self):
         """String representing the Play Image object"""
         return self.original_image.name or ''
+
 
 class PlayAudio(models.Model):
     """Defines an individual audio and its characteristics"""
@@ -229,8 +231,9 @@ class PlayAudio(models.Model):
         """String representing the Play Audio object"""
         return self.title
 
+
 @receiver(post_delete, sender=PlayImage)
-def play_image_delete(sender, instance, **kwargs): # pylint: disable=unused-argument
+def play_image_delete(sender, instance, **kwargs):  # pylint: disable=unused-argument
     """Removes the image file on model instance deletion"""
     instance.original_image.delete(False)
     instance.resized_image.delete(False)

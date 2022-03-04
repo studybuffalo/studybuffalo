@@ -2,9 +2,11 @@
 from django.contrib import admin
 from .models import PlayPage, PlayImage, PlayAudio, Category
 
+
 admin.site.register(PlayImage)
 admin.site.register(PlayAudio)
 admin.site.register(Category)
+
 
 class PlayImageInline(admin.StackedInline):
     """Admin inline for the Play Image model."""
@@ -12,10 +14,12 @@ class PlayImageInline(admin.StackedInline):
     extra = 0
     fields = ['original_image', ('title', 'alt_text', 'ordering'), 'description', ]
 
+
 class PlayAudioInline(admin.StackedInline):
     """Admin inline for the Play Audio model."""
     model = PlayAudio
     extra = 0
+
 
 @admin.register(PlayPage)
 class PlayPageAdmin(admin.ModelAdmin):

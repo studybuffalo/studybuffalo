@@ -25,6 +25,7 @@ def binary_search(search_list, word):
 
     return None
 
+
 def setup_dictionary():
     """Retrieves all words from dictionary app & returns sorted list"""
     dictionary = set()
@@ -34,6 +35,7 @@ def setup_dictionary():
     dictionary.sort()
 
     return dictionary
+
 
 def dictionary_check(dictionary, words):
     """Checks for presence of words within dictionary and manages accordingly."""
@@ -52,7 +54,7 @@ def dictionary_check(dictionary, words):
 
         # Search for the matched word in the dictionary
         regular_search = binary_search(dictionary, word.group())
-        lower_case_search =  binary_search(
+        lower_case_search = binary_search(
             dictionary,
             f'{word.group()[:1].lower()}{word.group()[1:]}'
         )
@@ -73,6 +75,7 @@ def dictionary_check(dictionary, words):
 
     return return_text
 
+
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
 def dashboard(request):
     """Displays a dashboard of the monitored apps"""
@@ -85,7 +88,6 @@ def dashboard(request):
     for app in apps_list:
         # Get a reference to the monitored pending sub model
         model_pending = apps.get_model(app.app_name, app.model_pending)
-
 
         # Get the verbose name (if available) or default name
         try:
@@ -123,6 +125,7 @@ def dashboard(request):
         }
     )
 
+
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
 def review(request, app_id):
     """Generates a page to review pending substitutions"""
@@ -144,6 +147,7 @@ def review(request, app_id):
             'app_data': app_data,
         }
     )
+
 
 def retrieve_pending_entries(app_id, last_id, req_num):
     """Utility to collect required pending entries."""
@@ -211,6 +215,7 @@ def retrieve_pending_entries(app_id, last_id, req_num):
     # Return the final response
     return response
 
+
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
 def retrieve_entries(request):
     """View to request pending entries."""
@@ -227,6 +232,7 @@ def retrieve_entries(request):
             response = retrieve_pending_entries(app_id, last_id, request_num)
 
     return JsonResponse(response, DjangoJSONEncoder)
+
 
 def add_new_substitutions(app_id, pend_id, orig, subs):
     """Function to add new substitutions."""
@@ -252,7 +258,7 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
 
             return {
                 'id': pend_id,
-                'success':True,
+                'success': True,
                 'message': f'New substitution added ({apps.get_app_config(app.app_name).verbose_name})',
             }
         except ValueError as e:
@@ -267,6 +273,7 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
                 'success': False,
                 'message': f'Unable to locate model: {app.model_sub}'
             }
+
 
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
 def verify(request):
@@ -306,6 +313,7 @@ def verify(request):
 
     return JsonResponse(response, DjangoJSONEncoder)
 
+
 def delete_entry(app_id, pend_id):
     """Function to delete entries."""
     # Get the model to insert the substitution into
@@ -340,6 +348,7 @@ def delete_entry(app_id, pend_id):
         }
 
     return response
+
 
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
 def delete_pend(request):

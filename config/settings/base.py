@@ -256,11 +256,11 @@ SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'METHOD': 'oauth2',
-        'SCOPE': ['email',],
+        'SCOPE': ['email'],
     },
     'google': {
         'AUTH_PARAMS': {'access_type': 'online'},
-        'SCOPE': ['email',],
+        'SCOPE': ['email'],
     }
 }
 

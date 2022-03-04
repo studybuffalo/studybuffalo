@@ -8,15 +8,18 @@ admin.site.register(HTMLGuide)
 admin.site.register(Bounty)
 admin.site.register(BountyAssignment)
 
+
 class DocumentGuideInline(admin.StackedInline):
     """Admin inline for the Document Guide model."""
     model = DocumentGuide
     extra = 0
 
+
 class HTMLGuideInline(admin.StackedInline):
     """Admin inline for the HTML Guide model."""
     model = HTMLGuide
     extra = 0
+
 
 @admin.register(Guide)
 class GuideAdmin(admin.ModelAdmin):

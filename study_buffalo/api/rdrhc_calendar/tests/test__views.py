@@ -14,6 +14,7 @@ from rdrhc_calendar.tests import utils
 
 pytestmark = pytest.mark.django_db
 
+
 def test__user_list__returns_user_list(calendar_user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
@@ -24,7 +25,7 @@ def test__user_list__returns_user_list(calendar_user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
     response = client.get(reverse('api:rdrhc_calendar_v1:user_list'))
-    content = json.loads(response.content) # pylint: disable=no-member
+    content = json.loads(response.content)  # pylint: disable=no-member
 
     # Confirm types returned
     assert isinstance(content, list)
@@ -40,6 +41,7 @@ def test__user_list__returns_user_list(calendar_user):
 
     # Confirm right model instance is pulled
     assert content[0]['id'] == calendar_user.id
+
 
 def test__user_detail__returns_user_detail(calendar_user):
     """Tests that proper response is returned."""
@@ -70,6 +72,7 @@ def test__user_detail__returns_user_detail(calendar_user):
     # Confirm right model instance is pulled
     assert content['id'] == calendar_user.id
 
+
 def test__user_email_list__returns_user_email_list(user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
@@ -86,11 +89,12 @@ def test__user_email_list__returns_user_email_list(user):
         'api:rdrhc_calendar_v1:user_email_list',
         kwargs={'user_id': token.user.id}
     ))
-    content = json.loads(response.content) # pylint: disable=no-member
+    content = json.loads(response.content)  # pylint: disable=no-member
 
     # Confirm types and value returned
     assert isinstance(content, list)
     assert content[0] == 'email@email.com'
+
 
 def test__shift_list__returns_shift_list(shift):
     """Tests that proper response is returned."""
@@ -112,6 +116,7 @@ def test__shift_list__returns_shift_list(shift):
     assert isinstance(content[0]['shift_code'], int)
     assert isinstance(content[0]['text_shift_code'], str)
     assert content[0]['id'] == shift.id
+
 
 def test_api_returns_user_shift_code_list(shift_code):
     """Tests that proper response is returned."""
@@ -155,6 +160,7 @@ def test_api_returns_user_shift_code_list(shift_code):
     assert isinstance(content[0]['stat_duration'], str)
     assert content[0]['id'] == shift_code.id
 
+
 def test__stat_holiday_list__returns_list_without_parameters(user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
@@ -174,6 +180,7 @@ def test__stat_holiday_list__returns_list_without_parameters(user):
     assert isinstance(content, list)
     assert len(content) == 10
     assert isinstance(content[0], str)
+
 
 def test__stat_holiday_list__returns_list_with_parameters(user):
     """Tests that proper response is returned when parameters added."""
@@ -195,6 +202,7 @@ def test__stat_holiday_list__returns_list_with_parameters(user):
 
     # Confirm proper amount of dates returned
     assert len(content) == 5
+
 
 def test__user_schedule_list__returns_list(shift):
     """Tests that proper response is returned."""
@@ -218,6 +226,7 @@ def test__user_schedule_list__returns_list(shift):
     assert isinstance(content[0]['text_shift_code'], str)
     assert content[0]['id'] == shift.id
 
+
 def test__user_schedule_delete__deletes_schedule(shift):
     """Tests that proper response is returned."""
     # Confirm shift exists
@@ -236,6 +245,7 @@ def test__user_schedule_delete__deletes_schedule(shift):
     ))
 
     assert Shift.objects.filter(sb_user=shift.sb_user).count() == 0
+
 
 def test__user_schedule_upload__uploads_user_schedule(calendar_user):
     """Tests that proper response is returned."""
@@ -286,6 +296,7 @@ def test__user_schedule_upload__uploads_user_schedule(calendar_user):
     # Confirm shift exists
     assert Shift.objects.filter(sb_user=user).count() == 3
 
+
 def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     """Confirms error handling with invalid data."""
     # Create token and add user permissions
@@ -321,6 +332,7 @@ def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     assert response.status_code == 400
     assert 'errors' in content
 
+
 def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_user):
     """Confirms error handling when data in incorrect format."""
     # Create token and add user permissions
@@ -347,6 +359,7 @@ def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_use
     assert response.status_code == 400
     assert 'errors' in content
 
+
 def test__user_email_first_sent__confirm_change(calendar_user):
     """Tests that proper response is returned."""
     # Confirm value start off false
@@ -367,6 +380,7 @@ def test__user_email_first_sent__confirm_change(calendar_user):
     # Retrieve updated database entry and confirm its value
     calendar_user.refresh_from_db()
     assert calendar_user.first_email_sent is True
+
 
 def test__missing_shift_code_upload__uploads_missing_codes(user):
     """Tests that proper response is returned."""
@@ -389,6 +403,7 @@ def test__missing_shift_code_upload__uploads_missing_codes(user):
     # Confirm code added
     assert MissingShiftCode.objects.all().count() == 1
 
+
 def test__missing_shift_code_upload__400_response_on_invalid_data(user):
     """Tests that missing shift code results in 400 response with invalid data."""
     # Create token and add user permissions
@@ -406,6 +421,7 @@ def test__missing_shift_code_upload__400_response_on_invalid_data(user):
     json.loads(response.content)
 
     assert response.status_code == 400
+
 
 def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
     """Tests that missing shift code results in 400 response with invalid format."""

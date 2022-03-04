@@ -13,11 +13,13 @@ class DPDList(generic.ListView):
 
     context_object_name = 'dpd_list'
 
+
 class ActiveIngredientList(generic.ListView):
     """View of all the ActiveIngredients entries"""
     model = ActiveIngredient
 
     context_object_name = 'active_ingredient_list'
+
 
 class CompanyList(generic.ListView):
     """View of all the Companies entries"""
@@ -25,11 +27,13 @@ class CompanyList(generic.ListView):
 
     context_object_name = 'company_list'
 
+
 class DrugProductList(generic.ListView):
     """View of all the DrugProduct entries"""
     model = DrugProduct
 
     context_object_name = 'drug_product_list'
+
 
 class FormList(generic.ListView):
     """View of all the Form entries"""
@@ -37,11 +41,13 @@ class FormList(generic.ListView):
 
     context_object_name = 'form_list'
 
+
 class InactiveProductList(generic.ListView):
     """View of all the InactiveProducts entries"""
     model = InactiveProduct
 
     context_object_name = 'inactive_product_list'
+
 
 class PackagingList(generic.ListView):
     """View of all the Packaging entries"""
@@ -49,11 +55,13 @@ class PackagingList(generic.ListView):
 
     context_object_name = 'packaging_list'
 
+
 class PharmaceuticalStandardList(generic.ListView):
     """View of all the PharmaceuticalStandard entries"""
     model = PharmaceuticalStandard
 
     context_object_name = 'pharmaceutical_standard_list'
+
 
 class RouteList(generic.ListView):
     """View of all the Route entries"""
@@ -61,11 +69,13 @@ class RouteList(generic.ListView):
 
     context_object_name = 'route_list'
 
+
 class ScheduleList(generic.ListView):
     """View of all the Schedule entries"""
     model = Schedule
 
     context_object_name = 'schedule_list'
+
 
 class StatusList(generic.ListView):
     """View of all the Status entries"""
@@ -73,11 +83,13 @@ class StatusList(generic.ListView):
 
     context_object_name = 'status_list'
 
+
 class TherapeuticClassList(generic.ListView):
     """View of all the TherapeuticClass entries"""
     model = TherapeuticClass
 
     context_object_name = 'therapeutic_class_list'
+
 
 class VeterinarySpeciesList(generic.ListView):
     """View of all the VeterinarySpecies entries"""

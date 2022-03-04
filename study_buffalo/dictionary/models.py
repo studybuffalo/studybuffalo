@@ -9,6 +9,7 @@ class Language(models.Model):
     def __str__(self):
         return self.language
 
+
 class DictionaryType(models.Model):
     """Dictionary type for creation of specific dictionary categories"""
     dictionary_name = models.CharField(max_length=50,)
@@ -16,6 +17,7 @@ class DictionaryType(models.Model):
 
     def __str__(self):
         return self.dictionary_name
+
 
 class DictionaryClass(models.Model):
     """Specifies a dictionary classification"""
@@ -28,6 +30,7 @@ class DictionaryClass(models.Model):
 
     def __str__(self):
         return self.class_name
+
 
 class Word(models.Model):
     """A single word in the dictionary"""
@@ -50,6 +53,7 @@ class Word(models.Model):
 
     def __str__(self):
         return self.word
+
 
 class WordPending(models.Model):
     """A single word pending inclusion into Word"""
@@ -83,6 +87,7 @@ class WordPending(models.Model):
 
     def __str__(self):
         return self.word
+
 
 class ExcludedWord(models.Model):
     """A single word that will not be included in the dictionary"""

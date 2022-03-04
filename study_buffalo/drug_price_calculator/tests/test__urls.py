@@ -9,6 +9,7 @@ from drug_price_calculator.models import Drug, Price, CoverageCriteria
 
 pytestmark = pytest.mark.django_db
 
+
 def test__index__exists_at_desired_url():
     """Tests that index page exists at desired URL."""
     client = Client()
@@ -16,12 +17,14 @@ def test__index__exists_at_desired_url():
 
     assert response.status_code == 200
 
+
 def test__index__url_name():
     """Tests that index page URL name works."""
     client = Client()
     response = client.get(reverse('drug_price_calculator_index'))
 
     assert response.status_code == 200
+
 
 def test__coverage_criteria__exists_at_desired_url():
     """Tests that index page exists at desired URL."""

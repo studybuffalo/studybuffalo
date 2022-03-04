@@ -14,11 +14,13 @@ class Index(generic.ListView):
     def get_queryset(self):
         return PlayPage.objects.filter(release_date__date__lte=datetime.now()).order_by('-id').first()
 
+
 class Archive(generic.ListView):
     """Archive view for the Play app."""
     model = PlayPage
 
     context_object_name = 'play_page_list'
+
 
 class PlayPageDetail(generic.DetailView):
     """Detail view for a Play item."""

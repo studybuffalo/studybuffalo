@@ -1,6 +1,7 @@
 """Models for the Substitutions App."""
 from django.db import models
 
+
 class Apps(models.Model):
     """List of all Django applications to monitor"""
     app_name = models.CharField(
@@ -26,6 +27,7 @@ class Apps(models.Model):
 
     def __str__(self):
         return self.app_name
+
 
 class ModelFields(models.Model):
     """List of the model fields to include"""

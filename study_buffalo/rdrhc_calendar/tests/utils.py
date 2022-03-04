@@ -14,12 +14,14 @@ def add_view_permission(user):
         Permission.objects.get(content_type=content_type, codename='can_view')
     )
 
+
 def add_add_default_codes_permissions(user):
     """Adds the 'can_add_default_codes' permission to the provided user."""
     content_type = ContentType.objects.get_for_model(MissingShiftCode)
     user.user_permissions.add(
         Permission.objects.get(content_type=content_type, codename='can_add_default_codes')
     )
+
 
 def add_api_permission(user):
     """Addss the 'access_api' permission to the provided user."""
@@ -28,9 +30,11 @@ def add_api_permission(user):
         Permission.objects.get(content_type=content_type, codename='access_api')
     )
 
+
 def create_token(user):
     """Creates token for provided user."""
     return Token.objects.create(user=user)
+
 
 def create_stat_holidays():
     """Utility to create example Statutory holidays."""

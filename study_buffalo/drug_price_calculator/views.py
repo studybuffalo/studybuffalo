@@ -1,13 +1,13 @@
 """Views for the Drug Price Calculator."""
-#import json
+# import json
 
-#from django.core import serializers
-#from django.core.exceptions import ObjectDoesNotExist
-#from django.core.serializers.json import DjangoJSONEncoder
-#from django.db.models import Q
-#from django.http import HttpResponse
+# from django.core import serializers
+# from django.core.exceptions import ObjectDoesNotExist
+# from django.core.serializers.json import DjangoJSONEncoder
+# from django.db.models import Q
+# from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-#from django.views import generic
+# from django.views import generic
 
 from . import models
 
@@ -19,6 +19,7 @@ def index(request):
         'drug_price_calculator/index.html',
         context={},
     )
+
 
 def prices_coverage_criteria(request, price_id):
     """View for the coverage criteria of a price file."""

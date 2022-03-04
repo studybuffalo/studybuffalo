@@ -55,6 +55,7 @@ class Guide(models.Model):
         """Returns if a Bounty is set or not."""
         return self.bounty_set.all().exists()
 
+
 class Bounty(models.Model):
     """Defines a bounty on a study guide"""
     # Fields

@@ -12,6 +12,7 @@ class FieldsInline(admin.TabularInline):
     verbose_name = 'Model Field'
     verbose_name_plural = 'Model Fields'
 
+
 @admin.register(Apps)
 class AppsAdmin(admin.ModelAdmin):
     """Admin for the Apps model."""

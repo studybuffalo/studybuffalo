@@ -56,6 +56,7 @@ class CustomSitemap(Sitemap):
 
         return urls
 
+
 class PlaySitemap(CustomSitemap):
     """Sitemap class for the Play app."""
     changefreq = 'weekly'
@@ -70,6 +71,7 @@ class PlaySitemap(CustomSitemap):
         """Returns the last modified date for an item."""
         return item.release_date
 
+
 class StudySitemap(CustomSitemap):
     """Sitemap class for the Study app."""
     changefreq = 'weekly'
@@ -83,6 +85,7 @@ class StudySitemap(CustomSitemap):
         """Returns the last modified date for an item."""
         return item.last_update
 
+
 class ReadSitemap(CustomSitemap):
     """Sitemap class for the Read app."""
     changefreq = 'weekly'
@@ -95,6 +98,7 @@ class ReadSitemap(CustomSitemap):
     def lastmod(item):
         """Returns the last modified date for an item."""
         return item.date_published
+
 
 class ToolSitemap(CustomSitemap):
     """Sitemap class for the Tools app."""

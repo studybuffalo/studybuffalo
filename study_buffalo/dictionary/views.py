@@ -17,12 +17,14 @@ def index(request):
         {},
     )
 
+
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def retrieve_select_data(request):
     """Returns data to generate the HTML select elements."""
     response = generate_select_data()
 
     return JsonResponse(response, DjangoJSONEncoder)
+
 
 def generate_select_data():
     """Generates html select inputs for the review page."""
@@ -71,6 +73,7 @@ def generate_select_data():
 
     return selects
 
+
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def review(request):
     """Displays a dashboard of the pending Word entries"""
@@ -79,8 +82,9 @@ def review(request):
     return render(
         request,
         'dictionary/review.html',
-        {'count': pending_count,},
+        {'count': pending_count},
     )
+
 
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def retrieve_entries(request):
@@ -97,6 +101,7 @@ def retrieve_entries(request):
             response = retrieve_pending_entries(last_id, request_num)
 
     return JsonResponse(response, DjangoJSONEncoder)
+
 
 def retrieve_pending_entries(last_id, req_num):
     """Retrieves requested pending dicionary entries."""
@@ -119,6 +124,7 @@ def retrieve_pending_entries(last_id, req_num):
 
     # Return the final response
     return response
+
 
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def add_new_word(request):
@@ -174,6 +180,7 @@ def add_new_word(request):
 
     return JsonResponse(response, DjangoJSONEncoder)
 
+
 def process_new_word(model_name, word, language, dictionary_type, dictionary_class):
     """View to process a new word for the dictionary."""
     # Get the proper model reference
@@ -198,9 +205,10 @@ def process_new_word(model_name, word, language, dictionary_type, dictionary_cla
     message = f'{word} added to the {model_message}'
 
     return {
-        'success':True,
+        'success': True,
         'message': message,
     }
+
 
 def process_pending_word_deletion(pending_id):
     """View to delete pending word."""
@@ -214,6 +222,7 @@ def process_pending_word_deletion(pending_id):
             f'Pending word (id = {pending_id}) successfully deleted'
         )
     }
+
 
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def delete_pending_word(request):

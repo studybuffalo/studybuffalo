@@ -15,6 +15,7 @@ class CalendarUserAdmin(admin.ModelAdmin):
     list_filter = ('role',)
     ordering = ('role', 'name',)
 
+
 @admin.register(ShiftCode)
 class ShiftCodeAdmin(admin.ModelAdmin):
     """Admin for the Shift Code model."""
@@ -24,12 +25,14 @@ class ShiftCodeAdmin(admin.ModelAdmin):
     list_filter = ('role',)
     ordering = ('role', 'sb_user', 'code',)
 
+
 @admin.register(StatHoliday)
 class StatHolidayAdmin(admin.ModelAdmin):
     """Admin for the Stat Holiday model."""
     model = StatHoliday
 
     ordering = ('date',)
+
 
 @admin.register(Shift)
 class ShiftAdmin(admin.ModelAdmin):

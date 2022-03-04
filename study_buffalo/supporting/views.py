@@ -33,6 +33,7 @@ class Index(generic.ListView):
             Q(end_date__isnull=True) | Q(end_date__gt=today)
         )
 
+
 def tools_index(request):
     """View for the tool page"""
     return render(
@@ -40,6 +41,7 @@ def tools_index(request):
         'tools_index.html',
         context={},
     )
+
 
 def alberta_adaptations_index(request):
     """View for the alberta adaptations page"""
@@ -49,6 +51,7 @@ def alberta_adaptations_index(request):
         context={},
     )
 
+
 def design_index(request):
     """View for the design page"""
     return render(
@@ -56,6 +59,7 @@ def design_index(request):
         'design_index.html',
         context={},
     )
+
 
 def privacy_policy(request):
     """View for the privacy policy page"""
@@ -65,6 +69,7 @@ def privacy_policy(request):
         context={},
     )
 
+
 def robot_policy(request):
     """View for the robot policy page"""
     return render(
@@ -72,6 +77,7 @@ def robot_policy(request):
         'robot_policy.html',
         context={},
     )
+
 
 def contact(request):
     """View for the contact information page"""
@@ -101,7 +107,7 @@ def contact(request):
                 email_content,
                 sender_email,
                 ['info@studybuffalo.com'],
-                headers = {'Reply-To': sender_email},
+                headers={'Reply-To': sender_email},
             )
 
             try:
@@ -140,6 +146,7 @@ def contact(request):
         context={'form': form},
     )
 
+
 def unsubscribe(request):
     """View for the email unsubscribe page"""
     # If POST process and send email
@@ -160,7 +167,7 @@ def unsubscribe(request):
                 email_content,
                 sender_email,
                 ['info@studybuffalo.com'],
-                headers = {'Reply-To': sender_email},
+                headers={'Reply-To': sender_email},
             )
 
             try:
@@ -190,6 +197,7 @@ def unsubscribe(request):
         context={'form': form},
     )
 
+
 def unsubscribe_complete(request):
     """View to render confirmation of successful unsubscribe."""
     return render(
@@ -197,6 +205,7 @@ def unsubscribe_complete(request):
         'unsubscribe_complete.html',
         context={},
     )
+
 
 @login_required
 def account_profile(request):
@@ -207,6 +216,7 @@ def account_profile(request):
         context={},
     )
 
+
 def x_robots_tag(func):
     """Adds tag no announce no indexing by robots"""
     @wraps(func)
@@ -216,8 +226,11 @@ def x_robots_tag(func):
         return response
     return inner
 
+
 @x_robots_tag
-def custom_sitemap(request, sitemaps, section=None, template_name='sitemap.xml', content_type='application/xml'): # pylint: disable=too-many-locals, too-many-branches
+def custom_sitemap(
+    request, sitemaps, section=None, template_name='sitemap.xml', content_type='application/xml'
+):  # pylint: disable=too-many-locals, too-many-branches
     """A custom sitemap view to generate an HTML sitemap"""
     req_protocol = request.scheme
     req_site = get_current_site(request)

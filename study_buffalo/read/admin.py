@@ -6,15 +6,18 @@ from .models import Publication, DocumentPublication, HTMLPublication
 admin.site.register(DocumentPublication)
 admin.site.register(HTMLPublication)
 
+
 class DocumentPublicationInline(admin.StackedInline):
     """Admin inline for the Document Publication model."""
     model = DocumentPublication
     extra = 0
 
+
 class HTMLPublicationInline(admin.StackedInline):
     """Admin inline for the HTML Publication model."""
     model = HTMLPublication
     extra = 0
+
 
 @admin.register(Publication)
 class PublicationAdmin(admin.ModelAdmin):

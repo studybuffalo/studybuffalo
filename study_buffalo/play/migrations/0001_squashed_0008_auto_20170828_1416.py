@@ -97,15 +97,27 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'type',
-                    models.CharField(default='i', editable=False, help_text='The file type of the item', max_length=1),
+                    models.CharField(
+                        default='i',
+                        editable=False,
+                        help_text='The file type of the item',
+                        max_length=1,
+                    ),
                 ),
                 (
                     'location',
-                    models.ImageField(help_text='The uploaded image (high quality)', upload_to='play/images/original/'),
+                    models.ImageField(
+                        help_text='The uploaded image (high quality)',
+                        upload_to='play/images/original/',
+                    ),
                 ),
                 (
                     'alt_text',
-                    models.CharField(help_text='Text to show on cursor hover over the item', max_length=256, null=True),
+                    models.CharField(
+                        help_text='Text to show on cursor hover over the item',
+                        max_length=256,
+                        null=True,
+                    ),
                 ),
                 (
                     'description',
