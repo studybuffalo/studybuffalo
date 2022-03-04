@@ -71,7 +71,7 @@ class CalendarUser(models.Model):
         verbose_name_plural = 'RDRHC Calendar Users'
 
     def __str__(self):
-        return '{self.role} - {self.name}'
+        return f'{self.role} - {self.name}'
 
 class StatHoliday(models.Model):
     """Model representing a Statutory Holiday."""

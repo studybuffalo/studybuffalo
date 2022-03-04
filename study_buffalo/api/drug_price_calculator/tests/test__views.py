@@ -89,7 +89,7 @@ def test__upload_idbl_data__invalid_data(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{din}/upload/',
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 'a'}
     )
     content = json.loads(response.content)

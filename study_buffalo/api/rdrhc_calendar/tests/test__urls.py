@@ -411,7 +411,7 @@ def test__user_schedule_list__accessible_by_url(user):
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
     response = client.get(
-        '/api/rdrhc-calendar/v1/shifts/{token.user.id}/'
+        f'/api/rdrhc-calendar/v1/shifts/{token.user.id}/'
     )
 
     assert response.status_code == 200
