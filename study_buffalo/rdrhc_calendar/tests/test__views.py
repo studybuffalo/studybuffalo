@@ -374,7 +374,7 @@ def test__mising_code_edit__unique_validation(user, missing_shift_code):
     )
 
     # Get messages
-    messages = [message for message in get_messages(response.wsgi_request)]
+    messages = list(get_messages(response.wsgi_request))
 
     # Confirm error repsponse message
     assert messages[0].tags == 'error'
