@@ -132,7 +132,7 @@ To run linting::
   $ pipenv run pylint study_buffalo/ config/ --ignore=tests
 
   # Run Pylint for modules that allow more duplication of code
-  $ pipenv run pylint study_buffalo/aminoglycoside_calculator/tests \
+  $ pipenv run pylint  \
     study_buffalo/api/drug_price_calculator/tests \
     study_buffalo/api/rdrhc_calendar/tests study_buffalo/dictionary/tests \
     study_buffalo/drug_price_calculator/tests study_buffalo/hc_dpd/tests \
