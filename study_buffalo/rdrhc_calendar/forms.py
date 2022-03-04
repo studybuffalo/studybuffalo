@@ -1,7 +1,11 @@
+"""Forms for the RDRHC Calendar app."""
 from django import forms
+
 from .models import CalendarUser, ShiftCode
 
+
 class CalendarSettingsForm(forms.ModelForm):
+    """Form to set settings for a Calendar user."""
     full_day = forms.ChoiceField(
         choices=(
             ('False', 'No'),
@@ -31,7 +35,9 @@ class CalendarSettingsForm(forms.ModelForm):
             'reminder',
         ]
 
+
 class CalendarShiftCodeForm(forms.ModelForm):
+    """Form to set details for a Shift Code."""
     code = forms.CharField(
         help_text='The shift code used in the Excel schedule',
         max_length=20,
@@ -59,7 +65,9 @@ class CalendarShiftCodeForm(forms.ModelForm):
             'stat_duration',
         ]
 
+
 class MissingCodeForm(forms.ModelForm):
+    """Form to set details for a Missing Code."""
     class Meta:
         model = ShiftCode
         fields = [

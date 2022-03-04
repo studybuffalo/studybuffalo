@@ -1,6 +1,4 @@
-"""
-Base settings to build other settings files upon.
-"""
+"""Base settings to build other settings files upon."""
 
 import environ
 
@@ -67,7 +65,6 @@ THIRD_PARTY_APPS = [
     'rest_framework.authtoken',
 ]
 LOCAL_APPS = [
-    'study_buffalo.aminoglycoside_calculator.apps.AminoglycosideCalculatorConfig',
     'study_buffalo.dictionary.apps.DictionaryConfig',
     'study_buffalo.drug_price_calculator.apps.DrugPriceCalculatorConfig',
     'study_buffalo.hc_dpd.apps.HcDpdConfig',
@@ -230,10 +227,15 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 ADMIN_URL = 'admin/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ("""Joshua Torrance""", 'torrancj@gmail.com'),
+    ('''Joshua Torrance''', 'torrancj@gmail.com'),
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
+
+
+# LOGGING
+# ------------------------------------------------------------------------------
+LOGGING_CONFIG = None
 
 
 # django-allauth
@@ -251,14 +253,14 @@ ACCOUNT_ADAPTER = 'study_buffalo.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'study_buffalo.users.adapters.SocialAccountAdapter'
 ACCOUNT_UNIQUE_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
-    "facebook": {
-        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
-        "METHOD": "oauth2",
-        "SCOPE": ["email",],
+    'facebook': {
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'oauth2',
+        'SCOPE': ['email'],
     },
-    "google": {
-        "AUTH_PARAMS": {"access_type": "online"},
-        "SCOPE": ["email",],
+    'google': {
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'SCOPE': ['email'],
     }
 }
 

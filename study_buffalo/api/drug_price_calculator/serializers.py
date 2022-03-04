@@ -9,6 +9,7 @@ from api.drug_price_calculator import parse
 
 
 class iDBLClientsSerializer(serializers.Serializer):
+    """Serializer for the iDBL Clients."""
     group_1 = serializers.BooleanField(
         allow_null=True,
         default=False,
@@ -66,7 +67,9 @@ class iDBLClientsSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         pass
 
+
 class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
+    """Serializer for Special Authorization details."""
     file_name = serializers.CharField(
         help_text='The name of the PDF file',
         max_length=15,
@@ -82,7 +85,9 @@ class iDBLSpecialAuthorizationSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         pass
 
+
 class iDBLCoverageCriteriaSerializer(serializers.Serializer):
+    """Serializer for Coverage Criteria."""
     header = serializers.CharField(
         allow_null=True,
         help_text='Any header for this criteria',
@@ -98,6 +103,7 @@ class iDBLCoverageCriteriaSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         pass
+
 
 class iDBLDataSerializer(serializers.Serializer):
     """Serializer for extracted iDBL data."""
@@ -260,8 +266,8 @@ class iDBLDataSerializer(serializers.Serializer):
                 atc.save()
             else:
                 # No matches for other ATC does send message
-                message = 'No Matching ATC model for FK {} (DIN: {})'.format(
-                    self.validated_data['ptc'], self.validated_data['din']
+                message = (
+                    f'No Matching ATC model for FK {self.validated_data["ptc"]} (DIN: {self.validated_data["din"]})'
                 )
                 capture_message(message=message, level=20)
 
@@ -278,8 +284,8 @@ class iDBLDataSerializer(serializers.Serializer):
 
         if created:
             # Send message to notify of missing PTC data
-            message = 'No Matching PTC model for FK {} (DIN: {})'.format(
-                self.validated_data['ptc'], self.validated_data['din']
+            message = (
+                f'No Matching PTC model for FK {self.validated_data["ptc"]} (DIN: {self.validated_data["din"]})'
             )
             capture_message(message=message, level=20)
 
@@ -427,7 +433,9 @@ class iDBLDataSerializer(serializers.Serializer):
         # No return value, so returns True
         return True
 
+
 class DrugListSerializer(serializers.ModelSerializer):
+    """Serializer to list drugs."""
     class Meta:
         model = models.Drug
         fields = (
@@ -435,7 +443,9 @@ class DrugListSerializer(serializers.ModelSerializer):
             'dosage_form', 'generic_product',
         )
 
+
 class ATCDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide ATC details."""
     class Meta:
         model = models.ATC
         fields = (
@@ -444,7 +454,9 @@ class ATCDetailSerializer(serializers.ModelSerializer):
             'atc_5', 'atc_5_text',
         )
 
+
 class PTCDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide PTC details."""
     class Meta:
         model = models.PTC
         fields = (
@@ -452,7 +464,9 @@ class PTCDetailSerializer(serializers.ModelSerializer):
             'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
         )
 
+
 class DrugDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide drug details."""
     atc = ATCDetailSerializer()
     ptc = PTCDetailSerializer()
 
@@ -464,7 +478,9 @@ class DrugDetailSerializer(serializers.ModelSerializer):
             'generic_product'
         )
 
+
 class ClientsDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide details on clients."""
     class Meta:
         model = models.Clients
         fields = (
@@ -473,17 +489,23 @@ class ClientsDetailSerializer(serializers.ModelSerializer):
             'group_22128', 'group_23609',
         )
 
+
 class SpecialAuthorizationDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide details on Special Authorization."""
     class Meta:
         model = models.SpecialAuthorization
         fields = ('file_name', 'pdf_title')
 
+
 class CoverageCriteriaDetailSerializer(serializers.ModelSerializer):
+    """Serializer to provide details on Coverage Criteria."""
     class Meta:
         model = models.CoverageCriteria
         fields = ('header', 'criteria')
 
+
 class DrugPriceListSerializer(serializers.ModelSerializer):
+    """Serializer to provide drug price list."""
     drug = DrugDetailSerializer()
     clients = ClientsDetailSerializer()
     special_authorizations = SpecialAuthorizationDetailSerializer(many=True)

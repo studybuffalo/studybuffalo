@@ -6,6 +6,7 @@ from users.admin import MyUserCreationForm
 
 pytestmark = pytest.mark.django_db
 
+
 def test__my_user_creation_form__clean_username_success():
     """Tests that clean username validation works as expected."""
     # Instantiate the form with a new username
@@ -24,6 +25,7 @@ def test__my_user_creation_form__clean_username_success():
 
     assert valid
     assert username == 'alamode'
+
 
 def test__my_user_creation_form__clean_username_false(user):
     """Tests that clean_username fails when username already taken."""

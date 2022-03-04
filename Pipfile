@@ -22,7 +22,7 @@ django-environ = "*"  # https://github.com/joke2k/django-environ
 django-allauth = "*"  # https://github.com/pennersr/django-allauth
 django-redis = "*"  # https://github.com/niwinz/django-redis
 django-storages = "*"  # https://github.com/jschneier/django-storages
-django-simple-history = "*"
+django-simple-history = "*"  # https://github.com/jazzband/django-simple-history
 
 # Django REST Framework
 # -----------------------------------------------------------------------------
@@ -33,14 +33,16 @@ coreapi = "*"  # https://github.com/core-api/python-client
 [dev-packages]
 # Code quality
 # -----------------------------------------------------------------------------
+pycodestyle = "*"  # https://github.com/pycqa/pycodestyle
 pylint = "*"  # https://github.com/PyCQA/pylint/
+pylint-django = "*"  # dhttps://github.com/PyCQA/pylint-django
+pylint-quotes = "*"  # https://github.com/edaniszewski/pylint-quotes
 
 # Django
 # -----------------------------------------------------------------------------
 django-debug-toolbar = "*"  # https://github.com/jazzband/django-debug-toolbar
 django-extensions = "*"  # https://github.com/django-extensions/django-extensions
-pylint-common = "*" # https://github.com/landscapeio/pylint-common
-pylint-django = "*" #https://github.com/PyCQA/pylint-django
+
 
 # Testing
 # -----------------------------------------------------------------------------

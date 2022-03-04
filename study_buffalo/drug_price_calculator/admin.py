@@ -1,18 +1,25 @@
+"""Admin configuration for the Drug Price Calculator application."""
 from django.contrib import admin
 
 from . import models
 
 
 class ClientsInlineAdmin(admin.TabularInline):
+    """Inline admin for Clients."""
     model = models.Clients
 
+
 class CoverageCriteriaInlineAdmin(admin.TabularInline):
+    """Inline admin for Coverage Criteria."""
     model = models.CoverageCriteria
     extra = 1
 
+
 class SpecialInlineAdmin(admin.TabularInline):
+    """Inline admin for Special Authorizations."""
     model = models.Price.special_authorizations.through
     extra = 1
+
 
 @admin.register(models.Drug)
 class DrugAdmin(admin.ModelAdmin):
@@ -29,6 +36,7 @@ class DrugAdmin(admin.ModelAdmin):
         'generic_product',
     )
 
+
 @admin.register(models.Price)
 class PriceAdmin(admin.ModelAdmin):
     """Admin for the Price (and related) models."""
@@ -43,6 +51,7 @@ class PriceAdmin(admin.ModelAdmin):
         'mac_text', 'unit_issue', 'interchangeable', 'coverage_status',
     )
     inlines = (ClientsInlineAdmin, CoverageCriteriaInlineAdmin, SpecialInlineAdmin)
+
 
 @admin.register(models.ATC)
 class ATCAdmin(admin.ModelAdmin):
@@ -63,6 +72,7 @@ class ATCAdmin(admin.ModelAdmin):
         'atc_4', 'atc_4_text', 'atc_5', 'atc_5_text'
     )
 
+
 @admin.register(models.PTC)
 class PTCAdmin(admin.ModelAdmin):
     """Admin for the PTC model."""
@@ -80,6 +90,7 @@ class PTCAdmin(admin.ModelAdmin):
         'ptc_3', 'ptc_3_text', 'ptc_4', 'ptc_4_text',
     )
 
+
 @admin.register(models.SpecialAuthorization)
 class SpecialAuthorizationAdmin(admin.ModelAdmin):
     """Admin for the PTC model."""
@@ -89,6 +100,7 @@ class SpecialAuthorizationAdmin(admin.ModelAdmin):
     ordering = ('pdf_title',)
 
     fields = ('file_name', 'pdf_title')
+
 
 @admin.register(models.SubsBSRF)
 class SubsBSRFAdmin(admin.ModelAdmin):
@@ -100,6 +112,7 @@ class SubsBSRFAdmin(admin.ModelAdmin):
 
     fields = ('original', 'brand_name', 'strength', 'route', 'dosage_form')
 
+
 @admin.register(models.SubsGeneric)
 class SubsGenericAdmin(admin.ModelAdmin):
     """Admin for the generic substitution model."""
@@ -109,6 +122,7 @@ class SubsGenericAdmin(admin.ModelAdmin):
     ordering = ('original', 'correction')
 
     fields = ('original', 'correction')
+
 
 @admin.register(models.SubsManufacturer)
 class SubsManufacturerAdmin(admin.ModelAdmin):
@@ -120,6 +134,7 @@ class SubsManufacturerAdmin(admin.ModelAdmin):
 
     fields = ('original', 'correction')
 
+
 @admin.register(models.SubsUnit)
 class SubsUnitAdmin(admin.ModelAdmin):
     """Admin for the unit substitution model."""
@@ -129,6 +144,7 @@ class SubsUnitAdmin(admin.ModelAdmin):
     ordering = ('original', 'correction')
 
     fields = ('original', 'correction')
+
 
 @admin.register(models.PendBSRF)
 class PendBSRFAdmin(admin.ModelAdmin):
@@ -140,6 +156,7 @@ class PendBSRFAdmin(admin.ModelAdmin):
 
     fields = ('original', 'brand_name', 'strength', 'route', 'dosage_form')
 
+
 @admin.register(models.PendGeneric)
 class PendGenericAdmin(admin.ModelAdmin):
     """Admin for the pending generic substitution model."""
@@ -149,6 +166,7 @@ class PendGenericAdmin(admin.ModelAdmin):
     ordering = ('original', 'correction')
 
     fields = ('original', 'correction')
+
 
 @admin.register(models.PendManufacturer)
 class PendManufacturerAdmin(admin.ModelAdmin):

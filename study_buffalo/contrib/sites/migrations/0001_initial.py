@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring,missing-class-docstring
 import django.contrib.sites.models
 from django.contrib.sites.models import _simple_domain_name_validator
 from django.db import migrations, models
@@ -9,34 +10,34 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Site",
+            name='Site',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.AutoField(
-                        verbose_name="ID",
+                        verbose_name='ID',
                         serialize=False,
                         auto_created=True,
                         primary_key=True,
                     ),
                 ),
                 (
-                    "domain",
+                    'domain',
                     models.CharField(
                         max_length=100,
-                        verbose_name="domain name",
+                        verbose_name='domain name',
                         validators=[_simple_domain_name_validator],
                     ),
                 ),
-                ("name", models.CharField(max_length=50, verbose_name="display name")),
+                ('name', models.CharField(max_length=50, verbose_name='display name')),
             ],
             options={
-                "ordering": ("domain",),
-                "db_table": "django_site",
-                "verbose_name": "site",
-                "verbose_name_plural": "sites",
+                'ordering': ('domain',),
+                'db_table': 'django_site',
+                'verbose_name': 'site',
+                'verbose_name_plural': 'sites',
             },
             bases=(models.Model,),
-            managers=[("objects", django.contrib.sites.models.SiteManager())],
+            managers=[('objects', django.contrib.sites.models.SiteManager())],
         )
     ]

@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-class-docstring
 from __future__ import unicode_literals
 
 from django.db import migrations, models

@@ -1,4 +1,4 @@
-
+"""Management commands to support Drug Price Calculator."""
 import time
 
 from bs4 import BeautifulSoup
@@ -6,12 +6,13 @@ import requests
 from sentry_sdk import capture_message
 from tqdm import tqdm
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 from drug_price_calculator.models import ATC
 
 
 class Command(BaseCommand):
+    """Command to update temporary ATC records with descriptions."""
     help = 'Updates temporary ATC records with descriptions.'
 
     def add_arguments(self, parser):
@@ -27,7 +28,7 @@ class Command(BaseCommand):
 
         for atc in tqdm(ATC.objects.filter(atc_5__isnull=False).filter(atc_5_text__isnull=True)):
             # Assemble URL to query
-            url = 'https://www.whocc.no/atc_ddd_index/?code={}'.format(atc.atc_5)
+            url = f'https://www.whocc.no/atc_ddd_index/?code={atc.atc_5}'
 
             # If valid response, can extract data
             response = session.get(url)
@@ -49,9 +50,7 @@ class Command(BaseCommand):
                     atc.save()
                 except AttributeError:
                     # Unable to find data, send message for manual follow-up
-                    message = 'No ATC found for {} (reference DIN: {})'.format(
-                        atc.atc_5, atc.drugs.last().din
-                    )
+                    message = f'No ATC found for {atc.atc_5} (reference DIN: {atc.drugs.last().din})'
                     capture_message(message, level=20)
 
             # Sleep of 10 seconds to comply with robots.txt

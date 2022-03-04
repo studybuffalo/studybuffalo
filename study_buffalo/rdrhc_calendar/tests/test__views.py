@@ -8,14 +8,17 @@ from django.db import IntegrityError
 from django.test import Client
 from django.urls import reverse
 
-from rdrhc_calendar import models, views
+from rdrhc_calendar import models
 from rdrhc_calendar.tests import utils
 
 
 pytestmark = pytest.mark.django_db
 
+
 def mock_missing_code_edit_integrity_error(self):
+    """Mocks an integrity error for a missing code edit."""
     raise IntegrityError
+
 
 def test__calendar_index__template(user):
     """Test for proper template in calendar_index view."""
@@ -32,6 +35,7 @@ def test__calendar_index__template(user):
         'rdrhc_calendar/index.html' in [t.name for t in response.templates]
     )
 
+
 def test__calendar_settings__template(calendar_user):
     """Test for proper template in calendar_setttings views."""
     # Add permission to user
@@ -46,6 +50,7 @@ def test__calendar_settings__template(calendar_user):
     assert (
         'rdrhc_calendar/calendar_settings.html' in [t.name for t in response.templates]
     )
+
 
 def test__calendar_settings__redirect_on_valid_post(calendar_user):
     """Test for proper redirection on valid post."""
@@ -67,6 +72,7 @@ def test__calendar_settings__redirect_on_valid_post(calendar_user):
     # Confirm response status_code
     assert response.status_code == 302
 
+
 def test__shift_code_list__template(calendar_user):
     """Test for proper template in shift_code_list views."""
     # Add permission to user
@@ -81,6 +87,7 @@ def test__shift_code_list__template(calendar_user):
     assert (
         'rdrhc_calendar/shiftcode_list.html' in [t.name for t in response.templates]
     )
+
 
 def test__shift_code_edit__template(shift_code):
     """Test for proper template in shift_code_edit views."""
@@ -99,6 +106,7 @@ def test__shift_code_edit__template(shift_code):
     assert (
         'rdrhc_calendar/shiftcode_edit.html' in [t.name for t in response.templates]
     )
+
 
 def test__shift_code_edit__redirect_on_valid_post(shift_code):
     """Test for proper redirection on valid posts."""
@@ -135,6 +143,7 @@ def test__shift_code_edit__redirect_on_valid_post(shift_code):
 
     assert response.status_code == 302
 
+
 def test__shift_code_add__template(calendar_user):
     """Test for proper template in shift_code_add views."""
     # Add permission to user
@@ -149,6 +158,7 @@ def test__shift_code_add__template(calendar_user):
     assert (
         'rdrhc_calendar/shiftcode_add.html' in [t.name for t in response.templates]
     )
+
 
 def test__shift_code_add__redirect_on_valid_post(calendar_user):
     """Test for proper redirection on valid post."""
@@ -182,6 +192,7 @@ def test__shift_code_add__redirect_on_valid_post(calendar_user):
 
     assert response.status_code == 302
 
+
 def test_entry_is_added_on_valid_post(calendar_user):
     """Tests model entry is properly added on valid post."""
     valid_data = {
@@ -213,9 +224,10 @@ def test_entry_is_added_on_valid_post(calendar_user):
     # Set up client and response
     client = Client()
     client.force_login(user=calendar_user.sb_user)
-    response = client.post(reverse('rdrhc_calendar:code_add'), valid_data)
+    client.post(reverse('rdrhc_calendar:code_add'), valid_data)
 
     assert models.ShiftCode.objects.count() == shift_code_count + 1
+
 
 def test__shift_code_delete__template(shift_code):
     """Test for proper template in shift_code_delete views."""
@@ -235,6 +247,7 @@ def test__shift_code_delete__template(shift_code):
         'rdrhc_calendar/shiftcode_delete.html' in [t.name for t in response.templates]
     )
 
+
 def test__shift_code_delete__redirect_on_valid_post(shift_code):
     """Test for proper redirection on valid post."""
     # Add permission to user
@@ -249,6 +262,7 @@ def test__shift_code_delete__redirect_on_valid_post(shift_code):
 
     assert response.status_code == 302
 
+
 def test__shift_code_delete__instance_deleted_on_valid_post(shift_code):
     """Tests model entry is properly deleted on valid post."""
     # Get current model count
@@ -260,11 +274,12 @@ def test__shift_code_delete__instance_deleted_on_valid_post(shift_code):
     # Set up client and response
     client = Client()
     client.force_login(user=shift_code.sb_user)
-    response = client.post(reverse(
+    client.post(reverse(
         'rdrhc_calendar:code_delete', kwargs={'code_id': shift_code.id}
     ))
 
     assert models.ShiftCode.objects.count() == shift_code_count - 1
+
 
 def test__missing_code_list__template(user):
     """Test for proper template in missing_code_list views."""
@@ -280,6 +295,7 @@ def test__missing_code_list__template(user):
     assert (
         'rdrhc_calendar/missingshiftcode_list.html' in [t.name for t in response.templates]
     )
+
 
 def test__missing_code_edit__template(user, missing_shift_code):
     """Test for proper template in missing_code_edit views."""
@@ -298,6 +314,7 @@ def test__missing_code_edit__template(user, missing_shift_code):
     assert (
         'rdrhc_calendar/missingshiftcode_edit.html' in [t.name for t in response.templates]
     )
+
 
 def test__missing_code_edit__redirect_on_valid_post(user, missing_shift_code):
     """Test for proper redirection on valid post."""
@@ -336,6 +353,7 @@ def test__missing_code_edit__redirect_on_valid_post(user, missing_shift_code):
 
     assert response.status_code == 302
 
+
 @patch('rdrhc_calendar.views.MissingShiftCode.delete', mock_missing_code_edit_integrity_error)
 def test__mising_code_edit__unique_validation(user, missing_shift_code):
     """Tests that unique code is properly maintained."""
@@ -373,11 +391,12 @@ def test__mising_code_edit__unique_validation(user, missing_shift_code):
     )
 
     # Get messages
-    messages = [message for message in get_messages(response.wsgi_request)]
+    messages = list(get_messages(response.wsgi_request))
 
     # Confirm error repsponse message
     assert messages[0].tags == 'error'
     assert messages[0].message == 'Shift code already exists for role.'
+
 
 def test__missing_code_delete__template(user, missing_shift_code):
     """Test for proper template in missing_code_delete views."""
@@ -397,6 +416,7 @@ def test__missing_code_delete__template(user, missing_shift_code):
         'rdrhc_calendar/missingshiftcode_delete.html' in [t.name for t in response.templates]
     )
 
+
 def test__missing_code_delete__redirect_on_valid_post(user, missing_shift_code):
     """Test for proper redirection on valid post."""
     # Add permission to user
@@ -411,6 +431,7 @@ def test__missing_code_delete__redirect_on_valid_post(user, missing_shift_code):
 
     assert response.status_code == 302
 
+
 def test__missing_code_delete__instance_deleted_on_valid_post(user, missing_shift_code):
     """Tests model entry is properly deleted on valid post."""
     # Get current model count
@@ -422,7 +443,7 @@ def test__missing_code_delete__instance_deleted_on_valid_post(user, missing_shif
     # Set up client and response
     client = Client()
     client.force_login(user=user)
-    response = client.post(reverse(
+    client.post(reverse(
         'rdrhc_calendar:missing_code_delete', kwargs={'code_id': missing_shift_code.id}
     ))
 

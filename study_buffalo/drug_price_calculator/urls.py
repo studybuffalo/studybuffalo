@@ -1,5 +1,7 @@
+"""URLs for the Drug Price Calculator application."""
 from django.urls import path
 from . import views
+
 
 urlpatterns = [
     # Frontend endpoints

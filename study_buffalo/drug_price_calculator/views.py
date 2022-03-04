@@ -1,13 +1,13 @@
 """Views for the Drug Price Calculator."""
-#import json
+# import json
 
-#from django.core import serializers
-#from django.core.exceptions import ObjectDoesNotExist
-#from django.core.serializers.json import DjangoJSONEncoder
-#from django.db.models import Q
-#from django.http import HttpResponse
+# from django.core import serializers
+# from django.core.exceptions import ObjectDoesNotExist
+# from django.core.serializers.json import DjangoJSONEncoder
+# from django.db.models import Q
+# from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-#from django.views import generic
+# from django.views import generic
 
 from . import models
 
@@ -16,9 +16,10 @@ def index(request):
     """View for the main drug price calculator page"""
     return render(
         request,
-        "drug_price_calculator/index.html",
+        'drug_price_calculator/index.html',
         context={},
     )
+
 
 def prices_coverage_criteria(request, price_id):
     """View for the coverage criteria of a price file."""
@@ -35,7 +36,7 @@ def prices_coverage_criteria(request, price_id):
 # def comparison_search(request):
 #     """Returns a list of medications with matching generic name,
 #     brand name, ATC, or PTC"""
-#     # TODO: If a name match occurs and the ATC/PTC is not a 4th
+#     # TO DO: If a name match occurs and the ATC/PTC is not a 4th
 #     # level code, it will pull all children codes for that 1-3rd level code
 #     def bool_convert(txt):
 #         if txt == "true":
@@ -85,7 +86,7 @@ def prices_coverage_criteria(request, price_id):
 #                             "description": find_last_description(atc, "atc")
 #                         })
 #                 except ObjectDoesNotExist:
-#                     # TODO: will need to find better way to handle this when moving over to API
+#                     # TO DO: will need to find better way to handle this when moving over to API
 #                     # For some reason there are ATC entries with no matching price
 #                     pass
 
@@ -256,7 +257,7 @@ def prices_coverage_criteria(request, price_id):
 #                     grouped_items[index]["url"] += ",%s" % item["url"]
 
 #                     # Append generic name (if unique)
-#                     # TODO: Fix bug where a partial name match (e.g.
+#                     # TO DO: Fix bug where a partial name match (e.g.
 #                     # "lidocaine" in "lidocaine HCl" is not added
 #                     if item["generic_name"] not in grouped_items[index]["drugs"]:
 #                         grouped_items[index]["drugs"] += ", %s" % item["generic_name"]

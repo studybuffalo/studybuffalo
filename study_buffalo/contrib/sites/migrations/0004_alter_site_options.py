@@ -1,4 +1,5 @@
 """Site option update."""
+# pylint: disable=missing-class-docstring
 from django.db import migrations
 
 

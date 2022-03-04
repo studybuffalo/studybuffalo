@@ -1,8 +1,7 @@
+"""Views for the RDRHC Calendar API."""
 from datetime import datetime
 import json
 
-from django.apps import apps
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import DataError
 from django.db.models import Q
@@ -25,19 +24,24 @@ from api.rdrhc_calendar.permissions import HasAPIAccess
 @api_view(['GET'])
 @authentication_classes((SessionAuthentication, TokenAuthentication, ))
 @permission_classes((IsAuthenticated, HasAPIAccess, ))
-def api_root(request, format=None): # pylint: disable=redefined-builtin
+def api_root(request, format=None):  # pylint: disable=redefined-builtin
+    """Top-level view for the RDRHC Calendar API."""
     return Response({
         'users': reverse('api:rdrhc_calendar_v1:user_list', request=request, format=format),
         'shifts': reverse('api:rdrhc_calendar_v1:shift_list', request=request, format=format),
     })
 
+
 class UserList(generics.ListAPIView):
+    """List view of all RDRHC Calendar users."""
     queryset = models.CalendarUser.objects.all().order_by('role', 'name',)
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.UserSerializer
 
+
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    """Detail view of a RDRHC Calendar user."""
     queryset = models.CalendarUser.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
@@ -45,7 +49,9 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'id'
     lookup_url_kwarg = 'user_id'
 
+
 class UserEmailList(generics.ListAPIView):
+    """List view of a RDRHC Calendar user's emails."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.EmailSerializer
@@ -61,13 +67,17 @@ class UserEmailList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         return Response(self.get_queryset().values_list('email', flat=True))
 
+
 class ShiftList(generics.ListAPIView):
+    """List view of the RDRHC Calendar shifts."""
     queryset = models.Shift.objects.all()
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.ShiftSerializer
 
+
 class UserShiftCodesList(generics.ListAPIView):
+    """List view of a user's RDRHC Calendar shifts."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.ShiftCodesSerializer
@@ -98,7 +108,9 @@ class UserShiftCodesList(generics.ListAPIView):
 
         return codes
 
+
 class StatHolidaysList(generics.ListAPIView):
+    """List view of the RDRHC Calendar statutory holidays."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.StatHolidaySerializer
@@ -116,7 +128,9 @@ class StatHolidaysList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         return Response(self.get_queryset().values_list('date', flat=True))
 
+
 class UserScheduleList(generics.ListAPIView):
+    """List view of a RDRHC Calendar user's schedule."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
     serializer_class = serializers.ShiftSerializer
@@ -130,22 +144,27 @@ class UserScheduleList(generics.ListAPIView):
 
         return queryset
 
-# TODO: See if this can be combined into the UserScheduleList
+
 class UserScheduleDelete(APIView):
+    """Delete view for a RDRHC Calendar user's schedule."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def delete(self, request, user_id):
+        """Deletes all shifts associated to the specified user."""
         shifts = models.Shift.objects.filter(sb_user=user_id)
         shifts.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class UserScheduleUpload(APIView):
+    """Create view for a RDRHC Calendar user's schedule."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request, user_id):
+        """Adds all the shift codes for a user."""
         try:
             schedule = serializers.ShiftSerializer(
                 data=request.data.get('schedule', []),
@@ -161,9 +180,7 @@ class UserScheduleUpload(APIView):
             schedule.save()
 
             response_message = (
-                'Schedule successfully uploaded for user id = {}'.format(
-                    user_id
-                )
+                f'Schedule successfully uploaded for user id = {user_id}'
             )
 
             return Response(
@@ -179,22 +196,28 @@ class UserScheduleUpload(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
+
 class UserEmailFirstSent(APIView):
+    """Update view to note welcome email sent to a new RDRHC Calendar user."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request, user_id):
+        """Updates user profile to note that first email was sent."""
         calendar_user = get_object_or_404(models.CalendarUser, sb_user=user_id)
         calendar_user.first_email_sent = True
         calendar_user.save()
 
         return Response(status=status.HTTP_200_OK)
 
+
 class MissingShiftCodesUpload(APIView):
+    """Create view to upload missing shift codes."""
     authentication_classes = (SessionAuthentication, TokenAuthentication, )
     permission_classes = (IsAuthenticated, HasAPIAccess, )
 
     def post(self, request):
+        """Creates new missing shift code entries."""
         try:
             codes = request.data.get('codes', [])
         except json.JSONDecodeError:

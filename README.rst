@@ -120,3 +120,27 @@ To run tests::
 To generate coverage report::
 
   $ pipenv run pytest --cov study_buffalo --cov-report xml
+
+
+---------------
+Running Linters
+---------------
+
+To run linting::
+
+  # Run Pylint for most modules
+  $ pipenv run pylint study_buffalo/ config/ --ignore=tests
+
+  # Run Pylint for modules that allow more duplication of code
+  $ pipenv run pylint  \
+    study_buffalo/api/drug_price_calculator/tests \
+    study_buffalo/api/rdrhc_calendar/tests study_buffalo/dictionary/tests \
+    study_buffalo/drug_price_calculator/tests study_buffalo/hc_dpd/tests \
+    study_buffalo/play/tests study_buffalo/rdrhc_calendar/tests \
+    study_buffalo/read/tests study_buffalo/study/tests \
+    study_buffalo/substitutions/tests study_buffalo/updates/tests \
+    study_buffalo/users/tests study_buffalo/vancomycin_calculator/tests \
+    --min-similarity-lines=20
+
+  # Run Pycodestyle
+  $ pipenv run pycodestyle study_buffalo/ config/

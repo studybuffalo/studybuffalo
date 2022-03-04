@@ -1,6 +1,7 @@
 [MASTER]
-load-plugins=pylint_common, pylint_django
-init-hook="from pylint.config import find_pylintrc; sys.path.append(os.path.join(os.path.dirname(find_pylintrc()), 'study_buffalo'))"
+load-plugins=pylint_django, pylint_quotes
+django-settings-module=config.settings.development
+init-hook="from pylint.config import find_pylintrc; import os; sys.path.append(os.path.join(os.path.dirname(find_pylintrc()))); sys.path.append(os.path.join(os.path.dirname(find_pylintrc()), 'study_buffalo')); os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.development')"
 
 [FORMAT]
 max-line-length=120
@@ -10,6 +11,9 @@ disable=invalid-name
 
 [DESIGN]
 max-parents=13
+
+[SIMILARITIES]
+min-similarity-lines=10
 
 [TYPECHECK]
 generated-members=REQUEST,acl_users,aq_parent,"[a-zA-Z]+_set{1,2}",save,delete

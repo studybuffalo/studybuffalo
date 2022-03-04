@@ -9,9 +9,12 @@ from drug_price_calculator import models
 
 from .utils import create_token
 
+
 pytestmark = pytest.mark.django_db
 
+
 def create_drug(**kwargs):
+    """Helper function to create a drug record."""
     din = kwargs.get('din', '12345678')
     generic_name = kwargs.get('generic_name', 'generic')
     brand_name = kwargs.get('brand_name', 'Brand')
@@ -30,6 +33,7 @@ def create_drug(**kwargs):
 
     return drug
 
+
 def test__upload_idbl_data__valid(user):
     """Tests that iDBL data upload view functions properly with valid data."""
     # Create a token for the user
@@ -40,9 +44,9 @@ def test__upload_idbl_data__valid(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 1}
     )
     content = json.loads(response.content)
@@ -51,6 +55,7 @@ def test__upload_idbl_data__valid(user):
     assert content['message'] == 'Drug and price file successfully created.'
     assert 'drug_id' in content
     assert isinstance(content['drug_id'], int)
+
 
 def test__upload_idbl_data__invalid_din(user):
     """Tests iDBL data upload handles invalid DIN."""
@@ -62,9 +67,9 @@ def test__upload_idbl_data__invalid_din(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 1}
     )
     content = json.loads(response.content)
@@ -74,6 +79,7 @@ def test__upload_idbl_data__invalid_din(user):
     assert content['error'] == 'invalid_din'
     assert 'error_description' in content
     assert content['error_description'] == 'DIN/NPN/PIN format is invalid.'
+
 
 def test__upload_idbl_data__invalid_data(user):
     """Tests iDBL data upload handles invalid serializer data."""
@@ -85,9 +91,9 @@ def test__upload_idbl_data__invalid_data(user):
 
     # Authenticate and make request
     client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token {}'.format(token.key))
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token.key}')
     response = client.post(
-        '/api/drug-price-calculator/v1/{}/upload/'.format(din),
+        f'/api/drug-price-calculator/v1/{din}/upload/',
         data={'din': din, 'abc_id': 'a'}
     )
     content = json.loads(response.content)
@@ -95,6 +101,7 @@ def test__upload_idbl_data__invalid_data(user):
     assert response.status_code == 400
     assert 'abc_id' in content
     assert content['abc_id'] == ['A valid integer is required.']
+
 
 def test__drug_list__valid():
     """Tests DrugList view returns data with valid request."""
@@ -109,10 +116,11 @@ def test__drug_list__valid():
     assert len(content) == 1
     assert content[0]['id'] == drug.id
 
+
 def test__drug_list__output_keys():
     """Tests DrugList view returns output with expected keys."""
     # Create a drug file
-    drug = create_drug()
+    create_drug()
 
     # Authenticate and make request
     client = APIClient()
@@ -126,6 +134,7 @@ def test__drug_list__output_keys():
     assert 'route' in content
     assert 'dosage_form' in content
     assert 'generic_product' in content
+
 
 def test__drug_list__generic_name_filter():
     """Tests DrugList view filters on generic name."""
@@ -142,6 +151,7 @@ def test__drug_list__generic_name_filter():
 
     assert len(content) == 2
 
+
 def test__drug_list__brand_name_filter():
     """Tests DrugList view filters on generic name."""
     # Create a drug file
@@ -156,6 +166,7 @@ def test__drug_list__brand_name_filter():
     content = json.loads(response.content)['results']
 
     assert len(content) == 2
+
 
 def test__drug_list__requires_unit_price():
     """Tests DrugList view excludes products without unit_price."""
@@ -175,6 +186,7 @@ def test__drug_list__requires_unit_price():
 
     assert len(content) == 1
 
+
 def test__drug_price_list__valid():
     """Tests DrugPriceList view returns data with valid request."""
     # Create drug and price files
@@ -184,9 +196,7 @@ def test__drug_price_list__valid():
     price_2 = drug_2.prices.last()
 
     # Authenticate and make request
-    url = '/api/drug-price-calculator/v1/drugs/prices/?ids={},{}'.format(
-        drug_1.id, drug_2.id
-    )
+    url = f'/api/drug-price-calculator/v1/drugs/prices/?ids={drug_1.id},{drug_2.id}'
 
     client = APIClient()
     response = client.get(url)
@@ -196,11 +206,12 @@ def test__drug_price_list__valid():
     assert content[0]['id'] in (price_1.id, price_2.id)
     assert content[1]['id'] in (price_1.id, price_2.id)
 
+
 def test__drug_price_list__missing_ids():
     """Tests DrugPriceList view returns error if ids parameter missing."""
     # Create a drug file
     drug = create_drug()
-    price = drug.prices.last()
+    drug.prices.last()
 
     # Authenticate and make request
     url = '/api/drug-price-calculator/v1/drugs/prices/'
@@ -211,27 +222,12 @@ def test__drug_price_list__missing_ids():
 
     assert content['detail'] == 'No IDs provided in query.'
 
-def test__drug_price_list__missing_ids():
-    """Tests DrugPriceList view returns error if no ids provided."""
-    # Create a drug file
-    drug = create_drug()
-    price = drug.prices.last()
-
-    # Authenticate and make request
-    url = '/api/drug-price-calculator/v1/drugs/prices/?ids='
-
-    client = APIClient()
-    response = client.get(url)
-
-    content = json.loads(response.content)
-
-    assert content['detail'] == 'No IDs provided in query.'
 
 def test__drug_price_list__invalid_id_format():
     """Tests DrugPriceList view returns error if no ids provided."""
     # Create a drug file
     drug = create_drug()
-    price = drug.prices.last()
+    drug.prices.last()
 
     # Authenticate and make request
     url = '/api/drug-price-calculator/v1/drugs/prices/?ids=a'

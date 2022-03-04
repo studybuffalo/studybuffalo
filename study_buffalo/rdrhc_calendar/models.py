@@ -1,9 +1,12 @@
+"""Models for the RDRHC Calendar App."""
 from datetime import time
 
 from django.db import models
 from django.conf import settings
 
+
 class CalendarUser(models.Model):
+    """Model representing a Calendar User."""
     sb_user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -68,19 +71,23 @@ class CalendarUser(models.Model):
         verbose_name_plural = 'RDRHC Calendar Users'
 
     def __str__(self):
-        return '{0} - {1}'.format(self.role, self.name)
+        return f'{self.role} - {self.name}'
+
 
 class StatHoliday(models.Model):
+    """Model representing a Statutory Holiday."""
     date = models.DateField()
 
     class Meta:
         verbose_name = 'Stat Holiday'
-        verbose_name_plural = "Stat Holidays'"
+        verbose_name_plural = 'Stat Holidays\''
 
     def __str__(self):
-        return '{0}'.format(self.date)
+        return f'{self.date}'
+
 
 class ShiftCode(models.Model):
+    """Model representing a Shift Code."""
     code = models.CharField(
         help_text='The shift code used in the Excel schedule',
         max_length=20,
@@ -267,13 +274,13 @@ class ShiftCode(models.Model):
 
     def __str__(self):
         if self.sb_user:
-            return '{0} - {1} - {2}'.format(
-                self.get_role_display(), self.sb_user, self.code
-            )
-        else:
-            return '{0} - {1}'.format(self.get_role_display(), self.code)
+            return f'{self.get_role_display()} - {self.sb_user} - {self.code}'
+
+        return f'{self.get_role_display()} - {self.code}'
+
 
 class Shift(models.Model):
+    """Model representing a user's Shift."""
     sb_user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         help_text='The user this shift applies to',
@@ -299,9 +306,11 @@ class Shift(models.Model):
     )
 
     def __str__(self):
-        return '{0} - {1}'.format(self.date, self.shift_code)
+        return f'{self.date} - {self.shift_code}'
+
 
 class MissingShiftCode(models.Model):
+    """Model representing a missing shift code."""
     code = models.CharField(
         help_text='The shift code used in the Excel schedule',
         max_length=20,
@@ -318,7 +327,7 @@ class MissingShiftCode(models.Model):
     )
 
     def __str__(self):
-        return '{0} - {1}'.format(self.code, self.role)
+        return f'{self.code} - {self.role}'
 
     class Meta:
         permissions = (

@@ -1,3 +1,4 @@
+"""Base URL settings for the Study Buffalo website."""
 from django.conf import settings
 from django.urls import include, path
 from django.conf.urls.static import static
@@ -6,8 +7,9 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from django.contrib.sitemaps.views import sitemap
 
-from . import views
-from .sitemaps import * # pylint: disable=wildcard-import, unused-wildcard-import
+from supporting import views
+from supporting.sitemaps import PlaySitemap, StudySitemap, ToolSitemap, ReadSitemap, StaticViewSitemap
+
 
 sitemaps = {
     'play': PlaySitemap('play'),
