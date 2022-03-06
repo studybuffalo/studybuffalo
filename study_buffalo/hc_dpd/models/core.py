@@ -12,6 +12,12 @@ class DPD(models.Model):
     def __str__(self):
         return str(self.drug_code)
 
+    class Meta:
+        permissions = (
+            ('api_view', 'Can view DPD data via the API'),
+            ('api_edit', 'Can edit DPD data via the API'),
+        )
+
 
 class DPDChecksum(models.Model):
     """Holds checksum data of the original DPD data to identify changed data.
