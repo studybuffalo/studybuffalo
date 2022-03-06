@@ -3,30 +3,24 @@ from django.db import models
 
 
 class DPD(models.Model):
-    """Holds drug_code as a foreign_key and records origin file"""
+    """Holds the HC Drug Code as a foreign key and reference for all models."""
     drug_code = models.PositiveIntegerField(
-        primary_key=True
-    )
-    origin_file = models.CharField(
-        choices=(
-            ('a', 'approved'),
-            ('c', 'cancelled'),
-            ('d', 'dormant'),
-            ('m', 'marketed'),
-        ),
-        max_length=1,
+        primary_key=True,
     )
 
     def __str__(self):
-        return f'{self.drug_code} ({self.origin_file})'
+        return str(self.drug_code)
 
 
-class ActiveIngredient(models.Model):
+class OriginalActiveIngredient(models.Model):
     """Model representing QRYM_ACTIVE_INGREDIENTS file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     active_ingredient_code = models.CharField(
         blank=True,
-        max_length=5,
+        max_length=6,
         null=True,
     )
     ingredient = models.CharField(
@@ -59,7 +53,11 @@ class ActiveIngredient(models.Model):
         max_length=20,
         null=True,
     )
-    base = models.BooleanField()
+    base = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
     dosage_unit = models.CharField(
         blank=True,
         max_length=40,
@@ -72,7 +70,7 @@ class ActiveIngredient(models.Model):
     )
     ingredient_f = models.CharField(
         blank=True,
-        max_length=260,
+        max_length=400,
         null=True,
     )
     strength_unit_f = models.CharField(
@@ -92,9 +90,12 @@ class ActiveIngredient(models.Model):
     )
 
 
-class Company(models.Model):
+class OriginalCompany(models.Model):
     """Model representing QRYM_COMPANIES file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     mfr_code = models.CharField(
         blank=True,
         max_length=5,
@@ -106,7 +107,7 @@ class Company(models.Model):
     )
     company_name = models.CharField(
         blank=True,
-        max_length=90,
+        max_length=80,
         null=True,
     )
     company_type = models.CharField(
@@ -114,10 +115,26 @@ class Company(models.Model):
         max_length=40,
         null=True,
     )
-    address_mailing_flag = models.BooleanField()
-    address_billing_flag = models.BooleanField()
-    address_notification_flag = models.BooleanField()
-    address_other = models.BooleanField()
+    address_mailing_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    address_billing_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    address_notification_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    address_other = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
     suite_number = models.CharField(
         blank=True,
         max_length=20,
@@ -125,7 +142,7 @@ class Company(models.Model):
     )
     street_name = models.CharField(
         blank=True,
-        max_length=90,
+        max_length=80,
         null=True,
     )
     city_name = models.CharField(
@@ -155,19 +172,22 @@ class Company(models.Model):
     )
     province_f = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=100,
         null=True,
     )
     country_f = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=100,
         null=True,
     )
 
 
-class DrugProduct(models.Model):
+class OriginalDrugProduct(models.Model):
     """Model representing QRYM_DRUG_PRODUCT file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     product_categorization = models.CharField(
         blank=True,
         max_length=80,
@@ -180,7 +200,7 @@ class DrugProduct(models.Model):
     )
     drug_identification_number = models.CharField(
         blank=True,
-        max_length=8,
+        max_length=29,
         null=True,
     )
     brand_name = models.CharField(
@@ -190,10 +210,14 @@ class DrugProduct(models.Model):
     )
     descriptor = models.CharField(
         blank=True,
-        max_length=210,
+        max_length=150,
         null=True,
     )
-    pediatric_flag = models.BooleanField()
+    pediatric_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
     accession_number = models.CharField(
         blank=True,
         max_length=5,
@@ -215,24 +239,27 @@ class DrugProduct(models.Model):
     )
     class_f = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=80,
         null=True,
     )
     brand_name_f = models.CharField(
         blank=True,
-        max_length=200,
+        max_length=300,
         null=True,
     )
     descriptor_f = models.CharField(
         blank=True,
-        max_length=150,
+        max_length=200,
         null=True,
     )
 
 
-class Form(models.Model):
+class OriginalForm(models.Model):
     """Model representing QRYM_FORM file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     pharm_form_code = models.PositiveIntegerField(
         blank=True,
         null=True,
@@ -244,17 +271,20 @@ class Form(models.Model):
     )
     pharmaceutical_form_f = models.CharField(
         blank=True,
-        max_length=60,
+        max_length=80,
         null=True,
     )
 
 
-class InactiveProduct(models.Model):
+class OriginalInactiveProduct(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     drug_identification_number = models.CharField(
         blank=True,
-        max_length=8,
+        max_length=29,
         null=True,
     )
     brand_name = models.CharField(
@@ -268,9 +298,12 @@ class InactiveProduct(models.Model):
     )
 
 
-class Packaging(models.Model):
+class OriginalPackaging(models.Model):
     """Model representing QRYM_Packaging file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     upc = models.CharField(
         blank=True,
         max_length=12,
@@ -288,12 +321,12 @@ class Packaging(models.Model):
     )
     package_size = models.CharField(
         blank=True,
-        max_length=10,
+        max_length=5,
         null=True,
     )
     product_information = models.CharField(
         blank=True,
-        max_length=90,
+        max_length=80,
         null=True,
     )
     package_size_unit_f = models.CharField(
@@ -308,9 +341,12 @@ class Packaging(models.Model):
     )
 
 
-class PharmaceuticalStandard(models.Model):
+class OriginalPharmaceuticalStandard(models.Model):
     """Model representing QRYM_PHARMACEUTICAL_STD file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     pharmaceutical_std = models.CharField(
         blank=True,
         max_length=40,
@@ -318,28 +354,34 @@ class PharmaceuticalStandard(models.Model):
     )
 
 
-class Route(models.Model):
+class OriginalRoute(models.Model):
     """Model representing QRYM_ROUTE file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     route_of_administration_code = models.PositiveIntegerField(
         blank=True,
         null=True,
     )
     route_of_administration = models.CharField(
         blank=True,
-        max_length=50,
+        max_length=40,
         null=True,
     )
     route_of_administration_f = models.CharField(
         blank=True,
-        max_length=60,
+        max_length=80,
         null=True,
     )
 
 
-class Schedule(models.Model):
+class OriginalSchedule(models.Model):
     """Model representing QRYM_SCHEDULE file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     schedule = models.CharField(
         blank=True,
         max_length=40,
@@ -347,15 +389,22 @@ class Schedule(models.Model):
     )
     schedule_f = models.CharField(
         blank=True,
-        max_length=40,
+        max_length=160,
         null=True,
     )
 
 
-class Status(models.Model):
+class OriginalStatus(models.Model):
     """Model representing QRYM_STATUS file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
-    current_status_flag = models.BooleanField()
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    current_status_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
     status = models.CharField(
         blank=True,
         max_length=40,
@@ -372,7 +421,7 @@ class Status(models.Model):
     )
     lot_number = models.CharField(
         blank=True,
-        max_length=80,
+        max_length=50,
         null=True,
     )
     expiration_date = models.DateField(
@@ -381,9 +430,12 @@ class Status(models.Model):
     )
 
 
-class TherapeuticClass(models.Model):
+class OriginalTherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     tc_atc_number = models.CharField(
         blank=True,
         max_length=8,
@@ -394,31 +446,19 @@ class TherapeuticClass(models.Model):
         max_length=120,
         null=True,
     )
-    tc_ahfs_number = models.CharField(
-        blank=True,
-        max_length=20,
-        null=True,
-    )
-    tc_ahfs = models.CharField(
-        blank=True,
-        max_length=80,
-        null=True,
-    )
     tc_atc_f = models.CharField(
         blank=True,
-        max_length=120,
-        null=True,
-    )
-    tc_ahfs_f = models.CharField(
-        blank=True,
-        max_length=80,
+        max_length=240,
         null=True,
     )
 
 
-class VeterinarySpecies(models.Model):
+class OriginalVeterinarySpecies(models.Model):
     """Model representing QRYM_VETERINARY_SPECIES file"""
-    drug_code = models.ForeignKey('DPD', on_delete=models.CASCADE)
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
     vet_species = models.CharField(
         blank=True,
         max_length=80,
@@ -431,9 +471,529 @@ class VeterinarySpecies(models.Model):
     )
     vet_species_f = models.CharField(
         blank=True,
+        max_length=160,
+        null=True,
+    )
+
+
+class FormattedActiveIngredient(models.Model):
+    """Model representing the formatted QRYM_ACTIVE_INGREDIENTS file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalActiveIngredient',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    active_ingredient_code = models.CharField(
+        blank=True,
+        max_length=6,
+        null=True,
+    )
+    ingredient = models.CharField(
+        blank=True,
+        max_length=240,
+        null=True,
+    )
+    ingredient_supplied_ind = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    strength = models.CharField(
+        blank=True,
+        max_length=20,
+        null=True,
+    )
+    strength_unit = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    strength_type = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    dosage_value = models.CharField(
+        blank=True,
+        max_length=20,
+        null=True,
+    )
+    base = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    dosage_unit = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    notes = models.CharField(
+        blank=True,
+        max_length=2000,
+        null=True,
+    )
+    ingredient_f = models.CharField(
+        blank=True,
+        max_length=400,
+        null=True,
+    )
+    strength_unit_f = models.CharField(
+        blank=True,
         max_length=80,
         null=True,
     )
+    strength_type_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    dosage_unit_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+
+
+class FormattedCompany(models.Model):
+    """Model representing the formatted QRYM_COMPANIES file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalCompany',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    mfr_code = models.CharField(
+        blank=True,
+        max_length=5,
+        null=True,
+    )
+    company_code = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
+    company_name = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    company_type = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    address_mailing_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    address_billing_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    address_notification_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    address_other = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    suite_number = models.CharField(
+        blank=True,
+        max_length=20,
+        null=True,
+    )
+    street_name = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    city_name = models.CharField(
+        blank=True,
+        max_length=60,
+        null=True,
+    )
+    province = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    country = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    postal_code = models.CharField(
+        blank=True,
+        max_length=20,
+        null=True,
+    )
+    post_office_box = models.CharField(
+        blank=True,
+        max_length=15,
+        null=True,
+    )
+    province_f = models.CharField(
+        blank=True,
+        max_length=100,
+        null=True,
+    )
+    country_f = models.CharField(
+        blank=True,
+        max_length=100,
+        null=True,
+    )
+
+
+class FormattedDrugProduct(models.Model):
+    """Model representing the formatted QRYM_DRUG_PRODUCT file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    product_categorization = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    class_e = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    drug_identification_number = models.CharField(
+        blank=True,
+        max_length=29,
+        null=True,
+    )
+    brand_name = models.CharField(
+        blank=True,
+        max_length=200,
+        null=True,
+    )
+    descriptor = models.CharField(
+        blank=True,
+        max_length=150,
+        null=True,
+    )
+    pediatric_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    accession_number = models.CharField(
+        blank=True,
+        max_length=5,
+        null=True,
+    )
+    number_of_ais = models.CharField(
+        blank=True,
+        max_length=10,
+        null=True,
+    )
+    last_update_date = models.DateField(
+        blank=True,
+        null=True,
+    )
+    ai_group_no = models.CharField(
+        blank=True,
+        max_length=10,
+        null=True,
+    )
+    class_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    brand_name_f = models.CharField(
+        blank=True,
+        max_length=300,
+        null=True,
+    )
+    descriptor_f = models.CharField(
+        blank=True,
+        max_length=200,
+        null=True,
+    )
+
+
+class FormattedForm(models.Model):
+    """Model representing the formatted QRYM_FORM file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalForm',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    pharm_form_code = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
+    pharmaceutical_form = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    pharmaceutical_form_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+
+
+class FormattedInactiveProduct(models.Model):
+    """Model representing the formatted QRYM_INACTIVE_PRODUCTS file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalInactiveProduct',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    drug_identification_number = models.CharField(
+        blank=True,
+        max_length=29,
+        null=True,
+    )
+    brand_name = models.CharField(
+        blank=True,
+        max_length=200,
+        null=True,
+    )
+    history_date = models.DateField(
+        blank=True,
+        null=True,
+    )
+
+
+class FormattedPackaging(models.Model):
+    """Model representing the formatted QRYM_Packaging file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalPackaging',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    upc = models.CharField(
+        blank=True,
+        max_length=12,
+        null=True,
+    )
+    package_size_unit = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    package_type = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    package_size = models.CharField(
+        blank=True,
+        max_length=5,
+        null=True,
+    )
+    product_information = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    package_size_unit_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    package_type_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+
+
+class FormattedPharmaceuticalStandard(models.Model):
+    """Model representing the formatted QRYM_PHARMACEUTICAL_STD file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalPharmaceuticalStandard',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    pharmaceutical_std = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+
+
+class FormattedRoute(models.Model):
+    """Model representing the formatted QRYM_ROUTE file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalRoute',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    route_of_administration_code = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
+    route_of_administration = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    route_of_administration_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+
+
+class FormattedSchedule(models.Model):
+    """Model representing the formatted QRYM_SCHEDULE file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalSchedule',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    schedule = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    schedule_f = models.CharField(
+        blank=True,
+        max_length=160,
+        null=True,
+    )
+
+
+class FormattedStatus(models.Model):
+    """Model representing the formatted QRYM_STATUS file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalStatus',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    current_status_flag = models.CharField(
+        blank=True,
+        max_length=1,
+        null=True,
+    )
+    status = models.CharField(
+        blank=True,
+        max_length=40,
+        null=True,
+    )
+    history_date = models.DateField(
+        blank=True,
+        null=True,
+    )
+    status_f = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    lot_number = models.CharField(
+        blank=True,
+        max_length=50,
+        null=True,
+    )
+    expiration_date = models.DateField(
+        blank=True,
+        null=True,
+    )
+
+
+class FormattedTherapeuticClass(models.Model):
+    """Model representing the formatted QRYM_THERAPEUTIC_CLASS file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='OriginalTherapeuticClass',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    tc_atc_number = models.CharField(
+        blank=True,
+        max_length=8,
+        null=True,
+    )
+    tc_atc = models.CharField(
+        blank=True,
+        max_length=120,
+        null=True,
+    )
+    tc_atc_f = models.CharField(
+        blank=True,
+        max_length=240,
+        null=True,
+    )
+
+
+class FormattedVeterinarySpecies(models.Model):
+    """Model representing the formatted QRYM_VETERINARY_SPECIES file"""
+    drug_code = models.ForeignKey(
+        'DPD',
+        on_delete=models.CASCADE,
+    )
+    original = models.OneToOneField(
+        to='Original',
+        on_delete=models.CASCADE,
+        related_name='formatted',
+    )
+    vet_species = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    vet_sub_species = models.CharField(
+        blank=True,
+        max_length=80,
+        null=True,
+    )
+    vet_species_f = models.CharField(
+        blank=True,
+        max_length=160,
+        null=True,
+    )
+
 
 
 class SubAHFS(models.Model):
