@@ -43,7 +43,7 @@ def generate_select_data():
             f'<option value="{language.id}">{language.language}</option>'
         )
 
-    selects['language'] = f'<select class="language">language_options{"".join(language_options)}</select>'
+    selects['language'] = f'<select class="language">{"".join(language_options)}</select>'
 
     # Generate the Dictionary Type Select
     dict_types = DictionaryType.objects.all()
