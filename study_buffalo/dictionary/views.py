@@ -104,10 +104,15 @@ def retrieve_entries(request):
         else:
             content = {
                 'status_code': 400,
+                'success': False,
                 'errors': ['"last_id" and "request_num" are a required parameters.'],
             }
     else:
-        content = {'status_code': 405, 'errors': ['Only "POST" method is allowed.']}
+        content = {
+            'status_code': 405,
+            'success': False,
+            'errors': ['Only "POST" method is allowed.'],
+        }
         status_code = 405
 
     response = JsonResponse(content, encoder=DjangoJSONEncoder)
@@ -165,10 +170,10 @@ def add_new_word(request):
             missing_args = []
 
             if pending_id is None:
-                missing_args.append('pending ID')
+                missing_args.append('pending_id')
 
             if model_name is None:
-                missing_args.append('model name')
+                missing_args.append('model_name')
 
             if word is None:
                 missing_args.append('word')
@@ -185,14 +190,14 @@ def add_new_word(request):
             content = {
                 'status_code': 400,
                 'success': False,
-                'message': f'POST request missing arguments: {", ".join(missing_args)}'
+                'errors': [f'POST request missing arguments: {", ".join(missing_args)}']
             }
             status_code = 400
     else:
         content = {
             'status_code': 405,
             'success': False,
-            'message': 'Only "POST" method is allowed.'
+            'errors': ['Only "POST" method is allowed.']
         }
         status_code = 405
 
