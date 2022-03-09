@@ -1,8 +1,8 @@
 """URLs for the Vancomycin Calculator app."""
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='vancomycin_calculator_index'),
+    path('', views.index, name='vancomycin_calculator_index'),
 ]
