@@ -10,6 +10,7 @@ class HasDPDViewAccess(BasePermission):
             request.user.has_perm('hc_dpd.api_view')
         ])
 
+
 class HasDPDEditAccess(BasePermission):
     """Only permits editing by users with explicit API access."""
     def has_permission(self, request, view):

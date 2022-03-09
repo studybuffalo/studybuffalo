@@ -9,12 +9,6 @@ class FormattedActiveIngredient(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalActiveIngredient',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Active Ingredient data.'
-    )
     active_ingredient_code = models.CharField(
         blank=True,
         help_text='The formatted version of ACTIVE_INGREDIENT_CODE.',
@@ -114,18 +108,18 @@ class FormattedBiosimilars(models.Model):
     )
     biosimilar_code = models.PositiveIntegerField(
         blank=True,
-        help_text='The BIOSIMILAR_CODE entry for this item.',
+        help_text='The formatted version of BIOSIMILAR_CODE.',
         null=True,
     )
     biosimilar_type = models.CharField(
         blank=True,
-        help_text='The BIOSIMILAR_TYPE entry for this item.',
+        help_text='The formatted version of BIOSIMILAR_TYPE.',
         max_length=20,
         null=True,
     )
     biosimilar_type_F = models.CharField(
         blank=True,
-        help_text='The BIOSIMILAR_TYPE_F entry for this item.',
+        help_text='The formatted version of BIOSIMILAR_TYPE_F.',
         max_length=20,
         null=True,
     )
@@ -137,12 +131,6 @@ class FormattedCompany(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-    )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalCompany',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Company data.'
     )
     mfr_code = models.CharField(
         blank=True,
@@ -254,12 +242,6 @@ class FormattedDrugProduct(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalDrugProduct',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Drug Product data.'
-    )
     product_categorization = models.CharField(
         blank=True,
         help_text='The formatted version of PRODUCT_CATEGORIZATION.',
@@ -346,12 +328,6 @@ class FormattedForm(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalForm',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Form data.'
-    )
     pharm_form_code = models.PositiveIntegerField(
         blank=True,
         help_text='The formatted version of PHARM_FORM_CODE.',
@@ -378,12 +354,6 @@ class FormattedInactiveProduct(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalInactiveProduct',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Inactive Product data.'
-    )
     drug_identification_number = models.CharField(
         blank=True,
         help_text='The formatted version of DRUG_IDENTIFICATION_NUMBER.',
@@ -409,12 +379,6 @@ class FormattedPackaging(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-    )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalPackaging',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Packaging data.'
     )
     upc = models.CharField(
         blank=True,
@@ -467,12 +431,6 @@ class FormattedPharmaceuticalStandard(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalPharmaceuticalStandard',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Pharmaceutical Standard data.'
-    )
     pharmaceutical_std = models.CharField(
         blank=True,
         help_text='The formatted version of PHARMACEUTICAL_STD.',
@@ -487,12 +445,6 @@ class FormattedRoute(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-    )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalRoute',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Route data.'
     )
     route_of_administration_code = models.PositiveIntegerField(
         blank=True,
@@ -520,12 +472,6 @@ class FormattedSchedule(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalSchedule',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Schedule data.'
-    )
     schedule = models.CharField(
         blank=True,
         help_text='The formatted version of SCHEDULE.',
@@ -546,12 +492,6 @@ class FormattedStatus(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-    )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalStatus',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Status data.'
     )
     current_status_flag = models.CharField(
         blank=True,
@@ -596,12 +536,6 @@ class FormattedTherapeuticClass(models.Model):
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
     )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalTherapeuticClass',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Therapeutic Class data.'
-    )
     tc_atc_number = models.CharField(
         blank=True,
         help_text='The formatted version of TC_ATC_NUMBER.',
@@ -628,12 +562,6 @@ class FormattedVeterinarySpecies(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-    )
-    original = models.OneToOneField(
-        to='hc_dpd.OriginalVeterinarySpecies',
-        on_delete=models.CASCADE,
-        related_name='formatted',
-        help_text='The original Veterinary Species data.'
     )
     vet_species = models.CharField(
         blank=True,

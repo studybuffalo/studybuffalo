@@ -251,7 +251,7 @@ class iDBLDataSerializer(serializers.Serializer):
 
             # Try to fill in other details from another code
             atc_4 = models.ATC.objects.filter(
-                atc_4=self.validated_data['atc'][:-2]
+                atc_4=self.validated_data['atc'][:-2]  # type: ignore
             ).first()
 
             if atc_4:
@@ -367,16 +367,16 @@ class iDBLDataSerializer(serializers.Serializer):
         # Update Clients
         clients, _ = models.Clients.objects.get_or_create(price=price)
 
-        clients.group_1 = data['group_1']
-        clients.group_66 = data['group_66']
-        clients.group_19823 = data['group_19823']
-        clients.group_19823a = data['group_19823a']
-        clients.group_19824 = data['group_19824']
-        clients.group_20400 = data['group_20400']
-        clients.group_20403 = data['group_20403']
-        clients.group_20514 = data['group_20514']
-        clients.group_22128 = data['group_22128']
-        clients.group_23609 = data['group_23609']
+        clients.group_1 = data['group_1']  # type: ignore
+        clients.group_66 = data['group_66']  # type: ignore
+        clients.group_19823 = data['group_19823']  # type: ignore
+        clients.group_19823a = data['group_19823a']  # type: ignore
+        clients.group_19824 = data['group_19824']  # type: ignore
+        clients.group_20400 = data['group_20400']  # type: ignore
+        clients.group_20403 = data['group_20403']  # type: ignore
+        clients.group_20514 = data['group_20514']  # type: ignore
+        clients.group_22128 = data['group_22128']  # type: ignore
+        clients.group_23609 = data['group_23609']  # type: ignore
         clients.save()
 
         # Remove old Clients models

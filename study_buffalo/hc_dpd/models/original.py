@@ -8,6 +8,7 @@ class OriginalActiveIngredient(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='active_ingredients'
     )
     active_ingredient_code = models.CharField(
         blank=True,
@@ -95,7 +96,7 @@ class OriginalActiveIngredient(models.Model):
     )
 
 
-class OriginalBiosimilars(models.Model):
+class OriginalBiosimilar(models.Model):
     """Model representing the QRYM_BIOSIMILARS file.
 
         This extract is not present in the DPD Read Me File - field names

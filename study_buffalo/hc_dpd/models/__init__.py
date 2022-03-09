@@ -8,7 +8,7 @@ from .formatted import (
     FormattedVeterinarySpecies,
 )
 from .original import (
-    OriginalActiveIngredient, OriginalBiosimilars, OriginalCompany,
+    OriginalActiveIngredient, OriginalBiosimilar, OriginalCompany,
     OriginalDrugProduct, OriginalForm, OriginalInactiveProduct,
     OriginalPackaging, OriginalPharmaceuticalStandard, OriginalRoute,
     OriginalSchedule, OriginalStatus, OriginalTherapeuticClass,
