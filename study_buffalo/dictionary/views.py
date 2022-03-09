@@ -40,7 +40,7 @@ def generate_select_data():
 
     for language in languages:
         language_options.append(
-           f'<option value="{language.id}">{language.language}</option>'
+            f'<option value="{language.id}">{language.language}</option>'
         )
 
     selects['language'] = f'<select class="language">language_options{"".join(language_options)}</select>'
@@ -51,7 +51,7 @@ def generate_select_data():
 
     for dict_type in dict_types:
         dict_type_options.append(
-           f'<option value="{dict_type.id}">{dict_type.dictionary_name}</option>'
+            f'<option value="{dict_type.id}">{dict_type.dictionary_name}</option>'
         )
 
     selects['dict_type'] = (
@@ -64,7 +64,7 @@ def generate_select_data():
 
     for dict_class in dict_classes:
         dict_class_options.append(
-           f'<option value="{dict_class.id}">{dict_class.class_name}</option>'
+            f'<option value="{dict_class.id}">{dict_class.class_name}</option>'
         )
 
     selects['dict_class'] = (
@@ -236,8 +236,8 @@ def delete_pending_word(request):
             response = process_pending_word_deletion(pending_id)
         else:
             response = {
-               'success': False,
-               'message': 'POST request missing pending ID',
+                'success': False,
+                'message': 'POST request missing pending ID',
             }
     else:
         response = {
