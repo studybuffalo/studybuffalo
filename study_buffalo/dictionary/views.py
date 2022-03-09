@@ -89,18 +89,31 @@ def review(request):
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def retrieve_entries(request):
     """Retrieves requested dictionary entries."""
-    response = []
+    content = {}
+    status_code = 400
 
     # Return query data as JSON
-    if request.POST:
+    if request.method == 'POST':
         # Organize the post variables
         last_id = request.POST.get('last_id', None)
         request_num = request.POST.get('request_num', None)
 
         if last_id and request_num:
-            response = retrieve_pending_entries(last_id, request_num)
+            content = retrieve_pending_entries(last_id, request_num)
+            status_code = 200
+        else:
+            content = {
+                'status_code': 400,
+                'errors': ['"last_id" and "request_num" are a required parameters.'],
+            }
+    else:
+        content = {'status_code': 405, 'errors': ['Only "POST" method is allowed.']}
+        status_code = 405
 
-    return JsonResponse(response, DjangoJSONEncoder)
+    response = JsonResponse(content, encoder=DjangoJSONEncoder)
+    response.status_code = status_code
+
+    return response
 
 
 def retrieve_pending_entries(last_id, req_num):
@@ -109,11 +122,11 @@ def retrieve_pending_entries(last_id, req_num):
     entries = WordPending.objects.filter(id__gt=int(last_id))[:int(req_num)]
 
     # Cycle through all the entries and format into dictionary
-    response = []
+    response = {'status_code': 200, 'content': []}
 
     for entry in entries:
         # Basic details of each entry
-        response.append({
+        response['content'].append({
             'id': getattr(entry, 'id'),
             'word': entry.word,
             'original': entry.original_words,
@@ -129,9 +142,10 @@ def retrieve_pending_entries(last_id, req_num):
 @permission_required('dictionary.can_view', login_url='/accounts/login/')
 def add_new_word(request):
     """View to add new word to dictionary."""
-    response = {}
+    content = {}
+    status_code = 400
 
-    if request.POST:
+    if request.method == 'POST':
         pending_id = request.POST.get('pending_id', None)
         model_name = request.POST.get('model_name')
         word = request.POST.get('word')
@@ -141,11 +155,11 @@ def add_new_word(request):
 
         if all([pending_id, model_name, word, language, dictionary_type, dictionary_class]):
             # Add the new word and get a response base
-            response = process_new_word(
+            content = process_new_word(
                 model_name, word, language, dictionary_type, dictionary_class
             )
-
-            response['id'] = pending_id
+            content['id'] = pending_id
+            status_code = 201
         else:
             # Compile list of the missing arguments
             missing_args = []
@@ -168,17 +182,24 @@ def add_new_word(request):
             if dictionary_class is None:
                 missing_args.append('dictionary_class')
 
-            response = {
+            content = {
+                'status_code': 400,
                 'success': False,
                 'message': f'POST request missing arguments: {", ".join(missing_args)}'
             }
+            status_code = 400
     else:
-        response = {
+        content = {
+            'status_code': 405,
             'success': False,
-            'message': 'No data received on POST request',
+            'message': 'Only "POST" method is allowed.'
         }
+        status_code = 405
 
-    return JsonResponse(response, DjangoJSONEncoder)
+    response = JsonResponse(content, DjangoJSONEncoder)
+    response.status_code = status_code
+
+    return response
 
 
 def process_new_word(model_name, word, language, dictionary_type, dictionary_class):
@@ -193,21 +214,48 @@ def process_new_word(model_name, word, language, dictionary_type, dictionary_cla
         word=word,
     )
 
-    model_message = ''
-
-    if model_name == 'word':
-        model_message = 'Word dictionary'
-    else:
-        model_message = 'Excluded Word dictionary'
-
     new_word.save()
 
-    message = f'{word} added to the {model_message}'
+    message = f'{word} added to the {"Word dictionary" if model_name == "word" else "Excluded Word dictionary"}'
 
     return {
+        'status_code': 201,
         'success': True,
         'message': message,
     }
+
+
+@permission_required('dictionary.can_view', login_url='/accounts/login/')
+def delete_pending_word(request):
+    """View to delte a pending word."""
+    content = {}
+    status_code = 400
+
+    if request.method == 'POST':
+        pending_id = request.POST.get('pending_id', None)
+
+        if pending_id:
+            content = process_pending_word_deletion(pending_id)
+            status_code = 204
+        else:
+            content = {
+                'success': False,
+                'status_code': 400,
+                'message': 'POST request missing pending ID',
+            }
+            status_code = 400
+    else:
+        content = {
+            'status_code': 405,
+            'success': False,
+            'message': 'Only "POST" method is allowed.'
+        }
+        status_code = 405
+
+    response = JsonResponse(content, DjangoJSONEncoder)
+    response.status_code = status_code
+
+    return response
 
 
 def process_pending_word_deletion(pending_id):
@@ -218,31 +266,8 @@ def process_pending_word_deletion(pending_id):
     return {
         'id': pending_id,
         'success': True,
+        'status_code': 204,
         'message': (
             f'Pending word (id = {pending_id}) successfully deleted'
         )
     }
-
-
-@permission_required('dictionary.can_view', login_url='/accounts/login/')
-def delete_pending_word(request):
-    """View to delte a pending word."""
-    response = {}
-
-    if request.POST:
-        pending_id = request.POST.get('pending_id', None)
-
-        if pending_id:
-            response = process_pending_word_deletion(pending_id)
-        else:
-            response = {
-                'success': False,
-                'message': 'POST request missing pending ID',
-            }
-    else:
-        response = {
-            'success': False,
-            'message': 'No data received on POST request'
-        }
-
-    return JsonResponse(response, DjangoJSONEncoder)
