@@ -269,10 +269,10 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
             }
     else:
         return {
-                'id': pend_id,
-                'success': False,
-                'message': f'Unable to locate model: {app.model_sub}'
-            }
+            'id': pend_id,
+            'success': False,
+            'message': f'Unable to locate model: {app.model_sub}'
+        }
 
 
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
@@ -371,9 +371,9 @@ def delete_pend(request):
                 missing_args.append('pending entry ID')
 
             response = {
-               'id': pend_id,
-               'success': False,
-               'message': f'POST request missing arguments: {", ".join(missing_args)}',
+                'id': pend_id,
+                'success': False,
+                'message': f'POST request missing arguments: {", ".join(missing_args)}',
             }
     else:
         response = {

@@ -1,11 +1,11 @@
 """URLs for the Play app."""
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.Index.as_view(), name='play_index'),
-    url(r'^archive$', views.Archive.as_view(), name='archive'),
-    url(r'^(?P<pk>\d+)/$', views.PlayPageDetail.as_view(), name='play_page'),
+    path('archive/', views.Archive.as_view(), name='archive'),
+    path('<int:pk>/', views.PlayPageDetail.as_view(), name='play_page'),
+    path('', views.Index.as_view(), name='play_index'),
 ]
