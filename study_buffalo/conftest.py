@@ -1,6 +1,7 @@
 """Setting up test configuration."""
 import pytest
 
+from dictionary.tests import factories as dictionary_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from users.tests.factories import UserFactory
 
@@ -39,3 +40,21 @@ def shift():
 def missing_shift_code():
     """Fixture to create a Missing Shift Code instance."""
     return rdrhc_calendar_factories.MissingShiftCodeFactory()
+
+
+@pytest.fixture
+def dictionary_word():
+    """Fixture to create a Word instance."""
+    return dictionary_factories.WordFactory()
+
+
+@pytest.fixture
+def dictionary_word_pending():
+    """Fixture to create a WordPending instance."""
+    return dictionary_factories.WordPendingFactory()
+
+
+@pytest.fixture
+def dictionary_excluded_word():
+    """Fixture to create an ExcludedWord instance."""
+    return dictionary_factories.ExcludedWordFactory()
