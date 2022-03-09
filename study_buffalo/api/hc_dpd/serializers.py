@@ -17,7 +17,7 @@ class ActiveIngredientSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from utils and remove drug code
         serializer_fields = utils.ACTIVE_INGREDIENT_FIELDS
-        serializer_fields.pop('drug_code')
+        serializer_fields.remove('drug_code')
 
         # Meta declarations
         model = models.OriginalActiveIngredient
@@ -443,14 +443,13 @@ class ChecksumSerializer(serializers.ModelSerializer):
 
 class ChecksumListParameterSerializer(serializers.Serializer):
     """Serializer to validate URL parameters for ChecksumList view."""
-    step = serializers.IntegerField(
+    step = serializers.ChoiceField(
         choices=models.DPDChecksum.STEP_CHOICES,
         help_text='The interval of drug codes for this checksum.',
     )
-    source = serializers.CharField(
+    source = serializers.ChoiceField(
         choices=models.DPDChecksum.EXTRACT_SOURCE_CHOICES,
         help_text='The extract source data for this checksum',
-        max_length=3,
     )
 
     def create(self, validated_data):
