@@ -11,4 +11,3 @@ def add_view_permission(user):
     user.user_permissions.add(
         Permission.objects.get(content_type=content_type, codename='can_view')
     )
-
