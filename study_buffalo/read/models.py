@@ -9,12 +9,10 @@ class Publication(models.Model):
         help_text='The title of the study guide',
         max_length=100,
     )
-
     description = models.CharField(
         help_text='A short description of the study guide',
         max_length=256,
     )
-
     date_published = models.DateField(
         help_text='The date the first version was released',
     )
@@ -23,7 +21,7 @@ class Publication(models.Model):
         ordering = ['title']
 
     def __str__(self):
-        return f'{self.date_published} - {self.title})'
+        return f'{self.date_published} - {self.title}'
 
     def get_absolute_url(self):
         """Returns the URL to this page"""
@@ -36,7 +34,6 @@ class HTMLPublication(models.Model):
         'Publication',
         on_delete=models.CASCADE,
     )
-
     html = models.TextField(
         help_text='The HTML content to display the publication'
     )
@@ -51,7 +48,6 @@ class DocumentPublication(models.Model):
         'Publication',
         on_delete=models.CASCADE,
     )
-
     document = models.FileField(
         help_text='The publicationfile to upload (PDF preferred)',
         upload_to='publications',
