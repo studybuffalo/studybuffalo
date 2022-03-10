@@ -202,6 +202,7 @@ def test__play_image__save__small_image(play_image):
     assert image.resized_image.width == image.original_image.width
     assert image.resized_image.height == image.original_image.height
 
+
 def test__play_image__save__large_image(play_image_large):
     """Tests for resized image when large image saved to PlayImage."""
     image = models.PlayImage.objects.create(
