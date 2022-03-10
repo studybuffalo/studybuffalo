@@ -4,7 +4,9 @@ from django.db import models
 
 class Language(models.Model):
     """Language of the word"""
-    language = models.CharField(max_length=25,)
+    language = models.CharField(
+        max_length=25,
+    )
 
     def __str__(self):
         return self.language
@@ -12,8 +14,12 @@ class Language(models.Model):
 
 class DictionaryType(models.Model):
     """Dictionary type for creation of specific dictionary categories"""
-    dictionary_name = models.CharField(max_length=50,)
-    dictionary_verbose_name = models.CharField(max_length=50,)
+    dictionary_name = models.CharField(
+        max_length=50,
+    )
+    dictionary_verbose_name = models.CharField(
+        max_length=50,
+    )
 
     def __str__(self):
         return self.dictionary_name
@@ -49,7 +55,9 @@ class Word(models.Model):
         on_delete=models.SET_NULL,
         null=True,
     )
-    word = models.CharField(max_length=50,)
+    word = models.CharField(
+        max_length=50,
+    )
 
     def __str__(self):
         return self.word
@@ -76,7 +84,9 @@ class WordPending(models.Model):
         max_length=300,
         null=True,
     )
-    word = models.CharField(max_length=50,)
+    word = models.CharField(
+        max_length=50,
+    )
 
     class Meta:
         permissions = (
@@ -106,7 +116,9 @@ class ExcludedWord(models.Model):
         on_delete=models.SET_NULL,
         null=True,
     )
-    word = models.CharField(max_length=50,)
+    word = models.CharField(
+        max_length=50,
+    )
 
     def __str__(self):
         return self.word
