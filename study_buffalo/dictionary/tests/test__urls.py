@@ -286,7 +286,6 @@ def test__retrieve_select_data__302_on_anonymous_user():
     assert response.status_code == 302
 
 
-
 def test__index__exists_at_desired_url():
     """Tests that dictionary index page exists at desired URL."""
     client = Client()

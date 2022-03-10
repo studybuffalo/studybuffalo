@@ -427,7 +427,6 @@ def test__retrieve_pending_entries__confirm_query_results(dictionary_word_pendin
         word='Two',
     )
 
-
     # Request only the first entry
     response = views.retrieve_pending_entries(0, 1)
 
