@@ -2,6 +2,7 @@
 import pytest
 
 from dictionary.tests import factories as dictionary_factories
+from play.tests import factories as play_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from users.tests.factories import UserFactory
 
@@ -58,3 +59,27 @@ def dictionary_word_pending():
 def dictionary_excluded_word():
     """Fixture to create an ExcludedWord instance."""
     return dictionary_factories.ExcludedWordFactory()
+
+
+@pytest.fixture
+def play_page():
+    """Fixture to create a PlayPage instance."""
+    return play_factories.PlayPageFactory()
+
+
+@pytest.fixture
+def play_image():
+    """Fixture to create a PlayImage instance."""
+    return play_factories.PlayImageFactory()
+
+
+@pytest.fixture
+def play_image_large():
+    """Fixture to create a PlayImage instance with large image."""
+    return play_factories.PlayImageLargeFactory()
+
+
+@pytest.fixture
+def play_audio():
+    """Fixture to create a PlayAudio instance."""
+    return play_factories.PlayAudioFactory()

@@ -14,8 +14,10 @@ import django.utils.timezone
 
 class Category(models.Model):
     """Defines categories for Play Items"""
-    category = models.CharField(max_length=100,
-                                help_text='The name of the category')
+    category = models.CharField(
+        max_length=100,
+        help_text='The name of the category',
+    )
 
     class Meta:
         verbose_name = 'Category'
@@ -28,35 +30,29 @@ class Category(models.Model):
 
 class PlayPage(models.Model):
     """Defines a page to contain PlayItem(s)"""
-    # Fields
     title = models.CharField(
         max_length=256,
         help_text='Title for the page',
     )
-
     date = models.DateField(
         default=django.utils.timezone.now,
         help_text='Date the play item was released',
     )
-
     category = models.ForeignKey(
         'Category',
         on_delete=models.SET_NULL,
         null=True,
     )
-
     release_date = models.DateTimeField(
         default=django.utils.timezone.now,
         help_text='Date to release this page on',
     )
 
-    # Meta Settings
     class Meta:
         ordering = ['date', 'title']
         verbose_name = 'Page'
         verbose_name_plural = 'Pages'
 
-    # Methods
     def __str__(self):
         """String representing the Play Image object"""
         return f'{self.date} - {self.title}'
@@ -65,30 +61,30 @@ class PlayPage(models.Model):
         """Returns the URL to this page"""
         return reverse('play_page', args=[str(self.id)])
 
-    @staticmethod
-    def last_page():
-        """Returns the latest released page."""
-        LATEST = PlayPage.objects.filter(release_date__date__lte=datetime.now()).latest('pk').pk
-
-        return LATEST
-
     def previous_page(self):
         """Returns the previous primary key ID."""
-        previousPK = self.pk - 1
+        previous_pk = self.pk - 1
 
-        if previousPK > 0:
-            return previousPK
+        if previous_pk > 0:
+            return previous_pk
 
         return None
 
     def next_page(self):
         """Returns the next primary key ID."""
-        nextPK = self.pk + 1
+        next_pk = self.pk + 1
 
-        if nextPK <= self.last_page():
-            return nextPK
+        if next_pk <= self.last_page():
+            return next_pk
 
         return None
+
+    @staticmethod
+    def last_page():
+        """Returns the latest released page."""
+        latest = PlayPage.objects.filter(release_date__date__lte=datetime.now()).latest('pk').pk
+
+        return latest
 
 
 class PlayImage(models.Model):
@@ -99,49 +95,43 @@ class PlayImage(models.Model):
         editable=False,
         help_text='Unqiue ID for this item',
     )
-
     title = models.CharField(
         max_length=256,
         help_text='Title to display above the image',
         blank=True,
     )
-
     type = models.CharField(
         max_length=1,
         default='i',
         editable=False,
         help_text='The file type of the item',
     )
-
     original_image = models.ImageField(
         upload_to='play/images/original/',
         help_text='The uploaded image (high quality)',
     )
-
     resized_image = models.ImageField(
         upload_to='play/images/resized/',
         editable=False,
     )
-
     alt_text = models.CharField(
         max_length=256,
         blank=True,
         help_text='Text to show on cursor hover over the item',
     )
-
     description = models.TextField(
         blank=True,
         help_text='Any additional text to display below the image',
     )
-
     page = models.ForeignKey(
         'PlayPage',
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
-
-    ordering = models.PositiveSmallIntegerField(default=1)
+    ordering = models.PositiveSmallIntegerField(
+        default=1,
+    )
 
     class Meta:
         ordering = ['ordering', 'title']
@@ -189,30 +179,25 @@ class PlayAudio(models.Model):
         editable=False,
         help_text='Unqiue ID for this item',
     )
-
     title = models.CharField(
         max_length=256,
         help_text='Title to display above the audio player',
         blank=True,
     )
-
     type = models.CharField(
         max_length=1,
         default='a',
         editable=False,
         help_text='The file type of the item',
     )
-
     audio = models.FileField(
         upload_to='play/audio/',
         help_text='The uploaded audio content',
     )
-
     description = models.TextField(
         blank=True,
         help_text='Any additional text to display below the image',
     )
-
     page = models.ForeignKey(
         'PlayPage',
         on_delete=models.SET_NULL,
@@ -220,7 +205,9 @@ class PlayAudio(models.Model):
         null=True,
     )
 
-    ordering = models.PositiveSmallIntegerField(default=1)
+    ordering = models.PositiveSmallIntegerField(
+        default=1,
+    )
 
     class Meta:
         ordering = ['title']
