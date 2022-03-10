@@ -25,6 +25,7 @@ class PlayPageFactory(factory.django.DjangoModelFactory):
         model = models.PlayPage
         django_get_or_create = ('title', 'category')
 
+
 class PlayImageFactory(factory.django.DjangoModelFactory):
     """Factory to generate a PlayImage."""
     title = factory.Sequence(lambda n: f'Image {n}')
@@ -34,6 +35,7 @@ class PlayImageFactory(factory.django.DjangoModelFactory):
     description = factory.Sequence(lambda n: f'Description {n}')
     page = factory.SubFactory(PlayPageFactory)
     ordering = factory.Sequence(lambda n: n)
+
 
 class PlayAudioFactory(factory.django.DjangoModelFactory):
     """Factory to generate a PlayImage."""

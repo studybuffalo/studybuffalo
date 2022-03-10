@@ -60,15 +60,18 @@ def dictionary_excluded_word():
     """Fixture to create an ExcludedWord instance."""
     return dictionary_factories.ExcludedWordFactory()
 
+
 @pytest.fixture
 def play_page():
     """Fixture to create a PlayPage instance."""
     return play_factories.PlayPageFactory()
 
+
 @pytest.fixture
 def play_image():
     """Fixture to create a PlayImage instance."""
     return play_factories.PlayImageFactory()
+
 
 @pytest.fixture
 def play_audio():
