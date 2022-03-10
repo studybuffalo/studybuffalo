@@ -1,4 +1,4 @@
-"""Factories for testing the Play app."""
+"""Factories for testing the Read app."""
 import factory
 
 from django.utils import timezone
