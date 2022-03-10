@@ -345,7 +345,7 @@ function RetrieveEntries() {
     },
     type: 'POST',
     success: (results) => {
-      UpdateEntries(results);
+      UpdateEntries(results.content);
     },
     error: (jqXHR, textStatus, errorThrown) => {
       console.error('Error retrieving entries');
