@@ -14,8 +14,10 @@ import django.utils.timezone
 
 class Category(models.Model):
     """Defines categories for Play Items"""
-    category = models.CharField(max_length=100,
-                                help_text='The name of the category')
+    category = models.CharField(
+        max_length=100,
+        help_text='The name of the category',
+    )
 
     class Meta:
         verbose_name = 'Category'
