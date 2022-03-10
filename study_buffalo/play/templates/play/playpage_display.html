@@ -40,7 +40,7 @@
 			font-size: 3rem;
 			list-style: none;
 		}
-		
+
 			#sb #play-page-nav li:first-child {
 				border-left: none;
 			}
@@ -58,7 +58,7 @@
 				cursor: pointer;
 				transform: scale(1.15);
 			}
-		
+
 		#sb #play-page-nav span {
 			color: rgb(151, 151, 151);
 			cursor: not-allowed;
@@ -122,7 +122,7 @@
 			<li><span>&lsaquo; Previous</span></li>
 		{% endif %}
 
-			<li><a href="{% url 'archive' %}">Archive</a></li>
+			<li><a href="{% url 'play_archive' %}">Archive</a></li>
 
 		{% if play_page.next_page %}
 			<li><a href="{% url 'play_page' play_page.next_page %}">Next &rsaquo;</a></li>
