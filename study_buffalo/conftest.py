@@ -6,6 +6,7 @@ from play.tests import factories as play_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from read.tests import factories as read_factories
 from study.tests import factories as study_factories
+from substitutions.tests import factories as substitutions_factories
 from users.tests.factories import UserFactory
 
 
@@ -133,3 +134,15 @@ def study_html_guide():
 def study_document_guide():
     """Fixture to create a DocumentGuide instance."""
     return study_factories.DocumentGuideFactory()
+
+
+@pytest.fixture
+def substitutions_apps():
+    """Fixture to create an Apps instance."""
+    return substitutions_factories.AppsFactory()
+
+
+@pytest.fixture
+def substitutions_model_fields():
+    """Fixture to create a ModelFields instance."""
+    return substitutions_factories.ModelFieldsFactory()
