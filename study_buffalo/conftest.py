@@ -4,6 +4,7 @@ import pytest
 from dictionary.tests import factories as dictionary_factories
 from play.tests import factories as play_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
+from read.tests import factories as read_factories
 from users.tests.factories import UserFactory
 
 
@@ -83,3 +84,21 @@ def play_image_large():
 def play_audio():
     """Fixture to create a PlayAudio instance."""
     return play_factories.PlayAudioFactory()
+
+
+@pytest.fixture
+def read_publication():
+    """Fixture to create a Publication instance."""
+    return read_factories.PublicationFactory()
+
+
+@pytest.fixture
+def read_html_publication():
+    """Fixture to create an HTMLPublication instance."""
+    return read_factories.HTMLPublicationFactory()
+
+
+@pytest.fixture
+def read_document_publication():
+    """Fixture to create a DocumentPublication instance."""
+    return read_factories.DocumentPublicationFactory()
