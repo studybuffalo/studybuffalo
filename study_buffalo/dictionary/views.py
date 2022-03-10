@@ -124,7 +124,9 @@ def retrieve_entries(request):
 def retrieve_pending_entries(last_id, req_num):
     """Retrieves requested pending dicionary entries."""
     # Get the requested entries
-    entries = WordPending.objects.filter(id__gt=int(last_id))[:int(req_num)]
+    entries = WordPending.objects.filter(
+        id__gt=int(last_id)
+    ).order_by('pk')[:int(req_num)]
 
     # Cycle through all the entries and format into dictionary
     response = {'status_code': 200, 'content': []}
@@ -227,6 +229,7 @@ def process_new_word(model_name, word, language, dictionary_type, dictionary_cla
         'status_code': 201,
         'success': True,
         'message': message,
+        'id': new_word.pk
     }
 
 
@@ -246,14 +249,14 @@ def delete_pending_word(request):
             content = {
                 'success': False,
                 'status_code': 400,
-                'message': 'POST request missing pending ID',
+                'errors': ['POST request missing pending ID'],
             }
             status_code = 400
     else:
         content = {
             'status_code': 405,
             'success': False,
-            'message': 'Only "POST" method is allowed.'
+            'errors': ['Only "POST" method is allowed.'],
         }
         status_code = 405
 
@@ -272,7 +275,5 @@ def process_pending_word_deletion(pending_id):
         'id': pending_id,
         'success': True,
         'status_code': 204,
-        'message': (
-            f'Pending word (id = {pending_id}) successfully deleted'
-        )
+        'message': f'Pending word (id = {pending_id}) successfully deleted'
     }
