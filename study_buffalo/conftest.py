@@ -74,6 +74,12 @@ def play_image():
 
 
 @pytest.fixture
+def play_image_large():
+    """Fixture to create a PlayImage instance with large image."""
+    return play_factories.PlayImageLargeFactory()
+
+
+@pytest.fixture
 def play_audio():
     """Fixture to create a PlayAudio instance."""
     return play_factories.PlayAudioFactory()

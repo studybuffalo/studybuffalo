@@ -36,13 +36,36 @@ class PlayImageFactory(factory.django.DjangoModelFactory):
     page = factory.SubFactory(PlayPageFactory)
     ordering = factory.Sequence(lambda n: n)
 
+    class Meta:
+        model = models.PlayImage
+        django_get_or_create = ('title', 'page')
+
+
+class PlayImageLargeFactory(factory.django.DjangoModelFactory):
+    """Factory to generate a PlayImage."""
+    title = factory.Sequence(lambda n: f'Image {n}')
+    type = 'i'
+    original_image = factory.django.ImageField(width=1000,height=1000)
+    alt_text = factory.Sequence(lambda n: f'Alt {n}')
+    description = factory.Sequence(lambda n: f'Description {n}')
+    page = factory.SubFactory(PlayPageFactory)
+    ordering = factory.Sequence(lambda n: n)
+
+    class Meta:
+        model = models.PlayImage
+        django_get_or_create = ('title', 'page')
+
+
 
 class PlayAudioFactory(factory.django.DjangoModelFactory):
     """Factory to generate a PlayImage."""
     title = factory.Sequence(lambda n: f'Image {n}')
     type = 'a'
     audio = factory.django.FileField(filename='audio.mp3')
-    alt_text = factory.Sequence(lambda n: f'Alt {n}')
     description = factory.Sequence(lambda n: f'Description {n}')
     page = factory.SubFactory(PlayPageFactory)
     ordering = factory.Sequence(lambda n: n)
+
+    class Meta:
+        model = models.PlayAudio
+        django_get_or_create = ('title', 'page')
