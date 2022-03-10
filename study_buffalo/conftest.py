@@ -5,6 +5,7 @@ from dictionary.tests import factories as dictionary_factories
 from play.tests import factories as play_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from read.tests import factories as read_factories
+from study.tests import factories as study_factories
 from users.tests.factories import UserFactory
 
 
@@ -102,3 +103,33 @@ def read_html_publication():
 def read_document_publication():
     """Fixture to create a DocumentPublication instance."""
     return read_factories.DocumentPublicationFactory()
+
+
+@pytest.fixture
+def study_guide():
+    """Fixture to create a Guide instance."""
+    return study_factories.GuideFactory()
+
+
+@pytest.fixture
+def study_bounty():
+    """Fixture to create a Bounty instance."""
+    return study_factories.BountyFactory()
+
+
+@pytest.fixture
+def study_bounty_assignment():
+    """Fixture to create a BountyAssignment instance."""
+    return study_factories.BountyAssignment()
+
+
+@pytest.fixture
+def study_html_guide():
+    """Fixture to create a HTMLGuide instance."""
+    return study_factories.HTMLGuideFactory()
+
+
+@pytest.fixture
+def study_document_guide():
+    """Fixture to create a DocumentGuide instance."""
+    return study_factories.DocumentGuideFactory()
