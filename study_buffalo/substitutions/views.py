@@ -76,6 +76,312 @@ def dictionary_check(dictionary, words):
     return return_text
 
 
+def delete_entry(app_id, pend_id):
+    """Function to delete entries."""
+    # Get the model to insert the substitution into
+    app = Apps.objects.get(id=app_id)
+    model_pend = apps.get_model(app.app_name, app.model_pending)
+
+    # Variable to hold the response message
+    response = {}
+
+    if model_pend:
+        model = model_pend.objects.get(id=pend_id)
+
+        try:
+            model.delete()
+
+            response = {
+                'id': pend_id,
+                'success': True,
+                'message': f'Pending entry (id = {pend_id}) successfully deleted',
+            }
+        except ValueError as e:
+            response = {
+                'id': pend_id,
+                'success': True,
+                'message': f'Unable to delete pending entry: {e}'
+            }
+    else:
+        response = {
+            'id': pend_id,
+            'success': True,
+            'message': f'Unable to locate model: {app.model_pend}'
+        }
+
+    return response
+
+
+def retrieve_pending_entries(app_id, last_id, req_num):
+    """Utility to collect required pending entries."""
+    # Collect the required models
+    app = Apps.objects.get(id=app_id)
+    orig_fields = ModelFields.objects.filter(
+        Q(app_id=app_id) & Q(field_type='o')
+    )
+    sub_fields = ModelFields.objects.filter(
+        Q(app_id=app_id) & Q(field_type='s')
+    )
+
+    # Get the monitored application
+    model = None
+
+    if app:
+        model = apps.get_model(app.app_name, app.model_pending)
+
+    # Get all the entries in the monitored application
+    if model and len(orig_fields) and len(sub_fields):
+        entries = model.objects.filter(id__gt=int(last_id))[:int(req_num)]
+
+    # Download a copy of the dictionary words to perform a dictionary check
+    dictionary = setup_dictionary()
+
+    # Cycle through all the entries and format into dictionary
+    response = {'content': [], 'status_code': 200}
+
+    for entry in entries:
+        # Basic details of each entry
+        entry_response = {
+            'id': getattr(entry, 'id'),
+            'orig': [],
+            'subs': []
+        }
+
+        # Add all the values for the original fields
+        for o_field in orig_fields:
+            value = getattr(entry, o_field.field_name)
+
+            if o_field.dictionary_check:
+                value = dictionary_check(dictionary, value)
+
+            entry_response['orig'].append({
+                'field_name': o_field.field_name,
+                'value': value,
+                'google': o_field.google_check
+            })
+
+        # Add all the values for the substitution fields
+        for s_field in sub_fields:
+            value = getattr(entry, s_field.field_name)
+
+            if s_field.dictionary_check:
+                value = dictionary_check(dictionary, value)
+
+            entry_response['subs'].append({
+                'field_name': s_field.field_name,
+                'value': value,
+                'google': s_field.google_check
+            })
+
+        response['content'].append(entry_response)
+
+    # Return the final response
+    return response
+
+
+def add_new_substitutions(app_id, pend_id, orig, subs):
+    """Function to add new substitutions."""
+    # Get the model to insert the substitution into
+    app = Apps.objects.get(id=app_id)
+    model_sub = apps.get_model(app.app_name, app.model_sub)
+
+    # Convert the JSON strings to dictionaries
+    orig = json.loads(orig)
+    subs = json.loads(subs)
+
+    if model_sub:
+        model = model_sub()
+
+        for field in orig:
+            setattr(model, field['field_name'], field['field_value'])
+
+        for field in subs:
+            setattr(model, field['field_name'], field['field_value'])
+
+        try:
+            model.save()
+
+            return {
+                'id': pend_id,
+                'success': True,
+                'message': f'New substitution added ({apps.get_app_config(app.app_name).verbose_name})',
+            }
+        except ValueError as e:
+            return {
+                'id': pend_id,
+                'success': False,
+                'message': f'Unable to save new substitution: {e}'
+            }
+    else:
+        return {
+            'id': pend_id,
+            'success': False,
+            'message': f'Unable to locate model: {app.model_sub}'
+        }
+
+
+@permission_required('substitutions.can_view', login_url='/accounts/login/')
+def delete_pend(request):
+    """View to delete pending entries."""
+    content = {}
+    status_code = 400
+
+    if request.POST:
+        app_id = request.POST.get('app_id', None)
+        pend_id = request.POST.get('pend_id', None)
+
+        if app_id and pend_id:
+            content = delete_entry(app_id, pend_id)
+            status_code = 204
+        else:
+            # Compile list of the missing arguments
+            missing_args = []
+
+            if app_id:
+                missing_args.append('app_id')
+            if pend_id:
+                missing_args.append('pend_id')
+
+            content = {
+                'id': pend_id,
+                'success': False,
+                'status_code': 400,
+                'errors': [f'Request missing arguments: {", ".join(missing_args)}'],
+            }
+            status_code = 400
+    else:
+        content = {
+            'id': pend_id,
+            'success': False,
+            'status_code': 405,
+            'errors': ['Only "POST" method is allowed.'],
+        }
+        status_code = 405
+
+    response = JsonResponse(content, DjangoJSONEncoder)
+    response.status_code = status_code
+
+    return response
+
+
+@permission_required('substitutions.can_view', login_url='/accounts/login/')
+def retrieve_entries(request):
+    """View to request pending entries."""
+    content = {}
+    status_code = 400
+
+    # Return query data as JSON
+    if request.POST:
+        # Organize the post variables
+        app_id = request.POST.get('app_id', None)
+        last_id = request.POST.get('last_id', None)
+        request_num = request.POST.get('request_num', None)
+
+        if app_id and last_id and request_num:
+            content = retrieve_pending_entries(app_id, last_id, request_num)
+            status_code = 200
+        else:
+            # Compile list of the missing arguments
+            missing_args = []
+
+            if app_id:
+                missing_args.append('app_id')
+            if last_id:
+                missing_args.append('last_id')
+            if request_num:
+                missing_args.append('request_num')
+
+            content = {
+                'success': False,
+                'status_code': 400,
+                'errors': [f'Request missing arguments: {", ".join(missing_args)}'],
+            }
+            status_code = 400
+    else:
+        content = {
+            'success': False,
+            'status_code': 405,
+            'errors': ['Only "POST" method is allowed.'],
+        }
+        status_code = 405
+
+    response = JsonResponse(content, DjangoJSONEncoder)
+    response.status_code = status_code
+
+    return response
+
+
+@permission_required('substitutions.can_view', login_url='/accounts/login/')
+def verify(request):
+    """View to add new substitutions."""
+    content = {}
+    status_code = 400
+
+    if request.POST:
+        app_id = request.POST.get('app_id', None)
+        pend_id = request.POST.get('pend_id', None)
+        orig = request.POST.get('orig')
+        subs = request.POST.get('subs')
+
+        if app_id and pend_id and orig and subs:
+            content = add_new_substitutions(app_id, pend_id, orig, subs)
+            status_code = 201
+        else:
+            # Compile list of the missing arguments
+            missing_args = []
+
+            if app_id:
+                missing_args.append('application ID')
+            if pend_id:
+                missing_args.append('pending entry ID')
+            if orig:
+                missing_args.append('original field data')
+            if subs:
+                missing_args.append('substitutions field data')
+
+            content = {
+                'success': False,
+                'status_code': 400,
+                'errors': [f'Request missing arguments: {", ".join(missing_args)}'],
+            }
+            status_code = 400
+    else:
+        content = {
+            'success': False,
+            'status_code': 405,
+            'errors': ['Only "POST" method is allowed.'],
+        }
+        status_code = 405
+
+    response = JsonResponse(content, DjangoJSONEncoder)
+    response.status_code = status_code
+
+    return response
+
+
+@permission_required('substitutions.can_view', login_url='/accounts/login/')
+def review(request, app_id):
+    """Generates a page to review pending substitutions"""
+    # Get the Apps reference for the provided ID
+    app = Apps.objects.get(id=app_id)
+
+    # Assemble required data to pass to template
+    app_data = {
+        'id': app_id,
+        'app_name': app.app_name,
+        'pending': app.model_pending,
+        'sub': app.model_sub,
+    }
+
+    return render(
+        request,
+        'substitutions/review.html',
+        {
+            'app_data': app_data,
+        }
+    )
+
+
 @permission_required('substitutions.can_view', login_url='/accounts/login/')
 def dashboard(request):
     """Displays a dashboard of the monitored apps"""
@@ -124,262 +430,3 @@ def dashboard(request):
             'sub_data': sub_data
         }
     )
-
-
-@permission_required('substitutions.can_view', login_url='/accounts/login/')
-def review(request, app_id):
-    """Generates a page to review pending substitutions"""
-    # Get the Apps reference for the provided ID
-    app = Apps.objects.get(id=app_id)
-
-    # Assemble required data to pass to template
-    app_data = {
-        'id': app_id,
-        'app_name': app.app_name,
-        'pending': app.model_pending,
-        'sub': app.model_sub,
-    }
-
-    return render(
-        request,
-        'substitutions/review.html',
-        {
-            'app_data': app_data,
-        }
-    )
-
-
-def retrieve_pending_entries(app_id, last_id, req_num):
-    """Utility to collect required pending entries."""
-    # Collect the required models
-    app = Apps.objects.get(id=app_id)
-    orig_fields = ModelFields.objects.filter(
-        Q(app_id=app_id) & Q(field_type='o')
-    )
-    sub_fields = ModelFields.objects.filter(
-        Q(app_id=app_id) & Q(field_type='s')
-    )
-
-    # Get the monitored application
-    model = None
-
-    if app:
-        model = apps.get_model(app.app_name, app.model_pending)
-
-    # Get all the entries in the monitored application
-    if model and len(orig_fields) and len(sub_fields):
-        entries = model.objects.filter(id__gt=int(last_id))[:int(req_num)]
-
-    # Download a copy of the dictionary words to perform a dictionary check
-    dictionary = setup_dictionary()
-
-    # Cycle through all the entries and format into dictionary
-    response = []
-
-    for entry in entries:
-        # Basic details of each entry
-        entry_response = {
-            'id': getattr(entry, 'id'),
-            'orig': [],
-            'subs': []
-        }
-
-        # Add all the values for the original fields
-        for o_field in orig_fields:
-            value = getattr(entry, o_field.field_name)
-
-            if o_field.dictionary_check:
-                value = dictionary_check(dictionary, value)
-
-            entry_response['orig'].append({
-                'field_name': o_field.field_name,
-                'value': value,
-                'google': o_field.google_check
-            })
-
-        # Add all the values for the substitution fields
-        for s_field in sub_fields:
-            value = getattr(entry, s_field.field_name)
-
-            if s_field.dictionary_check:
-                value = dictionary_check(dictionary, value)
-
-            entry_response['subs'].append({
-                'field_name': s_field.field_name,
-                'value': value,
-                'google': s_field.google_check
-            })
-
-        response.append(entry_response)
-
-    # Return the final response
-    return response
-
-
-@permission_required('substitutions.can_view', login_url='/accounts/login/')
-def retrieve_entries(request):
-    """View to request pending entries."""
-    response = []
-
-    # Return query data as JSON
-    if request.POST:
-        # Organize the post variables
-        app_id = request.POST.get('app_id', None)
-        last_id = request.POST.get('last_id', None)
-        request_num = request.POST.get('request_num', None)
-
-        if app_id and last_id and request_num:
-            response = retrieve_pending_entries(app_id, last_id, request_num)
-
-    return JsonResponse(response, DjangoJSONEncoder)
-
-
-def add_new_substitutions(app_id, pend_id, orig, subs):
-    """Function to add new substitutions."""
-    # Get the model to insert the substitution into
-    app = Apps.objects.get(id=app_id)
-    model_sub = apps.get_model(app.app_name, app.model_sub)
-
-    # Convert the JSON strings to dictionaries
-    orig = json.loads(orig)
-    subs = json.loads(subs)
-
-    if model_sub:
-        model = model_sub()
-
-        for field in orig:
-            setattr(model, field['field_name'], field['field_value'])
-
-        for field in subs:
-            setattr(model, field['field_name'], field['field_value'])
-
-        try:
-            model.save()
-
-            return {
-                'id': pend_id,
-                'success': True,
-                'message': f'New substitution added ({apps.get_app_config(app.app_name).verbose_name})',
-            }
-        except ValueError as e:
-            return {
-                'id': pend_id,
-                'success': False,
-                'message': f'Unable to save new substitution: {e}'
-            }
-    else:
-        return {
-            'id': pend_id,
-            'success': False,
-            'message': f'Unable to locate model: {app.model_sub}'
-        }
-
-
-@permission_required('substitutions.can_view', login_url='/accounts/login/')
-def verify(request):
-    """View to add new substitutions."""
-    response = {}
-
-    if request.POST:
-        app_id = request.POST.get('app_id', None)
-        pend_id = request.POST.get('pend_id', None)
-        orig = request.POST.get('orig')
-        subs = request.POST.get('subs')
-
-        if app_id and pend_id and orig and subs:
-            response = add_new_substitutions(app_id, pend_id, orig, subs)
-        else:
-            # Compile list of the missing arguments
-            missing_args = []
-
-            if app_id:
-                missing_args.append('application ID')
-            if pend_id:
-                missing_args.append('pending entry ID')
-            if orig:
-                missing_args.append('original field data')
-            if subs:
-                missing_args.append('substitutions field data')
-
-            response = {
-                'success': False,
-                'message': f'POST request missing arguments: {", ".join(missing_args)}',
-            }
-    else:
-        response = {
-            'success': False,
-            'message': 'No data received on POST request',
-        }
-
-    return JsonResponse(response, DjangoJSONEncoder)
-
-
-def delete_entry(app_id, pend_id):
-    """Function to delete entries."""
-    # Get the model to insert the substitution into
-    app = Apps.objects.get(id=app_id)
-    model_pend = apps.get_model(app.app_name, app.model_pending)
-
-    # Variable to hold the response message
-    response = {}
-
-    if model_pend:
-        model = model_pend.objects.get(id=pend_id)
-
-        try:
-            model.delete()
-
-            response = {
-                'id': pend_id,
-                'success': True,
-                'message': f'Pending entry (id = {pend_id}) successfully deleted',
-            }
-        except ValueError as e:
-            response = {
-                'id': pend_id,
-                'success': True,
-                'message': f'Unable to delete pending entry: {e}'
-            }
-    else:
-        response = {
-            'id': pend_id,
-            'success': True,
-            'message': f'Unable to locate model: {app.model_pend}'
-        }
-
-    return response
-
-
-@permission_required('substitutions.can_view', login_url='/accounts/login/')
-def delete_pend(request):
-    """View to delete pending entries."""
-    response = {}
-
-    if request.POST:
-        app_id = request.POST.get('app_id', None)
-        pend_id = request.POST.get('pend_id', None)
-
-        if app_id and pend_id:
-            response = delete_entry(app_id, pend_id)
-        else:
-            # Compile list of the missing arguments
-            missing_args = []
-
-            if app_id:
-                missing_args.append('application ID')
-            if pend_id:
-                missing_args.append('pending entry ID')
-
-            response = {
-                'id': pend_id,
-                'success': False,
-                'message': f'POST request missing arguments: {", ".join(missing_args)}',
-            }
-    else:
-        response = {
-            'id': pend_id,
-            'success': False,
-            'message': 'No data received on POST request'
-        }
-
-    return JsonResponse(response, DjangoJSONEncoder)
