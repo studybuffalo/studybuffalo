@@ -5,6 +5,7 @@ import re
 
 from django.apps import apps
 from django.contrib.auth.decorators import permission_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Q
 from django.http import JsonResponse
@@ -38,7 +39,9 @@ def setup_dictionary():
 
 
 def dictionary_check(dictionary, words):
-    """Checks for presence of words within dictionary and manages accordingly."""
+    """Checks for presence of words within dictionary and manages accordingly.
+        For any word not found, add HTML tag to denote as missing.
+    """
     return_text = ''
     start_index = 0
 
@@ -80,36 +83,34 @@ def delete_entry(app_id, pend_id):
     """Function to delete entries."""
     # Get the model to insert the substitution into
     app = Apps.objects.get(id=app_id)
-    model_pend = apps.get_model(app.app_name, app.model_pending)
 
-    # Variable to hold the response message
-    response = {}
-
-    if model_pend:
-        model = model_pend.objects.get(id=pend_id)
-
-        try:
-            model.delete()
-
-            response = {
-                'id': pend_id,
-                'success': True,
-                'message': f'Pending entry (id = {pend_id}) successfully deleted',
-            }
-        except ValueError as e:
-            response = {
-                'id': pend_id,
-                'success': True,
-                'message': f'Unable to delete pending entry: {e}'
-            }
-    else:
-        response = {
+    try:
+        model_pend = apps.get_model(app.app_name, app.model_pending)
+    except LookupError:
+        return {
             'id': pend_id,
-            'success': True,
-            'message': f'Unable to locate model: {app.model_pend}'
+            'status_code': 400,
+            'success': False,
+            'errors': [f'Unable to locate model: {app.model_pending}'],
         }
 
-    return response
+    try:
+        model = model_pend.objects.get(id=pend_id)
+        model.delete()
+
+        return {
+            'id': pend_id,
+            'status_code': 204,
+            'success': True,
+            'message': f'Pending entry (id = {pend_id}) successfully deleted',
+        }
+    except ObjectDoesNotExist as e:
+        return {
+            'id': pend_id,
+            'status_code': 400,
+            'success': False,
+            'errors': [f'Unable to delete pending entry: {e}'],
+        }
 
 
 def retrieve_pending_entries(app_id, last_id, req_num):
@@ -124,10 +125,7 @@ def retrieve_pending_entries(app_id, last_id, req_num):
     )
 
     # Get the monitored application
-    model = None
-
-    if app:
-        model = apps.get_model(app.app_name, app.model_pending)
+    model = apps.get_model(app.app_name, app.model_pending)
 
     # Get all the entries in the monitored application
     if model and len(orig_fields) and len(sub_fields):
@@ -181,24 +179,30 @@ def retrieve_pending_entries(app_id, last_id, req_num):
 
 def add_new_substitutions(app_id, pend_id, orig, subs):
     """Function to add new substitutions."""
-    # Get the model to insert the substitution into
+    # Get the app data to insert the substitution into
     app = Apps.objects.get(id=app_id)
-    model_sub = apps.get_model(app.app_name, app.model_sub)
 
     # Convert the JSON strings to dictionaries
     orig = json.loads(orig)
     subs = json.loads(subs)
 
-    if model_sub:
+    try:
+        # Get the model to insert substitution into
+        model_sub = apps.get_model(app.app_name, app.model_sub)
         model = model_sub()
 
-        for field in orig:
-            setattr(model, field['field_name'], field['field_value'])
-
-        for field in subs:
-            setattr(model, field['field_name'], field['field_value'])
-
         try:
+            for field in orig:
+                if hasattr(model, field['field_name']) is False:
+                    raise ValueError(f'No original field name {field["field_name"]}')
+
+                setattr(model, field['field_name'], field['field_value'])
+
+            for field in subs:
+                if hasattr(model, field['field_name']) is False:
+                    raise ValueError(f'No substitution field name {field["field_name"]}')
+
+                setattr(model, field['field_name'], field['field_value'])
             model.save()
 
             return {
@@ -212,11 +216,11 @@ def add_new_substitutions(app_id, pend_id, orig, subs):
                 'success': False,
                 'message': f'Unable to save new substitution: {e}'
             }
-    else:
+    except LookupError:
         return {
             'id': pend_id,
             'success': False,
-            'message': f'Unable to locate model: {app.model_sub}'
+            'message': f'Unable to locate model: {app.app_name}.{app.model_sub}'
         }
 
 
@@ -226,7 +230,7 @@ def delete_pend(request):
     content = {}
     status_code = 400
 
-    if request.POST:
+    if request.method == 'POST':
         app_id = request.POST.get('app_id', None)
         pend_id = request.POST.get('pend_id', None)
 
@@ -237,13 +241,13 @@ def delete_pend(request):
             # Compile list of the missing arguments
             missing_args = []
 
-            if app_id:
+            if app_id is None:
                 missing_args.append('app_id')
-            if pend_id:
+            if pend_id is None:
                 missing_args.append('pend_id')
 
             content = {
-                'id': pend_id,
+                'id': None,
                 'success': False,
                 'status_code': 400,
                 'errors': [f'Request missing arguments: {", ".join(missing_args)}'],
@@ -251,7 +255,7 @@ def delete_pend(request):
             status_code = 400
     else:
         content = {
-            'id': pend_id,
+            'id': None,
             'success': False,
             'status_code': 405,
             'errors': ['Only "POST" method is allowed.'],
@@ -271,24 +275,32 @@ def retrieve_entries(request):
     status_code = 400
 
     # Return query data as JSON
-    if request.POST:
+    if request.method == 'POST':
         # Organize the post variables
         app_id = request.POST.get('app_id', None)
         last_id = request.POST.get('last_id', None)
         request_num = request.POST.get('request_num', None)
 
         if app_id and last_id and request_num:
-            content = retrieve_pending_entries(app_id, last_id, request_num)
-            status_code = 200
+            try:
+                content = retrieve_pending_entries(app_id, last_id, request_num)
+                status_code = 200
+            except LookupError:
+                content = {
+                    'status_code': 400,
+                    'success': False,
+                    'errors': [f'Unable to locate model for app_id = {app_id}'],
+                }
+                status_code = 400
         else:
             # Compile list of the missing arguments
             missing_args = []
 
-            if app_id:
+            if app_id is None:
                 missing_args.append('app_id')
-            if last_id:
+            if last_id is None:
                 missing_args.append('last_id')
-            if request_num:
+            if request_num is None:
                 missing_args.append('request_num')
 
             content = {
@@ -317,7 +329,7 @@ def verify(request):
     content = {}
     status_code = 400
 
-    if request.POST:
+    if request.method == 'POST':
         app_id = request.POST.get('app_id', None)
         pend_id = request.POST.get('pend_id', None)
         orig = request.POST.get('orig')
@@ -330,14 +342,14 @@ def verify(request):
             # Compile list of the missing arguments
             missing_args = []
 
-            if app_id:
-                missing_args.append('application ID')
-            if pend_id:
-                missing_args.append('pending entry ID')
-            if orig:
-                missing_args.append('original field data')
-            if subs:
-                missing_args.append('substitutions field data')
+            if app_id is None:
+                missing_args.append('app_id')
+            if pend_id is None:
+                missing_args.append('pend_id')
+            if orig is None:
+                missing_args.append('orig')
+            if subs is None:
+                missing_args.append('subs')
 
             content = {
                 'success': False,
@@ -376,9 +388,7 @@ def review(request, app_id):
     return render(
         request,
         'substitutions/review.html',
-        {
-            'app_data': app_data,
-        }
+        {'app_data': app_data}
     )
 
 
@@ -396,10 +406,8 @@ def dashboard(request):
         model_pending = apps.get_model(app.app_name, app.model_pending)
 
         # Get the verbose name (if available) or default name
-        try:
-            pending_name = model_pending._meta.verbose_name
-        except AttributeError:
-            pending_name = app.model_pending
+        model_verbose_name = model_pending._meta.verbose_name
+        pending_name = model_verbose_name if model_verbose_name else app.model_pending
 
         model_data = {
             'id': app.id,
@@ -408,25 +416,21 @@ def dashboard(request):
             'count': model_pending.objects.all().count()
         }
 
-        if app.app_name in sub_data:
-            sub_data[app.app_name]['data'].append(model_data)
-        else:
-            # Create a new dictionary entry for this new app
-            # Get the App Verbose name (if available)
-            try:
-                app_name = apps.get_app_config(app.app_name).verbose_name
-            except AttributeError:
-                app_name = app.app_name
+        # Create new key for new app if not already present
+        if app.app_name not in sub_data:
+            app_verbose_name = apps.get_app_config(app.app_name).verbose_name
+            app_name = app_verbose_name if app_verbose_name else app_name
 
             sub_data[app.app_name] = {
                 'app_name': app_name,
-                'data': [model_data]
+                'data': []
             }
+
+        # Add model data
+        sub_data[app.app_name]['data'].append(model_data)
 
     return render(
         request,
         'substitutions/dashboard.html',
-        {
-            'sub_data': sub_data
-        }
+        {'sub_data': sub_data}
     )
