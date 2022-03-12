@@ -1,6 +1,5 @@
 """Views for the RDRHC Calendar API."""
 from datetime import datetime
-import json
 
 from django.contrib.auth import get_user_model
 from django.db import DataError

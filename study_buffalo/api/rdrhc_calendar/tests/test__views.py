@@ -403,7 +403,6 @@ def test__user_schedule_upload__json_error(calendar_user):
     assert 'JSON parse error' in str(response.content)
 
 
-
 def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     """Confirms error handling with invalid data."""
     # Create token and add user permissions
