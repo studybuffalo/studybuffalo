@@ -537,7 +537,7 @@ def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
     utils.add_api_permission(user)
 
     # Setup JSON format error
-    json_str = json.dumps({'codes': [{'code': 'A1', 'role': 'p'}]}),
+    json_str = json.dumps({'codes': [{'code': 'A1', 'role': 'p'}]})
     json_error = f'<{json_str}>'
     # Set up client and response
     client = APIClient()
