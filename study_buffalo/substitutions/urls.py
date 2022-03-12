@@ -5,9 +5,9 @@ from . import views
 
 
 urlpatterns = [
-    path('review/<int:id>/', views.review, name='sub_review'),
-    path('review/retrieve-entries/', views.retrieve_entries, name='retrieve_entry'),
-    path('review/verify-entry/', views.verify, name='verify_entry'),
-    path('review/delete-entry/', views.delete_pend, name='delete_entry'),
-    path('', views.dashboard, name='dashboard'),
+    path('review/delete-entry/', views.delete_pend, name='sub_delete_entry'),
+    path('review/retrieve-entries/', views.retrieve_entries, name='sub_retrieve_entry'),
+    path('review/verify-entry/', views.verify, name='sub_verify_entry'),
+    path('review/<int:app_id>/', views.review, name='sub_review'),
+    path('', views.dashboard, name='sub_dashboard'),
 ]
