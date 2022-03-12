@@ -106,17 +106,24 @@ def test__play_page__previous_page__first(play_page):
 
 def test__play_page__next_page(play_page):
     """Tests for expected output of PlayPage next_page method."""
+    # Set play_page date to allow triggering next_page method
+    play_page.release_date = '2000-01-01T00:00:00Z'
+    play_page.save()
+
     # Create new model to ensure there is a next page
     models.PlayPage.objects.create(
-        title='Title 1',
+        title='NEXT PAGE',
         date=timezone.now(),
         category=play_page.category,
-        release_date=timezone.now()
+        release_date='2000-02-01T00:00:00Z',
     )
-    assert play_page.next_page() == play_page.pk + 1
+
+    # Confirm the next page PK is the expected model
+    next_page = models.PlayPage.objects.get(pk=play_page.next_page())
+    assert next_page.title == 'NEXT PAGE'
 
 
-def test__play_page__next_page__first(play_page):
+def test__play_page__next_page__last(play_page):
     """Tests handling of PlayPage next_page method with last entry."""
     # Hold reference to category
     category = play_page.category
@@ -128,9 +135,9 @@ def test__play_page__next_page__first(play_page):
     page = models.PlayPage.objects.create(
         pk=1,
         title='Title 1',
-        date='2000-01-01',
+        date=timezone.now(),
         category=category,
-        release_date=timezone.now()
+        release_date='2000-01-02T00:00:00Z',
     )
 
     assert page.next_page() is None
@@ -138,14 +145,21 @@ def test__play_page__next_page__first(play_page):
 
 def test__play_page__last_page(play_page):
     """Tests for expected output of PlayPage last_page method."""
-    # Create new model to ensure this is the most recent page
-    page = models.PlayPage.objects.create(
-        title='Title 1',
+    # Set play_page date to allow triggering last_page method
+    play_page.release_date = '2000-01-01T00:00:00Z'
+    play_page.save()
+
+    # Create new model to ensure there is a next page
+    models.PlayPage.objects.create(
+        title='LAST PAGE',
         date=timezone.now(),
         category=play_page.category,
-        release_date=timezone.now()
+        release_date='2000-02-01T00:00:00Z',
     )
-    assert play_page.last_page() == page.pk
+
+    # Confirm the last page PK is the expected model
+    last_page = models.PlayPage.objects.get(pk=play_page.last_page())
+    assert last_page.title == 'LAST PAGE'
 
 
 def test__play_image__minimal_creation(play_image):
