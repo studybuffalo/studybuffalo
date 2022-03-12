@@ -1,6 +1,5 @@
 """Views for the RDRHC Calendar API."""
 from datetime import datetime
-import json
 
 from django.contrib.auth import get_user_model
 from django.db import DataError
@@ -165,16 +164,10 @@ class UserScheduleUpload(APIView):
 
     def post(self, request, user_id):
         """Adds all the shift codes for a user."""
-        try:
-            schedule = serializers.ShiftSerializer(
-                data=request.data.get('schedule', []),
-                many=True
-            )
-        except json.JSONDecodeError:
-            return Response(
-                data='Invalid JSON format received.',
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        schedule = serializers.ShiftSerializer(
+            data=request.data.get('schedule', []),
+            many=True
+        )
 
         if schedule.is_valid():
             schedule.save()
@@ -218,13 +211,7 @@ class MissingShiftCodesUpload(APIView):
 
     def post(self, request):
         """Creates new missing shift code entries."""
-        try:
-            codes = request.data.get('codes', [])
-        except json.JSONDecodeError:
-            return Response(
-                data='Invalid JSON format received.',
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        codes = request.data.get('codes', [])
 
         new_codes = []
 
