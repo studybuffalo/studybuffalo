@@ -2,6 +2,7 @@
 import pytest
 
 from dictionary.tests import factories as dictionary_factories
+from hc_dpd.tests import factories as hc_dpd_factories
 from play.tests import factories as play_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from read.tests import factories as read_factories
@@ -62,6 +63,18 @@ def dictionary_word_pending():
 def dictionary_excluded_word():
     """Fixture to create an ExcludedWord instance."""
     return dictionary_factories.ExcludedWordFactory()
+
+
+@pytest.fixture
+def hc_dpd_sub_brand():
+    """Fixture to create SubBrand instance."""
+    return hc_dpd_factories.SubBrandFactory()
+
+
+@pytest.fixture
+def hc_dpd_sub_brand_pend():
+    """Fixture to create SubBrandPend instance."""
+    return hc_dpd_factories.SubBrandPendFactory()
 
 
 @pytest.fixture
