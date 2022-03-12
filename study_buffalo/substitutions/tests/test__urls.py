@@ -79,6 +79,7 @@ def test__delete_entry__url_name(user):
 
     assert response.status_code == 204
 
+
 @patch('substitutions.views.delete_entry', mock_delete_entry)
 def test__delete_entry__302_on_user_without_permissions(user):
     """Tests delete entry page returns 302 for user without permission."""

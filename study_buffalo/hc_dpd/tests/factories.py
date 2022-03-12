@@ -3,6 +3,7 @@ import factory
 
 from hc_dpd import models
 
+
 class SubBrandFactory(factory.django.DjangoModelFactory):
     """Factory to generate a SubBrand instance."""
     original = 'Original Brand 1'

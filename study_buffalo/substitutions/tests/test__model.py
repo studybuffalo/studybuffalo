@@ -14,7 +14,7 @@ def test__apps__minimal_creation():
     models.Apps.objects.create(
         app_name='dpd_hc',
         model_pending='BrandSubPending',
-        model_sub= 'BrandSub',
+        model_sub='BrandSub',
     )
 
     assert models.Apps.objects.count() == apps_count + 1
@@ -46,7 +46,7 @@ def test__apps__str():
     apps = models.Apps.objects.create(
         app_name='dpd_hc',
         model_pending='BrandSubPending',
-        model_sub= 'BrandSub',
+        model_sub='BrandSub',
     )
 
     assert str(apps) == 'dpd_hc'
@@ -77,7 +77,7 @@ def test__model_fields__field_name__max_length():
 def test__model_fields__field_type__max_length_default():
     """Confirms field_type field's max length and default in ModelFields model."""
     max_length = models.ModelFields._meta.get_field('field_type').max_length
-    default =  models.ModelFields._meta.get_field('field_type').default
+    default = models.ModelFields._meta.get_field('field_type').default
 
     assert max_length == 1
     assert default == 's'

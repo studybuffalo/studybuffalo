@@ -42,6 +42,7 @@ def mock_add_new_substitutions(app_id, pend_id, orig, subs):
     """Mocks the add_new_substitutions function."""
     return {'content': f'TEST FUNCTION: app_id = {app_id}; pend_id = {pend_id}; orig = {orig}; subs = {subs}'}
 
+
 # Patches to use during testing
 patch_permission = patch(
     'django.contrib.auth.decorators.permission_required',
@@ -177,13 +178,13 @@ def test__delete_entry__valid_deletion__output(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     response = views.delete_entry(apps.pk, pend_id)
@@ -204,13 +205,13 @@ def test__delete_entry__valid_deletion__confirm_deletion(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     views.delete_entry(apps.pk, pend_id)
@@ -224,16 +225,16 @@ def test__delete_entry__handles_nonexistent_instance(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Delete pending entry
     hc_dpd_sub_brand_pend.delete()
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     response = views.delete_entry(apps.pk, pend_id)
@@ -256,9 +257,9 @@ def test__delete_entry__handles_nonexistent_model():
     """
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'Fake',
-        model_pending = 'FakeModelPend',
-        model_sub = 'FakeModel',
+        app_name='Fake',
+        model_pending='FakeModelPend',
+        model_sub='FakeModel',
     )
 
     response = views.delete_entry(apps.pk, 1)
@@ -283,9 +284,9 @@ def test__retrieve_pending_entries__output(hc_dpd_sub_brand_pend):
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
     models.ModelFields.objects.create(
         app=apps,
@@ -348,9 +349,9 @@ def test__retrieve_pending_entries__dictionary_check_runs(hc_dpd_sub_brand_pend)
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
     models.ModelFields.objects.create(
         app=apps,
@@ -377,13 +378,13 @@ def test__add_new_substitutions__valid_addition(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Data for substitution
@@ -412,13 +413,13 @@ def test__add_new_substitutions__invalid_orig_data(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Data for substitution
@@ -447,13 +448,13 @@ def test__add_new_substitutions__invalid_sub_data(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Data for substitution
@@ -482,13 +483,13 @@ def test__add_new_substitutions__invalid_model(hc_dpd_sub_brand_pend):
 
         Uses the HC DPD app SubBrand model for these tests.
     """
-    pend_id =  hc_dpd_sub_brand_pend.pk
+    pend_id = hc_dpd_sub_brand_pend.pk
 
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'ERROR',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='ERROR',
     )
 
     # Data for substitution
@@ -998,7 +999,6 @@ def test__verify__400_response__missing_pend_id():
     importlib.reload(views)
 
 
-
 def test__verify__400_response__missing_orig():
     """Confirms verify view returns 400 response with missing orig."""
     # Start required patches
@@ -1032,7 +1032,6 @@ def test__verify__400_response__missing_orig():
     importlib.reload(views)
 
 
-
 def test__verify__400_response__missing_subs():
     """Confirms verify view returns 400 response with missing subs."""
     # Start required patches
@@ -1059,7 +1058,6 @@ def test__verify__400_response__missing_subs():
     assert 'errors' in content
     assert isinstance(content['errors'], list)
     assert content['errors'] == ['Request missing arguments: subs']
-
 
     # Stop permission patch
     patch_permission.stop()
@@ -1136,9 +1134,9 @@ def test__review__200_response(user):
     """Confirms review view returns 200 response."""
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Add user permissions
@@ -1163,9 +1161,9 @@ def test__review__context(user):
     """
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Add user permissions
@@ -1194,9 +1192,9 @@ def test__review__template(user):
     """Confirms review view returns expected template."""
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Add user permissions
@@ -1237,9 +1235,9 @@ def test__dashboard__context(user):
     """
     # Create apps instance for testing
     apps = models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Add user permissions
@@ -1273,9 +1271,9 @@ def test__dashboard__template(user, substitutions_apps):  # pylint: disable=unus
     """Confirms dashboard view returns expected template."""
     # Create apps instance for testing
     models.Apps.objects.create(
-        app_name = 'hc_dpd',
-        model_pending = 'SubBrandPend',
-        model_sub = 'SubBrand',
+        app_name='hc_dpd',
+        model_pending='SubBrandPend',
+        model_sub='SubBrand',
     )
 
     # Add user permissions
