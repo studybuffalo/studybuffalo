@@ -7,7 +7,7 @@ from substitutions import models
 class AppsFactory(factory.django.DjangoModelFactory):
     """Factory to generate an Apps instance."""
     app_name = 'hc_dpd'
-    model_pending = 'SubBrandPending'
+    model_pending = 'SubBrandPend'
     model_sub = 'SubBrand'
 
     class Meta:
