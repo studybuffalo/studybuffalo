@@ -82,7 +82,11 @@ class PlayPage(models.Model):
     @staticmethod
     def last_page():
         """Returns the latest released page."""
-        latest = PlayPage.objects.filter(release_date__date__lte=datetime.now()).latest('pk').pk
+        latest = PlayPage.objects.filter(
+            release_date__date__lte=datetime.now()
+        ).order_by(
+            'release_date'
+        ).last().pk
 
         return latest
 

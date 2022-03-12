@@ -13,10 +13,7 @@ class Apps(models.Model):
         max_length=50,
     )
     model_sub = models.CharField(
-        help_text=(
-            'The model name where the verified substitutions should '
-            'be added to'
-        ),
+        help_text='The model name where the verified substitutions should be added to',
         max_length=50,
     )
 

@@ -2,10 +2,12 @@
 import pytest
 
 from dictionary.tests import factories as dictionary_factories
+from hc_dpd.tests import factories as hc_dpd_factories
 from play.tests import factories as play_factories
 from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from read.tests import factories as read_factories
 from study.tests import factories as study_factories
+from substitutions.tests import factories as substitutions_factories
 from users.tests.factories import UserFactory
 
 
@@ -61,6 +63,18 @@ def dictionary_word_pending():
 def dictionary_excluded_word():
     """Fixture to create an ExcludedWord instance."""
     return dictionary_factories.ExcludedWordFactory()
+
+
+@pytest.fixture
+def hc_dpd_sub_brand():
+    """Fixture to create SubBrand instance."""
+    return hc_dpd_factories.SubBrandFactory()
+
+
+@pytest.fixture
+def hc_dpd_sub_brand_pend():
+    """Fixture to create SubBrandPend instance."""
+    return hc_dpd_factories.SubBrandPendFactory()
 
 
 @pytest.fixture
@@ -133,3 +147,15 @@ def study_html_guide():
 def study_document_guide():
     """Fixture to create a DocumentGuide instance."""
     return study_factories.DocumentGuideFactory()
+
+
+@pytest.fixture
+def substitutions_apps():
+    """Fixture to create an Apps instance."""
+    return substitutions_factories.AppsFactory()
+
+
+@pytest.fixture
+def substitutions_model_fields():
+    """Fixture to create a ModelFields instance."""
+    return substitutions_factories.ModelFieldsFactory()
