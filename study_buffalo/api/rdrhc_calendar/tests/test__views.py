@@ -161,6 +161,57 @@ def test_api_returns_user_shift_code_list(shift_code):
     assert content[0]['id'] == shift_code.id
 
 
+def test_api_returns_user_shift_code_list__default_codes(shift_code):
+    """Tests that default codes are returned when applicable."""
+    sb_user = shift_code.sb_user
+
+    # Create token and add user permissions
+    token = utils.create_token(sb_user)
+    utils.add_api_permission(sb_user)
+
+    # Add a calendar to the user
+    CalendarUser.objects.create(
+        sb_user=sb_user,
+        role='p',
+    )
+
+    # Setup shift code to function as a default code (no user, same role)
+    shift_code.sb_user = None
+    shift_code.role = 'p'
+    shift_code.save()
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.get(reverse(
+        'api:rdrhc_calendar_v1:user_shift_codes_list',
+        kwargs={'user_id': token.user.id}
+    ))
+    content = json.loads(response.content)
+
+    # Confirm types and value returned
+    assert isinstance(content, list)
+    assert isinstance(content[0]['id'], int)
+    assert isinstance(content[0]['code'], str)
+    assert isinstance(content[0]['monday_start'], str)
+    assert isinstance(content[0]['monday_duration'], str)
+    assert isinstance(content[0]['tuesday_start'], str)
+    assert isinstance(content[0]['tuesday_duration'], str)
+    assert isinstance(content[0]['wednesday_start'], str)
+    assert isinstance(content[0]['wednesday_duration'], str)
+    assert isinstance(content[0]['thursday_start'], str)
+    assert isinstance(content[0]['thursday_duration'], str)
+    assert isinstance(content[0]['friday_start'], str)
+    assert isinstance(content[0]['friday_duration'], str)
+    assert isinstance(content[0]['saturday_start'], str)
+    assert isinstance(content[0]['saturday_duration'], str)
+    assert isinstance(content[0]['sunday_start'], str)
+    assert isinstance(content[0]['sunday_duration'], str)
+    assert isinstance(content[0]['stat_start'], str)
+    assert isinstance(content[0]['stat_duration'], str)
+    assert content[0]['id'] == shift_code.id
+
+
 def test__stat_holiday_list__returns_list_without_parameters(user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
@@ -297,6 +348,62 @@ def test__user_schedule_upload__uploads_user_schedule(calendar_user):
     assert Shift.objects.filter(sb_user=user).count() == 3
 
 
+def test__user_schedule_upload__json_error(calendar_user):
+    """Tests that handling of JSON error."""
+    # Create token and add user permissions
+    user = calendar_user.sb_user
+    token = utils.create_token(user)
+    utils.add_api_permission(user)
+
+    # Confirm no shifts exist
+    assert Shift.objects.filter(sb_user=user).count() == 0
+
+    # Setup POST data
+    data = {
+        'schedule': [
+            {
+                'sb_user': user.id,
+                'date': '2018-02-01',
+                'shift_code': '',
+                'text_shift_code': 'A3'
+            },
+            {
+                'sb_user': user.id,
+                'date': '2018-02-02',
+                'shift_code': '',
+                'text_shift_code': 'A4'
+            },
+            {
+                'sb_user': user.id,
+                'date': '2018-02-03',
+                'shift_code': '',
+                'text_shift_code': 'A5'
+            }
+        ]
+    }
+    json_str = json.dumps(data)
+    json_error = f'<{json_str}>'
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.post(
+        reverse(
+            'api:rdrhc_calendar_v1:user_schedule_upload',
+            kwargs={'user_id': token.user.id}
+        ),
+        json_error,
+        content_type='application/json',
+    )
+
+    #  Confirm error status code
+    assert response.status_code == 400
+
+    # Confirm error response
+    assert 'JSON parse error' in str(response.content)
+
+
+
 def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     """Confirms error handling with invalid data."""
     # Create token and add user permissions
@@ -429,12 +536,15 @@ def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
     token = utils.create_token(user)
     utils.add_api_permission(user)
 
+    # Setup JSON format error
+    json_str = json.dumps({'codes': [{'code': 'A1', 'role': 'p'}]}),
+    json_error = f'<{json_str}>'
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
     response = client.post(
         reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
-        json.dumps({'codes': 'abc'}),
+        json_error,
         content_type='application/json',
     )
     json.loads(response.content)
