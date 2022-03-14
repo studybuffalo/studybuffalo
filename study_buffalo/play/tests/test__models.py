@@ -154,7 +154,7 @@ def test__play_page__last_page(play_page):
         title='LAST PAGE',
         date=timezone.now(),
         category=play_page.category,
-        release_date='2000-02-01T00:00:00Z',
+        release_date='1999-01-01T00:00:00Z',
     )
 
     # Confirm the last page PK is the expected model
