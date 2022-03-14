@@ -115,7 +115,7 @@ def test__play_page__next_page(play_page):
         title='NEXT PAGE',
         date=timezone.now(),
         category=play_page.category,
-        release_date='2000-02-01T00:00:00Z',
+        release_date='1999-01-01T00:00:00Z',
     )
 
     # Confirm the next page PK is the expected model
