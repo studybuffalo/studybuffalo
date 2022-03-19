@@ -1,8 +1,6 @@
 """Tests for the Models module of the Updates app."""
 import pytest
 
-from django.utils import timezone
-
 from updates import models
 
 
