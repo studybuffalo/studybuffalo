@@ -650,6 +650,23 @@ def test__get_urls_and_mod_dates__some_lastmod():
     assert mods['all_sites_lastmod'] is False
 
 
+def test__get_urls_and_mod_dates__timetuple_lastmod():
+    """Tests get_urls_and_mod_dates function when lastmod is timetuple."""
+    maps = [
+        MockSite(latest_lastmod=datetime(2000, 1, 1).date()),
+        MockSite(latest_lastmod=None),
+    ]
+
+    # Get URLs and modification details
+    _, mods = views._get_urls_and_mod_dates(maps, 'page', 'request site', 'request protocol')
+
+    # Confirm response details
+    assert mods['lastmod'].tm_year == 2000
+    assert mods['lastmod'].tm_mon == 1
+    assert mods['lastmod'].tm_mday == 1
+    assert mods['all_sites_lastmod'] is False
+
+
 def test__get_urls_and_mod_dates__empty_page_error():
     """Tests get_urls_and_mod_dates function handling of EmptyPage error."""
     maps = [MockSiteEmptyPageError(latest_lastmod=None)]
