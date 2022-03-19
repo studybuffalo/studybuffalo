@@ -2,6 +2,7 @@
 from calendar import timegm
 import datetime
 from functools import wraps
+from smtplib import SMTPException
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -83,7 +84,6 @@ def contact(request):
     """View for the contact information page"""
     # If POST process and send email
     if request.method == 'POST':
-
         # Create a form instance and populate with data
         form = ContactForm(request.POST)
 
@@ -113,7 +113,6 @@ def contact(request):
             try:
                 # Send the email
                 email.send()
-
                 # Generate the success message
                 messages.success(
                     request,
@@ -125,7 +124,7 @@ def contact(request):
 
                 # redirect to a new URL:
                 return redirect('contact')
-            except TypeError:
+            except SMTPException:
                 # Notify user of the error
                 messages.error(
                     request,
@@ -176,7 +175,7 @@ def unsubscribe(request):
 
                 # redirect to a new URL:
                 return redirect('unsubscribe_complete')
-            except TypeError:
+            except SMTPException:
                 # Notify user of the error
                 messages.error(
                     request,
@@ -224,17 +223,84 @@ def x_robots_tag(func):
         response = func(request, *args, **kwargs)
         response['X-Robots-Tag'] = 'noindex, noodp, noarchive'
         return response
+
     return inner
 
 
+def _get_urls_and_mod_dates(maps, page, req_site, req_protocol):
+    """Assembles all the page URLs and details on last modifications."""
+    urls = []
+    mods = {
+        'lastmod': None,
+        'all_sites_lastmod': True
+    }
+
+    for site in maps:
+        try:
+            # Get URLs from each site
+            if callable(site):
+                site = site()
+
+            urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+
+            # Determines if all sites have a last modified date and what last mod was
+            if mods['all_sites_lastmod']:
+                site_lastmod = getattr(site, 'latest_lastmod', None)
+
+                if site_lastmod is not None:
+                    # Convert site_lastmod to a standard datetime object
+                    if isinstance(site_lastmod, datetime.datetime):
+                        site_lastmod = site_lastmod.utctimetuple()
+                    else:
+                        site_lastmod = site_lastmod.timetuple()
+
+                    # Calculate the most recent modification
+                    if mods['lastmod'] is None:
+                        mods['lastmod'] = site_lastmod
+                    else:
+                        mods['lastmod'] = max(mods['lastmod'], site_lastmod)
+                else:
+                    mods['all_sites_lastmod'] = False
+        except EmptyPage as empty_page_error:
+            raise Http404(f'Page {page} empty') from empty_page_error
+        except PageNotAnInteger as not_an_integer:
+            raise Http404(f'No page {page}') from not_an_integer
+
+    return urls, mods
+
+
+def _assemble_url_sections(urls):
+    """Groups URLs based on section"""
+    page_urls = {
+        'play': [],
+        'study': [],
+        'tools': [],
+        'read': [],
+        'other': [],
+    }
+
+    for url in urls:
+        if url['section'] == 'play':
+            page_urls['play'].append(url)
+        elif url['section'] == 'study':
+            page_urls['study'].append(url)
+        elif url['section'] == 'tools':
+            page_urls['tools'].append(url)
+        elif url['section'] == 'read':
+            page_urls['read'].append(url)
+        else:
+            page_urls['other'].append(url)
+
+    return page_urls
+
+
 @x_robots_tag
-def custom_sitemap(
-    request, sitemaps, section=None, template_name='sitemap.xml', content_type='application/xml'
-):  # pylint: disable=too-many-locals, too-many-branches
-    """A custom sitemap view to generate an HTML sitemap"""
+def custom_sitemap(request, sitemaps, section=None, template_name='sitemap.xml', content_type='application/xml'):
+    """A custom sitemap view to generate an HTML sitemap."""
     req_protocol = request.scheme
     req_site = get_current_site(request)
 
+    # Get list of all sitemaps for each section
     if section is not None:
         if section not in sitemaps:
             raise Http404(f'No sitemap available for section: {section}')
@@ -244,50 +310,11 @@ def custom_sitemap(
 
     page = request.GET.get('p', 1)
 
-    lastmod = None
-    all_sites_lastmod = True
-    urls = []
-
-    for site in maps:
-        try:
-            if callable(site):
-                site = site()
-            urls.extend(site.get_urls(page=page, site=req_site,
-                                      protocol=req_protocol))
-            if all_sites_lastmod:
-                site_lastmod = getattr(site, 'latest_lastmod', None)
-
-                if site_lastmod is not None:
-                    site_lastmod = (
-                        site_lastmod.utctimetuple() if isinstance(site_lastmod, datetime.datetime)
-                        else site_lastmod.timetuple()
-                    )
-                    lastmod = site_lastmod if lastmod is None else max(lastmod, site_lastmod)
-                else:
-                    all_sites_lastmod = False
-        except EmptyPage as empty_page_error:
-            raise Http404(f'Page {page} empty') from empty_page_error
-        except PageNotAnInteger as not_an_integer:
-            raise Http404(f'No page {page}') from not_an_integer
+    # Get the site URLs and details on modification dates
+    urls, mods = _get_urls_and_mod_dates(maps, page, req_site, req_protocol)
 
     # Create filters for the various pages
-    play_urls = []
-    study_urls = []
-    tools_urls = []
-    read_urls = []
-    other_urls = []
-
-    for url in urls:
-        if url['section'] == 'play':
-            play_urls.append(url)
-        elif url['section'] == 'study':
-            study_urls.append(url)
-        elif url['section'] == 'tools':
-            tools_urls.append(url)
-        elif url['section'] == 'read':
-            read_urls.append(url)
-        else:
-            other_urls.append(url)
+    page_urls = _assemble_url_sections(urls)
 
     # Context modified to include various filtered URL sets
     response = TemplateResponse(
@@ -295,18 +322,18 @@ def custom_sitemap(
         template_name,
         context={
             'urlset': urls,
-            'play_urlset': play_urls,
-            'study_urlset': study_urls,
-            'tools_urlset': tools_urls,
-            'read_urlset': read_urls,
-            'other_urlset': other_urls,
+            'play_urlset': page_urls['play'],
+            'study_urlset': page_urls['study'],
+            'tools_urlset': page_urls['tools'],
+            'read_urlset': page_urls['read'],
+            'other_urlset': page_urls['other'],
         },
         content_type=content_type,
     )
 
-    if all_sites_lastmod and lastmod is not None:
+    if mods['all_sites_lastmod'] and mods['lastmod'] is not None:
         # if lastmod is defined for all sites, set header so as
         # ConditionalGetMiddleware is able to send 304 NOT MODIFIED
-        response['Last-Modified'] = http_date(timegm(lastmod))
+        response['Last-Modified'] = http_date(timegm(mods['lastmod']))
 
     return response
