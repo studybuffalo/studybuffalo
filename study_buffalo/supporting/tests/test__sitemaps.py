@@ -156,7 +156,6 @@ def test__static_sitemap__items__output():
     assert 'title' in items[0]
 
 
-
 def test__static_sitemap__location__output():
     """Confirms output of location method."""
     sitemap = sitemaps.StaticViewSitemap(section='test')

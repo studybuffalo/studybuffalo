@@ -35,7 +35,7 @@ class MockEmailMessage():
 class MockSite():
     """Mock of a site for testing."""
     def __init__(self, latest_lastmod=timezone.now()):
-        self.latest_lastmod=latest_lastmod
+        self.latest_lastmod = latest_lastmod
 
     def get_urls(self, page, site, protocol):
         """Mock of get_urls method for testing."""
@@ -77,6 +77,7 @@ def mock_get_urls_and_mod_dates(*args, **kwargs):
     }
 
     return urls, mods
+
 
 def mock_assemble_url_sections(*args):
     """Mocks _assemble_url_sections for testing."""
@@ -261,7 +262,6 @@ def test__robot_policy__200_response():
     assert response.status_code == 200
 
 
-
 def test__robot_policy__template():
     """Confirms robot_policy view returns expected template."""
     # Create request, view, and response
@@ -285,7 +285,6 @@ def test__contact__200_response():
 
     # Confirm status code
     assert response.status_code == 200
-
 
 
 def test__contact__template():
@@ -589,7 +588,7 @@ def test__get_urls_and_mod_dates__callable_sites():
     # Confirm response details
     assert isinstance(urls, list)
     assert len(urls) == 2
-    assert urls[0] ==  {'page': 'page', 'site': 'request site', 'protocol': 'request protocol'}
+    assert urls[0] == {'page': 'page', 'site': 'request site', 'protocol': 'request protocol'}
 
     assert isinstance(mods, dict)
     assert 'lastmod' in mods
