@@ -7,6 +7,7 @@ class ContactForm(forms.Form):
     """Form for the contact page."""
     sender_name = forms.CharField(
         label='Your name',
+        max_length=256,
     )
 
     sender_email = forms.EmailField(

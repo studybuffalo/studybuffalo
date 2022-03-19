@@ -8,6 +8,7 @@ from rdrhc_calendar.tests import factories as rdrhc_calendar_factories
 from read.tests import factories as read_factories
 from study.tests import factories as study_factories
 from substitutions.tests import factories as substitutions_factories
+from updates.tests import factories as updates_factories
 from users.tests.factories import UserFactory
 
 
@@ -159,3 +160,9 @@ def substitutions_apps():
 def substitutions_model_fields():
     """Fixture to create a ModelFields instance."""
     return substitutions_factories.ModelFieldsFactory()
+
+
+@pytest.fixture
+def updates_update():
+    """Fixture to create an Update instance."""
+    return updates_factories.UpdateFactory()

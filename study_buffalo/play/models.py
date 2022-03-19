@@ -74,6 +74,9 @@ class PlayPage(models.Model):
         """Returns the next primary key ID."""
         next_pk = self.pk + 1
 
+        if self.last_page() is None:
+            return None
+
         if next_pk <= self.last_page():
             return next_pk
 
@@ -85,10 +88,13 @@ class PlayPage(models.Model):
         latest = PlayPage.objects.filter(
             release_date__date__lte=datetime.now()
         ).order_by(
-            'release_date'
-        ).last().pk
+            '-release_date'
+        ).last()
 
-        return latest
+        if latest:
+            return latest.pk
+
+        return None
 
 
 class PlayImage(models.Model):
