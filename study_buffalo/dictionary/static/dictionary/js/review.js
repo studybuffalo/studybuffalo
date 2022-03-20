@@ -99,8 +99,8 @@ function CreateWordInputs(data) {
   const $googleButton = $('<button></button>');
   $googleButton
     .addClass('google')
-    .on('click', () => {
-      SearchText(this);
+    .on('click', (e) => {
+      SearchText(e.currentTarget);
     })
     .appendTo($div);
 
@@ -113,8 +113,8 @@ function CreateWordInputs(data) {
   const $originalButton = $('<button></button>');
   $originalButton
     .addClass('source')
-    .on('click', () => {
-      ShowSource(this);
+    .on('click', (e) => {
+      ShowSource(e.currentTarget);
     })
     .appendTo($div);
 
@@ -268,8 +268,8 @@ function CreateEntryDOM(entry) {
   const $addButton = $('<button></button>');
   $addButton
     .addClass('add')
-    .on('click', () => {
-      AddWord(this, { modelName: 'word' });
+    .on('click', (e) => {
+      AddWord(e.currentTarget, { modelName: 'word' });
     })
     .appendTo($otherDiv);
 
@@ -282,8 +282,8 @@ function CreateEntryDOM(entry) {
   const $excludeButton = $('<button></button>');
   $excludeButton
     .addClass('exclude')
-    .on('click', () => {
-      AddWord(this, { modelName: 'excluded' });
+    .on('click', (e) => {
+      AddWord(e.currentTarget, { modelName: 'excluded' });
     })
     .appendTo($otherDiv);
 
@@ -296,7 +296,7 @@ function CreateEntryDOM(entry) {
   const $deleteButton = $('<button></button>');
   $deleteButton
     .addClass('delete')
-    .on('click', () => { DeleteWord(this); })
+    .on('click', (e) => { DeleteWord(e.currentTarget); })
     .appendTo($otherDiv);
 
   const $deleteSpan = $('<span></span>');
