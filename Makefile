@@ -6,6 +6,12 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/dictionary/fixtures/word_pending.json \
 			study_buffalo/dictionary/fixtures/excluded_word.json \
 			study_buffalo/dictionary/fixtures/word.json \
+			study_buffalo/drug_price_calculator/fixtures/atc.json \
+			study_buffalo/drug_price_calculator/fixtures/ptc.json \
+			study_buffalo/drug_price_calculator/fixtures/subs_bsrf.json \
+			study_buffalo/drug_price_calculator/fixtures/subs_generic.json \
+			study_buffalo/drug_price_calculator/fixtures/subs_manufacturer.json \
+			study_buffalo/drug_price_calculator/fixtures/subs_unit.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 
@@ -24,11 +30,17 @@ production:
 	pipenv run python manage.py migrate --settings=config.settings.production
 	sudo systemctl restart uwsgi
 
-# Install a fresh deployment environment (WILL RESET ENTIRE DATABASE)
+# Install a fresh development environment (WILL RESET ENTIRE DATABASE)
 development-fresh:
 	pipenv uninstall --all
 	pipenv install --dev --ignore-pipfile
 	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
 	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
+	pipenv run python manage.py migrate --settings=config.settings.development
+	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
+
+# Install fixtures to reset development environment database (WILL
+# RESET ENTIRE DATABASE)
+install-fixtures:
 	pipenv run python manage.py migrate --settings=config.settings.development
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
