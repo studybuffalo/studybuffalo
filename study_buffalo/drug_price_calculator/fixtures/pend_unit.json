@@ -1,0 +1,58 @@
+[
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 1,
+    "fields": {
+      "original": "Strip",
+      "correction": "strip"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 2,
+    "fields": {
+      "original": "Miscellaneous",
+      "correction": "miscellaneous"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 3,
+    "fields": {
+      "original": "Millilitre",
+      "correction": "millilitre"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 4,
+    "fields": {
+      "original": "Tablet",
+      "correction": "tablet"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 5,
+    "fields": {
+      "original": "Capsule",
+      "correction": "capsule"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 6,
+    "fields": {
+      "original": "Vial",
+      "correction": "vial"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendunit",
+    "pk": 7,
+    "fields": {
+      "original": "Gram",
+      "correction": "gram"
+    }
+  }
+]

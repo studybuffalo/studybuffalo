@@ -1,0 +1,79 @@
+[
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 6,
+    "fields": {
+      "original": "XYLOCAINE VISCOUS 2 % ORAL LIQUID",
+      "brand_name": "Xylocaine Viscous",
+      "strength": "2%",
+      "route": "oral",
+      "dosage_form": "liquid"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 7,
+    "fields": {
+      "original": "XYLOCAINE JELLY 2 % TOPICAL JELLY",
+      "brand_name": "Xylocaine Jelly",
+      "strength": "2%",
+      "route": "topical",
+      "dosage_form": "jelly"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 8,
+    "fields": {
+      "original": "XYLOCAINE 5 % TOPICAL OINTMENT",
+      "brand_name": "Xylocaine",
+      "strength": "5%",
+      "route": "topical",
+      "dosage_form": "ointment"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 9,
+    "fields": {
+      "original": "DULCOLAX 10 MG RECTAL SUPPOSITORY",
+      "brand_name": "Dulcolax",
+      "strength": "10 mg",
+      "route": "rectal",
+      "dosage_form": "suppository"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 10,
+    "fields": {
+      "original": "IMURAN 50 MG ORAL TABLET",
+      "brand_name": "Imuran",
+      "strength": "50 mg",
+      "route": "oral",
+      "dosage_form": "tablet"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 11,
+    "fields": {
+      "original": "RITALIN 10 MG ORAL TABLET",
+      "brand_name": "Ritalin",
+      "strength": "10 mg",
+      "route": "oral",
+      "dosage_form": "tablet"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendbsrf",
+    "pk": 12,
+    "fields": {
+      "original": "RITALIN 20 MG ORAL TABLET",
+      "brand_name": "Ritalin",
+      "strength": "20 mg",
+      "route": "oral",
+      "dosage_form": "tablet"
+    }
+  }
+]

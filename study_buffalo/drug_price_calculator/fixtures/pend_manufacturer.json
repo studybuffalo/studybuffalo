@@ -1,0 +1,58 @@
+[
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 1,
+    "fields": {
+      "original": "NOVARTIS PHARMACEUTICALS CANADA INC.",
+      "correction": "Novartis Pharmaceuticals Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 2,
+    "fields": {
+      "original": "ASTRAZENECA CANADA INC.",
+      "correction": "Astrazeneca Canada Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 3,
+    "fields": {
+      "original": "SANOFI - AVENTIS",
+      "correction": "Sanofi - Aventis"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 4,
+    "fields": {
+      "original": "ASPEN PHARMA TRADING LIMITED",
+      "correction": "Aspen Pharma Trading Limited"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 5,
+    "fields": {
+      "original": "PALADIN LABS INC.",
+      "correction": "Paladin Labs Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 6,
+    "fields": {
+      "original": "AA PHARMA INC.",
+      "correction": "Aa Pharma Inc."
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendmanufacturer",
+    "pk": 7,
+    "fields": {
+      "original": "VALEANT CANADA LP",
+      "correction": "Valeant Canada Lp"
+    }
+  }
+]
