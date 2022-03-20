@@ -1,6 +1,7 @@
 SHELL = /bin/sh
 
-#fixtures =
+fixtures = study_buffalo/users/fixtures/users.json \
+			study_buffalo/users/fixtures/emails.json
 
 # Update a development environment
 development:
