@@ -6,7 +6,7 @@
       "original": "ABBOTT-TOPIRAMATE 25 MG ORAL TABLET",
       "brand_name": "Abbott-Topiramate",
       "strength": "25 mg",
-      "oral": "oral",
+      "route": "oral",
       "dosage_form": "tablet"
     }
   },
@@ -17,7 +17,7 @@
       "original": "ABBOTT-TOPIRAMATE 100 MG ORAL TABLET",
       "brand_name": "Abbott-Topiramate",
       "strength": "100 mg",
-      "oral": "oral",
+      "route": "oral",
       "dosage_form": "tablet"
     }
   },
@@ -28,7 +28,7 @@
       "original": "ABBOTT-TOPIRAMATE 200 MG ORAL TABLET",
       "brand_name": "Abbott-Topiramate",
       "strength": "200 mg",
-      "oral": "oral",
+      "route": "oral",
       "dosage_form": "tablet"
     }
   },
@@ -39,7 +39,7 @@
       "original": "JAMP-METFORMIN 500 MG    ORAL   TABLET",
       "brand_name": "Jamp-Metformin",
       "strength": "500 mg",
-      "oral": "oral",
+      "route": "oral",
       "dosage_form": "tablet"
     }
   },
@@ -50,7 +50,7 @@
       "original": "JAMP-METFORMIN 850 MG    ORAL   TABLET",
       "brand_name": "Jamp-Metformin",
       "strength": "850 mg",
-      "oral": "oral",
+      "route": "oral",
       "dosage_form": "tablet"
     }
   }
