@@ -102,10 +102,10 @@ Setting Up Development Environment
 
 10. The following user accounts are included for testing:
 
-    - **Admin Account**: `username` = `admin`, `email` = `admin@email.com`,
-      and `password` = `admin`
-    - **Basic User Account**: `username` = `user`, `email` = `user@email.com`,
-      and `password` = `user`
+    - **Admin Account**: ``username`` = ``admin``, ``email`` =
+      ``admin@email.com``, and ``password`` = ``admin``
+    - **Basic User Account**: ``username`` = ``user``, ``email`` =
+      ``user@email.com``, and ``password`` = ``user``
 
     **DO NOT** use these accounts in a production environment.
 
