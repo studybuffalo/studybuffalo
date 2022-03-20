@@ -8,10 +8,19 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/dictionary/fixtures/word.json \
 			study_buffalo/drug_price_calculator/fixtures/atc.json \
 			study_buffalo/drug_price_calculator/fixtures/ptc.json \
+			study_buffalo/drug_price_calculator/fixtures/special_authorization.json \
+			study_buffalo/drug_price_calculator/fixtures/drug.json \
+			study_buffalo/drug_price_calculator/fixtures/price.json \
+			study_buffalo/drug_price_calculator/fixtures/clients.json \
+			study_buffalo/drug_price_calculator/fixtures/coverage_criteria.json \
 			study_buffalo/drug_price_calculator/fixtures/subs_bsrf.json \
 			study_buffalo/drug_price_calculator/fixtures/subs_generic.json \
 			study_buffalo/drug_price_calculator/fixtures/subs_manufacturer.json \
 			study_buffalo/drug_price_calculator/fixtures/subs_unit.json \
+			study_buffalo/drug_price_calculator/fixtures/pend_bsrf.json \
+			study_buffalo/drug_price_calculator/fixtures/pend_generic.json \
+			study_buffalo/drug_price_calculator/fixtures/pend_manufacturer.json \
+			study_buffalo/drug_price_calculator/fixtures/pend_unit.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 
