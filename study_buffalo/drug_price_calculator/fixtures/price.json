@@ -3,7 +3,7 @@
     "model": "drug_price_calculator.price",
     "pk": 1,
     "fields": {
-      "drug": 3534,
+      "drug": 1,
       "abc_id": 307644,
       "date_listed": "2005-04-01",
       "unit_price": "0.0247",
@@ -21,7 +21,7 @@
     "model": "drug_price_calculator.price",
     "pk": 2,
     "fields": {
-      "drug": 3535,
+      "drug": 2,
       "abc_id": 307645,
       "date_listed": "2015-07-01",
       "unit_price": "0.0247",
@@ -39,7 +39,7 @@
     "model": "drug_price_calculator.price",
     "pk": 3,
     "fields": {
-      "drug": 3536,
+      "drug": 3,
       "abc_id": 307646,
       "date_listed": "2012-09-01",
       "unit_price": "0.0247",
@@ -57,7 +57,7 @@
     "model": "drug_price_calculator.price",
     "pk": 4,
     "fields": {
-      "drug": 3537,
+      "drug": 4,
       "abc_id": 307647,
       "date_listed": "2010-09-01",
       "unit_price": "0.0247",
@@ -75,7 +75,7 @@
     "model": "drug_price_calculator.price",
     "pk": 5,
     "fields": {
-      "drug": 3538,
+      "drug": 5,
       "abc_id": 307648,
       "date_listed": "2013-11-01",
       "unit_price": "0.0247",
@@ -93,7 +93,7 @@
     "model": "drug_price_calculator.price",
     "pk": 6,
     "fields": {
-      "drug": 3539,
+      "drug": 6,
       "abc_id": 307649,
       "date_listed": "2018-05-01",
       "unit_price": "0.0247",
@@ -111,7 +111,7 @@
     "model": "drug_price_calculator.price",
     "pk": 7,
     "fields": {
-      "drug": 3540,
+      "drug": 7,
       "abc_id": 307650,
       "date_listed": "1997-04-01",
       "unit_price": "0.0247",
@@ -129,7 +129,7 @@
     "model": "drug_price_calculator.price",
     "pk": 8,
     "fields": {
-      "drug": 3541,
+      "drug": 8,
       "abc_id": 307651,
       "date_listed": "2006-01-01",
       "unit_price": "0.0247",
@@ -147,7 +147,7 @@
     "model": "drug_price_calculator.price",
     "pk": 9,
     "fields": {
-      "drug": 3542,
+      "drug": 9,
       "abc_id": 307652,
       "date_listed": "2001-08-01",
       "unit_price": "0.0247",
@@ -165,7 +165,7 @@
     "model": "drug_price_calculator.price",
     "pk": 10,
     "fields": {
-      "drug": 3543,
+      "drug": 10,
       "abc_id": 307653,
       "date_listed": "2003-07-01",
       "unit_price": "0.0247",
@@ -183,7 +183,7 @@
     "model": "drug_price_calculator.price",
     "pk": 11,
     "fields": {
-      "drug": 3544,
+      "drug": 11,
       "abc_id": 307654,
       "date_listed": "2012-08-01",
       "unit_price": "0.0247",
@@ -201,7 +201,7 @@
     "model": "drug_price_calculator.price",
     "pk": 12,
     "fields": {
-      "drug": 3545,
+      "drug": 12,
       "abc_id": 307655,
       "date_listed": "1994-07-01",
       "unit_price": "0.2716",
@@ -219,7 +219,7 @@
     "model": "drug_price_calculator.price",
     "pk": 13,
     "fields": {
-      "drug": 3546,
+      "drug": 13,
       "abc_id": 307656,
       "date_listed": "2005-04-01",
       "unit_price": "0.0339",
@@ -237,7 +237,7 @@
     "model": "drug_price_calculator.price",
     "pk": 14,
     "fields": {
-      "drug": 3547,
+      "drug": 14,
       "abc_id": 307657,
       "date_listed": "2015-07-01",
       "unit_price": "0.0339",
@@ -255,7 +255,7 @@
     "model": "drug_price_calculator.price",
     "pk": 15,
     "fields": {
-      "drug": 3548,
+      "drug": 15,
       "abc_id": 307658,
       "date_listed": "2012-09-01",
       "unit_price": "0.0339",
@@ -273,7 +273,7 @@
     "model": "drug_price_calculator.price",
     "pk": 16,
     "fields": {
-      "drug": 3549,
+      "drug": 16,
       "abc_id": 307659,
       "date_listed": "2010-09-01",
       "unit_price": "0.0339",
@@ -291,7 +291,7 @@
     "model": "drug_price_calculator.price",
     "pk": 17,
     "fields": {
-      "drug": 3550,
+      "drug": 17,
       "abc_id": 307660,
       "date_listed": "2013-11-01",
       "unit_price": "0.0339",
@@ -309,7 +309,7 @@
     "model": "drug_price_calculator.price",
     "pk": 18,
     "fields": {
-      "drug": 3551,
+      "drug": 18,
       "abc_id": 307661,
       "date_listed": "2018-05-01",
       "unit_price": "0.0339",
@@ -327,7 +327,7 @@
     "model": "drug_price_calculator.price",
     "pk": 19,
     "fields": {
-      "drug": 3552,
+      "drug": 19,
       "abc_id": 307662,
       "date_listed": "2013-09-01",
       "unit_price": "0.0339",
@@ -345,7 +345,7 @@
     "model": "drug_price_calculator.price",
     "pk": 20,
     "fields": {
-      "drug": 3553,
+      "drug": 20,
       "abc_id": 307663,
       "date_listed": "2011-09-01",
       "unit_price": "0.0339",
@@ -363,7 +363,7 @@
     "model": "drug_price_calculator.price",
     "pk": 21,
     "fields": {
-      "drug": 3554,
+      "drug": 21,
       "abc_id": 307664,
       "date_listed": "2004-10-01",
       "unit_price": "0.0339",
@@ -381,7 +381,7 @@
     "model": "drug_price_calculator.price",
     "pk": 22,
     "fields": {
-      "drug": 3555,
+      "drug": 22,
       "abc_id": 307665,
       "date_listed": "2003-07-01",
       "unit_price": "0.0339",
@@ -399,7 +399,7 @@
     "model": "drug_price_calculator.price",
     "pk": 23,
     "fields": {
-      "drug": 436,
+      "drug": 23,
       "abc_id": 304544,
       "date_listed": "2001-12-01",
       "unit_price": "0.0780",
@@ -417,7 +417,7 @@
     "model": "drug_price_calculator.price",
     "pk": 24,
     "fields": {
-      "drug": 437,
+      "drug": 24,
       "abc_id": 304545,
       "date_listed": "2000-12-01",
       "unit_price": "0.0780",
@@ -435,7 +435,7 @@
     "model": "drug_price_calculator.price",
     "pk": 25,
     "fields": {
-      "drug": 438,
+      "drug": 25,
       "abc_id": 304546,
       "date_listed": "1992-08-01",
       "unit_price": "0.3618",
@@ -453,7 +453,7 @@
     "model": "drug_price_calculator.price",
     "pk": 26,
     "fields": {
-      "drug": 439,
+      "drug": 26,
       "abc_id": 304547,
       "date_listed": "2001-12-01",
       "unit_price": "0.0825",
@@ -471,7 +471,7 @@
     "model": "drug_price_calculator.price",
     "pk": 27,
     "fields": {
-      "drug": 440,
+      "drug": 27,
       "abc_id": 304548,
       "date_listed": "2000-12-01",
       "unit_price": "0.0825",
@@ -489,7 +489,7 @@
     "model": "drug_price_calculator.price",
     "pk": 28,
     "fields": {
-      "drug": 441,
+      "drug": 28,
       "abc_id": 304549,
       "date_listed": "1992-08-01",
       "unit_price": "0.3828",
@@ -507,7 +507,7 @@
     "model": "drug_price_calculator.price",
     "pk": 29,
     "fields": {
-      "drug": 442,
+      "drug": 29,
       "abc_id": 304550,
       "date_listed": "2001-12-01",
       "unit_price": "0.0660",
@@ -525,7 +525,7 @@
     "model": "drug_price_calculator.price",
     "pk": 30,
     "fields": {
-      "drug": 443,
+      "drug": 30,
       "abc_id": 304551,
       "date_listed": "2000-12-01",
       "unit_price": "0.0660",
@@ -543,7 +543,7 @@
     "model": "drug_price_calculator.price",
     "pk": 31,
     "fields": {
-      "drug": 444,
+      "drug": 31,
       "abc_id": 304552,
       "date_listed": "1992-08-01",
       "unit_price": "0.3065",
@@ -561,7 +561,7 @@
     "model": "drug_price_calculator.price",
     "pk": 32,
     "fields": {
-      "drug": 445,
+      "drug": 32,
       "abc_id": 304553,
       "date_listed": "2003-04-01",
       "unit_price": "0.1023",
@@ -579,7 +579,7 @@
     "model": "drug_price_calculator.price",
     "pk": 33,
     "fields": {
-      "drug": 446,
+      "drug": 33,
       "abc_id": 304554,
       "date_listed": "2000-12-01",
       "unit_price": "0.1023",
@@ -597,7 +597,7 @@
     "model": "drug_price_calculator.price",
     "pk": 34,
     "fields": {
-      "drug": 447,
+      "drug": 34,
       "abc_id": 304555,
       "date_listed": "2000-04-01",
       "unit_price": "0.4744",
@@ -615,7 +615,7 @@
     "model": "drug_price_calculator.price",
     "pk": 35,
     "fields": {
-      "drug": 448,
+      "drug": 35,
       "abc_id": 304556,
       "date_listed": "2001-12-01",
       "unit_price": "0.1023",
@@ -633,7 +633,7 @@
     "model": "drug_price_calculator.price",
     "pk": 36,
     "fields": {
-      "drug": 449,
+      "drug": 36,
       "abc_id": 304557,
       "date_listed": "2000-12-01",
       "unit_price": "0.1023",
@@ -651,7 +651,7 @@
     "model": "drug_price_calculator.price",
     "pk": 37,
     "fields": {
-      "drug": 450,
+      "drug": 37,
       "abc_id": 304558,
       "date_listed": "1993-10-01",
       "unit_price": "0.4744",
@@ -669,7 +669,7 @@
     "model": "drug_price_calculator.price",
     "pk": 38,
     "fields": {
-      "drug": 451,
+      "drug": 38,
       "abc_id": 304559,
       "date_listed": "2001-12-01",
       "unit_price": "0.0662",
@@ -687,7 +687,7 @@
     "model": "drug_price_calculator.price",
     "pk": 39,
     "fields": {
-      "drug": 452,
+      "drug": 39,
       "abc_id": 304560,
       "date_listed": "2000-12-01",
       "unit_price": "0.0662",
@@ -705,7 +705,7 @@
     "model": "drug_price_calculator.price",
     "pk": 40,
     "fields": {
-      "drug": 453,
+      "drug": 40,
       "abc_id": 304561,
       "date_listed": "1992-08-01",
       "unit_price": "0.3070",
@@ -723,7 +723,7 @@
     "model": "drug_price_calculator.price",
     "pk": 41,
     "fields": {
-      "drug": 454,
+      "drug": 41,
       "abc_id": 304562,
       "date_listed": "2000-12-01",
       "unit_price": "0.3603",
@@ -741,7 +741,7 @@
     "model": "drug_price_calculator.price",
     "pk": 42,
     "fields": {
-      "drug": 455,
+      "drug": 42,
       "abc_id": 304563,
       "date_listed": "2000-12-01",
       "unit_price": "0.3586",
@@ -759,7 +759,7 @@
     "model": "drug_price_calculator.price",
     "pk": 43,
     "fields": {
-      "drug": 456,
+      "drug": 43,
       "abc_id": 304564,
       "date_listed": "2001-12-01",
       "unit_price": "0.1187",
@@ -777,7 +777,7 @@
     "model": "drug_price_calculator.price",
     "pk": 44,
     "fields": {
-      "drug": 457,
+      "drug": 44,
       "abc_id": 304565,
       "date_listed": "2000-12-01",
       "unit_price": "0.1187",
@@ -795,7 +795,7 @@
     "model": "drug_price_calculator.price",
     "pk": 45,
     "fields": {
-      "drug": 458,
+      "drug": 45,
       "abc_id": 304566,
       "date_listed": "1992-08-01",
       "unit_price": "0.5509",
@@ -813,7 +813,7 @@
     "model": "drug_price_calculator.price",
     "pk": 46,
     "fields": {
-      "drug": 4689,
+      "drug": 46,
       "abc_id": 308975,
       "date_listed": "2017-06-09",
       "unit_price": "762.5700",
@@ -840,7 +840,7 @@
     "model": "drug_price_calculator.price",
     "pk": 47,
     "fields": {
-      "drug": 5365,
+      "drug": 47,
       "abc_id": 309825,
       "date_listed": null,
       "unit_price": null,
@@ -858,7 +858,7 @@
     "model": "drug_price_calculator.price",
     "pk": 48,
     "fields": {
-      "drug": 5366,
+      "drug": 48,
       "abc_id": 309826,
       "date_listed": null,
       "unit_price": null,

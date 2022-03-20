@@ -1,7 +1,7 @@
 [
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3534,
+    "pk": 1,
     "fields": {
       "din": "02257726",
       "brand_name": "Act Metformin",
@@ -18,7 +18,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3535,
+    "pk": 2,
     "fields": {
       "din": "02438275",
       "brand_name": "Auro-Metformin",
@@ -35,7 +35,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3536,
+    "pk": 3,
     "fields": {
       "din": "02380196",
       "brand_name": "Jamp-Metformin",
@@ -52,7 +52,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3537,
+    "pk": 4,
     "fields": {
       "din": "02353377",
       "brand_name": "Metformin",
@@ -69,7 +69,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3538,
+    "pk": 5,
     "fields": {
       "din": "02385341",
       "brand_name": "Metformin Fc",
@@ -86,7 +86,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3539,
+    "pk": 6,
     "fields": {
       "din": "02388766",
       "brand_name": "Mint-Metformin",
@@ -103,7 +103,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3540,
+    "pk": 7,
     "fields": {
       "din": "02223562",
       "brand_name": "Pms-Metformin",
@@ -120,7 +120,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3541,
+    "pk": 8,
     "fields": {
       "din": "02269031",
       "brand_name": "Ran-Metformin",
@@ -137,7 +137,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3542,
+    "pk": 9,
     "fields": {
       "din": "02242974",
       "brand_name": "Ratio-Metformin Hydrochloride",
@@ -154,7 +154,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3543,
+    "pk": 10,
     "fields": {
       "din": "02246820",
       "brand_name": "Sandoz Metformin Fc",
@@ -171,7 +171,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3544,
+    "pk": 11,
     "fields": {
       "din": "02379767",
       "brand_name": "Septa-Metformin",
@@ -188,7 +188,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3545,
+    "pk": 12,
     "fields": {
       "din": "02099233",
       "brand_name": "Glucophage",
@@ -205,7 +205,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3546,
+    "pk": 13,
     "fields": {
       "din": "02257734",
       "brand_name": "Act Metformin",
@@ -222,7 +222,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3547,
+    "pk": 14,
     "fields": {
       "din": "02438283",
       "brand_name": "Auro-Metformin",
@@ -239,7 +239,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3548,
+    "pk": 15,
     "fields": {
       "din": "02380218",
       "brand_name": "Jamp-Metformin",
@@ -256,7 +256,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3549,
+    "pk": 16,
     "fields": {
       "din": "02353385",
       "brand_name": "Metformin",
@@ -273,7 +273,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3550,
+    "pk": 17,
     "fields": {
       "din": "02385368",
       "brand_name": "Metformin Fc",
@@ -290,7 +290,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3551,
+    "pk": 18,
     "fields": {
       "din": "02388774",
       "brand_name": "Mint-Metformin",
@@ -307,7 +307,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3552,
+    "pk": 19,
     "fields": {
       "din": "02242589",
       "brand_name": "Pms-Metformin",
@@ -324,7 +324,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3553,
+    "pk": 20,
     "fields": {
       "din": "02269058",
       "brand_name": "Ran-Metformin",
@@ -341,7 +341,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3554,
+    "pk": 21,
     "fields": {
       "din": "02242931",
       "brand_name": "Ratio-Metformin Hydrochloride",
@@ -358,7 +358,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3555,
+    "pk": 22,
     "fields": {
       "din": "02246821",
       "brand_name": "Sandoz Metformin Fc",
@@ -375,41 +375,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 3556,
-    "fields": {
-      "din": "02379775",
-      "brand_name": "Septa-Metformin",
-      "strength": "850 mg",
-      "route": "oral",
-      "dosage_form": "tablet",
-      "generic_name": "metformin HCl",
-      "manufacturer": "Septa Pharmaceuticals Inc. (Sep)",
-      "schedule": "1",
-      "atc": "A10BA02",
-      "ptc": "682004",
-      "generic_product": "metformin HCl (850 mg oral tablet)"
-    }
-  },
-  {
-    "model": "drug_price_calculator.drug",
-    "pk": 3557,
-    "fields": {
-      "din": "02162849",
-      "brand_name": "Glucophage",
-      "strength": "850 mg",
-      "route": "oral",
-      "dosage_form": "tablet",
-      "generic_name": "metformin HCl",
-      "manufacturer": "Sanofi - Aventis (Sav)",
-      "schedule": "1",
-      "atc": "A10BA02",
-      "ptc": "682004",
-      "generic_product": "metformin HCl (850 mg oral tablet)"
-    }
-  },
-  {
-    "model": "drug_price_calculator.drug",
-    "pk": 436,
+    "pk": 23,
     "fields": {
       "din": "02242924",
       "brand_name": "Apo-Warfarin",
@@ -426,7 +392,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 437,
+    "pk": 24,
     "fields": {
       "din": "02242680",
       "brand_name": "Taro-Warfarin",
@@ -443,7 +409,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 438,
+    "pk": 25,
     "fields": {
       "din": "01918311",
       "brand_name": "Coumadin",
@@ -460,7 +426,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 439,
+    "pk": 26,
     "fields": {
       "din": "02242925",
       "brand_name": "Apo-Warfarin",
@@ -477,7 +443,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 440,
+    "pk": 27,
     "fields": {
       "din": "02242681",
       "brand_name": "Taro-Warfarin",
@@ -494,7 +460,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 441,
+    "pk": 28,
     "fields": {
       "din": "01918338",
       "brand_name": "Coumadin",
@@ -511,7 +477,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 442,
+    "pk": 29,
     "fields": {
       "din": "02242926",
       "brand_name": "Apo-Warfarin",
@@ -528,7 +494,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 443,
+    "pk": 30,
     "fields": {
       "din": "02242682",
       "brand_name": "Taro-Warfarin",
@@ -545,7 +511,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 444,
+    "pk": 31,
     "fields": {
       "din": "01918346",
       "brand_name": "Coumadin",
@@ -562,7 +528,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 445,
+    "pk": 32,
     "fields": {
       "din": "02245618",
       "brand_name": "Apo-Warfarin",
@@ -579,7 +545,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 446,
+    "pk": 33,
     "fields": {
       "din": "02242683",
       "brand_name": "Taro-Warfarin",
@@ -596,7 +562,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 447,
+    "pk": 34,
     "fields": {
       "din": "02240205",
       "brand_name": "Coumadin",
@@ -613,7 +579,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 448,
+    "pk": 35,
     "fields": {
       "din": "02242927",
       "brand_name": "Apo-Warfarin",
@@ -630,7 +596,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 449,
+    "pk": 36,
     "fields": {
       "din": "02242684",
       "brand_name": "Taro-Warfarin",
@@ -647,7 +613,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 450,
+    "pk": 37,
     "fields": {
       "din": "02007959",
       "brand_name": "Coumadin",
@@ -664,7 +630,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 451,
+    "pk": 38,
     "fields": {
       "din": "02242928",
       "brand_name": "Apo-Warfarin",
@@ -681,7 +647,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 452,
+    "pk": 39,
     "fields": {
       "din": "02242685",
       "brand_name": "Taro-Warfarin",
@@ -698,7 +664,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 453,
+    "pk": 40,
     "fields": {
       "din": "01918354",
       "brand_name": "Coumadin",
@@ -715,7 +681,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 454,
+    "pk": 41,
     "fields": {
       "din": "02242686",
       "brand_name": "Taro-Warfarin",
@@ -732,7 +698,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 455,
+    "pk": 42,
     "fields": {
       "din": "02242697",
       "brand_name": "Taro-Warfarin",
@@ -749,7 +715,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 456,
+    "pk": 43,
     "fields": {
       "din": "02242929",
       "brand_name": "Apo-Warfarin",
@@ -766,7 +732,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 457,
+    "pk": 44,
     "fields": {
       "din": "02242687",
       "brand_name": "Taro-Warfarin",
@@ -783,7 +749,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 458,
+    "pk": 45,
     "fields": {
       "din": "01918362",
       "brand_name": "Coumadin",
@@ -800,7 +766,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 4689,
+    "pk": 46,
     "fields": {
       "din": "02258595",
       "brand_name": "Humira (40 Mg/0.8 Ml Inj Syr)",
@@ -817,7 +783,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 5365,
+    "pk": 47,
     "fields": {
       "din": "02458357",
       "brand_name": "Humira (40 Mg/0.4 Ml Inj Pen)",
@@ -834,7 +800,7 @@
   },
   {
     "model": "drug_price_calculator.drug",
-    "pk": 5366,
+    "pk": 48,
     "fields": {
       "din": "02458349",
       "brand_name": "Humira (40 Mg/0.4 Ml Inj Syr)",
