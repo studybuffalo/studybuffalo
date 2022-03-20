@@ -1,9 +1,9 @@
 [
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3536,
+    "pk": 1,
     "fields": {
-      "price": 3536,
+      "price": 1,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -18,9 +18,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3537,
+    "pk": 2,
     "fields": {
-      "price": 3537,
+      "price": 2,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -35,9 +35,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3538,
+    "pk": 3,
     "fields": {
-      "price": 3538,
+      "price": 3,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -52,9 +52,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3539,
+    "pk": 4,
     "fields": {
-      "price": 3539,
+      "price": 4,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -69,9 +69,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3540,
+    "pk": 5,
     "fields": {
-      "price": 3540,
+      "price": 5,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -86,9 +86,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3541,
+    "pk": 6,
     "fields": {
-      "price": 3541,
+      "price": 6,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -103,9 +103,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3542,
+    "pk": 7,
     "fields": {
-      "price": 3542,
+      "price": 7,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -120,9 +120,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3543,
+    "pk": 8,
     "fields": {
-      "price": 3543,
+      "price": 8,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -137,9 +137,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3544,
+    "pk": 9,
     "fields": {
-      "price": 3544,
+      "price": 9,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -154,9 +154,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3545,
+    "pk": 10,
     "fields": {
-      "price": 3545,
+      "price": 10,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -171,9 +171,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3546,
+    "pk": 11,
     "fields": {
-      "price": 3546,
+      "price": 11,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -188,9 +188,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3547,
+    "pk": 12,
     "fields": {
-      "price": 3547,
+      "price": 12,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -205,9 +205,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3548,
+    "pk": 13,
     "fields": {
-      "price": 3548,
+      "price": 13,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -222,9 +222,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3549,
+    "pk": 14,
     "fields": {
-      "price": 3549,
+      "price": 14,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -239,9 +239,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3550,
+    "pk": 15,
     "fields": {
-      "price": 3550,
+      "price": 15,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -256,9 +256,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3551,
+    "pk": 16,
     "fields": {
-      "price": 3551,
+      "price": 16,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -273,9 +273,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3552,
+    "pk": 17,
     "fields": {
-      "price": 3552,
+      "price": 17,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -290,9 +290,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3553,
+    "pk": 18,
     "fields": {
-      "price": 3553,
+      "price": 18,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -307,9 +307,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3554,
+    "pk": 19,
     "fields": {
-      "price": 3554,
+      "price": 19,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -324,9 +324,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 3555,
+    "pk": 20,
     "fields": {
-      "price": 3555,
+      "price": 20,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -341,9 +341,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 436,
+    "pk": 21,
     "fields": {
-      "price": 436,
+      "price": 21,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -358,9 +358,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 437,
+    "pk": 22,
     "fields": {
-      "price": 437,
+      "price": 22,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -375,9 +375,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 438,
+    "pk": 23,
     "fields": {
-      "price": 438,
+      "price": 23,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -392,9 +392,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 439,
+    "pk": 24,
     "fields": {
-      "price": 439,
+      "price": 24,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -409,9 +409,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 440,
+    "pk": 25,
     "fields": {
-      "price": 440,
+      "price": 25,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -426,9 +426,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 441,
+    "pk": 26,
     "fields": {
-      "price": 441,
+      "price": 26,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -443,9 +443,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 442,
+    "pk": 27,
     "fields": {
-      "price": 442,
+      "price": 27,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -460,9 +460,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 443,
+    "pk": 28,
     "fields": {
-      "price": 443,
+      "price": 28,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -477,9 +477,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 444,
+    "pk": 29,
     "fields": {
-      "price": 444,
+      "price": 29,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -494,9 +494,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 445,
+    "pk": 30,
     "fields": {
-      "price": 445,
+      "price": 30,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -511,9 +511,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 446,
+    "pk": 31,
     "fields": {
-      "price": 446,
+      "price": 31,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -528,9 +528,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 447,
+    "pk": 32,
     "fields": {
-      "price": 447,
+      "price": 32,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -545,9 +545,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 448,
+    "pk": 33,
     "fields": {
-      "price": 448,
+      "price": 33,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -562,9 +562,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 449,
+    "pk": 34,
     "fields": {
-      "price": 449,
+      "price": 34,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -579,9 +579,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 450,
+    "pk": 35,
     "fields": {
-      "price": 450,
+      "price": 35,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -596,9 +596,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 451,
+    "pk": 36,
     "fields": {
-      "price": 451,
+      "price": 36,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -613,9 +613,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 452,
+    "pk": 37,
     "fields": {
-      "price": 452,
+      "price": 37,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -630,9 +630,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 453,
+    "pk": 38,
     "fields": {
-      "price": 453,
+      "price": 38,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -647,9 +647,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 454,
+    "pk": 39,
     "fields": {
-      "price": 454,
+      "price": 39,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -664,9 +664,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 455,
+    "pk": 40,
     "fields": {
-      "price": 455,
+      "price": 40,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -681,9 +681,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 456,
+    "pk": 41,
     "fields": {
-      "price": 456,
+      "price": 41,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -698,9 +698,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 457,
+    "pk": 42,
     "fields": {
-      "price": 457,
+      "price": 42,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -715,9 +715,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 458,
+    "pk": 43,
     "fields": {
-      "price": 458,
+      "price": 43,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -732,9 +732,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 4867,
+    "pk": 44,
     "fields": {
-      "price": 4867,
+      "price": 44,
       "group_1": true,
       "group_66": true,
       "group_19823": true,
@@ -749,9 +749,43 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 5712,
+    "pk": 45,
     "fields": {
-      "price": 5712,
+      "price": 45,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 46,
+    "fields": {
+      "price": 46,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 47,
+    "fields": {
+      "price": 47,
       "group_1": false,
       "group_66": false,
       "group_19823": false,
@@ -766,9 +800,9 @@
   },
   {
     "model": "drug_price_calculator.clients",
-    "pk": 5713,
+    "pk": 48,
     "fields": {
-      "price": 5713,
+      "price": 48,
       "group_1": false,
       "group_66": false,
       "group_19823": false,

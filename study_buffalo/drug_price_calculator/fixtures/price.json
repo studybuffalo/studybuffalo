@@ -1,7 +1,7 @@
 [
   {
     "model": "drug_price_calculator.price",
-    "pk": 3536,
+    "pk": 1,
     "fields": {
       "drug": 3534,
       "abc_id": 307644,
@@ -19,7 +19,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3537,
+    "pk": 2,
     "fields": {
       "drug": 3535,
       "abc_id": 307645,
@@ -37,7 +37,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3538,
+    "pk": 3,
     "fields": {
       "drug": 3536,
       "abc_id": 307646,
@@ -55,7 +55,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3539,
+    "pk": 4,
     "fields": {
       "drug": 3537,
       "abc_id": 307647,
@@ -73,7 +73,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3540,
+    "pk": 5,
     "fields": {
       "drug": 3538,
       "abc_id": 307648,
@@ -91,7 +91,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3541,
+    "pk": 6,
     "fields": {
       "drug": 3539,
       "abc_id": 307649,
@@ -109,7 +109,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3542,
+    "pk": 7,
     "fields": {
       "drug": 3540,
       "abc_id": 307650,
@@ -127,7 +127,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3543,
+    "pk": 8,
     "fields": {
       "drug": 3541,
       "abc_id": 307651,
@@ -145,7 +145,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3544,
+    "pk": 9,
     "fields": {
       "drug": 3542,
       "abc_id": 307652,
@@ -163,7 +163,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3545,
+    "pk": 10,
     "fields": {
       "drug": 3543,
       "abc_id": 307653,
@@ -181,7 +181,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3546,
+    "pk": 11,
     "fields": {
       "drug": 3544,
       "abc_id": 307654,
@@ -199,7 +199,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3547,
+    "pk": 12,
     "fields": {
       "drug": 3545,
       "abc_id": 307655,
@@ -217,7 +217,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3548,
+    "pk": 13,
     "fields": {
       "drug": 3546,
       "abc_id": 307656,
@@ -235,7 +235,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3549,
+    "pk": 14,
     "fields": {
       "drug": 3547,
       "abc_id": 307657,
@@ -253,7 +253,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3550,
+    "pk": 15,
     "fields": {
       "drug": 3548,
       "abc_id": 307658,
@@ -271,7 +271,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3551,
+    "pk": 16,
     "fields": {
       "drug": 3549,
       "abc_id": 307659,
@@ -289,7 +289,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3552,
+    "pk": 17,
     "fields": {
       "drug": 3550,
       "abc_id": 307660,
@@ -307,7 +307,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3553,
+    "pk": 18,
     "fields": {
       "drug": 3551,
       "abc_id": 307661,
@@ -325,7 +325,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3554,
+    "pk": 19,
     "fields": {
       "drug": 3552,
       "abc_id": 307662,
@@ -343,7 +343,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3555,
+    "pk": 20,
     "fields": {
       "drug": 3553,
       "abc_id": 307663,
@@ -361,7 +361,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3556,
+    "pk": 21,
     "fields": {
       "drug": 3554,
       "abc_id": 307664,
@@ -379,7 +379,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 3557,
+    "pk": 22,
     "fields": {
       "drug": 3555,
       "abc_id": 307665,
@@ -397,7 +397,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 436,
+    "pk": 23,
     "fields": {
       "drug": 436,
       "abc_id": 304544,
@@ -415,7 +415,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 437,
+    "pk": 24,
     "fields": {
       "drug": 437,
       "abc_id": 304545,
@@ -433,7 +433,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 438,
+    "pk": 25,
     "fields": {
       "drug": 438,
       "abc_id": 304546,
@@ -451,7 +451,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 439,
+    "pk": 26,
     "fields": {
       "drug": 439,
       "abc_id": 304547,
@@ -469,7 +469,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 440,
+    "pk": 27,
     "fields": {
       "drug": 440,
       "abc_id": 304548,
@@ -487,7 +487,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 441,
+    "pk": 28,
     "fields": {
       "drug": 441,
       "abc_id": 304549,
@@ -505,7 +505,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 442,
+    "pk": 29,
     "fields": {
       "drug": 442,
       "abc_id": 304550,
@@ -523,7 +523,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 443,
+    "pk": 30,
     "fields": {
       "drug": 443,
       "abc_id": 304551,
@@ -541,7 +541,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 444,
+    "pk": 31,
     "fields": {
       "drug": 444,
       "abc_id": 304552,
@@ -559,7 +559,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 445,
+    "pk": 32,
     "fields": {
       "drug": 445,
       "abc_id": 304553,
@@ -577,7 +577,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 446,
+    "pk": 33,
     "fields": {
       "drug": 446,
       "abc_id": 304554,
@@ -595,7 +595,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 447,
+    "pk": 34,
     "fields": {
       "drug": 447,
       "abc_id": 304555,
@@ -613,7 +613,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 448,
+    "pk": 35,
     "fields": {
       "drug": 448,
       "abc_id": 304556,
@@ -631,7 +631,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 449,
+    "pk": 36,
     "fields": {
       "drug": 449,
       "abc_id": 304557,
@@ -649,7 +649,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 450,
+    "pk": 37,
     "fields": {
       "drug": 450,
       "abc_id": 304558,
@@ -667,7 +667,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 451,
+    "pk": 38,
     "fields": {
       "drug": 451,
       "abc_id": 304559,
@@ -685,7 +685,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 452,
+    "pk": 39,
     "fields": {
       "drug": 452,
       "abc_id": 304560,
@@ -703,7 +703,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 453,
+    "pk": 40,
     "fields": {
       "drug": 453,
       "abc_id": 304561,
@@ -721,7 +721,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 454,
+    "pk": 41,
     "fields": {
       "drug": 454,
       "abc_id": 304562,
@@ -739,7 +739,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 455,
+    "pk": 42,
     "fields": {
       "drug": 455,
       "abc_id": 304563,
@@ -757,7 +757,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 456,
+    "pk": 43,
     "fields": {
       "drug": 456,
       "abc_id": 304564,
@@ -775,7 +775,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 457,
+    "pk": 44,
     "fields": {
       "drug": 457,
       "abc_id": 304565,
@@ -793,7 +793,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 458,
+    "pk": 45,
     "fields": {
       "drug": 458,
       "abc_id": 304566,
@@ -811,7 +811,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 4867,
+    "pk": 46,
     "fields": {
       "drug": 4689,
       "abc_id": 308975,
@@ -838,7 +838,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 5712,
+    "pk": 47,
     "fields": {
       "drug": 5365,
       "abc_id": 309825,
@@ -856,7 +856,7 @@
   },
   {
     "model": "drug_price_calculator.price",
-    "pk": 5713,
+    "pk": 48,
     "fields": {
       "drug": 5366,
       "abc_id": 309826,
