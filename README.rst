@@ -100,6 +100,15 @@ Setting Up Development Environment
     > Starting development server at http://127.0.0.1:8000/
     > Quit the server with CTRL-BREAK.
 
+10. The following user accounts are included for testing:
+
+    - **Admin Account**: `username` = `admin`, `email` = `admin@email.com`,
+      and `password` = `admin`
+    - **Basic User Account**: `username` = `user`, `email` = `user@email.com`,
+      and `password` = `user`
+
+    **DO NOT** use these accounts in a production environment.
+
 --------------------------
 Running development server
 --------------------------
