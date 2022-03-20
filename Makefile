@@ -1,6 +1,12 @@
 SHELL = /bin/sh
 
-fixtures = study_buffalo/users/fixtures/users.json \
+fixtures = study_buffalo/dictionary/fixtures/language.json \
+			study_buffalo/dictionary/fixtures/dictionary_type.json \
+			study_buffalo/dictionary/fixtures/dictionary_class.json \
+			study_buffalo/dictionary/fixtures/word_pending.json \
+			study_buffalo/dictionary/fixtures/excluded_word.json \
+			study_buffalo/dictionary/fixtures/word.json \
+			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 
 # Update a development environment

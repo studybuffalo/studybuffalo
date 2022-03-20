@@ -1,0 +1,24 @@
+[
+  {
+    "model": "dictionary.wordpending",
+    "pk": 1,
+    "fields": {
+      "language": 1,
+      "dictionary_type": 1,
+      "dictionary_class": 1,
+      "original_words": "AMOXIL",
+      "word": "Amoxil"
+    }
+  },
+  {
+    "model": "dictionary.wordpending",
+    "pk": 2,
+    "fields": {
+      "language": 1,
+      "dictionary_type": 1,
+      "dictionary_class": 1,
+      "original_words": "AMIGLYDE",
+      "word": "Amiglyde"
+    }
+  }
+]
