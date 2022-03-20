@@ -88,6 +88,10 @@ Setting Up Development Environment
 
     $ make --file=Makefile development-fresh
 
+   This will setup a fresh pipenv development environment, collect the
+   Django static files, reset the Django database and run the model
+   migrations, and load initial fixture data for testing.
+
 9. You should now be able to run the Django development server. You can test
    this with the following command, which will generate output similar to
    below::
