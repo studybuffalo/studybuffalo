@@ -50,10 +50,23 @@ development-fresh:
 	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
 	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
 	pipenv run python manage.py migrate --settings=config.settings.development
+	mkdir -p study_buffalo/media/play/audio
+	mkdir -p study_buffalo/media/play/images/original
+	mkdir -p study_buffalo/media/play/images/resized
+	cp study_buffalo/media/fixtures/test_audio.mp3 study_buffalo/media/play/audio
+	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/original
+	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/resized
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
 
 # Install fixtures to reset development environment database (WILL
 # RESET ENTIRE DATABASE)
 install-fixtures:
+	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
 	pipenv run python manage.py migrate --settings=config.settings.development
+	mkdir -p study_buffalo/media/play/audio
+	mkdir -p study_buffalo/media/play/images/original
+	mkdir -p study_buffalo/media/play/images/resized
+	cp study_buffalo/media/fixtures/test_audio.mp3 study_buffalo/media/play/audio
+	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/original
+	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/resized
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
