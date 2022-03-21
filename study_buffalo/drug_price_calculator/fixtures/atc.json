@@ -46,5 +46,21 @@
       "atc_5": "L04AB04",
       "atc_5_text": "adalimumab"
     }
+  },
+  {
+    "model": "drug_price_calculator.atc",
+    "pk": "L04AA17",
+    "fields": {
+      "atc_1": "L",
+      "atc_1_text": "Antineoplastic agents and immunomodulating agents",
+      "atc_2": "L04",
+      "atc_2_text": "Immunosuppressants",
+      "atc_3": "L04A",
+      "atc_3_text": "Immunosuppressants",
+      "atc_4": "L04AA",
+      "atc_4_text": "Selective immunosuppressants",
+      "atc_5": "L04AA17",
+      "atc_5_text": "anakinra"
+    }
   }
 ]
