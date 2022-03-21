@@ -21,6 +21,10 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/drug_price_calculator/fixtures/pend_generic.json \
 			study_buffalo/drug_price_calculator/fixtures/pend_manufacturer.json \
 			study_buffalo/drug_price_calculator/fixtures/pend_unit.json \
+			study_buffalo/play/fixtures/category.json \
+			study_buffalo/play/fixtures/play_page.json \
+			study_buffalo/play/fixtures/play_image.json \
+			study_buffalo/play/fixtures/play_audio.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 

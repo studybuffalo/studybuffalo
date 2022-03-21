@@ -1,0 +1,16 @@
+[
+  {
+    "model": "play.playimage",
+    "pk": "20af3f13-a850-419f-9102-aa379c32614f",
+    "fields": {
+      "title": "Test Image",
+      "type": "i",
+      "original_image": "play/images/original/Test_Image.png",
+      "resized_image": "play/images/resized/Test_Image.png",
+      "alt_text": "A test image",
+      "description": "An image for testing.",
+      "page": 1,
+      "ordering": 1
+    }
+  }
+]
