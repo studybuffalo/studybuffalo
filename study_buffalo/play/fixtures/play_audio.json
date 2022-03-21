@@ -5,7 +5,7 @@
     "fields": {
       "title": "Test Audio",
       "type": "a",
-      "audio": "play/audio/Test_Audio.mp3",
+      "audio": "play/audio/test_audio.mp3",
       "description": "A test audio file.",
       "page": 2,
       "ordering": 1
