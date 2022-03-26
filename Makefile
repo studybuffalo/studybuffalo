@@ -36,6 +36,8 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/study/fixtures/html_guide.json \
 			study_buffalo/study/fixtures/document_guide.json \
 			study_buffalo/study/fixtures/guide.json \
+			study_buffalo/substitutions/fixtures/apps.json \
+			study_buffalo/substitutions/fixtures/model_fields.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 

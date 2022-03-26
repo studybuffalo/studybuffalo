@@ -1,0 +1,101 @@
+[
+  {
+    "model": "substitutions.apps",
+    "pk": 1,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubAHFSPend",
+      "model_sub": "SubAHFS"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 2,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubBrandPend",
+      "model_sub": "SubBrand"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 3,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubCompanyNamePend",
+      "model_sub": "SubCompanyName"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 4,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubDescriptorPend",
+      "model_sub": "SubDescriptor"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 5,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubIngredientPend",
+      "model_sub": "SubIngredient"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 6,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubProductCategorizationPend",
+      "model_sub": "SubProductCategorization"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 7,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubRouteOfAdministrationPend",
+      "model_sub": "SubRouteOfAdministration"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 8,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubPharmaceuticalStdPend",
+      "model_sub": "SubPharmaceuticalStd"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 9,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubStreetNamePend",
+      "model_sub": "SubStreetName"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 10,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubSuiteNumberPend",
+      "model_sub": "SubSuiteNumber"
+    }
+  },
+  {
+    "model": "substitutions.apps",
+    "pk": 11,
+    "fields": {
+      "app_name": "hc_dpd",
+      "model_pending": "SubUnitPend",
+      "model_sub": "SubUnit"
+    }
+  }
+]
