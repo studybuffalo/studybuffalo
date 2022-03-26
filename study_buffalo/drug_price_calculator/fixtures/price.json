@@ -1,0 +1,875 @@
+[
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 1,
+    "fields": {
+      "drug": 1,
+      "abc_id": 307644,
+      "date_listed": "2005-04-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:38.845Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 2,
+    "fields": {
+      "drug": 2,
+      "abc_id": 307645,
+      "date_listed": "2015-07-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:40.131Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 3,
+    "fields": {
+      "drug": 3,
+      "abc_id": 307646,
+      "date_listed": "2012-09-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:41.359Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 4,
+    "fields": {
+      "drug": 4,
+      "abc_id": 307647,
+      "date_listed": "2010-09-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:42.656Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 5,
+    "fields": {
+      "drug": 5,
+      "abc_id": 307648,
+      "date_listed": "2013-11-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:43.879Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 6,
+    "fields": {
+      "drug": 6,
+      "abc_id": 307649,
+      "date_listed": "2018-05-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:45.116Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 7,
+    "fields": {
+      "drug": 7,
+      "abc_id": 307650,
+      "date_listed": "1997-04-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:46.358Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 8,
+    "fields": {
+      "drug": 8,
+      "abc_id": 307651,
+      "date_listed": "2006-01-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:47.690Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 9,
+    "fields": {
+      "drug": 9,
+      "abc_id": 307652,
+      "date_listed": "2001-08-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:48.984Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 10,
+    "fields": {
+      "drug": 10,
+      "abc_id": 307653,
+      "date_listed": "2003-07-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:50.207Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 11,
+    "fields": {
+      "drug": 11,
+      "abc_id": 307654,
+      "date_listed": "2012-08-01",
+      "unit_price": "0.0247",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:51.433Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 12,
+    "fields": {
+      "drug": 12,
+      "abc_id": 307655,
+      "date_listed": "1994-07-01",
+      "unit_price": "0.2716",
+      "lca_price": "0.0247",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:52.704Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 13,
+    "fields": {
+      "drug": 13,
+      "abc_id": 307656,
+      "date_listed": "2005-04-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:53.991Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 14,
+    "fields": {
+      "drug": 14,
+      "abc_id": 307657,
+      "date_listed": "2015-07-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:55.221Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 15,
+    "fields": {
+      "drug": 15,
+      "abc_id": 307658,
+      "date_listed": "2012-09-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:56.499Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 16,
+    "fields": {
+      "drug": 16,
+      "abc_id": 307659,
+      "date_listed": "2010-09-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:57.744Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 17,
+    "fields": {
+      "drug": 17,
+      "abc_id": 307660,
+      "date_listed": "2013-11-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:54:59.010Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 18,
+    "fields": {
+      "drug": 18,
+      "abc_id": 307661,
+      "date_listed": "2018-05-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:55:00.272Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 19,
+    "fields": {
+      "drug": 19,
+      "abc_id": 307662,
+      "date_listed": "2013-09-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:55:01.651Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 20,
+    "fields": {
+      "drug": 20,
+      "abc_id": 307663,
+      "date_listed": "2011-09-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:55:02.980Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 21,
+    "fields": {
+      "drug": 21,
+      "abc_id": 307664,
+      "date_listed": "2004-10-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:55:04.226Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 22,
+    "fields": {
+      "drug": 22,
+      "abc_id": 307665,
+      "date_listed": "2003-07-01",
+      "unit_price": "0.0339",
+      "lca_price": "0.0339",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T15:55:05.444Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 23,
+    "fields": {
+      "drug": 23,
+      "abc_id": 304544,
+      "date_listed": "2001-12-01",
+      "unit_price": "0.0780",
+      "lca_price": "0.0780",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:49:58.023Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 24,
+    "fields": {
+      "drug": 24,
+      "abc_id": 304545,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.0780",
+      "lca_price": "0.0780",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:49:59.284Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 25,
+    "fields": {
+      "drug": 25,
+      "abc_id": 304546,
+      "date_listed": "1992-08-01",
+      "unit_price": "0.3618",
+      "lca_price": "0.0780",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:00.491Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 26,
+    "fields": {
+      "drug": 26,
+      "abc_id": 304547,
+      "date_listed": "2001-12-01",
+      "unit_price": "0.0825",
+      "lca_price": "0.0825",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:01.707Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 27,
+    "fields": {
+      "drug": 27,
+      "abc_id": 304548,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.0825",
+      "lca_price": "0.0825",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:02.920Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 28,
+    "fields": {
+      "drug": 28,
+      "abc_id": 304549,
+      "date_listed": "1992-08-01",
+      "unit_price": "0.3828",
+      "lca_price": "0.0825",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:04.402Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 29,
+    "fields": {
+      "drug": 29,
+      "abc_id": 304550,
+      "date_listed": "2001-12-01",
+      "unit_price": "0.0660",
+      "lca_price": "0.0660",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:05.636Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 30,
+    "fields": {
+      "drug": 30,
+      "abc_id": 304551,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.0660",
+      "lca_price": "0.0660",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:06.917Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 31,
+    "fields": {
+      "drug": 31,
+      "abc_id": 304552,
+      "date_listed": "1992-08-01",
+      "unit_price": "0.3065",
+      "lca_price": "0.0660",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:08.128Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 32,
+    "fields": {
+      "drug": 32,
+      "abc_id": 304553,
+      "date_listed": "2003-04-01",
+      "unit_price": "0.1023",
+      "lca_price": "0.1023",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:09.350Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 33,
+    "fields": {
+      "drug": 33,
+      "abc_id": 304554,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.1023",
+      "lca_price": "0.1023",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:10.571Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 34,
+    "fields": {
+      "drug": 34,
+      "abc_id": 304555,
+      "date_listed": "2000-04-01",
+      "unit_price": "0.4744",
+      "lca_price": "0.1023",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:11.777Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 35,
+    "fields": {
+      "drug": 35,
+      "abc_id": 304556,
+      "date_listed": "2001-12-01",
+      "unit_price": "0.1023",
+      "lca_price": "0.1023",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:12.984Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 36,
+    "fields": {
+      "drug": 36,
+      "abc_id": 304557,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.1023",
+      "lca_price": "0.1023",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:14.207Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 37,
+    "fields": {
+      "drug": 37,
+      "abc_id": 304558,
+      "date_listed": "1993-10-01",
+      "unit_price": "0.4744",
+      "lca_price": "0.1023",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:15.413Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 38,
+    "fields": {
+      "drug": 38,
+      "abc_id": 304559,
+      "date_listed": "2001-12-01",
+      "unit_price": "0.0662",
+      "lca_price": "0.0662",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:16.617Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 39,
+    "fields": {
+      "drug": 39,
+      "abc_id": 304560,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.0662",
+      "lca_price": "0.0662",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:17.822Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 40,
+    "fields": {
+      "drug": 40,
+      "abc_id": 304561,
+      "date_listed": "1992-08-01",
+      "unit_price": "0.3070",
+      "lca_price": "0.0662",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:19.031Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 41,
+    "fields": {
+      "drug": 41,
+      "abc_id": 304562,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.3603",
+      "lca_price": null,
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": false,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:20.238Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 42,
+    "fields": {
+      "drug": 42,
+      "abc_id": 304563,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.3586",
+      "lca_price": null,
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": false,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:21.448Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 43,
+    "fields": {
+      "drug": 43,
+      "abc_id": 304564,
+      "date_listed": "2001-12-01",
+      "unit_price": "0.1187",
+      "lca_price": "0.1187",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:22.654Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 44,
+    "fields": {
+      "drug": 44,
+      "abc_id": 304565,
+      "date_listed": "2000-12-01",
+      "unit_price": "0.1187",
+      "lca_price": "0.1187",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:23.862Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 45,
+    "fields": {
+      "drug": 45,
+      "abc_id": 304566,
+      "date_listed": "1992-08-01",
+      "unit_price": "0.5509",
+      "lca_price": "0.1187",
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "tablet",
+      "interchangeable": true,
+      "coverage_status": "Regular Benefit",
+      "date_added": "2019-07-21T14:50:25.073Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 46,
+    "fields": {
+      "drug": 46,
+      "abc_id": 308975,
+      "date_listed": "2017-06-09",
+      "unit_price": "762.5700",
+      "lca_price": null,
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "syringe",
+      "interchangeable": false,
+      "coverage_status": "Special Authorization",
+      "date_added": "2019-07-21T16:23:15.298Z",
+      "special_authorizations": [
+        36,
+        37,
+        44,
+        45,
+        47,
+        48,
+        49,
+        50
+      ]
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 47,
+    "fields": {
+      "drug": 47,
+      "abc_id": 309825,
+      "date_listed": null,
+      "unit_price": null,
+      "lca_price": null,
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "syringe",
+      "interchangeable": false,
+      "coverage_status": "Under Review",
+      "date_added": "2019-07-21T16:41:48.914Z",
+      "special_authorizations": []
+    }
+  },
+  {
+    "model": "drug_price_calculator.price",
+    "pk": 48,
+    "fields": {
+      "drug": 48,
+      "abc_id": 309826,
+      "date_listed": null,
+      "unit_price": null,
+      "lca_price": null,
+      "mac_price": null,
+      "mac_text": null,
+      "unit_issue": "syringe",
+      "interchangeable": false,
+      "coverage_status": "Under Review",
+      "date_added": "2019-07-21T16:41:50.187Z",
+      "special_authorizations": []
+    }
+  }
+]

@@ -1,0 +1,818 @@
+[
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 1,
+    "fields": {
+      "price": 1,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 2,
+    "fields": {
+      "price": 2,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 3,
+    "fields": {
+      "price": 3,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 4,
+    "fields": {
+      "price": 4,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 5,
+    "fields": {
+      "price": 5,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 6,
+    "fields": {
+      "price": 6,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 7,
+    "fields": {
+      "price": 7,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 8,
+    "fields": {
+      "price": 8,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 9,
+    "fields": {
+      "price": 9,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 10,
+    "fields": {
+      "price": 10,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 11,
+    "fields": {
+      "price": 11,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 12,
+    "fields": {
+      "price": 12,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 13,
+    "fields": {
+      "price": 13,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 14,
+    "fields": {
+      "price": 14,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 15,
+    "fields": {
+      "price": 15,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 16,
+    "fields": {
+      "price": 16,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 17,
+    "fields": {
+      "price": 17,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 18,
+    "fields": {
+      "price": 18,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 19,
+    "fields": {
+      "price": 19,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 20,
+    "fields": {
+      "price": 20,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 21,
+    "fields": {
+      "price": 21,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 22,
+    "fields": {
+      "price": 22,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 23,
+    "fields": {
+      "price": 23,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 24,
+    "fields": {
+      "price": 24,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 25,
+    "fields": {
+      "price": 25,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 26,
+    "fields": {
+      "price": 26,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 27,
+    "fields": {
+      "price": 27,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 28,
+    "fields": {
+      "price": 28,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 29,
+    "fields": {
+      "price": 29,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 30,
+    "fields": {
+      "price": 30,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 31,
+    "fields": {
+      "price": 31,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 32,
+    "fields": {
+      "price": 32,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 33,
+    "fields": {
+      "price": 33,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 34,
+    "fields": {
+      "price": 34,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 35,
+    "fields": {
+      "price": 35,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 36,
+    "fields": {
+      "price": 36,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 37,
+    "fields": {
+      "price": 37,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 38,
+    "fields": {
+      "price": 38,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 39,
+    "fields": {
+      "price": 39,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 40,
+    "fields": {
+      "price": 40,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 41,
+    "fields": {
+      "price": 41,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 42,
+    "fields": {
+      "price": 42,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 43,
+    "fields": {
+      "price": 43,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 44,
+    "fields": {
+      "price": 44,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 45,
+    "fields": {
+      "price": 45,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 46,
+    "fields": {
+      "price": 46,
+      "group_1": true,
+      "group_66": true,
+      "group_19823": true,
+      "group_19823a": true,
+      "group_19824": true,
+      "group_20400": true,
+      "group_20403": true,
+      "group_20514": true,
+      "group_22128": true,
+      "group_23609": true
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 47,
+    "fields": {
+      "price": 47,
+      "group_1": false,
+      "group_66": false,
+      "group_19823": false,
+      "group_19823a": false,
+      "group_19824": false,
+      "group_20400": false,
+      "group_20403": false,
+      "group_20514": false,
+      "group_22128": false,
+      "group_23609": false
+    }
+  },
+  {
+    "model": "drug_price_calculator.clients",
+    "pk": 48,
+    "fields": {
+      "price": 48,
+      "group_1": false,
+      "group_66": false,
+      "group_19823": false,
+      "group_19823a": false,
+      "group_19824": false,
+      "group_20400": false,
+      "group_20403": false,
+      "group_20514": false,
+      "group_22128": false,
+      "group_23609": false
+    }
+  }
+]

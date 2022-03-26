@@ -1,0 +1,22 @@
+[
+  {
+    "model": "dictionary.excludedword",
+    "pk": 1,
+    "fields": {
+      "dictionary_type": 1,
+      "language": 1,
+      "dictionary_class": 1,
+      "word": "Granule"
+    }
+  },
+  {
+    "model": "dictionary.excludedword",
+    "pk": 2,
+    "fields": {
+      "dictionary_type": 1,
+      "language": 1,
+      "dictionary_class": 1,
+      "word": "Flavoured"
+    }
+  }
+]

@@ -1,6 +1,7 @@
 # Django files
 staticfiles/
-study_buffalo/media/
+study_buffalo/media/*
+!study_buffalo/media/fixtures
 
 # Environment Files
 *.env

@@ -1,0 +1,244 @@
+[
+  {
+    "model": "substitutions.modelfields",
+    "pk": 1,
+    "fields": {
+      "app": 1,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 2,
+    "fields": {
+      "app": 1,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 3,
+    "fields": {
+      "app": 2,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 4,
+    "fields": {
+      "app": 2,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 5,
+    "fields": {
+      "app": 3,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 6,
+    "fields": {
+      "app": 3,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 7,
+    "fields": {
+      "app": 4,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 8,
+    "fields": {
+      "app": 4,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 9,
+    "fields": {
+      "app": 5,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 10,
+    "fields": {
+      "app": 5,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 11,
+    "fields": {
+      "app": 6,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 12,
+    "fields": {
+      "app": 6,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 13,
+    "fields": {
+      "app": 7,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 14,
+    "fields": {
+      "app": 7,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 15,
+    "fields": {
+      "app": 8,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 16,
+    "fields": {
+      "app": 8,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 17,
+    "fields": {
+      "app": 9,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 18,
+    "fields": {
+      "app": 9,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": false,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 19,
+    "fields": {
+      "app": 10,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 20,
+    "fields": {
+      "app": 10,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": false,
+      "google_check": true
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 21,
+    "fields": {
+      "app": 11,
+      "field_name": "original",
+      "field_type": "o",
+      "dictionary_check": false,
+      "google_check": false
+    }
+  },
+  {
+    "model": "substitutions.modelfields",
+    "pk": 22,
+    "fields": {
+      "app": 11,
+      "field_name": "substitution",
+      "field_type": "s",
+      "dictionary_check": true,
+      "google_check": true
+    }
+  }
+]

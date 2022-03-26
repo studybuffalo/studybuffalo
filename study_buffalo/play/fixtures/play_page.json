@@ -1,0 +1,22 @@
+[
+  {
+    "model": "play.playpage",
+    "pk": 1,
+    "fields": {
+      "title": "Example 1",
+      "date": "2000-01-01",
+      "category": 1,
+      "release_date": "2000-01-02T00:00:00Z"
+    }
+  },
+  {
+    "model": "play.playpage",
+    "pk": 2,
+    "fields": {
+      "title": "Example 2",
+      "date": "2000-02-01",
+      "category": 2,
+      "release_date": "2000-02-02T00:00:00Z"
+    }
+  }
+]
