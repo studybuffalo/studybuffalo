@@ -30,6 +30,9 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/rdrhc_calendar/fixtures/shift_code.json \
 			study_buffalo/rdrhc_calendar/fixtures/missing_shift_code.json \
 			study_buffalo/rdrhc_calendar/fixtures/shift.json \
+			study_buffalo/read/fixtures/html_publication.json \
+			study_buffalo/read/fixtures/document_publication.json \
+			study_buffalo/read/fixtures/publication.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 
@@ -58,9 +61,11 @@ development-fresh:
 	mkdir -p study_buffalo/media/play/audio
 	mkdir -p study_buffalo/media/play/images/original
 	mkdir -p study_buffalo/media/play/images/resized
+	mkdir -p study_buffalo/media/publications
 	cp study_buffalo/media/fixtures/test_audio.mp3 study_buffalo/media/play/audio
 	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/original
 	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/resized
+	cp study_buffalo/media/fixtures/test_document.pdf study_buffalo/media/publications
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
 
 # Install fixtures to reset development environment database (WILL
@@ -71,7 +76,9 @@ install-fixtures:
 	mkdir -p study_buffalo/media/play/audio
 	mkdir -p study_buffalo/media/play/images/original
 	mkdir -p study_buffalo/media/play/images/resized
+	mkdir -p study_buffalo/media/publications
 	cp study_buffalo/media/fixtures/test_audio.mp3 study_buffalo/media/play/audio
 	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/original
 	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/play/images/resized
+	cp study_buffalo/media/fixtures/test_document.pdf study_buffalo/media/publications
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development

@@ -1,0 +1,10 @@
+[
+  {
+    "model": "read.documentpublication",
+    "pk": 1,
+    "fields": {
+      "publication": 2,
+      "document": "publications/test_document.pdf"
+    }
+  }
+]
