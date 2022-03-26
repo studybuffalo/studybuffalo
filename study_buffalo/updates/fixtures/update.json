@@ -1,0 +1,28 @@
+[
+  {
+    "model": "updates.update",
+    "pk": 1,
+    "fields": {
+      "title": "This is the first update!",
+      "background": "home/update/test_image.png",
+      "icon": "home/update/test_icon.png",
+      "html": "<strong style=\"color: red;\">First Update in Red</strong>",
+      "start_date": "2000-01-01",
+      "end_date": null,
+      "priority": 1
+    }
+  },
+  {
+    "model": "updates.update",
+    "pk": 2,
+    "fields": {
+      "title": "This is the second update!",
+      "background": "home/update/test_image.png",
+      "icon": "home/update/test_icon.png",
+      "html": "<strong style=\"color: blue;\">Second Update in Blue</strong>",
+      "start_date": "2000-02-01",
+      "end_date": null,
+      "priority": 2
+    }
+  }
+]
