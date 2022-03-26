@@ -1,0 +1,26 @@
+[
+  {
+    "model": "study.guide",
+    "pk": 1,
+    "fields": {
+      "title": "Example 1",
+      "short_description": "An HTML publication example.",
+      "long_description": "A longer description of this content with <span color=\"red\">red text</span>.",
+      "date_original": "2000-01-01",
+      "last_update": "2001-01-01",
+      "permissions": null
+    }
+  },
+  {
+    "model": "study.guide",
+    "pk": 2,
+    "fields": {
+      "title": "Example 2",
+      "short_description": "A document publication example.",
+      "long_description": "A longer description of this content with <span color=\"blue\">blue text</span>.",
+      "date_original": "2000-02-01",
+      "last_update": "2001-02-01",
+      "permissions": null
+    }
+  }
+]
