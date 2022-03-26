@@ -1,0 +1,772 @@
+[
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 1,
+    "fields": {
+      "date": "2015-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 2,
+    "fields": {
+      "date": "2015-02-16"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 3,
+    "fields": {
+      "date": "2015-04-03"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 4,
+    "fields": {
+      "date": "2015-05-18"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 5,
+    "fields": {
+      "date": "2015-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 6,
+    "fields": {
+      "date": "2015-08-03"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 7,
+    "fields": {
+      "date": "2015-09-07"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 8,
+    "fields": {
+      "date": "2015-10-12"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 9,
+    "fields": {
+      "date": "2015-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 10,
+    "fields": {
+      "date": "2015-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 11,
+    "fields": {
+      "date": "2015-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 12,
+    "fields": {
+      "date": "2016-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 13,
+    "fields": {
+      "date": "2016-02-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 14,
+    "fields": {
+      "date": "2016-03-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 15,
+    "fields": {
+      "date": "2016-05-23"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 16,
+    "fields": {
+      "date": "2016-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 17,
+    "fields": {
+      "date": "2016-08-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 18,
+    "fields": {
+      "date": "2016-09-05"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 19,
+    "fields": {
+      "date": "2016-10-10"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 20,
+    "fields": {
+      "date": "2016-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 21,
+    "fields": {
+      "date": "2016-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 22,
+    "fields": {
+      "date": "2016-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 23,
+    "fields": {
+      "date": "2017-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 24,
+    "fields": {
+      "date": "2017-02-20"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 25,
+    "fields": {
+      "date": "2017-04-14"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 26,
+    "fields": {
+      "date": "2017-05-22"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 27,
+    "fields": {
+      "date": "2017-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 28,
+    "fields": {
+      "date": "2017-08-07"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 29,
+    "fields": {
+      "date": "2017-09-04"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 30,
+    "fields": {
+      "date": "2017-10-09"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 31,
+    "fields": {
+      "date": "2017-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 32,
+    "fields": {
+      "date": "2017-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 33,
+    "fields": {
+      "date": "2017-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 34,
+    "fields": {
+      "date": "2018-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 35,
+    "fields": {
+      "date": "2018-02-19"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 36,
+    "fields": {
+      "date": "2018-03-30"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 37,
+    "fields": {
+      "date": "2018-05-21"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 38,
+    "fields": {
+      "date": "2018-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 39,
+    "fields": {
+      "date": "2018-08-06"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 40,
+    "fields": {
+      "date": "2018-09-03"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 41,
+    "fields": {
+      "date": "2018-10-08"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 42,
+    "fields": {
+      "date": "2018-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 43,
+    "fields": {
+      "date": "2018-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 44,
+    "fields": {
+      "date": "2018-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 45,
+    "fields": {
+      "date": "2019-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 46,
+    "fields": {
+      "date": "2019-02-18"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 47,
+    "fields": {
+      "date": "2019-04-19"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 48,
+    "fields": {
+      "date": "2019-05-20"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 49,
+    "fields": {
+      "date": "2019-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 50,
+    "fields": {
+      "date": "2019-08-05"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 51,
+    "fields": {
+      "date": "2019-09-02"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 52,
+    "fields": {
+      "date": "2019-10-14"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 53,
+    "fields": {
+      "date": "2019-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 54,
+    "fields": {
+      "date": "2019-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 55,
+    "fields": {
+      "date": "2019-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 56,
+    "fields": {
+      "date": "2020-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 57,
+    "fields": {
+      "date": "2020-02-17"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 58,
+    "fields": {
+      "date": "2020-04-10"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 59,
+    "fields": {
+      "date": "2020-05-18"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 60,
+    "fields": {
+      "date": "2020-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 61,
+    "fields": {
+      "date": "2020-08-03"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 62,
+    "fields": {
+      "date": "2020-09-07"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 63,
+    "fields": {
+      "date": "2020-10-12"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 64,
+    "fields": {
+      "date": "2020-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 65,
+    "fields": {
+      "date": "2020-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 66,
+    "fields": {
+      "date": "2020-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 67,
+    "fields": {
+      "date": "2021-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 68,
+    "fields": {
+      "date": "2021-02-15"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 69,
+    "fields": {
+      "date": "2021-04-02"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 70,
+    "fields": {
+      "date": "2021-05-24"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 71,
+    "fields": {
+      "date": "2021-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 72,
+    "fields": {
+      "date": "2021-08-02"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 73,
+    "fields": {
+      "date": "2021-09-06"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 74,
+    "fields": {
+      "date": "2021-10-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 75,
+    "fields": {
+      "date": "2021-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 76,
+    "fields": {
+      "date": "2021-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 77,
+    "fields": {
+      "date": "2021-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 78,
+    "fields": {
+      "date": "2022-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 79,
+    "fields": {
+      "date": "2022-02-21"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 80,
+    "fields": {
+      "date": "2022-04-15"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 81,
+    "fields": {
+      "date": "2022-05-23"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 82,
+    "fields": {
+      "date": "2022-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 83,
+    "fields": {
+      "date": "2022-08-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 84,
+    "fields": {
+      "date": "2022-09-05"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 85,
+    "fields": {
+      "date": "2022-10-10"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 86,
+    "fields": {
+      "date": "2022-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 87,
+    "fields": {
+      "date": "2022-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 88,
+    "fields": {
+      "date": "2022-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 89,
+    "fields": {
+      "date": "2023-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 90,
+    "fields": {
+      "date": "2023-02-20"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 91,
+    "fields": {
+      "date": "2023-04-07"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 92,
+    "fields": {
+      "date": "2023-05-22"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 93,
+    "fields": {
+      "date": "2023-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 94,
+    "fields": {
+      "date": "2023-08-07"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 95,
+    "fields": {
+      "date": "2023-09-04"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 96,
+    "fields": {
+      "date": "2023-10-09"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 97,
+    "fields": {
+      "date": "2023-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 98,
+    "fields": {
+      "date": "2023-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 99,
+    "fields": {
+      "date": "2023-12-26"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 100,
+    "fields": {
+      "date": "2024-01-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 101,
+    "fields": {
+      "date": "2024-02-29"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 102,
+    "fields": {
+      "date": "2024-04-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 103,
+    "fields": {
+      "date": "2024-05-20"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 104,
+    "fields": {
+      "date": "2024-07-01"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 105,
+    "fields": {
+      "date": "2024-08-05"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 106,
+    "fields": {
+      "date": "2024-09-02"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 107,
+    "fields": {
+      "date": "2024-10-14"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 108,
+    "fields": {
+      "date": "2024-11-11"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 109,
+    "fields": {
+      "date": "2024-12-25"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.statholiday",
+    "pk": 110,
+    "fields": {
+      "date": "2024-12-26"
+    }
+  }
+]

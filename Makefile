@@ -25,6 +25,11 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/play/fixtures/play_page.json \
 			study_buffalo/play/fixtures/play_image.json \
 			study_buffalo/play/fixtures/play_audio.json \
+			study_buffalo/rdrhc_calendar/fixtures/calendar_user.json \
+			study_buffalo/rdrhc_calendar/fixtures/stat_holiday.json \
+			study_buffalo/rdrhc_calendar/fixtures/shift_code.json \
+			study_buffalo/rdrhc_calendar/fixtures/missing_shift_code.json \
+			study_buffalo/rdrhc_calendar/fixtures/shift.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 

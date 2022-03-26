@@ -1,0 +1,26 @@
+[
+  {
+    "model": "rdrhc_calendar.missingshiftcode",
+    "pk": 1,
+    "fields": {
+      "code": "CI",
+      "role": "p"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.missingshiftcode",
+    "pk": 2,
+    "fields": {
+      "code": "11.4HR",
+      "role": "p"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.missingshiftcode",
+    "pk": 3,
+    "fields": {
+      "code": "V4E",
+      "role": "t"
+    }
+  }
+]
