@@ -1,0 +1,26 @@
+[
+  {
+    "model": "dictionary.dictionarytype",
+    "pk": 1,
+    "fields": {
+      "dictionary_name": "trade_names",
+      "dictionary_verbose_name": "Trade names"
+    }
+  },
+  {
+    "model": "dictionary.dictionarytype",
+    "pk": 2,
+    "fields": {
+      "dictionary_name": "company_names",
+      "dictionary_verbose_name": "Pharmaceutical company names"
+    }
+  },
+  {
+    "model": "dictionary.dictionarytype",
+    "pk": 3,
+    "fields": {
+      "dictionary_name": "ingredients",
+      "dictionary_verbose_name": "Ingredients"
+    }
+  }
+]

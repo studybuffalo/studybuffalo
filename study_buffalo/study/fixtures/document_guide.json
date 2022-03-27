@@ -1,0 +1,10 @@
+[
+  {
+    "model": "study.documentguide",
+    "pk": 1,
+    "fields": {
+      "study_guide": 2,
+      "document": "study_guides/test_document.pdf"
+    }
+  }
+]

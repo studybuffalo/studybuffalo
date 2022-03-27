@@ -1,0 +1,26 @@
+[
+  {
+    "model": "dictionary.dictionaryclass",
+    "pk": 1,
+    "fields": {
+      "class_name": "human",
+      "class_verbose_name": "Human products"
+    }
+  },
+  {
+    "model": "dictionary.dictionaryclass",
+    "pk": 2,
+    "fields": {
+      "class_name": "disinfectant",
+      "class_verbose_name": "Disinfectant products"
+    }
+  },
+  {
+    "model": "dictionary.dictionaryclass",
+    "pk": 3,
+    "fields": {
+      "class_name": "veterinary",
+      "class_verbose_name": "Veterinary products"
+    }
+  }
+]

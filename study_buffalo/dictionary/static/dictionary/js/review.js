@@ -36,7 +36,7 @@ function SendMessage(msg, tag) {
       tag,
     };
 
-    Notification(title, options);
+    new Notification(title, options); // eslint-disable-line no-new
   }
 }
 
@@ -99,8 +99,8 @@ function CreateWordInputs(data) {
   const $googleButton = $('<button></button>');
   $googleButton
     .addClass('google')
-    .on('click', () => {
-      SearchText(this);
+    .on('click', (e) => {
+      SearchText(e.currentTarget);
     })
     .appendTo($div);
 
@@ -113,8 +113,8 @@ function CreateWordInputs(data) {
   const $originalButton = $('<button></button>');
   $originalButton
     .addClass('source')
-    .on('click', () => {
-      ShowSource(this);
+    .on('click', (e) => {
+      ShowSource(e.currentTarget);
     })
     .appendTo($div);
 
@@ -131,7 +131,7 @@ function RemovePendingWord(pendingID) {
   const CSRF = $('[name=csrfmiddlewaretoken]').val();
 
   $.ajaxSetup({
-    beforeSend: (xhr, settings) => {
+    beforeSend: (xhr) => {
       if (!this.crossDomain) {
         xhr.setRequestHeader('X-CSRFToken', CSRF);
       }
@@ -144,20 +144,23 @@ function RemovePendingWord(pendingID) {
       pending_id: pendingID,
     },
     type: 'POST',
-    success: (results) => {
-      if (results.success) {
+    success: (results, _, jqXHR) => {
+      if (jqXHR.status === 204) {
         // Remove this entry form the page
-        $(`#pending-${results.id}`).remove();
+        $(`#pending-${pendingID}`).remove();
 
         // Reduce the pending count by 1
         const $count = $('#word_count');
         $count.text(Number($count.text()) - 1);
 
         // Request to display additional entries
-        RetrieveEntries();
-      }
+        RetrieveEntries(); // eslint-disable-line no-use-before-define
 
-      SendMessage(results.message, 'delete-pending');
+        // Send message notifying of deletion
+        SendMessage(`Pending word ${pendingID} deleted`, 'delete-pending');
+      } else {
+        SendMessage(results.message, 'delete-pending');
+      }
     },
     error: (jqXHR, textStatus, errorThrown) => {
       SendMessage(
@@ -198,15 +201,15 @@ function AddWord(button, e) {
   $.ajax({
     url: 'add-new-word/',
     data: {
-      pendingID,
-      modelName,
+      pending_id: pendingID,
+      model_name: modelName,
       word,
       language,
-      dictionaryType,
-      dictionaryClass,
+      dictionary_type: dictionaryType,
+      dictionary_class: dictionaryClass,
     },
     type: 'POST',
-    beforeSend: (jqXHR, settings) => {
+    beforeSend: (jqXHR) => {
       // Setup the CSRF token for the POST request
       if (!this.crossDomain) {
         const CSRF = $('[name=csrfmiddlewaretoken]').val();
@@ -268,8 +271,8 @@ function CreateEntryDOM(entry) {
   const $addButton = $('<button></button>');
   $addButton
     .addClass('add')
-    .on('click', () => {
-      AddWord(this, { modelName: 'word' });
+    .on('click', (e) => {
+      AddWord(e.currentTarget, { modelName: 'word' });
     })
     .appendTo($otherDiv);
 
@@ -282,8 +285,8 @@ function CreateEntryDOM(entry) {
   const $excludeButton = $('<button></button>');
   $excludeButton
     .addClass('exclude')
-    .on('click', () => {
-      AddWord(this, { modelName: 'excluded' });
+    .on('click', (e) => {
+      AddWord(e.currentTarget, { modelName: 'excluded' });
     })
     .appendTo($otherDiv);
 
@@ -296,7 +299,7 @@ function CreateEntryDOM(entry) {
   const $deleteButton = $('<button></button>');
   $deleteButton
     .addClass('delete')
-    .on('click', () => { DeleteWord(this); })
+    .on('click', (e) => { DeleteWord(e.currentTarget); })
     .appendTo($otherDiv);
 
   const $deleteSpan = $('<span></span>');
@@ -330,7 +333,7 @@ function RetrieveEntries() {
   const CSRF = $('[name=csrfmiddlewaretoken]').val();
 
   $.ajaxSetup({
-    beforeSend: (xhr, settings) => {
+    beforeSend: (xhr) => {
       if (!this.crossDomain) {
         xhr.setRequestHeader('X-CSRFToken', CSRF);
       }
@@ -352,10 +355,6 @@ function RetrieveEntries() {
       console.error(`${textStatus}: ${errorThrown}`);
     },
   });
-}
-
-function ExcludeWord(button) {
-  console.log('Excluding word stuff goes here');
 }
 
 function ClearDisplayedEntries() {

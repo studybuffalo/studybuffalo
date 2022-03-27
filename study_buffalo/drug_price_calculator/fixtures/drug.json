@@ -1,0 +1,818 @@
+[
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 1,
+    "fields": {
+      "din": "02257726",
+      "brand_name": "Act Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Actavis Pharma Company (Aph)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 2,
+    "fields": {
+      "din": "02438275",
+      "brand_name": "Auro-Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Auro Pharma Inc. (Aur)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 3,
+    "fields": {
+      "din": "02380196",
+      "brand_name": "Jamp-Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Jamp Pharma Corporation (Jpc)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 4,
+    "fields": {
+      "din": "02353377",
+      "brand_name": "Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sanis Health Inc. (Sns)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 5,
+    "fields": {
+      "din": "02385341",
+      "brand_name": "Metformin Fc",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sivem Pharmaceuticals Ulc (Siv)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 6,
+    "fields": {
+      "din": "02388766",
+      "brand_name": "Mint-Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Mint Pharmaceuticals Inc. (Mpi)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 7,
+    "fields": {
+      "din": "02223562",
+      "brand_name": "Pms-Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Pharmascience Inc. (Pms)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 8,
+    "fields": {
+      "din": "02269031",
+      "brand_name": "Ran-Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Ranbaxy Pharmaceuticals Canada Inc (Ran)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 9,
+    "fields": {
+      "din": "02242974",
+      "brand_name": "Ratio-Metformin Hydrochloride",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Teva Canada Limited (Tev)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 10,
+    "fields": {
+      "din": "02246820",
+      "brand_name": "Sandoz Metformin Fc",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sandoz Canada Inc. (Sdz)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 11,
+    "fields": {
+      "din": "02379767",
+      "brand_name": "Septa-Metformin",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Septa Pharmaceuticals Inc. (Sep)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 12,
+    "fields": {
+      "din": "02099233",
+      "brand_name": "Glucophage",
+      "strength": "500 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sanofi - Aventis (Sav)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (500 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 13,
+    "fields": {
+      "din": "02257734",
+      "brand_name": "Act Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Actavis Pharma Company (Aph)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 14,
+    "fields": {
+      "din": "02438283",
+      "brand_name": "Auro-Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Auro Pharma Inc. (Aur)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 15,
+    "fields": {
+      "din": "02380218",
+      "brand_name": "Jamp-Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Jamp Pharma Corporation (Jpc)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 16,
+    "fields": {
+      "din": "02353385",
+      "brand_name": "Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sanis Health Inc. (Sns)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 17,
+    "fields": {
+      "din": "02385368",
+      "brand_name": "Metformin Fc",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sivem Pharmaceuticals Ulc (Siv)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 18,
+    "fields": {
+      "din": "02388774",
+      "brand_name": "Mint-Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Mint Pharmaceuticals Inc. (Mpi)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 19,
+    "fields": {
+      "din": "02242589",
+      "brand_name": "Pms-Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Pharmascience Inc. (Pms)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 20,
+    "fields": {
+      "din": "02269058",
+      "brand_name": "Ran-Metformin",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Ranbaxy Pharmaceuticals Canada Inc (Ran)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 21,
+    "fields": {
+      "din": "02242931",
+      "brand_name": "Ratio-Metformin Hydrochloride",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Teva Canada Limited (Tev)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 22,
+    "fields": {
+      "din": "02246821",
+      "brand_name": "Sandoz Metformin Fc",
+      "strength": "850 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "metformin HCl",
+      "manufacturer": "Sandoz Canada Inc. (Sdz)",
+      "schedule": "1",
+      "atc": "A10BA02",
+      "ptc": "682004",
+      "generic_product": "metformin HCl (850 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 23,
+    "fields": {
+      "din": "02242924",
+      "brand_name": "Apo-Warfarin",
+      "strength": "1 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (1 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 24,
+    "fields": {
+      "din": "02242680",
+      "brand_name": "Taro-Warfarin",
+      "strength": "1 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (1 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 25,
+    "fields": {
+      "din": "01918311",
+      "brand_name": "Coumadin",
+      "strength": "1 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (1 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 26,
+    "fields": {
+      "din": "02242925",
+      "brand_name": "Apo-Warfarin",
+      "strength": "2 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (2 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 27,
+    "fields": {
+      "din": "02242681",
+      "brand_name": "Taro-Warfarin",
+      "strength": "2 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (2 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 28,
+    "fields": {
+      "din": "01918338",
+      "brand_name": "Coumadin",
+      "strength": "2 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (2 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 29,
+    "fields": {
+      "din": "02242926",
+      "brand_name": "Apo-Warfarin",
+      "strength": "2.5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (2.5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 30,
+    "fields": {
+      "din": "02242682",
+      "brand_name": "Taro-Warfarin",
+      "strength": "2.5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (2.5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 31,
+    "fields": {
+      "din": "01918346",
+      "brand_name": "Coumadin",
+      "strength": "2.5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (2.5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 32,
+    "fields": {
+      "din": "02245618",
+      "brand_name": "Apo-Warfarin",
+      "strength": "3 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (3 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 33,
+    "fields": {
+      "din": "02242683",
+      "brand_name": "Taro-Warfarin",
+      "strength": "3 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (3 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 34,
+    "fields": {
+      "din": "02240205",
+      "brand_name": "Coumadin",
+      "strength": "3 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (3 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 35,
+    "fields": {
+      "din": "02242927",
+      "brand_name": "Apo-Warfarin",
+      "strength": "4 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (4 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 36,
+    "fields": {
+      "din": "02242684",
+      "brand_name": "Taro-Warfarin",
+      "strength": "4 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (4 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 37,
+    "fields": {
+      "din": "02007959",
+      "brand_name": "Coumadin",
+      "strength": "4 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (4 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 38,
+    "fields": {
+      "din": "02242928",
+      "brand_name": "Apo-Warfarin",
+      "strength": "5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 39,
+    "fields": {
+      "din": "02242685",
+      "brand_name": "Taro-Warfarin",
+      "strength": "5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 40,
+    "fields": {
+      "din": "01918354",
+      "brand_name": "Coumadin",
+      "strength": "5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 41,
+    "fields": {
+      "din": "02242686",
+      "brand_name": "Taro-Warfarin",
+      "strength": "6 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (6 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 42,
+    "fields": {
+      "din": "02242697",
+      "brand_name": "Taro-Warfarin",
+      "strength": "7.5 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (7.5 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 43,
+    "fields": {
+      "din": "02242929",
+      "brand_name": "Apo-Warfarin",
+      "strength": "10 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Apotex Inc. (Apx)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (10 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 44,
+    "fields": {
+      "din": "02242687",
+      "brand_name": "Taro-Warfarin",
+      "strength": "10 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Taro Pharmaceuticals Inc. (Tar)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (10 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 45,
+    "fields": {
+      "din": "01918362",
+      "brand_name": "Coumadin",
+      "strength": "10 mg",
+      "route": "oral",
+      "dosage_form": "tablet",
+      "generic_name": "warfarin sodium",
+      "manufacturer": "Bristol-Myers Squibb (Bms)",
+      "schedule": "1",
+      "atc": "B01AA03",
+      "ptc": "20120408",
+      "generic_product": "warfarin sodium (10 mg oral tablet)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 46,
+    "fields": {
+      "din": "02258595",
+      "brand_name": "Humira (40 Mg/0.8 Ml Inj Syr)",
+      "strength": "40 mg/syringe",
+      "route": "injection",
+      "dosage_form": "syringe",
+      "generic_name": "adalimumab",
+      "manufacturer": "Abbvie Corporation (Abv)",
+      "schedule": "1",
+      "atc": "L04AA17",
+      "ptc": "923600",
+      "generic_product": "adalimumab (40 mg/syringe injection syringe)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 47,
+    "fields": {
+      "din": "02458357",
+      "brand_name": "Humira (40 Mg/0.4 Ml Inj Pen)",
+      "strength": "40 mg/syringe",
+      "route": "injection",
+      "dosage_form": "syringe",
+      "generic_name": "adalimumab",
+      "manufacturer": "Abbvie Corporation (Abv)",
+      "schedule": "1",
+      "atc": "L04AB04",
+      "ptc": "923600",
+      "generic_product": "adalimumab (40 mg/syringe injection syringe)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.drug",
+    "pk": 48,
+    "fields": {
+      "din": "02458349",
+      "brand_name": "Humira (40 Mg/0.4 Ml Inj Syr)",
+      "strength": "40 mg/syringe",
+      "route": "injection",
+      "dosage_form": "syringe",
+      "generic_name": "adalimumab",
+      "manufacturer": "Abbvie Corporation (Abv)",
+      "schedule": "1",
+      "atc": "L04AB04",
+      "ptc": "923600",
+      "generic_product": "adalimumab (40 mg/syringe injection syringe)"
+    }
+  }
+]

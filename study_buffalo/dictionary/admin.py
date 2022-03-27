@@ -1,7 +1,7 @@
 """Admin settings for the Dictionary app."""
 from django.contrib import admin
 from .models import (
-    Language, DictionaryType, DictionaryClass, Word, ExcludedWord
+    Language, DictionaryType, DictionaryClass, Word, ExcludedWord, WordPending
 )
 
 
@@ -26,6 +26,14 @@ class WordAdmin(admin.ModelAdmin):
     list_display = ('word', 'language', 'dictionary_type', 'dictionary_class')
     list_filter = ('language', 'dictionary_type', 'dictionary_class')
     search_fields = ('word',)
+
+
+@admin.register(WordPending)
+class WordPendingAdmin(admin.ModelAdmin):
+    """Admin for the Word model."""
+    list_display = ('original_words', 'language', 'dictionary_type', 'dictionary_class',)
+    list_filter = ('language', 'dictionary_type', 'dictionary_class')
+    search_fields = ('word', 'original_words')
 
 
 @admin.register(ExcludedWord)

@@ -1,0 +1,16 @@
+[
+  {
+    "model": "play.category",
+    "pk": 1,
+    "fields": {
+      "category": "Adventures"
+    }
+  },
+  {
+    "model": "play.category",
+    "pk": 2,
+    "fields": {
+      "category": "Relaxation"
+    }
+  }
+]

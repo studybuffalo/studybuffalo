@@ -1,0 +1,14 @@
+[
+  {
+    "model": "play.playaudio",
+    "pk": "a82b7ede-05f6-489d-b92d-329f1f33380e",
+    "fields": {
+      "title": "Test Audio",
+      "type": "a",
+      "audio": "play/audio/test_audio.mp3",
+      "description": "A test audio file.",
+      "page": 2,
+      "ordering": 1
+    }
+  }
+]
