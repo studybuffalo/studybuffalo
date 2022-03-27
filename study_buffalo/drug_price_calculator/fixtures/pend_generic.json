@@ -1,0 +1,42 @@
+[
+  {
+    "model": "drug_price_calculator.pendgeneric",
+    "pk": 3,
+    "fields": {
+      "original": "LIDOCAINE HCL",
+      "correction": "lidocaine hcl"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendgeneric",
+    "pk": 4,
+    "fields": {
+      "original": "LIDOCAINE",
+      "correction": "lidocaine"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendgeneric",
+    "pk": 5,
+    "fields": {
+      "original": "BISACODYL",
+      "correction": "bisacodyl"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendgeneric",
+    "pk": 6,
+    "fields": {
+      "original": "AZATHIOPRINE",
+      "correction": "azathioprine"
+    }
+  },
+  {
+    "model": "drug_price_calculator.pendgeneric",
+    "pk": 7,
+    "fields": {
+      "original": "METHYLPHENIDATE HCL",
+      "correction": "methylphenidate hcl"
+    }
+  }
+]

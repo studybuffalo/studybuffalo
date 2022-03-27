@@ -1,0 +1,72 @@
+[
+  {
+    "model": "dictionary.word",
+    "pk": 1,
+    "fields": {
+      "dictionary_type": 1,
+      "language": 1,
+      "dictionary_class": 1,
+      "word": "Anipryl"
+    }
+  },
+  {
+    "model": "dictionary.word",
+    "pk": 2,
+    "fields": {
+      "dictionary_type": 1,
+      "language": 1,
+      "dictionary_class": 1,
+      "word": "Angiomax"
+    }
+  },
+  {
+    "model": "dictionary.word",
+    "pk": 3,
+    "fields": {
+      "dictionary_type": 3,
+      "language": 1,
+      "dictionary_class": 1,
+      "word": "tyrosine"
+    }
+  },
+  {
+    "model": "dictionary.word",
+    "pk": 4,
+    "fields": {
+      "dictionary_type": 3,
+      "language": 1,
+      "dictionary_class": 1,
+      "word": "tryptophan"
+    }
+  },
+  {
+    "model": "dictionary.word",
+    "pk": 5,
+    "fields": {
+      "dictionary_type": 2,
+      "language": 1,
+      "dictionary_class": 2,
+      "word": "Agrisan"
+    }
+  },
+  {
+    "model": "dictionary.word",
+    "pk": 6,
+    "fields": {
+      "dictionary_type": 2,
+      "language": 1,
+      "dictionary_class": 2,
+      "word": "Aaladin"
+    }
+  },
+  {
+    "model": "dictionary.word",
+    "pk": 7,
+    "fields": {
+      "dictionary_type": 1,
+      "language": 1,
+      "dictionary_class": 3,
+      "word": "Anafen"
+    }
+  }
+]

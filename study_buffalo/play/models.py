@@ -88,7 +88,7 @@ class PlayPage(models.Model):
         latest = PlayPage.objects.filter(
             release_date__date__lte=datetime.now()
         ).order_by(
-            '-release_date'
+            'release_date'
         ).last()
 
         if latest:

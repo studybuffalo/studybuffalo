@@ -1,0 +1,10 @@
+[
+  {
+    "model": "study.htmlguide",
+    "pk": 1,
+    "fields": {
+      "study_guide": 1,
+      "html": "<h1>Example 1 Header</h1><p>HTML <b>guide</b> body</p>"
+    }
+  }
+]

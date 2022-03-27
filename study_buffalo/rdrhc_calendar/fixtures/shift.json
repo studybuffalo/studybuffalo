@@ -1,0 +1,102 @@
+[
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 1,
+    "fields": {
+      "sb_user": 1,
+      "date": "2000-01-01",
+      "shift_code": 4,
+      "text_shift_code": "D1"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 2,
+    "fields": {
+      "sb_user": 1,
+      "date": "2000-01-02",
+      "shift_code": 4,
+      "text_shift_code": "D1"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 3,
+    "fields": {
+      "sb_user": 1,
+      "date": "2000-01-03",
+      "shift_code": 4,
+      "text_shift_code": "D1"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 4,
+    "fields": {
+      "sb_user": 1,
+      "date": "2000-01-04",
+      "shift_code": 4,
+      "text_shift_code": "D1"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 5,
+    "fields": {
+      "sb_user": 1,
+      "date": "2000-01-05",
+      "shift_code": 10,
+      "text_shift_code": "E1"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 6,
+    "fields": {
+      "sb_user": 2,
+      "date": "2000-01-01",
+      "shift_code": 8,
+      "text_shift_code": "D2"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 7,
+    "fields": {
+      "sb_user": 2,
+      "date": "2000-01-02",
+      "shift_code": 8,
+      "text_shift_code": "D2"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 8,
+    "fields": {
+      "sb_user": 2,
+      "date": "2000-01-03",
+      "shift_code": 8,
+      "text_shift_code": "D2"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 9,
+    "fields": {
+      "sb_user": 2,
+      "date": "2000-01-04",
+      "shift_code": 8,
+      "text_shift_code": "D2"
+    }
+  },
+  {
+    "model": "rdrhc_calendar.shift",
+    "pk": 10,
+    "fields": {
+      "sb_user": 2,
+      "date": "2000-01-05",
+      "shift_code": 11,
+      "text_shift_code": "E1"
+    }
+  }
+]

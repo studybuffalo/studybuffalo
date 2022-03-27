@@ -1,0 +1,66 @@
+[
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 36,
+    "fields": {
+      "file_name": "60029.pdf",
+      "pdf_title": "Adalimumab/Certolizumab/Etanercept/Golimumab/Infliximab/Ixekizumab/Secukinumab for Psoriatic Arthritis Special Authorization Request Form (ABC 60029)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 37,
+    "fields": {
+      "file_name": "60030.pdf",
+      "pdf_title": "Adalimumab/Etanercept/Infliximab/Ixekizumab/Secukinumab/Ustekinumab for Plaque Psoriasis Special Authorization Request Form (ABC 60030)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 44,
+    "fields": {
+      "file_name": "60028.pdf",
+      "pdf_title": "Adalimumab/Certolizumab/Etanercept/Golimumab/Infliximab/Secukinumab for Ankylosing Spondylitis Special Authorization Request Form (ABC 60028)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 45,
+    "fields": {
+      "file_name": "60027.pdf",
+      "pdf_title": "Abatacept/Adalimumab/Anakinra/Certolizumab/Etanercept/Golimumab/Infliximab/Sarilumab/Tocilizumab/Tofacitinib for Rheumatoid Arthritis Special Authorization Request Form (ABC 60027)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 47,
+    "fields": {
+      "file_name": "60008.pdf",
+      "pdf_title": "Adalimumab/Golimumab/Infliximab/Vedolizumab for Ulcerative Colitis Special Authorization Request Form (ABC 60008)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 48,
+    "fields": {
+      "file_name": "60011.pdf",
+      "pdf_title": "Adalimumab/Etanercept/Tocilizumab for Polyarticular Juvenile Idiopathic Arthritis Special Authorization Request Form (ABC 60011)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 49,
+    "fields": {
+      "file_name": "60031.pdf",
+      "pdf_title": "Adalimumab/Vedolizumab for Crohn's/Infliximab for Crohn's/Fistulizing Crohn's Disease Special Authorization Request Form (ABC 60031)"
+    }
+  },
+  {
+    "model": "drug_price_calculator.specialauthorization",
+    "pk": 50,
+    "fields": {
+      "file_name": "60058.pdf",
+      "pdf_title": "Adalimumab for Hidradenitis Suppurativa Special Authorization Request Form (ABC 60058)"
+    }
+  }
+]

@@ -88,6 +88,10 @@ Setting Up Development Environment
 
     $ make --file=Makefile development-fresh
 
+   This will setup a fresh pipenv development environment, collect the
+   Django static files, reset the Django database and run the model
+   migrations, and load initial fixture data for testing.
+
 9. You should now be able to run the Django development server. You can test
    this with the following command, which will generate output similar to
    below::
@@ -99,6 +103,15 @@ Setting Up Development Environment
     > Django version 2.1.4, using settings 'config.settings.development'
     > Starting development server at http://127.0.0.1:8000/
     > Quit the server with CTRL-BREAK.
+
+10. The following user accounts are included for testing:
+
+    - **Admin Account**: ``username`` = ``admin``, ``email`` =
+      ``admin@email.com``, and ``password`` = ``admin``
+    - **Basic User Account**: ``username`` = ``user``, ``email`` =
+      ``user@email.com``, and ``password`` = ``user``
+
+    **DO NOT** use these accounts in a production environment.
 
 --------------------------
 Running development server

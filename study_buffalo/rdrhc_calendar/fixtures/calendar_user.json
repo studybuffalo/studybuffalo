@@ -1,0 +1,30 @@
+[
+  {
+    "model": "rdrhc_calendar.calendaruser",
+    "pk": 1,
+    "fields": {
+      "sb_user": 1,
+      "name": "Admin",
+      "schedule_name": "Admin User",
+      "calendar_name": "WigglingCaterpillar",
+      "role": "p",
+      "first_email_sent": false,
+      "full_day": false,
+      "reminder": null
+    }
+  },
+  {
+    "model": "rdrhc_calendar.calendaruser",
+    "pk": 2,
+    "fields": {
+      "sb_user": 2,
+      "name": "Regular",
+      "schedule_name": "Regular User",
+      "calendar_name": "SleepySnek",
+      "role": "t",
+      "first_email_sent": false,
+      "full_day": false,
+      "reminder": null
+    }
+  }
+]

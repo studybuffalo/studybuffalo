@@ -1,0 +1,40 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$Y3V3SVZnUGdUNkN6ZVNxcVhhUkNBUg$yBi3ZLMN8MzXxojPg8PzzfiOPeXB9lpFZXK3dbu1u/M",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin@email.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2000-01-01T00:00:00.000Z",
+      "name": "Admin User",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$TzRNTnhjOGJWQnlsQzhya0ZSZm1CUw$by0CAACmpQ2GalMaziRyD77lcMAN9ppOBVrPqEKXn9o",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user",
+      "first_name": "Basic",
+      "last_name": "User",
+      "email": "user@email.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2000-01-01T00:00:00.000Z",
+      "name": "Basic User",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
