@@ -42,8 +42,9 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 
-.PHONY: install-django-fixtures install-development-fresh \
-		install-development-fixtures install-production
+.PHONY: install-django-fixtures install-development \
+		install-development-fresh install-development-fixtures \
+		install-production
 
 # Prompt to require confirmation before proceeding with Make target
 confirm-install:
@@ -66,6 +67,13 @@ install-django-fixtures:
 	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/home/update
 	cp study_buffalo/media/fixtures/test_icon.png study_buffalo/media/home/update
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
+
+# Install/update a development environment
+install-development:
+	pipenv uninstall --all
+	pipenv install --dev --ignore-pipfile
+	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
+	pipenv run python manage.py migrate --settings=config.settings.development
 
 # Install a fresh development envrionment without any fixtures
 # NOTE: WILL RESET ENTIRE DATABASE
