@@ -4,8 +4,6 @@ Study Buffalo
 
 |Coverage|_ |License|_
 
-.. _BuildStatus: https://travis-ci.com/studybuffalo/studybuffalo
-
 .. |Coverage| image:: https://codecov.io/gh/studybuffalo/studybuffalo/branch/master/graph/badge.svg
    :alt: Codecov code coverage
 
@@ -84,13 +82,17 @@ Setting Up Development Environment
    your database credentials and any secret keys/API details.
 
 8. In the root directory of the repository, run the Makefile install
-   command to setup Django::
+   command to setup Django.
 
-    $ make --file=Makefile development-fresh
+   You may setup the environment with no database content with the
+   following command::
 
-   This will setup a fresh pipenv development environment, collect the
-   Django static files, reset the Django database and run the model
-   migrations, and load initial fixture data for testing.
+    $ make --file=Makefile install-development-fresh
+
+   You may setup the environment with fixture content with the
+   following command::
+
+    $ make --file=Makefile install-development-fixtures
 
 9. You should now be able to run the Django development server. You can test
    this with the following command, which will generate output similar to
@@ -100,11 +102,12 @@ Setting Up Development Environment
 
     > Performing system checks...
     > System check identified no issues (0 silenced).
-    > Django version 2.1.4, using settings 'config.settings.development'
+    > Django version #.#.#, using settings 'config.settings.development'
     > Starting development server at http://127.0.0.1:8000/
     > Quit the server with CTRL-BREAK.
 
-10. The following user accounts are included for testing:
+10. If fixture data was loaded, the following user accounts will be
+    available:
 
     - **Admin Account**: ``username`` = ``admin``, ``email`` =
       ``admin@email.com``, and ``password`` = ``admin``
@@ -112,6 +115,7 @@ Setting Up Development Environment
       ``user@email.com``, and ``password`` = ``user``
 
     **DO NOT** use these accounts in a production environment.
+
 
 --------------------------
 Running development server
