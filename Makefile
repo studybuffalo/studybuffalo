@@ -1,5 +1,5 @@
 SHELL = /bin/sh
-
+THIS_FILE := $(lastword $(MAKEFILE_LIST))
 fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/dictionary/fixtures/dictionary_type.json \
 			study_buffalo/dictionary/fixtures/dictionary_class.json \
@@ -42,35 +42,16 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/users/fixtures/users.json \
 			study_buffalo/users/fixtures/emails.json
 
-# Update a development environment
-development:
-	pipenv uninstall --all
-	pipenv install --dev --ignore-pipfile
-	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
-	pipenv run python manage.py migrate --settings=config.settings.development
+.PHONY: install-django-fixtures install-development-fresh \
+		install-development-fixtures install-production
 
-# Update a production environment
-production:
-	pipenv uninstall --all
-	pipenv install --ignore-pipfile
-	pipenv run python manage.py collectstatic --noinput --settings=config.settings.production
-	pipenv run python manage.py migrate --settings=config.settings.production
-	sudo systemctl restart uwsgi
+# Prompt to require confirmation before proceeding with Make target
+confirm-install:
+	@echo -n "This will clear all Django content. Enter 'yes' to proceed [yes/no]. " && read ans && [ $${ans:-N} = yes ]
 
-# Install a fresh development environment (WILL RESET ENTIRE DATABASE)
-development-fresh:
-	pipenv uninstall --all
-	pipenv install --dev --ignore-pipfile
-	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
-	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
-	pipenv run python manage.py migrate --settings=config.settings.development
-	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
-
-# Install fixtures to reset development environment database (WILL
-# RESET ENTIRE DATABASE)
-install-fixtures:
-	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
-	pipenv run python manage.py migrate --settings=config.settings.development
+# Install fixtures and associated files for development server
+# NOTE: MAY OVERWRITE EXISTING DATABASE AND MEDIA CONTENT
+install-django-fixtures:
 	mkdir -p study_buffalo/media/play/audio
 	mkdir -p study_buffalo/media/play/images/original
 	mkdir -p study_buffalo/media/play/images/resized
@@ -85,3 +66,34 @@ install-fixtures:
 	cp study_buffalo/media/fixtures/test_image.png study_buffalo/media/home/update
 	cp study_buffalo/media/fixtures/test_icon.png study_buffalo/media/home/update
 	pipenv run python manage.py loaddata $(fixtures) --settings=config.settings.development
+
+# Install a fresh development envrionment without any fixtures
+# NOTE: WILL RESET ENTIRE DATABASE
+install-development-fresh: confirm-install
+	pipenv uninstall --all
+	pipenv install --dev --ignore-pipfile
+	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
+	rm -rf staticfiles/*
+	find study_buffalo/media/ -mindepth 1 -not -path "*/fixtures" -not -path "*/fixtures/*"  -delete
+	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
+	pipenv run python manage.py migrate --settings=config.settings.development
+
+# Install a fresh development environment with fixtures
+# NOTE: WILL RESET ENTIRE DATABASE
+install-development-fixtures: confirm-install
+	pipenv uninstall --all
+	pipenv install --dev --ignore-pipfile
+	pipenv run python manage.py reset_db --noinput --settings=config.settings.development
+	rm -rf staticfiles/*
+	find study_buffalo/media/ -mindepth 1 -not -path "*/fixtures" -not -path "*/fixtures/*"  -delete
+	pipenv run python manage.py collectstatic --noinput --settings=config.settings.development
+	pipenv run python manage.py migrate --settings=config.settings.development
+	$(MAKE) -f $(THIS_FILE) install-django-fixtures
+
+# Install/update a production environment
+install-production:
+	pipenv uninstall --all
+	pipenv install --ignore-pipfile
+	pipenv run python manage.py collectstatic --noinput --settings=config.settings.production
+	pipenv run python manage.py migrate --settings=config.settings.production
+	sudo systemctl restart uwsgi
