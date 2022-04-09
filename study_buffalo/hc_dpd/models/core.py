@@ -81,10 +81,15 @@ class DPD(models.Model):
     )
 
     def __str__(self):
+        """Returns string representation of model."""
         return str(self.drug_code)
 
     def update_modified(self, field):
-        """Updates the modified datetime for the specified field."""
+        """Updates the modified datetime for the specified field.
+
+            :param field str: The field to update the modified
+                datetime for
+        """
         # Mapping of string names to model fields
         field_mapping = {
             utils.ACTIVE_INGREDIENT: self.original_active_ingredient_modified,
@@ -221,6 +226,10 @@ class DPDChecksum(models.Model):
             Uses the CRC32 algorithm, as this is expect to be fast enough
             for the API needs and the size of strings to create checksums
             are unlikely to result in meaningful collisions.
+
+            :param str string: The string to calculate checksum for
+            :return: The calculated checksum
+            :rtype: str
         """
         # Convert string to bytes
         b_string = string.encode('utf-8')
@@ -229,7 +238,13 @@ class DPDChecksum(models.Model):
 
     @staticmethod
     def _compile_checksum_string(query, field_order):
-        """Concatenates provided fields in query for checksum calculation."""
+        """Concatenates provided fields in query for checksum calculation.
+
+            :param obj query: A Django queryset object.
+            :param list[str] field_order: A list outlining order of fields.
+            :return: The concatenated query data
+            :rtype: str
+        """
         checksum_string = ''
 
         for row in query:
@@ -239,7 +254,13 @@ class DPDChecksum(models.Model):
         return checksum_string
 
     def _create_active_ingredients_checksum(self, dpd_query):
-        """Creates ActiveIngredients checksum for provided DPD query."""
+        """Creates ActiveIngredients checksum for provided DPD query.
+
+            :param obj dpd_query: A Django queryset object for the DPD
+                model
+            :return: The checksum for the requested Active Ingredients
+            :rtype: str
+        """
         # Get reference to the ActiveIngredients instances
         query = dpd_query.active_ingredients
 
