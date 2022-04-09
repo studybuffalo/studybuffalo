@@ -96,7 +96,7 @@ class FormattedActiveIngredient(models.Model):
     )
 
 
-class FormattedBiosimilars(models.Model):
+class FormattedBiosimilar(models.Model):
     """Model representing the formatted QRYM_BIOSIMILARS file.
 
         This extract is not present in the DPD Read Me File - field names

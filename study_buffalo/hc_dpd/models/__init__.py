@@ -1,7 +1,7 @@
 """Models for the Health Canada Drug Product Database app."""
 from .core import DPD, DPDChecksum
 from .formatted import (
-    FormattedActiveIngredient, FormattedBiosimilars, FormattedCompany,
+    FormattedActiveIngredient, FormattedBiosimilar, FormattedCompany,
     FormattedDrugProduct, FormattedForm, FormattedInactiveProduct,
     FormattedPackaging, FormattedPharmaceuticalStandard, FormattedRoute,
     FormattedSchedule, FormattedStatus, FormattedTherapeuticClass,
