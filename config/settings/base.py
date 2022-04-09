@@ -233,11 +233,6 @@ ADMINS = [
 MANAGERS = ADMINS
 
 
-# LOGGING
-# ------------------------------------------------------------------------------
-LOGGING_CONFIG = None
-
-
 # django-allauth
 # ------------------------------------------------------------------------------
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
