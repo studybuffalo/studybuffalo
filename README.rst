@@ -161,3 +161,11 @@ To run linting::
 
   # Run Pycodestyle
   $ pipenv run pycodestyle study_buffalo/ config/
+
+-------------------
+Documentation Style
+-------------------
+
+Docstrings are documented using the reStructuredText format. Details of
+this style can be found here:
+https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html
