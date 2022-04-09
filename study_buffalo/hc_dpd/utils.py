@@ -41,23 +41,3 @@ def standard_to_original_model():
         THERAPUETIC_CLASS: models.OriginalTherapeuticClass,
         VETERINARY_SPECIES: models.OriginalVeterinarySpecies,
     }
-
-
-# Lists of DPD fields (in order found in extracts)
-ACTIVE_INGREDIENT_FIELDS = [
-    'drug_code',
-    'active_ingredient_code',
-    'ingredient',
-    'ingredient_supplied_ind',
-    'strength',
-    'strength_unit',
-    'strength_type',
-    'dosage_value',
-    'base',
-    'dosage_unit',
-    'notes',
-    'ingredient_f',
-    'strength_unit_f',
-    'strength_type_f',
-    'dosage_unit_f',
-]

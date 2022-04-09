@@ -8,6 +8,7 @@ class FormattedActiveIngredient(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_active_ingredients',
     )
     active_ingredient_code = models.CharField(
         blank=True,
@@ -105,6 +106,7 @@ class FormattedBiosimilars(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_biosimilars',
     )
     biosimilar_code = models.PositiveIntegerField(
         blank=True,
@@ -131,6 +133,7 @@ class FormattedCompany(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_companies',
     )
     mfr_code = models.CharField(
         blank=True,
@@ -241,6 +244,7 @@ class FormattedDrugProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_drug_products',
     )
     product_categorization = models.CharField(
         blank=True,
@@ -327,6 +331,7 @@ class FormattedForm(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_forms',
     )
     pharm_form_code = models.PositiveIntegerField(
         blank=True,
@@ -353,6 +358,7 @@ class FormattedInactiveProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_inactive_products',
     )
     drug_identification_number = models.CharField(
         blank=True,
@@ -379,6 +385,7 @@ class FormattedPackaging(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_packaging',
     )
     upc = models.CharField(
         blank=True,
@@ -430,6 +437,7 @@ class FormattedPharmaceuticalStandard(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_pharmaceutical_standards',
     )
     pharmaceutical_std = models.CharField(
         blank=True,
@@ -445,6 +453,7 @@ class FormattedRoute(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_routes',
     )
     route_of_administration_code = models.PositiveIntegerField(
         blank=True,
@@ -471,6 +480,7 @@ class FormattedSchedule(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_schedules',
     )
     schedule = models.CharField(
         blank=True,
@@ -492,6 +502,7 @@ class FormattedStatus(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_statuses',
     )
     current_status_flag = models.CharField(
         blank=True,
@@ -535,6 +546,7 @@ class FormattedTherapeuticClass(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_therapeutic_classes',
     )
     tc_atc_number = models.CharField(
         blank=True,
@@ -562,6 +574,7 @@ class FormattedVeterinarySpecies(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_veterinary_species',
     )
     vet_species = models.CharField(
         blank=True,

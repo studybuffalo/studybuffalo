@@ -8,7 +8,7 @@ class OriginalActiveIngredient(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-        related_name='active_ingredients'
+        related_name='original_active_ingredients',
     )
     active_ingredient_code = models.CharField(
         blank=True,
@@ -95,6 +95,25 @@ class OriginalActiveIngredient(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'active_ingredient_code',
+        'ingredient',
+        'ingredient_supplied_ind',
+        'strength',
+        'strength_unit',
+        'strength_type',
+        'dosage_value',
+        'base',
+        'dosage_unit',
+        'notes',
+        'ingredient_f',
+        'strength_unit_f',
+        'strength_type_f',
+        'dosage_unit_f',
+    ]
+
 
 class OriginalBiosimilar(models.Model):
     """Model representing the QRYM_BIOSIMILARS file.
@@ -106,6 +125,7 @@ class OriginalBiosimilar(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_biosimilars',
     )
     biosimilar_code = models.PositiveIntegerField(
         blank=True,
@@ -125,6 +145,14 @@ class OriginalBiosimilar(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'biosimilar_code',
+        'biosimilar_type',
+        'biosimilar_type_f',
+    ]
+
 
 class OriginalCompany(models.Model):
     """Model representing QRYM_COMPANIES file."""
@@ -132,6 +160,7 @@ class OriginalCompany(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_companies',
     )
     mfr_code = models.CharField(
         blank=True,
@@ -235,6 +264,28 @@ class OriginalCompany(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'mfr_code',
+        'company_code',
+        'company_name',
+        'company_type',
+        'address_mailing_flag',
+        'address_billing_flag',
+        'address_notification_flag',
+        'address_other',
+        'suite_number',
+        'street_name',
+        'city_name',
+        'province',
+        'country',
+        'postal_code',
+        'post_office_box',
+        'province_f',
+        'country_f',
+    ]
+
 
 class OriginalDrugProduct(models.Model):
     """Model representing QRYM_DRUG_PRODUCT file."""
@@ -242,6 +293,7 @@ class OriginalDrugProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_drug_products',
     )
     product_categorization = models.CharField(
         blank=True,
@@ -321,6 +373,24 @@ class OriginalDrugProduct(models.Model):
         null=True,
     )
 
+    # Additional fields
+    field_order = [
+        'drug_code',
+        'product_categorization',
+        'class_e',
+        'drug_identification_number',
+        'brand_name',
+        'descriptor',
+        'pediatric_flag',
+        'accession_number',
+        'number_of_ais',
+        'last_update_date',
+        'ai_group_no',
+        'class_f',
+        'brand_name_f',
+        'descriptor_f',
+    ]
+
 
 class OriginalForm(models.Model):
     """Model representing QRYM_FORM file."""
@@ -328,6 +398,7 @@ class OriginalForm(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_forms',
     )
     pharm_form_code = models.PositiveIntegerField(
         blank=True,
@@ -347,6 +418,14 @@ class OriginalForm(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'pharm_form_code',
+        'pharmaceutical_form',
+        'pharmaceutical_form_f',
+    ]
+
 
 class OriginalInactiveProduct(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file."""
@@ -354,6 +433,7 @@ class OriginalInactiveProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_inactive_products',
     )
     drug_identification_number = models.CharField(
         blank=True,
@@ -373,6 +453,14 @@ class OriginalInactiveProduct(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'drug_identification_number',
+        'brand_name',
+        'history_date',
+    ]
+
 
 class OriginalPackaging(models.Model):
     """Model representing QRYM_Packaging file."""
@@ -380,6 +468,7 @@ class OriginalPackaging(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_packaging',
     )
     upc = models.CharField(
         blank=True,
@@ -424,6 +513,18 @@ class OriginalPackaging(models.Model):
         null=True,
     )
 
+    # Additional attributees
+    field_order = [
+        'drug_code',
+        'upc',
+        'package_size_unit',
+        'package_type',
+        'package_size',
+        'product_information',
+        'package_size_unit_f',
+        'package_type_f',
+    ]
+
 
 class OriginalPharmaceuticalStandard(models.Model):
     """Model representing QRYM_PHARMACEUTICAL_STD file."""
@@ -431,6 +532,7 @@ class OriginalPharmaceuticalStandard(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_pharmaceutical_standards',
     )
     pharmaceutical_std = models.CharField(
         blank=True,
@@ -439,6 +541,12 @@ class OriginalPharmaceuticalStandard(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'pharmaceutical_std',
+    ]
+
 
 class OriginalRoute(models.Model):
     """Model representing QRYM_ROUTE file."""
@@ -446,6 +554,7 @@ class OriginalRoute(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_routes',
     )
     route_of_administration_code = models.PositiveIntegerField(
         blank=True,
@@ -465,6 +574,13 @@ class OriginalRoute(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'route_of_administration_code',
+        'route_of_administration',
+        'route_of_administration_f',
+    ]
 
 class OriginalSchedule(models.Model):
     """Model representing QRYM_SCHEDULE file."""
@@ -472,6 +588,7 @@ class OriginalSchedule(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_schedules',
     )
     schedule = models.CharField(
         blank=True,
@@ -486,6 +603,13 @@ class OriginalSchedule(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'schedule',
+        'schedule_f',
+    ]
+
 
 class OriginalStatus(models.Model):
     """Model representing QRYM_STATUS file."""
@@ -493,6 +617,7 @@ class OriginalStatus(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_statuses',
     )
     current_status_flag = models.CharField(
         blank=True,
@@ -529,6 +654,17 @@ class OriginalStatus(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'current_status_flag',
+        'status',
+        'history_date',
+        'status_f',
+        'lot_number',
+        'expiration_date',
+    ]
+
 
 class OriginalTherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file."""
@@ -536,6 +672,7 @@ class OriginalTherapeuticClass(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_therapeutic_classes',
     )
     tc_atc_number = models.CharField(
         blank=True,
@@ -556,6 +693,14 @@ class OriginalTherapeuticClass(models.Model):
         null=True,
     )
 
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'tc_atc_number',
+        'tc_atc',
+        'tc_atc_f',
+    ]
+
 
 class OriginalVeterinarySpecies(models.Model):
     """Model representing QRYM_VETERINARY_SPECIES file."""
@@ -563,6 +708,7 @@ class OriginalVeterinarySpecies(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_veterinary_species',
     )
     vet_species = models.CharField(
         blank=True,
@@ -582,3 +728,11 @@ class OriginalVeterinarySpecies(models.Model):
         max_length=160,
         null=True,
     )
+
+    # Additional attributes
+    field_order = [
+        'drug_code',
+        'vet_species',
+        'vet_sub_species',
+        'vet_species_f',
+    ]

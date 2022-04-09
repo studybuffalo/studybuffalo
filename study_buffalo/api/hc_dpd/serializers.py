@@ -15,8 +15,8 @@ class ActiveIngredientSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        # Get fields from utils and remove drug code
-        serializer_fields = utils.ACTIVE_INGREDIENT_FIELDS
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalActiveIngredient.field_order
         serializer_fields.remove('drug_code')
 
         # Meta declarations
@@ -41,12 +41,12 @@ class BiosimilarSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalBiosimilar.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalBiosimilar
-        fields = [
-            'biosimilar_code',
-            'biosimilar_type',
-            'biosimilar_type_f',
-        ]
+        fields = serializer_fields
 
 
 class CompanySerializer(serializers.ModelSerializer):
@@ -58,26 +58,12 @@ class CompanySerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalCompany.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalCompany
-        fields = [
-            'mfr_code',
-            'company_code',
-            'company_name',
-            'company_type',
-            'address_mailing_flag',
-            'address_billing_flag',
-            'address_notification_flag',
-            'address_other',
-            'suite_number',
-            'street_name',
-            'city_name',
-            'province',
-            'country',
-            'postal_code',
-            'post_office_box',
-            'province_f',
-            'country_f',
-        ]
+        fields = serializer_fields
 
 
 class DrugProductSerializer(serializers.ModelSerializer):
@@ -89,22 +75,12 @@ class DrugProductSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalDrugProduct.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalDrugProduct
-        fields = [
-            'product_categorization',
-            'class_e',
-            'drug_identification_number',
-            'brand_name',
-            'descriptor',
-            'pediatric_flag',
-            'accession_number',
-            'number_of_ais',
-            'last_update_date',
-            'ai_group_no',
-            'class_f',
-            'brand_name_f',
-            'descriptor_f',
-        ]
+        fields = serializer_fields
 
 
 class FormSerializer(serializers.ModelSerializer):
@@ -116,12 +92,12 @@ class FormSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalForm.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalForm
-        fields = [
-            'pharm_form_code',
-            'pharmaceutical_form',
-            'pharmaceutical_form_f',
-        ]
+        fields = serializer_fields
 
 
 class InactiveProductSerializer(serializers.ModelSerializer):
@@ -133,12 +109,12 @@ class InactiveProductSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalInactiveProduct.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalInactiveProduct
-        fields = [
-            'drug_identification_number',
-            'brand_name',
-            'history_date',
-        ]
+        fields = serializer_fields
 
 
 class PackagingSerializer(serializers.ModelSerializer):
@@ -150,16 +126,12 @@ class PackagingSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalPackaging.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalPackaging
-        fields = [
-            'upc',
-            'package_size_unit',
-            'package_type',
-            'package_size',
-            'product_information',
-            'package_size_unit_f',
-            'package_type_f',
-        ]
+        fields = serializer_fields
 
 
 class PharmaceuticalStandardSerializer(serializers.ModelSerializer):
@@ -171,10 +143,12 @@ class PharmaceuticalStandardSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalPharmaceuticalStandard.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalPharmaceuticalStandard
-        fields = [
-            'pharmaceutical_std',
-        ]
+        fields = serializer_fields
 
 
 class RouteSerializer(serializers.ModelSerializer):
@@ -186,12 +160,12 @@ class RouteSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalRoute.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalRoute
-        fields = [
-            'route_of_administration_code',
-            'route_of_administration',
-            'route_of_administration_f',
-        ]
+        fields = serializer_fields
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
@@ -203,11 +177,12 @@ class ScheduleSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalSchedule.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalSchedule
-        fields = [
-            'schedule',
-            'schedule_f',
-        ]
+        fields = serializer_fields
 
 
 class StatusSerializer(serializers.ModelSerializer):
@@ -219,15 +194,12 @@ class StatusSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalStatus.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalStatus
-        fields = [
-            'current_status_flag',
-            'status',
-            'history_date',
-            'status_f',
-            'lot_number',
-            'expiration_date',
-        ]
+        fields = serializer_fields
 
 
 class TherapeuticClassSerializer(serializers.ModelSerializer):
@@ -239,12 +211,12 @@ class TherapeuticClassSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalTherapeuticClass.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalTherapeuticClass
-        fields = [
-            'tc_atc_number',
-            'tc_atc',
-            'tc_atc_f',
-        ]
+        fields = serializer_fields
 
 
 class VeterinarySpeciesSerializer(serializers.ModelSerializer):
@@ -256,12 +228,12 @@ class VeterinarySpeciesSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalVeterinarySpecies.field_order
+        serializer_fields.remove('drug_code')
+
         model = models.OriginalVeterinarySpecies
-        fields = [
-            'vet_species',
-            'vet_sub_species',
-            'vet_species_f',
-        ]
+        fields = serializer_fields
 
 
 class UploadHCDPDDataSerializer(serializers.Serializer):

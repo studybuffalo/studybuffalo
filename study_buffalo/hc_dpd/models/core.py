@@ -88,7 +88,7 @@ class DPD(models.Model):
         """Updates the modified datetime for the specified field.
 
             :param field str: The field to update the modified
-                datetime for
+                datetime for.
         """
         # Mapping of string names to model fields
         field_mapping = {
@@ -182,7 +182,11 @@ class DPDChecksum(models.Model):
     )
 
     def clean(self):
-        """Method to allow additional validation steps."""
+        """Method to allow additional validation steps.
+
+            :raises ValidationError: if start value is not a multiple
+                of the step
+        """
         # Confirm a valid start and step are entered
         validate_checksum_start(self.drug_code_start, self.drug_code_step)
 
@@ -199,22 +203,25 @@ class DPDChecksum(models.Model):
 
     def create_checksum(self):
         """Uses instance information to create a checksum."""
-        # Mapping file types to checksum methods
-        checksum_mapping = {
-            utils.ACTIVE_INGREDIENT: self._create_active_ingredients_checksum,
-        }
+        # Get the model for this extract source
+        extract_model = utils.standard_to_original_model()[self.extract_source]
 
         # Calculate ending drug code for filter
         drug_code_end = self.drug_code_start + self.drug_code_step
 
-        # Obtain required DPD instances
-        query = DPD.objects.filter(
-            pk__gte=self.drug_code_start,
-            pk__lte=drug_code_end
+        # Get a query for the proper drug code values
+        query = extract_model.objects.filter(
+            drug_code__pk__gte=self.drug_code_start,
+            pk__lte=drug_code_end,
         )
 
-        # Obtain required checksum method and calculate checksum
-        checksum = checksum_mapping[self.extract_source](query)
+        # Get the checksum string for this extract
+        checksum_string = self._compile_checksum_string(
+            query, extract_model.field_order
+        )
+
+        # Calculate checksum for string
+        checksum = self.calculate_checksum(checksum_string)
 
         # Update this DPDChecksum instance with the calculated checksum
         self.checksum = checksum
@@ -252,24 +259,3 @@ class DPDChecksum(models.Model):
                 checksum_string += str(getattr(row, field))
 
         return checksum_string
-
-    def _create_active_ingredients_checksum(self, dpd_query):
-        """Creates ActiveIngredients checksum for provided DPD query.
-
-            :param obj dpd_query: A Django queryset object for the DPD
-                model
-            :return: The checksum for the requested Active Ingredients
-            :rtype: str
-        """
-        # Get reference to the ActiveIngredients instances
-        query = dpd_query.active_ingredients
-
-        # Get the checksum string for the active ingredients
-        checksum_string = self._compile_checksum_string(
-            query, utils.ACTIVE_INGREDIENT_FIELDS
-        )
-
-        # Calculate checksum for string
-        checksum = self.calculate_checksum(checksum_string)
-
-        return checksum
