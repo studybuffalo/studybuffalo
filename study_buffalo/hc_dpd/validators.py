@@ -7,6 +7,8 @@ def validate_checksum_start(start, step):
 
         This validation ensures that start values are consistent and
         minimizes the number of checksums required.
+
+        :raises ValidationError: if start is not multiple of step
     """
     if start % step != 0:
         examples = [0 * step, 1 * step, 2 * step]
