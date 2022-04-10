@@ -11,7 +11,7 @@ def validate_checksum_start(start, step):
         :raises ValidationError: if start is not multiple of step
     """
     if start % step != 0:
-        examples = [0 * step, 1 * step, 2 * step]
+        examples = [str(0 * step), str(1 * step), str(2 * step)]
         message = f'Start values must be multiples of the step ({step}), such as {", ".join(examples)}, etc.'
 
         raise ValidationError(
