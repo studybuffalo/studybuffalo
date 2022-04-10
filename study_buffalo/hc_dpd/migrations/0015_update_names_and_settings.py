@@ -1,4 +1,4 @@
-# pylint: disable=missing-module-docstring, missing-class-docstring
+# pylint: disable=missing-module-docstring, missing-class-docstring, line-too-long
 from django.db import migrations, models
 import django.db.models.deletion
 
