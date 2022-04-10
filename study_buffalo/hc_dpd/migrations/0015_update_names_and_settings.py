@@ -1,4 +1,4 @@
-# pylint: disable=missing-module-docstring, missing-class-docstring, line-too-long
+# pylint: disable=missing-module-docstring, missing-class-docstring
 from django.db import migrations, models
 import django.db.models.deletion
 
@@ -10,15 +10,29 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='FormattedBiosimilar',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('biosimilar_code', models.PositiveIntegerField(blank=True, help_text='The formatted version of BIOSIMILAR_CODE.', null=True)),
+                ('biosimilar_type', models.CharField(blank=True, help_text='The formatted version of BIOSIMILAR_TYPE.', max_length=20, null=True)),
+                ('biosimilar_type_F', models.CharField(blank=True, help_text='The formatted version of BIOSIMILAR_TYPE_F.', max_length=20, null=True)),
+            ],
+        ),
+        migrations.RenameField(
+            model_name='dpd',
+            old_name='original_biosimilars_modified',
+            new_name='original_biosimilar_modified',
+        ),
+        migrations.AlterField(
+            model_name='dpdchecksum',
+            name='checksum',
+            field=models.CharField(help_text='The checksum value for the specified items.', max_length=10, null=True),
+        ),
         migrations.AlterField(
             model_name='formattedactiveingredient',
             name='drug_code',
             field=models.ForeignKey(help_text='The drug code reference for this item.', on_delete=django.db.models.deletion.CASCADE, related_name='formatted_active_ingredients', to='hc_dpd.dpd'),
-        ),
-        migrations.AlterField(
-            model_name='formattedbiosimilars',
-            name='drug_code',
-            field=models.ForeignKey(help_text='The drug code reference for this item.', on_delete=django.db.models.deletion.CASCADE, related_name='formatted_biosimilars', to='hc_dpd.dpd'),
         ),
         migrations.AlterField(
             model_name='formattedcompany',
@@ -139,5 +153,13 @@ class Migration(migrations.Migration):
             model_name='originalveterinaryspecies',
             name='drug_code',
             field=models.ForeignKey(help_text='The drug code reference for this item.', on_delete=django.db.models.deletion.CASCADE, related_name='original_veterinary_species', to='hc_dpd.dpd'),
+        ),
+        migrations.DeleteModel(
+            name='FormattedBiosimilars',
+        ),
+        migrations.AddField(
+            model_name='formattedbiosimilar',
+            name='drug_code',
+            field=models.ForeignKey(help_text='The drug code reference for this item.', on_delete=django.db.models.deletion.CASCADE, related_name='formatted_biosimilars', to='hc_dpd.dpd'),
         ),
     ]

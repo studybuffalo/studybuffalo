@@ -19,7 +19,7 @@ class DPD(models.Model):
         help_text='When the original active ingredient instances were last modified.',
         null=True,
     )
-    original_biosimilars_modified = models.DateTimeField(
+    original_biosimilar_modified = models.DateTimeField(
         blank=True,
         help_text='When the original biosimilar instances were last modified.',
         null=True,
@@ -92,23 +92,23 @@ class DPD(models.Model):
         """
         # Mapping of string names to model fields
         field_mapping = {
-            utils.ACTIVE_INGREDIENT: self.original_active_ingredient_modified,
-            utils.BIOSIMILAR: self.original_biosimilars_modified,
-            utils.COMPANY: self.original_company_modified,
-            utils.DRUG_PRODUCT: self.original_drug_product_modified,
-            utils.FORM: self.original_form_modified,
-            utils.INACTIVE_PRODUCT: self.original_inactive_product_modified,
-            utils.PACKAGING: self.original_packaging_modified,
-            utils.PHARMACEUTICAL_STANDARD: self.original_pharmaceutical_standard_modified,
-            utils.ROUTE: self.original_route_modified,
-            utils.SCHEDULE: self.original_schedule_modified,
-            utils.STATUS: self.original_status_modified,
-            utils.THERAPUETIC_CLASS: self.original_therapeutic_class_modified,
-            utils.VETERINARY_SPECIES: self.original_veterinary_species_modified,
+            utils.ACTIVE_INGREDIENT: 'original_active_ingredient_modified',
+            utils.BIOSIMILAR: 'original_biosimilar_modified',
+            utils.COMPANY: 'original_company_modified',
+            utils.DRUG_PRODUCT: 'original_drug_product_modified',
+            utils.FORM: 'original_form_modified',
+            utils.INACTIVE_PRODUCT: 'original_inactive_product_modified',
+            utils.PACKAGING: 'original_packaging_modified',
+            utils.PHARMACEUTICAL_STANDARD: 'original_pharmaceutical_standard_modified',
+            utils.ROUTE: 'original_route_modified',
+            utils.SCHEDULE: 'original_schedule_modified',
+            utils.STATUS: 'original_status_modified',
+            utils.THERAPUETIC_CLASS: 'original_therapeutic_class_modified',
+            utils.VETERINARY_SPECIES: 'original_veterinary_species_modified',
         }
 
         # Update the modified time and save model
-        field_mapping[field] = timezone.now()
+        setattr(self, field_mapping[field], timezone.now())
         self.save()
 
     class Meta:
@@ -175,6 +175,7 @@ class DPDChecksum(models.Model):
     checksum = models.CharField(
         help_text='The checksum value for the specified items.',
         max_length=10,
+        null=True,
     )
     checksum_date = models.DateField(
         auto_now=True,
