@@ -173,9 +173,9 @@ class DPDChecksum(models.Model):
         max_length=32,
     )
     checksum = models.CharField(
+        blank=True,
         help_text='The checksum value for the specified items.',
         max_length=10,
-        null=True,
     )
     checksum_date = models.DateField(
         auto_now=True,
