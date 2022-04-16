@@ -95,6 +95,10 @@ class FormattedActiveIngredient(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.ingredient} [{self.active_ingredient_code}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedBiosimilar(models.Model):
     """Model representing the formatted QRYM_BIOSIMILARS file.
@@ -119,12 +123,16 @@ class FormattedBiosimilar(models.Model):
         max_length=20,
         null=True,
     )
-    biosimilar_type_F = models.CharField(
+    biosimilar_type_f = models.CharField(
         blank=True,
         help_text='The formatted version of BIOSIMILAR_TYPE_F.',
         max_length=20,
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.biosimilar_code} [F; Drug Code {self.drug_code}]'
 
 
 class FormattedCompany(models.Model):
@@ -237,6 +245,10 @@ class FormattedCompany(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.company_name} [{self.company_code}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedDrugProduct(models.Model):
     """Model representing the formatted QRYM_DRUG_PRODUCT file."""
@@ -324,6 +336,10 @@ class FormattedDrugProduct(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.drug_identification_number}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedForm(models.Model):
     """Model representing the formatted QRYM_FORM file."""
@@ -351,6 +367,10 @@ class FormattedForm(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_form} [{self.pharm_form_code}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedInactiveProduct(models.Model):
     """Model representing the formatted QRYM_INACTIVE_PRODUCTS file."""
@@ -377,6 +397,10 @@ class FormattedInactiveProduct(models.Model):
         help_text='The formatted version of HISTORY_DATE.',
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.history_date}] [F; Drug Code {self.drug_code}]'
 
 
 class FormattedPackaging(models.Model):
@@ -430,6 +454,10 @@ class FormattedPackaging(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.upc} [F; Drug Code {self.drug_code}]'
+
 
 class FormattedPharmaceuticalStandard(models.Model):
     """Model representing the formatted QRYM_PHARMACEUTICAL_STD file."""
@@ -445,6 +473,10 @@ class FormattedPharmaceuticalStandard(models.Model):
         max_length=40,
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_std} [F; Drug Code {self.drug_code}]'
 
 
 class FormattedRoute(models.Model):
@@ -473,6 +505,10 @@ class FormattedRoute(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.route_of_administration} [{self.route_of_administration_code}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedSchedule(models.Model):
     """Model representing the formatted QRYM_SCHEDULE file."""
@@ -494,6 +530,10 @@ class FormattedSchedule(models.Model):
         max_length=160,
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.schedule} [F; Drug Code {self.drug_code}]'
 
 
 class FormattedStatus(models.Model):
@@ -539,6 +579,10 @@ class FormattedStatus(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.status} [{self.history_date}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedTherapeuticClass(models.Model):
     """Model representing the formatted QRYM_THERAPEUTIC_CLASS file."""
@@ -567,6 +611,10 @@ class FormattedTherapeuticClass(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.tc_atc} [{self.tc_atc_number}] [F; Drug Code {self.drug_code}]'
+
 
 class FormattedVeterinarySpecies(models.Model):
     """Model representing the formatted QRYM_VETERINARY_SPECIES file."""
@@ -594,3 +642,15 @@ class FormattedVeterinarySpecies(models.Model):
         max_length=160,
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        species_list = []
+
+        if self.vet_species != '' and self.vet_species is not None:
+            species_list.append(self.vet_species)
+
+        if self.vet_sub_species != '' and self.vet_sub_species is not None:
+            species_list.append(self.vet_sub_species)
+
+        return f'{" - ".join(species_list)} [F; Drug Code {self.drug_code}]'
