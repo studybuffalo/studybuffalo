@@ -114,6 +114,10 @@ class OriginalActiveIngredient(models.Model):
         'dosage_unit_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.ingredient} [{self.active_ingredient_code}] [O; Drug Code {self.drug_code}]'
+
 
 class OriginalBiosimilar(models.Model):
     """Model representing the QRYM_BIOSIMILARS file.
@@ -152,6 +156,10 @@ class OriginalBiosimilar(models.Model):
         'biosimilar_type',
         'biosimilar_type_f',
     ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.biosimilar_code} [O; Drug Code {self.drug_code}]'
 
 
 class OriginalCompany(models.Model):
@@ -286,6 +294,10 @@ class OriginalCompany(models.Model):
         'country_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.company_name} [{self.company_code}] [O; Drug Code {self.drug_code}]'
+
 
 class OriginalDrugProduct(models.Model):
     """Model representing QRYM_DRUG_PRODUCT file."""
@@ -391,6 +403,11 @@ class OriginalDrugProduct(models.Model):
         'descriptor_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.drug_identification_number}] [O; Drug Code {self.drug_code}]'
+
+
 
 class OriginalForm(models.Model):
     """Model representing QRYM_FORM file."""
@@ -426,6 +443,11 @@ class OriginalForm(models.Model):
         'pharmaceutical_form_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_form} [{self.pharm_form_code}] [O; Drug Code {self.drug_code}]'
+
+
 
 class OriginalInactiveProduct(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file."""
@@ -460,6 +482,10 @@ class OriginalInactiveProduct(models.Model):
         'brand_name',
         'history_date',
     ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.history_date}] [O; Drug Code {self.drug_code}]'
 
 
 class OriginalPackaging(models.Model):
@@ -525,6 +551,10 @@ class OriginalPackaging(models.Model):
         'package_type_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.upc} [O; Drug Code {self.drug_code}]'
+
 
 class OriginalPharmaceuticalStandard(models.Model):
     """Model representing QRYM_PHARMACEUTICAL_STD file."""
@@ -546,6 +576,10 @@ class OriginalPharmaceuticalStandard(models.Model):
         'drug_code',
         'pharmaceutical_std',
     ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_std} [O; Drug Code {self.drug_code}]'
 
 
 class OriginalRoute(models.Model):
@@ -582,6 +616,11 @@ class OriginalRoute(models.Model):
         'route_of_administration_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.route_of_administration} [{self.route_of_administration_code}] [O; Drug Code {self.drug_code}]'
+
+
 
 class OriginalSchedule(models.Model):
     """Model representing QRYM_SCHEDULE file."""
@@ -610,6 +649,10 @@ class OriginalSchedule(models.Model):
         'schedule',
         'schedule_f',
     ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.schedule} [O; Drug Code {self.drug_code}]'
 
 
 class OriginalStatus(models.Model):
@@ -666,6 +709,11 @@ class OriginalStatus(models.Model):
         'expiration_date',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.status} [{self.history_date}] [O; Drug Code {self.drug_code}]'
+
+
 
 class OriginalTherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file."""
@@ -702,6 +750,10 @@ class OriginalTherapeuticClass(models.Model):
         'tc_atc_f',
     ]
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.tc_atc} [{self.tc_atc_number}] [O; Drug Code {self.drug_code}]'
+
 
 class OriginalVeterinarySpecies(models.Model):
     """Model representing QRYM_VETERINARY_SPECIES file."""
@@ -737,3 +789,15 @@ class OriginalVeterinarySpecies(models.Model):
         'vet_sub_species',
         'vet_species_f',
     ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        species_list = []
+
+        if self.vet_species != '' and self.vet_species is not None:
+            species_list.append(self.vet_species)
+
+        if self.vet_sub_species != '' and self.vet_sub_species is not None:
+            species_list.append(self.vet_sub_species)
+
+        return f'{" - ".join(species_list)} [O; Drug Code {self.drug_code}]'
