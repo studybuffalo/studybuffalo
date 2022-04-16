@@ -13,10 +13,41 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='FormattedBiosimilar',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('biosimilar_code', models.PositiveIntegerField(blank=True, help_text='The formatted version of BIOSIMILAR_CODE.', null=True)),
-                ('biosimilar_type', models.CharField(blank=True, help_text='The formatted version of BIOSIMILAR_TYPE.', max_length=20, null=True)),
-                ('biosimilar_type_F', models.CharField(blank=True, help_text='The formatted version of BIOSIMILAR_TYPE_F.', max_length=20, null=True)),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'biosimilar_code',
+                    models.PositiveIntegerField(
+                        blank=True,
+                        help_text='The formatted version of BIOSIMILAR_CODE.',
+                        null=True,
+                    ),
+                ),
+                (
+                    'biosimilar_type',
+                    models.CharField(
+                        blank=True,
+                        help_text='The formatted version of BIOSIMILAR_TYPE.',
+                        max_length=20,
+                        null=True,
+                    ),
+                ),
+                (
+                    'biosimilar_type_f',
+                    models.CharField(
+                        blank=True,
+                        help_text='The formatted version of BIOSIMILAR_TYPE_F.',
+                        max_length=20,
+                        null=True,
+                    ),
+                ),
             ],
         ),
         migrations.RenameField(
@@ -24,10 +55,15 @@ class Migration(migrations.Migration):
             old_name='original_biosimilars_modified',
             new_name='original_biosimilar_modified',
         ),
+        migrations.RenameField(
+            model_name='originalbiosimilar',
+            old_name='biosimilar_type_F',
+            new_name='biosimilar_type_f',
+        ),
         migrations.AlterField(
             model_name='dpdchecksum',
             name='checksum',
-            field=models.CharField(help_text='The checksum value for the specified items.', max_length=10, null=True),
+            field=models.CharField(blank=True, help_text='The checksum value for the specified items.', max_length=10),
         ),
         migrations.AlterField(
             model_name='formattedactiveingredient',
