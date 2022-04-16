@@ -136,8 +136,11 @@ To run tests::
 
 To generate coverage report::
 
+  # XML Report
   $ pipenv run pytest --cov study_buffalo --cov-report xml
 
+  # HTML Report
+  $ pipenv run pytest --cov study_buffalo --cov-report html
 
 ---------------
 Running Linters
