@@ -35,7 +35,7 @@ def test__active_ingredient__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalActiveIngredient._meta.get_field('active_ingredient_code').max_length == 6
     assert models.OriginalActiveIngredient._meta.get_field('ingredient').max_length == 240
     assert models.OriginalActiveIngredient._meta.get_field('ingredient_supplied_ind').max_length == 1
@@ -58,7 +58,7 @@ def test__active_ingredient__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'active_ingredient_code',
@@ -107,7 +107,7 @@ def test__biosimilar__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalBiosimilar._meta.get_field('biosimilar_type').max_length == 20
     assert models.OriginalBiosimilar._meta.get_field('biosimilar_type_f').max_length == 20
 
@@ -118,7 +118,7 @@ def test__biosimilar__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'biosimilar_code',
@@ -157,7 +157,7 @@ def test__company__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalCompany._meta.get_field('mfr_code').max_length == 5
     assert models.OriginalCompany._meta.get_field('company_name').max_length == 80
     assert models.OriginalCompany._meta.get_field('company_type').max_length == 40
@@ -182,7 +182,7 @@ def test__company__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'mfr_code',
@@ -205,7 +205,6 @@ def test__company__field_order():
     ]
 
     assert models.OriginalCompany.dpd_field_order() == expected_order
-
 
 
 def test__drug_product__minimal_model_creation(hc_dpd_dpd):
@@ -236,7 +235,7 @@ def test__drug_product__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalDrugProduct._meta.get_field('product_categorization').max_length == 80
     assert models.OriginalDrugProduct._meta.get_field('class_e').max_length == 40
     assert models.OriginalDrugProduct._meta.get_field('drug_identification_number').max_length == 29
@@ -257,7 +256,7 @@ def test__drug_product__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'product_categorization',
@@ -276,6 +275,7 @@ def test__drug_product__field_order():
     ]
 
     assert models.OriginalDrugProduct.dpd_field_order() == expected_order
+
 
 def test__form__minimal_model_creation(hc_dpd_dpd):
     """Tests minimal OriginalForm model creation."""
@@ -305,7 +305,7 @@ def test__form__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalForm._meta.get_field('pharmaceutical_form').max_length == 40
     assert models.OriginalForm._meta.get_field('pharmaceutical_form_f').max_length == 80
 
@@ -316,7 +316,7 @@ def test__form__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'pharm_form_code',
@@ -355,7 +355,7 @@ def test__inactive_product__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalInactiveProduct._meta.get_field('drug_identification_number').max_length == 29
     assert models.OriginalInactiveProduct._meta.get_field('brand_name').max_length == 200
 
@@ -366,7 +366,7 @@ def test__inactive_product__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'drug_identification_number',
@@ -404,7 +404,7 @@ def test__packaging__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalPackaging._meta.get_field('upc').max_length == 12
     assert models.OriginalPackaging._meta.get_field('package_size_unit').max_length == 40
     assert models.OriginalPackaging._meta.get_field('package_type').max_length == 40
@@ -420,7 +420,7 @@ def test__packaging__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'upc',
@@ -462,7 +462,7 @@ def test__pharmaceutical_standard__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalPharmaceuticalStandard._meta.get_field('pharmaceutical_std').max_length == 40
 
 
@@ -472,7 +472,7 @@ def test__pharmaceutical_standard__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'pharmaceutical_std',
@@ -509,7 +509,7 @@ def test__route__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalRoute._meta.get_field('route_of_administration').max_length == 40
     assert models.OriginalRoute._meta.get_field('route_of_administration_f').max_length == 80
 
@@ -520,7 +520,7 @@ def test__route__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'route_of_administration_code',
@@ -558,7 +558,7 @@ def test__schedule__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalSchedule._meta.get_field('schedule').max_length == 40
     assert models.OriginalSchedule._meta.get_field('schedule_f').max_length == 160
 
@@ -569,7 +569,7 @@ def test__schedule__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'schedule',
@@ -607,7 +607,7 @@ def test__status__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalStatus._meta.get_field('current_status_flag').max_length == 1
     assert models.OriginalStatus._meta.get_field('status').max_length == 40
     assert models.OriginalStatus._meta.get_field('status_f').max_length == 80
@@ -620,7 +620,7 @@ def test__status__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'current_status_flag',
@@ -662,7 +662,7 @@ def test__therapeutic_class__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalTherapeuticClass._meta.get_field('tc_atc_number').max_length == 8
     assert models.OriginalTherapeuticClass._meta.get_field('tc_atc').max_length == 120
     assert models.OriginalTherapeuticClass._meta.get_field('tc_atc_f').max_length == 240
@@ -674,7 +674,7 @@ def test__therapeutic_class__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'tc_atc_number',
@@ -723,7 +723,7 @@ def test__veterinary_species__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     assert models.OriginalVeterinarySpecies._meta.get_field('vet_species').max_length == 80
     assert models.OriginalVeterinarySpecies._meta.get_field('vet_sub_species').max_length == 80
     assert models.OriginalVeterinarySpecies._meta.get_field('vet_species_f').max_length == 160
@@ -735,7 +735,7 @@ def test__veterinary_species__field_order():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
-    """ # pylint: disable=line-too-long
+    """  # pylint: disable=line-too-long
     expected_order = [
         'drug_code',
         'vet_species',

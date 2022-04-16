@@ -63,7 +63,7 @@ def test__dpd__update_modified__active_ingredient(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.ACTIVE_INGREDIENT)
 
     # Confirm expected update to modified field
@@ -104,7 +104,7 @@ def test__dpd__update_modified__biosimilar(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.BIOSIMILAR)
 
     # Confirm expected update to modified field
@@ -145,7 +145,7 @@ def test__dpd__update_modified__company(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.COMPANY)
 
     # Confirm expected update to modified field
@@ -186,7 +186,7 @@ def test__dpd__update_modified__drug_product(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.DRUG_PRODUCT)
 
     # Confirm expected update to modified field
@@ -227,7 +227,7 @@ def test__dpd__update_modified__form(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.FORM)
 
     # Confirm expected update to modified field
@@ -268,7 +268,7 @@ def test__dpd__update_modified__inactive_product(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.INACTIVE_PRODUCT)
 
     # Confirm expected update to modified field
@@ -285,6 +285,7 @@ def test__dpd__update_modified__inactive_product(now):
     assert dpd.original_status_modified is None
     assert dpd.original_therapeutic_class_modified is None
     assert dpd.original_veterinary_species_modified is None
+
 
 @patch('django.utils.timezone.now')
 def test__dpd__update_modified__packaging(now):
@@ -308,7 +309,7 @@ def test__dpd__update_modified__packaging(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.PACKAGING)
 
     # Confirm expected update to modified field
@@ -349,7 +350,7 @@ def test__dpd__update_modified__pharmaceutical_standard(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.PHARMACEUTICAL_STANDARD)
 
     # Confirm expected update to modified field
@@ -390,7 +391,7 @@ def test__dpd__update_modified__route(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.ROUTE)
 
     # Confirm expected update to modified field
@@ -431,7 +432,7 @@ def test__dpd__update_modified__schedule(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.SCHEDULE)
 
     # Confirm expected update to modified field
@@ -472,7 +473,7 @@ def test__dpd__update_modified__status(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.STATUS)
 
     # Confirm expected update to modified field
@@ -513,7 +514,7 @@ def test__dpd__update_modified__therapeutic_class(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.THERAPUETIC_CLASS)
 
     # Confirm expected update to modified field
@@ -554,7 +555,7 @@ def test__dpd__update_modified__veterinary_class(now):
 
     # Update the modified field
     utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
-    now.return_value =  utc_now
+    now.return_value = utc_now
     dpd.update_modified(utils.VETERINARY_SPECIES)
 
     # Confirm expected update to modified field
@@ -640,7 +641,7 @@ def test__dpd_checksum__clean__valid():
     )
 
     try:
-        checksum.drug_code_start=20000
+        checksum.drug_code_start = 20000
         checksum.clean()
     except validators.ValidationError:
         assert False
@@ -657,7 +658,7 @@ def test__dpd_checksum__clean__invalid():
     )
 
     try:
-        checksum.drug_code_start=2
+        checksum.drug_code_start = 2
         checksum.clean()
     except validators.ValidationError as e:
         assert 'Start values must be multiples of the step' in str(e)
@@ -1132,7 +1133,7 @@ def test__dpd_checksum__create_checksum__veterinary_species(hc_dpd_original_vete
 
 def test__dpd_checksum__create_checksum__two_models(
     hc_dpd_original_biosimilar, hc_dpd_original_company
-): # pylint: disable=unused-argument
+):  # pylint: disable=unused-argument
     """Tests that checksum only pulls data from expected model."""
     # Create initial checksum model
     checksum = models.DPDChecksum(
@@ -1163,7 +1164,6 @@ def test__dpd_checksum__create_checksum__two_models(
 
     assert checksum.checksum != ''
     assert checksum.checksum == old_checksum
-
 
 
 def test__dpd_checksum__calculate_checksum():

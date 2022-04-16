@@ -21,7 +21,7 @@ class OriginalActiveIngredientFactory(factory.django.DjangoModelFactory):
     strength = factory.Sequence(int)
     strength_unit = 'MG'
     strength_type = factory.Sequence(lambda n: f'STRENGTH TYPE {n}')
-    dosage_value  = factory.Sequence(int)
+    dosage_value = factory.Sequence(int)
     base = 'N'
     dosage_unit = 'MG'
     notes = factory.Sequence(lambda n: f'NOTES {n}')

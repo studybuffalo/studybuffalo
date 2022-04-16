@@ -424,7 +424,6 @@ class OriginalDrugProduct(models.Model):
         return f'{self.brand_name} [{self.drug_identification_number}] [O; Drug Code {self.drug_code}]'
 
 
-
 class OriginalForm(models.Model):
     """Model representing QRYM_FORM file."""
     drug_code = models.ForeignKey(
@@ -466,7 +465,6 @@ class OriginalForm(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.pharmaceutical_form} [{self.pharm_form_code}] [O; Drug Code {self.drug_code}]'
-
 
 
 class OriginalInactiveProduct(models.Model):
@@ -657,7 +655,6 @@ class OriginalRoute(models.Model):
         return f'{self.route_of_administration} [{self.route_of_administration_code}] [O; Drug Code {self.drug_code}]'
 
 
-
 class OriginalSchedule(models.Model):
     """Model representing QRYM_SCHEDULE file."""
     drug_code = models.ForeignKey(
@@ -756,7 +753,6 @@ class OriginalStatus(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.status} [{self.history_date}] [O; Drug Code {self.drug_code}]'
-
 
 
 class OriginalTherapeuticClass(models.Model):
