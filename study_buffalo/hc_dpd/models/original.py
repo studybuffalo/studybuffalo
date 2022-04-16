@@ -138,7 +138,7 @@ class OriginalBiosimilar(models.Model):
         max_length=20,
         null=True,
     )
-    biosimilar_type_F = models.CharField(
+    biosimilar_type_f = models.CharField(
         blank=True,
         help_text='The BIOSIMILAR_TYPE_F entry for this item.',
         max_length=20,
@@ -581,6 +581,7 @@ class OriginalRoute(models.Model):
         'route_of_administration',
         'route_of_administration_f',
     ]
+
 
 class OriginalSchedule(models.Model):
     """Model representing QRYM_SCHEDULE file."""
