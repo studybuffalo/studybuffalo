@@ -218,7 +218,7 @@ class DPDChecksum(models.Model):
 
         # Get the checksum string for this extract
         checksum_string = self._compile_checksum_string(
-            query, extract_model.dpd_field_order
+            query, extract_model.dpd_field_order()
         )
 
         # Calculate checksum for string

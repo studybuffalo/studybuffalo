@@ -95,24 +95,28 @@ class OriginalActiveIngredient(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'active_ingredient_code',
-        'ingredient',
-        'ingredient_supplied_ind',
-        'strength',
-        'strength_unit',
-        'strength_type',
-        'dosage_value',
-        'base',
-        'dosage_unit',
-        'notes',
-        'ingredient_f',
-        'strength_unit_f',
-        'strength_type_f',
-        'dosage_unit_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'active_ingredient_code',
+            'ingredient',
+            'ingredient_supplied_ind',
+            'strength',
+            'strength_unit',
+            'strength_type',
+            'dosage_value',
+            'base',
+            'dosage_unit',
+            'notes',
+            'ingredient_f',
+            'strength_unit_f',
+            'strength_type_f',
+            'dosage_unit_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -149,13 +153,17 @@ class OriginalBiosimilar(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'biosimilar_code',
-        'biosimilar_type',
-        'biosimilar_type_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'biosimilar_code',
+            'biosimilar_type',
+            'biosimilar_type_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -272,27 +280,31 @@ class OriginalCompany(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'mfr_code',
-        'company_code',
-        'company_name',
-        'company_type',
-        'address_mailing_flag',
-        'address_billing_flag',
-        'address_notification_flag',
-        'address_other',
-        'suite_number',
-        'street_name',
-        'city_name',
-        'province',
-        'country',
-        'postal_code',
-        'post_office_box',
-        'province_f',
-        'country_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'mfr_code',
+            'company_code',
+            'company_name',
+            'company_type',
+            'address_mailing_flag',
+            'address_billing_flag',
+            'address_notification_flag',
+            'address_other',
+            'suite_number',
+            'street_name',
+            'city_name',
+            'province',
+            'country',
+            'postal_code',
+            'post_office_box',
+            'province_f',
+            'country_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -385,23 +397,27 @@ class OriginalDrugProduct(models.Model):
         null=True,
     )
 
-    # Additional fields
-    dpd_field_order = [
-        'drug_code',
-        'product_categorization',
-        'class_e',
-        'drug_identification_number',
-        'brand_name',
-        'descriptor',
-        'pediatric_flag',
-        'accession_number',
-        'number_of_ais',
-        'last_update_date',
-        'ai_group_no',
-        'class_f',
-        'brand_name_f',
-        'descriptor_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'product_categorization',
+            'class_e',
+            'drug_identification_number',
+            'brand_name',
+            'descriptor',
+            'pediatric_flag',
+            'accession_number',
+            'number_of_ais',
+            'last_update_date',
+            'ai_group_no',
+            'class_f',
+            'brand_name_f',
+            'descriptor_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -435,13 +451,17 @@ class OriginalForm(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'pharm_form_code',
-        'pharmaceutical_form',
-        'pharmaceutical_form_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'pharm_form_code',
+            'pharmaceutical_form',
+            'pharmaceutical_form_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -475,13 +495,17 @@ class OriginalInactiveProduct(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'drug_identification_number',
-        'brand_name',
-        'history_date',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'drug_identification_number',
+            'brand_name',
+            'history_date',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -539,17 +563,21 @@ class OriginalPackaging(models.Model):
         null=True,
     )
 
-    # Additional attributees
-    dpd_field_order = [
-        'drug_code',
-        'upc',
-        'package_size_unit',
-        'package_type',
-        'package_size',
-        'product_information',
-        'package_size_unit_f',
-        'package_type_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'upc',
+            'package_size_unit',
+            'package_type',
+            'package_size',
+            'product_information',
+            'package_size_unit_f',
+            'package_type_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -571,11 +599,15 @@ class OriginalPharmaceuticalStandard(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'pharmaceutical_std',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'pharmaceutical_std',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -608,13 +640,17 @@ class OriginalRoute(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'route_of_administration_code',
-        'route_of_administration',
-        'route_of_administration_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'route_of_administration_code',
+            'route_of_administration',
+            'route_of_administration_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -643,12 +679,16 @@ class OriginalSchedule(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'schedule',
-        'schedule_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'schedule',
+            'schedule_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -698,16 +738,20 @@ class OriginalStatus(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'current_status_flag',
-        'status',
-        'history_date',
-        'status_f',
-        'lot_number',
-        'expiration_date',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'current_status_flag',
+            'status',
+            'history_date',
+            'status_f',
+            'lot_number',
+            'expiration_date',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -742,13 +786,17 @@ class OriginalTherapeuticClass(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'tc_atc_number',
-        'tc_atc',
-        'tc_atc_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'tc_atc_number',
+            'tc_atc',
+            'tc_atc_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""
@@ -782,13 +830,17 @@ class OriginalVeterinarySpecies(models.Model):
         null=True,
     )
 
-    # Additional attributes
-    dpd_field_order = [
-        'drug_code',
-        'vet_species',
-        'vet_sub_species',
-        'vet_species_f',
-    ]
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        fields = [
+            'drug_code',
+            'vet_species',
+            'vet_sub_species',
+            'vet_species_f',
+        ]
+
+        return fields.copy()
 
     def __str__(self):
         """Returns string representation of model."""

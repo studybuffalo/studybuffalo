@@ -77,7 +77,7 @@ def test__active_ingredient__field_order():
         'dosage_unit_f',
     ]
 
-    assert models.OriginalActiveIngredient.dpd_field_order == expected_order
+    assert models.OriginalActiveIngredient.dpd_field_order() == expected_order
 
 
 def test__biosimilar__minimal_model_creation(hc_dpd_dpd):
@@ -126,7 +126,7 @@ def test__biosimilar__field_order():
         'biosimilar_type_f',
     ]
 
-    assert models.OriginalBiosimilar.dpd_field_order == expected_order
+    assert models.OriginalBiosimilar.dpd_field_order() == expected_order
 
 
 def test__company__minimal_model_creation(hc_dpd_dpd):
@@ -204,7 +204,7 @@ def test__company__field_order():
         'country_f',
     ]
 
-    assert models.OriginalCompany.dpd_field_order == expected_order
+    assert models.OriginalCompany.dpd_field_order() == expected_order
 
 
 
@@ -275,7 +275,7 @@ def test__drug_product__field_order():
         'descriptor_f',
     ]
 
-    assert models.OriginalDrugProduct.dpd_field_order == expected_order
+    assert models.OriginalDrugProduct.dpd_field_order() == expected_order
 
 def test__form__minimal_model_creation(hc_dpd_dpd):
     """Tests minimal OriginalForm model creation."""
@@ -324,7 +324,7 @@ def test__form__field_order():
         'pharmaceutical_form_f',
     ]
 
-    assert models.OriginalForm.dpd_field_order == expected_order
+    assert models.OriginalForm.dpd_field_order() == expected_order
 
 
 def test__inactive_product__minimal_model_creation(hc_dpd_dpd):
@@ -374,7 +374,7 @@ def test__inactive_product__field_order():
         'history_date',
     ]
 
-    assert models.OriginalInactiveProduct.dpd_field_order == expected_order
+    assert models.OriginalInactiveProduct.dpd_field_order() == expected_order
 
 
 def test__packaging__minimal_model_creation(hc_dpd_dpd):
@@ -432,7 +432,7 @@ def test__packaging__field_order():
         'package_type_f',
     ]
 
-    assert models.OriginalPackaging.dpd_field_order == expected_order
+    assert models.OriginalPackaging.dpd_field_order() == expected_order
 
 
 def test__pharmaceutical_standard__minimal_model_creation(hc_dpd_dpd):
@@ -478,7 +478,7 @@ def test__pharmaceutical_standard__field_order():
         'pharmaceutical_std',
     ]
 
-    assert models.OriginalPharmaceuticalStandard.dpd_field_order == expected_order
+    assert models.OriginalPharmaceuticalStandard.dpd_field_order() == expected_order
 
 
 def test__route__minimal_model_creation(hc_dpd_dpd):
@@ -528,7 +528,7 @@ def test__route__field_order():
         'route_of_administration_f',
     ]
 
-    assert models.OriginalRoute.dpd_field_order == expected_order
+    assert models.OriginalRoute.dpd_field_order() == expected_order
 
 
 def test__schedule__minimal_model_creation(hc_dpd_dpd):
@@ -576,7 +576,7 @@ def test__schedule__field_order():
         'schedule_f',
     ]
 
-    assert models.OriginalSchedule.dpd_field_order == expected_order
+    assert models.OriginalSchedule.dpd_field_order() == expected_order
 
 
 def test__status__minimal_model_creation(hc_dpd_dpd):
@@ -631,7 +631,7 @@ def test__status__field_order():
         'expiration_date',
     ]
 
-    assert models.OriginalStatus.dpd_field_order == expected_order
+    assert models.OriginalStatus.dpd_field_order() == expected_order
 
 
 def test__therapeutic_class__minimal_model_creation(hc_dpd_dpd):
@@ -682,7 +682,7 @@ def test__therapeutic_class__field_order():
         'tc_atc_f',
     ]
 
-    assert models.OriginalTherapeuticClass.dpd_field_order == expected_order
+    assert models.OriginalTherapeuticClass.dpd_field_order() == expected_order
 
 
 def test__veterinary_species__minimal_model_creation(hc_dpd_dpd):
@@ -743,4 +743,4 @@ def test__veterinary_species__field_order():
         'vet_species_f',
     ]
 
-    assert models.OriginalVeterinarySpecies.dpd_field_order == expected_order
+    assert models.OriginalVeterinarySpecies.dpd_field_order() == expected_order
