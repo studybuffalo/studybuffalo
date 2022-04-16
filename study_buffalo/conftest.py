@@ -67,6 +67,105 @@ def dictionary_excluded_word():
 
 
 @pytest.fixture
+def hc_dpd_dpd():
+    """Fixture to create DPD instance."""
+    return hc_dpd_factories.DPDFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_active_ingredient():
+    """Fixture to create OriginalActiveIngredient instance."""
+    return hc_dpd_factories.OriginalActiveIngredientFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_biosimilar():
+    """Fixture to create OriginalBiosimilar instance."""
+    return hc_dpd_factories.OriginalBiosimilarFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_company():
+    """Fixture to create OriginalCompany instance."""
+    return hc_dpd_factories.OriginalCompanyFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_drug_product():
+    """Fixture to create OriginalDrugProduct instance."""
+    return hc_dpd_factories.OriginalDrugProductFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_form():
+    """Fixture to create OriginalForm instance."""
+    return hc_dpd_factories.OriginalFormFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_inactive_product():
+    """Fixture to create OriginalInactiveProduct instance."""
+    return hc_dpd_factories.OriginalInactiveProductFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_packaging():
+    """Fixture to create OriginalPackaging instance."""
+    return hc_dpd_factories.OriginalPackagingFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_pharmaceutical_standard():
+    """Fixture to create OriginalPharmaceuticalStandard instance."""
+    return hc_dpd_factories.OriginalPharmaceuticalStandardFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_route():
+    """Fixture to create OriginalRoute instance."""
+    return hc_dpd_factories.OriginalRouteFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_schedule():
+    """Fixture to create Originalschedule instance."""
+    return hc_dpd_factories.OriginalScheduleFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_status():
+    """Fixture to create OriginalStatus instance."""
+    return hc_dpd_factories.OriginalStatusFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_therapeutic_class():
+    """Fixture to create OriginalTherapeuticClass instance."""
+    return hc_dpd_factories.OriginalTherapeuticClassFactory()
+
+
+@pytest.fixture
+def hc_dpd_original_veterinary_species():
+    """Fixture to create OriginalVeterinarySpecies instance."""
+    return hc_dpd_factories.OriginalVeterinarySpeciesFactory()
+
+
+@pytest.fixture
+def hc_dpd_two_original_active_ingredient():
+    """Fixture to create two OriginalActiveIngredient instances."""
+    return [
+        hc_dpd_factories.OriginalActiveIngredientFactory(),
+        hc_dpd_factories.OriginalActiveIngredientFactory(),
+    ]
+
+
+@pytest.fixture
+def hc_dpd_checksum_active_ingredient():
+    """Fixture to create DPDChecksum instance with Active Ingredient data."""
+    return hc_dpd_factories.DPDChecksumActiveIngredientFactory()
+
+
+@pytest.fixture
 def hc_dpd_sub_brand():
     """Fixture to create SubBrand instance."""
     return hc_dpd_factories.SubBrandFactory()
