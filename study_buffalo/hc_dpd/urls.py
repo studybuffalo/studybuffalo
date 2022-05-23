@@ -2,6 +2,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('dpd/', views.DPDList.as_view(), name='_list'),
     path('active-ingredient/', views.ActiveIngredientList.as_view()),
