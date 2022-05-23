@@ -2,163 +2,162 @@
 from django.contrib import admin
 
 from hc_dpd import models
-from hc_dpd.models.original import OriginalVeterinarySpecies
 
 
 class FormattedActiveIngredientInline(admin.TabularInline):
     """Tabular inline for the FormattedActiveIngredient model."""
     model = models.FormattedActiveIngredient
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedBiosimilarInline(admin.TabularInline):
     """Tabular inline for the FormattedBiosimilar model."""
     model = models.FormattedBiosimilar
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedCompanyInline(admin.TabularInline):
     """Tabular inline for the FormattedCompany model."""
     model = models.FormattedCompany
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedDrugProductInline(admin.TabularInline):
     """Tabular inline for the FormattedDrugProduct model."""
     model = models.FormattedDrugProduct
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedFormInline(admin.TabularInline):
     """Tabular inline for the FormattedForm model."""
     model = models.FormattedForm
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedInactiveProductInline(admin.TabularInline):
     """Tabular inline for the FormattedInactiveProduct model."""
     model = models.FormattedInactiveProduct
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedPackagingInline(admin.TabularInline):
     """Tabular inline for the FormattedPackaging model."""
     model = models.FormattedPackaging
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedPharmaceuticalStandardInline(admin.TabularInline):
     """Tabular inline for the FormattedPharmaceuticalStandard model."""
     model = models.FormattedPharmaceuticalStandard
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedRouteInline(admin.TabularInline):
     """Tabular inline for the FormattedRoute model."""
     model = models.FormattedRoute
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedScheduleInline(admin.TabularInline):
     """Tabular inline for the FormattedSchedule model."""
     model = models.FormattedSchedule
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedStatusInline(admin.TabularInline):
     """Tabular inline for the FormattedStatus model."""
     model = models.FormattedStatus
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedTherapeuticClassInline(admin.TabularInline):
     """Tabular inline for the FormattedTherapeuticClass model."""
     model = models.FormattedTherapeuticClass
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class FormattedVeterinarySpeciesInline(admin.TabularInline):
     """Tabular inline for the FormattedVeterinarySpecies model."""
     model = models.FormattedVeterinarySpecies
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalActiveIngredientInline(admin.TabularInline):
     """Tabular inline for the OriginalActiveIngredient model."""
     model = models.OriginalActiveIngredient
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalBiosimilarInline(admin.TabularInline):
     """Tabular inline for the OriginalBiosimilar model."""
     model = models.OriginalBiosimilar
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalCompanyInline(admin.TabularInline):
     """Tabular inline for the OriginalCompany model."""
     model = models.OriginalCompany
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalDrugProductInline(admin.TabularInline):
     """Tabular inline for the OriginalDrugProduct model."""
     model = models.OriginalDrugProduct
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalFormInline(admin.TabularInline):
     """Tabular inline for the OriginalForm model."""
     model = models.OriginalForm
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalInactiveProductInline(admin.TabularInline):
     """Tabular inline for the OriginalInactiveProduct model."""
     model = models.OriginalInactiveProduct
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalPackagingInline(admin.TabularInline):
     """Tabular inline for the OriginalPackaging model."""
     model = models.OriginalPackaging
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalPharmaceuticalStandardInline(admin.TabularInline):
     """Tabular inline for the OriginalPharmaceuticalStandard model."""
     model = models.OriginalPharmaceuticalStandard
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalRouteInline(admin.TabularInline):
     """Tabular inline for the OriginalRoute model."""
     model = models.OriginalRoute
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalScheduleInline(admin.TabularInline):
     """Tabular inline for the OriginalSchedule model."""
     model = models.OriginalSchedule
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalStatusInline(admin.TabularInline):
     """Tabular inline for the OriginalStatus model."""
     model = models.OriginalStatus
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalTherapeuticClassInline(admin.TabularInline):
     """Tabular inline for the OriginalTherapeuticClass model."""
     model = models.OriginalTherapeuticClass
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 class OriginalVeterinarySpeciesInline(admin.TabularInline):
     """Tabular inline for the OriginalVeterinarySpecies model."""
     model = models.OriginalVeterinarySpecies
-    exclude = 'drug_code'
+    raw_id_fields = ('drug_code',)
 
 
 @admin.register(models.DPD)
