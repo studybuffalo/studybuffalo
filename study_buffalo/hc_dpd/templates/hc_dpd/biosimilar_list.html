@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Biosimilar List</h1>
+
+	{% if biosimilar_list %}
+		<table>
+			<thead>
+				<tr>
+                    <th>Drug Code</th>
+                    <th>Biosimilar Code</th>
+                    <th>Biosimilar Type</th>
+                    <th>Biosimilar Type (Fr)</th>
+                </tr>
+			</thead>
+			<tbody>
+				{% for item in active_ingredients_list %}
+					<tr>
+              <td>{{ item.drug_code }}</td>
+              <td>{{ item.biosimilar_code }}</td>
+              <td>{{ item.biosimilar_type }}</td>
+              <td>{{ item.biosimilar_type_f }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

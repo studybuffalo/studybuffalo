@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     path('dpd/', views.DPDList.as_view(), name='_list'),
     path('active-ingredient/', views.ActiveIngredientList.as_view()),
+    path('biosimilar/', views.BiosimilarList.as_view()),
     path('company/', views.CompanyList.as_view()),
     path('drug-product/', views.DrugProductList.as_view()),
     path('form/', views.FormList.as_view()),
