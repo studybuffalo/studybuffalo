@@ -124,14 +124,12 @@ class OriginalInactiveProductAdmin(admin.ModelAdmin):
     """Admin view for the OriginalInactiveProduct model."""
     list_display = (
         'drug_code',
-        'product_categorization',
         'drug_identification_number',
         'brand_name',
     )
     ordering = ('drug_code',)
     search_fields = (
         'drug_code',
-        'product_categorization',
         'drug_identification_number',
         'brand_name',
     )
@@ -215,7 +213,7 @@ class OriginalStatusAdmin(admin.ModelAdmin):
     list_display = (
         'drug_code',
         'status',
-        'lot_number,'
+        'lot_number',
     )
     ordering = ('drug_code',)
     search_fields = (
