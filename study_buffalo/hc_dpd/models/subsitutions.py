@@ -2,36 +2,6 @@
 from django.db import models
 
 
-class SubAHFS(models.Model):
-    """Model representing the substitutions for AHFS code."""
-    original = models.CharField(
-        max_length=80,
-        unique=True,
-    )
-    substitution = models.CharField(
-        max_length=80,
-    )
-
-    class Meta:
-        verbose_name = 'Substitution - AHFS'
-        verbose_name_plural = 'Substitutions - AHFS'
-
-
-class SubAHFSPend(models.Model):
-    """Model representing the pending substitutions for AHFS code."""
-    original = models.CharField(
-        max_length=80,
-        unique=True,
-    )
-    substitution = models.CharField(
-        max_length=80,
-    )
-
-    class Meta:
-        verbose_name = 'Substitution - AHFS (Pending)'
-        verbose_name_plural = 'Substitutions - AHFS (Pending)'
-
-
 class SubBrand(models.Model):
     """Model representing the substitutions for Brand."""
     original = models.CharField(
