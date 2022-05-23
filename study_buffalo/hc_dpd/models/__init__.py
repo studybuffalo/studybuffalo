@@ -15,7 +15,7 @@ from .original import (
     OriginalVeterinarySpecies,
 )
 from .subsitutions import (
-    SubAHFS, SubAHFSPend, SubBrand, SubBrandPend, SubCompanyName,
+    SubBrand, SubBrandPend, SubCompanyName,
     SubCompanyNamePend, SubDescriptor, SubDescriptorPend, SubIngredient,
     SubIngredientPend, SubPharmaceuticalStd, SubPharmaceuticalStdPend,
     SubProductCategorization, SubProductCategorizationPend,
