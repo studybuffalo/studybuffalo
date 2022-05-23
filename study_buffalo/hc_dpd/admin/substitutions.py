@@ -1,37 +1,10 @@
-"""Admin settings for the Health Canda Drug Product Database app."""
+"""Admin settings for the HC DPD Substitution Models."""
 from django.contrib import admin
-from .models import (
-    SubAHFS, SubAHFSPend, SubBrand, SubBrandPend,
-    SubCompanyName, SubCompanyNamePend, SubDescriptor, SubDescriptorPend,
-    SubIngredient, SubIngredientPend, SubProductCategorization,
-    SubProductCategorizationPend, SubRouteOfAdministration,
-    SubRouteOfAdministrationPend, SubPharmaceuticalStd,
-    SubPharmaceuticalStdPend, SubStreetName, SubStreetNamePend,
-    SubSuiteNumber, SubSuiteNumberPend, SubUnit, SubUnitPend
-)
+
+from hc_dpd import models
 
 
-@admin.register(SubAHFS)
-class SubAHFSAdmin(admin.ModelAdmin):
-    """Admin view for the Sub-AHFS model."""
-    list_display = ('original', 'substitution')
-    ordering = ('original',)
-    search_fields = ('original', 'substitution',)
-    verbose_name = 'Substitution - AHFS'
-    verbose_name_plural = 'Substitutions - AHFS'
-
-
-@admin.register(SubAHFSPend)
-class SubAHFSPendAdmin(admin.ModelAdmin):
-    """Admin view for the Sub-AHFS-Pending model."""
-    list_display = ('original', 'substitution')
-    ordering = ('original',)
-    search_fields = ('original', 'substitution',)
-    verbose_name = 'Substitution - AHFS (Pending)'
-    verbose_name_plural = 'Substitutions - AHFS (Pending)'
-
-
-@admin.register(SubBrand)
+@admin.register(models.SubBrand)
 class SubBrandAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Brand model."""
     list_display = ('original', 'substitution')
@@ -41,7 +14,7 @@ class SubBrandAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Brand Name'
 
 
-@admin.register(SubBrandPend)
+@admin.register(models.SubBrandPend)
 class SubBrandPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Brand-Pending model."""
     list_display = ('original', 'substitution')
@@ -51,7 +24,7 @@ class SubBrandPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Brand Name (Pending)'
 
 
-@admin.register(SubCompanyName)
+@admin.register(models.SubCompanyName)
 class SubCompanyNameAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Company Name model."""
     list_display = ('original', 'substitution')
@@ -61,7 +34,7 @@ class SubCompanyNameAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Company Name'
 
 
-@admin.register(SubCompanyNamePend)
+@admin.register(models.SubCompanyNamePend)
 class SubCompanyNamePendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Company Name-Pending model."""
     list_display = ('original', 'substitution')
@@ -71,7 +44,7 @@ class SubCompanyNamePendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Company Name (Pending)'
 
 
-@admin.register(SubDescriptor)
+@admin.register(models.SubDescriptor)
 class SubDescriptorAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Descriptor model."""
     list_display = ('original', 'substitution')
@@ -81,7 +54,7 @@ class SubDescriptorAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Descriptor'
 
 
-@admin.register(SubDescriptorPend)
+@admin.register(models.SubDescriptorPend)
 class SubDescriptorPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Descriptor-Pending model."""
     list_display = ('original', 'substitution')
@@ -91,7 +64,7 @@ class SubDescriptorPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Descriptor (Pending)'
 
 
-@admin.register(SubIngredient)
+@admin.register(models.SubIngredient)
 class SubIngredientAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Ingredient model."""
     list_display = ('original', 'substitution')
@@ -101,7 +74,7 @@ class SubIngredientAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Ingredient'
 
 
-@admin.register(SubIngredientPend)
+@admin.register(models.SubIngredientPend)
 class SubIngredientPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Ingredient-Pending model."""
     list_display = ('original', 'substitution')
@@ -111,7 +84,7 @@ class SubIngredientPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Ingredient (Pending)'
 
 
-@admin.register(SubProductCategorization)
+@admin.register(models.SubProductCategorization)
 class SubProductCategorizationAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Product Categorization model."""
     list_display = ('original', 'substitution')
@@ -121,7 +94,7 @@ class SubProductCategorizationAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Product Categorization'
 
 
-@admin.register(SubProductCategorizationPend)
+@admin.register(models.SubProductCategorizationPend)
 class SubProductCategorizationPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Product Categorization-Pending model."""
     list_display = ('original', 'substitution')
@@ -131,7 +104,7 @@ class SubProductCategorizationPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Product Categorization (Pending)'
 
 
-@admin.register(SubRouteOfAdministration)
+@admin.register(models.SubRouteOfAdministration)
 class SubRouteOfAdministrationAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Route model."""
     list_display = ('original', 'substitution')
@@ -141,7 +114,7 @@ class SubRouteOfAdministrationAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Route of Administration'
 
 
-@admin.register(SubRouteOfAdministrationPend)
+@admin.register(models.SubRouteOfAdministrationPend)
 class SubRouteOfAdministrationPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Route-Pending model."""
     list_display = ('original', 'substitution')
@@ -151,7 +124,7 @@ class SubRouteOfAdministrationPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Route of Administration (Pending)'
 
 
-@admin.register(SubPharmaceuticalStd)
+@admin.register(models.SubPharmaceuticalStd)
 class SubPharmaceuticalStdAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Pharmaceutical Standard model."""
     list_display = ('original', 'substitution')
@@ -161,7 +134,7 @@ class SubPharmaceuticalStdAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Pharmaceutical Standard'
 
 
-@admin.register(SubPharmaceuticalStdPend)
+@admin.register(models.SubPharmaceuticalStdPend)
 class SubPharmaceuticalStdPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Pharmaceutical Standard-Pending model."""
     list_display = ('original', 'substitution')
@@ -171,7 +144,7 @@ class SubPharmaceuticalStdPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Pharmaceutical Standard (Pending)'
 
 
-@admin.register(SubStreetName)
+@admin.register(models.SubStreetName)
 class SubStreetNameAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Street Name model."""
     list_display = ('original', 'substitution')
@@ -181,7 +154,7 @@ class SubStreetNameAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Street Name'
 
 
-@admin.register(SubStreetNamePend)
+@admin.register(models.SubStreetNamePend)
 class SubStreetNamePendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Street Name-Pending model."""
     list_display = ('original', 'substitution')
@@ -191,7 +164,7 @@ class SubStreetNamePendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Street Name (Pending)'
 
 
-@admin.register(SubSuiteNumber)
+@admin.register(models.SubSuiteNumber)
 class SubSuiteNumberAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Suite Number model."""
     list_display = ('original', 'substitution')
@@ -201,7 +174,7 @@ class SubSuiteNumberAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Suite Number'
 
 
-@admin.register(SubSuiteNumberPend)
+@admin.register(models.SubSuiteNumberPend)
 class SubSuiteNumberPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Suite Number-Pending model."""
     list_display = ('original', 'substitution')
@@ -211,7 +184,7 @@ class SubSuiteNumberPendAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Suite Number (Pending)'
 
 
-@admin.register(SubUnit)
+@admin.register(models.SubUnit)
 class SubUnitAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Unit model."""
     list_display = ('original', 'substitution')
@@ -221,7 +194,7 @@ class SubUnitAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Substitutions - Unit'
 
 
-@admin.register(SubUnitPend)
+@admin.register(models.SubUnitPend)
 class SubUnitPendAdmin(admin.ModelAdmin):
     """Admin view for the Sub-Unit-Pending model."""
     list_display = ('original', 'substitution')
