@@ -9,8 +9,6 @@ from .models import (
 )
 
 
-# TODO: add BioSimilar view
-
 class DPDList(generic.ListView):
     """View of all the DPD entries."""
     model = DPD
