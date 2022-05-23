@@ -115,6 +115,7 @@ class DPD(models.Model):
         permissions = (
             ('api_view', 'Can view DPD data via the API'),
             ('api_edit', 'Can edit DPD data via the API'),
+            ('web_view', 'Can view DPD data via the web views'),
         )
 
 
