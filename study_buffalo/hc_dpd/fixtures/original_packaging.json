@@ -1,1 +1,72 @@
-﻿[{"model": "hc_dpd.originalpackaging", "pk": 1, "fields": {"drug_code": 5255, "upc": null, "package_size_unit": null, "package_type": null, "package_size": null, "product_information": "2/50/100/130/150/200/230/325", "package_size_unit_f": null, "package_type_f": null}}]
+﻿[
+  {
+    "model": "hc_dpd.originalpackaging",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "upc": null,
+      "package_size_unit": null,
+      "package_type": null,
+      "package_size": null,
+      "product_information": "50 ML",
+      "package_size_unit_f": null,
+      "package_type_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalpackaging",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "upc": null,
+      "package_size_unit": null,
+      "package_type": null,
+      "package_size": null,
+      "product_information": "2/50/100/130/150/200/230/325",
+      "package_size_unit_f": null,
+      "package_type_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalpackaging",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "upc": null,
+      "package_size_unit": null,
+      "package_type": null,
+      "package_size": null,
+      "product_information": "100/250",
+      "package_size_unit_f": null,
+      "package_type_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalpackaging",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "upc": null,
+      "package_size_unit": null,
+      "package_type": null,
+      "package_size": null,
+      "product_information": "100/500",
+      "package_size_unit_f": null,
+      "package_type_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalpackaging",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "upc": null,
+      "package_size_unit": null,
+      "package_type": null,
+      "package_size": null,
+      "product_information": "30",
+      "package_size_unit_f": null,
+      "package_type_f": null
+    }
+  }
+]

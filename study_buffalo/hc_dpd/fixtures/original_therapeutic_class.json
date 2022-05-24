@@ -1,1 +1,62 @@
-﻿[{"model": "hc_dpd.originaltherapeuticclass", "pk": 1, "fields": {"drug_code": 5255, "tc_atc_number": "N02BE01", "tc_atc": "ACETAMINOPHEN (PARACETAMOL)", "tc_atc_f": null}}]
+﻿[
+  {
+    "model": "hc_dpd.originaltherapeuticclass",
+    "pk": 1,
+    "fields": {
+      "drug_code": 5255,
+      "tc_atc_number": "N02BE01",
+      "tc_atc": "ACETAMINOPHEN (PARACETAMOL)",
+      "tc_atc_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaltherapeuticclass",
+    "pk": 2,
+    "fields": {
+      "drug_code": 13375,
+      "tc_atc_number": "B01AA03",
+      "tc_atc": "WARFARIN",
+      "tc_atc_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaltherapeuticclass",
+    "pk": 3,
+    "fields": {
+      "drug_code": 62536,
+      "tc_atc_number": "A10BA02",
+      "tc_atc": "METFORMIN",
+      "tc_atc_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaltherapeuticclass",
+    "pk": 4,
+    "fields": {
+      "drug_code": 70752,
+      "tc_atc_number": "C09BA04",
+      "tc_atc": "PERINDOPRIL AND DIURETICS",
+      "tc_atc_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaltherapeuticclass",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "tc_atc_number": "C09BA04",
+      "tc_atc": "PERINDOPRIL AND DIURETICS",
+      "tc_atc_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaltherapeuticclass",
+    "pk": 6,
+    "fields": {
+      "drug_code": 99223,
+      "tc_atc_number": "L04AB04",
+      "tc_atc": "ADALIMUMAB",
+      "tc_atc_f": null
+    }
+  }
+]

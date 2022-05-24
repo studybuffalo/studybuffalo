@@ -1,1 +1,122 @@
-﻿[{"model": "hc_dpd.originaldrugproduct", "pk": 1, "fields": {"drug_code": 5255, "product_categorization": null, "class_e": "Human", "drug_identification_number": "00559407", "brand_name": "TYLENOL EXTRA STRENGTH", "descriptor": null, "pediatric_flag": "N", "accession_number": "60077", "number_of_ais": "1", "last_update_date": "2019-02-01", "ai_group_no": "0102009002", "class_f": "Humain", "brand_name_f": "TYLENOL EXTRA FORT", "descriptor_f": null}}]
+﻿[
+  {
+    "model": "hc_dpd.originaldrugproduct",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "product_categorization": null,
+      "class_e": "Veterinary",
+      "drug_identification_number": "00053023",
+      "brand_name": "ATRAVET 10 MG INJECTABLE",
+      "descriptor": null,
+      "pediatric_flag": "N",
+      "accession_number": "02282",
+      "number_of_ais": "1",
+      "last_update_date": "2020-03-19",
+      "ai_group_no": "0106148001",
+      "class_f": "Vétérinaire",
+      "brand_name_f": null,
+      "descriptor_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaldrugproduct",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "product_categorization": null,
+      "class_e": "Human",
+      "drug_identification_number": "00559407",
+      "brand_name": "TYLENOL EXTRA STRENGTH",
+      "descriptor": null,
+      "pediatric_flag": "N",
+      "accession_number": "60077",
+      "number_of_ais": "1",
+      "last_update_date": "2019-02-01",
+      "ai_group_no": "0102009002",
+      "class_f": "Humain",
+      "brand_name_f": "TYLENOL EXTRA FORT",
+      "descriptor_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaldrugproduct",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "product_categorization": null,
+      "class_e": "Human",
+      "drug_identification_number": "02007959",
+      "brand_name": "COUMADIN TAB 4MG",
+      "descriptor": null,
+      "pediatric_flag": "N",
+      "accession_number": "74739",
+      "number_of_ais": "1",
+      "last_update_date": "2020-07-21",
+      "ai_group_no": "0104597003",
+      "class_f": "Humain",
+      "brand_name_f": null,
+      "descriptor_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaldrugproduct",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "product_categorization": null,
+      "class_e": "Human",
+      "drug_identification_number": "02239081",
+      "brand_name": "RIVA-METFORMIN",
+      "descriptor": null,
+      "pediatric_flag": "N",
+      "accession_number": null,
+      "number_of_ais": "1",
+      "last_update_date": "2022-03-04",
+      "ai_group_no": "0101773001",
+      "class_f": "Humain",
+      "brand_name_f": null,
+      "descriptor_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaldrugproduct",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "product_categorization": null,
+      "class_e": "Human",
+      "drug_identification_number": "02246569",
+      "brand_name": "COVERSYL PLUS",
+      "descriptor": null,
+      "pediatric_flag": "N",
+      "accession_number": null,
+      "number_of_ais": "2",
+      "last_update_date": "2009-09-21",
+      "ai_group_no": "0248401001",
+      "class_f": "Humain",
+      "brand_name_f": null,
+      "descriptor_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originaldrugproduct",
+    "pk": 6,
+    "fields": {
+      "drug_code": 99223,
+      "product_categorization": null,
+      "class_e": "Human",
+      "drug_identification_number": "02502682",
+      "brand_name": "IDACIO",
+      "descriptor": "PREFILLED SYRINGE",
+      "pediatric_flag": "N",
+      "accession_number": null,
+      "number_of_ais": "2",
+      "last_update_date": "2021-09-03",
+      "ai_group_no": "0150364003",
+      "class_f": "Humain",
+      "brand_name_f": null,
+      "descriptor_f": null
+    }
+  }
+]

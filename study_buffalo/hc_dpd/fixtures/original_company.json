@@ -1,1 +1,146 @@
-﻿[{"model": "hc_dpd.originalcompany", "pk": 1, "fields": {"drug_code": 5255, "mfr_code": "MCL08", "company_code": 4569, "company_name": "MCNEIL CONSUMER HEALTHCARE DIVISION OF JOHNSON & JOHNSON INC", "company_type": "DIN OWNER", "address_mailing_flag": "Y", "address_billing_flag": "Y", "address_notification_flag": "Y", "address_other": "N", "suite_number": null, "street_name": "88 MCNABB STREET", "city_name": "MARKHAM", "province": "ONTARIO", "country": "CANADA", "postal_code": "L3R 5L2", "post_office_box": null, "province_f": "ONTARIO", "country_f": "CANADA"}}]
+﻿[
+  {
+    "model": "hc_dpd.originalcompany",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "mfr_code": "",
+      "company_code": 17635,
+      "company_name": "BOEHRINGER INGELHEIM ANIMAL HEALTH CANADA INC.",
+      "company_type": "DIN OWNER",
+      "address_mailing_flag": "Y",
+      "address_billing_flag": "Y",
+      "address_notification_flag": "Y",
+      "address_other": null,
+      "suite_number": null,
+      "street_name": "5180 SOUTH SERVICE ROAD",
+      "city_name": "BURLINGTION",
+      "province": "ONTARIO",
+      "country": "CANADA",
+      "postal_code": "L7L 5H4",
+      "post_office_box": null,
+      "province_f": "ONTARIO",
+      "country_f": "CANADA"
+    }
+  },
+  {
+    "model": "hc_dpd.originalcompany",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "mfr_code": "MCL08",
+      "company_code": 4569,
+      "company_name": "MCNEIL CONSUMER HEALTHCARE DIVISION OF JOHNSON & JOHNSON INC",
+      "company_type": "DIN OWNER",
+      "address_mailing_flag": "Y",
+      "address_billing_flag": "Y",
+      "address_notification_flag": "Y",
+      "address_other": "N",
+      "suite_number": null,
+      "street_name": "88 MCNABB STREET",
+      "city_name": "MARKHAM",
+      "province": "ONTARIO",
+      "country": "CANADA",
+      "postal_code": "L3R 5L2",
+      "post_office_box": null,
+      "province_f": "ONTARIO",
+      "country_f": "CANADA"
+    }
+  },
+  {
+    "model": "hc_dpd.originalcompany",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "mfr_code": "BQC07",
+      "company_code": 3798,
+      "company_name": "BRISTOL-MYERS SQUIBB CANADA",
+      "company_type": "DIN OWNER",
+      "address_mailing_flag": "Y",
+      "address_billing_flag": "Y",
+      "address_notification_flag": "Y",
+      "address_other": "N",
+      "suite_number": null,
+      "street_name": "2344 BOUL. ALFRED-NOBEL, SUITE 300",
+      "city_name": "ST-LAURENT",
+      "province": "QUEBEC",
+      "country": "CANADA",
+      "postal_code": "H4S 0A4",
+      "post_office_box": null,
+      "province_f": "QUÉBEC",
+      "country_f": "CANADA"
+    }
+  },
+  {
+    "model": "hc_dpd.originalcompany",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "mfr_code": "RIV07",
+      "company_code": 5034,
+      "company_name": "LABORATOIRE RIVA INC.",
+      "company_type": "DIN OWNER",
+      "address_mailing_flag": "Y",
+      "address_billing_flag": "Y",
+      "address_notification_flag": "Y",
+      "address_other": "N",
+      "suite_number": null,
+      "street_name": "660 BOUL. INDUSTRIEL",
+      "city_name": "BLAINVILLE",
+      "province": "QUEBEC",
+      "country": "CANADA",
+      "postal_code": "J7C 3V4",
+      "post_office_box": null,
+      "province_f": "QUÉBEC",
+      "country_f": "CANADA"
+    }
+  },
+  {
+    "model": "hc_dpd.originalcompany",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "mfr_code": "SEV07",
+      "company_code": 5096,
+      "company_name": "SERVIER CANADA INC",
+      "company_type": "DIN OWNER",
+      "address_mailing_flag": "Y",
+      "address_billing_flag": "N",
+      "address_notification_flag": "N",
+      "address_other": "N",
+      "suite_number": null,
+      "street_name": "235 BOUL. ARMAND-FRAPPIER  - PARC SCIENTIF. ET DE HAUTE TECH. DE LAVAL",
+      "city_name": "LAVAL",
+      "province": "QUEBEC",
+      "country": "CANADA",
+      "postal_code": "H7V 4A7",
+      "post_office_box": null,
+      "province_f": "QUÉBEC",
+      "country_f": "CANADA"
+    }
+  },
+  {
+    "model": "hc_dpd.originalcompany",
+    "pk": 6,
+    "fields": {
+      "drug_code": 99223,
+      "mfr_code": null,
+      "company_code": 16555,
+      "company_name": "FRESENIUS KABI CANADA LTD",
+      "company_type": "DIN OWNER",
+      "address_mailing_flag": "Y",
+      "address_billing_flag": "Y",
+      "address_notification_flag": "Y",
+      "address_other": "N",
+      "suite_number": null,
+      "street_name": "165 GALAXY BLVD, SUITE 100",
+      "city_name": "TORONTO",
+      "province": "ONTARIO",
+      "country": "CANADA",
+      "postal_code": "M9W 0C8",
+      "post_office_box": null,
+      "province_f": "ONTARIO",
+      "country_f": "CANADA"
+    }
+  }
+]

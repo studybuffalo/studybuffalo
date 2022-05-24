@@ -1,1 +1,42 @@
-﻿[{"model": "hc_dpd.originalpharmaceuticalstandard", "pk": 1, "fields": {"drug_code": 5255, "pharmaceutical_std": "USP"}}]
+﻿[
+  {
+    "model": "hc_dpd.originalpharmaceuticalstandard",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "pharmaceutical_std": "USP"
+    }
+  },
+  {
+    "model": "hc_dpd.originalpharmaceuticalstandard",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "pharmaceutical_std": "USP"
+    }
+  },
+  {
+    "model": "hc_dpd.originalpharmaceuticalstandard",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "pharmaceutical_std": "MFR"
+    }
+  },
+  {
+    "model": "hc_dpd.originalpharmaceuticalstandard",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "pharmaceutical_std": "BP"
+    }
+  },
+  {
+    "model": "hc_dpd.originalpharmaceuticalstandard",
+    "pk": 5,
+    "fields": {
+      "drug_code": 99223,
+      "pharmaceutical_std": "MFR"
+    }
+  }
+]

@@ -1,1 +1,56 @@
-﻿[{"model": "hc_dpd.originalschedule", "pk": 1, "fields": {"drug_code": 5255, "schedule": "OTC", "schedule_f": "En vente libre"}}]
+﻿[
+  {
+    "model": "hc_dpd.originalschedule",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "schedule": "OTC",
+      "schedule_f": "En vente libre"
+    }
+  },
+  {
+    "model": "hc_dpd.originalschedule",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "schedule": "OTC",
+      "schedule_f": "En vente libre"
+    }
+  },
+  {
+    "model": "hc_dpd.originalschedule",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "schedule": "Prescription",
+      "schedule_f": "Prescription"
+    }
+  },
+  {
+    "model": "hc_dpd.originalschedule",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "schedule": "Prescription",
+      "schedule_f": "Prescription"
+    }
+  },
+  {
+    "model": "hc_dpd.originalschedule",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "schedule": "Prescription",
+      "schedule_f": "Prescription"
+    }
+  },
+  {
+    "model": "hc_dpd.originalschedule",
+    "pk": 6,
+    "fields": {
+      "drug_code": 99223,
+      "schedule": "Prescription",
+      "schedule_f": "Prescription"
+    }
+  }
+]

@@ -1,1 +1,72 @@
-﻿[]
+﻿[
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "CATTLE",
+      "vet_sub_species": null,
+      "vet_species_f": "Bétails"
+    }
+  },
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 2,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "SWINE (PIGS)",
+      "vet_sub_species": null,
+      "vet_species_f": "Porcs"
+    }
+  },
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 3,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "Goats",
+      "vet_sub_species": null,
+      "vet_species_f": "Chèvres"
+    }
+  },
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 4,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "HORSES",
+      "vet_sub_species": null,
+      "vet_species_f": "Chevaux"
+    }
+  },
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 5,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "CATS",
+      "vet_sub_species": null,
+      "vet_species_f": "Chats"
+    }
+  },
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 6,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "SHEEP",
+      "vet_sub_species": null,
+      "vet_species_f": "Mouton"
+    }
+  },
+  {
+    "model": "hc_dpd.originalveterinaryspecies",
+    "pk": 7,
+    "fields": {
+      "drug_code": 85,
+      "vet_species": "DOGS",
+      "vet_sub_species": null,
+      "vet_species_f": "Chiens"
+    }
+  }
+]
