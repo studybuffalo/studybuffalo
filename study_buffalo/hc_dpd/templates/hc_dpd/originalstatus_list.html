@@ -3,34 +3,34 @@
 {% load static %}
 
 {% block content %}
-	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Status List</h1>
+  <h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Status List</h1>
 
-	{% if status_list %}
-		<table>
-			<thead>
-				<tr>
-                    <th>Drug Code</th>
-                    <th>Current Status Flag</th>
-                    <th>Status</th>
-                    <th>History Date</th>
-                    <th>Status (Fr)</th>
-                    <th>Lot Number</th>
-                    <th>Expiration Date</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for item in status_list %}
-					<tr>
-                        <td>{{ item.drug_code }}</td>
-                        <td>{{ item.current_status_flag }}</td>
-                        <td>{{ item.status }}</td>
-                        <td>{{ item.history_date }}</td>
-                        <td>{{ item.status_f }}</td>
-                        <td>{{ item.lot_number }}</td>
-                        <td>{{ item.expiration_date }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	{% endif %}
+  {% if status_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Code</th>
+          <th>Current Status Flag</th>
+          <th>Status</th>
+          <th>History Date</th>
+          <th>Status (Fr)</th>
+          <th>Lot Number</th>
+          <th>Expiration Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in status_list %}
+          <tr>
+            <td>{{ item.drug_code }}</td>
+            <td>{{ item.current_status_flag }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.history_date|date:'Y-m-d' }}</td>
+            <td>{{ item.status_f }}</td>
+            <td>{{ item.lot_number }}</td>
+            <td>{{ item.expiration_date|date:'Y-m-d' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 {% endblock %}

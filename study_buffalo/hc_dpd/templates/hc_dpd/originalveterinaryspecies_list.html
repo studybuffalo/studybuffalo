@@ -3,28 +3,28 @@
 {% load static %}
 
 {% block content %}
-	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Veterinary Species List</h1>
+  <h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Veterinary Species List</h1>
 
-	{% if veterinary_species_list %}
-		<table>
-			<thead>
-				<tr>
-                    <th>Drug Code</th>
-                    <th>Veterinary Species</th>
-                    <th>Veterinary Sub Species</th>
-                    <th>Veterinary Species (Fr)</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for item in veterinary_species_list %}
-					<tr>
-                        <td>{{ item.drug_code }}</td>
-                        <td>{{ item.vet_species }}</td>
-                        <td>{{ item.vet_sub_species }}</td>
-                        <td>{{ item.vet_species_f }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	{% endif %}
+  {% if veterinary_species_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Code</th>
+          <th>Veterinary Species</th>
+          <th>Veterinary Sub Species</th>
+          <th>Veterinary Species (Fr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in veterinary_species_list %}
+          <tr>
+            <td>{{ item.drug_code }}</td>
+            <td>{{ item.vet_species }}</td>
+            <td>{{ item.vet_sub_species }}</td>
+            <td>{{ item.vet_species_f }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 {% endblock %}
