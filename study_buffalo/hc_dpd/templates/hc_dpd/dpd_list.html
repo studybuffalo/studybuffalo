@@ -3,24 +3,48 @@
 {% load static %}
 
 {% block content %}
-	<h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; DPD List</h1>
+  <h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; DPD List</h1>
 
-	{% if dpd_list %}
-		<table>
-			<thead>
-				<tr>
-                    <th>Drug Code</th>
-                    <th>Origin File</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for item in dpd_list %}
-					<tr>
-                        <td>{{ item.drug_code }}</td>
-                        <td>{{ item.origin_file }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	{% endif %}
+  {% if dpd_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Code</th>
+          <th>Original Active Ingredient Modified</th>
+          <th>Original Biosimilar Modified</th>
+          <th>Original Company Modified</th>
+          <th>Original Drug Product Modified</th>
+          <th>Original Form Modified</th>
+          <th>Original Inactive Product Modified</th>
+          <th>Original Packaging Modified</th>
+          <th>Original Pharmaceutical Standard Modified</th>
+          <th>Original Route Modified</th>
+          <th>Original Schedule Modified</th>
+          <th>Original Status Modified</th>
+          <th>Original Therapeutic Class Modified</th>
+          <th>Original Veterinary Species Modified</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in dpd_list %}
+          <tr>
+            <td>{{ item.drug_code }}</td>
+            <td>{{ item.original_active_ingredient_modified|date:'c' }}</td>
+            <td>{{ item.original_biosimilar_modified|date:'c' }}</td>
+            <td>{{ item.original_company_modified|date:'c' }}</td>
+            <td>{{ item.original_drug_product_modified|date:'c' }}</td>
+            <td>{{ item.original_form_modified|date:'c' }}</td>
+            <td>{{ item.original_inactive_product_modified|date:'c' }}</td>
+            <td>{{ item.original_packaging_modified|date:'c' }}</td>
+            <td>{{ item.original_pharmaceutical_standard_modified|date:'c' }}</td>
+            <td>{{ item.original_route_modified|date:'c' }}</td>
+            <td>{{ item.original_schedule_modified|date:'c' }}</td>
+            <td>{{ item.original_status_modified|date:'c' }}</td>
+            <td>{{ item.original_therapeutic_class_modified|date:'c' }}</td>
+            <td>{{ item.original_veterinary_species_modified|date:'c' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 {% endblock %}
