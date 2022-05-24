@@ -8,6 +8,8 @@ from hc_dpd import utils
 from hc_dpd.validators import validate_checksum_start
 
 
+# TODO: update verbose and plural verbose names
+
 class DPD(models.Model):
     """Holds the HC Drug Code as a foreign key and reference for all models."""
     drug_code = models.PositiveIntegerField(
