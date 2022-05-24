@@ -21,6 +21,20 @@ fixtures = study_buffalo/dictionary/fixtures/language.json \
 			study_buffalo/drug_price_calculator/fixtures/pend_generic.json \
 			study_buffalo/drug_price_calculator/fixtures/pend_manufacturer.json \
 			study_buffalo/drug_price_calculator/fixtures/pend_unit.json \
+			study_buffalo/hc_dpd/fixtures/dpd.json \
+			study_buffalo/hc_dpd/fixtures/original_active_ingredient.json \
+			study_buffalo/hc_dpd/fixtures/original_biosimilar.json \
+			study_buffalo/hc_dpd/fixtures/original_company.json \
+			study_buffalo/hc_dpd/fixtures/original_drug_product.json \
+			study_buffalo/hc_dpd/fixtures/original_form.json \
+			study_buffalo/hc_dpd/fixtures/original_inactive_product.json \
+			study_buffalo/hc_dpd/fixtures/original_packaging.json \
+			study_buffalo/hc_dpd/fixtures/original_pharmaceutical_standard.json \
+			study_buffalo/hc_dpd/fixtures/original_route.json \
+			study_buffalo/hc_dpd/fixtures/original_schedule.json \
+			study_buffalo/hc_dpd/fixtures/original_status.json \
+			study_buffalo/hc_dpd/fixtures/original_therapeutic_class.json \
+			study_buffalo/hc_dpd/fixtures/original_veterinary_species.json \
 			study_buffalo/play/fixtures/category.json \
 			study_buffalo/play/fixtures/play_page.json \
 			study_buffalo/play/fixtures/play_image.json \
