@@ -1,6 +1,6 @@
-﻿[
+[
   {
-    "model": "hc_dpd.inactiveproduct",
+    "model": "hc_dpd.originalinactiveproduct",
     "pk": 1,
     "fields": {
       "drug_code": 13375,
