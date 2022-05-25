@@ -72,10 +72,10 @@ class PlayPage(models.Model):
 
     def next_page(self):
         """Returns the next primary key ID."""
-        next_pk = self.pk + 1
-
         if self.last_page() is None:
             return None
+
+        next_pk = self.pk + 1
 
         if next_pk <= self.last_page():
             return next_pk
