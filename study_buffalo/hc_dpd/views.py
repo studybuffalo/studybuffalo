@@ -18,92 +18,92 @@ class DPDList(PermissionRequiredMixin, generic.ListView):
     permission_required = 'dpd.web_via'
 
 
-class ActiveIngredientList(PermissionRequiredMixin, generic.ListView):
-    """View of all the ActiveIngredient entries."""
+class OriginalActiveIngredientList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalActiveIngredient entries."""
     model = OriginalActiveIngredient
     context_object_name = 'active_ingredient_list'
     permission_required = 'dpd.web_via'
 
 
-class BiosimilarList(PermissionRequiredMixin, generic.ListView):
-    """View ofa ll the Biosimilar entries."""
+class OriginalBiosimilarList(PermissionRequiredMixin, generic.ListView):
+    """View ofa ll the OriginalBiosimilar entries."""
     model = OriginalBiosimilar
     context_object_name = 'biosimilar_list'
     permission_required = 'dpd.web_via'
 
 
-class CompanyList(PermissionRequiredMixin, generic.ListView):
-    """View of all the Company entries."""
+class OriginalCompanyList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalCompany entries."""
     model = OriginalCompany
     context_object_name = 'company_list'
     permission_required = 'dpd.web_via'
 
 
-class DrugProductList(PermissionRequiredMixin, generic.ListView):
-    """View of all the DrugProduct entries."""
+class OriginalDrugProductList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalDrugProduct entries."""
     model = OriginalDrugProduct
     context_object_name = 'drug_product_list'
     permission_required = 'dpd.web_via'
 
 
-class FormList(PermissionRequiredMixin, generic.ListView):
-    """View of all the Form entries."""
+class OriginalFormList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalForm entries."""
     model = OriginalForm
     context_object_name = 'form_list'
     permission_required = 'dpd.web_via'
 
 
-class InactiveProductList(PermissionRequiredMixin, generic.ListView):
-    """View of all the InactiveProduct entries."""
+class OriginalInactiveProductList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalInactiveProduct entries."""
     model = OriginalInactiveProduct
     context_object_name = 'inactive_product_list'
     permission_required = 'dpd.web_via'
 
 
-class PackagingList(PermissionRequiredMixin, generic.ListView):
-    """View of all the Packaging entries."""
+class OriginalPackagingList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalPackaging entries."""
     model = OriginalPackaging
     context_object_name = 'packaging_list'
     permission_required = 'dpd.web_via'
 
 
-class PharmaceuticalStandardList(PermissionRequiredMixin, generic.ListView):
-    """View of all the PharmaceuticalStandard entries."""
+class OriginalPharmaceuticalStandardList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalPharmaceuticalStandard entries."""
     model = OriginalPharmaceuticalStandard
     context_object_name = 'pharmaceutical_standard_list'
     permission_required = 'dpd.web_via'
 
 
-class RouteList(PermissionRequiredMixin, generic.ListView):
-    """View of all the Route entries."""
+class OriginalRouteList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalRoute entries."""
     model = OriginalRoute
     context_object_name = 'route_list'
     permission_required = 'dpd.web_via'
 
 
-class ScheduleList(PermissionRequiredMixin, generic.ListView):
-    """View of all the Schedule entries."""
+class OriginalScheduleList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalSchedule entries."""
     model = OriginalSchedule
     context_object_name = 'schedule_list'
     permission_required = 'dpd.web_via'
 
 
-class StatusList(PermissionRequiredMixin, generic.ListView):
-    """View of all the Status entries."""
+class OriginalStatusList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalStatus entries."""
     model = OriginalStatus
     context_object_name = 'status_list'
     permission_required = 'dpd.web_via'
 
 
-class TherapeuticClassList(PermissionRequiredMixin, generic.ListView):
-    """View of all the TherapeuticClass entries."""
+class OriginalTherapeuticClassList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalTherapeuticClass entries."""
     model = OriginalTherapeuticClass
     context_object_name = 'therapeutic_class_list'
     permission_required = 'dpd.web_via'
 
 
-class VeterinarySpeciesList(PermissionRequiredMixin, generic.ListView):
-    """View of all the VeterinarySpecies entries."""
+class OriginalVeterinarySpeciesList(PermissionRequiredMixin, generic.ListView):
+    """View of all the OriginalVeterinarySpecies entries."""
     model = OriginalVeterinarySpecies
     context_object_name = 'veterinary_species_list'
     permission_required = 'dpd.web_via'
