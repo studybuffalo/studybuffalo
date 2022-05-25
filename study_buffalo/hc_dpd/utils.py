@@ -23,8 +23,8 @@ def standard_to_original_model():
     """Mapping between standard naming and original models.
 
         Has to be called as function as models may not be
-        initialized otherwise (e.g. if this is provided as
-        a straight dictionary in the utility module).
+        initialized when function is imported into other
+        modules.
     """
     return {
         ACTIVE_INGREDIENT: models.OriginalActiveIngredient,
