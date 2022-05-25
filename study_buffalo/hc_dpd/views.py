@@ -26,7 +26,7 @@ class OriginalActiveIngredientList(PermissionRequiredMixin, generic.ListView):
 
 
 class OriginalBiosimilarList(PermissionRequiredMixin, generic.ListView):
-    """View ofa ll the OriginalBiosimilar entries."""
+    """View of all the OriginalBiosimilar entries."""
     model = OriginalBiosimilar
     context_object_name = 'biosimilar_list'
     permission_required = 'hc_dpd.web_view'
