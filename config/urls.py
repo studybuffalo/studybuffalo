@@ -28,7 +28,7 @@ urlpatterns = [
     path('rdrhc-calendar/', include('rdrhc_calendar.urls', namespace='rdrhc_calendar')),
     path('tools/alberta-adaptations/', views.alberta_adaptations_index, name='alberta_adaptations_index'),
     path('tools/dictionary/', include('dictionary.urls')),
-    path('tools/dpd/', include('hc_dpd.urls')),
+    path('tools/dpd/', include('hc_dpd.urls', namespace='hc_dpd')),
     path('tools/drug-price-calculator/', include('drug_price_calculator.urls')),
     path('tools/substitutions/', include('substitutions.urls')),
     path('tools/vancomycin-calculator/', include('vancomycin_calculator.urls')),
