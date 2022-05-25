@@ -99,6 +99,10 @@ class FormattedActiveIngredient(models.Model):
         """Returns string representation of model."""
         return f'{self.ingredient} [{self.active_ingredient_code}] [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted active ingredient'
+        verbose_name_plural = 'formatted active ingredients'
+
 
 class FormattedBiosimilar(models.Model):
     """Model representing the formatted QRYM_BIOSIMILARS file.
@@ -133,6 +137,10 @@ class FormattedBiosimilar(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.biosimilar_code} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted biosimilar'
+        verbose_name_plural = 'formatted biosimilars'
 
 
 class FormattedCompany(models.Model):
@@ -249,6 +257,10 @@ class FormattedCompany(models.Model):
         """Returns string representation of model."""
         return f'{self.company_name} [{self.company_code}] [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted company'
+        verbose_name_plural = 'formatted companies'
+
 
 class FormattedDrugProduct(models.Model):
     """Model representing the formatted QRYM_DRUG_PRODUCT file."""
@@ -340,6 +352,10 @@ class FormattedDrugProduct(models.Model):
         """Returns string representation of model."""
         return f'{self.brand_name} [{self.drug_identification_number}] [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted drug product'
+        verbose_name_plural = 'formatted drug products'
+
 
 class FormattedForm(models.Model):
     """Model representing the formatted QRYM_FORM file."""
@@ -371,6 +387,10 @@ class FormattedForm(models.Model):
         """Returns string representation of model."""
         return f'{self.pharmaceutical_form} [{self.pharm_form_code}] [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted form'
+        verbose_name_plural = 'formatted forms'
+
 
 class FormattedInactiveProduct(models.Model):
     """Model representing the formatted QRYM_INACTIVE_PRODUCTS file."""
@@ -401,6 +421,10 @@ class FormattedInactiveProduct(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.brand_name} [{self.history_date}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted inactive product'
+        verbose_name_plural = 'formatted inactive products'
 
 
 class FormattedPackaging(models.Model):
@@ -458,6 +482,10 @@ class FormattedPackaging(models.Model):
         """Returns string representation of model."""
         return f'{self.upc} [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted packaging'
+        verbose_name_plural = 'formatted packaging'
+
 
 class FormattedPharmaceuticalStandard(models.Model):
     """Model representing the formatted QRYM_PHARMACEUTICAL_STD file."""
@@ -477,6 +505,10 @@ class FormattedPharmaceuticalStandard(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.pharmaceutical_std} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted pharmaceutical standard'
+        verbose_name_plural = 'formatted pharmaceutical standards'
 
 
 class FormattedRoute(models.Model):
@@ -509,6 +541,10 @@ class FormattedRoute(models.Model):
         """Returns string representation of model."""
         return f'{self.route_of_administration} [{self.route_of_administration_code}] [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted route'
+        verbose_name_plural = 'formatted routes'
+
 
 class FormattedSchedule(models.Model):
     """Model representing the formatted QRYM_SCHEDULE file."""
@@ -534,6 +570,10 @@ class FormattedSchedule(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.schedule} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted schedule'
+        verbose_name_plural = 'formatted schedules'
 
 
 class FormattedStatus(models.Model):
@@ -583,6 +623,10 @@ class FormattedStatus(models.Model):
         """Returns string representation of model."""
         return f'{self.status} [{self.history_date}] [F; Drug Code {self.drug_code}]'
 
+    class Meta:
+        verbose_name = 'formatted status'
+        verbose_name_plural = 'formatted statuses'
+
 
 class FormattedTherapeuticClass(models.Model):
     """Model representing the formatted QRYM_THERAPEUTIC_CLASS file."""
@@ -614,6 +658,10 @@ class FormattedTherapeuticClass(models.Model):
     def __str__(self):
         """Returns string representation of model."""
         return f'{self.tc_atc} [{self.tc_atc_number}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted therapeutic class'
+        verbose_name_plural = 'formatted therapeutic classes'
 
 
 class FormattedVeterinarySpecies(models.Model):
@@ -654,3 +702,7 @@ class FormattedVeterinarySpecies(models.Model):
             species_list.append(self.vet_sub_species)
 
         return f'{" - ".join(species_list)} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted veterinary species'
+        verbose_name_plural = 'formatted veterinary species'

@@ -114,6 +114,8 @@ class DPD(models.Model):
         self.save()
 
     class Meta:
+        verbose_name = 'DPD code'
+        verbose_name_plural = 'DPD codes'
         permissions = (
             ('api_view', 'Can view DPD data via the API'),
             ('api_edit', 'Can edit DPD data via the API'),
@@ -263,3 +265,7 @@ class DPDChecksum(models.Model):
                 checksum_string += str(getattr(row, field))
 
         return checksum_string
+
+    class Meta:
+        verbose_name = 'DPD checksum'
+        verbose_name_plural = 'DPD checksums'
