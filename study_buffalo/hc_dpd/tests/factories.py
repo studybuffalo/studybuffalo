@@ -6,7 +6,8 @@ from hc_dpd import models
 
 class DPDFactory(factory.django.DjangoModelFactory):
     """Factory to generate a DPD instance."""
-    drug_code = factory.Sequence(int)
+    # Add 1 to sequence since it starts at 0 and drug_code must be > 1
+    drug_code = factory.Sequence(lambda n: n + 1)
 
     class Meta:
         model = models.DPD
