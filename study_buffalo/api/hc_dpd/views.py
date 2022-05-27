@@ -1,9 +1,9 @@
 """Views for the Drug Price Calculator API."""
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from api.hc_dpd import serializers, paginators
+from api.hc_dpd import serializers, paginators, permissions
 from hc_dpd import models
 
 
@@ -13,6 +13,7 @@ class UploadHCDPDData(GenericAPIView):
         Build to accept multiple entries at once to reduce # of requests.
     """
     serializer_class = serializers.UploadHCDPDDataSerializer
+    permission_classes = [permissions.HasDPDEditAccess]
 
     def post(self, request):
         """Perform POST call to update HC DPD data."""
@@ -35,7 +36,7 @@ class UploadHCDPDData(GenericAPIView):
         return Response(data=message, status=status_code)
 
 
-class ChecksumList(GenericAPIView):
+class ChecksumList(ListAPIView):
     """View to return a list of checksum values.
 
         Can be a GET request
@@ -44,6 +45,9 @@ class ChecksumList(GenericAPIView):
     """
     pagination_class = paginators.ChecksumPagination
     serializer_class = serializers.UploadHCDPDDataSerializer
+    permission_classes = [
+        permissions.HasDPDViewAccess|permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
+    ]
 
     def get_queryset(self):
         """Filters the queryset to the requested details"""
@@ -64,3 +68,4 @@ class ChecksumList(GenericAPIView):
 
 class TestChecksum(GenericAPIView):
     """View to test a client's checksum process."""
+    # TODO: fill this out
