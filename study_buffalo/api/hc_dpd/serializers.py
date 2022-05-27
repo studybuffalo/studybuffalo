@@ -1,6 +1,7 @@
 """Serializers for the Drug Price Calculator API."""
 from django.core.exceptions import ValidationError
-
+from django.db import transaction
+from django.db.utils import DataError
 from rest_framework import serializers, status
 
 from hc_dpd import models, utils
@@ -17,7 +18,6 @@ class ActiveIngredientSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalActiveIngredient.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         # Meta declarations
         model = models.OriginalActiveIngredient
@@ -43,7 +43,6 @@ class BiosimilarSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalBiosimilar.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalBiosimilar
         fields = serializer_fields
@@ -60,7 +59,6 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalCompany.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalCompany
         fields = serializer_fields
@@ -77,7 +75,6 @@ class DrugProductSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalDrugProduct.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalDrugProduct
         fields = serializer_fields
@@ -94,7 +91,6 @@ class FormSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalForm.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalForm
         fields = serializer_fields
@@ -111,7 +107,6 @@ class InactiveProductSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalInactiveProduct.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalInactiveProduct
         fields = serializer_fields
@@ -128,7 +123,6 @@ class PackagingSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalPackaging.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalPackaging
         fields = serializer_fields
@@ -145,7 +139,6 @@ class PharmaceuticalStandardSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalPharmaceuticalStandard.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalPharmaceuticalStandard
         fields = serializer_fields
@@ -162,7 +155,6 @@ class RouteSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalRoute.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalRoute
         fields = serializer_fields
@@ -179,7 +171,6 @@ class ScheduleSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalSchedule.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalSchedule
         fields = serializer_fields
@@ -196,7 +187,6 @@ class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalStatus.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalStatus
         fields = serializer_fields
@@ -213,7 +203,6 @@ class TherapeuticClassSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalTherapeuticClass.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalTherapeuticClass
         fields = serializer_fields
@@ -230,7 +219,6 @@ class VeterinarySpeciesSerializer(serializers.ModelSerializer):
     class Meta:
         # Get fields from field_order and remove drug code
         serializer_fields = models.OriginalVeterinarySpecies.dpd_field_order()
-        serializer_fields.remove('drug_code')
 
         model = models.OriginalVeterinarySpecies
         fields = serializer_fields
@@ -238,7 +226,7 @@ class VeterinarySpeciesSerializer(serializers.ModelSerializer):
 
 class UploadHCDPDDataSerializer(serializers.Serializer):
     """Serializer to manage requests to update HC DPD data."""
-    active_ingredients = ActiveIngredientSerializer(
+    active_ingredient = ActiveIngredientSerializer(
         help_text='Data from the QRYM_ACTIVE_INGREDIENTS file.',
         many=True,
         required=False,
@@ -338,32 +326,37 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
                 model.objects.filter(drug_code=dpd_instance).delete()
 
                 # Create the required model instance for each item
+                any_update = False
+
                 for item in items:
                     # Remove the drug_code entry as it is not needed
                     item.pop('drug_code')
 
                     try:
-                        model_instance = model.objects.create(
-                            drug_code=dpd_instance,
-                            defaults=item,
-                        )
+                        # Need to explicitly declare an atomic block here so
+                        # that any DB errors can be reverted/cancelled before
+                        # the modified time is updated.
+                        with transaction.atomic():
+                            model_instance = model.objects.create(drug_code=dpd_instance, **item)
 
-                        message.append({
-                            'status_code': status.HTTP_201_CREATED,
-                            'file_type': file_type,
-                            'id': model_instance.id,
-                            'drug_code': drug_code,
-                        })
-                        status_check['201'] = True
-                    except ValidationError as e:
+                            message.append({
+                                'status_code': status.HTTP_201_CREATED,
+                                'file_type': file_type,
+                                'id': model_instance.id,
+                                'drug_code': drug_code,
+                            })
+                            status_check['201'] = True
+                            any_update = True
+                    except (ValidationError, DataError) as e:
                         message.append({
                             'status_code': status.HTTP_400_BAD_REQUEST,
                             'errors': [f'Could not create entry ({item}): {e}']
                         })
                         status_check['400'] = True
 
-                # Update the modified time for this file type
-                dpd_instance.update_modified(file_type)
+                # Update the modified time for this file type (if an update occurred)
+                if any_update:
+                    dpd_instance.update_modified(file_type)
 
         # Determine final status code based on model creation
         if status_check['201'] and status_check['400']:
