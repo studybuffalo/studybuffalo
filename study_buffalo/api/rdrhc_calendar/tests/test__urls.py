@@ -6,6 +6,7 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 
 from rdrhc_calendar.tests import utils
+from users.tests.utils import create_token
 
 
 pytestmark = pytest.mark.django_db
@@ -23,7 +24,7 @@ def test__root__403_response_on_anonymous_user():
 def test__root__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -36,7 +37,7 @@ def test__root__403_response_on_user_without_permissions(user):
 def test__root__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -50,7 +51,7 @@ def test__root__200_response_on_user_with_permissions(user):
 def test__root__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -73,7 +74,7 @@ def test__user_list__403_response_on_anonymous_user():
 def test__user_list__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -86,7 +87,7 @@ def test__user_list__403_response_on_user_without_permissions(user):
 def test__user_list__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -100,7 +101,7 @@ def test__user_list__200_response_on_user_with_permissions(user):
 def test__user_list__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -125,7 +126,7 @@ def test__user_detail__403_response_on_anonymous_user(user):
 def test__user_detail__403_response_on_user_without_permissions(calendar_user):
     """Test for 403 response on user without permission."""
     # Create token
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
 
     # Set up client and response
     client = APIClient()
@@ -140,7 +141,7 @@ def test__user_detail__403_response_on_user_without_permissions(calendar_user):
 def test__user_detail__200_response_on_user_with_permissions(calendar_user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -157,7 +158,7 @@ def test__user_detail__200_response_on_user_with_permissions(calendar_user):
 def test__user_detail__accessible_by_url(calendar_user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -184,7 +185,7 @@ def test__user_email_list__403_response_on_anonymous_user(user):
 def test__user_email_list__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -199,7 +200,7 @@ def test__user_email_list__403_response_on_user_without_permissions(user):
 def test__user_email_list__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -216,7 +217,7 @@ def test__user_email_list__200_response_on_user_with_permissions(user):
 def test__user_email_list__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -241,7 +242,7 @@ def test__shift_list__403_response_on_anonymous_user():
 def test__shift_list__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -254,7 +255,7 @@ def test__shift_list__403_response_on_user_without_permissions(user):
 def test__shift_list__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -268,7 +269,7 @@ def test__shift_list__200_response_on_user_with_permissions(user):
 def test__shift_list__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -294,7 +295,7 @@ def test__user_shift_code_list__403_response_on_anonymous_user(user):
 def test__user_shift_code_list__403_response_on_user_without_permissions(calendar_user):
     """Test for 403 response on user without permission."""
     # Create token
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
 
     # Set up client and response
     client = APIClient()
@@ -309,7 +310,7 @@ def test__user_shift_code_list__403_response_on_user_without_permissions(calenda
 def test__user_shift_code_list__200_response_on_user_with_permissions(calendar_user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -326,7 +327,7 @@ def test__user_shift_code_list__200_response_on_user_with_permissions(calendar_u
 def test__user_shift_code_list__accessible_by_url(calendar_user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -351,7 +352,7 @@ def test__stat_holiday_list__403_response_on_anonymous_user():
 def test__stat_holiday_list__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -366,7 +367,7 @@ def test__stat_holiday_list__403_response_on_user_without_permissions(user):
 def test__stat_holiday_list__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -380,7 +381,7 @@ def test__stat_holiday_list__200_response_on_user_with_permissions(user):
 def test__stat_holiday_list__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -404,7 +405,7 @@ def test__user_schedule_list__403_response_on_anonymous_user(user):
 def test__user_schedule_list__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -419,7 +420,7 @@ def test__user_schedule_list__403_response_on_user_without_permissions(user):
 def test__user_schedule_list__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -436,7 +437,7 @@ def test__user_schedule_list__200_response_on_user_with_permissions(user):
 def test__user_schedule_list__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -464,7 +465,7 @@ def test__user_schedule_delete__403_response_on_anonymous_user(user):
 def test__user_schedule_delete__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -479,7 +480,7 @@ def test__user_schedule_delete__403_response_on_user_without_permissions(user):
 def test__user_schedule_delete__204_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -496,7 +497,7 @@ def test__user_schedule_delete__204_response_on_user_with_permissions(user):
 def test__user_schedule_delete__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -524,7 +525,7 @@ def test__user_schedule_upload__403_response_on_anonymous_user(user):
 def test__user_schedule_upload__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -539,7 +540,7 @@ def test__user_schedule_upload__403_response_on_user_without_permissions(user):
 def test__user_schedule_upload__200_response_on_user_with_permissions(calendar_user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -556,7 +557,7 @@ def test__user_schedule_upload__200_response_on_user_with_permissions(calendar_u
 def test__user_schedule_upload__accessible_by_url(calendar_user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -584,7 +585,7 @@ def test__user_email_first_sent__403_response_on_anonymous_user(user):
 def test__user_email_first_sent__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -600,7 +601,7 @@ def test__user_email_first_sent__403_response_on_user_without_permissions(user):
 def test__user_email_first_sent__200_response_on_user_with_permissions(calendar_user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -617,7 +618,7 @@ def test__user_email_first_sent__200_response_on_user_with_permissions(calendar_
 def test__user_email_first_sent__accessible_by_url(calendar_user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -644,7 +645,7 @@ def test__missing_shift_code_upload__403_response_on_anonymous_user():
 def test__missing_shift_code_upload__403_response_on_user_without_permissions(user):
     """Test for 403 response on user without permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
 
     # Set up client and response
     client = APIClient()
@@ -659,7 +660,7 @@ def test__missing_shift_code_upload__403_response_on_user_without_permissions(us
 def test__missing_shift_code_upload__200_response_on_user_with_permissions(user):
     """Test for 200 response on user with permission."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -675,7 +676,7 @@ def test__missing_shift_code_upload__200_response_on_user_with_permissions(user)
 def test__missing_shift_code_upload__accessible_by_url(user):
     """Tests that endpoint exists at expected URL."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
