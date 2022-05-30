@@ -295,7 +295,8 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
 
     def create(self, validated_data):  # pylint: disable=too-many-locals
         """Create or update new database entries when needed."""
-        message = []
+        message = {'message': [], 'status_code': 500}
+        message_list = []
         status_check = {'201': False, '400': False}
         status_code = None
 
@@ -328,7 +329,7 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
                         with transaction.atomic():
                             model_instance = model.objects.create(drug_code=dpd_instance, **item)
 
-                            message.append({
+                            message_list.append({
                                 'status_code': status.HTTP_201_CREATED,
                                 'file_type': file_type,
                                 'id': model_instance.id,
@@ -337,7 +338,7 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
                             status_check['201'] = True
                             any_update = True
                     except (ValidationError, DataError) as e:
-                        message.append({
+                        message_list.append({
                             'status_code': status.HTTP_400_BAD_REQUEST,
                             'errors': [f'Could not create entry ({item}): {e}']
                         })
@@ -347,19 +348,25 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
                 if any_update:
                     dpd_instance.update_modified(file_type)
 
+                message['message'] = message_list
+
         # Determine final status code based on model creation
         if status_check['201'] and status_check['400']:
             status_code = status.HTTP_207_MULTI_STATUS
+            message['status_code'] = status_code
         elif status_check['201']:
             status_code = status.HTTP_201_CREATED
+            message['status_code'] = status_code
         elif status_check['400']:
             status_code = status.HTTP_400_BAD_REQUEST
+            message['status_code'] = status_code
         else:
             status_code = status.HTTP_400_BAD_REQUEST
-            message.append({
-                'status_code': status.HTTP_400_BAD_REQUEST,
+            message['message'] = [{
+                'status_code': status_code,
                 'errors': ['No data submitted for upload.']
-            })
+            }]
+            message['status_code'] = status.HTTP_400_BAD_REQUEST
 
         return message, status_code
 
@@ -505,7 +512,7 @@ class ChecksumTestSerializer(serializers.Serializer):
             field_order = utils.standard_to_original_model()[source_file].dpd_field_order()
 
             # Compiles string from the submitted data
-            checksum_string = models.DPDChecksum.compile_checksum_string(source_data, field_order)
+            checksum_string = self.compile_checksum_string(source_data, field_order)
 
             # Calculate checksum for string
             calculated_checksum = models.DPDChecksum.calculate_checksum(checksum_string)
@@ -517,6 +524,25 @@ class ChecksumTestSerializer(serializers.Serializer):
             }
 
         return checksums
+
+    @staticmethod
+    def compile_checksum_string(data, field_order):
+        """Concatenates provided fields in data for checksum calculation.
+
+            :param list[dict] data: a list of dictionaries containing data.
+            :param list[str] field_order: A list outlining order of fields.
+            :return: The concatenated query data
+            :rtype: str
+        """
+        checksum_string = ''
+
+        for row in data:
+            row_dict = dict(row)
+
+            for field in field_order:
+                checksum_string += str(row_dict.get(field, ''))
+
+        return checksum_string
 
     class Meta:
         validators = [AscendingDrugCode()]
