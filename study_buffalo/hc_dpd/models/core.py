@@ -217,10 +217,10 @@ class DPDChecksum(models.Model):
         query = extract_model.objects.filter(
             drug_code__pk__gte=self.drug_code_start,
             pk__lte=drug_code_end,
-        )
+        ).order_by('drug_code')
 
         # Get the checksum string for this extract
-        checksum_string = self._compile_checksum_string(
+        checksum_string = self.compile_checksum_string(
             query, extract_model.dpd_field_order()
         )
 
@@ -234,9 +234,9 @@ class DPDChecksum(models.Model):
     def calculate_checksum(string):
         """Calculates checksum for a provided string.
 
-            Uses the CRC32 algorithm, as this is expect to be fast enough
-            for the API needs and the size of strings to create checksums
-            are unlikely to result in meaningful collisions.
+            Uses the CRC32 algorithm, as this is expected to be fast
+            enough for the API needs and the size of strings to create
+            checksums are unlikely to result in meaningful collisions.
 
             :param str string: The string to calculate checksum for
             :return: The calculated checksum
@@ -248,7 +248,7 @@ class DPDChecksum(models.Model):
         return crc32(b_string)
 
     @staticmethod
-    def _compile_checksum_string(query, field_order):
+    def compile_checksum_string(query, field_order):
         """Concatenates provided fields in query for checksum calculation.
 
             :param obj query: A Django queryset object.
