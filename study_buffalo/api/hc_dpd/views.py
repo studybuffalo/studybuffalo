@@ -66,6 +66,38 @@ class ChecksumList(ListAPIView):
         serializer.is_valid(raise_exception=True)
 
 
-class TestChecksum(GenericAPIView):
+class ChecksumTest(GenericAPIView):
     """View to test a client's checksum process."""
-    # TODO: fill this out
+    serializer_class = serializers.ChecksumTestSerializer
+    permission_classes = [
+        permissions.HasDPDViewAccess|permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
+    ]
+
+    def post(self, request):
+        """Perform POST to validate a user's checksum."""
+        # Get serializer and validate data
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid() is False:
+            message = {
+                'status_code': status.HTTP_400_BAD_REQUEST,
+                'errors': serializer.errors
+            }
+
+            return Response(
+                data=message, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        message = self._test_checksum_string(serializer.validated_data)
+
+        return Response(data=message, status=status.HTTP_200_OK)
+
+    @staticmethod
+    def _test_checksum_string(data):
+        """Determines if user data matches app-generated checksum."""
+        return {
+            'user_string': '',
+            'user_checksum': '',
+            'app_checksum': '',
+            'checksum_valid': True,
+        }

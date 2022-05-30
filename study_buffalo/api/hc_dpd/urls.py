@@ -8,6 +8,7 @@ app_name = 'hc_dpd_v1'
 
 urlpatterns = [
     # Endpoints to manage checksums
+    path('checksum/test/', views.ChecksumTest.as_view(), name='checksum_test'),
     path('checksum/', views.ChecksumList.as_view(), name='checksum_list'),
 
     # Endpoints to modify database
