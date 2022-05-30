@@ -60,13 +60,14 @@ def test__upload_hcdpd_data_serializer__create__single_active_ingredient():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'active_ingredient'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'active_ingredient'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -92,13 +93,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_active_ingredient_one_d
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'active_ingredient'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'active_ingredient'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -125,14 +127,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_active_ingredient_two_d
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'active_ingredient'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'active_ingredient'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -155,13 +158,14 @@ def test__upload_hcdpd_data_serializer__create__single_biosimilar():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'biosimilar'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'biosimilar'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -187,13 +191,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_biosimilar_one_drug_cod
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'biosimilar'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'biosimilar'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -220,14 +225,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_biosimilar_two_drug_cod
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'biosimilar'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'biosimilar'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -250,13 +256,14 @@ def test__upload_hcdpd_data_serializer__create__single_company():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'company'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'company'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -282,13 +289,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_company_one_drug_code()
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'company'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'company'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -315,14 +323,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_company_two_drug_code()
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'company'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'company'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -345,13 +354,14 @@ def test__upload_hcdpd_data_serializer__create__single_drug_product():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'drug_product'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'drug_product'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -377,13 +387,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_drug_product_one_drug_c
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'drug_product'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'drug_product'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -410,14 +421,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_drug_product_two_drug_c
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'drug_product'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'drug_product'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -440,13 +452,14 @@ def test__upload_hcdpd_data_serializer__create__single_form():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'form'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'form'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -472,13 +485,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_form_one_drug_code():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'form'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'form'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -505,14 +519,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_form_two_drug_code():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'form'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'form'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -535,13 +550,14 @@ def test__upload_hcdpd_data_serializer__create__single_inactive_product():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'inactive_product'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'inactive_product'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -567,13 +583,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_inactive_product_one_dr
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'inactive_product'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'inactive_product'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -600,14 +617,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_inactive_product_two_dr
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'inactive_product'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'inactive_product'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -630,13 +648,14 @@ def test__upload_hcdpd_data_serializer__create__single_packaging():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'packaging'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'packaging'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -662,13 +681,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_packaging_one_drug_code
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'packaging'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'packaging'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -695,14 +715,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_packaging_two_drug_code
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'packaging'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'packaging'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -725,13 +746,14 @@ def test__upload_hcdpd_data_serializer__create__single_pharmaceutical_standard()
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'pharmaceutical_standard'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'pharmaceutical_standard'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -757,13 +779,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_pharmaceutical_standard
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'pharmaceutical_standard'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'pharmaceutical_standard'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -790,14 +813,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_pharmaceutical_standard
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'pharmaceutical_standard'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'pharmaceutical_standard'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -820,13 +844,14 @@ def test__upload_hcdpd_data_serializer__create__single_route():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'route'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'route'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -852,13 +877,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_route_one_drug_code():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'route'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'route'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -885,14 +911,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_route_two_drug_code():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'route'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'route'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -915,13 +942,14 @@ def test__upload_hcdpd_data_serializer__create__single_schedule():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'schedule'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'schedule'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -947,13 +975,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_schedule_one_drug_code(
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'schedule'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'schedule'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -980,14 +1009,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_schedule_two_drug_code(
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'schedule'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'schedule'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -1010,13 +1040,14 @@ def test__upload_hcdpd_data_serializer__create__single_status():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'status'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'status'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -1042,13 +1073,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_status_one_drug_code():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'status'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'status'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -1075,14 +1107,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_status_two_drug_code():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'status'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'status'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -1105,13 +1138,14 @@ def test__upload_hcdpd_data_serializer__create__single_therapeutic_class():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'therapeutic_class'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'therapeutic_class'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -1137,13 +1171,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_therapeutic_class_one_d
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'therapeutic_class'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'therapeutic_class'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -1169,14 +1204,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_therapeutic_class_two_d
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'therapeutic_class'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'therapeutic_class'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -1199,13 +1235,14 @@ def test__upload_hcdpd_data_serializer__create__single_veterinary_species():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'veterinary_species'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'veterinary_species'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -1231,13 +1268,14 @@ def test__upload_hcdpd_data_serializer__create__multiple_veterinary_species_one_
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'veterinary_species'
-    assert message[0]['drug_code'] == 1
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'veterinary_species'
+    assert message['message'][0]['drug_code'] == 1
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 1
@@ -1264,14 +1302,15 @@ def test__upload_hcdpd_data_serializer__create__multiple_veterinary_species_two_
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 2
-    assert message[0]['status_code'] == 201
-    assert message[0]['file_type'] == 'veterinary_species'
-    assert 1 in [message[0]['drug_code'], message[1]['drug_code']]
-    assert 2 in [message[0]['drug_code'], message[1]['drug_code']]
+    assert len(message['message']) == 2
+    assert message['message'][0]['status_code'] == 201
+    assert message['message'][0]['file_type'] == 'veterinary_species'
+    assert 1 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
+    assert 2 in [message['message'][0]['drug_code'], message['message'][1]['drug_code']]
 
     # Confirm status code details
     assert status_code == 201
+    assert message['status_code'] == 201
 
     # Confirm expected model creation
     assert models.DPD.objects.count() == dpd_length + 2
@@ -1290,8 +1329,6 @@ def test__upload_hcdpd_data_serializer__create__confirm_old_data_deleted(hc_dpd_
 
     serializer = serializers.UploadHCDPDDataSerializer(data=data)
 
-    serializer.is_valid()
-    print(serializer.errors)
     assert serializer.is_valid()
 
     message, _ = serializer.create(serializer.validated_data)
@@ -1300,7 +1337,7 @@ def test__upload_hcdpd_data_serializer__create__confirm_old_data_deleted(hc_dpd_
     assert models.OriginalActiveIngredient.objects.filter(pk=old_pk).exists() is False
 
     # Confirm new model exists
-    new_pk = message[0]['id']
+    new_pk = message['message'][0]['id']
     assert models.OriginalActiveIngredient.objects.filter(pk=new_pk).exists() is True
 
 
@@ -1342,16 +1379,17 @@ def test__upload_hcdpd_data_serializer__create__invalid_model_data(hc_dpd_dpd):
     message, status_code = serializer.create(data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 400
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 400
 
-    error_message = str(message[0]['errors'])
+    error_message = str(message['message'][0]['errors'])
     assert 'Could not create entry' in error_message
     assert '\'active_ingredient_code\': \'AAAAAAAAAA\'' in error_message
     assert 'value too long for type character varying(6)' in error_message
 
     # Confirm status code details
     assert status_code == 400
+    assert message['status_code'] == 400
 
     # Confirm models not created
     assert models.OriginalActiveIngredient.objects.count() == active_ingredient_length
@@ -1378,23 +1416,21 @@ def test__upload_hcdpd_data_serializer__create__valid_and_invalid_data(timezone,
         utils.UPLOAD_ALL_DATA['active_ingredient'][0].copy(),
         utils.UPLOAD_ALL_DATA['active_ingredient'][0].copy(),
     ]}
-    print(id(data['active_ingredient'][0]['active_ingredient_code']))
-    print(id(data['active_ingredient'][1]['active_ingredient_code']))
     data['active_ingredient'][0]['drug_code'] = hc_dpd_dpd.pk
     data['active_ingredient'][0]['active_ingredient_code'] = 'A' * 10
     data['active_ingredient'][1]['drug_code'] = hc_dpd_dpd.pk
-    print(data)
+
     serializer = serializers.UploadHCDPDDataSerializer(data=data)
     message, status_code = serializer.create(data)
 
     # Confirm message details
-    print(message)
-    assert len(message) == 2
-    assert 400 in [message[0]['status_code'], message[1]['status_code']]
-    assert 201 in [message[0]['status_code'], message[1]['status_code']]
+    assert len(message['message']) == 2
+    assert 400 in [message['message'][0]['status_code'], message['message'][1]['status_code']]
+    assert 201 in [message['message'][0]['status_code'], message['message'][1]['status_code']]
 
     # Confirm status code details
     assert status_code == 207
+    assert message['status_code'] == 207
 
     # Confirm only one model created
     assert models.OriginalActiveIngredient.objects.count() == active_ingredient_length + 1
@@ -1416,11 +1452,12 @@ def test__upload_hcdpd_data_serializer__create__no_data():
     message, status_code = serializer.create(serializer.validated_data)
 
     # Confirm message details
-    assert len(message) == 1
-    assert message[0]['status_code'] == 400
-    assert message[0]['errors'] == ['No data submitted for upload.']
+    assert len(message['message']) == 1
+    assert message['message'][0]['status_code'] == 400
+    assert message['message'][0]['errors'] == ['No data submitted for upload.']
 
     # Confirm status code details
+    assert message['status_code'] == 400
     assert status_code == 400
 
     # Confirm no models created
