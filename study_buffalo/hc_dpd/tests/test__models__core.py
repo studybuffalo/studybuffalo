@@ -1195,6 +1195,6 @@ def test__dpd_checksum__compile_checksum_string(hc_dpd_two_original_active_ingre
     ).order_by('-strength')
 
     # Confirm expected checksum string
-    checksum_string = models.DPDChecksum._compile_checksum_string(ai_query, field_order)
+    checksum_string = models.DPDChecksum.compile_checksum_string(ai_query, field_order)
 
     assert checksum_string == f'2{ai_2.pk}TWO1{ai_1.pk}ONE'
