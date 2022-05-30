@@ -10,6 +10,7 @@ from rest_framework.test import APIClient
 
 from rdrhc_calendar.models import CalendarUser, Shift, MissingShiftCode
 from rdrhc_calendar.tests import utils
+from users.tests.utils import create_token
 
 
 pytestmark = pytest.mark.django_db
@@ -18,7 +19,7 @@ pytestmark = pytest.mark.django_db
 def test__user_list__returns_user_list(calendar_user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -46,7 +47,7 @@ def test__user_list__returns_user_list(calendar_user):
 def test__user_detail__returns_user_detail(calendar_user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -76,7 +77,7 @@ def test__user_detail__returns_user_detail(calendar_user):
 def test__user_email_list__returns_user_email_list(user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Add email for user
@@ -99,7 +100,7 @@ def test__user_email_list__returns_user_email_list(user):
 def test__shift_list__returns_shift_list(shift):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(shift.sb_user)
+    token = create_token(shift.sb_user)
     utils.add_api_permission(shift.sb_user)
 
     # Set up client and response
@@ -121,7 +122,7 @@ def test__shift_list__returns_shift_list(shift):
 def test_api_returns_user_shift_code_list(shift_code):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(shift_code.sb_user)
+    token = create_token(shift_code.sb_user)
     utils.add_api_permission(shift_code.sb_user)
 
     # Add a calendar to the user
@@ -166,7 +167,7 @@ def test_api_returns_user_shift_code_list__default_codes(shift_code):
     sb_user = shift_code.sb_user
 
     # Create token and add user permissions
-    token = utils.create_token(sb_user)
+    token = create_token(sb_user)
     utils.add_api_permission(sb_user)
 
     # Add a calendar to the user
@@ -215,7 +216,7 @@ def test_api_returns_user_shift_code_list__default_codes(shift_code):
 def test__stat_holiday_list__returns_list_without_parameters(user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Create stat holidsy
@@ -236,7 +237,7 @@ def test__stat_holiday_list__returns_list_without_parameters(user):
 def test__stat_holiday_list__returns_list_with_parameters(user):
     """Tests that proper response is returned when parameters added."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Create stat holidsy
@@ -258,7 +259,7 @@ def test__stat_holiday_list__returns_list_with_parameters(user):
 def test__user_schedule_list__returns_list(shift):
     """Tests that proper response is returned."""
     # Create token and add user permissions
-    token = utils.create_token(shift.sb_user)
+    token = create_token(shift.sb_user)
     utils.add_api_permission(shift.sb_user)
 
     # Set up client and response
@@ -284,7 +285,7 @@ def test__user_schedule_delete__deletes_schedule(shift):
     assert Shift.objects.filter(sb_user=shift.sb_user).count() == 1
 
     # Create token and add user permissions
-    token = utils.create_token(shift.sb_user)
+    token = create_token(shift.sb_user)
     utils.add_api_permission(shift.sb_user)
 
     # Set up client and response
@@ -302,7 +303,7 @@ def test__user_schedule_upload__uploads_user_schedule(calendar_user):
     """Tests that proper response is returned."""
     # Create token and add user permissions
     user = calendar_user.sb_user
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Confirm no shifts exist
@@ -352,7 +353,7 @@ def test__user_schedule_upload__json_error(calendar_user):
     """Tests that handling of JSON error."""
     # Create token and add user permissions
     user = calendar_user.sb_user
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Confirm no shifts exist
@@ -407,7 +408,7 @@ def test__user_schedule_upload__400_response_on_invalid_data(calendar_user):
     """Confirms error handling with invalid data."""
     # Create token and add user permissions
     user = calendar_user.sb_user
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Setup POST data
@@ -443,7 +444,7 @@ def test__user_schedule_upload__400_response_on_invalid_data_format(calendar_use
     """Confirms error handling when data in incorrect format."""
     # Create token and add user permissions
     user = calendar_user.sb_user
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Setup POST data
@@ -472,7 +473,7 @@ def test__user_email_first_sent__confirm_change(calendar_user):
     assert calendar_user.first_email_sent is False
 
     # Create token and add user permissions
-    token = utils.create_token(calendar_user.sb_user)
+    token = create_token(calendar_user.sb_user)
     utils.add_api_permission(calendar_user.sb_user)
 
     # Set up client and response
@@ -494,7 +495,7 @@ def test__missing_shift_code_upload__uploads_missing_codes(user):
     assert MissingShiftCode.objects.all().count() == 0
 
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -513,7 +514,7 @@ def test__missing_shift_code_upload__uploads_missing_codes(user):
 def test__missing_shift_code_upload__400_response_on_invalid_data(user):
     """Tests that missing shift code results in 400 response with invalid data."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Set up client and response
@@ -532,7 +533,7 @@ def test__missing_shift_code_upload__400_response_on_invalid_data(user):
 def test__missing_shift_code_upload__400_response_on_invalid_data_format(user):
     """Tests that missing shift code results in 400 response with invalid format."""
     # Create token and add user permissions
-    token = utils.create_token(user)
+    token = create_token(user)
     utils.add_api_permission(user)
 
     # Setup JSON format error
