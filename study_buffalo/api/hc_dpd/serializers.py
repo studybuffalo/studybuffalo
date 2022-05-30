@@ -5,6 +5,7 @@ from django.db.utils import DataError
 from rest_framework import serializers, status
 
 from hc_dpd import models, utils
+from api.hc_dpd.validators import AscendingDrugCode
 
 
 class ActiveIngredientSerializer(serializers.ModelSerializer):
@@ -231,73 +232,61 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
         many=True,
         required=False,
     )
-
     biosimilar = BiosimilarSerializer(
         help_text='Data from the QRYM_BIOSIMILARS file.',
         many=True,
         required=False,
     )
-
     company = CompanySerializer(
         help_text='Data from the QRYM_COMPANIES file.',
         many=True,
         required=False,
     )
-
     drug_product = DrugProductSerializer(
         help_text='Data from the QRYM_DRUG_PRODUCT file.',
         many=True,
         required=False,
     )
-
     form = FormSerializer(
         help_text='Data from the QRYM_FORM file.',
         many=True,
         required=False,
     )
-
     inactive_product = InactiveProductSerializer(
         help_text='Data from the QRYM_INACTIVE_PRODUCTS file.',
         many=True,
         required=False,
     )
-
     packaging = PackagingSerializer(
         help_text='Data from the QRYM_Packaging file.',
         many=True,
         required=False,
     )
-
     pharmaceutical_standard = PharmaceuticalStandardSerializer(
         help_text='Data from the QRYM_PHARMACEUTICAL_STD file.',
         many=True,
         required=False,
     )
-
     route = RouteSerializer(
         help_text='Data from the QRYM_ROUTE file.',
         many=True,
         required=False,
     )
-
     schedule = ScheduleSerializer(
         help_text='Data from the QRYM_SCHEDULE file.',
         many=True,
         required=False,
     )
-
     status = StatusSerializer(
         help_text='Data from the QRYM_STATUS file.',
         many=True,
         required=False,
     )
-
     therapeutic_class = TherapeuticClassSerializer(
         help_text='Data from the QRYM_THERAPEUTIC_CLASS file.',
         many=True,
         required=False,
     )
-
     veterinary_species = VeterinarySpeciesSerializer(
         help_text='Data from the QRYM_VETERINARY_SPECIES file.',
         many=True,
@@ -426,3 +415,108 @@ class ChecksumListParameterSerializer(serializers.Serializer):
         """Abstract method that is not required."""
         # https://docs.python.org/3/library/exceptions.html#NotImplementedError
         return None
+
+
+class ChecksumTestSerializer(serializers.Serializer):
+    """Serializer to validate POST data for testing Checksums."""
+    active_ingredient = ActiveIngredientSerializer(
+        help_text='Data from the QRYM_ACTIVE_INGREDIENTS file.',
+        many=True,
+        required=False,
+    )
+    biosimilar = BiosimilarSerializer(
+        help_text='Data from the QRYM_BIOSIMILARS file.',
+        many=True,
+        required=False,
+    )
+    company = CompanySerializer(
+        help_text='Data from the QRYM_COMPANIES file.',
+        many=True,
+        required=False,
+    )
+    drug_product = DrugProductSerializer(
+        help_text='Data from the QRYM_DRUG_PRODUCT file.',
+        many=True,
+        required=False,
+    )
+    form = FormSerializer(
+        help_text='Data from the QRYM_FORM file.',
+        many=True,
+        required=False,
+    )
+    inactive_product = InactiveProductSerializer(
+        help_text='Data from the QRYM_INACTIVE_PRODUCTS file.',
+        many=True,
+        required=False,
+    )
+    packaging = PackagingSerializer(
+        help_text='Data from the QRYM_Packaging file.',
+        many=True,
+        required=False,
+    )
+    pharmaceutical_standard = PharmaceuticalStandardSerializer(
+        help_text='Data from the QRYM_PHARMACEUTICAL_STD file.',
+        many=True,
+        required=False,
+    )
+    route = RouteSerializer(
+        help_text='Data from the QRYM_ROUTE file.',
+        many=True,
+        required=False,
+    )
+    schedule = ScheduleSerializer(
+        help_text='Data from the QRYM_SCHEDULE file.',
+        many=True,
+        required=False,
+    )
+    status = StatusSerializer(
+        help_text='Data from the QRYM_STATUS file.',
+        many=True,
+        required=False,
+    )
+    therapeutic_class = TherapeuticClassSerializer(
+        help_text='Data from the QRYM_THERAPEUTIC_CLASS file.',
+        many=True,
+        required=False,
+    )
+    veterinary_species = VeterinarySpeciesSerializer(
+        help_text='Data from the QRYM_VETERINARY_SPECIES file.',
+        many=True,
+        required=False,
+    )
+
+    def create(self, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+    def update(self, instance, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+    def test_checksum(self):
+        """Calculates checksum & checksum string to validate client process."""
+        checksums = {}
+
+        # Loops through each batch of submitted data to calculate checksums
+        for source_file, source_data in self.validated_data.items():
+            # Get the field order for this extract source
+            field_order = utils.standard_to_original_model()[source_file].dpd_field_order()
+
+            # Compiles string from the submitted data
+            checksum_string = models.DPDChecksum.compile_checksum_string(source_data, field_order)
+
+            # Calculate checksum for string
+            calculated_checksum = models.DPDChecksum.calculate_checksum(checksum_string)
+
+            # Update checksum data
+            checksums[source_file] = {
+                'server_checksum_string': checksum_string,
+                'server_checksum': calculated_checksum,
+            }
+
+        return checksums
+
+    class Meta:
+        validators = [AscendingDrugCode()]
