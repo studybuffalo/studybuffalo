@@ -37,10 +37,11 @@ class UploadHCDPDData(GenericAPIView):
 
         # Converts message into proper error format if 400 status code
         if status_code == 400:
+            print(message)
             message = {
                 'status_code': status_code,
                 'errors': {
-                    'non_field': [error['errors'][0] for error in message],
+                    'non_field': [error['errors'][0] for error in message['message']],
                     'field': {},
                 }
             }
