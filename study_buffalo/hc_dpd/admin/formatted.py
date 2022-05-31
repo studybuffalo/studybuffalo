@@ -6,7 +6,7 @@ from hc_dpd import models
 
 @admin.register(models.FormattedActiveIngredient)
 class FormattedActiveIngredientAdmin(admin.ModelAdmin):
-    """Admin view for the FormattedActiveIngredient model."""
+    """Admin view for the FormattedActiveIngredient model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'active_ingredient_code',
@@ -44,7 +44,7 @@ class FormattedBiosimilarAdmin(admin.ModelAdmin):
 
 @admin.register(models.FormattedCompany)
 class FormattedCompanyAdmin(admin.ModelAdmin):
-    """Admin view for the FormattedCompany model."""
+    """Admin view for the FormattedCompany model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'mfr_code',
@@ -78,7 +78,7 @@ class FormattedCompanyAdmin(admin.ModelAdmin):
 
 @admin.register(models.FormattedDrugProduct)
 class FormattedDrugProductAdmin(admin.ModelAdmin):
-    """Admin view for the FormattedDrugProduct model."""
+    """Admin view for the FormattedDrugProduct model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'product_categorization',
@@ -121,7 +121,7 @@ class FormattedFormAdmin(admin.ModelAdmin):
 
 @admin.register(models.FormattedInactiveProduct)
 class FormattedInactiveProductAdmin(admin.ModelAdmin):
-    """Admin view for the FormattedInactiveProduct model."""
+    """Admin view for the FormattedInactiveProduct model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'drug_identification_number',
@@ -140,7 +140,7 @@ class FormattedInactiveProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.FormattedPackaging)
 class FormattedPackagingAdmin(admin.ModelAdmin):
-    """Admin view for the FormattedPackaging model."""
+    """Admin view for the FormattedPackaging model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'upc',
@@ -209,7 +209,7 @@ class FormattedScheduleAdmin(admin.ModelAdmin):
 
 @admin.register(models.FormattedStatus)
 class FormattedStatusAdmin(admin.ModelAdmin):
-    """Admin view for the FormattedStatus model."""
+    """Admin view for the FormattedStatus model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'status',
@@ -261,4 +261,3 @@ class FormattedVeterinarySpeciesAdmin(admin.ModelAdmin):
         'vet_sub_species',
         'vet_species_f',
     )
-

@@ -6,7 +6,7 @@ from hc_dpd import models
 
 @admin.register(models.OriginalActiveIngredient)
 class OriginalActiveIngredientAdmin(admin.ModelAdmin):
-    """Admin view for the OriginalActiveIngredient model."""
+    """Admin view for the OriginalActiveIngredient model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'active_ingredient_code',
@@ -44,7 +44,7 @@ class OriginalBiosimilarAdmin(admin.ModelAdmin):
 
 @admin.register(models.OriginalCompany)
 class OriginalCompanyAdmin(admin.ModelAdmin):
-    """Admin view for the OriginalCompany model."""
+    """Admin view for the OriginalCompany model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'mfr_code',
@@ -78,7 +78,7 @@ class OriginalCompanyAdmin(admin.ModelAdmin):
 
 @admin.register(models.OriginalDrugProduct)
 class OriginalDrugProductAdmin(admin.ModelAdmin):
-    """Admin view for the OriginalDrugProduct model."""
+    """Admin view for the OriginalDrugProduct model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'product_categorization',
@@ -121,7 +121,7 @@ class OriginalFormAdmin(admin.ModelAdmin):
 
 @admin.register(models.OriginalInactiveProduct)
 class OriginalInactiveProductAdmin(admin.ModelAdmin):
-    """Admin view for the OriginalInactiveProduct model."""
+    """Admin view for the OriginalInactiveProduct model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'drug_identification_number',
@@ -140,7 +140,7 @@ class OriginalInactiveProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.OriginalPackaging)
 class OriginalPackagingAdmin(admin.ModelAdmin):
-    """Admin view for the OriginalPackaging model."""
+    """Admin view for the OriginalPackaging model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'upc',
@@ -209,7 +209,7 @@ class OriginalScheduleAdmin(admin.ModelAdmin):
 
 @admin.register(models.OriginalStatus)
 class OriginalStatusAdmin(admin.ModelAdmin):
-    """Admin view for the OriginalStatus model."""
+    """Admin view for the OriginalStatus model."""  # pylint: disable=duplicate-code
     list_display = (
         'drug_code',
         'status',
