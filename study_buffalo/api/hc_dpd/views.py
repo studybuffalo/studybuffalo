@@ -56,7 +56,7 @@ class ChecksumList(ListAPIView):
     pagination_class = paginators.ChecksumPagination
     serializer_class = serializers.ChecksumSerializer
     permission_classes = [
-        permissions.HasDPDViewAccess|permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
+        permissions.HasDPDViewAccess | permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
     ]
 
     def get_queryset(self):
@@ -82,7 +82,7 @@ class ChecksumTest(GenericAPIView):
     """View to test a client's checksum process."""
     serializer_class = serializers.ChecksumTestSerializer
     permission_classes = [
-        permissions.HasDPDViewAccess|permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
+        permissions.HasDPDViewAccess | permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
     ]
 
     def post(self, request):
