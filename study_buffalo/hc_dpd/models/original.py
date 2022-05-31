@@ -818,7 +818,6 @@ class OriginalTherapeuticClass(models.Model):
         """Returns string representation of model."""
         return f'{self.tc_atc} [{self.tc_atc_number}] [O; Drug Code {self.drug_code}]'
 
-
     class Meta:
         verbose_name = 'original therapeutic class'
         verbose_name_plural = 'original therapeutic classes'
