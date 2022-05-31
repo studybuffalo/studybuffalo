@@ -152,6 +152,7 @@ UPLOAD_ALL_DATA = {
     ],
 }
 
+
 def add_api_view_permission(user):
     """Adds the 'api_view' permission to the provided user."""
     content_type = ContentType.objects.get_for_model(DPD)
