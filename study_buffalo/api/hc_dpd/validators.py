@@ -1,6 +1,7 @@
 """Validators for the HC DPD app API."""
 from rest_framework.serializers import ValidationError
 
+
 class AscendingDrugCode:  # pylint: disable=too-few-public-methods
     """Validates that drug codes are in ascending order."""
     def __call__(self, value):
