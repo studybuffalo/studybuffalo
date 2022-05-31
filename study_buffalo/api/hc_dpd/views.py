@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from api.hc_dpd import serializers, paginators, permissions
+from api.utils import convert_serializer_errors
 from hc_dpd import models
 
 
@@ -22,18 +23,9 @@ class UploadHCDPDData(GenericAPIView):
 
         if serializer.is_valid() is False:
             # Convert serializer errors into a list
-            error_list = []
-
-            for error_type, errors in serializer.errors.items():
-                for error in errors:
-                    error_list.append(f'{error_type}: {str(error)}')
-
             message = {
                 'status_code': status.HTTP_400_BAD_REQUEST,
-                'message': [{
-                    'status_code': status.HTTP_400_BAD_REQUEST,
-                    'errors': error_list
-                }]
+                'errors': convert_serializer_errors(serializer.errors),
             }
 
             return Response(
@@ -42,6 +34,16 @@ class UploadHCDPDData(GenericAPIView):
 
         # Process data and create/update model instances
         message, status_code = serializer.create(serializer.validated_data)
+
+        # Converts message into proper error format if 400 status code
+        if status_code == 400:
+            message = {
+                'status_code': status_code,
+                'errors': {
+                    'non_field': [error['errors'][0] for error in message],
+                    'field': {},
+                }
+            }
 
         return Response(data=message, status=status_code)
 
@@ -93,7 +95,7 @@ class ChecksumTest(GenericAPIView):
         if serializer.is_valid() is False:
             message = {
                 'status_code': status.HTTP_400_BAD_REQUEST,
-                'errors': serializer.errors
+                'errors': convert_serializer_errors(serializer.errors),
             }
 
             return Response(

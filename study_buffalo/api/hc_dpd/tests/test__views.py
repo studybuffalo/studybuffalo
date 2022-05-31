@@ -67,11 +67,12 @@ def test__upload_hc_dpd_data__invalid_post(user):
     assert response.status_code == 400
 
     # Confirm response details are received as expected
-    assert 'message' in content
-    assert isinstance(content['message'], list)
-    assert len(content['message']) == 1
-    assert 'errors' in content['message'][0]
-    assert len(content['message'][0]['errors']) > 0
+    assert 'errors' in content
+    assert isinstance(content['errors'], dict)
+    assert 'non_field' in content['errors']
+    assert isinstance(content['errors']['non_field'], list)
+    assert 'field' in content['errors']
+    assert isinstance(content['errors']['field'], dict)
 
     assert 'status_code' in content
     assert content['status_code'] == 400
