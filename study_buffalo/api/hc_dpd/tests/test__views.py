@@ -287,3 +287,93 @@ def test__checksum_list__invalid_method(user):
 
     # Confirm message
     assert content == {'detail': 'Method "POST" not allowed.'}
+
+
+def test__checksum_test__valid_data(user):
+    """Tests proper response is returned for valid data."""
+    # Create token and add user permissions
+    token = create_token(user)
+    utils.add_api_view_permission(user)
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.post(
+        reverse('api:hc_dpd_v1:checksum_test'),
+        data=utils.UPLOAD_ALL_DATA,
+        format='json',
+    )
+    content = json.loads(response.content)
+
+    # Confirm status code
+    assert response.status_code == 200
+
+    # Confirm response details
+    assert len(content) == 13
+    assert 'active_ingredient' in content
+    assert 'server_checksum' in content['active_ingredient']
+    assert len(str(content['active_ingredient']['server_checksum'])) == 10
+    assert 'server_checksum_string' in content['active_ingredient']
+    assert content['active_ingredient']['server_checksum_string'] == '1ABCDEFGHIJKLMN'
+    assert 'active_ingredient' in content
+    assert 'biosimilar' in content
+    assert 'company' in content
+    assert 'drug_product' in content
+    assert 'form' in content
+    assert 'inactive_product' in content
+    assert 'packaging' in content
+    assert 'pharmaceutical_standard' in content
+    assert 'schedule' in content
+    assert 'status' in content
+    assert 'therapeutic_class' in content
+    assert 'veterinary_species' in content
+
+
+def test__checksum_test__invalid_data(user):
+    """Tests proper response is returned for invalid data."""
+    # Create token and add user permissions
+    token = create_token(user)
+    utils.add_api_view_permission(user)
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.post(
+        reverse('api:hc_dpd_v1:checksum_test'),
+        data={'active_ingredient': [{'drug_code': 'ERROR'}]},
+        format='json',
+    )
+    content = json.loads(response.content)
+
+    # Confirm status code
+    assert response.status_code == 400
+    assert content['status_code'] == 400
+
+    # Confirm response details
+    assert 'errors' in content
+    assert len(content['errors']) > 0
+
+
+def test__checksum_test__invalid_method(user):
+    """Tests that proper response is returned for invalid method (GET)."""
+    # Create token and add user permissions
+    token = create_token(user)
+    utils.add_api_edit_permission(user)
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.get(
+        reverse('api:hc_dpd_v1:checksum_test'),
+        data=utils.UPLOAD_ALL_DATA,
+        format='json',
+    )
+
+    content = json.loads(response.content)
+
+    # Confirm status code
+    assert response.status_code == 405
+
+    # Confirm message
+    assert content == {'detail': 'Method "GET" not allowed.'}
+

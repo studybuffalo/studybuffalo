@@ -21,9 +21,19 @@ class UploadHCDPDData(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
 
         if serializer.is_valid() is False:
+            # Convert serializer errors into a list
+            error_list = []
+
+            for error_type, errors in serializer.errors.items():
+                for error in errors:
+                    error_list.append(f'{error_type}: {str(error)}')
+
             message = {
                 'status_code': status.HTTP_400_BAD_REQUEST,
-                'message': [{'errors': serializer.errors}],
+                'message': [{
+                    'status_code': status.HTTP_400_BAD_REQUEST,
+                    'errors': error_list
+                }]
             }
 
             return Response(
@@ -90,16 +100,6 @@ class ChecksumTest(GenericAPIView):
                 data=message, status=status.HTTP_400_BAD_REQUEST
             )
 
-        message = self._test_checksum_string(serializer.validated_data)
+        message = serializer.test_checksum()
 
         return Response(data=message, status=status.HTTP_200_OK)
-
-    @staticmethod
-    def _test_checksum_string(data):
-        """Determines if user data matches app-generated checksum."""
-        return {
-            'user_string': '',
-            'user_checksum': '',
-            'app_checksum': '',
-            'checksum_valid': True,
-        }
