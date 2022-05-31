@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+  <h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Packaging List</h1>
+
+  {% if packaging_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Code</th>
+          <th>UPC</th>
+          <th>Package Size Unit</th>
+          <th>Package Type</th>
+          <th>Package Size</th>
+          <th>Product Information</th>
+          <th>Package Size Unit (Fr)</th>
+          <th>Package Type (Fr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in packaging_list %}
+          <tr>
+            <td>{{ item.drug_code }}</td>
+            <td>{{ item.package_size_unit }}</td>
+            <td>{{ item.package_type }}</td>
+            <td>{{ item.package_size }}</td>
+            <td>{{ item.product_information }}</td>
+            <td>{{ item.package_size_unit_f }}</td>
+            <td>{{ item.package_type_f }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}

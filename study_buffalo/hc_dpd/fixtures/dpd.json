@@ -1,0 +1,116 @@
+[
+  {
+    "model": "hc_dpd.dpd",
+    "pk": 85,
+    "fields": {
+      "original_active_ingredient_modified": "2022-01-01T00:00:00Z",
+      "original_biosimilar_modified": "2022-01-01T00:00:00Z",
+      "original_company_modified": "2022-01-01T00:00:00Z",
+      "original_drug_product_modified": "2022-01-01T00:00:00Z",
+      "original_form_modified": "2022-01-01T00:00:00Z",
+      "original_inactive_product_modified": "2022-01-01T00:00:00Z",
+      "original_packaging_modified": "2022-01-01T00:00:00Z",
+      "original_pharmaceutical_standard_modified": "2022-01-01T00:00:00Z",
+      "original_route_modified": "2022-01-01T00:00:00Z",
+      "original_schedule_modified": "2022-01-01T00:00:00Z",
+      "original_status_modified": "2022-01-01T00:00:00Z",
+      "original_therapeutic_class_modified": "2022-01-01T00:00:00Z",
+      "original_veterinary_species_modified": "2022-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "hc_dpd.dpd",
+    "pk": 5255,
+    "fields": {
+      "original_active_ingredient_modified": "2022-01-01T00:00:00Z",
+      "original_biosimilar_modified": "2022-01-01T00:00:00Z",
+      "original_company_modified": "2022-01-01T00:00:00Z",
+      "original_drug_product_modified": "2022-01-01T00:00:00Z",
+      "original_form_modified": "2022-01-01T00:00:00Z",
+      "original_inactive_product_modified": "2022-01-01T00:00:00Z",
+      "original_packaging_modified": "2022-01-01T00:00:00Z",
+      "original_pharmaceutical_standard_modified": "2022-01-01T00:00:00Z",
+      "original_route_modified": "2022-01-01T00:00:00Z",
+      "original_schedule_modified": "2022-01-01T00:00:00Z",
+      "original_status_modified": "2022-01-01T00:00:00Z",
+      "original_therapeutic_class_modified": "2022-01-01T00:00:00Z",
+      "original_veterinary_species_modified": "2022-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "hc_dpd.dpd",
+    "pk": 13375,
+    "fields": {
+      "original_active_ingredient_modified": "2022-01-01T00:00:00Z",
+      "original_biosimilar_modified": "2022-01-01T00:00:00Z",
+      "original_company_modified": "2022-01-01T00:00:00Z",
+      "original_drug_product_modified": "2022-01-01T00:00:00Z",
+      "original_form_modified": "2022-01-01T00:00:00Z",
+      "original_inactive_product_modified": "2022-01-01T00:00:00Z",
+      "original_packaging_modified": "2022-01-01T00:00:00Z",
+      "original_pharmaceutical_standard_modified": "2022-01-01T00:00:00Z",
+      "original_route_modified": "2022-01-01T00:00:00Z",
+      "original_schedule_modified": "2022-01-01T00:00:00Z",
+      "original_status_modified": "2022-01-01T00:00:00Z",
+      "original_therapeutic_class_modified": "2022-01-01T00:00:00Z",
+      "original_veterinary_species_modified": "2022-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "hc_dpd.dpd",
+    "pk": 62536,
+    "fields": {
+      "original_active_ingredient_modified": "2022-01-01T00:00:00Z",
+      "original_biosimilar_modified": "2022-01-01T00:00:00Z",
+      "original_company_modified": "2022-01-01T00:00:00Z",
+      "original_drug_product_modified": "2022-01-01T00:00:00Z",
+      "original_form_modified": "2022-01-01T00:00:00Z",
+      "original_inactive_product_modified": "2022-01-01T00:00:00Z",
+      "original_packaging_modified": "2022-01-01T00:00:00Z",
+      "original_pharmaceutical_standard_modified": "2022-01-01T00:00:00Z",
+      "original_route_modified": "2022-01-01T00:00:00Z",
+      "original_schedule_modified": "2022-01-01T00:00:00Z",
+      "original_status_modified": "2022-01-01T00:00:00Z",
+      "original_therapeutic_class_modified": "2022-01-01T00:00:00Z",
+      "original_veterinary_species_modified": "2022-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "hc_dpd.dpd",
+    "pk": 70752,
+    "fields": {
+      "original_active_ingredient_modified": "2022-01-01T00:00:00Z",
+      "original_biosimilar_modified": "2022-01-01T00:00:00Z",
+      "original_company_modified": "2022-01-01T00:00:00Z",
+      "original_drug_product_modified": "2022-01-01T00:00:00Z",
+      "original_form_modified": "2022-01-01T00:00:00Z",
+      "original_inactive_product_modified": "2022-01-01T00:00:00Z",
+      "original_packaging_modified": "2022-01-01T00:00:00Z",
+      "original_pharmaceutical_standard_modified": "2022-01-01T00:00:00Z",
+      "original_route_modified": "2022-01-01T00:00:00Z",
+      "original_schedule_modified": "2022-01-01T00:00:00Z",
+      "original_status_modified": "2022-01-01T00:00:00Z",
+      "original_therapeutic_class_modified": "2022-01-01T00:00:00Z",
+      "original_veterinary_species_modified": "2022-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "hc_dpd.dpd",
+    "pk": 99223,
+    "fields": {
+      "original_active_ingredient_modified": "2022-01-01T00:00:00Z",
+      "original_biosimilar_modified": "2022-01-01T00:00:00Z",
+      "original_company_modified": "2022-01-01T00:00:00Z",
+      "original_drug_product_modified": "2022-01-01T00:00:00Z",
+      "original_form_modified": "2022-01-01T00:00:00Z",
+      "original_inactive_product_modified": "2022-01-01T00:00:00Z",
+      "original_packaging_modified": "2022-01-01T00:00:00Z",
+      "original_pharmaceutical_standard_modified": "2022-01-01T00:00:00Z",
+      "original_route_modified": "2022-01-01T00:00:00Z",
+      "original_schedule_modified": "2022-01-01T00:00:00Z",
+      "original_status_modified": "2022-01-01T00:00:00Z",
+      "original_therapeutic_class_modified": "2022-01-01T00:00:00Z",
+      "original_veterinary_species_modified": "2022-01-01T00:00:00Z"
+    }
+  }
+]

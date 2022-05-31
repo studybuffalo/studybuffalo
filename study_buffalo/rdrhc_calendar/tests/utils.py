@@ -2,8 +2,6 @@
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 
-from rest_framework.authtoken.models import Token
-
 from rdrhc_calendar.models import CalendarUser, MissingShiftCode, StatHoliday
 
 
@@ -29,11 +27,6 @@ def add_api_permission(user):
     user.user_permissions.add(
         Permission.objects.get(content_type=content_type, codename='access_api')
     )
-
-
-def create_token(user):
-    """Creates token for provided user."""
-    return Token.objects.create(user=user)
 
 
 def create_stat_holidays():

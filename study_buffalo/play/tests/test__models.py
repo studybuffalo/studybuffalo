@@ -143,6 +143,17 @@ def test__play_page__next_page__last(play_page):
     assert page.next_page() is None
 
 
+def test__play_page__next_page__none():
+    """Tests handling of PlayPage next_page method with no page instances."""
+    # Delete any existing models
+    models.PlayPage.objects.all().delete()
+
+    # Get test instance
+    page = models.PlayPage()
+
+    assert page.next_page() is None
+
+
 def test__play_page__last_page(play_page):
     """Tests for expected output of PlayPage last_page method."""
     # Set play_page date to allow triggering last_page method

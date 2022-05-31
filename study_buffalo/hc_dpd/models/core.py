@@ -19,7 +19,7 @@ class DPD(models.Model):
         help_text='When the original active ingredient instances were last modified.',
         null=True,
     )
-    original_biosimilars_modified = models.DateTimeField(
+    original_biosimilar_modified = models.DateTimeField(
         blank=True,
         help_text='When the original biosimilar instances were last modified.',
         null=True,
@@ -81,35 +81,43 @@ class DPD(models.Model):
     )
 
     def __str__(self):
+        """Returns string representation of model."""
         return str(self.drug_code)
 
     def update_modified(self, field):
-        """Updates the modified datetime for the specified field."""
+        """Updates the modified datetime for the specified field.
+
+            :param field str: The field to update the modified
+                datetime for.
+        """
         # Mapping of string names to model fields
         field_mapping = {
-            utils.ACTIVE_INGREDIENT: self.original_active_ingredient_modified,
-            utils.BIOSIMILAR: self.original_biosimilars_modified,
-            utils.COMPANY: self.original_company_modified,
-            utils.DRUG_PRODUCT: self.original_drug_product_modified,
-            utils.FORM: self.original_form_modified,
-            utils.INACTIVE_PRODUCT: self.original_inactive_product_modified,
-            utils.PACKAGING: self.original_packaging_modified,
-            utils.PHARMACEUTICAL_STANDARD: self.original_pharmaceutical_standard_modified,
-            utils.ROUTE: self.original_route_modified,
-            utils.SCHEDULE: self.original_schedule_modified,
-            utils.STATUS: self.original_status_modified,
-            utils.THERAPUETIC_CLASS: self.original_therapeutic_class_modified,
-            utils.VETERINARY_SPECIES: self.original_veterinary_species_modified,
+            utils.ACTIVE_INGREDIENT: 'original_active_ingredient_modified',
+            utils.BIOSIMILAR: 'original_biosimilar_modified',
+            utils.COMPANY: 'original_company_modified',
+            utils.DRUG_PRODUCT: 'original_drug_product_modified',
+            utils.FORM: 'original_form_modified',
+            utils.INACTIVE_PRODUCT: 'original_inactive_product_modified',
+            utils.PACKAGING: 'original_packaging_modified',
+            utils.PHARMACEUTICAL_STANDARD: 'original_pharmaceutical_standard_modified',
+            utils.ROUTE: 'original_route_modified',
+            utils.SCHEDULE: 'original_schedule_modified',
+            utils.STATUS: 'original_status_modified',
+            utils.THERAPUETIC_CLASS: 'original_therapeutic_class_modified',
+            utils.VETERINARY_SPECIES: 'original_veterinary_species_modified',
         }
 
         # Update the modified time and save model
-        field_mapping[field] = timezone.now()
+        setattr(self, field_mapping[field], timezone.now())
         self.save()
 
     class Meta:
+        verbose_name = 'DPD code'
+        verbose_name_plural = 'DPD codes'
         permissions = (
             ('api_view', 'Can view DPD data via the API'),
             ('api_edit', 'Can edit DPD data via the API'),
+            ('web_view', 'Can view DPD data via the web views'),
         )
 
 
@@ -168,6 +176,7 @@ class DPDChecksum(models.Model):
         max_length=32,
     )
     checksum = models.CharField(
+        blank=True,
         help_text='The checksum value for the specified items.',
         max_length=10,
     )
@@ -177,7 +186,11 @@ class DPDChecksum(models.Model):
     )
 
     def clean(self):
-        """Method to allow additional validation steps."""
+        """Method to allow additional validation steps.
+
+            :raises ValidationError: if start value is not a multiple
+                of the step
+        """
         # Confirm a valid start and step are entered
         validate_checksum_start(self.drug_code_start, self.drug_code_step)
 
@@ -194,22 +207,25 @@ class DPDChecksum(models.Model):
 
     def create_checksum(self):
         """Uses instance information to create a checksum."""
-        # Mapping file types to checksum methods
-        checksum_mapping = {
-            utils.ACTIVE_INGREDIENT: self._create_active_ingredients_checksum,
-        }
+        # Get the model for this extract source
+        extract_model = utils.standard_to_original_model()[self.extract_source]
 
         # Calculate ending drug code for filter
         drug_code_end = self.drug_code_start + self.drug_code_step
 
-        # Obtain required DPD instances
-        query = DPD.objects.filter(
-            pk__gte=self.drug_code_start,
-            pk__lte=drug_code_end
+        # Get a query for the proper drug code values
+        query = extract_model.objects.filter(
+            drug_code__pk__gte=self.drug_code_start,
+            pk__lte=drug_code_end,
+        ).order_by('drug_code')
+
+        # Get the checksum string for this extract
+        checksum_string = self.compile_checksum_string(
+            query, extract_model.dpd_field_order()
         )
 
-        # Obtain required checksum method and calculate checksum
-        checksum = checksum_mapping[self.extract_source](query)
+        # Calculate checksum for string
+        checksum = self.calculate_checksum(checksum_string)
 
         # Update this DPDChecksum instance with the calculated checksum
         self.checksum = checksum
@@ -218,9 +234,13 @@ class DPDChecksum(models.Model):
     def calculate_checksum(string):
         """Calculates checksum for a provided string.
 
-            Uses the CRC32 algorithm, as this is expect to be fast enough
-            for the API needs and the size of strings to create checksums
-            are unlikely to result in meaningful collisions.
+            Uses the CRC32 algorithm, as this is expected to be fast
+            enough for the API needs and the size of strings to create
+            checksums are unlikely to result in meaningful collisions.
+
+            :param str string: The string to calculate checksum for
+            :return: The calculated checksum
+            :rtype: str
         """
         # Convert string to bytes
         b_string = string.encode('utf-8')
@@ -228,8 +248,14 @@ class DPDChecksum(models.Model):
         return crc32(b_string)
 
     @staticmethod
-    def _compile_checksum_string(query, field_order):
-        """Concatenates provided fields in query for checksum calculation."""
+    def compile_checksum_string(query, field_order):
+        """Concatenates provided fields in query for checksum calculation.
+
+            :param obj query: A Django queryset object.
+            :param list[str] field_order: A list outlining order of fields.
+            :return: The concatenated query data
+            :rtype: str
+        """
         checksum_string = ''
 
         for row in query:
@@ -238,17 +264,6 @@ class DPDChecksum(models.Model):
 
         return checksum_string
 
-    def _create_active_ingredients_checksum(self, dpd_query):
-        """Creates ActiveIngredients checksum for provided DPD query."""
-        # Get reference to the ActiveIngredients instances
-        query = dpd_query.active_ingredients
-
-        # Get the checksum string for the active ingredients
-        checksum_string = self._compile_checksum_string(
-            query, utils.ACTIVE_INGREDIENT_FIELDS
-        )
-
-        # Calculate checksum for string
-        checksum = self.calculate_checksum(checksum_string)
-
-        return checksum
+    class Meta:
+        verbose_name = 'DPD checksum'
+        verbose_name_plural = 'DPD checksums'

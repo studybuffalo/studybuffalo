@@ -1,9 +1,11 @@
 """Serializers for the Drug Price Calculator API."""
 from django.core.exceptions import ValidationError
-
+from django.db import transaction
+from django.db.utils import DataError
 from rest_framework import serializers, status
 
 from hc_dpd import models, utils
+from api.hc_dpd.validators import AscendingDrugCode
 
 
 class ActiveIngredientSerializer(serializers.ModelSerializer):
@@ -15,9 +17,8 @@ class ActiveIngredientSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        # Get fields from utils and remove drug code
-        serializer_fields = utils.ACTIVE_INGREDIENT_FIELDS
-        serializer_fields.remove('drug_code')
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalActiveIngredient.dpd_field_order()
 
         # Meta declarations
         model = models.OriginalActiveIngredient
@@ -41,12 +42,11 @@ class BiosimilarSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalBiosimilar.dpd_field_order()
+
         model = models.OriginalBiosimilar
-        fields = [
-            'biosimilar_code',
-            'biosimilar_type',
-            'biosimilar_type_f',
-        ]
+        fields = serializer_fields
 
 
 class CompanySerializer(serializers.ModelSerializer):
@@ -58,26 +58,11 @@ class CompanySerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalCompany.dpd_field_order()
+
         model = models.OriginalCompany
-        fields = [
-            'mfr_code',
-            'company_code',
-            'company_name',
-            'company_type',
-            'address_mailing_flag',
-            'address_billing_flag',
-            'address_notification_flag',
-            'address_other',
-            'suite_number',
-            'street_name',
-            'city_name',
-            'province',
-            'country',
-            'postal_code',
-            'post_office_box',
-            'province_f',
-            'country_f',
-        ]
+        fields = serializer_fields
 
 
 class DrugProductSerializer(serializers.ModelSerializer):
@@ -89,22 +74,11 @@ class DrugProductSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalDrugProduct.dpd_field_order()
+
         model = models.OriginalDrugProduct
-        fields = [
-            'product_categorization',
-            'class_e',
-            'drug_identification_number',
-            'brand_name',
-            'descriptor',
-            'pediatric_flag',
-            'accession_number',
-            'number_of_ais',
-            'last_update_date',
-            'ai_group_no',
-            'class_f',
-            'brand_name_f',
-            'descriptor_f',
-        ]
+        fields = serializer_fields
 
 
 class FormSerializer(serializers.ModelSerializer):
@@ -116,12 +90,11 @@ class FormSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalForm.dpd_field_order()
+
         model = models.OriginalForm
-        fields = [
-            'pharm_form_code',
-            'pharmaceutical_form',
-            'pharmaceutical_form_f',
-        ]
+        fields = serializer_fields
 
 
 class InactiveProductSerializer(serializers.ModelSerializer):
@@ -133,12 +106,11 @@ class InactiveProductSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalInactiveProduct.dpd_field_order()
+
         model = models.OriginalInactiveProduct
-        fields = [
-            'drug_identification_number',
-            'brand_name',
-            'history_date',
-        ]
+        fields = serializer_fields
 
 
 class PackagingSerializer(serializers.ModelSerializer):
@@ -150,16 +122,11 @@ class PackagingSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalPackaging.dpd_field_order()
+
         model = models.OriginalPackaging
-        fields = [
-            'upc',
-            'package_size_unit',
-            'package_type',
-            'package_size',
-            'product_information',
-            'package_size_unit_f',
-            'package_type_f',
-        ]
+        fields = serializer_fields
 
 
 class PharmaceuticalStandardSerializer(serializers.ModelSerializer):
@@ -171,10 +138,11 @@ class PharmaceuticalStandardSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalPharmaceuticalStandard.dpd_field_order()
+
         model = models.OriginalPharmaceuticalStandard
-        fields = [
-            'pharmaceutical_std',
-        ]
+        fields = serializer_fields
 
 
 class RouteSerializer(serializers.ModelSerializer):
@@ -186,12 +154,11 @@ class RouteSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalRoute.dpd_field_order()
+
         model = models.OriginalRoute
-        fields = [
-            'route_of_administration_code',
-            'route_of_administration',
-            'route_of_administration_f',
-        ]
+        fields = serializer_fields
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
@@ -203,11 +170,11 @@ class ScheduleSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalSchedule.dpd_field_order()
+
         model = models.OriginalSchedule
-        fields = [
-            'schedule',
-            'schedule_f',
-        ]
+        fields = serializer_fields
 
 
 class StatusSerializer(serializers.ModelSerializer):
@@ -219,15 +186,11 @@ class StatusSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalStatus.dpd_field_order()
+
         model = models.OriginalStatus
-        fields = [
-            'current_status_flag',
-            'status',
-            'history_date',
-            'status_f',
-            'lot_number',
-            'expiration_date',
-        ]
+        fields = serializer_fields
 
 
 class TherapeuticClassSerializer(serializers.ModelSerializer):
@@ -239,12 +202,11 @@ class TherapeuticClassSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalTherapeuticClass.dpd_field_order()
+
         model = models.OriginalTherapeuticClass
-        fields = [
-            'tc_atc_number',
-            'tc_atc',
-            'tc_atc_f',
-        ]
+        fields = serializer_fields
 
 
 class VeterinarySpeciesSerializer(serializers.ModelSerializer):
@@ -256,88 +218,75 @@ class VeterinarySpeciesSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
+        # Get fields from field_order and remove drug code
+        serializer_fields = models.OriginalVeterinarySpecies.dpd_field_order()
+
         model = models.OriginalVeterinarySpecies
-        fields = [
-            'vet_species',
-            'vet_sub_species',
-            'vet_species_f',
-        ]
+        fields = serializer_fields
 
 
 class UploadHCDPDDataSerializer(serializers.Serializer):
     """Serializer to manage requests to update HC DPD data."""
-    active_ingredients = ActiveIngredientSerializer(
+    active_ingredient = ActiveIngredientSerializer(
         help_text='Data from the QRYM_ACTIVE_INGREDIENTS file.',
         many=True,
         required=False,
     )
-
     biosimilar = BiosimilarSerializer(
         help_text='Data from the QRYM_BIOSIMILARS file.',
         many=True,
         required=False,
     )
-
     company = CompanySerializer(
         help_text='Data from the QRYM_COMPANIES file.',
         many=True,
         required=False,
     )
-
     drug_product = DrugProductSerializer(
         help_text='Data from the QRYM_DRUG_PRODUCT file.',
         many=True,
         required=False,
     )
-
     form = FormSerializer(
         help_text='Data from the QRYM_FORM file.',
         many=True,
         required=False,
     )
-
     inactive_product = InactiveProductSerializer(
         help_text='Data from the QRYM_INACTIVE_PRODUCTS file.',
         many=True,
         required=False,
     )
-
     packaging = PackagingSerializer(
         help_text='Data from the QRYM_Packaging file.',
         many=True,
         required=False,
     )
-
     pharmaceutical_standard = PharmaceuticalStandardSerializer(
         help_text='Data from the QRYM_PHARMACEUTICAL_STD file.',
         many=True,
         required=False,
     )
-
     route = RouteSerializer(
         help_text='Data from the QRYM_ROUTE file.',
         many=True,
         required=False,
     )
-
     schedule = ScheduleSerializer(
         help_text='Data from the QRYM_SCHEDULE file.',
         many=True,
         required=False,
     )
-
     status = StatusSerializer(
         help_text='Data from the QRYM_STATUS file.',
         many=True,
         required=False,
     )
-
     therapeutic_class = TherapeuticClassSerializer(
         help_text='Data from the QRYM_THERAPEUTIC_CLASS file.',
         many=True,
         required=False,
     )
-
     veterinary_species = VeterinarySpeciesSerializer(
         help_text='Data from the QRYM_VETERINARY_SPECIES file.',
         many=True,
@@ -346,7 +295,8 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
 
     def create(self, validated_data):  # pylint: disable=too-many-locals
         """Create or update new database entries when needed."""
-        message = []
+        message = {'message': [], 'status_code': 500}
+        message_list = []
         status_check = {'201': False, '400': False}
         status_code = None
 
@@ -366,46 +316,57 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
                 model.objects.filter(drug_code=dpd_instance).delete()
 
                 # Create the required model instance for each item
+                any_update = False
+
                 for item in items:
                     # Remove the drug_code entry as it is not needed
                     item.pop('drug_code')
 
                     try:
-                        model_instance = model.objects.create(
-                            drug_code=dpd_instance,
-                            defaults=item,
-                        )
+                        # Need to explicitly declare an atomic block here so
+                        # that any DB errors can be reverted/cancelled before
+                        # the modified time is updated.
+                        with transaction.atomic():
+                            model_instance = model.objects.create(drug_code=dpd_instance, **item)
 
-                        message.append({
-                            'status_code': status.HTTP_201_CREATED,
-                            'file_type': file_type,
-                            'id': model_instance.id,
-                            'drug_code': drug_code,
-                        })
-                        status_check['201'] = True
-                    except ValidationError as e:
-                        message.append({
+                            message_list.append({
+                                'status_code': status.HTTP_201_CREATED,
+                                'file_type': file_type,
+                                'id': model_instance.id,
+                                'drug_code': drug_code,
+                            })
+                            status_check['201'] = True
+                            any_update = True
+                    except (ValidationError, DataError) as e:
+                        message_list.append({
                             'status_code': status.HTTP_400_BAD_REQUEST,
                             'errors': [f'Could not create entry ({item}): {e}']
                         })
                         status_check['400'] = True
 
-                # Update the modified time for this file type
-                dpd_instance.update_modified(file_type)
+                # Update the modified time for this file type (if an update occurred)
+                if any_update:
+                    dpd_instance.update_modified(file_type)
+
+                message['message'] = message_list
 
         # Determine final status code based on model creation
         if status_check['201'] and status_check['400']:
             status_code = status.HTTP_207_MULTI_STATUS
+            message['status_code'] = status_code
         elif status_check['201']:
             status_code = status.HTTP_201_CREATED
+            message['status_code'] = status_code
         elif status_check['400']:
             status_code = status.HTTP_400_BAD_REQUEST
+            message['status_code'] = status_code
         else:
             status_code = status.HTTP_400_BAD_REQUEST
-            message.append({
-                'status_code': status.HTTP_400_BAD_REQUEST,
+            message['message'] = [{
+                'status_code': status_code,
                 'errors': ['No data submitted for upload.']
-            })
+            }]
+            message['status_code'] = status.HTTP_400_BAD_REQUEST
 
         return message, status_code
 
@@ -461,3 +422,127 @@ class ChecksumListParameterSerializer(serializers.Serializer):
         """Abstract method that is not required."""
         # https://docs.python.org/3/library/exceptions.html#NotImplementedError
         return None
+
+
+class ChecksumTestSerializer(serializers.Serializer):
+    """Serializer to validate POST data for testing Checksums."""
+    active_ingredient = ActiveIngredientSerializer(
+        help_text='Data from the QRYM_ACTIVE_INGREDIENTS file.',
+        many=True,
+        required=False,
+    )
+    biosimilar = BiosimilarSerializer(
+        help_text='Data from the QRYM_BIOSIMILARS file.',
+        many=True,
+        required=False,
+    )
+    company = CompanySerializer(
+        help_text='Data from the QRYM_COMPANIES file.',
+        many=True,
+        required=False,
+    )
+    drug_product = DrugProductSerializer(
+        help_text='Data from the QRYM_DRUG_PRODUCT file.',
+        many=True,
+        required=False,
+    )
+    form = FormSerializer(
+        help_text='Data from the QRYM_FORM file.',
+        many=True,
+        required=False,
+    )
+    inactive_product = InactiveProductSerializer(
+        help_text='Data from the QRYM_INACTIVE_PRODUCTS file.',
+        many=True,
+        required=False,
+    )
+    packaging = PackagingSerializer(
+        help_text='Data from the QRYM_Packaging file.',
+        many=True,
+        required=False,
+    )
+    pharmaceutical_standard = PharmaceuticalStandardSerializer(
+        help_text='Data from the QRYM_PHARMACEUTICAL_STD file.',
+        many=True,
+        required=False,
+    )
+    route = RouteSerializer(
+        help_text='Data from the QRYM_ROUTE file.',
+        many=True,
+        required=False,
+    )
+    schedule = ScheduleSerializer(
+        help_text='Data from the QRYM_SCHEDULE file.',
+        many=True,
+        required=False,
+    )
+    status = StatusSerializer(
+        help_text='Data from the QRYM_STATUS file.',
+        many=True,
+        required=False,
+    )
+    therapeutic_class = TherapeuticClassSerializer(
+        help_text='Data from the QRYM_THERAPEUTIC_CLASS file.',
+        many=True,
+        required=False,
+    )
+    veterinary_species = VeterinarySpeciesSerializer(
+        help_text='Data from the QRYM_VETERINARY_SPECIES file.',
+        many=True,
+        required=False,
+    )
+
+    def create(self, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+    def update(self, instance, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+    def test_checksum(self):
+        """Calculates checksum & checksum string to validate client process."""
+        checksums = {}
+
+        # Loops through each batch of submitted data to calculate checksums
+        for source_file, source_data in self.validated_data.items():
+            # Get the field order for this extract source
+            field_order = utils.standard_to_original_model()[source_file].dpd_field_order()
+
+            # Compiles string from the submitted data
+            checksum_string = self.compile_checksum_string(source_data, field_order)
+
+            # Calculate checksum for string
+            calculated_checksum = models.DPDChecksum.calculate_checksum(checksum_string)
+
+            # Update checksum data
+            checksums[source_file] = {
+                'server_checksum_string': checksum_string,
+                'server_checksum': calculated_checksum,
+            }
+
+        return checksums
+
+    @staticmethod
+    def compile_checksum_string(data, field_order):
+        """Concatenates provided fields in data for checksum calculation.
+
+            :param list[dict] data: a list of dictionaries containing data.
+            :param list[str] field_order: A list outlining order of fields.
+            :return: The concatenated query data
+            :rtype: str
+        """
+        checksum_string = ''
+
+        for row in data:
+            row_dict = dict(row)
+
+            for field in field_order:
+                checksum_string += str(row_dict.get(field, ''))
+
+        return checksum_string
+
+    class Meta:
+        validators = [AscendingDrugCode()]

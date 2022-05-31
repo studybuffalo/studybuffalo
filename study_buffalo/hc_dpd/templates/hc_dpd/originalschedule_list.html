@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+  <h1><a href="{% url 'tools_index' %}">Health Canda Drug Product Database</a> &gt; Schedule List</h1>
+
+  {% if schedule_list %}
+    <table>
+      <thead>
+        <tr>
+          <th>Drug Code</th>
+          <th>Schedule</th>
+          <th>Schedule (Fr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in schedule_list %}
+          <tr>
+            <td>{{ item.drug_code }}</td>
+            <td>{{ item.schedule }}</td>
+            <td>{{ item.schedule_f }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}

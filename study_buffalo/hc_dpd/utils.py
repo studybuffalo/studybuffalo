@@ -23,8 +23,8 @@ def standard_to_original_model():
     """Mapping between standard naming and original models.
 
         Has to be called as function as models may not be
-        initialized otherwise (e.g. if this is provided as
-        a straight dictionary in the utility module).
+        initialized when function is imported into other
+        modules.
     """
     return {
         ACTIVE_INGREDIENT: models.OriginalActiveIngredient,
@@ -41,23 +41,3 @@ def standard_to_original_model():
         THERAPUETIC_CLASS: models.OriginalTherapeuticClass,
         VETERINARY_SPECIES: models.OriginalVeterinarySpecies,
     }
-
-
-# Lists of DPD fields (in order found in extracts)
-ACTIVE_INGREDIENT_FIELDS = [
-    'drug_code',
-    'active_ingredient_code',
-    'ingredient',
-    'ingredient_supplied_ind',
-    'strength',
-    'strength_unit',
-    'strength_type',
-    'dosage_value',
-    'base',
-    'dosage_unit',
-    'notes',
-    'ingredient_f',
-    'strength_unit_f',
-    'strength_type_f',
-    'dosage_unit_f',
-]

@@ -76,6 +76,11 @@ LOGGING = {
             'handlers': ['console'],
             'propagate': False,
         },
+        'faker.factory': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        }
     },
 }
 

@@ -50,14 +50,5 @@ jobs:
         verbose: true
     - name: Run linters
       run: |
-        pipenv run pylint study_buffalo/ config/ --ignore=tests
-        pipenv run pylint  \
-        study_buffalo/api/drug_price_calculator/tests \
-        study_buffalo/api/rdrhc_calendar/tests study_buffalo/dictionary/tests \
-        study_buffalo/drug_price_calculator/tests study_buffalo/hc_dpd/tests \
-        study_buffalo/play/tests study_buffalo/rdrhc_calendar/tests \
-        study_buffalo/read/tests study_buffalo/study/tests \
-        study_buffalo/substitutions/tests study_buffalo/updates/tests \
-        study_buffalo/users/tests study_buffalo/vancomycin_calculator/tests \
-        --min-similarity-lines=20
+        pipenv run pylint study_buffalo/ config/
         pipenv run pycodestyle study_buffalo/ config/

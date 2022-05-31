@@ -1,0 +1,62 @@
+[
+  {
+    "model": "hc_dpd.originalform",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "pharm_form_code": 134,
+      "pharmaceutical_form": "SOLUTION",
+      "pharmaceutical_form_f": "Solution"
+    }
+  },
+  {
+    "model": "hc_dpd.originalform",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "pharm_form_code": 85,
+      "pharmaceutical_form": "TABLET",
+      "pharmaceutical_form_f": "Comprimé"
+    }
+  },
+  {
+    "model": "hc_dpd.originalform",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "pharm_form_code": 85,
+      "pharmaceutical_form": "TABLET",
+      "pharmaceutical_form_f": "Comprimé"
+    }
+  },
+  {
+    "model": "hc_dpd.originalform",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "pharm_form_code": 85,
+      "pharmaceutical_form": "TABLET",
+      "pharmaceutical_form_f": "Comprimé"
+    }
+  },
+  {
+    "model": "hc_dpd.originalform",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "pharm_form_code": 85,
+      "pharmaceutical_form": "TABLET",
+      "pharmaceutical_form_f": "Comprimé"
+    }
+  },
+  {
+    "model": "hc_dpd.originalform",
+    "pk": 6,
+    "fields": {
+      "drug_code": 99223,
+      "pharm_form_code": 134,
+      "pharmaceutical_form": "SOLUTION",
+      "pharmaceutical_form_f": "Solution"
+    }
+  }
+]

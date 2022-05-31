@@ -4,12 +4,13 @@ from django.urls import path
 from api.hc_dpd import views
 
 
-app_name = 'hc_dpd_api_v1'
+app_name = 'hc_dpd_v1'
 
 urlpatterns = [
     # Endpoints to manage checksums
-    path('checksum/', views.ChecksumList.as_view()),
+    path('checksum/test/', views.ChecksumTest.as_view(), name='checksum_test'),
+    path('checksum/', views.ChecksumList.as_view(), name='checksum_list'),
 
     # Endpoints to modify database
-    path('upload/', views.UploadHCDPDData.as_view()),
+    path('upload/', views.UploadHCDPDData.as_view(), name='upload_hc_dpd_data'),
 ]

@@ -8,6 +8,7 @@ class FormattedActiveIngredient(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_active_ingredients',
     )
     active_ingredient_code = models.CharField(
         blank=True,
@@ -94,8 +95,16 @@ class FormattedActiveIngredient(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.ingredient} [{self.active_ingredient_code}] [F; Drug Code {self.drug_code}]'
 
-class FormattedBiosimilars(models.Model):
+    class Meta:
+        verbose_name = 'formatted active ingredient'
+        verbose_name_plural = 'formatted active ingredients'
+
+
+class FormattedBiosimilar(models.Model):
     """Model representing the formatted QRYM_BIOSIMILARS file.
 
         This extract is not present in the DPD Read Me File - field names
@@ -105,6 +114,7 @@ class FormattedBiosimilars(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_biosimilars',
     )
     biosimilar_code = models.PositiveIntegerField(
         blank=True,
@@ -117,12 +127,20 @@ class FormattedBiosimilars(models.Model):
         max_length=20,
         null=True,
     )
-    biosimilar_type_F = models.CharField(
+    biosimilar_type_f = models.CharField(
         blank=True,
         help_text='The formatted version of BIOSIMILAR_TYPE_F.',
         max_length=20,
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.biosimilar_code} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted biosimilar'
+        verbose_name_plural = 'formatted biosimilars'
 
 
 class FormattedCompany(models.Model):
@@ -131,6 +149,7 @@ class FormattedCompany(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_companies',
     )
     mfr_code = models.CharField(
         blank=True,
@@ -234,6 +253,14 @@ class FormattedCompany(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.company_name} [{self.company_code}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted company'
+        verbose_name_plural = 'formatted companies'
+
 
 class FormattedDrugProduct(models.Model):
     """Model representing the formatted QRYM_DRUG_PRODUCT file."""
@@ -241,6 +268,7 @@ class FormattedDrugProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_drug_products',
     )
     product_categorization = models.CharField(
         blank=True,
@@ -320,6 +348,14 @@ class FormattedDrugProduct(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.drug_identification_number}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted drug product'
+        verbose_name_plural = 'formatted drug products'
+
 
 class FormattedForm(models.Model):
     """Model representing the formatted QRYM_FORM file."""
@@ -327,6 +363,7 @@ class FormattedForm(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_forms',
     )
     pharm_form_code = models.PositiveIntegerField(
         blank=True,
@@ -346,6 +383,14 @@ class FormattedForm(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_form} [{self.pharm_form_code}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted form'
+        verbose_name_plural = 'formatted forms'
+
 
 class FormattedInactiveProduct(models.Model):
     """Model representing the formatted QRYM_INACTIVE_PRODUCTS file."""
@@ -353,6 +398,7 @@ class FormattedInactiveProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_inactive_products',
     )
     drug_identification_number = models.CharField(
         blank=True,
@@ -372,6 +418,14 @@ class FormattedInactiveProduct(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.history_date}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted inactive product'
+        verbose_name_plural = 'formatted inactive products'
+
 
 class FormattedPackaging(models.Model):
     """Model representing the formatted QRYM_Packaging file."""
@@ -379,6 +433,7 @@ class FormattedPackaging(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_packaging',
     )
     upc = models.CharField(
         blank=True,
@@ -423,6 +478,14 @@ class FormattedPackaging(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.upc} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted packaging'
+        verbose_name_plural = 'formatted packaging'
+
 
 class FormattedPharmaceuticalStandard(models.Model):
     """Model representing the formatted QRYM_PHARMACEUTICAL_STD file."""
@@ -430,6 +493,7 @@ class FormattedPharmaceuticalStandard(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_pharmaceutical_standards',
     )
     pharmaceutical_std = models.CharField(
         blank=True,
@@ -438,6 +502,14 @@ class FormattedPharmaceuticalStandard(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_std} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted pharmaceutical standard'
+        verbose_name_plural = 'formatted pharmaceutical standards'
+
 
 class FormattedRoute(models.Model):
     """Model representing the formatted QRYM_ROUTE file."""
@@ -445,6 +517,7 @@ class FormattedRoute(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_routes',
     )
     route_of_administration_code = models.PositiveIntegerField(
         blank=True,
@@ -464,6 +537,14 @@ class FormattedRoute(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.route_of_administration} [{self.route_of_administration_code}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted route'
+        verbose_name_plural = 'formatted routes'
+
 
 class FormattedSchedule(models.Model):
     """Model representing the formatted QRYM_SCHEDULE file."""
@@ -471,6 +552,7 @@ class FormattedSchedule(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_schedules',
     )
     schedule = models.CharField(
         blank=True,
@@ -485,6 +567,14 @@ class FormattedSchedule(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.schedule} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted schedule'
+        verbose_name_plural = 'formatted schedules'
+
 
 class FormattedStatus(models.Model):
     """Model representing the formatted QRYM_STATUS file."""
@@ -492,6 +582,7 @@ class FormattedStatus(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_statuses',
     )
     current_status_flag = models.CharField(
         blank=True,
@@ -528,6 +619,14 @@ class FormattedStatus(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.status} [{self.history_date}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted status'
+        verbose_name_plural = 'formatted statuses'
+
 
 class FormattedTherapeuticClass(models.Model):
     """Model representing the formatted QRYM_THERAPEUTIC_CLASS file."""
@@ -535,6 +634,7 @@ class FormattedTherapeuticClass(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_therapeutic_classes',
     )
     tc_atc_number = models.CharField(
         blank=True,
@@ -555,6 +655,14 @@ class FormattedTherapeuticClass(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.tc_atc} [{self.tc_atc_number}] [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted therapeutic class'
+        verbose_name_plural = 'formatted therapeutic classes'
+
 
 class FormattedVeterinarySpecies(models.Model):
     """Model representing the formatted QRYM_VETERINARY_SPECIES file."""
@@ -562,6 +670,7 @@ class FormattedVeterinarySpecies(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='formatted_veterinary_species',
     )
     vet_species = models.CharField(
         blank=True,
@@ -581,3 +690,19 @@ class FormattedVeterinarySpecies(models.Model):
         max_length=160,
         null=True,
     )
+
+    def __str__(self):
+        """Returns string representation of model."""
+        species_list = []
+
+        if self.vet_species != '' and self.vet_species is not None:
+            species_list.append(self.vet_species)
+
+        if self.vet_sub_species != '' and self.vet_sub_species is not None:
+            species_list.append(self.vet_sub_species)
+
+        return f'{" - ".join(species_list)} [F; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'formatted veterinary species'
+        verbose_name_plural = 'formatted veterinary species'

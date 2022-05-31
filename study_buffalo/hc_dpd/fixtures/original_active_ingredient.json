@@ -1,0 +1,149 @@
+[
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "active_ingredient_code": "8035",
+      "ingredient": "ACEPROMAZINE MALEATE",
+      "ingredient_supplied_ind": "I",
+      "strength": "10",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": null,
+      "base": "N",
+      "dosage_unit": "ML",
+      "notes": "HISTORIC FREEFORM TEXT: ACEPROMAZINE MALEATE",
+      "ingredient_f": "Maléate d'acépromazine",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": "ML"
+    }
+  },
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "active_ingredient_code": "270",
+      "ingredient": "ACETAMINOPHEN",
+      "ingredient_supplied_ind": "I",
+      "strength": "500",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": null,
+      "base": "N",
+      "dosage_unit": null,
+      "notes": null,
+      "ingredient_f": "Acétaminophène",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "active_ingredient_code": "9054",
+      "ingredient": "WARFARIN SODIUM",
+      "ingredient_supplied_ind": "I",
+      "strength": "4",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": null,
+      "base": "N",
+      "dosage_unit": null,
+      "notes": "Historic Freeform Text: WARFARIN SODIUM",
+      "ingredient_f": "Warfarine sodique",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "active_ingredient_code": "10147",
+      "ingredient": "METFORMIN HYDROCHLORIDE",
+      "ingredient_supplied_ind": "I",
+      "strength": "500",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": null,
+      "base": "N",
+      "dosage_unit": null,
+      "notes": null,
+      "ingredient_f": "Chlorhydrate de metformine",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "active_ingredient_code": "232",
+      "ingredient": "PERINDOPRIL ERBUMINE",
+      "ingredient_supplied_ind": "I",
+      "strength": "4",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": null,
+      "base": "N",
+      "dosage_unit": null,
+      "notes": null,
+      "ingredient_f": "Périndopril erbumine",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 6,
+    "fields": {
+      "drug_code": 70752,
+      "active_ingredient_code": "1960",
+      "ingredient": "INDAPAMIDE",
+      "ingredient_supplied_ind": "I",
+      "strength": "1.25",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": null,
+      "base": "N",
+      "dosage_unit": null,
+      "notes": null,
+      "ingredient_f": "Indapamide",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": null
+    }
+  },
+  {
+    "model": "hc_dpd.originalactiveingredient",
+    "pk": 7,
+    "fields": {
+      "drug_code": 99223,
+      "active_ingredient_code": "13356",
+      "ingredient": "ADALIMUMAB",
+      "ingredient_supplied_ind": "I",
+      "strength": "40",
+      "strength_unit": "MG",
+      "strength_type": null,
+      "dosage_value": "0.8",
+      "base": "N",
+      "dosage_unit": "ML",
+      "notes": null,
+      "ingredient_f": "Adalimumab",
+      "strength_unit_f": "MG",
+      "strength_type_f": null,
+      "dosage_unit_f": "ML"
+    }
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "model": "hc_dpd.originalroute",
+    "pk": 1,
+    "fields": {
+      "drug_code": 85,
+      "route_of_administration_code": 22,
+      "route_of_administration": "INTRAMUSCULAR",
+      "route_of_administration_f": "Intramusculaire"
+    }
+  },
+  {
+    "model": "hc_dpd.originalroute",
+    "pk": 2,
+    "fields": {
+      "drug_code": 5255,
+      "route_of_administration_code": 56,
+      "route_of_administration": "ORAL",
+      "route_of_administration_f": "Orale"
+    }
+  },
+  {
+    "model": "hc_dpd.originalroute",
+    "pk": 3,
+    "fields": {
+      "drug_code": 13375,
+      "route_of_administration_code": 56,
+      "route_of_administration": "ORAL",
+      "route_of_administration_f": "Orale"
+    }
+  },
+  {
+    "model": "hc_dpd.originalroute",
+    "pk": 4,
+    "fields": {
+      "drug_code": 62536,
+      "route_of_administration_code": 56,
+      "route_of_administration": "ORAL",
+      "route_of_administration_f": "Orale"
+    }
+  },
+  {
+    "model": "hc_dpd.originalroute",
+    "pk": 5,
+    "fields": {
+      "drug_code": 70752,
+      "route_of_administration_code": 56,
+      "route_of_administration": "ORAL",
+      "route_of_administration_f": "Orale"
+    }
+  },
+  {
+    "model": "hc_dpd.originalroute",
+    "pk": 6,
+    "fields": {
+      "drug_code": 99223,
+      "route_of_administration_code": 65,
+      "route_of_administration": "SUBCUTANEOUS",
+      "route_of_administration_f": "Sous-cutanée"
+    }
+  }
+]

@@ -8,7 +8,7 @@ class OriginalActiveIngredient(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
-        related_name='active_ingredients'
+        related_name='original_active_ingredients',
     )
     active_ingredient_code = models.CharField(
         blank=True,
@@ -95,6 +95,35 @@ class OriginalActiveIngredient(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'active_ingredient_code',
+            'ingredient',
+            'ingredient_supplied_ind',
+            'strength',
+            'strength_unit',
+            'strength_type',
+            'dosage_value',
+            'base',
+            'dosage_unit',
+            'notes',
+            'ingredient_f',
+            'strength_unit_f',
+            'strength_type_f',
+            'dosage_unit_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.ingredient} [{self.active_ingredient_code}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original active ingredient'
+        verbose_name_plural = 'original active ingredients'
+
 
 class OriginalBiosimilar(models.Model):
     """Model representing the QRYM_BIOSIMILARS file.
@@ -106,6 +135,7 @@ class OriginalBiosimilar(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_biosimilars',
     )
     biosimilar_code = models.PositiveIntegerField(
         blank=True,
@@ -118,12 +148,30 @@ class OriginalBiosimilar(models.Model):
         max_length=20,
         null=True,
     )
-    biosimilar_type_F = models.CharField(
+    biosimilar_type_f = models.CharField(
         blank=True,
         help_text='The BIOSIMILAR_TYPE_F entry for this item.',
         max_length=20,
         null=True,
     )
+
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'biosimilar_code',
+            'biosimilar_type',
+            'biosimilar_type_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.biosimilar_code} [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original biosimilar'
+        verbose_name_plural = 'original biosimilars'
 
 
 class OriginalCompany(models.Model):
@@ -132,6 +180,7 @@ class OriginalCompany(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_companies',
     )
     mfr_code = models.CharField(
         blank=True,
@@ -235,6 +284,38 @@ class OriginalCompany(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'mfr_code',
+            'company_code',
+            'company_name',
+            'company_type',
+            'address_mailing_flag',
+            'address_billing_flag',
+            'address_notification_flag',
+            'address_other',
+            'suite_number',
+            'street_name',
+            'city_name',
+            'province',
+            'country',
+            'postal_code',
+            'post_office_box',
+            'province_f',
+            'country_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.company_name} [{self.company_code}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original company'
+        verbose_name_plural = 'original companies'
+
 
 class OriginalDrugProduct(models.Model):
     """Model representing QRYM_DRUG_PRODUCT file."""
@@ -242,6 +323,7 @@ class OriginalDrugProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_drug_products',
     )
     product_categorization = models.CharField(
         blank=True,
@@ -321,6 +403,34 @@ class OriginalDrugProduct(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'product_categorization',
+            'class_e',
+            'drug_identification_number',
+            'brand_name',
+            'descriptor',
+            'pediatric_flag',
+            'accession_number',
+            'number_of_ais',
+            'last_update_date',
+            'ai_group_no',
+            'class_f',
+            'brand_name_f',
+            'descriptor_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.drug_identification_number}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original drug product'
+        verbose_name_plural = 'original drug products'
+
 
 class OriginalForm(models.Model):
     """Model representing QRYM_FORM file."""
@@ -328,6 +438,7 @@ class OriginalForm(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_forms',
     )
     pharm_form_code = models.PositiveIntegerField(
         blank=True,
@@ -347,6 +458,24 @@ class OriginalForm(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'pharm_form_code',
+            'pharmaceutical_form',
+            'pharmaceutical_form_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_form} [{self.pharm_form_code}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original form'
+        verbose_name_plural = 'original forms'
+
 
 class OriginalInactiveProduct(models.Model):
     """Model representing QRYM_INACTIVE_PRODUCTS file."""
@@ -354,6 +483,7 @@ class OriginalInactiveProduct(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_inactive_products',
     )
     drug_identification_number = models.CharField(
         blank=True,
@@ -373,6 +503,24 @@ class OriginalInactiveProduct(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'drug_identification_number',
+            'brand_name',
+            'history_date',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.brand_name} [{self.history_date}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original inactive product'
+        verbose_name_plural = 'original inactive products'
+
 
 class OriginalPackaging(models.Model):
     """Model representing QRYM_Packaging file."""
@@ -380,6 +528,7 @@ class OriginalPackaging(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_packaging',
     )
     upc = models.CharField(
         blank=True,
@@ -424,6 +573,28 @@ class OriginalPackaging(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'upc',
+            'package_size_unit',
+            'package_type',
+            'package_size',
+            'product_information',
+            'package_size_unit_f',
+            'package_type_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.upc} [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original packaging'
+        verbose_name_plural = 'original packaging'
+
 
 class OriginalPharmaceuticalStandard(models.Model):
     """Model representing QRYM_PHARMACEUTICAL_STD file."""
@@ -431,6 +602,7 @@ class OriginalPharmaceuticalStandard(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_pharmaceutical_standards',
     )
     pharmaceutical_std = models.CharField(
         blank=True,
@@ -439,6 +611,22 @@ class OriginalPharmaceuticalStandard(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'pharmaceutical_std',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.pharmaceutical_std} [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original pharmaceutical standard'
+        verbose_name_plural = 'original pharmaceutical standards'
+
 
 class OriginalRoute(models.Model):
     """Model representing QRYM_ROUTE file."""
@@ -446,6 +634,7 @@ class OriginalRoute(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_routes',
     )
     route_of_administration_code = models.PositiveIntegerField(
         blank=True,
@@ -465,6 +654,24 @@ class OriginalRoute(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'route_of_administration_code',
+            'route_of_administration',
+            'route_of_administration_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.route_of_administration} [{self.route_of_administration_code}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original route'
+        verbose_name_plural = 'original routes'
+
 
 class OriginalSchedule(models.Model):
     """Model representing QRYM_SCHEDULE file."""
@@ -472,6 +679,7 @@ class OriginalSchedule(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_schedules',
     )
     schedule = models.CharField(
         blank=True,
@@ -486,6 +694,23 @@ class OriginalSchedule(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'schedule',
+            'schedule_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.schedule} [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original schedule'
+        verbose_name_plural = 'original schedules'
+
 
 class OriginalStatus(models.Model):
     """Model representing QRYM_STATUS file."""
@@ -493,6 +718,7 @@ class OriginalStatus(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_statuses',
     )
     current_status_flag = models.CharField(
         blank=True,
@@ -529,6 +755,27 @@ class OriginalStatus(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'current_status_flag',
+            'status',
+            'history_date',
+            'status_f',
+            'lot_number',
+            'expiration_date',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.status} [{self.history_date}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original status'
+        verbose_name_plural = 'original statuses'
+
 
 class OriginalTherapeuticClass(models.Model):
     """Model representing QRYM_THERAPEUTIC_CLASS file."""
@@ -536,6 +783,7 @@ class OriginalTherapeuticClass(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_therapeutic_classes',
     )
     tc_atc_number = models.CharField(
         blank=True,
@@ -556,6 +804,24 @@ class OriginalTherapeuticClass(models.Model):
         null=True,
     )
 
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'tc_atc_number',
+            'tc_atc',
+            'tc_atc_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        return f'{self.tc_atc} [{self.tc_atc_number}] [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original therapeutic class'
+        verbose_name_plural = 'original therapeutic classes'
+
 
 class OriginalVeterinarySpecies(models.Model):
     """Model representing QRYM_VETERINARY_SPECIES file."""
@@ -563,6 +829,7 @@ class OriginalVeterinarySpecies(models.Model):
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
         help_text='The drug code reference for this item.',
+        related_name='original_veterinary_species',
     )
     vet_species = models.CharField(
         blank=True,
@@ -582,3 +849,29 @@ class OriginalVeterinarySpecies(models.Model):
         max_length=160,
         null=True,
     )
+
+    @staticmethod
+    def dpd_field_order():
+        """Returns order of fields in original DPD data extract."""
+        return [
+            'drug_code',
+            'vet_species',
+            'vet_sub_species',
+            'vet_species_f',
+        ]
+
+    def __str__(self):
+        """Returns string representation of model."""
+        species_list = []
+
+        if self.vet_species != '' and self.vet_species is not None:
+            species_list.append(self.vet_species)
+
+        if self.vet_sub_species != '' and self.vet_sub_species is not None:
+            species_list.append(self.vet_sub_species)
+
+        return f'{" - ".join(species_list)} [O; Drug Code {self.drug_code}]'
+
+    class Meta:
+        verbose_name = 'original veterinary species'
+        verbose_name_plural = 'original veterinary species'
