@@ -224,4 +224,3 @@ class DPDChecksumAdmin(admin.ModelAdmin):
         'extract_source',
         'checksum_date',
     )
-

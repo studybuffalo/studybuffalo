@@ -376,4 +376,3 @@ def test__checksum_test__invalid_method(user):
 
     # Confirm message
     assert content == {'detail': 'Method "GET" not allowed.'}
-
