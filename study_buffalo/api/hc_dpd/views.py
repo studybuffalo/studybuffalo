@@ -23,7 +23,7 @@ class UploadHCDPDData(GenericAPIView):
         if serializer.is_valid() is False:
             message = {
                 'status_code': status.HTTP_400_BAD_REQUEST,
-                'errors': serializer.errors
+                'message': [{'errors': serializer.errors}],
             }
 
             return Response(
@@ -44,7 +44,7 @@ class ChecksumList(ListAPIView):
         Need to return proper message on no match found
     """
     pagination_class = paginators.ChecksumPagination
-    serializer_class = serializers.UploadHCDPDDataSerializer
+    serializer_class = serializers.ChecksumSerializer
     permission_classes = [
         permissions.HasDPDViewAccess|permissions.HasDPDEditAccess  # pylint: disable=unsupported-binary-operation
     ]
@@ -52,18 +52,20 @@ class ChecksumList(ListAPIView):
     def get_queryset(self):
         """Filters the queryset to the requested details"""
         # Confirm required query parameters are present.""""
-        self._validate_parameters()
+        parameters = self._get_validated_parameters()
 
         return models.DPDChecksum.objects.filter(
-            drug_code_step=self.request.query_params['step'],
-            extract_source=self.request.query_params['source'],
-        )
+            drug_code_step=parameters['step'],
+            extract_source=parameters['source'],
+        ).order_by('drug_code_start', 'pk')
 
-    def _validate_parameters(self):
+    def _get_validated_parameters(self):
         serializer = serializers.ChecksumListParameterSerializer(
             data=self.request.query_params,
         )
         serializer.is_valid(raise_exception=True)
+
+        return serializer.validated_data
 
 
 class ChecksumTest(GenericAPIView):
