@@ -111,6 +111,7 @@ def test__validate_check_start__fails_1000_step():
     else:
         assert False
 
+
 def test__validate_check_start__fails_10000_step():
     """Confirms validator fails with step = 10000."""
     try:
@@ -121,6 +122,7 @@ def test__validate_check_start__fails_10000_step():
         assert e.params == {'start': 12222, 'step': 10000}
     else:
         assert False
+
 
 def test__validate_check_start__fails_100000_step():
     """Confirms validator fails with step = 100000."""

@@ -1,6 +1,7 @@
 """Tests for Utility functions of HC DPD app."""
 from hc_dpd import models, utils
 
+
 def test__extract_names():
     """Tests for expected values for extract constants."""
     assert utils.ACTIVE_INGREDIENT == 'active_ingredient'
