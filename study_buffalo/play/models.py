@@ -162,7 +162,7 @@ class PlayImage(models.Model):
             nWidth = 800
             nHeight = int(round((nWidth / oWidth) * oHeight))
 
-            resize = orig.resize((nWidth, nHeight), Image.ANTIALIAS)
+            resize = orig.resize((nWidth, nHeight), Image.Resampling.LANCZOS)
         else:
             resize = orig
 
