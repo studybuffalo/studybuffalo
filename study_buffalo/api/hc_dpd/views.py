@@ -37,7 +37,6 @@ class UploadHCDPDData(GenericAPIView):
 
         # Converts message into proper error format if 400 status code
         if status_code == 400:
-            print(message)
             message = {
                 'status_code': status_code,
                 'errors': {
@@ -50,12 +49,7 @@ class UploadHCDPDData(GenericAPIView):
 
 
 class ChecksumList(ListAPIView):
-    """View to return a list of checksum values.
-
-        Can be a GET request
-        Need to intake a file name type and checksum range (start & stop)
-        Need to return proper message on no match found
-    """
+    """View to return a list of checksum values."""
     pagination_class = paginators.ChecksumPagination
     serializer_class = serializers.ChecksumSerializer
     permission_classes = [
