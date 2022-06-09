@@ -75,7 +75,6 @@ def test__upload_hc_dpd_data__201_response_on_user_with_edit_permissions(user):
         format='json',
     )
 
-    print(response.content)
     assert response.status_code == 201
 
 
@@ -223,7 +222,6 @@ def test__checksum_test__200_response_on_user_with_edit_permissions(user):
         format='json',
     )
 
-    print(response.content)
     assert response.status_code == 200
 
 
