@@ -375,9 +375,10 @@ class OriginalDrugProduct(models.Model):
         max_length=10,
         null=True,
     )
-    last_update_date = models.DateField(
+    last_update_date = models.CharField(
         blank=True,
         help_text='The LAST_UPDATE_DATE entry for this item.',
+        max_lenth=11,
         null=True,
     )
     ai_group_no = models.CharField(
@@ -500,9 +501,10 @@ class OriginalInactiveProduct(models.Model):
         max_length=200,
         null=True,
     )
-    history_date = models.DateField(
+    history_date = models.CharField(
         blank=True,
         help_text='The HISTORY_DATE entry for this item.',
+        max_length=11,
         null=True,
     )
 
@@ -736,9 +738,10 @@ class OriginalStatus(models.Model):
         max_length=40,
         null=True,
     )
-    history_date = models.DateField(
+    history_date = models.CharField(
         blank=True,
         help_text='The HISTORY_DATE entry for this item.',
+        max_length=11,
         null=True,
     )
     status_f = models.CharField(
@@ -753,9 +756,10 @@ class OriginalStatus(models.Model):
         max_length=50,
         null=True,
     )
-    expiration_date = models.DateField(
+    expiration_date = models.CharField(
         blank=True,
-        help_text='The EXPIRATION_DATEFootnote entry for this item.',
+        help_text='The EXPIRATION_DATE entry for this item.',
+        max_length=11,
         null=True,
     )
 

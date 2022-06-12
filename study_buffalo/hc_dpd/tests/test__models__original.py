@@ -247,6 +247,7 @@ def test__drug_product__max_lengths():
     assert models.OriginalDrugProduct._meta.get_field('pediatric_flag').max_length == 1
     assert models.OriginalDrugProduct._meta.get_field('accession_number').max_length == 5
     assert models.OriginalDrugProduct._meta.get_field('number_of_ais').max_length == 10
+    assert models.OriginalDrugProduct._meta.get_field('last_update_date').max_length == 11
     assert models.OriginalDrugProduct._meta.get_field('ai_group_no').max_length == 10
     assert models.OriginalDrugProduct._meta.get_field('class_f').max_length == 80
     assert models.OriginalDrugProduct._meta.get_field('brand_name_f').max_length == 300
@@ -362,6 +363,7 @@ def test__inactive_product__max_lengths():
     """  # pylint: disable=line-too-long
     assert models.OriginalInactiveProduct._meta.get_field('drug_identification_number').max_length == 29
     assert models.OriginalInactiveProduct._meta.get_field('brand_name').max_length == 200
+    assert models.OriginalInactiveProduct._meta.get_field('history_date').max_length == 11
 
 
 def test__inactive_product__field_order():
@@ -615,8 +617,10 @@ def test__status__max_lengths():
     """  # pylint: disable=line-too-long
     assert models.OriginalStatus._meta.get_field('current_status_flag').max_length == 1
     assert models.OriginalStatus._meta.get_field('status').max_length == 40
+    assert models.OriginalStatus._meta.get_field('history_date').max_length == 11
     assert models.OriginalStatus._meta.get_field('status_f').max_length == 80
     assert models.OriginalStatus._meta.get_field('lot_number').max_length == 50
+    assert models.OriginalStatus._meta.get_field('expiration_date').max_length == 11
 
 
 def test__status__field_order():
