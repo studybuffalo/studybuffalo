@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('route_of_administration_code', models.CharField(blank=True, help_text='The ROUTE_OF_ADMINISTRATION_CODE entry for this item.', max_length=3, null=True)),
                 ('route_of_administration', models.CharField(blank=True, help_text='The ROUTE_OF_ADMINISTRATION entry for this item.', max_length=40, null=True)),
-                ('route_of_administration_f', models.CharField(blank=True, help_text='The ROUTE_OF_ADMINISTRATION_FFootnote entry for this item.', max_length=80, null=True)),
+                ('route_of_administration_f', models.CharField(blank=True, help_text='The ROUTE_OF_ADMINISTRATION_F entry for this item.', max_length=80, null=True)),
                 ('drug_code', models.ForeignKey(help_text='The drug code reference for this item.', on_delete=django.db.models.deletion.CASCADE, related_name='original_routes', to='hc_dpd.dpd')),
             ],
             options={

@@ -655,7 +655,7 @@ class OriginalRoute(models.Model):
     )
     route_of_administration_f = models.CharField(
         blank=True,
-        help_text='The ROUTE_OF_ADMINISTRATION_FFootnote entry for this item.',
+        help_text='The ROUTE_OF_ADMINISTRATION_F entry for this item.',
         max_length=80,
         null=True,
     )
