@@ -113,7 +113,6 @@ def test__biosimilar__max_lengths():
     assert models.OriginalBiosimilar._meta.get_field('biosimilar_type_f').max_length == 20
 
 
-
 def test__biosimilar__field_order():
     """Tests OriginalBiosimilar field_order.
 
