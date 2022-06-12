@@ -378,7 +378,7 @@ class OriginalDrugProduct(models.Model):
     last_update_date = models.CharField(
         blank=True,
         help_text='The LAST_UPDATE_DATE entry for this item.',
-        max_lenth=11,
+        max_length=11,
         null=True,
     )
     ai_group_no = models.CharField(
