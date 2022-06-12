@@ -64,7 +64,7 @@ def test__biosimilar_serializer__invalid_drug_code():
 
 def test__biosimilar_serializer__invalid_model_field():
     """Tests that incorrect model field validates as expected."""
-    data = {'drug_code': 1, 'biosimilar_code': 'ABC'}
+    data = {'drug_code': 1, 'biosimilar_code': '123456'}
     serializer = serializers.BiosimilarSerializer(data=data)
 
     # Confirm data is valid
@@ -169,7 +169,7 @@ def test__form_serializer__invalid_drug_code():
 
 def test__form_serializer__invalid_model_field():
     """Tests that incorrect model field validates as expected."""
-    data = {'drug_code': 1, 'pharm_form_code': 'ABC'}
+    data = {'drug_code': 1, 'pharm_form_code': '123456'}
     serializer = serializers.FormSerializer(data=data)
 
     # Confirm data is valid
@@ -204,7 +204,7 @@ def test__inactive_product_serializer__invalid_drug_code():
 
 def test__inactive_product_serializer__invalid_model_field():
     """Tests that incorrect model field validates as expected."""
-    data = {'drug_code': 1, 'history_date': 'ABC'}
+    data = {'drug_code': 1, 'history_date': '123456789012345'}
     serializer = serializers.InactiveProductSerializer(data=data)
 
     # Confirm data is valid
@@ -309,7 +309,7 @@ def test__route_serializer_serializer__invalid_drug_code():
 
 def test__route_serializer_serializer__invalid_model_field():
     """Tests that incorrect model field validates as expected."""
-    data = {'drug_code': 1, 'route_of_administration_code': 'A'}
+    data = {'drug_code': 1, 'route_of_administration_code': '123456'}
     serializer = serializers.RouteSerializer(data=data)
 
     # Confirm data is valid

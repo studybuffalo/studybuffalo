@@ -161,7 +161,7 @@ def test__company__max_lengths():
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
     """  # pylint: disable=line-too-long
     assert models.OriginalCompany._meta.get_field('mfr_code').max_length == 5
-    assert models.OriginalCompany._meta.get_field('company_name').max_length == 5
+    assert models.OriginalCompany._meta.get_field('company_code').max_length == 5
     assert models.OriginalCompany._meta.get_field('company_name').max_length == 80
     assert models.OriginalCompany._meta.get_field('company_type').max_length == 40
     assert models.OriginalCompany._meta.get_field('address_mailing_flag').max_length == 1
