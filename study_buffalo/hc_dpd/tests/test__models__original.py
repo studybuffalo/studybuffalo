@@ -359,10 +359,16 @@ def test__inactive_product__max_lengths():
         When updating this test, ensure values are independently
         entered based on HC DPD Data Extract Readme:
         https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/read-file-drug-product-database-data-extract.html
+
+        Note: the DPD website is missing one column, which is assumed
+        to be a French Brand Name column. Max Length matches the
+        English equivalent, as currently no name is longer than 100
+        chars.
     """  # pylint: disable=line-too-long
     assert models.OriginalInactiveProduct._meta.get_field('drug_identification_number').max_length == 29
     assert models.OriginalInactiveProduct._meta.get_field('brand_name').max_length == 200
     assert models.OriginalInactiveProduct._meta.get_field('history_date').max_length == 11
+    assert models.OriginalInactiveProduct._meta.get_field('brand_name_f').max_length == 200
 
 
 def test__inactive_product__field_order():
@@ -377,6 +383,7 @@ def test__inactive_product__field_order():
         'drug_identification_number',
         'brand_name',
         'history_date',
+        'brand_name_f',
     ]
 
     assert models.OriginalInactiveProduct.dpd_field_order() == expected_order

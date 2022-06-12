@@ -120,6 +120,7 @@ class Migration(migrations.Migration):
                 ('brand_name', models.CharField(blank=True, help_text='The BRAND_NAME entry for this item.', max_length=200, null=True)),
                 ('history_date', models.CharField(blank=True, help_text='The HISTORY_DATE entry for this item.', max_length=11, null=True)),
                 ('drug_code', models.ForeignKey(help_text='The drug code reference for this item.', on_delete=django.db.models.deletion.CASCADE, related_name='original_inactive_products', to='hc_dpd.dpd')),
+                ('brand_name_f', models.CharField(blank=True, help_text='The BRAND_NAME_F entry for this item.', max_length=200, null=True)),
             ],
             options={
                 'verbose_name': 'original inactive product',

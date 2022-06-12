@@ -109,6 +109,7 @@ class OriginalInactiveProductFactory(factory.django.DjangoModelFactory):
     drug_identification_number = factory.Sequence(str)
     brand_name = factory.Sequence(lambda n: f'NAME {n}')
     history_date = '01-JAN-2000'
+    brand_name_f = factory.Sequence(lambda n: f'NAME F {n}')
 
     class Meta:
         model = models.OriginalInactiveProduct

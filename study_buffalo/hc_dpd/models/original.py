@@ -482,7 +482,13 @@ class OriginalForm(models.Model):
 
 
 class OriginalInactiveProduct(models.Model):
-    """Model representing QRYM_INACTIVE_PRODUCTS file."""
+    """Model representing QRYM_INACTIVE_PRODUCTS file.
+
+        Note: the DPD website is missing one column, which is assumed
+        to be a French Brand Name column. Max Length matches the
+        English equivalent, as currently no name is longer than 100
+        chars.
+    """
     drug_code = models.ForeignKey(
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
@@ -507,6 +513,12 @@ class OriginalInactiveProduct(models.Model):
         max_length=11,
         null=True,
     )
+    brand_name_f = models.CharField(
+        blank=True,
+        help_text='The BRAND_NAME_F entry for this item.',
+        max_length=200,
+        null=True,
+    )
 
     @staticmethod
     def dpd_field_order():
@@ -516,6 +528,7 @@ class OriginalInactiveProduct(models.Model):
             'drug_identification_number',
             'brand_name',
             'history_date',
+            'brand_name_f'
         ]
 
     def __str__(self):
