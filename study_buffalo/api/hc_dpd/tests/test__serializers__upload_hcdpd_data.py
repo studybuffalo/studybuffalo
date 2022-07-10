@@ -2137,7 +2137,7 @@ def test__upload_hcdpd_data_serializer__create__no_data():
     assert message['status_code'] == 422
     assert message['errors']['field'] == {}
     assert len(message['errors']['non_field']) == 1
-    assert  message['errors']['non_field'] == ['No data submitted for upload.']
+    assert message['errors']['non_field'] == ['No data submitted for upload.']
 
     # Confirm status code details
     assert status_code == 422
