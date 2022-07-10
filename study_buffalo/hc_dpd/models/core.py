@@ -1,4 +1,5 @@
 """Core models to support the Health Canada Drug Product Database app."""
+from operator import itemgetter
 from zlib import crc32
 
 from django.db import models
@@ -226,15 +227,31 @@ class DPDChecksum(models.Model):
         query = extract_model.objects.filter(
             drug_code__pk__gte=self.drug_code_start,
             pk__lte=drug_code_end,
-        ).order_by('drug_code')
+        ).select_related('DPD')
 
-        # Get the checksum string for this extract
-        checksum_string = self.compile_checksum_string(
-            query, extract_model.dpd_field_order()
-        )
+        # Loop through each row of the query and calculate an item checksum
+        field_order = extract_model.dpd_field_order()
+        item_checksums = []
+
+        for item in query:
+            item_checksums.append({
+                'drug_code': item.drug_code.pk,
+                'checksum': self.calculate_checksum(
+                    self.compile_checksum_string(item, field_order)
+                ),
+            })
+
+        # Sort checksums by the drug_code and then by checksum value
+        item_checksums.sort(key=itemgetter('drug_code', 'checksum'))
+
+        # Compile the full checksum string
+        checksum_string = ''
+
+        for item in item_checksums:
+            checksum_string += item['checksum']
 
         # Calculate checksum for string
-        checksum = self.calculate_checksum(checksum_string)
+        checksum = self.calculate_checksum(''.join(checksum_string))
 
         # Update this DPDChecksum instance with the calculated checksum
         self.checksum = checksum
@@ -257,19 +274,19 @@ class DPDChecksum(models.Model):
         return crc32(b_string)
 
     @staticmethod
-    def compile_checksum_string(query, field_order):
+    def compile_checksum_string(item, field_order):
         """Concatenates provided fields in query for checksum calculation.
 
-            :param obj query: A Django queryset object.
-            :param list[str] field_order: A list outlining order of fields.
+            :param obj item: A Django model instance.
+            :param list[str] field_order: A list outlining order of fields
+                for the model instance.
             :return: The concatenated query data
             :rtype: str
         """
         checksum_string = ''
 
-        for row in query:
-            for field in field_order:
-                checksum_string += str(getattr(row, field))
+        for field in field_order:
+            checksum_string += str(getattr(item, field))
 
         return checksum_string
 
