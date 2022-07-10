@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "drug_code": 85,
-      "route_of_administration_code": 22,
+      "route_of_administration_code": "22",
       "route_of_administration": "INTRAMUSCULAR",
       "route_of_administration_f": "Intramusculaire"
     }
@@ -14,7 +14,7 @@
     "pk": 2,
     "fields": {
       "drug_code": 5255,
-      "route_of_administration_code": 56,
+      "route_of_administration_code": "56",
       "route_of_administration": "ORAL",
       "route_of_administration_f": "Orale"
     }
@@ -24,7 +24,7 @@
     "pk": 3,
     "fields": {
       "drug_code": 13375,
-      "route_of_administration_code": 56,
+      "route_of_administration_code": "56",
       "route_of_administration": "ORAL",
       "route_of_administration_f": "Orale"
     }
@@ -34,7 +34,7 @@
     "pk": 4,
     "fields": {
       "drug_code": 62536,
-      "route_of_administration_code": 56,
+      "route_of_administration_code": "56",
       "route_of_administration": "ORAL",
       "route_of_administration_f": "Orale"
     }

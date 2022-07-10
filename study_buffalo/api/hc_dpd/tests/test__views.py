@@ -102,12 +102,45 @@ def test__upload_hc_dpd_data__invalid_post___no_data(user):
     assert isinstance(content['errors'], dict)
     assert 'non_field' in content['errors']
     assert isinstance(content['errors']['non_field'], list)
+    assert len(content['errors']['non_field']) == 0
+    assert 'field' in content['errors']
+    assert isinstance(content['errors']['field'], dict)
+    assert content['errors']['field'] == {'data': ['This field is required.']}
+
+    assert 'status_code' in content
+    assert content['status_code'] == 400
+
+
+def test__upload_hc_dpd_data__invalid_post___no_extract_data(user):
+    """Tests that proper response is returned for no post extract data."""
+    # Create token and add user permissions
+    token = create_token(user)
+    utils.add_api_edit_permission(user)
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.post(
+        reverse('api:hc_dpd_v1:upload_hc_dpd_data'),
+        data={'data': [{'drug_code': 1, 'extract_data': {}}]},
+        format='json',
+    )
+    content = json.loads(response.content)
+
+    # Confirm status code
+    assert response.status_code == 422
+
+    # Confirm response details are received as expected
+    assert 'errors' in content
+    assert isinstance(content['errors'], dict)
+    assert 'non_field' in content['errors']
+    assert isinstance(content['errors']['non_field'], list)
     assert content['errors']['non_field'] == ['No data submitted for upload.']
     assert 'field' in content['errors']
     assert isinstance(content['errors']['field'], dict)
 
     assert 'status_code' in content
-    assert content['status_code'] == 400
+    assert content['status_code'] == 422
 
 
 def test__upload_hc_dpd_data__invalid_method(user):
@@ -333,7 +366,7 @@ def test__checksum_test__valid_data(user):
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
     response = client.post(
         reverse('api:hc_dpd_v1:checksum_test'),
-        data=utils.UPLOAD_ALL_DATA,
+        data=utils.CHECKSUM_TEST_DATA,
         format='json',
     )
     content = json.loads(response.content)
@@ -384,7 +417,36 @@ def test__checksum_test__invalid_data(user):
 
     # Confirm response details
     assert 'errors' in content
-    assert len(content['errors']) > 0
+    assert content['errors']['non_field'] == []
+    assert content['errors']['field'] == {
+        'active_ingredient': [{'drug_code': ['A valid integer is required.']}],
+    }
+
+
+def test__checksum_test__no_data(user):
+    """Tests proper response is returned for valid data."""
+    # Create token and add user permissions
+    token = create_token(user)
+    utils.add_api_view_permission(user)
+
+    # Set up client and response
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+    response = client.post(
+        reverse('api:hc_dpd_v1:checksum_test'),
+        data={},
+        format='json',
+    )
+    content = json.loads(response.content)
+
+    # Confirm status code
+    assert response.status_code == 422
+    assert content['status_code'] == 422
+
+    # Confirm response details
+    assert 'errors' in content
+    assert content['errors']['field'] == {}
+    assert content['errors']['non_field'] == ['No data submitted for testing.']
 
 
 def test__checksum_test__invalid_method(user):

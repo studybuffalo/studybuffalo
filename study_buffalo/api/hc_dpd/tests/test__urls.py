@@ -66,16 +66,25 @@ def test__upload_hc_dpd_data__201_response_on_user_with_edit_permissions(user):
     token = create_token(user)
     utils.add_api_edit_permission(user)
 
+    # Setup Data
+    data = {
+        'data': [{
+            'drug_code': 1,
+            'extract_data': {
+                'active_ingredient': [{'drug_code': 1, 'active_ingredient_code': 'A'}],
+            },
+        }]
+    }
+
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
     response = client.post(
         reverse('api:hc_dpd_v1:upload_hc_dpd_data'),
-        data={'active_ingredient': [{'drug_code': 1, 'active_ingredient_code': 'A'}]},
+        data=data,
         format='json',
     )
 
-    print(response.content)
     assert response.status_code == 201
 
 
@@ -85,12 +94,22 @@ def test__upload_hc_dpd_data__accessible_by_url(user):
     token = create_token(user)
     utils.add_api_edit_permission(user)
 
+    # Setup Data
+    data = {
+        'data': [{
+            'drug_code': 1,
+            'extract_data': {
+                'active_ingredient': [{'drug_code': 1, 'active_ingredient_code': 'A'}],
+            },
+        }]
+    }
+
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
     response = client.post(
         '/api/hc-dpd/v1/upload/',
-        {'active_ingredient': [{'drug_code': 1, 'active_ingredient_code': 'A'}]},
+        data=data,
         format='json',
     )
 
@@ -223,7 +242,6 @@ def test__checksum_test__200_response_on_user_with_edit_permissions(user):
         format='json',
     )
 
-    print(response.content)
     assert response.status_code == 200
 
 

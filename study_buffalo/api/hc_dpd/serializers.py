@@ -17,7 +17,7 @@ class ActiveIngredientSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        # Get fields from field_order and remove drug code
+        # Get fields from field_order
         serializer_fields = models.OriginalActiveIngredient.dpd_field_order()
 
         # Meta declarations
@@ -225,8 +225,8 @@ class VeterinarySpeciesSerializer(serializers.ModelSerializer):
         fields = serializer_fields
 
 
-class UploadHCDPDDataSerializer(serializers.Serializer):
-    """Serializer to manage requests to update HC DPD data."""
+class UploadDPDExtractsSerializer(serializers.Serializer):
+    """Serializer for the extract data to upload."""
     active_ingredient = ActiveIngredientSerializer(
         help_text='Data from the QRYM_ACTIVE_INGREDIENTS file.',
         many=True,
@@ -293,80 +293,220 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
         required=False,
     )
 
+    def create(self, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+    def update(self, instance, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+
+class UploadDPDAndExtractsSerializer(serializers.Serializer):
+    """Groups together drug code field and related field serializer."""
+    drug_code = serializers.IntegerField(
+        help_text='The drug code for the upload data.',
+        min_value=1,
+        required=True,
+    )
+    extract_data = UploadDPDExtractsSerializer(
+        help_text='The extract data to upload with this drug code.',
+        required=True,
+    )
+
+    def create(self, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+    def update(self, instance, validated_data):
+        """Abstract method that is not required."""
+        # https://docs.python.org/3/library/exceptions.html#NotImplementedError
+        return None
+
+
+class UploadHCDPDDataSerializer(serializers.Serializer):
+    """Serializer to manage requests to update HC DPD data."""
+    data = UploadDPDAndExtractsSerializer(
+        help_text='The data to upload.',
+        many=True,
+        required=True,
+    )
+
     def create(self, validated_data):  # pylint: disable=too-many-locals
         """Create or update new database entries when needed."""
-        message = {'message': [], 'status_code': 500}
         message_list = []
-        status_check = {'201': False, '400': False}
-        status_code = None
+        status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
 
-        for file_type, file_data in validated_data.items():
-            # Group drug codes together to allow updates to occur together
-            grouped_data = self._group_upload_data(file_data)
+        # Setup a dictionary to organize bulk data
+        bulk_data = {
+            'active_ingredient': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'biosimilar': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'company': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'drug_product': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'form': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'inactive_product': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'packaging': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'pharmaceutical_standard': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'route': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'schedule': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'status': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'therapeutic_class': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+            'veterinary_species': {
+                'drug_codes': [],
+                'dpd_instances': [],
+                'extract_data': [],
+                'model': None,
+            },
+        }
 
-            # Iterate through grouped data and make required updates
-            for drug_code, items in grouped_data.items():
-                # Get or create the DPD model instance
-                dpd_instance, _ = models.DPD.objects.get_or_create(pk=drug_code)
+        # Add model to bulk data for easier reference
+        original_model_mapping = utils.standard_to_original_model()
+        for extract_type, data in bulk_data.items():
+            data['model'] = original_model_mapping[extract_type]
+
+        # Get the modified field mapping for easier reference
+        dpd_modified_mapping = models.DPD.original_modified_field_mapping()
+
+        # Iterate through each collection of drug codes & extract data
+        for post_data in validated_data['data']:
+            # Get or create the DPD model instance
+            drug_code = post_data['drug_code']
+            dpd_instance, _ = models.DPD.objects.get_or_create(pk=drug_code)
+
+            # Loop through all the extract type fields
+            for extract_type, extract_data in post_data['extract_data'].items():
+                # Collect all drug codes for this extract data
+                bulk_data[extract_type]['drug_codes'].append(drug_code)
+                bulk_data[extract_type]['dpd_instances'].append(dpd_instance)
 
                 # Get relevant model for this file type
-                model = utils.standard_to_original_model()[file_type]
+                model = bulk_data[extract_type]['model']
 
-                # Delete any existing model intance(s)
-                model.objects.filter(drug_code=dpd_instance).delete()
+                for item in extract_data:
+                    # Add the drug code reference to this item
+                    item['drug_code'] = dpd_instance
 
-                # Create the required model instance for each item
-                any_update = False
+                    # Create a model object for future bulk upload
+                    bulk_data[extract_type]['extract_data'].append(model(**item))
 
-                for item in items:
-                    # Remove the drug_code entry as it is not needed
-                    item.pop('drug_code')
+        # Loop through all the organized bulk data
+        for extract_type, data in bulk_data.items():
+            # Skip processing if no data present
+            if len(data['extract_data']) == 0:
+                continue
 
-                    try:
-                        # Need to explicitly declare an atomic block here so
-                        # that any DB errors can be reverted/cancelled before
-                        # the modified time is updated.
-                        with transaction.atomic():
-                            model_instance = model.objects.create(drug_code=dpd_instance, **item)
+            # Bulk delete any existing extract data with updates
+            data['model'].objects.filter(drug_code__in=data['drug_codes']).delete()
 
-                            message_list.append({
-                                'status_code': status.HTTP_201_CREATED,
-                                'file_type': file_type,
-                                'id': model_instance.id,
-                                'drug_code': drug_code,
-                            })
-                            status_check['201'] = True
-                            any_update = True
-                    except (ValidationError, DataError) as e:
-                        message_list.append({
-                            'status_code': status.HTTP_400_BAD_REQUEST,
-                            'errors': [f'Could not create entry ({item}): {e}']
-                        })
-                        status_check['400'] = True
+            # Complete the bulk creation
+            try:
+                data['model'].objects.bulk_create(data['extract_data'])
+            except (ValidationError, DataError) as e:
+                error_message = f'Could not complete upload: {e}'
+                status_code = status.HTTP_400_BAD_REQUEST
 
-                # Update the modified time for this file type (if an update occurred)
-                if any_update:
-                    dpd_instance.update_modified(file_type)
+                # DB error has occurred - need to break because this
+                # atomic transaction will prevent all future queries
+                break
 
-                message['message'] = message_list
-
-        # Determine final status code based on model creation
-        if status_check['201'] and status_check['400']:
-            status_code = status.HTTP_207_MULTI_STATUS
-            message['status_code'] = status_code
-        elif status_check['201']:
+            # Bulk create successful - add to message list
+            message_list.append({
+                'file_type': extract_type,
+                'drug_codes': data['drug_codes'],
+            })
             status_code = status.HTTP_201_CREATED
-            message['status_code'] = status_code
-        elif status_check['400']:
-            status_code = status.HTTP_400_BAD_REQUEST
-            message['status_code'] = status_code
-        else:
-            status_code = status.HTTP_400_BAD_REQUEST
-            message['message'] = [{
+
+            # Update the appropriate DPD instnace modified time field
+            for instance in data['dpd_instances']:
+                instance.update_modified(extract_type, bulk=True)
+
+            models.DPD.objects.bulk_update(
+                data['dpd_instances'], (dpd_modified_mapping[extract_type],)
+            )
+
+        # Handles situations when no data was submitted
+        if status_code == status.HTTP_422_UNPROCESSABLE_ENTITY:
+            # Revert transaction to prevent DPD instances from being saved
+            transaction.set_rollback(True)
+            error_message = 'No data submitted for upload.'
+
+        # Format the final message based on status code
+        if status_code == status.HTTP_201_CREATED:
+            message = {
                 'status_code': status_code,
-                'errors': ['No data submitted for upload.']
-            }]
-            message['status_code'] = status.HTTP_400_BAD_REQUEST
+                'message': message_list,
+            }
+        else:
+            message = {
+                'status_code': status_code,
+                'errors': {
+                    'non_field': [error_message],
+                    'field': {},
+                },
+            }
 
         return message, status_code
 
@@ -374,19 +514,6 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
         """Abstract method that is not required."""
         # https://docs.python.org/3/library/exceptions.html#NotImplementedError
         return None
-
-    @staticmethod
-    def _group_upload_data(data):
-        """Groups upload data in a dictionary with drug_code as the key."""
-        grouped_data = {}
-
-        for item in data:
-            if item['drug_code'] in grouped_data:
-                grouped_data[item['drug_code']].append(item)
-            else:
-                grouped_data[item['drug_code']] = [item]
-
-        return grouped_data
 
 
 class ChecksumSerializer(serializers.ModelSerializer):

@@ -137,9 +137,10 @@ class OriginalBiosimilar(models.Model):
         help_text='The drug code reference for this item.',
         related_name='original_biosimilars',
     )
-    biosimilar_code = models.PositiveIntegerField(
+    biosimilar_code = models.CharField(
         blank=True,
         help_text='The BIOSIMILAR_CODE entry for this item.',
+        max_length=3,
         null=True,
     )
     biosimilar_type = models.CharField(
@@ -188,9 +189,10 @@ class OriginalCompany(models.Model):
         max_length=5,
         null=True,
     )
-    company_code = models.PositiveIntegerField(
+    company_code = models.CharField(
         blank=True,
         help_text='The COMPANY_CODE entry for this item.',
+        max_length=5,
         null=True,
     )
     company_name = models.CharField(
@@ -373,9 +375,10 @@ class OriginalDrugProduct(models.Model):
         max_length=10,
         null=True,
     )
-    last_update_date = models.DateField(
+    last_update_date = models.CharField(
         blank=True,
         help_text='The LAST_UPDATE_DATE entry for this item.',
+        max_length=11,
         null=True,
     )
     ai_group_no = models.CharField(
@@ -440,9 +443,10 @@ class OriginalForm(models.Model):
         help_text='The drug code reference for this item.',
         related_name='original_forms',
     )
-    pharm_form_code = models.PositiveIntegerField(
+    pharm_form_code = models.CharField(
         blank=True,
         help_text='The PHARM_FORM_CODE entry for this item.',
+        max_length=3,
         null=True,
     )
     pharmaceutical_form = models.CharField(
@@ -478,7 +482,13 @@ class OriginalForm(models.Model):
 
 
 class OriginalInactiveProduct(models.Model):
-    """Model representing QRYM_INACTIVE_PRODUCTS file."""
+    """Model representing QRYM_INACTIVE_PRODUCTS file.
+
+        Note: the DPD website is missing one column, which is assumed
+        to be a French Brand Name column. Max Length matches the
+        English equivalent, as currently no name is longer than 100
+        chars.
+    """
     drug_code = models.ForeignKey(
         'hc_dpd.dpd',
         on_delete=models.CASCADE,
@@ -497,9 +507,16 @@ class OriginalInactiveProduct(models.Model):
         max_length=200,
         null=True,
     )
-    history_date = models.DateField(
+    history_date = models.CharField(
         blank=True,
         help_text='The HISTORY_DATE entry for this item.',
+        max_length=11,
+        null=True,
+    )
+    brand_name_f = models.CharField(
+        blank=True,
+        help_text='The BRAND_NAME_F entry for this item.',
+        max_length=200,
         null=True,
     )
 
@@ -511,6 +528,7 @@ class OriginalInactiveProduct(models.Model):
             'drug_identification_number',
             'brand_name',
             'history_date',
+            'brand_name_f'
         ]
 
     def __str__(self):
@@ -636,9 +654,10 @@ class OriginalRoute(models.Model):
         help_text='The drug code reference for this item.',
         related_name='original_routes',
     )
-    route_of_administration_code = models.PositiveIntegerField(
+    route_of_administration_code = models.CharField(
         blank=True,
         help_text='The ROUTE_OF_ADMINISTRATION_CODE entry for this item.',
+        max_length=3,
         null=True,
     )
     route_of_administration = models.CharField(
@@ -649,7 +668,7 @@ class OriginalRoute(models.Model):
     )
     route_of_administration_f = models.CharField(
         blank=True,
-        help_text='The ROUTE_OF_ADMINISTRATION_FFootnote entry for this item.',
+        help_text='The ROUTE_OF_ADMINISTRATION_F entry for this item.',
         max_length=80,
         null=True,
     )
@@ -732,9 +751,10 @@ class OriginalStatus(models.Model):
         max_length=40,
         null=True,
     )
-    history_date = models.DateField(
+    history_date = models.CharField(
         blank=True,
         help_text='The HISTORY_DATE entry for this item.',
+        max_length=11,
         null=True,
     )
     status_f = models.CharField(
@@ -749,9 +769,10 @@ class OriginalStatus(models.Model):
         max_length=50,
         null=True,
     )
-    expiration_date = models.DateField(
+    expiration_date = models.CharField(
         blank=True,
-        help_text='The EXPIRATION_DATEFootnote entry for this item.',
+        help_text='The EXPIRATION_DATE entry for this item.',
+        max_length=11,
         null=True,
     )
 
