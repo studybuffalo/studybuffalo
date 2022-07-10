@@ -566,7 +566,7 @@ def test__user_schedule_upload__accessible_by_url(calendar_user):
     response = client.post(
         f'/api/rdrhc-calendar/v1/shifts/{token.user.id}/upload/'
     )
-    print(response.content)
+
     assert response.status_code == 200
 
 

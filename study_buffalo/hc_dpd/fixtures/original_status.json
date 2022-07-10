@@ -6,7 +6,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2007-10-09",
+      "history_date": "09-OCT-2007",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -19,7 +19,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2020-03-18",
+      "history_date": "18-MAR-2020",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -32,7 +32,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2010-07-26",
+      "history_date": "26-JUL-2010",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -45,7 +45,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2000-03-30",
+      "history_date": "30-MAR-2000",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -58,7 +58,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "2000-12-04",
+      "history_date": "04-DEC-2000",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -71,7 +71,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "2010-07-27",
+      "history_date": "27-JUL-2010",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -84,7 +84,7 @@
       "drug_code": 85,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "1959-12-31",
+      "history_date": "31-DEC-1959",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -97,7 +97,7 @@
       "drug_code": 85,
       "current_status_flag": "Y",
       "status": "MARKETED",
-      "history_date": "2020-03-18",
+      "history_date": "18-MAR-2020",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -110,7 +110,7 @@
       "drug_code": 5255,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2018-07-13",
+      "history_date": "13-JUL-2018",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -123,7 +123,7 @@
       "drug_code": 5255,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "1975-12-31",
+      "history_date": "31-DEC-1975",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -136,7 +136,7 @@
       "drug_code": 5255,
       "current_status_flag": "Y",
       "status": "MARKETED",
-      "history_date": "2018-07-13",
+      "history_date": "13-JUL-2018",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -149,10 +149,10 @@
       "drug_code": 13375,
       "current_status_flag": "Y",
       "status": "CANCELLED POST MARKET",
-      "history_date": "2020-06-25",
+      "history_date": "25-JUN-2020",
       "status_f": "ANNULÉ APRÈS COMMERCIALISATION",
       "lot_number": "AAZ1594A4",
-      "expiration_date": "2020-08-31"
+      "expiration_date": "31-08-2020"
     }
   },
   {
@@ -162,7 +162,7 @@
       "drug_code": 13375,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "2002-11-06",
+      "history_date": "06-NOV-2002",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -175,7 +175,7 @@
       "drug_code": 62536,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2022-03-04",
+      "history_date": "04-MAR-2022",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -188,7 +188,7 @@
       "drug_code": 62536,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2022-03-04",
+      "history_date": "04-MAR-2022",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -201,7 +201,7 @@
       "drug_code": 62536,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "1998-11-16",
+      "history_date": "16-NOV-1998",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -214,7 +214,7 @@
       "drug_code": 62536,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "1999-05-31",
+      "history_date": "31-MAY-1999",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -227,7 +227,7 @@
       "drug_code": 62536,
       "current_status_flag": "Y",
       "status": "MARKETED",
-      "history_date": "2022-03-04",
+      "history_date": "04-MAR-2022",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -240,7 +240,7 @@
       "drug_code": 70752,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2003-07-04",
+      "history_date": "04-JUL-2003",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -253,7 +253,7 @@
       "drug_code": 70752,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2003-07-16",
+      "history_date": "16-JUL-2003",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -266,7 +266,7 @@
       "drug_code": 70752,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2002-10-18",
+      "history_date": "18-OCT-2002",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -279,7 +279,7 @@
       "drug_code": 70752,
       "current_status_flag": "N",
       "status": "MARKETED",
-      "history_date": "2002-12-19",
+      "history_date": "19-DEC-2002",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -292,7 +292,7 @@
       "drug_code": 70752,
       "current_status_flag": "Y",
       "status": "MARKETED",
-      "history_date": "2003-10-10",
+      "history_date": "10-OCT-2003",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null
@@ -305,7 +305,7 @@
       "drug_code": 99223,
       "current_status_flag": "N",
       "status": "APPROVED",
-      "history_date": "2020-10-30",
+      "history_date": "30-OCT-2020",
       "status_f": "APPROUVÉ",
       "lot_number": null,
       "expiration_date": null
@@ -318,7 +318,7 @@
       "drug_code": 99223,
       "current_status_flag": "Y",
       "status": "MARKETED",
-      "history_date": "2021-08-30",
+      "history_date": "30-AUG-2021",
       "status_f": "COMMERCIALISÉ",
       "lot_number": null,
       "expiration_date": null

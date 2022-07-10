@@ -19,10 +19,10 @@ class OriginalActiveIngredientFactory(factory.django.DjangoModelFactory):
     active_ingredient_code = factory.Sequence(str)
     ingredient = factory.Sequence(lambda n: f'INGREDIENT {n}')
     ingredient_supplied_ind = 'I'
-    strength = factory.Sequence(int)
+    strength = factory.Sequence(str)
     strength_unit = 'MG'
     strength_type = factory.Sequence(lambda n: f'STRENGTH TYPE {n}')
-    dosage_value = factory.Sequence(int)
+    dosage_value = factory.Sequence(str)
     base = 'N'
     dosage_unit = 'MG'
     notes = factory.Sequence(lambda n: f'NOTES {n}')
@@ -38,7 +38,7 @@ class OriginalActiveIngredientFactory(factory.django.DjangoModelFactory):
 class OriginalBiosimilarFactory(factory.django.DjangoModelFactory):
     """Factory to generate an OriginalBiosimilar instance."""
     drug_code = factory.SubFactory(DPDFactory)
-    biosimilar_code = factory.Sequence(int)
+    biosimilar_code = factory.Sequence(str)
     biosimilar_type = factory.Sequence(lambda n: f'TYPE {n}')
     biosimilar_type_f = factory.Sequence(lambda n: f'TYPE F {n}')
 
@@ -50,7 +50,7 @@ class OriginalCompanyFactory(factory.django.DjangoModelFactory):
     """Factory to generate an OriginalCompany instance."""
     drug_code = factory.SubFactory(DPDFactory)
     mfr_code = factory.Sequence(str)
-    company_code = factory.Sequence(int)
+    company_code = factory.Sequence(str)
     company_name = factory.Sequence(lambda n: f'NAME {n}')
     company_type = factory.Sequence(lambda n: f'TYPE {n}')
     address_mailing_flag = 'Y'
@@ -82,7 +82,7 @@ class OriginalDrugProductFactory(factory.django.DjangoModelFactory):
     pediatric_flag = 'N'
     accession_number = factory.Sequence(str)
     number_of_ais = factory.Sequence(str)
-    last_update_date = '2000-01-01'
+    last_update_date = '01-JAN-2000'
     ai_group_no = factory.Sequence(str)
     class_f = factory.Sequence(lambda n: f'CLASS F {n}')
     brand_name_f = factory.Sequence(lambda n: f'BRAND F {n}')
@@ -95,7 +95,7 @@ class OriginalDrugProductFactory(factory.django.DjangoModelFactory):
 class OriginalFormFactory(factory.django.DjangoModelFactory):
     """Factory to generate an OriginalForm instance."""
     drug_code = factory.SubFactory(DPDFactory)
-    pharm_form_code = factory.Sequence(int)
+    pharm_form_code = factory.Sequence(str)
     pharmaceutical_form = factory.Sequence(lambda n: f'FORM {n}')
     pharmaceutical_form_f = factory.Sequence(lambda n: f'FORM F {n}')
 
@@ -106,9 +106,10 @@ class OriginalFormFactory(factory.django.DjangoModelFactory):
 class OriginalInactiveProductFactory(factory.django.DjangoModelFactory):
     """Factory to generate an OriginalInactiveProduct instance."""
     drug_code = factory.SubFactory(DPDFactory)
-    drug_identification_number = factory.Sequence(int)
+    drug_identification_number = factory.Sequence(str)
     brand_name = factory.Sequence(lambda n: f'NAME {n}')
-    history_date = '2000-01-01'
+    history_date = '01-JAN-2000'
+    brand_name_f = factory.Sequence(lambda n: f'NAME F {n}')
 
     class Meta:
         model = models.OriginalInactiveProduct
@@ -141,7 +142,7 @@ class OriginalPharmaceuticalStandardFactory(factory.django.DjangoModelFactory):
 class OriginalRouteFactory(factory.django.DjangoModelFactory):
     """Factory to generate an OriginalRoute instance."""
     drug_code = factory.SubFactory(DPDFactory)
-    route_of_administration_code = factory.Sequence(int)
+    route_of_administration_code = factory.Sequence(str)
     route_of_administration = factory.Sequence(lambda n: f'ROUTE {n}')
     route_of_administration_f = factory.Sequence(lambda n: f'ROUTE F {n}')
 
@@ -164,10 +165,10 @@ class OriginalStatusFactory(factory.django.DjangoModelFactory):
     drug_code = factory.SubFactory(DPDFactory)
     current_status_flag = 'A'
     status = factory.Sequence(lambda n: f'STATUS {n}')
-    history_date = '2000-01-01'
+    history_date = '01-JAN-2000'
     status_f = factory.Sequence(lambda n: f'STATUS F {n}')
     lot_number = factory.Sequence(lambda n: f'LOT {n}')
-    expiration_date = '2001-01-01'
+    expiration_date = '01-JAN-2001'
 
     class Meta:
         model = models.OriginalStatus
