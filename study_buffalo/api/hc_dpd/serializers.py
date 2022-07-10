@@ -427,6 +427,9 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
         for extract_type, data in bulk_data.items():
             data['model'] = original_model_mapping[extract_type]
 
+        # Get the modified field mapping for easier reference
+        dpd_modified_mapping = models.DPD.original_modified_field_mapping()
+
         # Iterate through each collection of drug codes & extract data
         for post_data in validated_data['data']:
             # Get or create the DPD model instance
@@ -476,12 +479,13 @@ class UploadHCDPDDataSerializer(serializers.Serializer):
             })
             status_code = status.HTTP_201_CREATED
 
-            # Update the appropriate modified time for the DPD instances
-            # TODO: adjust this to allow a bulk update of all modified times
-            # update `update_modified` to accept a "bulk" parameter
-            # When true, do not save on method call to allow update_bulk call
+            # Update the appropriate DPD instnace modified time field
             for instance in data['dpd_instances']:
-                instance.update_modified(extract_type)
+                instance.update_modified(extract_type, bulk=True)
+
+            models.DPD.objects.bulk_update(
+                data['dpd_instances'], (dpd_modified_mapping[extract_type],)
+            )
 
         # Handles situations when no data was submitted
         if status_code == status.HTTP_422_UNPROCESSABLE_ENTITY:
