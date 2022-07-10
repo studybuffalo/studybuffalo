@@ -66,7 +66,8 @@ def test__dpd__update_modified__active_ingredient(now):
     now.return_value = utc_now
     dpd.update_modified(utils.ACTIVE_INGREDIENT)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified == utc_now
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -107,7 +108,8 @@ def test__dpd__update_modified__biosimilar(now):
     now.return_value = utc_now
     dpd.update_modified(utils.BIOSIMILAR)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified == utc_now
     assert dpd.original_company_modified is None
@@ -148,7 +150,8 @@ def test__dpd__update_modified__company(now):
     now.return_value = utc_now
     dpd.update_modified(utils.COMPANY)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified == utc_now
@@ -189,7 +192,8 @@ def test__dpd__update_modified__drug_product(now):
     now.return_value = utc_now
     dpd.update_modified(utils.DRUG_PRODUCT)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -230,7 +234,8 @@ def test__dpd__update_modified__form(now):
     now.return_value = utc_now
     dpd.update_modified(utils.FORM)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -271,7 +276,8 @@ def test__dpd__update_modified__inactive_product(now):
     now.return_value = utc_now
     dpd.update_modified(utils.INACTIVE_PRODUCT)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -312,7 +318,8 @@ def test__dpd__update_modified__packaging(now):
     now.return_value = utc_now
     dpd.update_modified(utils.PACKAGING)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -353,7 +360,8 @@ def test__dpd__update_modified__pharmaceutical_standard(now):
     now.return_value = utc_now
     dpd.update_modified(utils.PHARMACEUTICAL_STANDARD)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -374,7 +382,8 @@ def test__dpd__update_modified__route(now):
     """Tests route modified field is updated."""
     dpd = models.DPD.objects.create(drug_code=1)
 
-    # Confirm no value for any modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -415,7 +424,8 @@ def test__dpd__update_modified__schedule(now):
     """Tests schedule modified field is updated."""
     dpd = models.DPD.objects.create(drug_code=1)
 
-    # Confirm no value for any modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -476,7 +486,8 @@ def test__dpd__update_modified__status(now):
     now.return_value = utc_now
     dpd.update_modified(utils.STATUS)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -517,7 +528,8 @@ def test__dpd__update_modified__therapeutic_class(now):
     now.return_value = utc_now
     dpd.update_modified(utils.THERAPUETIC_CLASS)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -558,7 +570,8 @@ def test__dpd__update_modified__veterinary_class(now):
     now.return_value = utc_now
     dpd.update_modified(utils.VETERINARY_SPECIES)
 
-    # Confirm expected update to modified field
+    # Confirm expected update to modified field in database
+    dpd.refresh_from_db()
     assert dpd.original_active_ingredient_modified is None
     assert dpd.original_biosimilar_modified is None
     assert dpd.original_company_modified is None
@@ -572,6 +585,45 @@ def test__dpd__update_modified__veterinary_class(now):
     assert dpd.original_status_modified is None
     assert dpd.original_therapeutic_class_modified is None
     assert dpd.original_veterinary_species_modified == utc_now
+
+
+@patch('django.utils.timezone.now')
+def test__dpd__update_modified__bulk(now):
+    """Tests that update_modified will support bulk_update."""
+    dpd = models.DPD.objects.create(drug_code=1)
+
+    # Confirm no value for any modified field
+    assert dpd.original_active_ingredient_modified is None
+
+    # Update the modified field
+    utc_now = datetime(2000, 1, 1, tzinfo=pytz.utc)
+    now.return_value = utc_now
+    dpd.update_modified(utils.ACTIVE_INGREDIENT, bulk=True)
+
+    # Confirm field is not modified at database level
+    dpd.refresh_from_db()
+    assert dpd.original_active_ingredient_modified is None
+
+
+def test__dpd__original_modified_field_mapping():
+    """Confirms mapping is configured as expected."""
+    mapping = models.DPD.original_modified_field_mapping()
+
+    assert mapping == {
+        'active_ingredient': 'original_active_ingredient_modified',
+        'biosimilar': 'original_biosimilar_modified',
+        'company': 'original_company_modified',
+        'drug_product': 'original_drug_product_modified',
+        'form': 'original_form_modified',
+        'inactive_product': 'original_inactive_product_modified',
+        'packaging': 'original_packaging_modified',
+        'pharmaceutical_standard': 'original_pharmaceutical_standard_modified',
+        'route': 'original_route_modified',
+        'schedule': 'original_schedule_modified',
+        'status': 'original_status_modified',
+        'therapeutic_class': 'original_therapeutic_class_modified',
+        'veterinary_species': 'original_veterinary_species_modified',
+    }
 
 
 def test__dpd_checksum__minimal_model_creation():

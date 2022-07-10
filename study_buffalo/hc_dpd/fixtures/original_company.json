@@ -5,7 +5,7 @@
     "fields": {
       "drug_code": 85,
       "mfr_code": "",
-      "company_code": 17635,
+      "company_code": "17635",
       "company_name": "BOEHRINGER INGELHEIM ANIMAL HEALTH CANADA INC.",
       "company_type": "DIN OWNER",
       "address_mailing_flag": "Y",
@@ -29,7 +29,7 @@
     "fields": {
       "drug_code": 5255,
       "mfr_code": "MCL08",
-      "company_code": 4569,
+      "company_code": "4569",
       "company_name": "MCNEIL CONSUMER HEALTHCARE DIVISION OF JOHNSON & JOHNSON INC",
       "company_type": "DIN OWNER",
       "address_mailing_flag": "Y",
@@ -53,7 +53,7 @@
     "fields": {
       "drug_code": 13375,
       "mfr_code": "BQC07",
-      "company_code": 3798,
+      "company_code": "3798",
       "company_name": "BRISTOL-MYERS SQUIBB CANADA",
       "company_type": "DIN OWNER",
       "address_mailing_flag": "Y",
@@ -77,7 +77,7 @@
     "fields": {
       "drug_code": 62536,
       "mfr_code": "RIV07",
-      "company_code": 5034,
+      "company_code": "5034",
       "company_name": "LABORATOIRE RIVA INC.",
       "company_type": "DIN OWNER",
       "address_mailing_flag": "Y",
@@ -101,7 +101,7 @@
     "fields": {
       "drug_code": 70752,
       "mfr_code": "SEV07",
-      "company_code": 5096,
+      "company_code": "5096",
       "company_name": "SERVIER CANADA INC",
       "company_type": "DIN OWNER",
       "address_mailing_flag": "Y",
@@ -125,7 +125,7 @@
     "fields": {
       "drug_code": 99223,
       "mfr_code": null,
-      "company_code": 16555,
+      "company_code": "16555",
       "company_name": "FRESENIUS KABI CANADA LTD",
       "company_type": "DIN OWNER",
       "address_mailing_flag": "Y",

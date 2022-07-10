@@ -501,12 +501,12 @@ def test__missing_shift_code_upload__uploads_missing_codes(user):
     # Set up client and response
     client = APIClient()
     client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
-    response = client.post(
+    client.post(
         reverse('api:rdrhc_calendar_v1:missing_shift_codes_upload'),
         json.dumps({'codes': [{'code': 'A1', 'role': 'p'}]}),
         content_type='application/json',
     )
-    print(response.content)
+
     # Confirm code added
     assert MissingShiftCode.objects.all().count() == 1
 
