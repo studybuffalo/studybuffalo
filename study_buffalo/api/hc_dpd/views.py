@@ -9,10 +9,7 @@ from hc_dpd import models
 
 
 class UploadHCDPDData(GenericAPIView):
-    """View to allow upload of new DPD data.
-
-        Build to accept multiple entries at once to reduce # of requests.
-    """
+    """View to allow upload of new DPD data."""
     serializer_class = serializers.UploadHCDPDDataSerializer
     permission_classes = [permissions.HasDPDEditAccess]
 
@@ -34,16 +31,6 @@ class UploadHCDPDData(GenericAPIView):
 
         # Process data and create/update model instances
         message, status_code = serializer.create(serializer.validated_data)
-
-        # Converts message into proper error format if 400 status code
-        if status_code == 400:
-            message = {
-                'status_code': status_code,
-                'errors': {
-                    'non_field': [error['errors'][0] for error in message['message']],
-                    'field': {},
-                }
-            }
 
         return Response(data=message, status=status_code)
 
@@ -98,5 +85,19 @@ class ChecksumTest(GenericAPIView):
             )
 
         message = serializer.test_checksum()
+
+        # Return error if no data returned (i.e. no data submitted)
+        if not message:
+            message = {
+                'status_code': status.HTTP_422_UNPROCESSABLE_ENTITY,
+                'errors': {
+                    'non_field': ['No data submitted for testing.'],
+                    'field': {},
+                },
+            }
+
+            return Response(
+                data=message, status=status.HTTP_422_UNPROCESSABLE_ENTITY
+            )
 
         return Response(data=message, status=status.HTTP_200_OK)
