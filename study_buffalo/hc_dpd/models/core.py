@@ -109,7 +109,7 @@ class DPD(models.Model):
 
         # Update the modified time and save model
         setattr(self, field_mapping[field], timezone.now())
-        self.save()
+        self.save(update_fields=(field_mapping[field],))
 
     class Meta:
         verbose_name = 'DPD code'
