@@ -1183,6 +1183,11 @@ def test__dpd_checksum__create_checksum__veterinary_species(hc_dpd_original_vete
     assert checksum.checksum != old_checksum
 
 
+def test__dpd_checksum__create_checksum__confirm_sorting():
+    """Tests that sorting returns consistent result."""
+    assert False
+
+
 def test__dpd_checksum__create_checksum__two_models(
     hc_dpd_original_biosimilar, hc_dpd_original_company
 ):  # pylint: disable=unused-argument
@@ -1226,27 +1231,18 @@ def test__dpd_checksum__calculate_checksum():
     assert models.DPDChecksum.calculate_checksum('TEST') == checksum
 
 
-def test__dpd_checksum__compile_checksum_string(hc_dpd_two_original_active_ingredient):
+def test__dpd_checksum__compile_checksum_string(hc_dpd_original_active_ingredient):
     """Confirm that compile_checksum_string creates expected string."""
-    # Update fields to streamline testing
-    ai_1 = hc_dpd_two_original_active_ingredient[0]
-    ai_1.active_ingredient_code = 'ONE'
-    ai_1.strength = 1
-    ai_1.save()
-
-    ai_2 = hc_dpd_two_original_active_ingredient[1]
-    ai_2.active_ingredient_code = 'TWO'
-    ai_2.strength = 2
-    ai_2.save()
+    # Update field to streamline testing
+    ingredient = hc_dpd_original_active_ingredient
+    ingredient.active_ingredient_code = 'ONE'
+    ingredient.strength = 1
+    ingredient.save()
 
     # Create fake field order for testing
     field_order = ['strength', 'pk', 'active_ingredient_code']
 
-    ai_query = models.OriginalActiveIngredient.objects.filter(
-        pk__in=[ai_1.pk, ai_2.pk],
-    ).order_by('-strength')
-
     # Confirm expected checksum string
-    checksum_string = models.DPDChecksum.compile_checksum_string(ai_query, field_order)
+    checksum_string = models.DPDChecksum.compile_checksum_string(ingredient, field_order)
 
-    assert checksum_string == f'2{ai_2.pk}TWO1{ai_1.pk}ONE'
+    assert checksum_string == f'1{ingredient.pk}ONE'

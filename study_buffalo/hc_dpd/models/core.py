@@ -227,7 +227,7 @@ class DPDChecksum(models.Model):
         query = extract_model.objects.filter(
             drug_code__pk__gte=self.drug_code_start,
             pk__lte=drug_code_end,
-        ).select_related('DPD')
+        ).select_related('drug_code')
 
         # Loop through each row of the query and calculate an item checksum
         field_order = extract_model.dpd_field_order()
@@ -248,7 +248,7 @@ class DPDChecksum(models.Model):
         checksum_string = ''
 
         for item in item_checksums:
-            checksum_string += item['checksum']
+            checksum_string += str(item['checksum'])
 
         # Calculate checksum for string
         checksum = self.calculate_checksum(''.join(checksum_string))
