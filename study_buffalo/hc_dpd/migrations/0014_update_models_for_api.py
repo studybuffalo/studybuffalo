@@ -438,7 +438,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='originalroute',
             name='route_of_administration_f',
-            field=models.CharField(blank=True, help_text='The ROUTE_OF_ADMINISTRATION_FFootnote entry for this item.', max_length=80, null=True),
+            field=models.CharField(blank=True, help_text='The ROUTE_OF_ADMINISTRATION_F entry for this item.', max_length=80, null=True),
         ),
         migrations.AlterField(
             model_name='originalschedule',
@@ -468,7 +468,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='originalstatus',
             name='expiration_date',
-            field=models.DateField(blank=True, help_text='The EXPIRATION_DATEFootnote entry for this item.', null=True),
+            field=models.DateField(blank=True, help_text='The EXPIRATION_DATE entry for this item.', null=True),
         ),
         migrations.AlterField(
             model_name='originalstatus',

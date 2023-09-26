@@ -84,14 +84,27 @@ class DPD(models.Model):
         """Returns string representation of model."""
         return str(self.drug_code)
 
-    def update_modified(self, field):
+    def update_modified(self, field, bulk=False):
         """Updates the modified datetime for the specified field.
 
             :param field str: The field to update the modified
                 datetime for.
+            :param bulk bool: if this method will be used for a bulk
+                update. If True, will not call model.save() to allow
+                the bulk_update call.
         """
-        # Mapping of string names to model fields
-        field_mapping = {
+        modified_mapping = self.original_modified_field_mapping()
+
+        # Update the modified time and save model
+        setattr(self, modified_mapping[field], timezone.now())
+
+        if not bulk:
+            self.save(update_fields=(modified_mapping[field],))
+
+    @classmethod
+    def original_modified_field_mapping(cls):
+        """Maps the original modified fields to extract types."""
+        return {
             utils.ACTIVE_INGREDIENT: 'original_active_ingredient_modified',
             utils.BIOSIMILAR: 'original_biosimilar_modified',
             utils.COMPANY: 'original_company_modified',
@@ -106,10 +119,6 @@ class DPD(models.Model):
             utils.THERAPUETIC_CLASS: 'original_therapeutic_class_modified',
             utils.VETERINARY_SPECIES: 'original_veterinary_species_modified',
         }
-
-        # Update the modified time and save model
-        setattr(self, field_mapping[field], timezone.now())
-        self.save()
 
     class Meta:
         verbose_name = 'DPD code'

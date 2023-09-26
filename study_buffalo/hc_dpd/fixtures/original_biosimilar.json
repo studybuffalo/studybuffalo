@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "drug_code": 99223,
-      "biosimilar_code": 6,
+      "biosimilar_code": "6",
       "biosimilar_type": "Biosimilar",
       "biosimilar_type_f": "Biosimilaire"
     }
